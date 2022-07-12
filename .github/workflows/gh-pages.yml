@@ -1,0 +1,32 @@
+name: github pages
+
+on:
+#  schedule:
+#   - cron: "0 20 * * *"
+#  push:
+#    branches:
+#    - main
+
+jobs:
+  build-hugo:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@master
+      with:
+        repository: Project-Gutenberg/Pincong-data
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.58.2'
+        extended: true
+ 
+    - name: Build Hogo
+      run: hugo --templateMetrics --templateMetricsHints --config github.toml,base.toml -d ../public -s site -v
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./public
