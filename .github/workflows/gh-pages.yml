@@ -9,24 +9,33 @@ on:
 
 jobs:
   build-hugo:
-    runs-on: self-hosted
+    runs-on: [self-hosted]
     steps:
-    - uses: actions/checkout@master
+    - name: Init
+      run: |
+          echo "::add-mask::${{ secrets.PATH_HFFIN }}"
+          echo "::add-mask::${{ secrets.PATH_HFEEF }}"
+          echo "::add-mask::${{ secrets.PATH_HFFIE }}"
+          echo "::add-mask::${{ secrets.PATH_FEDGE }}"
+          echo "::add-mask::${{ secrets.MACHINE }}"
+    - uses: actions/checkout@main
       with:
         repository: Project-Gutenberg/Pincong-data
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: '0.58.2'
+        hugo-version: 'latest'
         extended: true
- 
+  
     - name: Build Hogo
-      run: hugo --templateMetrics --templateMetricsHints --config github.toml,base.toml -d ../public -s site -v
+      run: hugo --minify --ignoreCache --templateMetrics --templateMetricsHints --config github.toml,base.toml -d ../public -s site -v
 
     - name: Deploy
+      continue-on-error: true
+      id: deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-        PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./public
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: public
