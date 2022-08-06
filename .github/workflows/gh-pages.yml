@@ -3,9 +3,9 @@ name: github pages
 on:
  schedule:
   - cron: "0 04 */4 * *"
-#  push:
-#    branches:
-#    - main
+ push:
+   branches:
+   - main
 
 jobs:
   build-hugo:
