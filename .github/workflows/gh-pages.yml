@@ -23,12 +23,15 @@ jobs:
       with:
         repository: Project-Gutenberg/Pincong-data
 
+    - name: Process tags
+      run: ./main
+
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: '0.91.2'
         extended: true
-  
+
     - name: Build Hogo
       run: hugo --minify --ignoreCache --templateMetrics --templateMetricsHints --config github.toml,base.toml -d ../public -s site -v
 
