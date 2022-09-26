@@ -24,7 +24,7 @@ jobs:
         repository: Project-Gutenberg/Pincong-data
 
     - name: Process tags
-      run: chmod 777 main && ./main
+      run: chmod 777 main && ./main tag
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
@@ -34,6 +34,9 @@ jobs:
 
     - name: Build Hogo
       run: hugo --minify --ignoreCache --templateMetrics --templateMetricsHints --config github.toml,base.toml -d ../public -s site -v
+
+    - name: Split sitemap
+      run: ./main sitemap ../public/
 
     - name: Deploy
       continue-on-error: true
