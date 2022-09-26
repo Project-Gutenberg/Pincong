@@ -33,10 +33,7 @@ jobs:
         extended: true
 
     - name: Build Hogo
-      run: hugo --minify --ignoreCache --templateMetrics --templateMetricsHints --config github.toml,base.toml -d ../public -s site -v
-
-    - name: Split sitemap
-      run: ./main sitemap ../public/
+      run: hugo --minify --ignoreCache --templateMetrics --templateMetricsHints --config github.toml,base.toml -d ../public -s site -v && ./main sitemap ../public/
 
     - name: Deploy
       continue-on-error: true
