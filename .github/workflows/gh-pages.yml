@@ -1,6 +1,5 @@
 name: github pages
 
-
 on:
  schedule:
   - cron: "0 04 */8 * *"
