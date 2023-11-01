@@ -1,0 +1,44 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>编程 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E7%BC%96%E7%A8%8B/</link><description>Recent content in 编程 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sun, 04 Jun 2023 13:45:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>知名辅导机构跑路背后：中产家长追捧的“少儿编程热”</title><link>https://project-gutenberg.github.io/Pincong/post/351006e3ded6565108158b4cb54db5e2/</link><pubDate>Sun, 04 Jun 2023 13:45:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/351006e3ded6565108158b4cb54db5e2/</guid><description>*本文为「三联生活周刊」原创内容
+疫情后的“跑路”机构又新增一员，主要提供少儿编程课的“贝尔机器人”。它最早成立于2011年，经过十几年的发展，已经是上少儿编程赛道里的头部公司。这样一家在全国二十多城市都有分店的大型培训机构，一旦停止营业，首先感到切肤之痛的，一定是在贝尔大额充值的无数家长。家长维权，员工讨薪，机构跑路之后的叙述甚至成为一种“前瞻”——一位成都家长在四月份校区复课后带孩子去上课，她告诉老师，她唯一的愿望是，不要跑路就行。 …</description></item><item><title>30 岁文盲能转行程序员吗？</title><link>https://project-gutenberg.github.io/Pincong/post/30f5a335d1115a43dd8076e710c3115f/</link><pubDate>Sun, 11 Sep 2022 21:18:40 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/30f5a335d1115a43dd8076e710c3115f/</guid><description>知乎用户 gashero​ 发表 程序员虽然门槛低，但从文盲起步还是有些困难的。
+建议去做产品经理。
+知乎用户 萝魏紫​ 发表 恭喜您通过了产品经理简历筛选关，有空面试吗
+知乎用户 啊窝额​ 发表 你好，我就是那个文盲。
+年薪 40 也就是这样，很轻松！祝你也成功……
+![](data:image/svg+xml;utf8,)
+知乎用户 夏天的葡萄 发表 程序员虽然门槛低，但从文盲起步还是有些困难的。
+建议去考公务员。
+知乎用户 阅读修 …</description></item><item><title>如何优化这段搬运图片的Python代码？</title><link>https://project-gutenberg.github.io/Pincong/post/7a429be9640b1a44ed6b443443944fca/</link><pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/7a429be9640b1a44ed6b443443944fca/</guid><description>品葱用户 Cyberspace 提问于 9/19/2020 代码是抄网上后魔改的，如何减少大量的if语句和优化正则表达所在的那行代码？
+顺代一提正在用Python汇总翻车新闻和微博谈到一个文件里，自己边学边写。
+也请教下品葱的大佬。
+import os import re import time from base64 import b64encode import pyperclip import requests url = …</description></item><item><title>習近平小學（熊）維尼遨遊瘋狂宇宙陪你編碼 - VS Code Plugin 语音包</title><link>https://project-gutenberg.github.io/Pincong/post/64ea64d26e41ef200d5b9ecc17d570e2/</link><pubDate>Tue, 25 Aug 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/64ea64d26e41ef200d5b9ecc17d570e2/</guid><description>大家好，欢迎使用习近平小熊维尼VS Code语音包插件。
+他会在你编码的时候，发出**小学语音，让你代码的质量提高一万倍**。
+品葱用户 通音宽依 评论于 2020-08-25 加个rainbow-fart标签 (Topics) 就行了
+https:// github . com /topics/rainbow-fart
+品葱用户 **习语言开发 通音宽依** 评论于 2020-08-25
+[
+加个rainbow-fart标签就行 …</description></item><item><title>2020年Java从零基础入门到步入职场一站式学习（1370集超详细）！</title><link>https://project-gutenberg.github.io/Pincong/post/acffc0ee584e79b2f55b6e809513afee/</link><pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/acffc0ee584e79b2f55b6e809513afee/</guid><description>大家有什么想要的教程？想要学习什么技术？想要学习的内容可以回复说明！
+IT各种技术的全套教程，英语全套教程，建筑造价全套教程，自考视频，各种证书考视视频等等。
+看到有很多人想自学编程，找不到系统的视频，这个视频几乎是手把手教学。
+把视频认真看完，跟着把代码全部敲出来。
+https://www.youtube.com/playlist?list=PLEPhw3n9Gp1QVsNep_GaVe5GEjH0Vq2Sz …</description></item><item><title>为什么小白学编程到赋值运算符就觉得好吃力？</title><link>https://project-gutenberg.github.io/Pincong/post/281a7684366f9e670d2a1cc9c1aa4a1f/</link><pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/281a7684366f9e670d2a1cc9c1aa4a1f/</guid><description>品葱用户 逃离东亚大陆洼地 提问于 6/24/2020 public class HelloWorld{
+public static void main(String[] args) {
+int one = 10 ;
+int two = 20 ;
+int three = 0 ;
+three = one + two;//three = 10 + 20;所以three的赋值变成30 …</description></item><item><title>为什么运算结果是这样，自学编程的小白特来求助品葱编程大佬？</title><link>https://project-gutenberg.github.io/Pincong/post/632d833e33ac259adfa1dcba9de4752a/</link><pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/632d833e33ac259adfa1dcba9de4752a/</guid><description>品葱用户 逃离东亚大陆洼地 提问于 6/23/2020 int a=5;
+int b=++a;//让a先执行自增，然后将值赋给变量b
+System.out.println(&amp;ldquo;a：&amp;rdquo; +a);
+System.out.println(&amp;ldquo;b：&amp;rdquo; +b);
+运行结果a:6 b:6
+自己的理解：让a先执行自增，a=5,自增就变成6，然后将值赋给变量b, b=6
+int a=5;
+int …</description></item><item><title>自学python应该买什么样的笔记本？</title><link>https://project-gutenberg.github.io/Pincong/post/8c3ceff1efe9b8c11fe574c382428c97/</link><pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/8c3ceff1efe9b8c11fe574c382428c97/</guid><description>品葱用户 逃离东亚大陆洼地 提问于 6/13/2020 看了几款笔记本，联想小新15 r7 4800u，首发价4399元，现在买不到。机械革命s2 air 15 r7 4800h，4899元，没有小键盘。宏碁新蜂鸟fun 15 i510210u mx350，4499元。对cpu，显卡，python懂的葱油帮忙推荐下最合适的？
+品葱用户 freechina2018 评论于 2020-06-14 跟什么样的笔记本没关系，最重要的是你的耐心和 …</description></item><item><title>孙玲：从工厂流水线工人到纽约程序员</title><link>https://project-gutenberg.github.io/Pincong/post/e7d4a6d3d97ebf8cec7df13f69e0b82d/</link><pubDate>Thu, 21 May 2020 15:16:43 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e7d4a6d3d97ebf8cec7df13f69e0b82d/</guid><description>编者荐语：
+出生成长于湖南娄底小村镇的她，12 岁初中被迫辍学，19 岁高考失利，当过理发学徒、工厂流水线生产女工。
+在意识到需要改变自己的 20 岁，她用全部家当自主学习软件编程和英语。经过 10 年的不懈努力，她成功申请到美国留学，在纽约谷歌办公室上班。
+大家好，我就是孙玲。
+我曾经在这个城市生活了八年，今天站在这个舞台上，我想先说一声：深圳，谢谢你。
+谢谢你曾经给我带来的所有改变。谢谢！
+今年六月有这样一篇文章，被几个知名公众号转 …</description></item><item><title>学习哪些编程语言才能开发VPN的app？</title><link>https://project-gutenberg.github.io/Pincong/post/d1d8c3183540f3dcef194df2d7077e35/</link><pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/d1d8c3183540f3dcef194df2d7077e35/</guid><description>品葱用户 Macgoy 提问于 3/9/2020 我想开发一个VPNapp，该从哪些编程语言入手？
+品葱用户 projectpolaris 评论于 2020-03-09 我是某开源代理软件的开发者组成员，我说一点实际的吧，上面的评论基本上泛泛而谈
+1.首先你需要一个开源的事件驱动的多线程网络库，这是高并发的关键，一般使用C/C++/go，现在可选的主要有libuv(最快)，libev, libevent, ACE, …</description></item></channel></rss>

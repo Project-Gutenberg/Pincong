@@ -1,0 +1,5 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>国产软件 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6/</link><description>Recent content in 国产软件 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Tue, 12 Jul 2022 22:47:33 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml"/><item><title>如何看待网传 WPS Office 自动探测并和谐用户本地文件？</title><link>https://project-gutenberg.github.io/Pincong/post/e2da0f2c19ee3bfa0441039a003ddd73/</link><pubDate>Tue, 12 Jul 2022 22:47:33 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e2da0f2c19ee3bfa0441039a003ddd73/</guid><description>知乎用户 纪者 发表 找了篇小黄文（请不要问我是什么文）做了简单测试，简要记录如下：
+1. 上午 10 点左右把小黄文做成本地 word 文档，做任何操作都没有被锁定；
+2. 把文档保存到云文档中，进行查看修改保存等操作都没有被锁定；
+3. 把云文档中的文件分享出去，通过分享连接无法打开，显示禁止访问。然后直接在云文档中再次尝试打开，显示需要申诉解锁；
+4. 本以为到 3 就结束了，但神奇的事情发生了——下午 5 点左右摸鱼完毕，发现被 …</description></item></channel></rss>

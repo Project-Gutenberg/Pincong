@@ -1,0 +1,10 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>安天CERT on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/author/%E5%AE%89%E5%A4%A9cert/</link><description>Recent content in 安天CERT on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sun, 09 Aug 2020 07:05:46 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/author/%E5%AE%89%E5%A4%A9cert/index.xml" rel="self" type="application/rss+xml"/><item><title>包含“backdoor”字样的英特尔泄露代码的初步分析</title><link>https://project-gutenberg.github.io/Pincong/post/c2a9e1dc95a78367635b73abf4d30a92/</link><pubDate>Sun, 09 Aug 2020 07:05:46 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/c2a9e1dc95a78367635b73abf4d30a92/</guid><description>typedefstruct {
+ // IOAPIC Start
+ UINT32 PlatformId;
+ UINT32 IoApicEnable;
+ UINT8 ApicIdOverrided :1;
+ UINT8 RES0 :7;  // IOAPIC End
+ // Power Management Start
+ UINT8 Rsvd_Pms_0 :1;
+ UINT8 CStateEnable :1;
+ UINT8 …</description></item></channel></rss>

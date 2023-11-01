@@ -1,0 +1,5 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>随机数 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E9%9A%8F%E6%9C%BA%E6%95%B0/</link><description>Recent content in 随机数 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Tue, 04 Aug 2020 18:15:57 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E9%9A%8F%E6%9C%BA%E6%95%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>除了打字机键盘布局，还有哪些东西当初是为降低运行效率而设计的？</title><link>https://project-gutenberg.github.io/Pincong/post/d070baf6680bfa4ae860f706b67282ef/</link><pubDate>Tue, 04 Aug 2020 18:15:57 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/d070baf6680bfa4ae860f706b67282ef/</guid><description>知乎用户 苏莉安​ 发表 信息安全领域就有大量刻意降低运行效率的算法啊，目的是为了防止旁路攻击和暴力破解。
+所谓旁路攻击，就是不走寻常路，不靠传统的暴力攻击或者寻找漏洞。而是另辟蹊径，探测加密系统中的物理参数等信息进行破解，比如运行时间、消耗的功率、声音、电磁信号等。
+举一个常见的例子：时序攻击，也就是靠分析程序在处理不同数据时所用的时间来破解密码系统。
+比如最简单的字符串比较，就算不懂编程的人靠直觉也能设计出算法来：
+首先比较两个字符 …</description></item></channel></rss>

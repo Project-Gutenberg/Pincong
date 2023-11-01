@@ -1,0 +1,440 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>【还Shadowsocks一个清白】Shadowsocks是如何被检测和封锁的，兼谈ss配置策略</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" Shadowsocks是如何被检测和封锁的
+作者: Anonymous, Anonymous, Anonymous, David Fifield, Amir Houmansadr
+日期: 2019年12月29日，星期日
+English Version: How China Detects and Blocks Shadowsocks
+论文地址：https://gfw.report/blog/gfw_shadowsocks/zh.html
+（只想看是如何被检测和封锁的点这里，后文是兼谈ss配置策略）
+发这篇文章的原因基于品葱有大量的用户因为自己开的shadowsocks被封，机场三天两头用不了，或是在别的地方（例如v2ex）看到别人吹捧v2ray/ssrr 贬低shadowsocks。再加上党国爆出了一些所谓人工智能检测shadowsocks的论文，导致很多人认为shadowsocks已经是一个不安全的翻墙工具。因此在这里对shadowsocks配置做一个简单的科普。
+先上结论，shadowsocks并没有失效，党国也没有手段来破解shadowsocks的加密，那篇基于lstm的人工智能论文在专业人士看来完全就是笑话，请敬请放心使用，如果你的ss用不了，请按照我以下列出的几部分一一进行检查：
+【shadowsocks配置部分】
+1、打开你的shadowsocks客户端，在加密那一栏里你会看到接近20种不同的加密算法，在其中可以粗略的分为AEAD加密和非AEAD加密，具体技术细节有兴趣了解的可以自行Google。结论就是现在请务必使用AEAD加密的算法（chacha20-ietf-poly1305、xchacha20-ietf-poly1305、aes-128-gcm、aes-192-gcm、aes-256-gcm），目前xchacha20-ietf-poly1305和aes-256-gcm是最佳的选择，由于各大平台的cpu现在对aes算法都有较好的优化，我个人推荐aes-256-gcm。
+2、关于客户端的选择，应该去哪里下载shadowssocks客户端呢？答案是github，请不要去任何非github平台下载ss客户端（如果你买的机场不给你服务器相关信息，需要账号密码登录专用客户端，那就没办法了）。在这里要特别说一下iOS平台，iOS没有官方的shadowsocks客户端，很多免费应用都不支持AEAD算法，请买礼品卡在外区购买shadowrocket，或者使用免费的outline。
+3、在自行配置shadowsocks服务器的时候，很多攻略仍然写的是基于Python的shadowsocks-server，**请不要再参考这些攻略！！！**基于python的那个版本已经三年没有更新了，很多教程甚至还在用五年前的2.8.2版，请尽快转用C语言的shadowsocks-libev，github地址：https://github.com/shadowsocks/shadowsocks-libev
+【关于党国封禁shadowsocks服务器的策略】
+1、当你shadowsocks发现用不了的时候，不要慌张，首先你要做的是排错，确定是哪部分出了问题。党国封杀服务器一般分为ip封杀和端口封杀，请务必先确认是服务器ip地址还是服务器ss端口被墙。要怎么确认呢？打开你电脑的cmd，先ping一下你的服务器地址，看看还通不通，如果发现是通的，使用命令 telnet 你的服务器地址 你的服务器端口（例如：telnet 1.1.1.1 8838）如果你服务器能ping通但是telnet你的服务器shadowsocks端口不通的时候，更换端口就可以了。
+2、终于要提到党国的检测方式了，在文末我会放一篇相关文章来进行论证，在这里我还是只放出结论。党国封杀你服务器现在较为通用的方法是主动嗅探，举例来说，就是当发现一个让他怀疑的流量时，gfw会模拟一个shadowsocks请求发往你服务器的那个shadowsocks端口，由于密码是错的，这时候你的服务器会返还一个类似于密码错误的回包，这样gfw虽然无法连接你的服务器，但是他就可以猜测这台服务器是用来翻墙的。这就是主动嗅探的基本原理，只要你流量足够大，连接的人足够多，或者你服务器的ip是著名翻墙vps运行商（所谓脏ip），就有极大可能被封禁。在这里你可以看出，党国没有解密你的包，仍然无法知道你访问了什么网站，是不是真的用来翻墙，但是由于可能性很高，就被封禁了。
+3、主动嗅探比起技术方式更像是一种社会工程学原理，无论什么样的翻墙技术手段，都会中招，并不是shadowsocks存在技术漏洞，而是党国对ss的回包已经很熟悉了而已。而这一点，我们完全可以通过技术手段进行避免。
+【为你的服务器添加访问白名单】
+1、如果你服务器只允许特定的ip进行访问，那党国防火墙的主动嗅探也就失去了作用，因为党国不知道你允许了哪些地址，所以它所有尝试嗅探的操作都会被你服务器的防火墙（以其人之道还治其人之身 笑）给拦下，相当于还没有到你ss服务已经被你的服务器给拦下来，这种拦截是不具备特征的，而在现实中各大公司的服务器也是这么操作的。例如你是不可能访问Google的内部服务器，因为Google限定了可访问机器的ip。
+2、具体操作方法你可以使用iptables命令
+iptables --append INPUT --protocol tcp --dport 1080 --jump DROP 先禁止所有人访问你的ss 1080端口 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 【还Shadowsocks一个清白】Shadowsocks是如何被检测和封锁的，兼谈ss配置策略 ">
+<meta name=og:description content=" Shadowsocks是如何被检测和封锁的
+作者: Anonymous, Anonymous, Anonymous, David Fifield, Amir Houmansadr
+日期: 2019年12月29日，星期日
+English Version: How China Detects and Blocks Shadowsocks
+论文地址：https://gfw.report/blog/gfw_shadowsocks/zh.html
+（只想看是如何被检测和封锁的点这里，后文是兼谈ss配置策略）
+发这篇文章的原因基于品葱有大量的用户因为自己开的shadowsocks被封，机场三天两头用不了，或是在别的地方（例如v2ex）看到别人吹捧v2ray/ssrr 贬低shadowsocks。再加上党国爆出了一些所谓人工智能检测shadowsocks的论文，导致很多人认为shadowsocks已经是一个不安全的翻墙工具。因此在这里对shadowsocks配置做一个简单的科普。
+先上结论，shadowsocks并没有失效，党国也没有手段来破解shadowsocks的加密，那篇基于lstm的人工智能论文在专业人士看来完全就是笑话，请敬请放心使用，如果你的ss用不了，请按照我以下列出的几部分一一进行检查：
+【shadowsocks配置部分】
+1、打开你的shadowsocks客户端，在加密那一栏里你会看到接近20种不同的加密算法，在其中可以粗略的分为AEAD加密和非AEAD加密，具体技术细节有兴趣了解的可以自行Google。结论就是现在请务必使用AEAD加密的算法（chacha20-ietf-poly1305、xchacha20-ietf-poly1305、aes-128-gcm、aes-192-gcm、aes-256-gcm），目前xchacha20-ietf-poly1305和aes-256-gcm是最佳的选择，由于各大平台的cpu现在对aes算法都有较好的优化，我个人推荐aes-256-gcm。
+2、关于客户端的选择，应该去哪里下载shadowssocks客户端呢？答案是github，请不要去任何非github平台下载ss客户端（如果你买的机场不给你服务器相关信息，需要账号密码登录专用客户端，那就没办法了）。在这里要特别说一下iOS平台，iOS没有官方的shadowsocks客户端，很多免费应用都不支持AEAD算法，请买礼品卡在外区购买shadowrocket，或者使用免费的outline。
+3、在自行配置shadowsocks服务器的时候，很多攻略仍然写的是基于Python的shadowsocks-server，**请不要再参考这些攻略！！！**基于python的那个版本已经三年没有更新了，很多教程甚至还在用五年前的2.8.2版，请尽快转用C语言的shadowsocks-libev，github地址：https://github.com/shadowsocks/shadowsocks-libev
+【关于党国封禁shadowsocks服务器的策略】
+1、当你shadowsocks发现用不了的时候，不要慌张，首先你要做的是排错，确定是哪部分出了问题。党国封杀服务器一般分为ip封杀和端口封杀，请务必先确认是服务器ip地址还是服务器ss端口被墙。要怎么确认呢？打开你电脑的cmd，先ping一下你的服务器地址，看看还通不通，如果发现是通的，使用命令 telnet 你的服务器地址 你的服务器端口（例如：telnet 1.1.1.1 8838）如果你服务器能ping通但是telnet你的服务器shadowsocks端口不通的时候，更换端口就可以了。
+2、终于要提到党国的检测方式了，在文末我会放一篇相关文章来进行论证，在这里我还是只放出结论。党国封杀你服务器现在较为通用的方法是主动嗅探，举例来说，就是当发现一个让他怀疑的流量时，gfw会模拟一个shadowsocks请求发往你服务器的那个shadowsocks端口，由于密码是错的，这时候你的服务器会返还一个类似于密码错误的回包，这样gfw虽然无法连接你的服务器，但是他就可以猜测这台服务器是用来翻墙的。这就是主动嗅探的基本原理，只要你流量足够大，连接的人足够多，或者你服务器的ip是著名翻墙vps运行商（所谓脏ip），就有极大可能被封禁。在这里你可以看出，党国没有解密你的包，仍然无法知道你访问了什么网站，是不是真的用来翻墙，但是由于可能性很高，就被封禁了。
+3、主动嗅探比起技术方式更像是一种社会工程学原理，无论什么样的翻墙技术手段，都会中招，并不是shadowsocks存在技术漏洞，而是党国对ss的回包已经很熟悉了而已。而这一点，我们完全可以通过技术手段进行避免。
+【为你的服务器添加访问白名单】
+1、如果你服务器只允许特定的ip进行访问，那党国防火墙的主动嗅探也就失去了作用，因为党国不知道你允许了哪些地址，所以它所有尝试嗅探的操作都会被你服务器的防火墙（以其人之道还治其人之身 笑）给拦下，相当于还没有到你ss服务已经被你的服务器给拦下来，这种拦截是不具备特征的，而在现实中各大公司的服务器也是这么操作的。例如你是不可能访问Google的内部服务器，因为Google限定了可访问机器的ip。
+2、具体操作方法你可以使用iptables命令
+iptables --append INPUT --protocol tcp --dport 1080 --jump DROP 先禁止所有人访问你的ss 1080端口 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/212.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>【还Shadowsocks一个清白】Shadowsocks是如何被检测和封锁的，兼谈ss配置策略</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e5%8f%8d%e5%85%9a%e7%a7%af%e6%9e%81%e5%88%86%e5%ad%90>反党积极分子</a></span>,
+<span>at 12 January 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%bf%bb%e5%a2%99>翻墙</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%ae%89%e5%85%a8%e4%b8%8a%e7%bd%91>安全上网</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/d01c8fbc6d354bc80048bc4c523f65c7.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/d01c8fbc6d354bc80048bc4c523f65c7.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>Shadowsocks是如何被检测和封锁的<br>
+<strong>作者:</strong> Anonymous, Anonymous, Anonymous, David Fifield, Amir Houmansadr<br>
+日期: 2019年12月29日，星期日<br>
+<a href=%22https://gfw.report/blog/gfw_shadowsocks%22>English Version: How China Detects and Blocks Shadowsocks</a><br>
+论文地址：<a href=%22https://gfw.report/blog/gfw_shadowsocks/zh.html%22>https://gfw.report/blog/gfw_shadowsocks/zh.html</a><br>
+<strong>（只想看是如何被检测和封锁的点这里，后文是兼谈ss配置策略）</strong></p>
+<p>发这篇文章的原因基于品葱有大量的用户因为自己开的shadowsocks被封，机场三天两头用不了，或是在别的地方（例如v2ex）看到别人吹捧v2ray/ssrr 贬低shadowsocks。再加上党国爆出了一些所谓人工智能检测shadowsocks的论文，导致很多人认为shadowsocks已经是一个不安全的翻墙工具。因此在这里对shadowsocks配置做一个简单的科普。</p>
+<p>先上结论，shadowsocks并没有失效，党国也没有手段来破解shadowsocks的加密，那篇基于lstm的人工智能论文在专业人士看来完全就是笑话，请敬请放心使用，如果你的ss用不了，请按照我以下列出的几部分一一进行检查：</p>
+<p><strong>【shadowsocks配置部分】</strong></p>
+<p>1、打开你的shadowsocks客户端，在加密那一栏里你会看到接近20种不同的加密算法，在其中可以粗略的分为AEAD加密和非AEAD加密，具体技术细节有兴趣了解的可以自行Google。结论就是现在请务必使用AEAD加密的算法（chacha20-ietf-poly1305、xchacha20-ietf-poly1305、aes-128-gcm、aes-192-gcm、aes-256-gcm），目前xchacha20-ietf-poly1305和aes-256-gcm是最佳的选择，由于各大平台的cpu现在对aes算法都有较好的优化，我个人推荐aes-256-gcm。</p>
+<p>2、关于客户端的选择，应该去哪里下载shadowssocks客户端呢？答案是github，请不要去任何非github平台下载ss客户端（如果你买的机场不给你服务器相关信息，需要账号密码登录专用客户端，那就没办法了）。在这里要特别说一下iOS平台，iOS<strong>没有</strong>官方的shadowsocks客户端，很多免费应用都<strong>不支持</strong>AEAD算法，请买礼品卡在外区购买shadowrocket，或者使用免费的outline。</p>
+<p>3、在自行配置shadowsocks服务器的时候，很多攻略仍然写的是基于<strong>Python</strong>的shadowsocks-server，**请不要再参考这些攻略！！！**基于python的那个版本已经三年没有更新了，很多教程甚至还在用五年前的2.8.2版，请尽快转用C语言的shadowsocks-libev，github地址：<a href=%22https://github.com/shadowsocks/shadowsocks-libev%22>https://github.com/shadowsocks/shadowsocks-libev</a></p>
+<p><strong>【关于党国封禁shadowsocks服务器的策略】</strong></p>
+<p>1、当你shadowsocks发现用不了的时候，不要慌张，首先你要做的是排错，确定是哪部分出了问题。党国封杀服务器一般分为ip封杀和端口封杀，请务必先确认是服务器ip地址还是服务器ss端口被墙。要怎么确认呢？打开你电脑的cmd，先ping一下你的服务器地址，看看还通不通，如果发现是通的，使用命令 telnet 你的服务器地址 你的服务器端口（例如：telnet 1.1.1.1 8838）如果你服务器能ping通但是telnet你的服务器shadowsocks端口不通的时候，更换端口就可以了。</p>
+<p>2、终于要提到党国的检测方式了，在文末我会放一篇相关文章来进行论证，在这里我还是只放出结论。党国封杀你服务器现在较为通用的方法是主动嗅探，举例来说，就是当发现一个让他怀疑的流量时，gfw会模拟一个shadowsocks请求发往你服务器的那个shadowsocks端口，由于密码是错的，这时候你的服务器会返还一个类似于密码错误的回包，这样gfw虽然无法连接你的服务器，但是他就可以猜测这台服务器是用来翻墙的。这就是主动嗅探的基本原理，只要你流量足够大，连接的人足够多，或者你服务器的ip是著名翻墙vps运行商（所谓脏ip），就有极大可能被封禁。在这里你可以看出，党国没有解密你的包，仍然无法知道你访问了什么网站，是不是真的用来翻墙，但是由于可能性很高，就被封禁了。</p>
+<p>3、主动嗅探比起技术方式更像是一种社会工程学原理，无论什么样的翻墙技术手段，都会中招，并不是shadowsocks存在技术漏洞，而是党国对ss的回包已经很熟悉了而已。而这一点，我们完全可以通过技术手段进行避免。</p>
+<p><strong>【为你的服务器添加访问白名单】</strong></p>
+<p>1、如果你服务器只允许特定的ip进行访问，那党国防火墙的主动嗅探也就失去了作用，因为党国不知道你允许了哪些地址，所以它所有尝试嗅探的操作都会被你服务器的防火墙（以其人之道还治其人之身 笑）给拦下，相当于还没有到你ss服务已经被你的服务器给拦下来，这种拦截是不具备特征的，而在现实中各大公司的服务器也是这么操作的。例如你是不可能访问Google的内部服务器，因为Google限定了可访问机器的ip。</p>
+<p>2、具体操作方法你可以使用iptables命令</p>
+<pre tabindex=0><code>iptables --append INPUT --protocol tcp --dport 1080 --jump DROP
+</code></pre><p>先禁止所有人访问你的ss 1080端口</p>
+<pre tabindex=0><code>iptables --append INPUT --protocol tcp --src 1.1.1.1 --dport 1080 --jump ACCEPT
+</code></pre><p>这条命令的意思是仅允许1.1.1.1访问你ss 1080端口</p>
+<pre tabindex=0><code>service iptables save  
+service iptables restart
+</code></pre><p>记得保存和重启服务哦</p>
+<p>3、我们现在都是动态ip，没有指定的地址要怎么办呢？事实上没办法，所以我建议你再开一台服务器做流量的转发，然后你ss服务器只允许你转发服务器的ip地址，如果说转发服务器在国内，就会形成一个点对点的ss访问，只有你转发服务器到你ss服务器之间过一次墙，流量又是两个固定ip之间在访问，对于隐蔽流量是大有裨益的，至于linux怎么配置端口转发这里就写不下了，欢迎Google。</p>
+<p><strong>【正文部分：Shadowsocks是如何被检测和封锁的】</strong></p>
+<p>这篇论文写的非常好，希望所有人都去看一看，对党国封锁机制做了很具体的实验<br>
+<a href=%22https://gfw.report/blog/gfw_shadowsocks/zh.html%22>Shadowsocks是如何被检测和封锁的</a><br>
+<a href=%22https://gfw.report/blog/gfw_shadowsocks/zh.html%22>https://gfw.report/blog/gfw_shadowsocks/zh.html</a></p>
+<p>【最后私货部分】<br>
+1、我感觉还有很多细节没写到，之后尽力补充<br>
+2、个人认为多用户、多地区使用ss是相当容易引起gfw的操作<br>
+3、个人认为ssr的tls混淆属于掩耳盗铃，反而更容易让gfw发现<br>
+4、本文用了大量比喻，试图用人话来说明计算机术语，不周全的地方望专业人士见谅</p>
+<h3 id=品葱用户-二百斤十里路-评论于-2020-01-11>品葱用户 <strong>二百斤十里路</strong> 评论于 2020-01-11</h3>
+<p>SS作者一开始也说过，SSR的混淆处理更容易被识别到</p>
+<h3 id=品葱用户-反党积极分子-评论于-2020-01-11>品葱用户 <strong>反党积极分子</strong> 评论于 2020-01-11</h3>
+<p>@某人临时小号<br>
+这是从一篇论文谈开的，为什么要转新手区不能放深度讨论？</p>
+<p>由于原文太长，并且我试图兼论ss配置问题，所以没有全文转载论文</p>
+<p>我认为转新手区依据不足</p>
+<h3 id=品葱用户-kerr_bird>品葱用户 **Kerr_Bird</h3>
+<p>[已注销]** 评论于 2020-01-11</p>
+<blockquote>
+<p>SSR貌似不是开源的？</p>
+</blockquote>
+<p>刚开始不是，被喷了就老实了</p>
+<h3 id=品葱用户-admin>品葱用户 **admin</h3>
+<p>反党积极分子** 评论于 2020-01-11</p>
+<blockquote>
+<p>这是从一篇论文谈开的，为什么要转新手区不能放深度讨论？由于原文太长，并且我试图兼论ss配置问题，所&mldr;</p>
+</blockquote>
+<p>已经给您的贴子加精。目前品葱在整理文章，技术贴暂时分在新手区</p>
+<h3 id=品葱用户-反党积极分子>品葱用户 **反党积极分子</h3>
+<p>admin** 评论于 2020-01-12</p>
+<blockquote>
+<p>已经给您的贴子加精。目前品葱在整理文章，技术贴暂时分在新手区</p>
+</blockquote>
+<p>啊 了解了.. 感谢加精</p>
+<h3 id=品葱用户-iloveccp555-评论于-2020-01-12>品葱用户 <strong>Iloveccp555</strong> 评论于 2020-01-12</h3>
+<p>俺以为，要查封一个翻墙服务器ip甚至定位到个人其实很简单<br>
+只需要有关部门和国产app. 的公司<br>
+【联合执法】<br>
+其实这并不难<br>
+假设你手机翻墙软件设置的是全局翻墙，<br>
+登录的QQ和微信是用的外国ip，和你的gps定位不符合（微信和扣扣都是需要获取位置权限的），那么就可以判定该用户翻墙！然后直接精准封锁該ip，所以说，手机上开国产软件相当于 【实名翻墙】</p>
+<h3 id=品葱用户-民小一个-评论于-2020-01-11>品葱用户 <strong>民小一个</strong> 评论于 2020-01-11</h3>
+<p>获取一个静态IP，选择有两个：购买国外的另一台VPS，然后再连接运行ss的VPS，那么在连接国外的转发VPS本身就需要过墙，部署ss就失去了意义。而使用国内的VPS，又面临着提供墙内VPS的商家有可能监控你的后台进程，并且无疑会把你的信息交给朝廷的风险。。。<br>
+这是悖论啊</p>
+<h3 id=品葱用户-反党积极分子-1>品葱用户 **反党积极分子</h3>
+<p>Iloveccp555** 评论于 2020-01-12</p>
+<blockquote>
+<p>俺以为，要查封一个翻墙服务器ip甚至定位到个人其实很简单只需要有关部门和国产app. 的公司【联合执&mldr;</p>
+</blockquote>
+<p>目前情况下党不在乎一般人翻墙，只在乎你有没有在社交媒体传播言论。如果你twitter发言被网警发现才会出现联合执法。每个翻墙都喝茶的话那几乎所有大学生都得去了。。</p>
+<h3 id=品葱用户-glassdoor_67-评论于-2020-01-11>品葱用户 <strong>Glassdoor_67</strong> 评论于 2020-01-11</h3>
+<p>我来补充几点：AES-gcm,全称：galois counter mode。一种计算消息验证码（mac）的加密模式，mac提供一种密码校验和。</p>
+<p>128，192，256的区别在密钥长度和轮数，所以在TLS 1.3会用AES-128-gcm实现数据流快速传递。</p>
+<p>个人建议：设置预存密钥长度要超过200位二进制数，用于抵御量子计算机Grover算法。</p>
+<h3 id=品葱用户-whitthenewblu-评论于-2020-01-12>品葱用户 <strong>WhitTheNewBlu</strong> 评论于 2020-01-12</h3>
+<p>感谢分享</p>
+<p>关于SS+TLS，个人的实验结果是</p>
+<p>新搭的服务器，从头开始就用TLS，那么这个SS基本不会被爆破<br>
+如果从中途开始用TLS，那么连通性会增加，但仍然有被爆破的可能</p>
+<h3 id=品葱用户-反党积极分子-2>品葱用户 **反党积极分子</h3>
+<p>民小一个** 评论于 2020-01-12</p>
+<blockquote>
+<p>获取一个静态IP，选择有两个：购买国外的另一台VPS，然后再连接运行ss的VPS，那么在连接国外的转&mldr;</p>
+</blockquote>
+<p>被墙内vps商家监控和被电信监控感觉上没差别，不出啥事墙内vps商家不会莫名其妙来查你，目前的任务是如何不被gfw的脚本把服务器给墙了。ss翻墙风险还是很大的，要抓还是比较容易</p>
+<h3 id=品葱用户-被代表的躺枪人士>品葱用户 **被代表的躺枪人士</h3>
+<p>Iloveccp555** 评论于 2020-01-11</p>
+<blockquote>
+<p>俺以为，要查封一个翻墙服务器ip甚至定位到个人其实很简单只需要有关部门和国产app. 的公司【联合执&mldr;</p>
+</blockquote>
+<p>其实很多国产手机的系统本身就是有后门的。</p>
+<h3 id=品葱用户-glassdoor_67>品葱用户 **Glassdoor_67</h3>
+<p>被代表的躺枪人士** 评论于 2020-01-12</p>
+<blockquote>
+<p>其实很多国产手机的系统本身就是右后门的。</p>
+</blockquote>
+<p>哦…我想看看你所指👆的后门位置和代码段。</p>
+<h3 id=品葱用户-iloveccp555>品葱用户 **Iloveccp555</h3>
+<p>[已注销]** 评论于 2020-01-11</p>
+<blockquote>
+<p>可是我翻墙的手机没有国产软件，而且现在shadowsocks，v2ray可以设置分应用代理以及绕过大&mldr;</p>
+</blockquote>
+<p>你的安全措施做的很到位，可惜普通翻墙网民根本就不懂这些，一边翻墙一边很起劲的玩国产软件</p>
+<h3 id=品葱用户-whitthenewblu>品葱用户 **WhitTheNewBlu</h3>
+<p>[已注销]** 评论于 2020-01-12</p>
+<blockquote>
+<p><a href=https://github.com/cbeuw/Cloak>https://github.com/cbeuw/Cloak</a>这个SS插件了解一下</p>
+</blockquote>
+<p>已经换V2+ws+tls了。SS只是备用连接，就用之前的simple-obfs算了。</p>
+<h3 id=品葱用户-小熊维尼-评论于-2020-01-11>品葱用户 <strong>小熊维尼</strong> 评论于 2020-01-11</h3>
+<p>都说了按流量特征来识别还扯什么加密嗅探，<br>
+只要流量特征符合gfw就封锁，它们才不会解密叻，嗅探更是不可能，它封你需要确认吗？<br>
+通篇都把gfw想的这么绅士，可惜gfw没那么幼稚啦</p>
+<h3 id=品葱用户-华国锋>品葱用户 **华国锋</h3>
+<p>Glassdoor_67** 评论于 2020-01-11</p>
+<blockquote>
+<p>哦…我想看看你所指👆的后门位置和代码段。</p>
+</blockquote>
+<p>这是常识吧。http://forums.internetfreedom.org/index.php?topic=22511.0</p>
+<p>还有最近抖音海外版的案子。</p>
+<p>你可能以为后门就是远程操作。对不起，未经许可发送统计信息，就算是匿名的，也算后门。更何况国产手机系统发送统计信息都是带设备识别码的。</p>
+<h3 id=品葱用户-我和克强上丽媛>品葱用户 **我和克强上丽媛</h3>
+<p>Iloveccp555** 评论于 2020-01-12</p>
+<p>实际上也不完全如此，shadowsocks自带一个叫privoxy的工具，这个工具的用途就是可以根据发起连接的软件或者被连接的服务器来决定是否对这个连接进行代理。</p>
+<p>比如，用户可以设置“仅代理访问外国ip的连接”和“仅给youtube、opera提供代理”。由于国产软件肯定不会请求国外服务器，且它们也不在你设置的分应用代理名单中。因此理论上并不会出现“从外国的代理服务器登录，GPS定位却在国内”的情况。</p>
+<h3 id=品葱用户-浙江大学>品葱用户 **浙江大学</h3>
+<p>反党积极分子** 评论于 2020-01-11</p>
+<blockquote>
+<p>目前情况下党不在乎一般人翻墙，只在乎你有没有在社交媒体传播言论。如果你twitter发言被网警发现才&mldr;</p>
+</blockquote>
+<p>你高估了翻墙的大学生的数量</p>
+<h3 id=品葱用户-水浅茶清-评论于-2020-01-11>品葱用户 <strong>水浅茶清</strong> 评论于 2020-01-11</h3>
+<p>这篇文章写的很好。<br>
+根据机场主的反馈。现在根本无法甄别ss的流量。只是因为脏IP+流量，就会封掉。</p>
+<h3 id=品葱用户-colson>品葱用户 **Colson</h3>
+<p>Glassdoor_67** 评论于 2020-01-20</p>
+<blockquote>
+<p>哦…我想看看你所指👆的后门位置和代码段。</p>
+</blockquote>
+<p>明面上 系统自带的各种安全/云服务就是 比如明面上出于病毒检测目的，上传你的一些应用信息，至于后台会不会滥用 你说呢？<br>
+其次如果有那种间谍后门的话 会很巧妙的 隐藏 加密 并编译成机械码，一般情况下 是很难找到的</p>
+<h3 id=品葱用户-colson-评论于-2020-01-19>品葱用户 <strong>Colson</strong> 评论于 2020-01-19</h3>
+<p>准确来说 SSR/SS 是党国留的一个口子<br>
+如果想要，完全可以全部封掉</p>
+<p>如果想要在国内科学上网的话 有一个口子<br>
+去大型外企工作，大型外企 一般会拉几条的光纤到境外<br>
+途中无审查，下班了 也允许员工用vpn连接公司网络使用</p>
+<h3 id=品葱用户-神秘大侠-评论于-2020-02-14>品葱用户 <strong>神秘大侠</strong> 评论于 2020-02-14</h3>
+<p>国内服务器太贵了，尤其是带宽</p>
+<h3 id=品葱用户-反党积极分子-3>品葱用户 **反党积极分子</h3>
+<p>神秘大侠** 评论于 2020-02-14</p>
+<blockquote>
+<p>国内服务器太贵了，尤其是带宽</p>
+</blockquote>
+<p>阿里云基本上1块钱1g，最低配月租费也不高，我觉得是可以承受的，非常省心</p>
+<h3 id=品葱用户-chauchat-评论于-2020-02-17>品葱用户 <strong>Chauchat</strong> 评论于 2020-02-17</h3>
+<p>如果退而求其次，只允许某些ip段访问1080端口呢？如何设置？</p>
+<h3 id=品葱用户-周树人-评论于-2020-02-17>品葱用户 <strong>周树人</strong> 评论于 2020-02-17</h3>
+<p>这篇文章的末尾也提到了：&ldquo;我们仍不清楚主动探测与Shadowsocks服务器被封之间的关系&rdquo;。也就是说研究者依然没有搞清到底GFW主动探测到了什么就会引发阻断和封锁。下面说说我个人的看法：传统的shadowsocks及其各种衍生品靠的都是给数据加密来过GFW，简单来说就是让GFW不知道你这股流量是什么从而放行，这就有了一个问题，当越来越多加密的未知流量汇聚到GFW后，这个不包含任何固定特征的加密方式就成了最大的特征。时下，走各种加密和混淆的花活儿把自己加密成“神秘人”过墙的这种思路已经有些过时了，把自己伪装成正常流量才是更好的方向，就好比大街上把自己全副武装捂得严严实实和伪装成正常人你觉得哪一种能更好潜伏？</p>
+<p>不过，我悲观的认为，无论你用什么方式过墙，只要体量大到一定程度，就一定会被封锁，毕竟无论你再怎么加密和伪装，始终不是真正的正常流量，总有办法被攻破，只是时间问题罢了。</p>
+<h3 id=品葱用户-prometheus-评论于-2020-02-18>品葱用户 <strong>Prometheus</strong> 评论于 2020-02-18</h3>
+<p>谢谢科普关于SS的配置。<br>
+不过我也想指出V2RAY天然就带有免疫握手攻击的特性，所以其实可以理解大家更愿意使用更加「开箱即用」的工具。根据V2RAY自己的官方页面，其默认使用的VMess协议 是一个无状态协议，即客户端和服务器之间不需要握手即可直接传输数据，每一次数据传输对之前和之后的其它数据传输没有影响。 VMess 的客户端发起一次请求，服务器判断该请求是否来自一个合法的客户端。如验证通过，则转发该请求，并把获得的响应发回给客户端。</p>
+<p><a href=%22https://www.v2ray.com/developer/protocols/vmess.html%22>https://www.v2ray.com/developer/protocols/vmess.html</a></p>
+<h3 id=品葱用户-打倒共产党-评论于-2020-03-24>品葱用户 <strong>打倒共产党</strong> 评论于 2020-03-24</h3>
+<p>绝大多数云服务提供商都会禁止ping，所以你Ping不通往往不能代表任何问题。</p>
+<h3 id=品葱用户-打倒共产党>品葱用户 **打倒共产党</h3>
+<p>Colson** 评论于 2020-03-23</p>
+<p>[</p>
+<blockquote>
+<p>准确来说 SSR/SS 是党国留的一个口子如果想要，完全可以全部封掉如果想要在国内科学上网的话 有一&mldr;</p>
+</blockquote>
+<p>](<a href=https://pincong.rocks/article/item_id-200875#answer_list_200875>https://pincong.rocks/article/item_id-200875#answer_list_200875</a> &ldquo;<a href=https://pincong.rocks/article/item_id-200875#answer_list_200875%22>https://pincong.rocks/article/item_id-200875#answer_list_200875"</a>)他顶多搞IP黑名单。</p>
+<h3 id=品葱用户-孟姜哭墙-评论于-2020-03-24>品葱用户 <strong>孟姜哭墙</strong> 评论于 2020-03-24</h3>
+<p>ss已经挂了很久了，用自带的连通测试，似乎能ping通但是无法访问任何网站……</p>
+<h3 id=品葱用户-periodtt>品葱用户 **periodtt</h3>
+<p>反党积极分子** 评论于 2020-05-15</p>
+<p>[</p>
+<blockquote>
+<p>啊 了解了.. 感谢加精</p>
+</blockquote>
+<p>](<a href=https://pincong.rocks/article/item_id-191977#>https://pincong.rocks/article/item_id-191977#</a> &ldquo;<a href=https://pincong.rocks/article/item_id-191977#%22>https://pincong.rocks/article/item_id-191977#"</a>)<br>
+iOS的shadowrocket也不是开源的，怎么知道它是安全的呢？另外，请问反党哥，shadowsocks-libev怎么查看有多少客户端连接呢？netstat在SSI上不知道怎么用了。</p>
+<h3 id=品葱用户-王师北定-评论于-2020-05-15>品葱用户 <strong>王师北定</strong> 评论于 2020-05-15</h3>
+<p>一直都没问题，不懂有些人在搞什么。共匪只会一招，就是封VPS商的IP。</p>
+<h3 id=品葱用户-periodtt-1>品葱用户 **periodtt</h3>
+<p>反党积极分子** 评论于 2020-05-15</p>
+<p>[</p>
+<blockquote>
+<p>啊 了解了.. 感谢加精</p>
+</blockquote>
+<p>](<a href=https://pincong.rocks/article/item_id-191977#>https://pincong.rocks/article/item_id-191977#</a> &ldquo;<a href=https://pincong.rocks/article/item_id-191977#%22>https://pincong.rocks/article/item_id-191977#"</a>)<br>
+请问，iOS上的shadowrocket也不是开源的，怎么就知道是安全的呢？</p>
+<h3 id=品葱用户-碾成灰烬-评论于-2020-05-15>品葱用户 <strong>碾成灰烬</strong> 评论于 2020-05-15</h3>
+<p>用tls加密，传输，ss被封了以后我用这个，就再也没有出过问题。域名可以freenom免费申请一个，买的话也不贵。</p>
+<h3 id=品葱用户-united-评论于-2020-05-15>品葱用户 <strong>United</strong> 评论于 2020-05-15</h3>
+<p>我们程序小白就是通过这样的文章慢慢积累慢慢学习的. 谢谢转帖.</p>
+<h3 id=品葱用户-aloie-评论于-2020-05-18>品葱用户 <strong>Aloie</strong> 评论于 2020-05-18</h3>
+<p>       实名反对作者的观点。<br>
+       首先作者完全曲解了“主动嗅探”的概念，主动嗅探不是服务器主动和服务器取得被服务器认可的TCP连接，和所谓的社工更是沾不到一点边，完全属于乱套概念。相反，最初版本的SS存在TCP包头部漏洞，导致GFW会主动发送精心构造好的数据包，诱导服务器返回特定的字符，继而判断服务器是否在翻墙，所以后续的ss-libev改进了TCP头部并添加了GCM杜绝了“重放攻击”，也就是真正所谓的“主动嗅探”；<br>
+        其次，GFW虽然不知道通过SS具体的数据内容，但是，GFW对积累3年的大量SS流数据，通过机器学习，已经在去年年后的深度包检测中，能以极高的成功率，检测出加密流量中，用户具体浏览过的网址，这是效率极高的被动检测，造就广泛应用在各大运营商的网络节点上了。<br>
+        最后，我还要说明下，目前以大陆GFW的实力，想知道你翻墙那是分分钟的事，用SS或者其他免费代理，也基本等同于你直接暴露了浏览的内容。但至于ZF管不管你，只要你别太出格，一般不会管你。但还是建议大家，如果出于保护隐私的目的，那还是首推VPN（非PPTP），其次可以TLS代理。或者干脆直接Tor套前置代理。</p>
+<h3 id=品葱用户-境外敌对势力-评论于-2020-05-17>品葱用户 <strong>境外敌对势力</strong> 评论于 2020-05-17</h3>
+<p>支持你的观点，一直用shadowsocks-libev最新版，6个vps都装了，从未翻车，包括敏感时期。</p>
+<h3 id=品葱用户-江来都是要应验的>品葱用户 **江来都是要应验的</h3>
+<p>浙江大学** 评论于 2020-05-19</p>
+<p>[</p>
+<blockquote>
+<p>你高估了翻墙的大学生的数量</p>
+</blockquote>
+<p>](<a href=https://pincong.rocks/article/item_id-192434#>https://pincong.rocks/article/item_id-192434#</a> &ldquo;<a href=https://pincong.rocks/article/item_id-192434#%22>https://pincong.rocks/article/item_id-192434#"</a>)</p>
+<p>你高估了翻墙键政大学生数量。</p>
+<h3 id=品葱用户-江来都是要应验的-1>品葱用户 **江来都是要应验的</h3>
+<p>反党积极分子** 评论于 2020-05-19</p>
+<p>[</p>
+<blockquote>
+<p>阿里云基本上1块钱1g，最低配月租费也不高，我觉得是可以承受的，非常省心</p>
+</blockquote>
+<p>](<a href=https://pincong.rocks/article/item_id-244974#>https://pincong.rocks/article/item_id-244974#</a> &ldquo;<a href=https://pincong.rocks/article/item_id-244974#%22>https://pincong.rocks/article/item_id-244974#"</a>)</p>
+<p>谷歌都比他便宜。。。。</p>
+<h3 id=品葱用户-水浅茶清>品葱用户 **水浅茶清</h3>
+<p>Aloie** 评论于 2020-05-18</p>
+<p>[</p>
+<blockquote>
+<p>       实名反对作者的观点。       首先作者完全曲解了“主动嗅探”的概念，主动嗅探不是服&mldr;</p>
+</blockquote>
+<p>](<a href=https://pincong.rocks/article/item_id-381066#>https://pincong.rocks/article/item_id-381066#</a> &ldquo;<a href=https://pincong.rocks/article/item_id-381066#%22>https://pincong.rocks/article/item_id-381066#"</a>)<br>
+ss被封不是因为深度包检测，而是GFW更新策略，只要是黑名单VPS段+未知流量就会封端口。<br>
+最简单的办法，换v2ray或者trojan。</p>
+<h3 id=品葱用户-啊哈哈啊-评论于-2020-01-16>品葱用户 <strong>啊哈哈啊</strong> 评论于 2020-01-16</h3>
+<blockquote>
+<p>gfw会模拟一个shadowsocks请求发往你服务器的那个shadowsocks端口，由于密码是错的，这时候你的服务器会返还一个类似于密码错误的回包，</p>
+</blockquote>
+<p>这是你的主观臆想，shadowsocks 早就不会返回任何错误。同时也证明你没仔细阅读论文。</p>
+<h3 id=品葱用户-反党积极分子-4>品葱用户 **反党积极分子</h3>
+<p>啊哈哈啊** 评论于 2020-01-16</p>
+<blockquote>
+<p>这是你的主观臆想，shadowsocks 早就不会返回任何错误。同时也证明你没仔细阅读论文。</p>
+</blockquote>
+<p>我他妈外行不懂重放攻击是什么意思，反正事实上就会被他妈的嗅探，符合人身攻击条件，你可以举报我了傻逼</p>
+<blockquote>
+<p><a href=https://pincong.rocks/article/12173>点击品葱原文参与讨论</a></p>
+</blockquote>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/e581bd510bd16f0650b6dc788b40f001/?utm_source=see_also&utm_medium=%25E8%25BF%2598shadowsocks%25E4%25B8%2580%25E4%25B8%25AA%25E6%25B8%2585%25E7%2599%25BDshadowsocks%25E6%2598%25AF%25E5%25A6%2582%25E4%25BD%2595%25E8%25A2%25AB%25E6%25A3%2580%25E6%25B5%258B%25E5%2592%258C%25E5%25B0%2581%25E9%2594%2581%25E7%259A%2584%25E5%2585%25BC%25E8%25B0%2588ss%25E9%2585%258D%25E7%25BD%25AE%25E7%25AD%2596%25E7%2595%25A5">【还Shadowsocks一个清白】Shadowsocks是如何被检测和封锁的，兼谈ss配置策略</a>
+</h2>
+<p class=text-dark>Shadowsocks是如何被检测和封锁的
+作者: Anonymous, Anonymous, Anonymous, David Fifield, Amir Houmansadr
+日期: 2019年12月29日，星期日
+English …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/178f983cda6fa528d77416d505d1fc83/?utm_source=see_also&utm_medium=%25E8%25BF%2598shadowsocks%25E4%25B8%2580%25E4%25B8%25AA%25E6%25B8%2585%25E7%2599%25BDshadowsocks%25E6%2598%25AF%25E5%25A6%2582%25E4%25BD%2595%25E8%25A2%25AB%25E6%25A3%2580%25E6%25B5%258B%25E5%2592%258C%25E5%25B0%2581%25E9%2594%2581%25E7%259A%2584%25E5%2585%25BC%25E8%25B0%2588ss%25E9%2585%258D%25E7%25BD%25AE%25E7%25AD%2596%25E7%2595%25A5">Win系统如何正确选择各种替代国内软件的干净程序？</a>
+</h2>
+<p class=text-dark>品葱用户 忠獻張 提问于 11/28/2019 听从各位葱友以及编程随想的建议，专门购入了一台干净的无后门电脑，并采用多层匿名来进行网络活动和反贼生活。
+但是在如此选择后，像俺这样的小白面临了一个比较苦恼的问题：如何选择各种替代国内软件的产 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/3bcdf47c5f1c9bad768a30aa0af641fc/?utm_source=see_also&utm_medium=%25E8%25BF%2598shadowsocks%25E4%25B8%2580%25E4%25B8%25AA%25E6%25B8%2585%25E7%2599%25BDshadowsocks%25E6%2598%25AF%25E5%25A6%2582%25E4%25BD%2595%25E8%25A2%25AB%25E6%25A3%2580%25E6%25B5%258B%25E5%2592%258C%25E5%25B0%2581%25E9%2594%2581%25E7%259A%2584%25E5%2585%25BC%25E8%25B0%2588ss%25E9%2585%258D%25E7%25BD%25AE%25E7%25AD%2596%25E7%2595%25A5">【更新】小隐隐于野，大隐隐于市——如何防御党国对品葱的实时监控？</a>
+</h2>
+<p class=text-dark>原问题在此：
+&ldquo;他们最近在实时监控品葱&rdquo;，有没有技术党能来展开解释一下注意事项？
+编程随想讲过一些防御方法，但最适用于专业反共人士，难道你上品葱需要好几个虚拟机？
+软件层面上，拒绝国产，别用IE，定期更新系统，用混淆 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/2b822383de514d647a1e8c92767d248a/?utm_source=see_also&utm_medium=%25E8%25BF%2598shadowsocks%25E4%25B8%2580%25E4%25B8%25AA%25E6%25B8%2585%25E7%2599%25BDshadowsocks%25E6%2598%25AF%25E5%25A6%2582%25E4%25BD%2595%25E8%25A2%25AB%25E6%25A3%2580%25E6%25B5%258B%25E5%2592%258C%25E5%25B0%2581%25E9%2594%2581%25E7%259A%2584%25E5%2585%25BC%25E8%25B0%2588ss%25E9%2585%258D%25E7%25BD%25AE%25E7%25AD%2596%25E7%2595%25A5">【更新】小隐隐于野，大隐隐于市——如何防御党国对品葱的实时监控？</a>
+</h2>
+<p class=text-dark>原问题在此：
+&ldquo;他们最近在实时监控品葱&rdquo;，有没有技术党能来展开解释一下注意事项？
+编程随想讲过一些防御方法，但最适用于专业反共人士，难道你上品葱需要好几个虚拟机？
+软件层面上，拒绝国产，别用IE，定期更新系统，用混淆 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b941a8d0cee55f35d36e6c646a06c1d4/?utm_source=see_also&utm_medium=%25E8%25BF%2598shadowsocks%25E4%25B8%2580%25E4%25B8%25AA%25E6%25B8%2585%25E7%2599%25BDshadowsocks%25E6%2598%25AF%25E5%25A6%2582%25E4%25BD%2595%25E8%25A2%25AB%25E6%25A3%2580%25E6%25B5%258B%25E5%2592%258C%25E5%25B0%2581%25E9%2594%2581%25E7%259A%2584%25E5%2585%25BC%25E8%25B0%2588ss%25E9%2585%258D%25E7%25BD%25AE%25E7%25AD%2596%25E7%2595%25A5">[转自中国数字时代] 1984bbs站长张书记的看守所遭遇 （翻墙请一定注意安全）</a>
+</h2>
+<p class=text-dark>（参与2012年3月19日讯）2011年茉莉花期间，著名网络人士、1984BBS站长张健男在2011年3月3日被捕，随后被投入看守所。在其被捕一年之际，张健男在推特上公开揭露其被捕期间的遭遇。
+1984BBS创建于2008年8月，服务器设在 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

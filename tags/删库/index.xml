@@ -1,0 +1,16 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>删库 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E5%88%A0%E5%BA%93/</link><description>Recent content in 删库 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sat, 26 Jun 2021 15:10:01 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E5%88%A0%E5%BA%93/index.xml" rel="self" type="application/rss+xml"/><item><title>如何看待字节跳动一实习生删除公司 GB 以下所有机器学习模型，事情经过是怎样的？事故影响有多大？</title><link>https://project-gutenberg.github.io/Pincong/post/ecb55a98a93613499fbde1682c312d77/</link><pubDate>Sat, 26 Jun 2021 15:10:01 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ecb55a98a93613499fbde1682c312d77/</guid><description>知乎用户 扼杀黑暗 发表 其实还好吧
+故障恢复是互联网公司得特长吧
+这种重要数据，如果没有备份和恢复方案，那只能说明字节缺乏互联网公司得风险意识
+这显然不可能
+而且现在互联网公司搞 devops，什么都让程序员操作，那就应该把运维故障当作常态
+我们以前运维经常不小心把线上库干崩，然后劈里啪啦，主从切换，数据库回滚，几分钟立刻恢复运转，用户甚至没太大感知。
+无他，手熟尔
+不同得企业结构，是不同得风险控制方式
+不要大惊小怪
+发展快得公司，实 …</description></item><item><title>如何看待链家程序员删除财务数据获刑 7 年？</title><link>https://project-gutenberg.github.io/Pincong/post/5b6781e1329d0eea2b9836aa1623cb8f/</link><pubDate>Sun, 10 Jan 2021 11:17:39 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/5b6781e1329d0eea2b9836aa1623cb8f/</guid><description>知乎用户 诗与星空​ 发表 我比较感兴趣的是这句：
+链家公司为恢复数据及重新构建财务系统共计花费人民币 18 万元。
+从这句话看，公司财务数据库大概率没有异地备份。如果有备份的话，恢复系统只是小时级的体力活，不大可能需要 18 万。
+这么看来，这家公司的 IT 管理太可怕了&amp;hellip; &amp;hellip;
+PS，曾经误操作删过库的选手表示，麻蛋判刑也太狠了吧。。。感谢老领导不杀之恩。
+知乎用户 幻希 发表 本是个段子, 成了真的.
+你 …</description></item></channel></rss>

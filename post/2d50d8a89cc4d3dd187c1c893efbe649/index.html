@@ -1,0 +1,207 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>谎言、天杀的谎言、和统计学（博士）</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 这种做法的&#34;优点&#34;非常显然，首先作者可以矢口否认自己有什么反疫苗的动机，只是从一个专业人士的角度较真和就事论事罢了。然后既然他又“专业”的证明了辉瑞公司就是在遮遮掩掩，那很多人就会自然的想到：辉瑞在面瘫的事情上要遮掩，就不会遮掩什么其他更严重的事情？他们的疫苗或者任何疫苗能够被信任吗？但当然，这话他自己没说，是读者自行想到的，他对此不负责任。
+只是，他要真想做到撇清自己，他的有关专业论述就必须过关。让我们看看是否真的如此。
+拿图一来说，其中的数字没有什么大错误。但里面有个数字“1”，指的是对与实验中疫苗注射组同样人数的普通人群中在相应时间内面瘫发病人数的估计值，他认为1是上限，这就有问题了。
+这涉及到普通人群中得面瘫概率到底多大，他引用的估计是10万人中15-30，30正好对应那个上限1，但是很容易找出其他估计，例如25-35，这样1就不是什么上限，而是中值。考虑到面瘫是种并不严重的罕见病，很多人不去就医在家自行痊愈，就算去就医的也未必能够完全进入统计数字，所以人群中的真实发病率估计更容易偏低而不是相反。而辉瑞对照实验中是对每位参与人员跟踪观察，不会漏掉任何发病病例。所以在和一般人群的估计数字对比时，使用高一点的估计是更合理的，至少不能简单的把那个“1”说成&#34;上限&#34;，好像他做了什么让步似的。
+当然这不是主要问题所在。问题的关键是，他用泊松分布算出“四人及以上得面瘫的概率仅为1.9%”。这里面的问题不在于那个1.9%的准确性，而在于他故意用了个“仅为”来提示这个数很小，给读者造成印象辉瑞实验组出现四人面瘫是个一般情况下很罕见的现象，是此事和疫苗有关联的重要证据。
+但他并没有解释，为什么1.9%这个数算小。或者，在研究这类问题时，到底什么算大，什么算小。不必博士，任何对统计学稍有最基本常识的人都知道，这样的概率算不算小，或者说“显著”，比较的标准不是100%，也不是50%，而至多是5%。也就是说，这类实验中计算出来的这种概率（统计中称为一类偏差），如果比5%都大，那就什么结论都不能得出来。而且近些年来大家的共识是，5%这个门槛太低了，会造成大量的垃圾结论，一般真要结果有意义，该使用的数值是1%甚至0.1%。
+而1.9%离5%真的非常接近（统计学上这种接近不是指绝对数值，而是指数量级），把这个值称为“仅为”，是不折不扣的忽悠不懂统计学的读者。
+而且事情还远远的没完。再看第二张图。这里提到一个叫“多项假设检验”的东西，该作者说，这个东西不关键，也不影响前面的论述，只是他做为“统计学博士”，为了严格起见必须提一提。
+真的吗？多项假设检验在统计学中是个非常基本的东西，通俗地说，指的是你同时观测多个指标，根据指标与标准值的偏离来判断某系统是否有“异常”。就单一指标来说，哪怕系统完全正常，指标读数也会有一定随机性而不会正好是标准值。所以只有对标准值的偏离达到一定程度，或者说，在系统正常情况下达到这样大偏离的概率小于一定程度，才该给出预警。而这个偏离程度的标准，就是前面所说的5%或者更低的1%，0.1%等。但然而，在同时观测多个指标的情况下，哪怕系统正常，出现其中一个偏离正常值达到如此范围的概率明显要大于单指标的情境。
+这时就不能仍然沿用5%而必须对标准进行调整。最常用的做法是所谓的“邦费罗尼调整”，其计算公式非常简单，拿单指标时的标准-即所谓“门槛概率”-除以指标（即假设）总数即可。
+那么我们就算使用单假设检验中最粗糙的门槛概率5%，按该作者本人引用的文件，至少还有其他三项指标如“神经、神经发炎、血栓”，那么加起来就已经有个四个假设，经过邦费罗尼调整后，门槛概率为1.25%，低于该作者声称“仅为”的1.9%。
+因此按照严格的统计学，那个1.9%的概率看似小，但其实不足以在疫苗和面瘫二者中得出任何统计有效的因果关联。
+笔者本人也是“统计学博士”，并且在硅谷某家社交网络公司工作。每周最重要的工作之一是“模型线上检测”——即通过将新模型用于少量实际用户后再观察与标准模型的指标差别，得出新模型是否优于标准模型的结论。这是个典型的多假设检验问题，通过公司系统可以看到多个指标的差异以及相应偏差概率。对于概率小于5%的，会认为毫无意义甚至不必显示。如果在多个指标中仅有一两个达到2%或类似数值，也不值得关注，一般只有在概率小到0.1%时，才能真正得出新模型有优越性的结论。
+哪怕没有统计学背景，这些也都是入职培训时就应该解决的最基本问题。谁要是连这些问题都搞不清楚，就该立即被公司解雇。
+更不要说什么“统计学博士”。连5%和邦费罗尼调整都不懂，不但不该被授予博士，连本科统计课期中考试都不该及格。
+我不相信那位“统计学博士”是这类情况，毕竟他还正确的利用泊松分布计算出了1.9%，他还知道“多假设检验”——只要知道这个词，就会知道什么叫邦费罗尼调整。
+所以这位作者为何会给出这样偏离专业的论述，我看是另有原因。
+英语中有句老话，叫 “lies, damned lies, and statistics”——谎言、天杀的谎言、和统计学。其实这对统计学很不公平。统计学本身是一门严格的数学，和其他数学分支一样，内部没有任何谎言存在的空间。所以有问题的，从来不是统计学，而是心术不正的统计学博士。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 谎言、天杀的谎言、和统计学（博士） ">
+<meta name=og:description content=" 这种做法的&#34;优点&#34;非常显然，首先作者可以矢口否认自己有什么反疫苗的动机，只是从一个专业人士的角度较真和就事论事罢了。然后既然他又“专业”的证明了辉瑞公司就是在遮遮掩掩，那很多人就会自然的想到：辉瑞在面瘫的事情上要遮掩，就不会遮掩什么其他更严重的事情？他们的疫苗或者任何疫苗能够被信任吗？但当然，这话他自己没说，是读者自行想到的，他对此不负责任。
+只是，他要真想做到撇清自己，他的有关专业论述就必须过关。让我们看看是否真的如此。
+拿图一来说，其中的数字没有什么大错误。但里面有个数字“1”，指的是对与实验中疫苗注射组同样人数的普通人群中在相应时间内面瘫发病人数的估计值，他认为1是上限，这就有问题了。
+这涉及到普通人群中得面瘫概率到底多大，他引用的估计是10万人中15-30，30正好对应那个上限1，但是很容易找出其他估计，例如25-35，这样1就不是什么上限，而是中值。考虑到面瘫是种并不严重的罕见病，很多人不去就医在家自行痊愈，就算去就医的也未必能够完全进入统计数字，所以人群中的真实发病率估计更容易偏低而不是相反。而辉瑞对照实验中是对每位参与人员跟踪观察，不会漏掉任何发病病例。所以在和一般人群的估计数字对比时，使用高一点的估计是更合理的，至少不能简单的把那个“1”说成&#34;上限&#34;，好像他做了什么让步似的。
+当然这不是主要问题所在。问题的关键是，他用泊松分布算出“四人及以上得面瘫的概率仅为1.9%”。这里面的问题不在于那个1.9%的准确性，而在于他故意用了个“仅为”来提示这个数很小，给读者造成印象辉瑞实验组出现四人面瘫是个一般情况下很罕见的现象，是此事和疫苗有关联的重要证据。
+但他并没有解释，为什么1.9%这个数算小。或者，在研究这类问题时，到底什么算大，什么算小。不必博士，任何对统计学稍有最基本常识的人都知道，这样的概率算不算小，或者说“显著”，比较的标准不是100%，也不是50%，而至多是5%。也就是说，这类实验中计算出来的这种概率（统计中称为一类偏差），如果比5%都大，那就什么结论都不能得出来。而且近些年来大家的共识是，5%这个门槛太低了，会造成大量的垃圾结论，一般真要结果有意义，该使用的数值是1%甚至0.1%。
+而1.9%离5%真的非常接近（统计学上这种接近不是指绝对数值，而是指数量级），把这个值称为“仅为”，是不折不扣的忽悠不懂统计学的读者。
+而且事情还远远的没完。再看第二张图。这里提到一个叫“多项假设检验”的东西，该作者说，这个东西不关键，也不影响前面的论述，只是他做为“统计学博士”，为了严格起见必须提一提。
+真的吗？多项假设检验在统计学中是个非常基本的东西，通俗地说，指的是你同时观测多个指标，根据指标与标准值的偏离来判断某系统是否有“异常”。就单一指标来说，哪怕系统完全正常，指标读数也会有一定随机性而不会正好是标准值。所以只有对标准值的偏离达到一定程度，或者说，在系统正常情况下达到这样大偏离的概率小于一定程度，才该给出预警。而这个偏离程度的标准，就是前面所说的5%或者更低的1%，0.1%等。但然而，在同时观测多个指标的情况下，哪怕系统正常，出现其中一个偏离正常值达到如此范围的概率明显要大于单指标的情境。
+这时就不能仍然沿用5%而必须对标准进行调整。最常用的做法是所谓的“邦费罗尼调整”，其计算公式非常简单，拿单指标时的标准-即所谓“门槛概率”-除以指标（即假设）总数即可。
+那么我们就算使用单假设检验中最粗糙的门槛概率5%，按该作者本人引用的文件，至少还有其他三项指标如“神经、神经发炎、血栓”，那么加起来就已经有个四个假设，经过邦费罗尼调整后，门槛概率为1.25%，低于该作者声称“仅为”的1.9%。
+因此按照严格的统计学，那个1.9%的概率看似小，但其实不足以在疫苗和面瘫二者中得出任何统计有效的因果关联。
+笔者本人也是“统计学博士”，并且在硅谷某家社交网络公司工作。每周最重要的工作之一是“模型线上检测”——即通过将新模型用于少量实际用户后再观察与标准模型的指标差别，得出新模型是否优于标准模型的结论。这是个典型的多假设检验问题，通过公司系统可以看到多个指标的差异以及相应偏差概率。对于概率小于5%的，会认为毫无意义甚至不必显示。如果在多个指标中仅有一两个达到2%或类似数值，也不值得关注，一般只有在概率小到0.1%时，才能真正得出新模型有优越性的结论。
+哪怕没有统计学背景，这些也都是入职培训时就应该解决的最基本问题。谁要是连这些问题都搞不清楚，就该立即被公司解雇。
+更不要说什么“统计学博士”。连5%和邦费罗尼调整都不懂，不但不该被授予博士，连本科统计课期中考试都不该及格。
+我不相信那位“统计学博士”是这类情况，毕竟他还正确的利用泊松分布计算出了1.9%，他还知道“多假设检验”——只要知道这个词，就会知道什么叫邦费罗尼调整。
+所以这位作者为何会给出这样偏离专业的论述，我看是另有原因。
+英语中有句老话，叫 “lies, damned lies, and statistics”——谎言、天杀的谎言、和统计学。其实这对统计学很不公平。统计学本身是一门严格的数学，和其他数学分支一样，内部没有任何谎言存在的空间。所以有问题的，从来不是统计学，而是心术不正的统计学博士。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/74.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>谎言、天杀的谎言、和统计学（博士）</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e6%80%9d%e6%83%b3%e6%b8%b8%e5%87%bb%e9%98%9f%e5%91%98>思想游击队员</a></span>,
+<span>at 17 April 2021</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%bb%9f%e8%ae%a1%e5%ad%a6>统计学</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%a6%82%e7%8e%87>概率</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e9%9d%a2%e7%98%ab>面瘫</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%8c%87%e6%a0%87>指标</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%81%87%e8%ae%be%e6%a3%80%e9%aa%8c>假设检验</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/2d50d8a89cc4d3dd187c1c893efbe649.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/2d50d8a89cc4d3dd187c1c893efbe649.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>这种做法的"优点"非常显然，首先作者可以矢口否认自己有什么反疫苗的动机，只是从一个专业人士的角度较真和就事论事罢了。然后既然他又“专业”的证明了辉瑞公司就是在遮遮掩掩，那很多人就会自然的想到：辉瑞在面瘫的事情上要遮掩，就不会遮掩什么其他更严重的事情？他们的疫苗或者任何疫苗能够被信任吗？但当然，这话他自己没说，是读者自行想到的，他对此不负责任。</p>
+<p>只是，他要真想做到撇清自己，他的有关专业论述就必须过关。让我们看看是否真的如此。</p>
+<p>拿图一来说，其中的数字没有什么大错误。但里面有个数字“1”，指的是对与实验中疫苗注射组同样人数的普通人群中在相应时间内面瘫发病人数的估计值，他认为1是上限，这就有问题了。</p>
+<p>这涉及到普通人群中得面瘫概率到底多大，他引用的估计是10万人中15-30，30正好对应那个上限1，但是很容易找出其他估计，例如25-35，这样1就不是什么上限，而是中值。考虑到面瘫是种并不严重的罕见病，很多人不去就医在家自行痊愈，就算去就医的也未必能够完全进入统计数字，所以人群中的真实发病率估计更容易偏低而不是相反。而辉瑞对照实验中是对每位参与人员跟踪观察，不会漏掉任何发病病例。所以在和一般人群的估计数字对比时，使用高一点的估计是更合理的，至少不能简单的把那个“1”说成"上限"，好像他做了什么让步似的。</p>
+<p>当然这不是主要问题所在。问题的关键是，他用泊松分布算出“四人及以上得面瘫的概率仅为1.9%”。这里面的问题不在于那个1.9%的准确性，而在于他故意用了个“仅为”来提示这个数很小，给读者造成印象辉瑞实验组出现四人面瘫是个一般情况下很罕见的现象，是此事和疫苗有关联的重要证据。</p>
+<p>但他并没有解释，为什么1.9%这个数算小。或者，在研究这类问题时，到底什么算大，什么算小。不必博士，任何对统计学稍有最基本常识的人都知道，这样的概率算不算小，或者说“显著”，比较的标准不是100%，也不是50%，而至多是5%。也就是说，这类实验中计算出来的这种概率（统计中称为一类偏差），如果比5%都大，那就什么结论都不能得出来。而且近些年来大家的共识是，5%这个门槛太低了，会造成大量的垃圾结论，一般真要结果有意义，该使用的数值是1%甚至0.1%。</p>
+<p>而1.9%离5%真的非常接近（统计学上这种接近不是指绝对数值，而是指数量级），把这个值称为“仅为”，是不折不扣的忽悠不懂统计学的读者。</p>
+<p>而且事情还远远的没完。再看第二张图。这里提到一个叫“多项假设检验”的东西，该作者说，这个东西不关键，也不影响前面的论述，只是他做为“统计学博士”，为了严格起见必须提一提。</p>
+<p>真的吗？多项假设检验在统计学中是个非常基本的东西，通俗地说，指的是你同时观测多个指标，根据指标与标准值的偏离来判断某系统是否有“异常”。就单一指标来说，哪怕系统完全正常，指标读数也会有一定随机性而不会正好是标准值。所以只有对标准值的偏离达到一定程度，或者说，在系统正常情况下达到这样大偏离的概率小于一定程度，才该给出预警。而这个偏离程度的标准，就是前面所说的5%或者更低的1%，0.1%等。但然而，在同时观测多个指标的情况下，哪怕系统正常，出现其中一个偏离正常值达到如此范围的概率明显要大于单指标的情境。</p>
+<p>这时就不能仍然沿用5%而必须对标准进行调整。最常用的做法是所谓的“邦费罗尼调整”，其计算公式非常简单，拿单指标时的标准-即所谓“门槛概率”-除以指标（即假设）总数即可。</p>
+<p>那么我们就算使用单假设检验中最粗糙的门槛概率5%，按该作者本人引用的文件，至少还有其他三项指标如“神经、神经发炎、血栓”，那么加起来就已经有个四个假设，经过邦费罗尼调整后，门槛概率为1.25%，低于该作者声称“仅为”的1.9%。</p>
+<p>因此按照严格的统计学，那个1.9%的概率看似小，但其实不足以在疫苗和面瘫二者中得出任何统计有效的因果关联。</p>
+<p>笔者本人也是“统计学博士”，并且在硅谷某家社交网络公司工作。每周最重要的工作之一是“模型线上检测”——即通过将新模型用于少量实际用户后再观察与标准模型的指标差别，得出新模型是否优于标准模型的结论。这是个典型的多假设检验问题，通过公司系统可以看到多个指标的差异以及相应偏差概率。对于概率小于5%的，会认为毫无意义甚至不必显示。如果在多个指标中仅有一两个达到2%或类似数值，也不值得关注，一般只有在概率小到0.1%时，才能真正得出新模型有优越性的结论。</p>
+<p>哪怕没有统计学背景，这些也都是入职培训时就应该解决的最基本问题。谁要是连这些问题都搞不清楚，就该立即被公司解雇。</p>
+<p>更不要说什么“统计学博士”。连5%和邦费罗尼调整都不懂，不但不该被授予博士，连本科统计课期中考试都不该及格。</p>
+<p>我不相信那位“统计学博士”是这类情况，毕竟他还正确的利用泊松分布计算出了1.9%，他还知道“多假设检验”——只要知道这个词，就会知道什么叫邦费罗尼调整。</p>
+<p>所以这位作者为何会给出这样偏离专业的论述，我看是另有原因。</p>
+<p>英语中有句老话，叫 “lies, damned lies, and statistics”——谎言、天杀的谎言、和统计学。其实这对统计学很不公平。统计学本身是一门严格的数学，和其他数学分支一样，内部没有任何谎言存在的空间。所以有问题的，从来不是统计学，而是心术不正的统计学博士。</p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/247b0e11975c0b2582a1b1d1c84e72a6/?utm_source=see_also&utm_medium=%25E8%25B0%258E%25E8%25A8%2580%25E5%25A4%25A9%25E6%259D%2580%25E7%259A%2584%25E8%25B0%258E%25E8%25A8%2580%25E5%2592%258C%25E7%25BB%259F%25E8%25AE%25A1%25E5%25AD%25A6%25E5%258D%259A%25E5%25A3%25AB">如何看待四名辉瑞疫苗志愿者出现面瘫，会对后续的接种产生影响吗？</a>
+</h2>
+<p class=text-dark>知乎用户 极萨学院冷哲​ 发表 首先要确认，疫苗注射和贝尔氏麻痹症之间的关联性。
+如果不能确认疫苗和副作用之间的关联性，那么就没法确立因果关系。
+比如辉瑞疫苗在三期临床的时候还有 6 名受试者死亡，其中疫苗组 2 人，安慰剂组 4 人。
+这 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/bfb2eb79dc3eff49ab14c9fa289afa28/?utm_source=see_also&utm_medium=%25E8%25B0%258E%25E8%25A8%2580%25E5%25A4%25A9%25E6%259D%2580%25E7%259A%2584%25E8%25B0%258E%25E8%25A8%2580%25E5%2592%258C%25E7%25BB%259F%25E8%25AE%25A1%25E5%25AD%25A6%25E5%258D%259A%25E5%25A3%25AB">又见“物理脱贫法”</a>
+</h2>
+<p class=text-dark>镇长同志如此理直气壮，当然是因为心善的缘故
+Photo by jorien Stel from Pexels
+文/呦呦鹿鸣
+决定写这件事，很是下了一些决心，做了一些心理酝酿。因为，它不可避免地要触某些地方权势者的逆鳞，冒犯一批人的利益。
+在 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/a77dd348a7a03eb81ff8c630d23b51ac/?utm_source=see_also&utm_medium=%25E8%25B0%258E%25E8%25A8%2580%25E5%25A4%25A9%25E6%259D%2580%25E7%259A%2584%25E8%25B0%258E%25E8%25A8%2580%25E5%2592%258C%25E7%25BB%259F%25E8%25AE%25A1%25E5%25AD%25A6%25E5%258D%259A%25E5%25A3%25AB">反恐，政治正确与统计学</a>
+</h2>
+<p class=text-dark>点击上方蓝字“北大飞”订阅本公号
+学点概率统计没坏处
+经常有这种言论，说是西方搞政治正确影响了反恐。比如，有说法称，加州San Bernadino枪击案的恐怖分子花了好几月的时间在自家车库里搞炸药，邻居注意到了，也觉得奇怪，但害怕被指控歧视 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/9bab23afa3d8f3ddc99192a57cb4fe31/?utm_source=see_also&utm_medium=%25E8%25B0%258E%25E8%25A8%2580%25E5%25A4%25A9%25E6%259D%2580%25E7%259A%2584%25E8%25B0%258E%25E8%25A8%2580%25E5%2592%258C%25E7%25BB%259F%25E8%25AE%25A1%25E5%25AD%25A6%25E5%258D%259A%25E5%25A3%25AB">经济学家是如何预测未来的经济走势以及未来某一具体经济指标的具体数值？</a>
+</h2>
+<p class=text-dark>知乎用户 记忆豆豆 发表 题主好，这个问题实在是太大了。不同经济指标的特性、数据可得性不一样，预测的方法也千差万别，最好问具体的某个经济指标怎么计算比较好。预测的精度要求、预测的即时性要求都会对预测方法产生影响，要知道未来某一具体经济指标的 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/7a9036f0238ff1cbe0d34a34f4c56496/?utm_source=see_also&utm_medium=%25E8%25B0%258E%25E8%25A8%2580%25E5%25A4%25A9%25E6%259D%2580%25E7%259A%2584%25E8%25B0%258E%25E8%25A8%2580%25E5%2592%258C%25E7%25BB%259F%25E8%25AE%25A1%25E5%25AD%25A6%25E5%258D%259A%25E5%25A3%25AB">有哪些看似荒谬，其实很科学的理论？</a>
+</h2>
+<p class=text-dark>知乎用户 鱼舆君 发表 古文字释读过程中，一项重要的方法就是——猜。
+因为很多字真的不知道是什么意思，或者看不懂，或者看得懂但是放进文中完全是狗屁不通，此时只能靠猜。
+至于什么时候猜对，什么时候猜错，也没有正确答案，一般而言，能读通就是猜对 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

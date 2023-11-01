@@ -1,0 +1,5 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>武装推翻中共 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E6%AD%A6%E8%A3%85%E6%8E%A8%E7%BF%BB%E4%B8%AD%E5%85%B1/</link><description>Recent content in 武装推翻中共 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Tue, 03 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E6%AD%A6%E8%A3%85%E6%8E%A8%E7%BF%BB%E4%B8%AD%E5%85%B1/index.xml" rel="self" type="application/rss+xml"/><item><title>请相关专业的葱油评价一下这个公式</title><link>https://project-gutenberg.github.io/Pincong/post/21969a9d9d1c772b1d4d67bb613cf761/</link><pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/21969a9d9d1c772b1d4d67bb613cf761/</guid><description>这是我网上找的野路子，不知道是否正确。
+枪管的设计公式：
+外径=内径[(3*材料屈服极限+2*断面完全系数*断面处膛压)/(3*材料屈服极限-4*断面完全系数*断面处膛压)1/2]
+所谓”完全系数“指的可能是安全系数。我没有听说过什么完全系数。
+我算过了之后发现很不正常。除非你的材料的屈服极限很高，否则安全系数都会非常的低。60钢的屈服极限大于等于460MPa，556NATO的膛压是430MPa。如果要追求1的安全系数，(3*材料屈服极 …</description></item></channel></rss>

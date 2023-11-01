@@ -1,0 +1,451 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>“零收入”依然淡定，一家基础软件公司的冒险与底气 | 甲子光年</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 中国开源项目的雄起时刻到了吗？
+作者 | 王学琛
+编辑 | 火柴Q
+这是第三次了，年初的董事会召开前，投资方的投后同事来问星爵业绩规划，他说：“不需要做报表，我们今年的目标收入多半还是0。”
+这家“三年收入都为0”的企业，是星爵在2017年创立的Zilliz，一家做开源模式的基础软件公司，主打融合异构计算的数据科学软件。
+这类公司在中国市场颇为另类——做基础、通用型技术，运营模式是短期内不会也难以开启商业化的开源。
+不过今年以来，“基础软件+开源”的项目正在得到投资人青睐。
+5月底，「甲子光年」发布《“基础软件+开源”，为什么是现在？》一文后，不少投资人都表示这是他们今年的重点方向之一。
+这一领域的融资消息也不断：
+2020年4月，物联网大数据平台涛思数据完成超过1000万美元的A轮融资，这是其今年完成的第二轮融资；云管理软件及服务提供商骞云科技，同样在2020年第一季度完成两轮融资；2020年6月，图数据库研发商欧若数网完成800万美元Pre-A轮融资。
+国外的开源数据库CockroachDB（蟑螂数据库）也在2020年5月收获D轮8700万美元融资，目前已积累了超过1.951亿美金的融资；云存储技术服务商Snowflake在今年2月完成4.79亿美元融资。
+其实抛开暂时没有收入这一点，仅看企业用户的增长，Zilliz的画面很美：
+其在2019年10月15日正式开源的第一款产品，向量搜索引擎Milvus在7个月内积累了300多家企业级用户。
+即使是在没有付费门槛的开源市场，这个速度依然惊人——目前成立五年、已是中国开源项目样本的新型分布式数据库公司PingCAP积累前几百家企业用户用时为两年半。
+在社区影响力上，Zilliz也给中国“基础软件+开源”业带来了新突破。
+Milvus在今年3月作为孵化项目加入了Linux AI基金会（LF AI），其创始人星爵也在4月22日当选Linux AI基金会新一届董事会主席，这是中国代表首次担任国际顶级开源AI社区的最高职务。就在昨天（2020年6月15日），Milvus发布了最新版本v0.10.0。
+Milvus各项社区指标
+其实这类公司、这个赛道都是在等一个蝉的故事：不鸣则已，一鸣惊人。前期不做收入，一旦开始进入商业化就可能迎来爆发式增长。
+星爵本人的经历对做成这件事已很有说服力——2009年到2015年的6年里，他一直在研发甲骨文的第一个云数据库产品Oracle 12c，是最初奠基团队5人之一。如今，这个产品已累计为甲骨文带来了100亿美元的营收。
+本文，「甲子光年」深度采访了Zilliz的创始人星爵、合伙人顾钧，多家Milvus的企业用户以及Zilliz的投资方和其他观察基础软件、开源项目的投资人。
+这一次，到了中国开源项目雄起的时刻了吗？
+1. 7个月300+企业级用户的加速度
+7个月拿300家企业级用户，为什么这么快？
+“选择比努力重要”，加速度首先和Zilliz选的方向有关——他们切中了当下数据处理领域的两个趋势：异构计算和非结构化数据处理。
+这分别反映为Zilliz当前的两个主要成果：异构众核数据处理平台MegaWise和向量搜索引擎Milvus。
+Zilliz首先启动的是对异构众核数据处理平台MegaWise的研发。
+异构计算背后对应的趋势是，随着AI、物联网、云计算的进一步发展，未来的芯片架构会越来越碎片化，场景也会越来越多元，计算和数据流淌在从云端、边端到终端的各个角落。
+此前，面对不同的架构，解决方案是堆人力，写代码。这是因为PC和移动时代，主流架构只有x86、Arm等少数几个，与其费劲攻克异构计算，不如以开发的方式去适配。
+但现在，在x86、Arm之外，RISC-V、达芬奇、寒武纪的MLUv02等新架构涌现，人工适配已无法实现，异构环境成为计算不得不攻克的壁垒。
+图为芯片专家唐杉博士维护的名为“AI芯片全景图”的GitHub频道
+同时，Chris Lattner开发的LLVM让异构计算的商用成为可能。简单来说，LLVM是一个横跨编译层和汇编层的框架，可以实现用一套语言调动不同指令集架构的硬件。
+第一个看到异构计算的必要性，并从中获利的是Google的深度学习框架TensorFlow。
+TensorFlow的优势之一就是率先实现了异构计算，通过技术屏蔽掉下面芯片体系结构的差异，也屏蔽掉云端边部署环境之间的差异。也因此，TensorFlow在此方向上一度领先Caffee、PyTorch等3-5年的时间窗。
+Zilliz成立第一天起也将此作为发力方向，在2017投入异构众核数据处理平台 MegaWise的研发，也因此一度给外界留下了GPU数据库的印象。
+研发过程中，Zilliz团队在两年多时间里，完成了十数次版本迭代、近30万行代码，最终在2019年推出了MegaWise数据处理平台。和主流CPU数据处理引擎相比，MegaWise可以实现查询性能提升100倍以上，硬件成本和运维成本降低10倍。
+MegaWise 架构图
+在一边研发平台的同时，Zilliz也在探索基于 MegaWise的具体产品形态，最终他们把首个产品定位到了处理非结构化数据的工具——一款向量搜索引擎。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" “零收入”依然淡定，一家基础软件公司的冒险与底气 | 甲子光年 ">
+<meta name=og:description content=" 中国开源项目的雄起时刻到了吗？
+作者 | 王学琛
+编辑 | 火柴Q
+这是第三次了，年初的董事会召开前，投资方的投后同事来问星爵业绩规划，他说：“不需要做报表，我们今年的目标收入多半还是0。”
+这家“三年收入都为0”的企业，是星爵在2017年创立的Zilliz，一家做开源模式的基础软件公司，主打融合异构计算的数据科学软件。
+这类公司在中国市场颇为另类——做基础、通用型技术，运营模式是短期内不会也难以开启商业化的开源。
+不过今年以来，“基础软件+开源”的项目正在得到投资人青睐。
+5月底，「甲子光年」发布《“基础软件+开源”，为什么是现在？》一文后，不少投资人都表示这是他们今年的重点方向之一。
+这一领域的融资消息也不断：
+2020年4月，物联网大数据平台涛思数据完成超过1000万美元的A轮融资，这是其今年完成的第二轮融资；云管理软件及服务提供商骞云科技，同样在2020年第一季度完成两轮融资；2020年6月，图数据库研发商欧若数网完成800万美元Pre-A轮融资。
+国外的开源数据库CockroachDB（蟑螂数据库）也在2020年5月收获D轮8700万美元融资，目前已积累了超过1.951亿美金的融资；云存储技术服务商Snowflake在今年2月完成4.79亿美元融资。
+其实抛开暂时没有收入这一点，仅看企业用户的增长，Zilliz的画面很美：
+其在2019年10月15日正式开源的第一款产品，向量搜索引擎Milvus在7个月内积累了300多家企业级用户。
+即使是在没有付费门槛的开源市场，这个速度依然惊人——目前成立五年、已是中国开源项目样本的新型分布式数据库公司PingCAP积累前几百家企业用户用时为两年半。
+在社区影响力上，Zilliz也给中国“基础软件+开源”业带来了新突破。
+Milvus在今年3月作为孵化项目加入了Linux AI基金会（LF AI），其创始人星爵也在4月22日当选Linux AI基金会新一届董事会主席，这是中国代表首次担任国际顶级开源AI社区的最高职务。就在昨天（2020年6月15日），Milvus发布了最新版本v0.10.0。
+Milvus各项社区指标
+其实这类公司、这个赛道都是在等一个蝉的故事：不鸣则已，一鸣惊人。前期不做收入，一旦开始进入商业化就可能迎来爆发式增长。
+星爵本人的经历对做成这件事已很有说服力——2009年到2015年的6年里，他一直在研发甲骨文的第一个云数据库产品Oracle 12c，是最初奠基团队5人之一。如今，这个产品已累计为甲骨文带来了100亿美元的营收。
+本文，「甲子光年」深度采访了Zilliz的创始人星爵、合伙人顾钧，多家Milvus的企业用户以及Zilliz的投资方和其他观察基础软件、开源项目的投资人。
+这一次，到了中国开源项目雄起的时刻了吗？
+1. 7个月300+企业级用户的加速度
+7个月拿300家企业级用户，为什么这么快？
+“选择比努力重要”，加速度首先和Zilliz选的方向有关——他们切中了当下数据处理领域的两个趋势：异构计算和非结构化数据处理。
+这分别反映为Zilliz当前的两个主要成果：异构众核数据处理平台MegaWise和向量搜索引擎Milvus。
+Zilliz首先启动的是对异构众核数据处理平台MegaWise的研发。
+异构计算背后对应的趋势是，随着AI、物联网、云计算的进一步发展，未来的芯片架构会越来越碎片化，场景也会越来越多元，计算和数据流淌在从云端、边端到终端的各个角落。
+此前，面对不同的架构，解决方案是堆人力，写代码。这是因为PC和移动时代，主流架构只有x86、Arm等少数几个，与其费劲攻克异构计算，不如以开发的方式去适配。
+但现在，在x86、Arm之外，RISC-V、达芬奇、寒武纪的MLUv02等新架构涌现，人工适配已无法实现，异构环境成为计算不得不攻克的壁垒。
+图为芯片专家唐杉博士维护的名为“AI芯片全景图”的GitHub频道
+同时，Chris Lattner开发的LLVM让异构计算的商用成为可能。简单来说，LLVM是一个横跨编译层和汇编层的框架，可以实现用一套语言调动不同指令集架构的硬件。
+第一个看到异构计算的必要性，并从中获利的是Google的深度学习框架TensorFlow。
+TensorFlow的优势之一就是率先实现了异构计算，通过技术屏蔽掉下面芯片体系结构的差异，也屏蔽掉云端边部署环境之间的差异。也因此，TensorFlow在此方向上一度领先Caffee、PyTorch等3-5年的时间窗。
+Zilliz成立第一天起也将此作为发力方向，在2017投入异构众核数据处理平台 MegaWise的研发，也因此一度给外界留下了GPU数据库的印象。
+研发过程中，Zilliz团队在两年多时间里，完成了十数次版本迭代、近30万行代码，最终在2019年推出了MegaWise数据处理平台。和主流CPU数据处理引擎相比，MegaWise可以实现查询性能提升100倍以上，硬件成本和运维成本降低10倍。
+MegaWise 架构图
+在一边研发平台的同时，Zilliz也在探索基于 MegaWise的具体产品形态，最终他们把首个产品定位到了处理非结构化数据的工具——一款向量搜索引擎。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/36.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>“零收入”依然淡定，一家基础软件公司的冒险与底气 | 甲子光年</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e7%8e%8b%e5%ad%a6%e7%90%9b>王学琛</a></span>,
+<span>at 16 June 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%bc%80%e6%ba%90>开源</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%bd%af%e4%bb%b6>软件</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%98%9f%e7%88%b5>星爵</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%94%a8%e6%88%b7>用户</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%9f%ba%e7%a1%80>基础</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/b2582355151b6662bb43fe240e4706cd.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/b2582355151b6662bb43fe240e4706cd.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI8IohLvGNSmbj2aWAu9FLiaj0eLhYDibdUNrOboGIW2MH7iaeFzzHkibaJk7ufTuupNTTCxbUF4cB1tTQ/640%3Fwx_fmt%3Dpng" alt></p>
+<p>中国开源项目的雄起时刻到了吗？</p>
+<p>作者 | 王学琛</p>
+<p>编辑 | 火柴Q</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/58b2usHiaQI8IohLvGNSmbj2aWAu9FLiajkbHzuWyTnSWuRkFpjJKMzeQQFibe1SJ7S0j2icltNDCdw44yqGdQcQyg/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>这是第三次了，年初的董事会召开前，投资方的投后同事来问星爵业绩规划，他说：“不需要做报表，我们今年的目标收入多半还是0。”</p>
+<p>这家“三年收入都为0”的企业，是星爵在2017年创立的Zilliz，一家做开源模式的基础软件公司，主打融合异构计算的数据科学软件。</p>
+<p>这类公司在中国市场颇为另类——做基础、通用型技术，运营模式是短期内不会也难以开启商业化的开源。</p>
+<p>不过今年以来，“基础软件+开源”的项目正在得到投资人青睐。</p>
+<p>5月底，「甲子光年」发布《<a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247491567&idx=1&sn=ccbd89c134bbfdf300a00d70c389cc57&chksm=feb6894cc9c1005ade6da218628304ce34fe2d7025f0001eb8a7bf452fc16645d82f324aadd6&scene=21#wechat_redirect">“基础软件+开源”，为什么是现在？</a>》一文后，不少投资人都表示这是他们今年的重点方向之一。</p>
+<p><strong>这一领域的融资消息也不断：</strong></p>
+<p>2020年4月，物联网大数据平台涛思数据完成超过1000万美元的A轮融资，这是其今年完成的第二轮融资；云管理软件及服务提供商骞云科技，同样在2020年第一季度完成两轮融资；2020年6月，图数据库研发商欧若数网完成800万美元Pre-A轮融资。</p>
+<p>国外的开源数据库CockroachDB（蟑螂数据库）也在2020年5月收获D轮8700万美元融资，目前已积累了超过1.951亿美金的融资；云存储技术服务商Snowflake在今年2月完成4.79亿美元融资。</p>
+<p><strong>其实抛开暂时没有收入这一点，仅看企业用户的增长，Zilliz的画面很美：</strong></p>
+<p>其在2019年10月15日正式开源的第一款产品，向量搜索引擎Milvus在7个月内积累了300多家企业级用户。</p>
+<p>即使是在没有付费门槛的开源市场，这个速度依然惊人——目前成立五年、已是中国开源项目样本的新型分布式数据库公司PingCAP积累前几百家企业用户用时为两年半。</p>
+<p>在社区影响力上，Zilliz也给中国“基础软件+开源”业带来了新突破。</p>
+<p>Milvus在今年3月作为孵化项目加入了Linux AI基金会（LF AI），其创始人星爵也在4月22日当选Linux AI基金会新一届董事会主席，这是中国代表首次担任国际顶级开源AI社区的最高职务。就在昨天（2020年6月15日），Milvus发布了最新版本v0.10.0。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI8IohLvGNSmbj2aWAu9FLiajVG0jvNOMhFnplbtEI7PFibKNZVRz0CQiaT1iaF8CwicibPyY5UibicMvTXydw/640%3Fwx_fmt%3Dpng" alt></p>
+<p>Milvus各项社区指标</p>
+<p>其实这类公司、这个赛道都是在等一个蝉的故事：不鸣则已，一鸣惊人。前期不做收入，一旦开始进入商业化就可能迎来爆发式增长。</p>
+<p>星爵本人的经历对做成这件事已很有说服力——2009年到2015年的6年里，他一直在研发甲骨文的第一个云数据库产品Oracle 12c，是最初奠基团队5人之一。如今，这个产品已累计为甲骨文带来了100亿美元的营收。</p>
+<p>本文，「甲子光年」深度采访了Zilliz的创始人星爵、合伙人顾钧，多家Milvus的企业用户以及Zilliz的投资方和其他观察基础软件、开源项目的投资人。</p>
+<p>这一次，到了中国开源项目雄起的时刻了吗？</p>
+<p><strong>1. 7个月300+企业级用户的加速度</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI9oq7DAC5eWkLpBlMCIqhGfY8u7vNnvicEISa7EoFV5Q3TSP0hGkkFUVtZ8ZpK3pQxpjIj5llPH7YA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>7个月拿300家企业级用户，为什么这么快？</p>
+<p>“选择比努力重要”，加速度首先和Zilliz选的方向有关——他们切中了当下数据处理领域的两个趋势：异构计算和非结构化数据处理。</p>
+<p>这分别反映为Zilliz当前的两个主要成果：<strong>异构众核数据处理平台MegaWise和向量搜索引擎Milvus。</strong></p>
+<p><strong>Zilliz首先启动的是对异构众核数据处理平台MegaWise的研发。</strong></p>
+<p>异构计算背后对应的趋势是，随着AI、物联网、云计算的进一步发展，未来的芯片架构会越来越碎片化，场景也会越来越多元，计算和数据流淌在从云端、边端到终端的各个角落。</p>
+<p>此前，面对不同的架构，解决方案是堆人力，写代码。这是因为PC和移动时代，主流架构只有x86、Arm等少数几个，与其费劲攻克异构计算，不如以开发的方式去适配。</p>
+<p>但现在，在x86、Arm之外，RISC-V、达芬奇、寒武纪的MLUv02等新架构涌现，人工适配已无法实现，异构环境成为计算不得不攻克的壁垒。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI8IohLvGNSmbj2aWAu9FLiajOZWL6tRph6IzwU9plJxQOhqy2hzdiagoEmy8AZYwEpZqv8UmkEpWibCg/640%3Fwx_fmt%3Dpng" alt></p>
+<p>图为芯片专家唐杉博士维护的名为“AI芯片全景图”的GitHub频道</p>
+<p>同时，Chris Lattner开发的LLVM让异构计算的商用成为可能。简单来说，LLVM是一个横跨编译层和汇编层的框架，可以实现用一套语言调动不同指令集架构的硬件。</p>
+<p><strong>第一个看到异构计算的必要性，并从中获利的是Google的深度学习框架TensorFlow。</strong></p>
+<p>TensorFlow的优势之一就是率先实现了异构计算，通过技术屏蔽掉下面芯片体系结构的差异，也屏蔽掉云端边部署环境之间的差异。也因此，TensorFlow在此方向上一度领先Caffee、PyTorch等3-5年的时间窗。</p>
+<p>Zilliz成立第一天起也将此作为发力方向，在2017投入异构众核数据处理平台 MegaWise的研发，也因此一度给外界留下了GPU数据库的印象。</p>
+<p>研发过程中，Zilliz团队在两年多时间里，完成了十数次版本迭代、近30万行代码，最终在2019年推出了MegaWise数据处理平台。和主流CPU数据处理引擎相比，MegaWise可以实现查询性能提升100倍以上，硬件成本和运维成本降低10倍。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI8IohLvGNSmbj2aWAu9FLiaj7a3grFh3eiaaku2MNTmACnw4CdiaOT6DWv18FcchZAfU4bV10pYZY6Ig/640%3Fwx_fmt%3Dpng" alt></p>
+<p>MegaWise 架构图</p>
+<p>在一边研发平台的同时，Zilliz也在探索基于 MegaWise的具体产品形态，<strong>最终他们把首个产品定位到了处理非结构化数据的工具——一款向量搜索引擎。</strong></p>
+<p>“最怕技术人陷入盲目的狂欢和自嗨，你做一个技术上很牛逼的东西，但市场上没人愿意用。”星爵称，Zilliz在做底层研发时就已开始不断和用户沟通，发现大部分用户对非结构化数据处理工具需求迫切。</p>
+<p>这个背景和近几年AI的发展大势有关。此前，计算机主要处理的是结构化数据，即可以用二维表结构来逻辑表达和实现的数据。而以深度学习算法为代表的当下AI，把图片、视频、语音等非结构化数据也纳入了机器能处理的范畴。</p>
+<p>但是，数据库产品的发展一度没有赶上AI算法层和应用的进展，目前还没有一个原生于AI的非结构化数据库管理系统取得主流地位。</p>
+<p>各企业、组织的开发者在处理非结构数据时，仍不得不使用上一代的Oracle、MySQL、DB2、SQL Server等关系型数据库，但并不称手。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI8IohLvGNSmbj2aWAu9FLiaj7vBgWYibIvQnbLlPZNSbSibOUjXOBCx36jOftib8FQdcVAhXw7yP8Tkrw/640%3Fwx_fmt%3Dpng" alt></p>
+<p>Milvus的企业用户、资深算法工程师文安哲告诉「甲子光年」，以企业征信数据为例，中国有上亿家公司，每一家公司的征信数据包含了很多维度，且单一维度就可能有大量数据，如一些集团企业的商标专利就有成千上万个。面对这些海量的非结构化数据，企业短期内并没有能力去自研处理技术。</p>
+<p><strong>Milvus要解决的就是这个非结构数据处理的痛点。</strong></p>
+<p>具体来说，Milvus做的是非结构数据处理的一个共通环节——向量的快速搜索分析。不管是处理图像还是语音的深度学习算法，都有一个共通环节，就是把图片等对象向量化。</p>
+<p>此前虽然已有Facebook开源的Faiss向量搜索库和微软开源的SPTAG库，不过，Faiss和SPTAG都还不是成形的产品，用户在使用时仍需进行大量开发。而相比 Faiss 和 SPTAG 这样的算法库，Milvus 提供完整的向量数据更新、索引与查询框架。</p>
+<p>Milvus可在无需变更代码、只更新数据的情况下实现快速检索。</p>
+<p>半年以来，Milvus已经积累了300多家企业级用户，并解锁了以图搜图、以图搜视频、自然语言处理、语音识别、推荐系统、新药发现等场景。就在昨天（2020年6月15日），Milvus发布了最新版本v0.10.0。</p>
+<p><strong>另一方面，这种“加速”发展，也源于Milvus采取了一种新的开源方式——“重装开源”。</strong></p>
+<p>Milvus开源的第一个版本就已经非常完备。星爵记得当时有用户评价，“没有看到过一个东西刚开源就会写这么详细的文档。”</p>
+<p>如果说以往的开源方式是“小苗”阶段就放到社区让大家一起浇水，那么Zilliz的开源是一出场苗就长好了，连花都开好了。</p>
+<p>星爵说：“十年前做开源软件，是从你写第一行代码就开源，现在已经不一样了，我们要求第一个发布的版本就是可用且好用的。”</p>
+<p>为了2019年10月15日这“一哆嗦”的开源，他们已经研发了近1000天。</p>
+<p>其中仅Milvus的研发就经历300多天。Zilliz团队深入研究了ANNS算法，针对不同处理器芯片和指令集做了大量优化，在完成3600多个commit、5次版本迭代和7万多行源代码后终于发出了Milvus的第一个开源版本Milvus 0.5.1。</p>
+<p><strong>这种“重装开源”是Zilliz可以在7个月里积累300多个企业级用户的关键之一。</strong></p>
+<p>“我们的产品在易用性、稳定性、可用性上有很好的保障，文档也相当齐全，包括中英文版本。”星爵告诉「甲子光年」：“如果你早期的版本不可用，很多用户会恨你三年，他三年之内都会觉得这个团队的东西不可用。”</p>
+<p>某头部互联网房产服务商搜索平台资深工程师孙要飞告诉「甲子光年」，他在2019年底选择Milvus正是因为它的相对完整性——可以直接使用，且文档很细致。</p>
+<p>当时他所在的团队调研了市场上一些开源向量工具，比如Facebook的Faiss工具及某互联网零售企业的一个开源项目。</p>
+<p>孙要飞告诉「甲子光年」，Faiss相当于手脚架或者说零件，不是一个可执行的东西，而某互联网零售企业开源项目的社区支持度相对不足，且更新比较慢。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI8IohLvGNSmbj2aWAu9FLiaj535GV58D2B4vN0dpKWkEV5DvDTCMIAWVEBYyEwyYM7ORa9STNcK8DA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>Milvus应用于房源推荐场景</p>
+<p>星爵告诉「甲子光年」，保证可用甚至好用之后再开源，其实也是当前开源创新的一个共同趋势。</p>
+<p>在AI、大数据、异构计算等汹涌而来的新浪潮下，看准了基础层新机会的各路玩家都想加速奔跑。</p>
+<p><strong>2.一场率先达到网络效应的竞赛</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI9oq7DAC5eWkLpBlMCIqhGfY8u7vNnvicEISa7EoFV5Q3TSP0hGkkFUVtZ8ZpK3pQxpjIj5llPH7YA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>为什么要想办法“加速”发展？</p>
+<p><strong>这涉及到基础软件产品的商业本质——一场率先实现网络效应的竞赛。</strong></p>
+<p>为什么说基础软件需要达到网络效应？</p>
+<p>简单来说，开发者在面对特定场景的特定问题时，所使用的基础软件的类型和数量都会逐渐收敛到少数几个。这样才利于技术社区的交流、技术人员在组织间的流动以及开发者个人的职业生涯。</p>
+<p>这有点像学习语言，最后主流的语言就那么几个。</p>
+<p>由此，对基础软件项目来说，要争夺的最稀缺的资源有二——开发者的精力和应用场景，二者皆有限，这又进一步加大了网络效应。</p>
+<p>从开发者的角度，GitHub 的开发者数量为4000万，每一个开发者在整个职业生命周期里学习的技术栈一般不会超过30个，且转换技术栈的学习成本很高。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI8IohLvGNSmbj2aWAu9FLiajWvvK0K4g03NCeQY9JGD6AGDbE4FnnBPibryC4k5pTEW9NS1XYbWsjog/640%3Fwx_fmt%3Dpng" alt></p>
+<p>GitHub 2019年度报告中，2014-2019最受欢迎的编程语言 TOP 10，可以看到前几名的排名一直相对稳定。</p>
+<p>基础软件产品和项目要做的就是“成为开发者的三十分之一，占据其20-30年的职业生命周期”。</p>
+<p>这样一算，信息产业的每一个新技术周期里，真正能跑出来的基础软件并不会很多。</p>
+<p>另一方面，开发者用基础软件最终是要解决应用场景里的问题，而各领域的应用场景所蕴含的基础、通用型需求同样稀缺。星爵对基础、通用型需求的计算是“数百个、不超过1000个”。</p>
+<p><strong>所以对基础软件来说，先发优势、资本甚至技术本身都不是壁垒，真正的壁垒是你能否率先垄断特定类型的开发者和场景</strong>，即针对这类开发场景，社区里用你的产品和方案的开发者最多，而且会像墨汁滴进清水那样越来越多。</p>
+<p>**也是因为网络效应，现在基础软件创业基本都会选开源模式。**开源本身对形成网络效应具有加速作用，Zilliz选择的这种一上来就好用的“重装开源”方式则是他们认为的加速之上的再加速。</p>
+<p>星爵告诉「甲子光年」，开源是基础软件的“杠杆”，它免费的特性能降低初始用户的接受门槛；免费带来的“公益性”，也能吸引原厂外的社区开发者帮助贡献代码或做测试。这就帮助原厂更快、更多地占住了开发者和场景两大稀缺资源。</p>
+<p>以Milvus的场景拓展为例，最初Zilliz自己设想的向量搜索的场景是以图搜图等少数几个，而聪明的开发者却能把这个工具用到更多场景，比如互联网房产服务商把Milvus用在房源匹配，医药研发企业会使用Milvus来帮助新药研发，专精自然语言处理的团队把Milvus用在智能客服。</p>
+<p>“这就是开源的魅力，不是你觉得你能提供什么，而是用户会自己去想他能怎么用。”星爵说。</p>
+<p><strong>理解了基础软件的网络效应，才能理解基础软件创业对时机、原创性和方向的苛求。</strong></p>
+<p>正是因为开发者的精力和场景是有限的，转换技术栈的成本很高，所以一旦针对一类问题已有了可用、好用的基础工具，后来者即使在产品层面好上个20%到30%，也不足以引起开发者替换，微创新很难构成威胁。</p>
+<p>所以，<strong>基础软件首先有“代际性”，在信息科技产业的承平岁月，没有太多让新人崭露头角的机会，只有“改朝换代”时，新英雄才能成批涌现。</strong></p>
+<p>目前5G、云计算、AI、IoT、大数据等新技术带来通信、计算、数据、数据处理方式等全方位的新变革，当前正是一个风起云涌的变换期，出现了一批尚未被满足的开发者的需求，市场机会的缝隙由此打开。这也解释了近期“基础软件+开源”的创新和资本热潮。</p>
+<p>同时，这些新英雄一定要努力做到独家原创，因为跟着别人跑很可能会输掉“率先达到网络效应”的竞赛。“不要重复造轮子”，这不是极客情怀，而是商业逻辑要求下的选择。</p>
+<p>从星爵作为创始人的个性特点上来说，他本人也挺享受这一点：“无人区有很多不确定性，但我们追求那种在荒漠无人区里独自行走的快感。”</p>
+<p>有了对时机的把握和对原创的觉悟，<strong>接下来是要锚到一个好方向</strong>，去解决一个有痛点的、主流的问题。</p>
+<p>在方向选择上，Zilliz的第一款产品选择了做针对非结构化数据的处理工具，这背后是对需要处理海量非结构化数据AI的长期看好。</p>
+<p>**对“网络效应”逻辑的共识是Zilliz及其目前投资方不看收入的底气。**这看起来是一个冒险甚至有点“忽悠”、带“泡沫”、被务实派斥为“违背商业本质”的路线，但对相信者来说，唯有如此，必须如此，否则不如回家卖红薯。</p>
+<p>不做收入也需要定力。在2017年到2019年，Zilliz全力研发异构计算底层数据平台MegaWise和向量搜索引擎Milvus期间，也有企业方找他们做一些to B数据服务项目，但Zilliz选择是不做。</p>
+<p>Zilliz的投资方云启和晨兴也对此有共识。星爵告诉「甲子光年」：“他们（投资方）从来不催我们做收入，我们到现在收入是0，今年我们多半是0，明年很可能还是0。”</p>
+<p>云启董事总经理陈昱认为开源项目前几年可能就是没有收入，但一旦进入商业化阶段，可能会迎来爆发式增长。</p>
+<p><strong>3.10个人1个月，也生不出一个孩子</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI9oq7DAC5eWkLpBlMCIqhGfY8u7vNnvicEISa7EoFV5Q3TSP0hGkkFUVtZ8ZpK3pQxpjIj5llPH7YA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>那么对一个“基础软件+开源”的创业公司来说，如何才能更快跑到爆发式增长的门口，即网络效应的临界点？</p>
+<p>这和“21世纪什么最贵？”是一个答案，人才。<strong>有人才能做出网络效应的第一个基础，你首先得有好的产品。</strong></p>
+<p>但人才竞争并不是堆人。</p>
+<p>扎克伯格曾说过，1个优秀工程师可以抵得上100个普通工程师。对需要拓荒的基础软件开发来说尤其如此。</p>
+<p>Zilliz目前有50多名员工，其中40多名是工程师，在2017年开始启动异构计算平台研发时人更少，最初核心工程师只有10名。</p>
+<p>这里就得提到星爵此前的职业经历，2009年，星爵在读到威斯康星大学麦迪逊分校计算机科学博士的第四年选择进入工业界，加入Oracle（甲骨文），并从2009年开始开发甲骨文的第一款云数据库产品12c。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI8IohLvGNSmbj2aWAu9FLiajqVFekIjntJ5oiaopEkt1PL01rlVenhxibrXkZrLwH0GXauw0knpJHk5w/640%3Fwx_fmt%3Dpng" alt></p>
+<p>2013年6月，Oracle发布12c数据库</p>
+<p>在12c最初启动时，团队只有5个人，此后的6年里平均在7-8个人左右，迭代了两个版本。到2015年星爵离开甲骨文回国时，这仍然只是一个不足10人的小团队。2018年后，团队升级为云数据库部门，才扩充到上百人。该产品已累计为甲骨文创造了超过100亿美金的营收。</p>
+<p>“在一个开创新项目的研发上，就连Oracle这样的大公司，也不是说第一年就投100号人，Oracle的新项目组一般都不会超过10个人，等做到6、7年以后，项目下面出现了更多的模块，可以做并发开发了，才会有更多人进来。最开始就是做一件事。”星爵说。</p>
+<p>相似的例子还有Google的TensorFlow，在2015年发布第一个版本前，这个团队约20多人，现在已达到上千人。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI8IohLvGNSmbj2aWAu9FLiaj7Yg7Oc9Vice6kfQ9OuL2ibVdfcuA7HwRApv7gjM0htr5oicvLhL0HPjpg/640%3Fwx_fmt%3Dpng" alt></p>
+<p>Google AI负责人、TensorFlow带头人Jeff Dean</p>
+<p>奠定了异构计算商业化基础的LLVM更加极端，最初就是Chris Lattner在UIUC（ 伊利诺伊大学厄巴纳-尚佩恩分校）读博士期间一边写论文一边做的，以一己之力重新定义了编译器。</p>
+<p>这样的经历让星爵认为公司最初一定要找到最懂行的人，就是要有极客和大神文化：“我堆200个人，就能把3年压缩到1年吗？其实也不行。”</p>
+<p>当然，这样的人挺难找，竞争也相当激烈。</p>
+<p>公司的HR很崩溃，有时100份简历筛不出一份可以面试的。许多最终进入公司的候选人来自朋友介绍、校友和熟人推荐。</p>
+<p>星爵说，为了招募公司的核心成员，他平均要和候选人吃3次饭，每次聊两小时，以愿景打动之，以自身技术能力吸引之：“还好我自己挺懂技术的，对一个底层技术软件公司来说，创始人自己不懂基本没戏。”</p>
+<p>正是开发原创性基础软件的这种“不靠堆人靠大神”的特点，决定了Zilliz这类公司的团队文化：<strong>每个人都能独当一面的英雄文化</strong>。</p>
+<p>阿里的早期员工入职时每个人要选一个武侠人物当花名，在Zilliz大家要选一个英雄名，在星爵看来，这不是形式主义，每个人要讲清楚为什么选这个英雄，其实背后的问题是：你的拿手技能和愿景是什么？没有绝活儿不能叫英雄。</p>
+<p>星爵之所以选择这个英雄名，是因为他觉得银河护卫队可以默契协作干成一件大事，协作不仅是团队综合战斗力的保障，也符合开源技术精神。</p>
+<p>大神扎堆也让团队必须推崇坦率的文化——不是自己坦率，而是要接受别人的坦率，这是牛人扎堆的相处之道。</p>
+<p>采访时，星爵非常形象地表演了公司内其他同事是怎么“坦率”的：“超哥你闭嘴，你讲的是错的，其实真是情况是这样的这样的。”星爵突然放大声量并配合着辩论的手势，“他们就是这样怼我的。”</p>
+<p>对敢发表不同意见的同事鼓励，能讲出来道理的则要鼓励再鼓励，这是星爵口中的Zilliz的坦率文化。</p>
+<p>而对外，“牛逼哄哄”的Zilliz工程师们又是“另一幅面孔”，<strong>这关系着达到网络效应的另一个基础——搞好社区运营。</strong></p>
+<p>星爵本人非常看重社区运营的重要性，他认为在一个开源项目的成功上，社区和产品至少四六开。</p>
+<p>目前，Zilliz的整个团队分为两个平级的部门，一个是技术研发部，一个是技术运营部，技术运营部下有三块：用户成功、社区运营和技术传播。</p>
+<p>其中技术传播团队负责技术文档、白皮书的撰写和维护；社区运营团队则会举办各种线上和线下活动。</p>
+<p>Zilliz的“首席布道师”顾钧每周二晚上8点会有一场雷打不动的面向社区的60分钟线上交流，收集大家的问题和建议，与社区同步Zilliz产品的新进展。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI8IohLvGNSmbj2aWAu9FLiajLPdSGB3DhsmHiaj7SRzIMw6icu2V50XaG6JjfgXHHLyEgEDQl6GLzDhg/640%3Fwx_fmt%3Dpng" alt></p>
+<p>Zilliz开源社区线下活动现场</p>
+<p>星爵总结，在产品做好、能给社区带来价值的基础上，<strong>做社区运营的经验之一是要有利他主义。</strong></p>
+<p>最开始的宗旨就是用户愿意用，开源原厂团队就要服务到位，先“不要想钱的问题”，也不要陷于工程师对自己的代码的“敝帚自珍”。</p>
+<p>其实在2019年7月开始启动Milvus的开源时，Zilliz内部一度分为两派，一派支持部分开源，一派支持全部开源。部分开源派的想法既有对全部开源后未来商业化怎么办的疑虑，也有一种工程师本能的、对自己的核心代码难以割舍的情节。</p>
+<p>星爵自己的想法是全部开源，因为他想明白一个事，<strong>用户其实没有占有源代码的需求，用户需要的是原厂团队快速优化、快速迭代的能力，是服务，“最牛的是你打一个响指就能解决问题”。</strong></p>
+<p>社区运营的第二个经验是要“微笑着面对挫折”，并不断改进。</p>
+<p>做传播不是工程师的强项，Zilliz在最初做社区活动时，非常惨淡。第一次比较正式的线下活动，有十几人报名，Zilliz大张旗鼓地在现场搞了易拉宝、水牌等指引物料，最终就来了两个人，顾钧和其他5个同事对着他们讲了3小时。</p>
+<p>“我们内部统一想法，就算只来1个人，也像来了100个人。有一个听众我也讲，有10个我更开心，对吧。”星爵说。</p>
+<p>Zilliz最初在公众号等渠道做技术文章传播时，也常常不得要领。现在回头看，主要是写得太晦涩，只有少部分人能看懂。而现在，团队积累了更多写文章的技巧，比如用白话和比喻翻译技术语言，加点表情包调节阅读节奏，更多使用视频类内容，在选题上讲点工程师普遍关心的话题，更多吸收社区里其他能写的工程师的输出等。开源8个月来，Zilliz已累计发布了40多篇有关Milvus的技术文章。</p>
+<p>技术研发+技术运营两手抓，Zilliz正努力加速让自己进入下一个阶段。</p>
+<p><strong>4</strong>**.18个月后的商业化**</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI9oq7DAC5eWkLpBlMCIqhGfY8u7vNnvicEISa7EoFV5Q3TSP0hGkkFUVtZ8ZpK3pQxpjIj5llPH7YA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>按星爵自己的计算，下一个阶段会在18个月后到来，届时Milvus会来到网络效应的临界点。</p>
+<p>临界点的标志是企业用户数量突破千家。</p>
+<p>为什么千级企业用户是个门槛？</p>
+<p>参照Spark、Elasticsearch等成功开源项目的发展历程，突破1000+用户意味着规模效应的到来。一方面，上千家企业用户往往意味着背后有5000-6000位满意的开发者，能够形成口碑传播效应；另一方面，上千家企业用户通常也包含了数百个应用场景的成功匹配，代表项目的产品化程度趋于完善。</p>
+<p>目前，Milvus半年多时间里已在全球积累了300家企业级用户。Zilliz在开源社区上的计划是力争在18个月内达到临界点。</p>
+<p>为了到达这个数量，Zilliz接下来将正式开启全球化运营。<strong>“未来12个月，一定要把旗帜插到硅谷。所有公司提到非结构化数据处理，第一个想到的就是Milvus。”</strong></p>
+<p><strong>在Zilliz的设想中，达到网络效应之后的盈利方式，是云托管。</strong></p>
+<p>云托管就是，基础软件开源并将其服务托管在公有云平台上，企业客户直接购买在云上部署好的服务。</p>
+<p><strong>这种方式首先可以缩短销售链条，减少营销投入。</strong></p>
+<p>过去的销售是上门推销，需投入大量资金建立销售网络。云托管模式下，用户直接体验开源版本，试用后可购买服务，产品本身即营销。</p>
+<p>同时云托管也适应开源基础软件对迭代速度的要求，可以以日为单位去更新升级。</p>
+<p>此外，云托管可以降低部署和实施门槛，企业客户可直接购买并云上部署。</p>
+<p>这些好处共同导致的结果是，<strong>可拉高基础软件公司的毛利率</strong>。</p>
+<p>做软件比做硬件市盈率高，因为它边际成本更低，而互联网公司比软件公司市盈率更高，因为除了边际成本低外，它还有网络效应。</p>
+<p>而基础软件+云托管，一方面本身就有网络效应，另一方面可以减少营销、部署成本，进一步降低边际成本。</p>
+<p>星爵认为，<strong>云厂商与基础软件厂商最终会形成一种新的App Store的模式</strong>，云厂商是应用商店平台，上面会有各类基础软件应用。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/58b2usHiaQI8IohLvGNSmbj2aWAu9FLiajdf88s872NsrWC5UrTQHiae8runKQYqEUbWN0eMkJiaqaUqhC9mibEu7wQ/640%3Fwx_fmt%3Dpng" alt></p>
+<p>AWS收录了独立软件供应商的产品，用户可直接测试、购买与部署</p>
+<p><strong>理想很丰满，但通往未来的道路也充满挑战。</strong></p>
+<p><strong>第一个挑战在于企业用户的整体上云情况及付费意愿。</strong></p>
+<p>此前「甲子光年」在《<a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247491567&idx=1&sn=ccbd89c134bbfdf300a00d70c389cc57&chksm=feb6894cc9c1005ade6da218628304ce34fe2d7025f0001eb8a7bf452fc16645d82f324aadd6&scene=21#wechat_redirect">“基础软件+开源”，为什么是现在？</a>》一文中曾提及，国内除互联网和金融之外，其他行业信息化水平与国外“天差地别”。中国市场付费能力最强的机构是政府和大型企业，其中有不少国企，它们往往对公有云上的开源系统有安全性等顾虑。</p>
+<p>一名关注此领域的投资人告诉「甲子光年」，To D实际上算作to B的子类，采购主体和开发部门有可能是错位的，近几年在中国企业中虽然开发者的话语权大幅提高，但对基础软件来说依然薄弱，因为基础软件若出问题，大领导可能被问责。</p>
+<p><strong>挑战之二还是在于人才，尤其是全球化人才。</strong></p>
+<p>通用的基础软件一定不是地域性的，最终跑出来的公司要在全球取得优势。云启陈昱说：“<strong>投开源项目，我们的标准之一就是，产品放眼世界要有竞争力，因为开源技术是没有（国境）边界的。”</strong></p>
+<p>今年，Zilliz希望团队能从50多人扩充到100人，他们尤其想补充英语等软技巧很强的全球化人才。“如果英文读写不能达到流畅水平，我们在招人时就会有疑虑。”这进一步导致招人难。</p>
+<p><strong>最后，全球化道路上，需要面对数据安全和合规的挑战。</strong></p>
+<p>云启陈昱称，未来往全球市场走，Zilliz可能要花很多力气在数据安全和合规方面。这是公有云最开始起来时大家就在讨论的问题，也是取得客户信任感必须面对的问题，在这方面要做到无懈可击。</p>
+<p>不过，“基础软件+开源”在美国已经跑出了一些公司——明星开源项目MongoDB和Elastic股价一路飞涨，未上市企业也颇受资本市场青睐。</p>
+<p>“照猫画虎的话，这条路相信在中国是走得通的，但可能需要一定的时间。”陈昱说。</p>
+<p>中国也已有初具规模的公司。如已成立五年的PingCAP，其项目TiDB在GitHub已有23.2K的星标，在社区活跃度或者一些评论文章上，PingCAP的指标已经全面超过了它的美国对标。</p>
+<p>“开源在国内变现的确会有挑战，但是PingCAP已经证明了还是能做的，今年PingCAP的合同额预计过亿，并且在海外市场上会有突破。”陈昱告诉「甲子光年」，<strong>Zilliz和PingCAP一样可以开拓国际市场，国际客户的客单价和付费意愿会更加强，这是基础软件较于一般的企业服务有优势的地方。</strong></p>
+<p><strong>Zilliz也已开始一些商业化的准备动作。</strong></p>
+<p>一是市场摸底——据Zilliz的用户调研，目前用户中近三成有付费意愿，星爵对此很乐观：“很多用户会主动找过来问我们有没有商业版”。</p>
+<p>同时，今年以来，Zilliz已开始投入商业版产品的研发，为用户量到达临界点做准备。</p>
+<p>整体来看，开源市场的发展速度会越来越快，已有很多先行者可以为新的开源项目提供运营经验。</p>
+<p>而底层技术具有反周期特性，并不受到经济衰退等外部环境因素影响。开源也会成为一种主流选择——率先选择开源的企业也更容易率先形成网络效应，从而占据市场优势地位。</p>
+<p>过去这条路在中国并非主流，而之后，则要靠投身其中的人一步步走出来。</p>
+<p>END.</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/58b2usHiaQIibRgyXDk8NOosibRs0MPdcKHvh0NT6kLoWOPvU7S01zN83oiaDIh3AIV06fFdvh1oTvpXhdgdwloH7g/640%3Fwx_fmt%3Djpeg" alt></p>
+<p><strong>|</strong>** 相关推荐****|**</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247491567&idx=1&sn=ccbd89c134bbfdf300a00d70c389cc57&chksm=feb6894cc9c1005ade6da218628304ce34fe2d7025f0001eb8a7bf452fc16645d82f324aadd6&scene=21#wechat_redirect">《基础软件+开源，为什么是现在？》</a></p>
+<p><strong>|</strong>** 甲****子直播间回顾 **<strong>|</strong></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247491791&idx=1&sn=568842e17dd59239327a1629ad7b3998&chksm=feb5766cc9c2ff7a36d4bfc6941531ffbabf2273a5ec1fad255ecf9a2bc803d93a44e5bbc160&scene=21#wechat_redirect"><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/58b2usHiaQIib1Icuqr2syfpuOOekicJNR9WBxvS9skwv0Pk9eT5RxKLOdCiaK2SUTs3cukzrXFfHCmRSsWrQeLUog/640%3Fwx_fmt%3Djpeg" alt></a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247491791&idx=1&sn=568842e17dd59239327a1629ad7b3998&chksm=feb5766cc9c2ff7a36d4bfc6941531ffbabf2273a5ec1fad255ecf9a2bc803d93a44e5bbc160&scene=21#wechat_redirect">第八期回顾：神策桑文锋：做SaaS，如何实现近100%的续费率</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247491430&idx=1&sn=19f56ed25e7269172c5beda9fdd7374a&chksm=feb689c5c9c100d3b7e66a70008728f066034654e953b81766533dbdbf76c1e6c0cc9c7540cd&scene=21#wechat_redirect"><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/58b2usHiaQIib085VWWUIxwOQGtvHZCe4whfjFstRgDXmYhMaLUoSicnKyl0uKqqsQEm45atrdC9qVNd1Nj8B8YIg/640%3Fwx_fmt%3Djpeg" alt></a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247491430&idx=1&sn=19f56ed25e7269172c5beda9fdd7374a&chksm=feb689c5c9c100d3b7e66a70008728f066034654e953b81766533dbdbf76c1e6c0cc9c7540cd&scene=21#wechat_redirect">第七期回顾：耀途白宗义：从中国到以色列，硬科技要怎么投？</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247491157&idx=1&sn=dfb633e5507c20af56af1640fa93c9e4&chksm=feb688f6c9c101e07e128a319168bf222cc82b6fff618213de9a6cf32f7df441736987ffec64&scene=21#wechat_redirect"><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/58b2usHiaQIicC4jruGsQtOLX9SxtMlKxIT4thbPicvrRmRZFK0l0CHStQ4QULE98NZicU83cE0SWvzdcRRzBwr6Mw/640%3Fwx_fmt%3Djpeg" alt></a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247491157&idx=1&sn=dfb633e5507c20af56af1640fa93c9e4&chksm=feb688f6c9c101e07e128a319168bf222cc82b6fff618213de9a6cf32f7df441736987ffec64&scene=21#wechat_redirect">第六期回顾：凯辉杨国安：8家数智化企业的组织模式启示录</a></p>
+<p>|** 往****期精选 **|</p>
+<p><strong>-科创板-</strong></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247487601&idx=1&sn=a705ac33fdb41367173fa1a073429c89&chksm=feb686d2c9c10fc491f37bcfbe4f85a74624361ef4e35c504965ccdd254009d56f8f4c15635b&scene=21#wechat_redirect">科创板AI第一股，和它背后的视觉新机会</a></p>
+<h2 id=科创板一瓶ai的卸妆水httpmpweixinqqcoms__bizmzu5oti0ntc3mgmid2247486674idx1sna65c031a343cd83c865c972cad0ca6b7chksmfeb69a71c9c113675b109a0adfb3b38857a9f5a6827fbc84628136766eca18c9deba71de2417scene21wechat_redirect><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247486674&idx=1&sn=a65c031a343cd83c865c972cad0ca6b7&chksm=feb69a71c9c113675b109a0adfb3b38857a9f5a6827fbc84628136766eca18c9deba71de2417&scene=21#wechat_redirect">科创板，一瓶AI的卸妆水？</a></h2>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247486599&idx=1&sn=36b61fcc9a807021b7050c620e5c7ac8&chksm=feb69a24c9c11332d51a9c5ae0cc5d4bc7f496d8b568afb83e57a22f5f2ec48f84767e7c1abf&scene=21#wechat_redirect">冲刺科创板，从价值创造到价值经营</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247486465&idx=1&sn=d1daf8ed00d3ad86753c650caa11bcf0&chksm=feb69aa2c9c113b4eec01043d375dd20a8944c4018d488fbd3b31d1881072a5861f5d940d08e&scene=21#wechat_redirect">科创板，野心与决心</a></p>
+<p><strong>-科技人文-</strong></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247490650&idx=1&sn=8f436455e94ae4ad1e4040366670e8ee&chksm=feb68af9c9c103efedcca940af85b8b74c21ecb92f142c53afe3169863bfc24c4b5b302bef58&scene=21#wechat_redirect">Zoom危机与“健康码”抗疫：你愿意让渡多少隐私</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247489919&idx=1&sn=c4e8d00c0b13fa84d4f9739a3d3c06ab&chksm=feb68fdcc9c106ca59c10b8d5c030673aca7bb76946476f07f1a4af4c6635b867ef38b27f218&scene=21#wechat_redirect">兼职“车模”，横店群演的AI新工作</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247489833&idx=1&sn=d0f49c2370c8a76cf58828d448f7e49d&chksm=feb68f8ac9c1069c2711cebf781cdbcadfb713f532295c8d596a4952629e59257062a23a5c9b&scene=21#wechat_redirect">被严重低估的威胁：全球变暖</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247489816&idx=1&sn=557a64a2ba358434bfbf7c7c20ca25f7&chksm=feb68fbbc9c106ad5f014820d9a2e833f6b1c6b33eb5a73b82b982c622769a658a5c213912e4&scene=21#wechat_redirect">封城28天，武汉创业者的自救与觉醒</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247487270&idx=1&sn=847da992667c267eb4e41b00653fa6d8&chksm=feb69985c9c1109358692f5752bdceaf8efa256e274b43dff5e6bc47786ddf38a03820d2d673&scene=21#wechat_redirect">大航天时代备忘录</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247487029&idx=1&sn=7ad4a34a6d0739e7d7f4a44dde2a3a4d&chksm=feb69896c9c11180162b37619155f187ddce090df2be90b8d948d399c9601c53c11a06a4e066&scene=21#wechat_redirect">时代呼唤数学家</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247486352&idx=1&sn=5d94707a7932808ddca422df47108f03&chksm=feb69d33c9c11425013fceb4969456c0daa3eae7310e2c6367e664ca3be98fc8e8fca70fb007&scene=21#wechat_redirect">天才灭绝纪元</a></p>
+<p><strong>-甲小姐对话-</strong></p>
+<h2 id=对话陈天石通往伟大芯片公司的赛程很长httpmpweixinqqcoms__bizmzu5oti0ntc3mgmid2247490028idx1sn4870f03e41417cb496bd20214bdec801chksmfeb68f4fc9c10659bd0e5b0c99827bf2e70ac14936948f1aeae3b304db067571bd85b646f2f8scene21wechat_redirect><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247490028&idx=1&sn=4870f03e41417cb496bd20214bdec801&chksm=feb68f4fc9c10659bd0e5b0c99827bf2e70ac14936948f1aeae3b304db067571bd85b646f2f8&scene=21#wechat_redirect">对话陈天石：通往伟大芯片公司的赛程很长</a></h2>
+<h2 id=对话蓝驰陈维广httpmpweixinqqcoms__bizmzu5oti0ntc3mgmid2247488958idx1sn3e97eb02908d95271b65819ac831b0d9chksmfeb6831dc9c10a0b917e87363ef81e03e3f265b6dc36081f2d753f827fb695fd3bae079feb4fscene21wechat_redirect投资无新事httpmpweixinqqcoms__bizmzu5oti0ntc3mgmid2247488958idx1sn3e97eb02908d95271b65819ac831b0d9chksmfeb6831dc9c10a0b917e87363ef81e03e3f265b6dc36081f2d753f827fb695fd3bae079feb4fscene21wechat_redirect><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247488958&idx=1&sn=3e97eb02908d95271b65819ac831b0d9&chksm=feb6831dc9c10a0b917e87363ef81e03e3f265b6dc36081f2d753f827fb695fd3bae079feb4f&scene=21#wechat_redirect">对话蓝驰陈维广：</a><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247488958&idx=1&sn=3e97eb02908d95271b65819ac831b0d9&chksm=feb6831dc9c10a0b917e87363ef81e03e3f265b6dc36081f2d753f827fb695fd3bae079feb4f&scene=21#wechat_redirect">投资无新事</a></h2>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247487065&idx=1&sn=a90ca08245185a929123ea47325e1c47&chksm=feb698fac9c111ecf5578f2c4a662bb210fb116f60339fd41724e1bbe7fa7fe0d738084c20f2&scene=21#wechat_redirect">对话吴军：</a>人的归人机器的归机器</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247487300&idx=1&sn=66dd12daf9aa284e5348ada6afc39808&chksm=feb699e7c9c110f16dc59e4855162aea023583e930ebc988e604b0aa37464a15eab54b33e946&scene=21#wechat_redirect">对话李志飞：心中要有一把尺</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247485139&idx=1&sn=5580fe3e728ea209ae5ff1eddcfa6395&chksm=feb69070c9c11966d98400542b13ce8c25077d0cf792dd3619b30ffb66ca3705541024e41b62&scene=21#wechat_redirect">对话硅谷投资人张璐：to B投资之道</a></p>
+<p><strong>-2019甲子引力-</strong></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247489303&idx=1&sn=9486d8011c78a2359a454a46642b3cef&chksm=feb681b4c9c108a2194cd95e4bc39b137cd464780c45e6599fcb5c6bdcb9bcb9f034a8f63e61&scene=21#wechat_redirect">【年度纪录片正片】纵身一跃：科技突围</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247488578&idx=1&sn=600d71f9ff489924ec2afa779703fd31&chksm=feb682e1c9c10bf70c4205a537544fa600df7953fd8b3244ed70528faee3663fab3571d8d4a8&scene=21#wechat_redirect">工信部单立坡：</a><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247488578&idx=1&sn=600d71f9ff489924ec2afa779703fd31&chksm=feb682e1c9c10bf70c4205a537544fa600df7953fd8b3244ed70528faee3663fab3571d8d4a8&scene=21#wechat_redirect">“伟大是被逼出来的”</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247488207&idx=1&sn=7a40c23dc2886d7064305f50d41b953d&chksm=feb6846cc9c10d7a2904a09b46cf941a137077c131681b634fad8d0f4bb145fb9ee8d0d54567&scene=21#wechat_redirect">25个判断，谈中国科技产业趋势</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247488693&idx=1&sn=6b26b08976ad1c1791e713c607b2cca5&chksm=feb68216c9c10b00b825a05d14520cb43d24e3bad1edfc18ba70a8808e4748f472cb2845de7d&scene=21#wechat_redirect">【主题报告】花开百业，科技突围</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU5OTI0NTc3Mg==&mid=2247488244&idx=1&sn=5dd8b9e89d2f8ddeed4c116b6ddb023c&chksm=feb68457c9c10d410070a87a256e0f27b5333cdc829330ee622ea4cc85646c60f265c7bf316c&scene=21#wechat_redirect">甲子20、光年20、科技捕手2019年度榜单</a></p>
+<p><strong><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/58b2usHiaQIibTdL68v1iaEmupejobX3nQGGwDw7vrdQZz5jo2Dlkicib5M1LShq04ohBT9WD8H8HZ1hCZfLPvkHHkw/640%3Fwx_fmt%3Djpeg" alt></strong></p>
+<p><strong><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/58b2usHiaQIibel90ODUypzMWfaJ6VFmao9E9L4BZppwSxeOiaYbuosytWakdbNe7EYxggSiayPzN2sZSn5K5MicicibA/640%3Fwx_fmt%3Dgif" alt></strong><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/58b2usHiaQIibel90ODUypzMWfaJ6VFmaomuibFhdpMCOLGOqicjj30Bw81W9ic9HazicxCZJXC12CeKrIlDtvsohtdQ/640%3Fwx_fmt%3Djpeg" alt></p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/7bba9d48d114509387a2ac536b1aaa76/?utm_source=see_also&utm_medium=%25E9%259B%25B6%25E6%2594%25B6%25E5%2585%25A5%25E4%25BE%259D%25E7%2584%25B6%25E6%25B7%25A1%25E5%25AE%259A%25E4%25B8%2580%25E5%25AE%25B6%25E5%259F%25BA%25E7%25A1%2580%25E8%25BD%25AF%25E4%25BB%25B6%25E5%2585%25AC%25E5%258F%25B8%25E7%259A%2584%25E5%2586%2592%25E9%2599%25A9%25E4%25B8%258E%25E5%25BA%2595%25E6%25B0%2594-%25E7%2594%25B2%25E5%25AD%2590%25E5%2585%2589%25E5%25B9%25B4">在基础软件领域，你哪儿来的迷之自信？</a>
+</h2>
+<p class=text-dark>昨天在群里聊天，胡老师发了一个链接，是美国国家科学院院刊（PNAS）上刊发的一篇论文，题目叫“中国、印度、俄罗斯及美国学生在计算机科学领域的能力比较”。我没仔细阅读，但看这篇论文里边的一张张图表，就大概能够了解到：尽管我们中国人聪明、勤奋、 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/7332fe7cb513cf03daaf671c8389e42d/?utm_source=see_also&utm_medium=%25E9%259B%25B6%25E6%2594%25B6%25E5%2585%25A5%25E4%25BE%259D%25E7%2584%25B6%25E6%25B7%25A1%25E5%25AE%259A%25E4%25B8%2580%25E5%25AE%25B6%25E5%259F%25BA%25E7%25A1%2580%25E8%25BD%25AF%25E4%25BB%25B6%25E5%2585%25AC%25E5%258F%25B8%25E7%259A%2584%25E5%2586%2592%25E9%2599%25A9%25E4%25B8%258E%25E5%25BA%2595%25E6%25B0%2594-%25E7%2594%25B2%25E5%25AD%2590%25E5%2585%2589%25E5%25B9%25B4">很难想象，我是一个刷小红书的人</a>
+</h2>
+<p class=text-dark>这是半佛仙人的第277篇原创
+1
+很难想象，我是一个会刷小红书的人。
+只不过我看的不是美妆和豪车，而是美食菜谱和咖啡教程。
+当然，这事听起来很奇怪，好像我一个大老爷们儿就不该看小红书，知乎B站以及虎扑才该是我的精神乐园。
+不过更奇怪的是，这 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/fbbf655f301d24bf0e254b8d593f7824/?utm_source=see_also&utm_medium=%25E9%259B%25B6%25E6%2594%25B6%25E5%2585%25A5%25E4%25BE%259D%25E7%2584%25B6%25E6%25B7%25A1%25E5%25AE%259A%25E4%25B8%2580%25E5%25AE%25B6%25E5%259F%25BA%25E7%25A1%2580%25E8%25BD%25AF%25E4%25BB%25B6%25E5%2585%25AC%25E5%258F%25B8%25E7%259A%2584%25E5%2586%2592%25E9%2599%25A9%25E4%25B8%258E%25E5%25BA%2595%25E6%25B0%2594-%25E7%2594%25B2%25E5%25AD%2590%25E5%2585%2589%25E5%25B9%25B4">阶级斗争新动向，清华大学教授著文要大家「警惕开源软件科技侵略」</a>
+</h2>
+<p class=text-dark>~只有习主席亲自编程，亲自调试，亲自微博发布的才事好软件~
+~所以什么时候用上红旗Linux~
+~所以什么时候用上鸿蒙~
+品葱用户 xitlerchinazi 评论于 2020-06-11 有汉芯，有鸿蒙，不怕！ …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/8be8842c3961a181636749474b42c1d6/?utm_source=see_also&utm_medium=%25E9%259B%25B6%25E6%2594%25B6%25E5%2585%25A5%25E4%25BE%259D%25E7%2584%25B6%25E6%25B7%25A1%25E5%25AE%259A%25E4%25B8%2580%25E5%25AE%25B6%25E5%259F%25BA%25E7%25A1%2580%25E8%25BD%25AF%25E4%25BB%25B6%25E5%2585%25AC%25E5%258F%25B8%25E7%259A%2584%25E5%2586%2592%25E9%2599%25A9%25E4%25B8%258E%25E5%25BA%2595%25E6%25B0%2594-%25E7%2594%25B2%25E5%25AD%2590%25E5%2585%2589%25E5%25B9%25B4">微博的绿洲，真的比撒哈拉还荒凉</a>
+</h2>
+<p class=text-dark>微博救得了新浪，绿洲却不一定救得了微博。/图虫创意
+张朝阳早就说过：互联网经济就是注意力经济。用户那早被短视频、VR等吸引走的注意力，怎会轻易被单一的静态图片吸引回来。在视频时代，绿洲只有被降维打击的份儿。
+俗话说得好：“要想生活过得去，就 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/378b10fad47501f5474230699ae8b0c7/?utm_source=see_also&utm_medium=%25E9%259B%25B6%25E6%2594%25B6%25E5%2585%25A5%25E4%25BE%259D%25E7%2584%25B6%25E6%25B7%25A1%25E5%25AE%259A%25E4%25B8%2580%25E5%25AE%25B6%25E5%259F%25BA%25E7%25A1%2580%25E8%25BD%25AF%25E4%25BB%25B6%25E5%2585%25AC%25E5%258F%25B8%25E7%259A%2584%25E5%2586%2592%25E9%2599%25A9%25E4%25B8%258E%25E5%25BA%2595%25E6%25B0%2594-%25E7%2594%25B2%25E5%25AD%2590%25E5%2585%2589%25E5%25B9%25B4">做营销还是摆地摊</a>
+</h2>
+<p class=text-dark>这是半佛仙人的第271篇原创
+1
+快节奏的时代，让品牌的颠覆成了常态。
+前一天还是浓眉大眼中老年人社交必备单品的白酒，转个头就成了年轻人的社交饮料。
+以前还多少有点“上不得台面”的冈本、杜蕾斯，在互联网加成下，成了内容营销领域的领头羊。
+昨 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

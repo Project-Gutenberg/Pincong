@@ -1,0 +1,25 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>权限 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E6%9D%83%E9%99%90/</link><description>Recent content in 权限 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Tue, 12 Oct 2021 09:05:58 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E6%9D%83%E9%99%90/index.xml" rel="self" type="application/rss+xml"/><item><title>网友反馈在未主动激活 App 情况下，微信在后台反复读取用户相册，是否涉及侵犯用户隐私？</title><link>https://project-gutenberg.github.io/Pincong/post/0573ddb142dcdc4a0021bedbffdc4bfb/</link><pubDate>Tue, 12 Oct 2021 09:05:58 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/0573ddb142dcdc4a0021bedbffdc4bfb/</guid><description>知乎用户 发表 进展更新：
+微信方面回应称：iOS 系统为 APP 开发者提供相册更新通知标准能力，相册发生内容更新时会通知到APP，提醒APP可以提前做准备，APP的该准备行为会被记录成读取系统相册。
+当用户授权微信可以读取「系统相册权限」的前提后，为便于用户在微信聊天中按「+」时可以快速发图，微信使用了该系统能力，使用户发送图片体验更快速流畅。上述行为均仅在手机本地完成，最新版本中我们将取消对该系统能力的使用，优化快速发图功能。
+微 …</description></item><item><title>iOS 是不是能比安卓更能保护隐私？</title><link>https://project-gutenberg.github.io/Pincong/post/0e10fc3431011e9d7e261945947904b9/</link><pubDate>Sun, 10 Oct 2021 08:40:59 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/0e10fc3431011e9d7e261945947904b9/</guid><description>知乎用户 Coa​​ 发表 老王早上搜索一下耐克鞋，很快便发现不管是抖音、知乎还是微信朋友圈，铺天盖地的都出现了运动鞋的广告。小刘发现自己的洗发水快用完了，正打算买洗发水，就发现京东的洗发水广告已经推送到了手机上。
+为什么广告商总能对广告进行精准投放呢？ 这里就需要 “大数据” 来分析。我们在网上的每一个行为操作、每个浏览记录、关注内容、使用的 App 等信息都被记录，并根据不同的行为权重对用户进行画像，当搜集到足够多的数据后，便可以描 …</description></item><item><title>网友反馈在未主动激活 App 情况下，微信在后台反复读取用户相册，是否涉及侵犯用户隐私？</title><link>https://project-gutenberg.github.io/Pincong/post/15955dbeadbcd175dbe316edcbcd03ca/</link><pubDate>Sun, 10 Oct 2021 08:25:23 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/15955dbeadbcd175dbe316edcbcd03ca/</guid><description>知乎用户 Hackl0us 发表 ​
+目录
+网友反馈的网友就是我，作为当事人尽量全面地回答这个问题，包括客观分析和主观看法。
+这份回答也是在之前在微博承诺过的，在 26 岁生日前会写成一篇完整的事件报告呈现给大家。
+这份回答包含大家关心的微信官方团队的说法、技术实现和解读、个人态度和立场、我发起事件原因和气愤的点、防范隐私侵犯的方法等等内容。你也能在这份报告看到微信官方的态度，以及这样做的初衷及目的。
+因为 Telegram 最大字数限 …</description></item><item><title>《深圳经济特区数据条例》公布：禁止 APP「不全面授权就不让用」、大数据杀熟最高可罚五千万元，你怎么看？</title><link>https://project-gutenberg.github.io/Pincong/post/0443e3815e00b20a9ceac5ef8211a60c/</link><pubDate>Wed, 07 Jul 2021 09:48:43 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/0443e3815e00b20a9ceac5ef8211a60c/</guid><description>知乎用户 新京报贝壳财经​ 发表 不得不说，还挺向国际接轨的（这次是褒义），能够注意细化对「同意授权」的定义，避免滥用用户的同意。
+很多时候，我们都不知道自己同意授权了什么东西。譬如说，App 《用户协议》里问：我能不能了解一下你的情况，好给你进行精准推荐。你想，多大点事啊，不就是为了方便刷小视频吗，就点了。
+好家伙，你可不知道对方「为了进行精准推荐」可以干多少事，从搜索了「谷饲牛排」，到相册里存了改装皮卡的照片，再到睡前大喊三声入关， …</description></item><item><title>如何看待字节跳动一实习生删除公司 GB 以下所有机器学习模型，事情经过是怎样的？事故影响有多大？</title><link>https://project-gutenberg.github.io/Pincong/post/ecb55a98a93613499fbde1682c312d77/</link><pubDate>Sat, 26 Jun 2021 15:10:01 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ecb55a98a93613499fbde1682c312d77/</guid><description>知乎用户 扼杀黑暗 发表 其实还好吧
+故障恢复是互联网公司得特长吧
+这种重要数据，如果没有备份和恢复方案，那只能说明字节缺乏互联网公司得风险意识
+这显然不可能
+而且现在互联网公司搞 devops，什么都让程序员操作，那就应该把运维故障当作常态
+我们以前运维经常不小心把线上库干崩，然后劈里啪啦，主从切换，数据库回滚，几分钟立刻恢复运转，用户甚至没太大感知。
+无他，手熟尔
+不同得企业结构，是不同得风险控制方式
+不要大惊小怪
+发展快得公司，实 …</description></item><item><title>高德地图？变身“捉奸神器”？</title><link>https://project-gutenberg.github.io/Pincong/post/d407a04125539cc2e35820a5fab3af36/</link><pubDate>Wed, 22 Jul 2020 04:39:45 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/d407a04125539cc2e35820a5fab3af36/</guid><description>很多年前，我在做自由调查记者的时候，偶尔会接一些私单，帮某些安全公司搞一些线索，或者给一些媒体提供调查服务，以换取一定的费用。
+曾经就调查过一款可以监控人手机的木马软件，这事儿我在大号【一本黑】也写过很多次。
+这类木马软件主要集中在安卓手机，只需要安装在对方的手机里，并进行一些简单的权限设置，就可以达到监控这部手机的目的。
+他最大的特点就是可以做到无感知监控，隐藏在后台不被发现。
+从功能上来说，这类监控手机的木马，可以做到监控手机 …</description></item></channel></rss>

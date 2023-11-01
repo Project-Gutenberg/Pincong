@@ -1,0 +1,10 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>loveyou521 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/author/loveyou521/</link><description>Recent content in loveyou521 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Tue, 06 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/author/loveyou521/index.xml" rel="self" type="application/rss+xml"/><item><title>科学上网新方法之路由器翻墙篇</title><link>https://project-gutenberg.github.io/Pincong/post/fddb86dfcad032f11548679ee1a8f33c/</link><pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/fddb86dfcad032f11548679ee1a8f33c/</guid><description>上一篇简单介绍了VPS服务器购买安装。 https://pincong.rocks/article/24596
+** 现在说说路由器翻墙**
+有了服务器之后就可以用客户端连接服务器翻墙了
+现在在手机上翻墙的比较多，毕竟手机现在是工作生活不可分割的一部分了。
+手机上翻墙方便广泛，但是，手机翻墙优点有，缺点也有，在我看来缺点甚至比优点大，
+**列举一下1. 速度慢，**China特色，费用高速度低是基本套路，特别是现在5G出来，为了给5G让 …</description></item><item><title>科学上网之服务器建立篇</title><link>https://project-gutenberg.github.io/Pincong/post/05f0f3aba30743b4b9a8f968fef31639/</link><pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/05f0f3aba30743b4b9a8f968fef31639/</guid><description>翻墙技术之服务器搭建
+VPS (virtual private server)供应商选择 本人用的几家vultr, linode 阿里云轻量服务器(阿里云两台VPS，已经用了一年，都装有翻墙工具)
+Vultr linode两家的服务器配置
+最低档$5元/月, 内存1G 硬盘25G 流量1000G 带宽1G 不过国内扶墙带宽这个没什么卵用(国内访问速度一般)。按小时扣费。
+vultr机房较多,linode以前只有三个机房,现在也有十个左右 …</description></item></channel></rss>

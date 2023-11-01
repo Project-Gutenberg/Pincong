@@ -1,0 +1,10 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技巧 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E6%8A%80%E5%B7%A7/</link><description>Recent content in 技巧 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Tue, 10 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml"/><item><title>【小技巧】解决品葱“编辑回复时空行回车数量突增一倍”的方法</title><link>https://project-gutenberg.github.io/Pincong/post/9c13576af72c1ce10ec9e13dfe7ed5c1/</link><pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/9c13576af72c1ce10ec9e13dfe7ed5c1/</guid><description>（开门见山，直接说解决方法）
+一、下载一个支持正则表达式的文本编辑器，如果你有就打开。(windows推荐notepad++， mac推荐textmate)
+二、把空行数量翻倍后的编辑内容复制进去，点击ctrl+f（打开“查找与替换”功能），勾上&amp;quot;正则表达式&amp;quot;(regular expression)。
+这里分为两种方法，取决于你的需要。
+如果你想要删除其中 1/2 的空行：
+在查找栏输入“^\R{2}”，替换栏留空， …</description></item><item><title>河北科技大学韩春雨“诺贝尔奖级”实验的重复性问题</title><link>https://project-gutenberg.github.io/Pincong/post/20d6bc59544420faeddb04a7d30ad95c/</link><pubDate>Sun, 21 Jun 2020 14:37:49 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/20d6bc59544420faeddb04a7d30ad95c/</guid><description>河北科技大学韩春雨“诺贝尔奖级”实验的重复性问题
+·方舟子·
+不久前河北科技大学韩春雨在《自然·生物技术》发表论文报告了一种基因编辑新方法NgAgo，在国内轰动一时。被《知识分子》作为末流学校土博士也能做世界一流科研的典型，国内其他媒体随后跟进宣传，甚至称之为“诺贝尔奖级”的研究成果。
+这几天我陆续收到几家实验室的研究人员的来信，反映重复不出韩春雨论文中最关键的图4结果（切割基因组，T7E1和测序），呼吁我关注一下这事。
+有些人已在网上 …</description></item></channel></rss>

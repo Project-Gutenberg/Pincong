@@ -1,0 +1,5 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>silentmajority on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/author/silentmajority/</link><description>Recent content in silentmajority on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Mon, 14 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/author/silentmajority/index.xml" rel="self" type="application/rss+xml"/><item><title>来测一测，你的浏览器匿名吗？苹果用户请调整浏览器设置</title><link>https://project-gutenberg.github.io/Pincong/post/97a24e3db1b431867efc2c3b20fb8fe8/</link><pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/97a24e3db1b431867efc2c3b20fb8fe8/</guid><description>品葱用户 silentmajority 提问于 10/14/2019 提供两个测试IP地址泄漏的网址
+https://whoer.net/
+在该页面向下拉，看flash，应该显示为disabled。禁用浏览器flash不会影响使用youtube。国内使用的浏览器插件是中国特供版。
+在windows中，打开控制面板，显示方式：大图标，可以看到flash，这个flash如果卸载，不会对使用造成影响。应禁用flash。
+还有一个网址： …</description></item></channel></rss>

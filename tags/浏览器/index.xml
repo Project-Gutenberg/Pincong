@@ -1,0 +1,34 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>浏览器 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/</link><description>Recent content in 浏览器 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Wed, 13 Oct 2021 08:21:29 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/index.xml" rel="self" type="application/rss+xml"/><item><title>如何看待一企业宣称「 1 度电可发 10 度电」，产品可以无限发电，专家称违背最基本的物理定律 ？</title><link>https://project-gutenberg.github.io/Pincong/post/70a1442e926876f9eda1b5e04d43db84/</link><pubDate>Wed, 13 Oct 2021 08:21:29 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/70a1442e926876f9eda1b5e04d43db84/</guid><description>知乎用户 发表 近日，南宁隆生达发电力科技公司宣称，研发出自循环发电机并获国家专利证书，产品不用材料组装后就可以无限发电。9月29日，该公司负责人告诉新京报记者，在专利、国家高科技企业等方面存在虚假宣传，但仍坚称自家产品能1度电是能发10度电。专家表示，该产品设计理念违背最基本的物理定律。
+知乎用户 新京报​ 发表 如果你还在用科学理论来嘲讽这个老板的无知，那说明你格局低了，根本理解不了他的大气层操作。
+放出这个消息只是为了造势，目的是 …</description></item><item><title>屡教不改：微信窃取Cookies又被火绒捕捉到了</title><link>https://project-gutenberg.github.io/Pincong/post/39378c4a34afc8c4ef2d20de5883d09a/</link><pubDate>Sun, 24 Jan 2021 12:40:26 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/39378c4a34afc8c4ef2d20de5883d09a/</guid><description>21日微信 8.0 版本正式推出，大家都在微信里扔炸弹的时候，微信PC版也爆炸了。
+昨天 v2ex 上的一个网友爆出，其在火绒中添加了之前拦截QQ/TIM扫描浏览器的拦截规则后，在使用浏览器上传图片的时候，意外拦截到 微信PC版 会扫浏览器的 cookies ，这就很让人诧异了。
+有好奇网友为了验证该网友说的情况是否属实，在 Windows Sandbox 里用 Process Monitor 嗅探了 6 个小时， …</description></item><item><title>如何看待 QQ 扫描读取所有浏览器的历史记录？</title><link>https://project-gutenberg.github.io/Pincong/post/004350b05aa72ff1cc2020e58e51257c/</link><pubDate>Wed, 20 Jan 2021 01:36:39 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/004350b05aa72ff1cc2020e58e51257c/</guid><description>知乎用户 簞純 发表 置顶：
+腾讯已经下场回应了，这件事也算告一段落，我就从技术的角度来稍微讲解一下吧。
+恶意登录对于 QQ 来说确实是一个需要考虑的问题，毕竟大多数人安全意识不高，而腾讯就必须做好这方面的防护（举个例子，绝大部分键盘记录软件是记录不到电脑版 QQ 输入的密码的，所以这些年很少有因为密码而被盗的 QQ 号），而恶意软件的一大收入来源就是广告推广，最常见的就是大家经常看到的购物广告。两者结合在一起，腾讯用这种办法检测恶意登 …</description></item><item><title>Win10 将永久删除 FlashPlayer ，必须要 flash 时怎么办？可以用什么来替代它？</title><link>https://project-gutenberg.github.io/Pincong/post/b50ccc03ec7d1735d49e5cbacdf27dea/</link><pubDate>Sat, 16 Jan 2021 10:51:53 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b50ccc03ec7d1735d49e5cbacdf27dea/</guid><description>知乎用户 36 氪​ 发表 好事，只有当你们普通用户 “必须用” 也用不了的时候，
+flash 才会真正灭亡。
+至于说怎么办，不办，把锅甩回给内容开发商 / 运营商。普通用户只需要摆出一副小白表情就行：“你们这个我打不开，用微信也打不开，换别人电脑也不行”
+知乎用户 有木桑 发表 网页里的电脑博物馆，让数字媒体的光辉长存，拒绝没有记忆的中国互联网！对于开发者来说 Ruffle 是一个一键式的解决方案，让 Flash 运行在 iOS 上 …</description></item><item><title>流量简史</title><link>https://project-gutenberg.github.io/Pincong/post/efd4b8f10af11fdd6951731cef1b89fe/</link><pubDate>Tue, 30 Jun 2020 16:24:08 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/efd4b8f10af11fdd6951731cef1b89fe/</guid><description>西藏林芝中流砥柱。2007年5月27日
+过去20年，涨得最猛的是房价，比房价涨得还猛的，是流量的价格。很多人感慨，人口红利吃完了，流量红利也终于吃完了。可即使没有了流量红利，快手一个粉丝数不算很多的用户“二哥评车”，通过为粉丝组织汽车团购，一次就能卖掉288辆新车，超过大多数4S店的月销量，你说这是为什么？
+李嘉诚说：地段，地段，还是地段。在互联网上，这句话就是：流量，流量，还是流量。
+可是起初，互联网没有流量的概念，直到Web出现。 …</description></item><item><title>红芯浏览器事件持续发酵 律师称其涉嫌虚假宣传</title><link>https://project-gutenberg.github.io/Pincong/post/6bbc0545f2b7840e99598d3dc814bd34/</link><pubDate>Sun, 21 Jun 2020 12:22:32 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/6bbc0545f2b7840e99598d3dc814bd34/</guid><description>红芯浏览器事件持续发酵 律师称其涉嫌虚假宣传
+中新网客户端北京8月18日电(张旭)连日来，红芯浏览器事件持续发酵，在致歉中不断引发争议。业内人士质疑红芯的宣传与产品存在诸多不符之处，律师则向中新网记者表示，红芯公司的行为涉嫌虚假宣传以及不正当竞争。
+红芯浏览器风波不断
+近日，宣称自己是“世界第五颗浏览器内核、唯一属于中国人自己的浏览器内核”的红芯浏览器，因为被发现安装包里解压出了Chrome而处于风口浪尖。
+8月17日，红芯发布致歉信， …</description></item><item><title>国内互不联网公司的调性，一次性说完好了</title><link>https://project-gutenberg.github.io/Pincong/post/ac35417f71a635bb68cff83c8ebde701/</link><pubDate>Sun, 21 Jun 2020 09:21:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ac35417f71a635bb68cff83c8ebde701/</guid><description>1，残废的移动web端。中国互不联网公司的移动web端经常不显示完整内容，疯狂弹窗逼用户下载app。视频内容只能试看6分钟，文字内容默认折叠。这里根据网站的不要脸程度又分成几类。 较克制的网站，比如正经新闻网站，会在“展开全文”按钮下面再放一个“打开XXX app阅读，体验更佳”，但你点击“展开全文”就会直接展开全文，没有其他废话。 不那么克制的网站，比如豆瓣，点击“展开全文”按钮并不会直接展开，而是弹窗提示“打开app阅读体验更佳”， …</description></item><item><title>七言 | ​你爱的人更新一条动态。</title><link>https://project-gutenberg.github.io/Pincong/post/7bc118533e609f3a1c94a6c12327896d/</link><pubDate>Fri, 29 May 2020 16:05:28 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/7bc118533e609f3a1c94a6c12327896d/</guid><description>点这首歌
+👇
+当前浏览器不支持播放音乐或语音，请在微信或其他浏览器中播放 无人知晓的我 A-Lin - A-LIN同名专辑 《每日七言》总第2649期
+爸爸跟他的好朋友们说 ，本来以为小姑娘养养会长大，结果小姑娘养了这么久 还是个小姑娘。
+本来以为爸爸说的是我， 后来才知道 ，爸爸说的小姑娘，是我妈。
+&amp;ldquo;你会发光啊&amp;rdquo; “为什么？”
+“因为我每回在楼道喊你的名字灯就亮了”。
+「失去」是人生中无比常见的事情，几乎每个 …</description></item><item><title>武汉封城日记｜第十七天</title><link>https://project-gutenberg.github.io/Pincong/post/91abc98dccbdf313dfc8f5c6e1842343/</link><pubDate>Sun, 08 Mar 2020 02:13:15 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/91abc98dccbdf313dfc8f5c6e1842343/</guid><description>看到有人私信我说煎蛋的站长（久居武汉）也疑似新冠肺炎正在求助，更新了一下时间线，发现似乎又排除可能了，只是因为其他病症身体不适。
+我刚工作那会儿，煎蛋是我每天必刷的网站，直到Google Reader关闭的时候，煎蛋的Feed未读数通常也不会超过两位数，写博客时还一度考虑去煎蛋投个广告。
+武汉的互联网产业不太行，但也常有这种独具特色的产品诞生，虽然做不起来——指的是世俗意义上的大成——却也生命力顽强，占掉一处不起眼的细分市场。
+当年 …</description></item><item><title>来测一测，你的浏览器匿名吗？苹果用户请调整浏览器设置</title><link>https://project-gutenberg.github.io/Pincong/post/97a24e3db1b431867efc2c3b20fb8fe8/</link><pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/97a24e3db1b431867efc2c3b20fb8fe8/</guid><description>品葱用户 silentmajority 提问于 10/14/2019 提供两个测试IP地址泄漏的网址
+https://whoer.net/
+在该页面向下拉，看flash，应该显示为disabled。禁用浏览器flash不会影响使用youtube。国内使用的浏览器插件是中国特供版。
+在windows中，打开控制面板，显示方式：大图标，可以看到flash，这个flash如果卸载，不会对使用造成影响。应禁用flash。
+还有一个网址： …</description></item><item><title>Shadowsocks无法使用后的简单排除方法 | 逗比根据地</title><link>https://project-gutenberg.github.io/Pincong/post/f7b0523cf6dbc0e8a27e959abc9d5d59/</link><pubDate>Mon, 08 Aug 2016 16:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f7b0523cf6dbc0e8a27e959abc9d5d59/</guid><description>广告
+本文最后更新于 2018年11月7日 18:53 可能会因为没有更新而失效。如已失效或需要修正，请留言！
+每一个使用过Shadowsocks的人，几乎都会出现过Shadowsocks突然无法使用的情况，然而很多人并不知道怎么办，网上的问题解决方法都是一个个的，不利于新手解决问题，所以我就写一个Shadowsocks无法使用后的简单排除方法。
+本教程不一定能 100% 帮你解决Shadowsocks无法使用的问题，但是肯定会有帮助 …</description></item></channel></rss>

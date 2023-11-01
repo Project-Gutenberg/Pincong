@@ -1,0 +1,6 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>神经网络 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link><description>Recent content in 神经网络 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Fri, 01 May 2020 08:44:13 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml"/><item><title>在《我的世界》里搭建神经网络，运行过程清晰可见，这位印度小哥开发的新玩法火了</title><link>https://project-gutenberg.github.io/Pincong/post/16b566b42524529b0d505f265cbe3def/</link><pubDate>Fri, 01 May 2020 08:44:13 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/16b566b42524529b0d505f265cbe3def/</guid><description>可能是疫情吧，大家在现实中行动受限，就越来越多去游戏世界中释放天性。
+前有《我的世界》举办毕业典礼，后有《动物森友会》举办AI会议。最近《我的世界》又被大神带来了硬核玩法：
+你以为他在涂鸦？不！其实他在进行神经网络的推理。
+你如果是一个熟悉神经网络的人，想必已经猜出来了。
+图片里这位玩家做的正是MNIST手写数字分类网络。
+只需用剑在墙壁上画出数字，神经网络就能知道你写的是几。不仅仅如此，神经网络在推理过程中，哪些神经元被激活，都可以在 …</description></item></channel></rss>

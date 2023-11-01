@@ -1,0 +1,248 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>王垠：英语学习的一些经验</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 技术人员的英语学习，我的经验是，首先肯定要专门学习英语，然后可以读英文技术书籍和文档。技术书籍的难度一般比小说等文学作品小很多，因为他们得照顾非英语国家的人，都是很简单的单词和语法。
+很多人（包括我）看英语技术资料完全没问题，但是阅读小说一般还是有点慢的。小说往往有各种花哨的语法和单词，都是技术书籍没有的，所以先看小说可能会牛刀杀鸡。
+如果你觉得技术书籍对你还比较难，也许可以试试 Don Norman 的『The Design of Everyday Things』。这本讲设计理念的书，没有什么技术难度，但英文浅显易懂，可以拿来一边学习英语，一边学习设计。
+读书我一般都是默读。如果你觉得必须出声，那你阅读能力还没有练到位。默读是直接的“光 => 视觉系统 => 语言系统 => 语义”的转换。如果你出声了，或者在头脑里“默念出声”，那你就多了一些步骤：“光 => 视觉系统 => 听觉系统 => 语言系统 => 语义”。
+需要跟外国人交流的时候，肯定听说读写都要会。但是“说”可以另外练，不需要在看书的时候出声。
+任何语言的听说读写，理解语法都是很重要的。但注意：“理解语法”不等于看语法书，死记硬背语法规则。我在「解谜英语语法」里面已经说过，大部分英语语法书都是不能实用的教条，甚至根本就是错的。你只需要掌握最精髓，可以实用的部分。
+英语或者任何自然语言，最精髓的部分都很像编程语言。句子是最关键的结构。每个句子都是一个「函数调用」。动词（谓语）是函数名，其它内容（主语，宾语等）都是参数。每个部分又可以有修饰语，就像对象的 property 一样。理解这一点可以帮助你快速分析句子结构，而不是停留在字面上。
+如果你理解了句子是一个函数调用，那么你就会懂得何时该使用句号。很多中国人对句子没有清晰的概念和边界。本该是句号的地方他们却打逗号，所以你不知道他的句子到哪里结束。如果你不能清楚的分辨出句子，那你就不能很好的理解里面的逻辑。
+人脑处理语言有一个隐含的「parse」过程，就像编程语言的 parser。你需要训练自己的 parse 能力。利用上面对句子结构的理解，你可以快速分析出句子里最关键的“骨架”，然后再填充修饰部分。这样你就能理解长句。
+最好花一些时间专门练习这种 parse 能力。反复读一些你感兴趣的英语技术文档。可以是书籍，也可以是网络上的 blog。比如你可以拿两段话来练习，把每句话按照我提出的“函数调用”结构分解开，画出函数名，参数，修饰语，构造一棵「语法树」。反复琢磨语法树的结构，然后再回去读这两段话，直到你可以迅速把每句话都看出「语法树」来。
+很多人练习英语阅读，喜欢读很长的文章，其实效果不大好。因为每句话都没有分析清楚就掠过了，结果读到最后还是没有提高 parse 能力。反复读同一段话，仔细分析自己的失误原因，纠正反复发生的错误。就像深度学习一样进行 back propagation，训练头脑里的神经网络 parser，提高 parse 准确度。
+我不是说你得一直这么留意语法树。等头脑里的 parser 被训练到纯熟的地步之后，你就不需要刻意去想这件事了。英语 parser 一直悄悄工作着。你以为它不存在，其实它只是熟练了，自动化了。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 王垠：英语学习的一些经验 ">
+<meta name=og:description content=" 技术人员的英语学习，我的经验是，首先肯定要专门学习英语，然后可以读英文技术书籍和文档。技术书籍的难度一般比小说等文学作品小很多，因为他们得照顾非英语国家的人，都是很简单的单词和语法。
+很多人（包括我）看英语技术资料完全没问题，但是阅读小说一般还是有点慢的。小说往往有各种花哨的语法和单词，都是技术书籍没有的，所以先看小说可能会牛刀杀鸡。
+如果你觉得技术书籍对你还比较难，也许可以试试 Don Norman 的『The Design of Everyday Things』。这本讲设计理念的书，没有什么技术难度，但英文浅显易懂，可以拿来一边学习英语，一边学习设计。
+读书我一般都是默读。如果你觉得必须出声，那你阅读能力还没有练到位。默读是直接的“光 => 视觉系统 => 语言系统 => 语义”的转换。如果你出声了，或者在头脑里“默念出声”，那你就多了一些步骤：“光 => 视觉系统 => 听觉系统 => 语言系统 => 语义”。
+需要跟外国人交流的时候，肯定听说读写都要会。但是“说”可以另外练，不需要在看书的时候出声。
+任何语言的听说读写，理解语法都是很重要的。但注意：“理解语法”不等于看语法书，死记硬背语法规则。我在「解谜英语语法」里面已经说过，大部分英语语法书都是不能实用的教条，甚至根本就是错的。你只需要掌握最精髓，可以实用的部分。
+英语或者任何自然语言，最精髓的部分都很像编程语言。句子是最关键的结构。每个句子都是一个「函数调用」。动词（谓语）是函数名，其它内容（主语，宾语等）都是参数。每个部分又可以有修饰语，就像对象的 property 一样。理解这一点可以帮助你快速分析句子结构，而不是停留在字面上。
+如果你理解了句子是一个函数调用，那么你就会懂得何时该使用句号。很多中国人对句子没有清晰的概念和边界。本该是句号的地方他们却打逗号，所以你不知道他的句子到哪里结束。如果你不能清楚的分辨出句子，那你就不能很好的理解里面的逻辑。
+人脑处理语言有一个隐含的「parse」过程，就像编程语言的 parser。你需要训练自己的 parse 能力。利用上面对句子结构的理解，你可以快速分析出句子里最关键的“骨架”，然后再填充修饰部分。这样你就能理解长句。
+最好花一些时间专门练习这种 parse 能力。反复读一些你感兴趣的英语技术文档。可以是书籍，也可以是网络上的 blog。比如你可以拿两段话来练习，把每句话按照我提出的“函数调用”结构分解开，画出函数名，参数，修饰语，构造一棵「语法树」。反复琢磨语法树的结构，然后再回去读这两段话，直到你可以迅速把每句话都看出「语法树」来。
+很多人练习英语阅读，喜欢读很长的文章，其实效果不大好。因为每句话都没有分析清楚就掠过了，结果读到最后还是没有提高 parse 能力。反复读同一段话，仔细分析自己的失误原因，纠正反复发生的错误。就像深度学习一样进行 back propagation，训练头脑里的神经网络 parser，提高 parse 准确度。
+我不是说你得一直这么留意语法树。等头脑里的 parser 被训练到纯熟的地步之后，你就不需要刻意去想这件事了。英语 parser 一直悄悄工作着。你以为它不存在，其实它只是熟练了，自动化了。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/90.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>王垠：英语学习的一些经验</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e6%9d%8e%e8%88%9c%e7%94%9f>李舜生</a></span>,
+<span>at 10 March 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%8b%b1%e8%af%ad%e5%ad%a6%e4%b9%a0>英语学习</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%8e%8b%e5%9e%a0>王垠</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/0b0fe1be51efa2baf3b92a39609e11ba.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/0b0fe1be51efa2baf3b92a39609e11ba.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>技术人员的英语学习，我的经验是，首先肯定要专门学习英语，然后可以读英文技术书籍和文档。技术书籍的难度一般比小说等文学作品小很多，因为他们得照顾非英语国家的人，都是很简单的单词和语法。</p>
+<p>很多人（包括我）看英语技术资料完全没问题，但是阅读小说一般还是有点慢的。小说往往有各种花哨的语法和单词，都是技术书籍没有的，所以先看小说可能会牛刀杀鸡。</p>
+<p>如果你觉得技术书籍对你还比较难，也许可以试试 Don Norman 的『The Design of Everyday Things』。这本讲设计理念的书，没有什么技术难度，但英文浅显易懂，可以拿来一边学习英语，一边学习设计。</p>
+<p>读书我一般都是默读。如果你觉得必须出声，那你阅读能力还没有练到位。默读是直接的“光 => 视觉系统 => 语言系统 => 语义”的转换。如果你出声了，或者在头脑里“默念出声”，那你就多了一些步骤：“光 => 视觉系统 => 听觉系统 => 语言系统 => 语义”。</p>
+<p>需要跟外国人交流的时候，肯定听说读写都要会。但是“说”可以另外练，不需要在看书的时候出声。</p>
+<p>任何语言的听说读写，理解语法都是很重要的。但注意：“理解语法”不等于看语法书，死记硬背语法规则。我在「解谜英语语法」里面已经说过，大部分英语语法书都是不能实用的教条，甚至根本就是错的。你只需要掌握最精髓，可以实用的部分。</p>
+<p>英语或者任何自然语言，最精髓的部分都很像编程语言。句子是最关键的结构。每个句子都是一个「函数调用」。动词（谓语）是函数名，其它内容（主语，宾语等）都是参数。每个部分又可以有修饰语，就像对象的 property 一样。理解这一点可以帮助你快速分析句子结构，而不是停留在字面上。</p>
+<p>如果你理解了句子是一个函数调用，那么你就会懂得何时该使用句号。很多中国人对句子没有清晰的概念和边界。本该是句号的地方他们却打逗号，所以你不知道他的句子到哪里结束。如果你不能清楚的分辨出句子，那你就不能很好的理解里面的逻辑。</p>
+<p>人脑处理语言有一个隐含的「parse」过程，就像编程语言的 parser。你需要训练自己的 parse 能力。利用上面对句子结构的理解，你可以快速分析出句子里最关键的“骨架”，然后再填充修饰部分。这样你就能理解长句。</p>
+<p>最好花一些时间专门练习这种 parse 能力。反复读一些你感兴趣的英语技术文档。可以是书籍，也可以是网络上的 blog。比如你可以拿两段话来练习，把每句话按照我提出的“函数调用”结构分解开，画出函数名，参数，修饰语，构造一棵「语法树」。反复琢磨语法树的结构，然后再回去读这两段话，直到你可以迅速把每句话都看出「语法树」来。</p>
+<p>很多人练习英语阅读，喜欢读很长的文章，其实效果不大好。因为每句话都没有分析清楚就掠过了，结果读到最后还是没有提高 parse 能力。反复读同一段话，仔细分析自己的失误原因，纠正反复发生的错误。就像深度学习一样进行 back propagation，训练头脑里的神经网络 parser，提高 parse 准确度。</p>
+<p>我不是说你得一直这么留意语法树。等头脑里的 parser 被训练到纯熟的地步之后，你就不需要刻意去想这件事了。英语 parser 一直悄悄工作着。你以为它不存在，其实它只是熟练了，自动化了。</p>
+<p>语法和句子结构是关键，其次才是词汇量。如果你的词汇量足够阅读技术文档，那就可以开始看了。偶尔有不认识的词，临时查一下字典，拿小本子（不要用手机）写下来。下次遇到同样的词，还不认识，就看看你的小本子。多几次就记住了。</p>
+<p>如果真记不住，你可以在单词旁边画一幅简笔画来表达单词的意思。画夸张一些，发挥你的创意。这幅画不需要完美，只需要<strong>努力</strong>去画。画的内容不需要符合逻辑，你甚至可以把单词拆成几个毫不相干，或者只是长得有点像的词，然后对它们画画。不要去拿别人的“助记法”来用，因为你拿了别人的，就不会<strong>努力</strong>。</p>
+<p>手写单词这种「努力」，可以训练你的大脑，把单词“刻进”你的记忆里。号称“轻松”的记单词方法，效果可能都不会很好，因为努力是产生记忆的一个重要原因。就像努力是健身练出肌肉的原因一样，你不可能躺在那里就长肌肉。</p>
+<p>不拿手机记单词的一个原因是，手机不是随时都能看的。它可能锁屏了，你得多好几个步骤才能翻到你的单词表，就很慢。手机上不时弹出消息，很分心。拿小本子记，摆在旁边立即就能看。</p>
+<p>我看到评论里有人说读技术资料，其实中文就可以了，但我觉得中文资料非常不容易理解，容易被误导。很多中文内容是翻译过来的，作者自己也不怎么懂，经常翻译不到位。</p>
+<p>中文对于描述技术细节有先天的弱点，很多术语用中文写出来，夹在在一段文字里，很不容易分辨出来。因为汉字之间是没有空格的，中文术语跟普通词汇长得差不多样子，所以眼睛很难看出中间哪些是术语，哪些是普通词汇。</p>
+<p>这就是为什么我写中文技术文章，都喜欢给“术语”加引号。后来觉得引号有点不明显，容易跟说话的引号混淆，所以开始给「术语」加直角引号。但很少有中文技术文档这样写，所以看起来很辛苦。我不喜欢把一些英文术语写成中文，也是这个原因。比如如果你写卫生宏，我会很难理解它。你写 hygienic macro，就很明显那是一个术语。</p>
+<p>我觉得日本人很聪明，他们的文字分两种，平假名和片假名。平假名拿来写平常用语，片假名专门拿来表示外来词。这是很合理的做法。我觉得写中文技术文档也可以借鉴这个做法，干脆把术语都用原来的英文表示。</p>
+<p>扯远了…… 我本来要说英语学习，但这对你们写出好的中文也会有帮助。</p>
+<p>而且英文的技术资料质量和数量都比中文多很多，还有很多非常有价值的视频在网络上，所以学好英语是至关重要的。希望大家都能提高英语水平，多看英语文献。</p>
+<p><strong>完。</strong></p>
+<h3 id=品葱用户-freedomforall-评论于-2020-03-09>品葱用户 <strong>FREEDOMFORALL</strong> 评论于 2020-03-09</h3>
+<p>十分同意，中文資料很多時候都翻譯不到位</p>
+<h3 id=品葱用户-gratesque-评论于-2020-03-11>品葱用户 <strong>gratesque</strong> 评论于 2020-03-11</h3>
+<p>我对这位半神棍化的黄左技术精英的文有一种感觉：说东西无法集中，无法清晰，无法从开始到结束留在同一件事情上。</p>
+<h3 id=品葱用户-killccp-评论于-2020-03-11>品葱用户 <strong>killccp</strong> 评论于 2020-03-11</h3>
+<p>要找到适合自己水平的学习材料</p>
+<h3 id=品葱用户-fivegod-评论于-2020-03-16>品葱用户 <strong>fivegod</strong> 评论于 2020-03-16</h3>
+<p>说的好像有点道理，又get不到具体实物，可能就是多看英文，多总结这路子吧。</p>
+<h3 id=品葱用户-香港暴徒杨爱民-评论于-2020-03-16>品葱用户 <strong>香港暴徒杨爱民</strong> 评论于 2020-03-16</h3>
+<p>想想郭文贵都学的会，没啥理由不学了</p>
+<h3 id=品葱用户-hehedemon-评论于-2020-03-19>品葱用户 <strong>HEHEDEMON</strong> 评论于 2020-03-19</h3>
+<p>有些東西翻譯了反而會讓人混淆</p>
+<p>我查hygienic macro在台灣中文是沒有任何搜尋結果的，我猜是比較冷門且通常連翻都不會翻出來的</p>
+<p>隨便亂google到的台灣資料：</p>
+<p>scheme目前其實有至少三套巨集系統:</p>
+<ol>
+<li>完全hygiene的<strong>syntax-rules</strong>(define-syntax)</li>
+<li>可以hygiene也可以dirty的<strong>syntax-case</strong>(define-syntax)</li>
+<li>逐步被淘汰的lisp傳統巨集系統<strong>define-macro</strong>(有些實現裡叫defmacro)</li>
+</ol>
+<p>syntax-rules的能力是受限的,不能引入新的syntax-object,只能寫一些簡單的巨集.但是用syntax-rules寫出來的巨集肯定比用syntax-case或define-macro寫的更優雅.<br>
+syntax-case完全不受限制,擴充套件能力與傳統lisp巨集(defmacro)是一樣的,但由於它自帶模式匹配功能,所以寫起來會更方便,至少quasiquote,unquote,unquote-splicing少了很多.</p>
+<p>因為syntax-case的強大能力,用它來實現define-syntax 也是很簡單滴</p>
+<h3 id=品葱用户-哟嚯嚯-评论于-2020-03-25>品葱用户 <strong>哟嚯嚯</strong> 评论于 2020-03-25</h3>
+<p>基础比较薄弱的葱油可以试试以下的材料制定学习计划<br>
+了解二语习得论的习得和学得的区别<br>
+使用rosetta stone浸入式的方法熟悉英语环境<br>
+用分级听力level1~6的听力材料精听教材<br>
+遵循先会听、 听说、 听说读、 听说读写这4个阶段<br>
+等你达到听说流畅的时候，就可以开始选择自己喜欢的科普类视频去学习了</p>
+<h3 id=品葱用户-我爱雏田>品葱用户 **我爱雏田</h3>
+<p>香港暴徒杨爱民** 评论于 2020-04-23</p>
+<p>生母大还是养母大？</p>
+<h3 id=品葱用户-华国锋-评论于-2020-04-24>品葱用户 <strong>华国锋</strong> 评论于 2020-04-24</h3>
+<p>王垠这个人很有意思，不过他大概不会喜欢自己的文章被转载。</p>
+<h3 id=品葱用户-nzrdlclr5-评论于-2020-04-24>品葱用户 <strong>NZRdlClr5</strong> 评论于 2020-04-24</h3>
+<p>要當技術人員，看原文書几乎是必不可少的<br>
+但是我覺得技術書籍用詞語法一般比普通小説難度高<br>
+用詞方面，個個都是很專業的詞，可能你正常上英語課一輩子也不會見到一個詞<br>
+而且視專業不同，可能有很麻煩很不像英語的字<br>
+數學、化學……几乎都是喜歡希臘和拉丁。物理似乎是最接地氣的，但也有不少希臘痕跡<br>
+生物學和心理學幾乎壟斷了「最長英語單詞排行榜」的前好幾名<br>
+工程、設計……常用「技術」偏偏都是離不開這些愛外來語的學科的。只有編程是净土，因爲編程從一開始就不是說人話，字面意思<br>
+所以只會英語的人看了專業詞可能會很累，而且如果還沒習慣，看長相很難猜出來什麽意思（習慣了看什麽都簡單了）<br>
+這種的沒辦法，最好是從根本開始學英語版專業，次之只好一邊翻譯一邊習慣（不少專業單詞還可能只能翻譯出常用意思，辭典和劣質翻譯服務無法翻譯出專業意思）了<br>
+語法會比普通小説難度高，這個個人覺得最可怕最無解<br>
+我大學一年級時教電腦系統課的老師，第一堂課就告訴我們全班，「我會在ppt上寫很艱澀的語言，然後在課上解釋它們。之所以寫得艱澀是因爲我不希望有人在下課後自己看ppt產生誤解，可是每年我都會遇到有人產生誤解的，所以有問題要問我，不要去自己想當然，也不要看youtube之類地方的教程」<br>
+這應該就説明了專業英語的難點。小説裏只要聯係上下文，抓住重點詞，基本意思不會錯。專業時猜錯一個字很可能就是大錯了<br>
+就連母語英語者也會誤解，外語者真的只能加倍小心</p>
+<h3 id=品葱用户-acca0429-评论于-2020-04-24>品葱用户 <strong>Acca0429</strong> 评论于 2020-04-24</h3>
+<p>生物學名幾乎都是拉丁文，有獨特的格式，習慣就猜得出來。</p>
+<p>但是我看不懂這篇文章的重點在哪裡⋯⋯</p>
+<h3 id=品葱用户-a1161aa>品葱用户 **a1161aa</h3>
+<p>HEHEDEMON** 评论于 2020-04-24</p>
+<p>[</p>
+<blockquote>
+<p>有些東西翻譯了反而會讓人混淆我查hygienic macro在台灣中文是沒有任何搜尋結果的，我猜是比&mldr;</p>
+</blockquote>
+<p>](<a href=https://pincong.rocks/article/item_id-305837#>https://pincong.rocks/article/item_id-305837#</a> &ldquo;<a href=https://pincong.rocks/article/item_id-305837#%22>https://pincong.rocks/article/item_id-305837#"</a>)<br>
+第一句话深有感触，我已经完全觉得没必要翻译成汉字去理解了，可惜我现在词汇量还不够唉</p>
+<h3 id=品葱用户-范松忠-评论于-2020-04-28>品葱用户 <strong>范松忠</strong> 评论于 2020-04-28</h3>
+<p>肯定？唉，伟大的中华人民共和国没有本土化BIOS和DOS啊，我，接触了电脑后，自然而然就会了。</p>
+<p>然后，看一些科技类视频、电影，高端的，只有亡我之心不死的美帝才有，这让我怎么依赖中文？先从看中文字幕开始，1～2年，自己就几乎都会了。</p>
+<p>后来，慢慢了解什么是白宫、弹劾、国会、投票等政治词语，目前和彭佩奥聊天没问题了。</p>
+<p>伟大的中华人民共和国教我的Pencil box, Apple, Banana，好像没能记住，后来重新学才记住的。有用吗？那种People mountain people sea肯定？唉，伟大的中华人民共和国没有本土化BIOS和DOS啊，我，接触了电脑后，自然而然就会了。</p>
+<p>然后，看一些科技类视频、电影，高端的，只有亡我之心不死的美帝才有，这让我怎么依赖中文？先从看中文字幕开始，1～2年，自己就几乎都会了。</p>
+<p>后来，慢慢了解什么是白宫、弹劾、国会、投票等政治词语，目前和彭佩奥聊天没问题了。</p>
+<p>伟大的中华人民共和国教我的Pencil box, Apple, Banana，好像没能记住，后来重新学才记住的。有用吗？那种People mountain people sea？</p>
+<p>书，我基本不太看，看个维基百科就好，长篇我都不想看，什么语我都觉得累，听，都听的懂，比如新闻播报，BBC、CNN，听着都和他们中国人看CCAV一样，一听就懂。</p>
+<p>十来年没怎么大规模用中文了，除了和家人联系以外，基本几个星期，几个月不太用中文，来了品葱后才建起中文的，平时手机、电脑，我写日记基本都英文。</p>
+<h3 id=品葱用户-华国锋>品葱用户 **华国锋</h3>
+<p>gratesque** 评论于 2020-06-01</p>
+<p>[</p>
+<blockquote>
+<p>我对这位半神棍化的黄左技术精英的文有一种感觉：说东西无法集中，无法清晰，无法从开始到结束留在同一件事&mldr;</p>
+</blockquote>
+<p>]( &ldquo;/article/item_id-291652#")</p>
+<p>总比胡正强点儿。。可笑的是还有好多品葱上一知半解的人，说什么创造编程语言的才叫程序员，其他都是码农。这就好比说打造斧子的铁匠比打造家居的木匠高个档次，让人无语。</p>
+<blockquote>
+<p><a href=https://pincong.rocks/article/15927>点击品葱原文参与讨论</a></p>
+</blockquote>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/79fb5db63cf3203ee0249b9779904fa1/?utm_source=see_also&utm_medium=%25E7%258E%258B%25E5%259E%25A0%25E8%258B%25B1%25E8%25AF%25AD%25E5%25AD%25A6%25E4%25B9%25A0%25E7%259A%2584%25E4%25B8%2580%25E4%25BA%259B%25E7%25BB%258F%25E9%25AA%258C">王垠：英语学习的一些经验</a>
+</h2>
+<p class=text-dark>技术人员的英语学习，我的经验是，首先肯定要专门学习英语，然后可以读英文技术书籍和文档。技术书籍的难度一般比小说等文学作品小很多，因为他们得照顾非英语国家的人，都是很简单的单词和语法。
+很多人（包括我）看英语技术资料完全没问题，但是阅读小说一 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

@@ -1,0 +1,313 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>如何用概率论预测你的脱单时间？</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" **洞悉未来，**大概是人类最憧憬的超能力。
+我们总是希望知道明天会不会下雨，希望爱情能天长地久，希望能押对期末考试的题目。而现实是，天气预报总是不准，爱情走着走着就翻车……
+看上去我们对未来无能为力，其实你只是缺少一些分析方法，今天我就教你如何科学预测未来，学好了算出下一场爱情的来临都有可能！
+一、基本分析方法
+1、接续法则
+伟大的数学家拉普拉斯提出过接续法则（law of succession），说如果有某个事情你对****它知之甚少，你尝试了n次，有s次成功了，那么可以推导出，下一次尝试成功的概率是**（**s+1）/（n+2）
+比如谈恋爱，你表白过4次，成功在一起1次，**那下一次表白成功率就是P=（s+1）/（n+2）=（1+1）/（4+2），也就是****1/3，**是不是很简单呢！
+我不是，我没有
+至于为什么不是s/n，而是（s+1）/（n+2），这就是拉普拉斯的贴心之处了。如果分子不加个1，那表白从没成功过的人岂不是太绝望了。
+2、贝叶斯估计
+接续法则主要应用于你对这件事了解特别少的情况，而贝叶斯估计的应用范围就大大扩展了。我们可以利用贝叶斯定理，结合我们已有的信息和证据去修正我们的经验和直觉，得到一个新的概率。公式如下
+P表示概率，P(A|B)就是B事情发生的前提下，A发生的概率。
+举个例子。比如你天天跟室友一起上课自习，情同手足，突然有一天你在他桌上发现了一个女生内衣，你大惊失色，我把你当兄弟，你却是个变态！
+‍
+其实如果你冷静下来可以算一下室友是变态的概率，即室友桌上出现内衣的情况下，室友是个变态的概率：****P(室友是变态|桌上有内衣)。利用贝叶斯公式，可得
+P(桌上有内衣|室友是变态)，就是当室友真的是个变态时，桌上有内衣的概率。一个人是变态的种类有很多种可能，可能是学婊型变态，也可能是吃货型变态。就算他真的是个内衣收集型变态，明目张胆放桌上的概率并不大，姑且算作10%吧。
+**P（室友是变态）**这个量是指在没有其他证据的时候，你根据每日的相处做出的初始判断。在你眼里室友就是一个阳光正直的好哥们，所以这个概率非常小，也就1%吧。
+最后室友桌上出现内衣的概率是多少呢？那情况可能有很多种，说不定这是他给女朋友准备的生日礼物，也可能他的课题是简谐振动在内衣设计中的应用，所以P（桌上有内衣）就算是5%吧。
+将以上这些数据代入公式计算，易得
+才2%！所以室友是个变态的概率小啊！不要误会了兄弟。
+二、预测中的混沌体系
+不过就算你概率论满分，贝叶斯再世，预判未来也挺难做到万无一失的，特别是天气这种超级复杂、难以预测的系统。比如当我们说明天下雨的概率是40%的时候，**40%**这个数是咋来的呢？
+很多人可能觉得是这样：
+当然不是！
+简单的事件像抛硬币、摸球，概率是能用实验得出来的。但复杂点的比如天气，是要基于现在的气温、气压、湿度、风向等信息，利用方程和过往相似条件下的天气，模拟出未来的结果。
+像我们熟知的诸葛孔明，就是这方面的强者。不过哪怕神机妙算的他，成功运用贝叶斯定理那就是借东风，计算翻车了就是火烧上方谷……
+其实也怪不得人家，计算能力更强的气象学家lorenz也有过失误。当年他列了13个方程尝试预测大气的变化，在某次实验中他把一个中间的数四舍五入了一下，只保留了三位小数输进电脑
+然后他溜出去喝了杯咖啡，一个小时后计算机已经算出了两个月后的天气数据……结果非常amazing啊！**竟然和之前的实验数据截然不同！**洛
+lorenz仔细排查了一下，发现就是那个中途输进去的数的那么一丁点变化，就导致了后面两次计算结果越跑越远。
+这就是闻名世界的蝴蝶效应，这种对初****值敏感而难以预测的系统就是混沌。
+混沌体系无处不在，比如人口流动、股市波动、甚至咖啡和牛奶的混合，你和你对象的恋爱进程，都是混沌体系，一个微小的改变都可能带来颠覆性的结果。你今天没回女朋友微信
+天气就是特别典型的混沌体系，大气运动、降水、河流、生物活动，统统都会影响天气。巴西的蝴蝶扇一下翅膀、你烧了一壶水、我打了一个喷嚏，也许都能引起德州的风暴导致扒鸡涨价……
+那面对天气我们真的无计可施了吗？当然不！利用大数据分析、图像识别这些技术，可以提高测算精度，控制误差。我们无法预测宇宙的尽头，但我们可以抓住明天的云朵啊！
+比如说墨迹天气
+墨迹天气是国内第一款移动天气应用，有6.5亿用户，在行业内率先推出精准到分钟级和公里级的预报服务，晴雨预报准确率达可以到90%以上，远远领先行业。
+精准背后是强大的气象数据和气象技术能力。墨迹天气每天收集350G来自雷达、卫星、站点和全球权威气象部门对外开放的数据，用户也会把身边的风景上传到**“时景社区”**，人人都是全球天气纠错员！
+技术上墨迹天气借助神经网络等AI技术，使得预测准确度和时效性大幅提高！这样你可以实时查看****全国未来两小时的降雨和闪电情况，异地恋的可以提醒亲爱的TA小心雷电、北漂的青年也能提醒老家的父母放下麻将，回家收衣。
+还有个很有意思的隐藏功能，观云识天。小时候你只会说：妈妈！那朵云像一匹马！现在你就能知道这朵马云预示着怎样的天气变化。
+在商业领域，墨迹天气帮助外卖平台结合天气优化配送时间和骑手调度、帮助农业预测气象灾害、帮助航空公司预测风力风向……还能给大型体育赛事提供精准到分钟级百米级的精细化天气预报！
+比如墨迹天气作为牵头单位负责2022年冬奥气象科研课题，很快也将给China GT提供分钟级精细化天气预报和全天候贴身管家式咨询服务。专业赛事都用的产品，谁不心动呢！
+天气预报看似事小，但它决定着我们明天适合去哪玩、后天要不要带伞。希望大家记得提前看墨迹天气，出门都能玩出好心情！
+广告
+留言区福利
+1楼可获得莫吉托一箱
+12可获得诸葛孔明羽毛扇一把
+22楼可获得德州扒鸡一袋
+希望出门不下雨👇👇**** ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 如何用概率论预测你的脱单时间？ ">
+<meta name=og:description content=" **洞悉未来，**大概是人类最憧憬的超能力。
+我们总是希望知道明天会不会下雨，希望爱情能天长地久，希望能押对期末考试的题目。而现实是，天气预报总是不准，爱情走着走着就翻车……
+看上去我们对未来无能为力，其实你只是缺少一些分析方法，今天我就教你如何科学预测未来，学好了算出下一场爱情的来临都有可能！
+一、基本分析方法
+1、接续法则
+伟大的数学家拉普拉斯提出过接续法则（law of succession），说如果有某个事情你对****它知之甚少，你尝试了n次，有s次成功了，那么可以推导出，下一次尝试成功的概率是**（**s+1）/（n+2）
+比如谈恋爱，你表白过4次，成功在一起1次，**那下一次表白成功率就是P=（s+1）/（n+2）=（1+1）/（4+2），也就是****1/3，**是不是很简单呢！
+我不是，我没有
+至于为什么不是s/n，而是（s+1）/（n+2），这就是拉普拉斯的贴心之处了。如果分子不加个1，那表白从没成功过的人岂不是太绝望了。
+2、贝叶斯估计
+接续法则主要应用于你对这件事了解特别少的情况，而贝叶斯估计的应用范围就大大扩展了。我们可以利用贝叶斯定理，结合我们已有的信息和证据去修正我们的经验和直觉，得到一个新的概率。公式如下
+P表示概率，P(A|B)就是B事情发生的前提下，A发生的概率。
+举个例子。比如你天天跟室友一起上课自习，情同手足，突然有一天你在他桌上发现了一个女生内衣，你大惊失色，我把你当兄弟，你却是个变态！
+‍
+其实如果你冷静下来可以算一下室友是变态的概率，即室友桌上出现内衣的情况下，室友是个变态的概率：****P(室友是变态|桌上有内衣)。利用贝叶斯公式，可得
+P(桌上有内衣|室友是变态)，就是当室友真的是个变态时，桌上有内衣的概率。一个人是变态的种类有很多种可能，可能是学婊型变态，也可能是吃货型变态。就算他真的是个内衣收集型变态，明目张胆放桌上的概率并不大，姑且算作10%吧。
+**P（室友是变态）**这个量是指在没有其他证据的时候，你根据每日的相处做出的初始判断。在你眼里室友就是一个阳光正直的好哥们，所以这个概率非常小，也就1%吧。
+最后室友桌上出现内衣的概率是多少呢？那情况可能有很多种，说不定这是他给女朋友准备的生日礼物，也可能他的课题是简谐振动在内衣设计中的应用，所以P（桌上有内衣）就算是5%吧。
+将以上这些数据代入公式计算，易得
+才2%！所以室友是个变态的概率小啊！不要误会了兄弟。
+二、预测中的混沌体系
+不过就算你概率论满分，贝叶斯再世，预判未来也挺难做到万无一失的，特别是天气这种超级复杂、难以预测的系统。比如当我们说明天下雨的概率是40%的时候，**40%**这个数是咋来的呢？
+很多人可能觉得是这样：
+当然不是！
+简单的事件像抛硬币、摸球，概率是能用实验得出来的。但复杂点的比如天气，是要基于现在的气温、气压、湿度、风向等信息，利用方程和过往相似条件下的天气，模拟出未来的结果。
+像我们熟知的诸葛孔明，就是这方面的强者。不过哪怕神机妙算的他，成功运用贝叶斯定理那就是借东风，计算翻车了就是火烧上方谷……
+其实也怪不得人家，计算能力更强的气象学家lorenz也有过失误。当年他列了13个方程尝试预测大气的变化，在某次实验中他把一个中间的数四舍五入了一下，只保留了三位小数输进电脑
+然后他溜出去喝了杯咖啡，一个小时后计算机已经算出了两个月后的天气数据……结果非常amazing啊！**竟然和之前的实验数据截然不同！**洛
+lorenz仔细排查了一下，发现就是那个中途输进去的数的那么一丁点变化，就导致了后面两次计算结果越跑越远。
+这就是闻名世界的蝴蝶效应，这种对初****值敏感而难以预测的系统就是混沌。
+混沌体系无处不在，比如人口流动、股市波动、甚至咖啡和牛奶的混合，你和你对象的恋爱进程，都是混沌体系，一个微小的改变都可能带来颠覆性的结果。你今天没回女朋友微信
+天气就是特别典型的混沌体系，大气运动、降水、河流、生物活动，统统都会影响天气。巴西的蝴蝶扇一下翅膀、你烧了一壶水、我打了一个喷嚏，也许都能引起德州的风暴导致扒鸡涨价……
+那面对天气我们真的无计可施了吗？当然不！利用大数据分析、图像识别这些技术，可以提高测算精度，控制误差。我们无法预测宇宙的尽头，但我们可以抓住明天的云朵啊！
+比如说墨迹天气
+墨迹天气是国内第一款移动天气应用，有6.5亿用户，在行业内率先推出精准到分钟级和公里级的预报服务，晴雨预报准确率达可以到90%以上，远远领先行业。
+精准背后是强大的气象数据和气象技术能力。墨迹天气每天收集350G来自雷达、卫星、站点和全球权威气象部门对外开放的数据，用户也会把身边的风景上传到**“时景社区”**，人人都是全球天气纠错员！
+技术上墨迹天气借助神经网络等AI技术，使得预测准确度和时效性大幅提高！这样你可以实时查看****全国未来两小时的降雨和闪电情况，异地恋的可以提醒亲爱的TA小心雷电、北漂的青年也能提醒老家的父母放下麻将，回家收衣。
+还有个很有意思的隐藏功能，观云识天。小时候你只会说：妈妈！那朵云像一匹马！现在你就能知道这朵马云预示着怎样的天气变化。
+在商业领域，墨迹天气帮助外卖平台结合天气优化配送时间和骑手调度、帮助农业预测气象灾害、帮助航空公司预测风力风向……还能给大型体育赛事提供精准到分钟级百米级的精细化天气预报！
+比如墨迹天气作为牵头单位负责2022年冬奥气象科研课题，很快也将给China GT提供分钟级精细化天气预报和全天候贴身管家式咨询服务。专业赛事都用的产品，谁不心动呢！
+天气预报看似事小，但它决定着我们明天适合去哪玩、后天要不要带伞。希望大家记得提前看墨迹天气，出门都能玩出好心情！
+广告
+留言区福利
+1楼可获得莫吉托一箱
+12可获得诸葛孔明羽毛扇一把
+22楼可获得德州扒鸡一袋
+希望出门不下雨👇👇**** ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/229.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>如何用概率论预测你的脱单时间？</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e6%af%95%e5%af%bc>毕导</a></span>,
+<span>at 22 July 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%ae%a4%e5%8f%8b>室友</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%a6%82%e7%8e%87>概率</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%86%85%e8%a1%a3>内衣</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%a2%a8%e8%bf%b9>墨迹</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%a1%8c%e4%b8%8a>桌上</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/cc0b46695607a5faf4e8001819896a2c.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/cc0b46695607a5faf4e8001819896a2c.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/dibhztzn2cdBicRYb8kx97aernpibumK0KmHiaJ0t4iaLTe6Q13VbicV96MHx0FvjkAB1b903EhIERSBE03zfORfic3gA/640%3Fwx_fmt%3Dgif" alt></p>
+<p>**洞悉未来，**大概是人类最憧憬的超能力。</p>
+<p>我们总是希望知道明天会不会下雨，希望爱情能天长地久，希望能押对期末考试的题目。而现实是，天气预报总是不准，爱情走着走着就翻车……</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qr1UpBSJXuGStPDzQMViaZA8aNLEX9X5QsicU2P62BGY1ryTricFsABzgw/640%3Fwx_fmt%3Dpng" alt></p>
+<p>看上去我们对未来无能为力，其实你只是缺少一些分析方法，今天我就教你如何科学预测未来，学好了算出下一场爱情的来临都有可能！</p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt></p>
+<p><strong>一、基本分析方法</strong></p>
+<p><strong>1、接续法则</strong></p>
+<p>伟大的数学家拉普拉斯提出过<strong>接续法则</strong>（law of succession），说<strong>如果有某个事情你对****它知之甚少</strong>，你尝试了n次，有s次成功了，那么可以推导出，下一次尝试成功的概率是**（**<strong>s+1）/（n+2）</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qEnPCUicwO0VZpYOY8ycrzoibQPqMKOq3iahpgJggKhEaRmj7ibsiaYIfxyA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>比如谈恋爱，你表白过4次，成功在一起1次，**那下一次表白成功率就是P=（s+1）/（n+2）=（1+1）/（4+2），也就是****1/3，**是不是很简单呢！</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qTU1jLFXRZGgUnYarnpPiaacjJ78bqv5AMZfvHjK9LCpDj38UHKuGPGg/640%3Fwx_fmt%3Dpng" alt></p>
+<p>我不是，我没有</p>
+<p>至于为什么不是s/n，而是（s+1）/（n+2），这就是拉普拉斯的贴心之处了。如果分子不加个1，那表白从没成功过的人岂不是太绝望了。</p>
+<p><strong>2、贝叶斯估计</strong></p>
+<p>接续法则主要应用于你对这件事了解特别少的情况，而<strong>贝叶斯估计</strong>的应用范围就大大扩展了。我们可以利用贝叶斯定理，结合我们已有的信息和证据去修正我们的经验和直觉，得到一个新的概率。公式如下</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qrvlicWZwgIT1oiamPHeAAEppXZAGZJibCXBazRJCvyVkUibQIAxd2AlfrA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>P表示概率，P(A|B)就是B事情发生的前提下，A发生的概率。</p>
+<p>举个例子。比如你天天跟室友一起上课自习，情同手足，突然有一天你在他桌上发现了一个女生内衣，你大惊失色，我把你当兄弟，你却是个变态！</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qrSmrrL2cyoRquNCM3znpnkxJLHOJe5QZ26DBnHrMIFib2oI31uh1Libw/640%3Fwx_fmt%3Dgif" alt></p>
+<p>‍</p>
+<p>其实如果你冷静下来可以算一下室友是变态的概率，即<strong>室友桌上出现内衣的情况下，室友是个变态的概率：****P(室友是变态|桌上有内衣)</strong>。利用贝叶斯公式，可得</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1q9zhUuicJ6IUlf2mSFzPWePBOIAWe0AmTJTM6bd2TNIWZIX0wcxgR5rQ/640%3Fwx_fmt%3Dpng" alt></p>
+<p><strong>P(桌上有内衣|室友是变态)</strong>，就是当室友真的是个变态时，桌上有内衣的概率。一个人是变态的种类有很多种可能，可能是学婊型变态，也可能是吃货型变态。就算他真的是个内衣收集型变态，<strong>明目张胆放桌上的概率并不大，姑且算作10%吧。</strong></p>
+<p>**P（室友是变态）**这个量是指在没有其他证据的时候，你根据每日的相处做出的初始判断。在你眼里室友就是一个阳光正直的好哥们，<strong>所以这个概率非常小，也就1%吧。</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qfKsicIr349rmwPpZEaYEXpZHAHMeMTUvzicXLRNLxDnqUszfBeDj9Xicw/640%3Fwx_fmt%3Dpng" alt></p>
+<p>最后室友桌上出现内衣的概率是多少呢？那情况可能有很多种，说不定这是他给女朋友准备的生日礼物，也可能他的课题是简谐振动在内衣设计中的应用，<strong>所以P（桌上有内衣）就算是5%吧。</strong></p>
+<p>将以上这些数据代入公式计算，易得</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qsI7sQq2t8L2KRkt5bAhtwEpckuOnj95fnBrIeun2TQ7rurqvlo4E8Q/640%3Fwx_fmt%3Dpng" alt></p>
+<p>才2%！所以室友是个变态的概率小啊！<strong>不要误会了兄弟。</strong></p>
+<p><strong>二、预测中的混沌体系</strong></p>
+<p>不过就算你概率论满分，贝叶斯再世，预判未来也挺难做到万无一失的，特别是天气这种超级复杂、难以预测的系统。比如当我们说明天下雨的概率是40%的时候，**40%**<strong>这个数是咋来的呢？</strong></p>
+<p>很多人可能觉得是这样：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qpWEJtnxjdC936gqoMGrXYtZfD5bplSD44g1EbHV9s3WhnU1rKzcDzg/640%3Fwx_fmt%3Dpng" alt></p>
+<p>当然不是！</p>
+<p>简单的事件像抛硬币、摸球，概率是能用实验得出来的。但复杂点的比如天气，是要基于现在的<strong>气温、气压、湿度、风向</strong>等信息，利用方程和过往相似条件下的天气，模拟出未来的结果。</p>
+<p>像我们熟知的诸葛孔明，就是这方面的强者。不过哪怕神机妙算的他，成功运用贝叶斯定理那就是借东风，计算翻车了就是火烧上方谷……</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1ql8Z9aLVaV9mjQlMVwgickBoHU9kVUnGRZ9zU7Vv8m6lNGrO8eWM6JKA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>其实也怪不得人家，计算能力更强的气象学家lorenz也有过失误。当年他列了13个方程尝试预测大气的变化，在某次实验中他把一个中间的数四舍五入了一下，只保留了三位小数输进电脑</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qgaB7c4LcibVAqSOHt9WevrueibJOGibYzoaoKqwfmr1ic3tTzost5WQl9g/640%3Fwx_fmt%3Dpng" alt></p>
+<p>然后他溜出去喝了杯咖啡，一个小时后计算机已经算出了两个月后的天气数据……结果非常amazing啊！**竟然和之前的实验数据截然不同！**洛</p>
+<p>lorenz仔细排查了一下，发现就是那个中途输进去的数的那么一丁点变化，就导致了后面两次计算结果越跑越远。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qiaZOcMEO5ibmSUtzEWwiax38ibBgNuPdmickvJve2vduB6NeV5Jhf4x6PsQ/640%3Fwx_fmt%3Dpng" alt></p>
+<p>这就是闻名世界的蝴蝶效应，这种对<strong>初****值敏感而难以预测的系统就是混沌。</strong></p>
+<p>混沌体系无处不在，比如人口流动、股市波动、甚至咖啡和牛奶的混合，你和你对象的恋爱进程，都是混沌体系，一个微小的改变都可能带来颠覆性的结果。你今天没回女朋友微信</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qEXk1o38mqviaVLIOdiaspuADx9TYOOWk0agO7FPDJl7pPsCNbiajx7ib2Q/640%3Fwx_fmt%3Dpng" alt></p>
+<p>天气就是特别典型的混沌体系，<strong>大气运动、降水、河流、生物活动</strong>，统统都会影响天气。巴西的蝴蝶扇一下翅膀、你烧了一壶水、我打了一个喷嚏，也许都能引起德州的风暴导致<strong>扒鸡涨价</strong>……</p>
+<p>那面对天气我们真的无计可施了吗？当然不！利用大数据分析、图像识别这些技术，可以提高测算精度，控制误差。我们无法预测宇宙的尽头，但我们可以抓住明天的云朵啊！</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qWXT4le7WonHVUdEOiahQIlLqQjTEdOAapp5eVPNOVhUZn70ZZ46AcUw/640%3Fwx_fmt%3Dpng" alt></p>
+<p>比如说墨迹天气</p>
+<p>墨迹天气是国内第一款移动天气应用，有6.5亿用户，在行业内率先推出精准到<strong>分钟级</strong>和<strong>公里级</strong>的预报服务，晴雨预报准确率达可以到90%以上，远远领先行业。</p>
+<p>精准背后是<strong>强大的气象数据和气象技术能力</strong>。墨迹天气每天收集350G来自雷达、卫星、站点和全球权威气象部门对外开放的数据，用户也会把身边的风景上传到**“时景社区”**，<strong>人人都是全球天气纠错员！</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qotOn2ZMqBUxOShxx8ibWklh5sbsaPbHLta0t4qQ0Okcw89gu1uVFrHw/640%3Fwx_fmt%3Dpng" alt></p>
+<p>技术上墨迹天气借助神经网络等AI技术，使得预测准确度和时效性大幅提高！这样你可以<strong>实时查看****全国未来两小时的降雨和闪电情况</strong>，异地恋的可以提醒亲爱的TA小心雷电、北漂的青年也能提醒老家的父母放下麻将，回家收衣。</p>
+<p>还有个很有意思的隐藏功能，<strong>观云识天</strong>。小时候你只会说：妈妈！那朵云像一匹马！现在你就能知道<strong>这朵马云预示着怎样的天气变化。</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/dibhztzn2cdDLMPkUO3zKLOQRNNPpicia1qg2ELa4CdFlT8tGDAMv0dKXibuMnhxjasruMnmO4RX8Jz71dzToT1sCA/640%3Fwx_fmt%3Dgif" alt></p>
+<p>在商业领域，墨迹天气帮助外卖平台结合天气优化配送时间和骑手调度、帮助农业预测气象灾害、帮助航空公司预测风力风向……还能给大型体育赛事提供精准到分钟级百米级的精细化天气预报！</p>
+<p>比如墨迹天气作为牵头单位负责<strong>2022年冬奥气象科研课题</strong>，很快也将给<strong>China GT提供分钟级精细化天气预报</strong>和全天候贴身管家式咨询服务。专业赛事都用的产品，谁不心动呢！</p>
+<p>天气预报看似事小，但它决定着我们明天适合去哪玩、后天要不要带伞。希望大家记得提前看墨迹天气，出门都能玩出好心情！</p>
+<p>广告</p>
+<p><strong>留言区福利</strong></p>
+<p>1楼可获得莫吉托一箱</p>
+<p>12可获得诸葛孔明羽毛扇一把</p>
+<p>22楼可获得德州扒鸡一袋</p>
+<p><strong>希望出门不下雨</strong><strong><strong>👇👇</strong></strong>****</p>
+<p>预览时标签不可点</p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/5613b13142e2c6425a4539a405062247/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8%25E6%25A6%2582%25E7%258E%2587%25E8%25AE%25BA%25E9%25A2%2584%25E6%25B5%258B%25E4%25BD%25A0%25E7%259A%2584%25E8%2584%25B1%25E5%258D%2595%25E6%2597%25B6%25E9%2597%25B4">给你 10 亿美元，但会有一只蜗牛永远追杀你，你干不干？</a>
+</h2>
+<p class=text-dark>知乎用户 老八 发表 买两套房，相距 20 公里，
+每天 0 点，让等候在 10 公里外的保镖开直升机来接我，再把我送到另一套房子里。
+第二天 0 点，还是如此。
+蜗牛一天爬不了 10 公里，所以我是安全的。
+考虑蜗牛随机出现的问题：
+我占 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/2e42a6381e3fc9c90ec90f6af6730012/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8%25E6%25A6%2582%25E7%258E%2587%25E8%25AE%25BA%25E9%25A2%2584%25E6%25B5%258B%25E4%25BD%25A0%25E7%259A%2584%25E8%2584%25B1%25E5%258D%2595%25E6%2597%25B6%25E9%2597%25B4">跨性别怎么在宿舍生活？</a>
+</h2>
+<p class=text-dark>知乎用户 陈苏苏同学 发表 这个看运气啦，如果舍友都挺开放包容的，也就还好。自己也要多尝试和别人沟通交流。我是一个跨性别女生，也是住在男生宿舍，不过我基本上和舍友相处的还是蛮不错的，其实一开始也不习惯，但是习惯了也就好了，其实感觉
+也没什么 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/30d012fff1bd494511c2444eb902404e/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8%25E6%25A6%2582%25E7%258E%2587%25E8%25AE%25BA%25E9%25A2%2584%25E6%25B5%258B%25E4%25BD%25A0%25E7%259A%2584%25E8%2584%25B1%25E5%258D%2595%25E6%2597%25B6%25E9%2597%25B4">为什么所谓五十年一遇、百年一遇的自然灾害几乎年年发生？</a>
+</h2>
+<p class=text-dark>知乎用户 舒乐乐​ 发表于 2/9/2014 （学霸一定要看二崽子和Calvin Zhang 的回答，两位都讲实践中的例子，非常棒！感谢匿名网友多处指正）
+首先，“百年一遇”并不是100年只会发生一次的意思。 什么叫“百年一遇”。人们时 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/157e3fdba19fd80bef3cee2930e4cf03/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8%25E6%25A6%2582%25E7%258E%2587%25E8%25AE%25BA%25E9%25A2%2584%25E6%25B5%258B%25E4%25BD%25A0%25E7%259A%2584%25E8%2584%25B1%25E5%258D%2595%25E6%2597%25B6%25E9%2597%25B4">内幕|太原女生被施暴反道歉，这几个诡异细节让人后怕</a>
+</h2>
+<p class=text-dark>短短三天内，太原女生王芝芝就经历了“忍无可忍——绝望求助——主动道歉”的魔幻转折。
+5月29日，太原师范学院的大二女生芝芝，在11点47分发出了一条长微博，自述她长达两年遭受室友霸凌的经历。
+字里行间尽显绝望之情，一年来她受尽了学生的室友的 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/974ec5e0157dd64f61f97264bc9804c0/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8%25E6%25A6%2582%25E7%258E%2587%25E8%25AE%25BA%25E9%25A2%2584%25E6%25B5%258B%25E4%25BD%25A0%25E7%259A%2584%25E8%2584%25B1%25E5%258D%2595%25E6%2597%25B6%25E9%2597%25B4">黑人大码模特被骂太丑，女性内衣广告到底给谁看？</a>
+</h2>
+<p class=text-dark>我们会发现，在雅里·琼斯代言的新闻下，很多男性表达了自己强烈的不适感。
+可是，他们又不穿女性内衣啊！
+近日，知名时装品牌Calvin Klein签下模特雅里·琼斯（Jari Jones），并用她替换下超模杜晨·科洛斯（Doutzen …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

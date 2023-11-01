@@ -1,0 +1,5 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>密文 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E5%AF%86%E6%96%87/</link><description>Recent content in 密文 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Mon, 20 Sep 2021 04:01:26 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E5%AF%86%E6%96%87/index.xml" rel="self" type="application/rss+xml"/><item><title>课堂上传纸条如何防范中间人攻击？</title><link>https://project-gutenberg.github.io/Pincong/post/e369b636df321e51be47ec0c2eda014b/</link><pubDate>Mon, 20 Sep 2021 04:01:26 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e369b636df321e51be47ec0c2eda014b/</guid><description>知乎用户 Ivony​​ 发表 这个我比较有经验啊，，，，
+首先第一种方案就是排除中间人，直接建立点对点连接，例如直接将纸条从空中抛送过去，顺便还能锻炼自己的投篮水平，为以后进入国家队作准备。缺点就是如果隔太远这种方式丢包率太大了。
+第二种方案就是只使用可信网关连接，在自己与目标之间只请求自己信得过的哥们儿姐们儿进行传递。
+如果必须在恶劣的情况下进行安全的数据传递，那么有如下几个技巧：
+1、CDMA（码分多址），将一段信息拆分成两份，再 …</description></item></channel></rss>

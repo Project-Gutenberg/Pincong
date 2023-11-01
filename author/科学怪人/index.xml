@@ -1,0 +1,17 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>科学怪人 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/author/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA/</link><description>Recent content in 科学怪人 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sat, 27 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/author/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA/index.xml" rel="self" type="application/rss+xml"/><item><title>简单的中文情绪分析</title><link>https://project-gutenberg.github.io/Pincong/post/c92aa085766fd2ccc12b186867c8fb0d/</link><pubDate>Sat, 27 Jul 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/c92aa085766fd2ccc12b186867c8fb0d/</guid><description>snownlp是一个针对简体中文的包 https://github.com/isnowfy/snownlp
+安装
+pip install snownlp
+可以考虑用它作中文情绪分析，实时检测论坛中的辱骂内容，自动折叠，甚至封禁。
+（引用辱骂言论要格外小心）
+每个分句情绪打分0-1，0表示极端负面，1表示极端正面情绪。
+python代码
+from snownlp import SnowNLP
+textraw = u' 你连你妈这种弱智都 …</description></item><item><title>简单的中文情绪分析</title><link>https://project-gutenberg.github.io/Pincong/post/d6f8dd296df04978cdd1549bd968033c/</link><pubDate>Sat, 27 Jul 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/d6f8dd296df04978cdd1549bd968033c/</guid><description>snownlp是一个针对简体中文的包 https://github.com/isnowfy/snownlp
+安装
+pip install snownlp
+可以考虑用它作中文情绪分析，实时检测论坛中的辱骂内容，自动折叠，甚至封禁。
+（引用辱骂言论要格外小心）
+每个分句情绪打分0-1，0表示极端负面，1表示极端正面情绪。
+python代码
+from snownlp import SnowNLP
+textraw = u' 你连你妈这种弱智都 …</description></item></channel></rss>

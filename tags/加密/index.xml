@@ -1,0 +1,50 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>加密 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E5%8A%A0%E5%AF%86/</link><description>Recent content in 加密 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sat, 10 Sep 2022 13:26:24 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E5%8A%A0%E5%AF%86/index.xml" rel="self" type="application/rss+xml"/><item><title>如何评价「Telegram」这个 APP?</title><link>https://project-gutenberg.github.io/Pincong/post/c11150024c7f9f22577b92d158ba4117/</link><pubDate>Sat, 10 Sep 2022 13:26:24 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/c11150024c7f9f22577b92d158ba4117/</guid><description>知乎用户 李如一 发表 假设妳的好友被传唤，在警察进门前迅速给妳发了信息。妳不希望甚至害怕警察从她的手机上看到妳们的聊天记录。此时需要一种快速简单的办法，在碰不到她的手机和任何设备的前提下删除自己和她的对话。以我所见，目前的聊天软件只有 Telegram 提供这一功能。删除信息时，Telegram 会问妳是只要「Delete for me」还是「Delete for me and 对方姓名」。若选后者，则会同时在妳和她的所有设备上删除。 …</description></item><item><title>荆棘｜除了 FaceTime，Apple 在中国大陆还不支持哪些功能？</title><link>https://project-gutenberg.github.io/Pincong/post/5ff4f0e90c21763e55bcd9823a39b30d/</link><pubDate>Mon, 15 Aug 2022 04:40:43 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/5ff4f0e90c21763e55bcd9823a39b30d/</guid><description>**作者：**荆棘
+**发表日期：**2022.8.13
+来源：知乎
+主题归类：苹果审查
+CDS收藏：老大哥馆
+**版权说明：**该作品版权归原作者所有。中国数字时代仅对原作进行存档，以对抗中国的网络审查。详细版权说明。
+**编者按：**这是作者对于知乎问题“为什么国内不允许 FaceTime 语音？”的回答。
+以下统计数据仅为2022/8/13 收集时Apple.Inc的服务政策，不保证在此之后是否变更。部分内容由网友提供有疏漏之处如 …</description></item><item><title>课堂上传纸条如何防范中间人攻击？</title><link>https://project-gutenberg.github.io/Pincong/post/e369b636df321e51be47ec0c2eda014b/</link><pubDate>Mon, 20 Sep 2021 04:01:26 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e369b636df321e51be47ec0c2eda014b/</guid><description>知乎用户 Ivony​​ 发表 这个我比较有经验啊，，，，
+首先第一种方案就是排除中间人，直接建立点对点连接，例如直接将纸条从空中抛送过去，顺便还能锻炼自己的投篮水平，为以后进入国家队作准备。缺点就是如果隔太远这种方式丢包率太大了。
+第二种方案就是只使用可信网关连接，在自己与目标之间只请求自己信得过的哥们儿姐们儿进行传递。
+如果必须在恶劣的情况下进行安全的数据传递，那么有如下几个技巧：
+1、CDMA（码分多址），将一段信息拆分成两份，再 …</description></item><item><title>如何看待 b 站 up 墨樱倾城疑似因小米 11 损坏，失去工作与父亲并遭遇网暴?</title><link>https://project-gutenberg.github.io/Pincong/post/a9ac17f33fa648606a66573ef43d3005/</link><pubDate>Tue, 17 Aug 2021 02:59:21 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a9ac17f33fa648606a66573ef43d3005/</guid><description>知乎用户 夜色祢 发表 从评论被点赞的情况来看，这位评论人毫无疑问是 UP 现实中的好友，话语真实有效。
+不过他这番话却让我的大脑有些转不过弯来。
+首先，在手机寸土寸金的内部，应该是没有多个存储颗粒的空间才对，所以说，不存在多个存储颗粒，只坏其中部分颗粒的情况。
+[【蒋 · 拆解】小米 11 拆解 - 深度探索骁龙 888_哔哩哔哩_bilibili​www.bilibili.com/video/av415874724 …</description></item><item><title>中国首颗量子通信卫星又是世纪大骗局</title><link>https://project-gutenberg.github.io/Pincong/post/ec7edeb020a30bd5c5d91ce96a61c6ab/</link><pubDate>Sun, 21 Jun 2020 14:27:29 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ec7edeb020a30bd5c5d91ce96a61c6ab/</guid><description>中国首颗量子通信卫星又是世纪大骗局
+作者：VOLTES
+小弟刚看了这个新闻,还真吓了一跳,还以为中国在量子通信有什么重大突破,不过负责这个的潘健伟本来争议就很大,标准的牛皮大王一个,他干的事都要存疑,仔细看了一下内容,只差没喷饭。
+这哪里是什么量子通信??实际上的通信内容还是用传统方式加密通过激光传送,被量子加密的只有秘钥(先不谈真假),敌人要窃听根本不用去管被量子加密的秘钥,只要破解用传统手段加密的实际内容就成了,这个所谓的量子加密的 …</description></item><item><title>双管齐下 – Nei.st</title><link>https://project-gutenberg.github.io/Pincong/post/104d0e38e66652600da27831f94a0cec/</link><pubDate>Thu, 11 Jun 2020 01:56:34 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/104d0e38e66652600da27831f94a0cec/</guid><description>在远离美国的地方，金融世界的神经系统正在重新连接
+去年距圣诞节还有两周时，中国科技公司金融壹账通的高管登上了飞往纽约的航班。他们降落在寒冷肃杀的氛围中：因为怀疑电信巨头华为为北京从事间谍活动，美国立法者即将禁止这家公司向美国政府供货。但金融壹账通完成了自己的任务：12 月 13 日它在纽约证交所上市，筹集到 3.12 亿美元，这让它的估值达到 37 亿美元。分析师目前预计，这家尚在亏损的公司在未来 12 个月内股价将上涨超过 70%。
+…</description></item><item><title>u1s1，文化输出还得靠这个</title><link>https://project-gutenberg.github.io/Pincong/post/25ad3121c086fc85d80305cff8a899c2/</link><pubDate>Fri, 29 May 2020 12:36:38 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/25ad3121c086fc85d80305cff8a899c2/</guid><description>大家好
+前几天比比在微博冲浪
+看见有个读者发了个暗号
+作为一个写过焱煋文の前浪℡~
+我立刻将其破译了出来
+破译完毕
+我自信满满地点开评论区对答案
+别的不说
+zqsg=梓泉赛高还是很有把握的
+毕竟是自家粉丝
+除了“搞快点”其他全错了？？？
+zqsg竟然是真情实感？？？
+腥风血雨也要打成xfxy
+咋的，打成语犯法是吗？
+秉着对互联网迷惑行为的钻研精神
+比比花鸽了几天时间
+在沙雕暗号的海洋里尽情遨游
+可算把这套互联网密码学捋明白了
+接下来，就 …</description></item><item><title>一批特斯拉车主的隐私遭泄露，就因为一个小小的内存颗粒。。。</title><link>https://project-gutenberg.github.io/Pincong/post/f488ba9df13e06755da280aeb82a1f7c/</link><pubDate>Thu, 07 May 2020 18:44:07 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f488ba9df13e06755da280aeb82a1f7c/</guid><description>最近国产特斯拉的价格降到了 27 万，一下子激起了不少购车潜在户躁动的钱包。
+结果就在大家犹豫着要不要买特斯拉的档口，最近被曝出了数据保护不力导致用户隐私泄露的问题。。。
+只要一台特斯拉进过维修站，换过 / 升级过车载电脑主板**，那么车主的通讯录、通话记录、日历日程、位置轨迹截图等等有的没的，很有可能就已经泄露了**。。
+而这件事儿已经被一名白帽子黑客给实锤了，他甚至还顺着被泄露的号码给几个车主打了电话，跟对方来了个谈笑风生。
+当然， …</description></item><item><title>〖圖文教學〗如何使用PGP加密以便在非安全通訊工具內進行加密通訊</title><link>https://project-gutenberg.github.io/Pincong/post/6e659d59117e8fbaeb51a0d22e403e76/</link><pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/6e659d59117e8fbaeb51a0d22e403e76/</guid><description>看到內地很多朋友被匪共原子化得相當利害，使用國內通訊軟件時根本一丁點保障都沒有，有時候發生什麼災難的，相隔一個市甚至一條街的人都會因為消息封鎖而毫不知情，連「私人」群組內發佈消息都可以被當成造謠者，如李文亮等八醫生當初都只不過是在私人群組提一提醒群友就被抽出來批鬥，可想而知現在身處武漢的災民們是受到什麼樣子的言論管制和監控，敢於報導、公佈共匪稍不同意的消息根本就是找死被封殺。
+吐槽完畢，入正題。本教學希望能提供一個途徑讓「敏感地區人士」 …</description></item><item><title>〖圖文教學〗如何使用PGP加密以便在非安全通訊工具內進行加密通訊</title><link>https://project-gutenberg.github.io/Pincong/post/cdde94ec7c7fc0b80afdf67aac3d7008/</link><pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/cdde94ec7c7fc0b80afdf67aac3d7008/</guid><description>看到內地很多朋友被匪共原子化得相當利害，使用國內通訊軟件時根本一丁點保障都沒有，有時候發生什麼災難的，相隔一個市甚至一條街的人都會因為消息封鎖而毫不知情，連「私人」群組內發佈消息都可以被當成造謠者，如李文亮等八醫生當初都只不過是在私人群組提一提醒群友就被抽出來批鬥，可想而知現在身處武漢的災民們是受到什麼樣子的言論管制和監控，敢於報導、公佈共匪稍不同意的消息根本就是找死被封殺。
+吐槽完畢，入正題。本教學希望能提供一個途徑讓「敏感地區人士」 …</description></item><item><title>语言密码</title><link>https://project-gutenberg.github.io/Pincong/post/39502cabe45bfb7642515b3ea9113972/</link><pubDate>Sat, 07 Mar 2020 16:54:22 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/39502cabe45bfb7642515b3ea9113972/</guid><description>本科上数论课，讲到密码学，具体数学细节都忘了，只记得老师讲过一个核心机制，就是找到一种正过程与逆过程完全不对等的运算。例如我们最早学习的加法与减法，在运算性质上几乎是同质的，而幂与开方，难度就不那么对称了。
+当然，这样的难度差距来建立高级密码，还是太简陋了点，这时候便需要用到数论里的整数分解，模运算等等。
+有些加密具有这样的特征：即使公开明文与运算规则，直接逆向运算也难度艰巨到几乎不可能实现。密文的破译需要借助密钥，密钥可以让逆运算成为 …</description></item><item><title>【重要安全提示】截图可能带来的严重安全隐患</title><link>https://project-gutenberg.github.io/Pincong/post/780f553faeb0b21cdd5f9f2ee53e23fe/</link><pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/780f553faeb0b21cdd5f9f2ee53e23fe/</guid><description>【重要安全提示】截图可能带来的严重安全隐患
+拓展阅读：去谷歌搜索“不可见水印”，了解更多技术层面的内容
+另外：不可见水印抓人已经发生过了：去谷歌搜索“月饼事件 不可见水印”
+(搜索结果含有墙内网站链接，建议使用tor浏览器)
+现在很多图片含有数字水印，并不是类似www.google.com这样的可见水印，而是使用快速离散fourier变换、快速离散小波变换加在图片中的不可见水印，并且进行了一定的编码，肉眼是无法辨别的，而通过特定加密软件 …</description></item></channel></rss>

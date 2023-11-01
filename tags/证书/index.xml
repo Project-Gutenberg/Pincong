@@ -1,0 +1,34 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>证书 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E8%AF%81%E4%B9%A6/</link><description>Recent content in 证书 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sun, 18 Dec 2022 18:44:24 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E8%AF%81%E4%B9%A6/index.xml" rel="self" type="application/rss+xml"/><item><title>考完核酸采样员证，核酸没了</title><link>https://project-gutenberg.github.io/Pincong/post/fe3f96b7f9acf9bdb408b58a9f704241/</link><pubDate>Sun, 18 Dec 2022 18:44:24 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/fe3f96b7f9acf9bdb408b58a9f704241/</guid><description>核酸没了，那些花钱买核酸检测证的人该何去何从？‍
+撰****文 | 王枻坤‍‍‍
+编辑 | 马 路
+自12月7日国务院发布“新十条”以来，各地纷纷跟进防疫政策，除特殊场所之外，进入商超、办公楼等公共场所不要求提供核酸证明，定期的核酸检测正在成为历史。
+与之共同淡出大众视野的是核酸采样员。这一职业曾经因需求旺盛、待遇优厚，吸引无数人加入其中。由此甚至催生出专门的培训机构和中介，在巨大的惯性之下，相关机构的招生贴至今依旧在网上活跃。
+#01 …</description></item><item><title>网上流传的所谓「支付宝偷偷添加根证书，将造成安全隐患」的说法是否正确？</title><link>https://project-gutenberg.github.io/Pincong/post/f675e40b81f49bac7ae37dc8a0e180ab/</link><pubDate>Thu, 30 Dec 2021 02:28:14 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f675e40b81f49bac7ae37dc8a0e180ab/</guid><description>知乎用户 刘志松 发表 @Ivony
+的回答浅显易懂，说的不无道理。 我想再补充一下。顺便评论一下很多人提到的 CNNIC 乱入 Windows 和 Firefox 根证书机构的问题。
+这个问题的关键在于支付宝私自添加根证书，是否有危害，危害大不大，对吧。
+评论中和其他回答（如
+@刘昊
+）以及里面的评论对于阿里巴巴作为一个根证书机构是否具备权威性，以及安全性是否能得到保障做了很多的讨论。我认为讨论的角度有点偏。 CNNIC、12306、 …</description></item><item><title>如何禁止安装百度杀毒？</title><link>https://project-gutenberg.github.io/Pincong/post/e9ba6ce94eb6ec83c17e640ba94cb299/</link><pubDate>Sat, 17 Apr 2021 23:33:44 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e9ba6ce94eb6ec83c17e640ba94cb299/</guid><description>知乎用户 Left 发表 组策略中证书规则，阻止百度一系列软件安装（对已安装的百度系列软件有影响）
+1. 下载百度系列软件一个（提取数字证书）
+2. 鼠标右键 属性 数字签名，如下图
+此处命名随便，证书存储路径随便，只要你记得。。。。。
+保存后直接下一步，下一步，最终得到一个证书文件
+3.win+r 调出运行框，输入 gpedit.msc 回车，打开组策略
+如上图（呵呵，我限制了不少东西）， 依次 计算机配置 windows 设置 安全 …</description></item><item><title>“聚众”吃转基因玉米 多位学者呼吁加快产业化</title><link>https://project-gutenberg.github.io/Pincong/post/8c341f347db2ce8ad72eca9bcb694a48/</link><pubDate>Sun, 21 Jun 2020 14:27:56 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/8c341f347db2ce8ad72eca9bcb694a48/</guid><description>“聚众”吃转基因玉米 多位学者呼吁加快产业化
+第一财经民生邵海鹏　来源：基因农业网
+给你一个转基因玉米，你会吃吗？
+8月14日，在中国农大玉米试验基地（基因农业网注：原文表述不确，该试验基地为多家单位共有），基因农业网举办转基因技术座谈会，与会人员以自愿吃转基因抗虫玉米的实践行动为转基因食品的安全性背书。针对可能出现的质疑，中国农科院研究员黄大昉回应从称，“这并不违规。”他说，转基因玉米尚未产业化种植，还不能够上市，按照管理规定，只能进 …</description></item><item><title>求证千人教授博导李芳红的“美国医学博士资格认证”</title><link>https://project-gutenberg.github.io/Pincong/post/b251989e6f8ed15410c568bf44b45fd8/</link><pubDate>Sun, 21 Jun 2020 12:04:29 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b251989e6f8ed15410c568bf44b45fd8/</guid><description>求证千人教授博导李芳红的“美国医学博士资格认证”
+浏览百度发现广东工业大学李芳红教授博导（https://baike.baidu.com/item/李芳红），也是华津医药总经理（https://www.tianyancha.com/brand/bb4ca247168）的介绍。“李老师1990年毕业中国医科大学本科，1995 毕业于中山大学硕士。“2000-2006年在美国波士顿和匹兹堡大学医学院从事博士后的研究工作“ 2006年通过美国 …</description></item><item><title>广东工业大学李芳红未读博士却自称美国医学博士</title><link>https://project-gutenberg.github.io/Pincong/post/1d4f67b658ee97ea6c0b620f2a6ec1b8/</link><pubDate>Sun, 21 Jun 2020 11:47:07 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/1d4f67b658ee97ea6c0b620f2a6ec1b8/</guid><description>广东工业大学李芳红未读博士却自称美国医学博士
+作者：梁缇
+浏览百度发现广东工业大学李芳红教授博导（https://baike.baidu.com/item/李芳红），也是华津医药总经理（https://www.tianyancha.com/brand/bb4ca247168）的介绍。“李老师1990年毕业中国医科大学本科，1995 毕业于中山大学硕士。2000-2006年在美国波士顿和匹兹堡大学医学院从事博士后的研究工作。 2006年通 …</description></item><item><title>方刚的“证书”及其他</title><link>https://project-gutenberg.github.io/Pincong/post/5ec685b794c1179d2a4f0d0621fe0955/</link><pubDate>Sun, 21 Jun 2020 11:11:26 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/5ec685b794c1179d2a4f0d0621fe0955/</guid><description>方刚的“证书”及其他
+作者：海砂
+我在上一篇《为什么说方刚团队的性教育和培训疑似敛财骗术？》一文中，罗列了方刚的性教育与培训的形式，也提到过“方刚及其团队的课程对颁发证书显得特别的热衷”。在方刚培训课程宣传中，已经看到的证书主要是围绕着性教育相关的概念来命名，但具体称谓可是名目繁多、花样百出，举几例：
+亲密关系咨询师证书　性与亲密关系咨询师证书　性与亲密关系治疗认证书　家庭暴力当事人辅导师证书　性教育讲师（高级、中级等，增能赋权型） …</description></item><item><title>国产转基因将再获发安全证书：是破局，还是摆设？</title><link>https://project-gutenberg.github.io/Pincong/post/9c62edc7dc3abb3149b1258c4461f417/</link><pubDate>Sun, 21 Jun 2020 09:21:10 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/9c62edc7dc3abb3149b1258c4461f417/</guid><description>国产转基因将再获发安全证书：是破局，还是摆设？
+作者：孙滔
+胶着多年的转基因作物产业化僵局貌似要打破了。
+2019 年 12 月 30 日，农业农村部发布公告称，拟批准颁发转基因玉米安全证书和转基因大豆安全证书，其中包括 2 种转基因玉米（北京大北农生物技术有限公司的 DBN9936 和杭州瑞丰生物科技有限公司与浙江大学的双抗 12-5）和 1 种转基因大豆（上海交通大学的 SHZD32-01）。
+玉米和大豆的安全证书获批意味着，转基因 …</description></item><item><title>转基因：莫再让安全证书成摆设</title><link>https://project-gutenberg.github.io/Pincong/post/a828117b95b60499bf44ce233720bc65/</link><pubDate>Sun, 21 Jun 2020 09:21:04 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a828117b95b60499bf44ce233720bc65/</guid><description>转基因：莫再让安全证书成摆设
+作者：方玄昌
+2019年12月30日上午9时许，农业农村部公布了一份名单，其具体内容是“拟批准颁发农业转基因生物安全证书的192个植物品种目录”。
+名单中排在前面的都是棉花品种，真正引人注目的是最后三项：两个抗虫玉米品种和一个抗除草剂大豆品种，他们均来自国内种业研发机构。
+“拟批准”名单还需要经历15个工作日的公示期（到2020年1月20日），但抗虫玉米和抗除草剂大豆品种上榜，已经在数年来呈万马齐喑之势的种 …</description></item></channel></rss>

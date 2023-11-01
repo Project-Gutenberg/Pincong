@@ -1,0 +1,300 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>一种基于ssproxy、具有突破“GFW系统”功能并将审查本地化的“合法”跨境浏览器分析（灵狐、雷兔、绿光、视界通…）</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" **注：****本文并非恰饭，仅仅是事件、事实陈述，提及的供应商与笔者无任何利益关联。**笔者不推荐、也不反对使用标题提及的类似软件以及付费服务。
+文章尾部有关于刑法问题的探讨，并附带评论区，欢迎就相关学术问题探讨给予批评和指正。
+不妨回顾一下此前关于“翻墙”刑法问题的讨论进度。
+通过《「“规避GFW审查系统”的刑法问题」刍议——（一）三种入罪路径下的22则典型案例**》，**笔者揭示了现行司法实践中针对“提供具有规避GFW审查功能的工具”采取的三种规制路径（罪名）：
+①刑法第285条第三款（“提供侵入计算机信息系统的工具罪”）；
+②刑法第225条（非法经营罪：无电信业务经营许可/非法电视接收设备）；
+③刑法第第二百八十六条之一（拒不履行信息网络安全管理义务罪）。
+通过《「“规避GFW审查系统”的刑法问题」刍议——（二）“VPN技术的中立性”没有任何探讨价值**》，笔者发表观点称：**现行司法实践中认定“翻墙软件”为”侵入计算机信息系统的工具“系因其突破了GFW审查系统对网站的屏蔽，这是实质层面的判断，而非如某些论文所提及：法律工作者忽视了VPN技术的中立性。
+同时，笔者提出下述几个论点：
+**①VPN技术中立性没有讨论价值。**在不反对现行司法实践认定方式的前提下，必须承认：专门用于规避GFW审查系统的“翻墙软件”绝不能因所谓“VPN技术的中立性”而掩盖其实质，因为在前述语境下，VPN毫无疑问可以成为侵入GFW系统的工具；
+②翻墙的核心原理**（之一）系proxy而非vpn**。proxy的实现方式既可以是VPN，也可以是socks5等与VPN毫无关系的协议；
+③司法实践中的关于刑法285Ⅲ的法教义学论证方式无一例外以下述形式展开：
+★【大前提：刑法285Ⅲ/法释〔2011〕19号】
+**专门用于侵入计算机信息系统的程序、工具的内涵系：**具有避开或者突破计算机信息系统安全保护措施，未经授权或者超越授权获取计算机信息系统数据的功能的；或其他专门设计用于侵入、非法控制计算机信息系统、非法获取计算机信息系统数据的程序、工具（兜底条款）。
+★【小前提：翻墙软件的原理】
+在前端计算机和境外VPN代理服务器之间建立虚拟专用通道，将前端计算机访问某个受限网站的请求通过通道发送给境外 VPN 代理服务器，由 VPN 代理服务器接收目标网站的响应后，将获取到的信息原样转发给前端计算机。这样，前端计算机就绕开监管，建立了一个 VPN 通道访问境外的受限网站。
+（注：此种解释方式表面上是在描述VPN，实质上却是对proxy工作原理的精确描述）
+★【结论】
+这种绕过计算机信息系统或者相关设备防护措施的行为，符合提供用于侵入、非法控制计算机信息系统的程序、工具罪的客观特征。
+本文意在展示一种基于ssproxy、具有突破“GFW系统”功能并将审查本地化的“合法”跨境浏览器。
+笔者在Andriod平台测试了一款名为“视界通浏览器”的app；于Windows 10环境下试用了灵狐浏览器、雷兔跨境浏览器和绿光浏览器。上述四款软件特征十分相似，都提供了有限的境外网站访问服务，其中大部分具备多平台支持（顺利上架各大手机应用商店、未被搜索引擎屏蔽），且提供付费服务，未遭到查处。
+**从翻墙实现原理上，上述浏览器无外乎基于shadowsocks的socks5代理协议。**其使用位于阿里云香港等境外VPS作为跳板（即任意境外proxy服务端），中转用户发送的境外网站访问请求，经远端服务器转发、接收数据并最终传回至境内用户端；总体上，虽然用户最终访问了境外网站，但从表现形式上看，仅仅是和远端VPS建立了通讯，由于这一连接指向的域名不在GFW系统的屏蔽范围内，因此可以畅通无阻地经过国际出入口。
+因此，上述浏览器突破GFW审查系统的方式与市面上大部分VPN、基于Proxy的翻墙软件没有任何区别。
+从软件设计和体验上，三款windows平台的浏览器（灵狐、雷兔、绿光）近乎一个模子刻出来的，其体现在以下几个方面：
+①浏览器内核均为chromium，甚至版本号都一模一样（78.0.3904.108）；
+②安装过程的动画一模一样（非常丑，蓝色的矩形+圆形转圈动画），浏览器整体GUI的设计除了皮肤文件不同以外，其余没有任何区别；
+③可执行文件所在路径的结构和内容近乎一模一样（包括涉及proxy的程序、用于屏蔽非法网站的数据库，例如“badweb.zip”）；
+④均要求手机实名验证，否则无法启动代理；首次使用会提示相关规范，以非常严厉的口吻警告用户禁止访问非法网站（合理推测实名验证系为了防范用户危害行为无法溯源）；
+⑤均在广告中以“符合《网络安全法》”、“屏蔽了有危害内容”为卖点。
+因此，上述浏览器最特别之处便在于对“非法内容的屏蔽”。其将原本GFW审查系统实现的功能作了本地化移植，敏感网站一律不允许访问，且功能非常强大，包括但不限于：
+①在可以访问google等搜索引擎的情况下，做到：主动干预和屏蔽谷歌的搜索结果**，甚至比百度自己的屏蔽机制还要强悍**。关于这一功能的实现原理暂时未知，但筛选搜索引擎结果并非难事，Tampermonkey某一名为“AC-baidu”的插件亦可实现个性化关键词屏蔽规则。
+②在访问youtube、Wikipedia时，自动过滤敏感搜索结果，排除了一切可能涉及危害的内容；（原理亦可能同上）
+③****对于链接直接访问的干预和屏蔽可以精确、具体化到任意一个维基百科的词条、某个YouTube视频等，若支撑该功能的系一个庞大数据库，或许工作量过于庞大，合理怀疑浏览器本身内置了针对页面的明文检测模块或后门，可以完全无视TLS加密对检测的干扰。
+另，一项重要发现是，虽然上述浏览器产品表面上系竞争关系，但仔细考察便可发现其产品特性、使用的核心技术、用户体验基本上完全一致，因此，用户不应将上述产品简单理解为几家普通企业的“小试牛刀”、“相互竞争”，或许其背后有同一机构或部门的支持和协调。
+上述产品是否有积极意义呢？
+**当然有。**对于留学生群体、需要开展跨境经营、海淘、检索外文学术资源等人士，或许可以将这种产品理解为官方默许(或测试乃至探索)的外网访问途径之一，其法律风险是非常小的；当然，这也意味着必然要承受“境内网站惯常审查制度向境外网站移植”的折衷方案，甚至可能须面临境外社交平台账号被浏览器私自记录并上传至监管机构、并与实名手机号绑定的隐患（仅是猜测）。
+但是对于法学界、司法界来说，它可能是一种耻辱。
+此种软件与以往被认定为“专门用于侵入计算机信息系统的工具”的软件原理一模一样。虽然软件实质上存在比GFW审查系统更苛刻的综合性过滤手段；但事实上，抛开这些附加模块不谈，其proxy的功能是彻彻底底的“规避GFW系统审查”的功能**，符合以往所有被施以刑事处罚（刑法285第三款）案例中认定的情节。**
+然而，在相同的法教义学论证框架之下，普通的翻墙软件和自带过滤功能的翻墙浏览器却有着近乎截然不同的结局。
+它完全印证了笔者此前文章的观点——以“提供侵入计算机信息系统的工具罪”处罚“翻墙软件”事实上是一种为了防止GFW屏蔽目的落空的、一项口袋罪的变体。
+既往的学者和司法工作者的问题不在于“误认VPN的技术中立性”，事实上所有人都心知肚明，这种罪名适用的根源究竟在何处。而之所以最终酿成口袋罪，核心原因便在于，他们将刑法285第三款保护的“计算机信息系统安全”之法益错误类推，将保护范围毫无理由地扩大并延及“计算机信息系统的设计目的”。
+在法释〔2011〕19号中，“侵入计算机信息系统”被定义为“避开或者突破计算机信息系统安全保护措施，未经授权或者超越授权获取计算机信息系统数据的功能”；然而司法实践只取了该司法解释条款的前半句，丝毫没有顾及“未经授权或者超越授权获取计算机信息系统数据的功能”这一要件；甚至更荒谬的是，即使他们陷入了“一知半解”的境地，连仅剩下“半解”都是错误的理解——“避开或者突破计算机信息系统安全保护措施”被扭曲成了“使某个系统功能无法实现”。
+**其有趣之处在于，这种偷换概念在涉及“GFW”问题时竟然表现得非常顺其自然、难以分辨其谬误：**GFW是一种屏蔽系统、攻击系统，因此它对应的“安全措施”概念根本不是其系统本体的“安全”，而是与“GFW”系统本身没有任何关系的Ideology Safety、保护人们不受境外煽动言论误导的“安全”，这种“安全”是GFW系统的设计目的，而非实质意义上的计算机信息系统安全。进而，在这一语境下，避开“屏蔽”和“入侵某一系统”甚至演变为毫不相关的两件事情，因为所谓的“屏蔽”根本不是为了防止人们入侵GFW系统本体而制造的“安全措施”，这种“安全措施”是整个中国互联网意义上的宏观概念。简言之，翻墙软件从未侵入GFW或破坏GFW，而是破坏了GFW所保护的某种其他领域的“安全”。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 一种基于ssproxy、具有突破“GFW系统”功能并将审查本地化的“合法”跨境浏览器分析（灵狐、雷兔、绿光、视界通…） ">
+<meta name=og:description content=" **注：****本文并非恰饭，仅仅是事件、事实陈述，提及的供应商与笔者无任何利益关联。**笔者不推荐、也不反对使用标题提及的类似软件以及付费服务。
+文章尾部有关于刑法问题的探讨，并附带评论区，欢迎就相关学术问题探讨给予批评和指正。
+不妨回顾一下此前关于“翻墙”刑法问题的讨论进度。
+通过《「“规避GFW审查系统”的刑法问题」刍议——（一）三种入罪路径下的22则典型案例**》，**笔者揭示了现行司法实践中针对“提供具有规避GFW审查功能的工具”采取的三种规制路径（罪名）：
+①刑法第285条第三款（“提供侵入计算机信息系统的工具罪”）；
+②刑法第225条（非法经营罪：无电信业务经营许可/非法电视接收设备）；
+③刑法第第二百八十六条之一（拒不履行信息网络安全管理义务罪）。
+通过《「“规避GFW审查系统”的刑法问题」刍议——（二）“VPN技术的中立性”没有任何探讨价值**》，笔者发表观点称：**现行司法实践中认定“翻墙软件”为”侵入计算机信息系统的工具“系因其突破了GFW审查系统对网站的屏蔽，这是实质层面的判断，而非如某些论文所提及：法律工作者忽视了VPN技术的中立性。
+同时，笔者提出下述几个论点：
+**①VPN技术中立性没有讨论价值。**在不反对现行司法实践认定方式的前提下，必须承认：专门用于规避GFW审查系统的“翻墙软件”绝不能因所谓“VPN技术的中立性”而掩盖其实质，因为在前述语境下，VPN毫无疑问可以成为侵入GFW系统的工具；
+②翻墙的核心原理**（之一）系proxy而非vpn**。proxy的实现方式既可以是VPN，也可以是socks5等与VPN毫无关系的协议；
+③司法实践中的关于刑法285Ⅲ的法教义学论证方式无一例外以下述形式展开：
+★【大前提：刑法285Ⅲ/法释〔2011〕19号】
+**专门用于侵入计算机信息系统的程序、工具的内涵系：**具有避开或者突破计算机信息系统安全保护措施，未经授权或者超越授权获取计算机信息系统数据的功能的；或其他专门设计用于侵入、非法控制计算机信息系统、非法获取计算机信息系统数据的程序、工具（兜底条款）。
+★【小前提：翻墙软件的原理】
+在前端计算机和境外VPN代理服务器之间建立虚拟专用通道，将前端计算机访问某个受限网站的请求通过通道发送给境外 VPN 代理服务器，由 VPN 代理服务器接收目标网站的响应后，将获取到的信息原样转发给前端计算机。这样，前端计算机就绕开监管，建立了一个 VPN 通道访问境外的受限网站。
+（注：此种解释方式表面上是在描述VPN，实质上却是对proxy工作原理的精确描述）
+★【结论】
+这种绕过计算机信息系统或者相关设备防护措施的行为，符合提供用于侵入、非法控制计算机信息系统的程序、工具罪的客观特征。
+本文意在展示一种基于ssproxy、具有突破“GFW系统”功能并将审查本地化的“合法”跨境浏览器。
+笔者在Andriod平台测试了一款名为“视界通浏览器”的app；于Windows 10环境下试用了灵狐浏览器、雷兔跨境浏览器和绿光浏览器。上述四款软件特征十分相似，都提供了有限的境外网站访问服务，其中大部分具备多平台支持（顺利上架各大手机应用商店、未被搜索引擎屏蔽），且提供付费服务，未遭到查处。
+**从翻墙实现原理上，上述浏览器无外乎基于shadowsocks的socks5代理协议。**其使用位于阿里云香港等境外VPS作为跳板（即任意境外proxy服务端），中转用户发送的境外网站访问请求，经远端服务器转发、接收数据并最终传回至境内用户端；总体上，虽然用户最终访问了境外网站，但从表现形式上看，仅仅是和远端VPS建立了通讯，由于这一连接指向的域名不在GFW系统的屏蔽范围内，因此可以畅通无阻地经过国际出入口。
+因此，上述浏览器突破GFW审查系统的方式与市面上大部分VPN、基于Proxy的翻墙软件没有任何区别。
+从软件设计和体验上，三款windows平台的浏览器（灵狐、雷兔、绿光）近乎一个模子刻出来的，其体现在以下几个方面：
+①浏览器内核均为chromium，甚至版本号都一模一样（78.0.3904.108）；
+②安装过程的动画一模一样（非常丑，蓝色的矩形+圆形转圈动画），浏览器整体GUI的设计除了皮肤文件不同以外，其余没有任何区别；
+③可执行文件所在路径的结构和内容近乎一模一样（包括涉及proxy的程序、用于屏蔽非法网站的数据库，例如“badweb.zip”）；
+④均要求手机实名验证，否则无法启动代理；首次使用会提示相关规范，以非常严厉的口吻警告用户禁止访问非法网站（合理推测实名验证系为了防范用户危害行为无法溯源）；
+⑤均在广告中以“符合《网络安全法》”、“屏蔽了有危害内容”为卖点。
+因此，上述浏览器最特别之处便在于对“非法内容的屏蔽”。其将原本GFW审查系统实现的功能作了本地化移植，敏感网站一律不允许访问，且功能非常强大，包括但不限于：
+①在可以访问google等搜索引擎的情况下，做到：主动干预和屏蔽谷歌的搜索结果**，甚至比百度自己的屏蔽机制还要强悍**。关于这一功能的实现原理暂时未知，但筛选搜索引擎结果并非难事，Tampermonkey某一名为“AC-baidu”的插件亦可实现个性化关键词屏蔽规则。
+②在访问youtube、Wikipedia时，自动过滤敏感搜索结果，排除了一切可能涉及危害的内容；（原理亦可能同上）
+③****对于链接直接访问的干预和屏蔽可以精确、具体化到任意一个维基百科的词条、某个YouTube视频等，若支撑该功能的系一个庞大数据库，或许工作量过于庞大，合理怀疑浏览器本身内置了针对页面的明文检测模块或后门，可以完全无视TLS加密对检测的干扰。
+另，一项重要发现是，虽然上述浏览器产品表面上系竞争关系，但仔细考察便可发现其产品特性、使用的核心技术、用户体验基本上完全一致，因此，用户不应将上述产品简单理解为几家普通企业的“小试牛刀”、“相互竞争”，或许其背后有同一机构或部门的支持和协调。
+上述产品是否有积极意义呢？
+**当然有。**对于留学生群体、需要开展跨境经营、海淘、检索外文学术资源等人士，或许可以将这种产品理解为官方默许(或测试乃至探索)的外网访问途径之一，其法律风险是非常小的；当然，这也意味着必然要承受“境内网站惯常审查制度向境外网站移植”的折衷方案，甚至可能须面临境外社交平台账号被浏览器私自记录并上传至监管机构、并与实名手机号绑定的隐患（仅是猜测）。
+但是对于法学界、司法界来说，它可能是一种耻辱。
+此种软件与以往被认定为“专门用于侵入计算机信息系统的工具”的软件原理一模一样。虽然软件实质上存在比GFW审查系统更苛刻的综合性过滤手段；但事实上，抛开这些附加模块不谈，其proxy的功能是彻彻底底的“规避GFW系统审查”的功能**，符合以往所有被施以刑事处罚（刑法285第三款）案例中认定的情节。**
+然而，在相同的法教义学论证框架之下，普通的翻墙软件和自带过滤功能的翻墙浏览器却有着近乎截然不同的结局。
+它完全印证了笔者此前文章的观点——以“提供侵入计算机信息系统的工具罪”处罚“翻墙软件”事实上是一种为了防止GFW屏蔽目的落空的、一项口袋罪的变体。
+既往的学者和司法工作者的问题不在于“误认VPN的技术中立性”，事实上所有人都心知肚明，这种罪名适用的根源究竟在何处。而之所以最终酿成口袋罪，核心原因便在于，他们将刑法285第三款保护的“计算机信息系统安全”之法益错误类推，将保护范围毫无理由地扩大并延及“计算机信息系统的设计目的”。
+在法释〔2011〕19号中，“侵入计算机信息系统”被定义为“避开或者突破计算机信息系统安全保护措施，未经授权或者超越授权获取计算机信息系统数据的功能”；然而司法实践只取了该司法解释条款的前半句，丝毫没有顾及“未经授权或者超越授权获取计算机信息系统数据的功能”这一要件；甚至更荒谬的是，即使他们陷入了“一知半解”的境地，连仅剩下“半解”都是错误的理解——“避开或者突破计算机信息系统安全保护措施”被扭曲成了“使某个系统功能无法实现”。
+**其有趣之处在于，这种偷换概念在涉及“GFW”问题时竟然表现得非常顺其自然、难以分辨其谬误：**GFW是一种屏蔽系统、攻击系统，因此它对应的“安全措施”概念根本不是其系统本体的“安全”，而是与“GFW”系统本身没有任何关系的Ideology Safety、保护人们不受境外煽动言论误导的“安全”，这种“安全”是GFW系统的设计目的，而非实质意义上的计算机信息系统安全。进而，在这一语境下，避开“屏蔽”和“入侵某一系统”甚至演变为毫不相关的两件事情，因为所谓的“屏蔽”根本不是为了防止人们入侵GFW系统本体而制造的“安全措施”，这种“安全措施”是整个中国互联网意义上的宏观概念。简言之，翻墙软件从未侵入GFW或破坏GFW，而是破坏了GFW所保护的某种其他领域的“安全”。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/164.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>一种基于ssproxy、具有突破“GFW系统”功能并将审查本地化的“合法”跨境浏览器分析（灵狐、雷兔、绿光、视界通…）</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e7%8e%8b%e5%ae%87%e6%89%ac>王宇扬</a></span>,
+<span>at 23 September 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%bf%a1%e6%81%af%e7%b3%bb%e7%bb%9f>信息系统</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%b1%8f%e8%94%bd>屏蔽</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%bf%bb%e5%a2%99%e8%bd%af%e4%bb%b6>翻墙软件</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%b3%bb%e7%bb%9f>系统</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/fd8da5369d2ebe10587997d7b65387d7.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/fd8da5369d2ebe10587997d7b65387d7.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>**注：****本文并非恰饭，仅仅是事件、事实陈述，提及的供应商与笔者无任何利益关联。**笔者不推荐、也不反对使用标题提及的类似软件以及付费服务。</p>
+<p><strong>文章尾部有关于刑法问题的探讨</strong>，并附带评论区，欢迎就相关学术问题探讨给予批评和指正。</p>
+<p><strong>不妨回顾一下此前关于“翻墙”刑法问题的讨论进度。</strong></p>
+<p><strong>通过《</strong><a href="http://mp.weixin.qq.com/s?__biz=Mzg2OTIyMzY0Ng==&mid=2247483982&idx=1&sn=925903815da22e4ddf990f4d8b8d1f2b&chksm=cea11ffff9d696e9590c052a72820d3061e6e1a148972f51b64d051951280a6cea9dcd938cfd&scene=21#wechat_redirect"><strong>「“规避GFW审查系统”的刑法问题」刍议——（一）三种入罪路径下的22则典型案例</strong></a>**》，**笔者揭示了现行司法实践中针对“提供具有规避GFW审查功能的工具”采取的三种规制路径（罪名）：</p>
+<p><strong>①刑法第285条第三款</strong>（“提供侵入计算机信息系统的工具罪”）；</p>
+<p><strong>②刑法第225条</strong>（非法经营罪：无电信业务经营许可/非法电视接收设备）；</p>
+<p><strong>③刑法第第二百八十六条之一</strong>（拒不履行信息网络安全管理义务罪）。</p>
+<p><strong>通过《</strong><a href="http://mp.weixin.qq.com/s?__biz=Mzg2OTIyMzY0Ng==&mid=2247483999&idx=1&sn=97697385851875bacb89a9b4af7bae4a&chksm=cea11feef9d696f8695af1a1b54c1a1da874c67bf95ce39f746471220e3fa6bc62a4cc0ec266&scene=21#wechat_redirect"><strong>「“规避GFW审查系统”的刑法问题」刍议——（二）“VPN技术的中立性”没有任何探讨价值</strong></a>**》，笔者发表观点称：**现行司法实践中认定“翻墙软件”为”侵入计算机信息系统的工具“系因其突破了GFW审查系统对网站的屏蔽，这是实质层面的判断，而非如某些论文所提及：法律工作者忽视了VPN技术的中立性。</p>
+<p><strong>同时，笔者提出下述几个论点：</strong></p>
+<p>**①VPN技术中立性没有讨论价值。**在不反对现行司法实践认定方式的前提下，必须承认：专门用于规避GFW审查系统的“翻墙软件”绝不能因所谓“VPN技术的中立性”而掩盖其实质，因为在前述语境下，VPN毫无疑问可以成为侵入GFW系统的工具；</p>
+<p><strong>②翻墙的核心原理</strong>**（之一）系proxy而非vpn**。proxy的实现方式既可以是VPN，也可以是socks5等与VPN毫无关系的协议；</p>
+<p><strong>③司法实践中的关于刑法285</strong>Ⅲ<strong>的法教义学论证方式无一例外以下述形式展开：</strong></p>
+<p><strong>★【大前提：刑法285Ⅲ/法释〔2011〕19号】</strong></p>
+<p>**专门用于侵入计算机信息系统的程序、工具的内涵系：**具有避开或者突破计算机信息系统安全保护措施，未经授权或者超越授权获取计算机信息系统数据的功能的；或其他专门设计用于侵入、非法控制计算机信息系统、非法获取计算机信息系统数据的程序、工具（兜底条款）。</p>
+<p><strong><strong>★</strong>【小前提：翻墙软件的原理】</strong></p>
+<p>在前端计算机和境外VPN代理服务器之间建立虚拟专用通道，将前端计算机访问某个受限网站的请求通过通道发送给境外 VPN 代理服务器，由 VPN 代理服务器接收目标网站的响应后，将获取到的信息原样转发给前端计算机。这样，前端计算机就绕开监管，建立了一个 VPN 通道访问境外的受限网站。</p>
+<p>（注：此种解释方式表面上是在描述VPN，实质上却是对proxy工作原理的精确描述）</p>
+<p><strong><strong>★</strong>【结论】</strong></p>
+<p>这种绕过计算机信息系统或者相关设备防护措施的行为，符合提供用于侵入、非法控制计算机信息系统的程序、工具罪的客观特征。</p>
+<p><strong>本文意在展示一种基于ssproxy、具有突破“GFW系统”功能并将审查本地化的“合法”跨境浏览器。</strong></p>
+<p>笔者在Andriod平台测试了一款名为“<strong>视界通浏览器</strong>”的app；于Windows 10环境下试用了<strong>灵狐浏览器</strong>、<strong>雷兔跨境浏览器</strong>和<strong>绿光浏览器</strong>。上述四款软件特征十分相似，都提供了有限的境外网站访问服务，其中大部分具备多平台支持（顺利上架各大手机应用商店、未被搜索引擎屏蔽），且提供付费服务，未遭到查处。</p>
+<p>**从翻墙实现原理上，上述浏览器无外乎基于shadowsocks的socks5代理协议。**其使用位于阿里云香港等境外VPS作为跳板（即任意境外proxy服务端），中转用户发送的境外网站访问请求，经远端服务器转发、接收数据并最终传回至境内用户端；总体上，虽然用户最终访问了境外网站，但从表现形式上看，仅仅是和远端VPS建立了通讯，由于这一连接指向的域名不在GFW系统的屏蔽范围内，因此可以畅通无阻地经过国际出入口。</p>
+<p>因此，上述浏览器突破GFW审查系统的方式与市面上大部分VPN、基于Proxy的翻墙软件没有任何区别。</p>
+<p><strong>从软件设计和体验上，三款windows平台的浏览器（灵狐、雷兔、绿光）近乎一个模子刻出来的，其体现在以下几个方面：</strong></p>
+<p><strong>①</strong>浏览器内核均为chromium，甚至版本号都一模一样（78.0.3904.108）；</p>
+<p><strong>②</strong>安装过程的动画一模一样（非常丑，蓝色的矩形+圆形转圈动画），浏览器整体GUI的设计除了皮肤文件不同以外，其余没有任何区别；</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/MpgDHibvMpoluXNZddYQ7VEF2jS17nHYuvGQrKAIdsNcoEx0C5ygia1RZ3DvV4kQ6JCVk262lVGobhBPGLWaWQwQ/640%3Fwx_fmt%3Dpng" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/MpgDHibvMpoluXNZddYQ7VEF2jS17nHYuuNxQibx210rknX8ypuUshXaH07I6z0OYZaPUqxiaYDdH3sibWkrWib0ktA/640%3Fwx_fmt%3Dpng" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/MpgDHibvMpoluXNZddYQ7VEF2jS17nHYuz10LYkzcwUj23exKZWqPvq8v7NL2dXia00Hs5NbTNbicpS2hicXcs8qJw/640%3Fwx_fmt%3Dpng" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/MpgDHibvMpoluXNZddYQ7VEF2jS17nHYuWz50dC9zH1xjlicSLZS6AlMk1mW2pvGBKXhQIibAgygMUtIUZsVAMB4g/640%3Fwx_fmt%3Dpng" alt></p>
+<p><strong>③</strong>可执行文件所在路径的结构和内容近乎一模一样（包括涉及proxy的程序、用于屏蔽非法网站的数据库，例如“badweb.zip”）；</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/MpgDHibvMpoluXNZddYQ7VEF2jS17nHYuvbmccGlpkTkPe75Kx4JAxcFykdicmsiabicFuvMCpQ7eDYQlf3PUHE2Vw/640%3Fwx_fmt%3Dpng" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/MpgDHibvMpoluXNZddYQ7VEF2jS17nHYuYYF5PwIE8I0Ra3Wbpo0lBHMYicfxWZwUNbvibjlsibR8ELGADmh3uZEsQ/640%3Fwx_fmt%3Dpng" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/MpgDHibvMpoluXNZddYQ7VEF2jS17nHYu8Cib8rmjxgTicbaM2E7h49o2mwGgiaaslicwSK89dDibyuWssCPhVFXxnww/640%3Fwx_fmt%3Dpng" alt></p>
+<p><strong>④</strong>均要求手机实名验证，否则无法启动代理；首次使用会提示相关规范，以非常严厉的口吻警告用户禁止访问非法网站（合理推测实名验证系为了防范用户危害行为无法溯源）；</p>
+<p><strong>⑤</strong>均在广告中以“符合《网络安全法》”、“屏蔽了有危害内容”为卖点。</p>
+<p><strong>因此，上述浏览器最特别之处便在于对“非法内容的屏蔽”。其将原本GFW审查系统实现的功能作了本地化移植，敏感网站一律不允许访问，且功能非常强大，包括但不限于：</strong></p>
+<p><strong>①</strong>在可以访问google等搜索引擎的情况下，做到：<strong>主动干预和屏蔽谷歌的搜索结果</strong>**，甚至比百度自己的屏蔽机制还要强悍**。关于这一功能的实现原理暂时未知，但筛选搜索引擎结果并非难事，Tampermonkey某一名为“AC-baidu”的插件亦可实现个性化关键词屏蔽规则。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/MpgDHibvMpoluXNZddYQ7VEF2jS17nHYutswPwzbIVJ0IaYkzWwyUqGU210JOGJTIBZaZIq4Bkg8Lfrfc4Znb8w/640%3Fwx_fmt%3Dpng" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/MpgDHibvMpoluXNZddYQ7VEF2jS17nHYuwRSQB2fJdgKBRfibBMKwVCnsLRck8tic619epoicWsEty23QdiaZzW5RRg/640%3Fwx_fmt%3Dpng" alt></p>
+<p><strong>②</strong>在访问youtube、Wikipedia时，<strong>自动过滤敏感搜索结果</strong>，排除了一切可能涉及危害的内容；（原理亦可能同上）</p>
+<p><strong>③****对于链接直接访问的干预和屏蔽可以精确、具体化到任意一个维基百科的词条</strong>、某个YouTube视频等，若支撑该功能的系一个庞大数据库，或许工作量过于庞大，合理怀疑浏览器本身内置了针对页面的明文检测模块或后门，可以完全无视TLS加密对检测的干扰。</p>
+<p>另，一项重要发现是，虽然上述浏览器产品表面上系竞争关系，但仔细考察便可发现其产品特性、使用的核心技术、用户体验基本上完全一致，因此，用户不应将上述产品简单理解为几家普通企业的“小试牛刀”、“相互竞争”，或许其背后有同一机构或部门的支持和协调。</p>
+<p><strong>上述产品是否有积极意义呢？</strong></p>
+<p>**当然有。**对于留学生群体、需要开展跨境经营、海淘、检索外文学术资源等人士，或许可以将这种产品理解为官方默许(或测试乃至探索)的外网访问途径之一，其法律风险是非常小的；当然，这也意味着必然要承受“境内网站惯常审查制度向境外网站移植”的折衷方案，甚至可能须面临境外社交平台账号被浏览器私自记录并上传至监管机构、并与实名手机号绑定的隐患（仅是猜测）。</p>
+<p><strong>但是对于法学界、司法界来说，它可能是一种耻辱。</strong></p>
+<p>此种软件与以往被认定为“专门用于侵入计算机信息系统的工具”的软件原理一模一样。虽然软件实质上存在比GFW审查系统<strong>更苛刻的</strong>综合性过滤手段；但事实上，抛开这些附加模块不谈，<strong>其proxy的功能是彻彻底底的“规避GFW系统审查”的功能</strong>**，符合以往所有被施以刑事处罚（刑法285第三款）案例中认定的情节。**</p>
+<p>然而，在相同的法教义学论证框架之下，普通的翻墙软件和自带过滤功能的翻墙浏览器却有着近乎截然不同的结局。</p>
+<p>它完全印证了笔者此前文章的观点——以“提供侵入计算机信息系统的工具罪”处罚“翻墙软件”事实上是一种为了防止GFW屏蔽目的落空的、一项口袋罪的变体。</p>
+<p>既往的学者和司法工作者的问题不在于“误认VPN的技术中立性”，事实上所有人都心知肚明，这种罪名适用的根源究竟在何处。<strong>而之所以最终酿成口袋罪，核心原因便在于，他们将刑法285第三款保护的“计算机信息系统安全”之法益错误类推，将保护范围毫无理由地扩大并延及“计算机信息系统的设计目的”。</strong></p>
+<p>在法释〔2011〕19号中，“侵入计算机信息系统”被定义为“避开或者突破计算机信息系统安全保护措施，未经授权或者超越授权获取计算机信息系统数据的功能”；<strong>然而司法实践只取了该司法解释条款的前半句，丝毫没有顾及“未经授权或者超越授权获取计算机信息系统数据的功能”这一要件</strong>；甚至更荒谬的是，即使他们陷入了“一知半解”的境地，连仅剩下“半解”都是错误的理解——“避开或者突破计算机信息系统安全保护措施”被扭曲成了“使某个系统功能无法实现”。</p>
+<p>**其有趣之处在于，<strong><strong>这种</strong></strong>偷换概念<strong><strong>在涉及“GFW”问题时竟然表现得非常顺其自然、难以分辨其谬误</strong></strong>：**GFW是一种屏蔽系统、攻击系统，因此它对应的“安全措施”概念根本不是其系统本体的“安全”，而是与“GFW”系统本身没有任何关系的Ideology Safety、保护人们不受境外煽动言论误导的“安全”，这种“安全”是GFW系统的设计目的，而非实质意义上的计算机信息系统安全。进而，在这一语境下，避开“屏蔽”和“入侵某一系统”甚至演变为毫不相关的两件事情，因为所谓的“屏蔽”根本不是为了防止人们入侵GFW系统本体而制造的“安全措施”，这种“安全措施”是整个中国互联网意义上的宏观概念。<strong>简言之，翻墙软件从未侵入GFW或破坏GFW，而是破坏了GFW所保护的某种其他领域的“安全”。</strong></p>
+<p>正如此前文章所述，一些学者发现“翻墙软件”根本没有任何实现“入侵某一系统”的功能，但为什么他们和反对者之间的辩论无法有效展开呢？归根结底，在一场学术辩论中，他们甚至尚未就定义达成共识，讨论沦为“鸡同鸭讲”就毫不意外了。</p>
+<p><strong>这样看来，虽然“翻墙软件”并没有实际侵入GFW系统，但由于GFW系统的设计目的落空（无法防止人们访问境外网站），因此该行为也将受到该罪名的规制；而一旦翻墙软件自行加设了审查制度，则相当于以另一个独立于GFW系统的程序实现了GFW原本的目的（甚至反而帮助其过滤更加细化），因此便没有触犯该罪的风险了。</strong></p>
+<p>**这种法律适用的逻辑是很可笑的，它基本上宣告：法教义学论证在该罪名之上已经不存在了。**长此以往，建议将“专门用于侵入计算机信息系统的工具”之表述修改为“专门用于使得计算机信息系统某一功能无法实现的工具”。</p>
+<p><strong>关于这个问题，本文仅是一个引子。欢迎关注笔者接下来的更新：</strong></p>
+<p>《刑法第285条规制"翻墙工具"的口袋罪倾向——“系统安全”之法益向“系统设计目的”的错误类推》。</p>
+<p>长按二维码向我转账</p>
+<p>感谢支持！</p>
+<p>受苹果公司新规定影响，微信 iOS 版的赞赏功能被关闭，可通过二维码转账支持公众号。</p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/31ebf1c92dc0091e2bcf2c79da8e9bd1/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25A7%258D%25E5%259F%25BA%25E4%25BA%258Essproxy%25E5%2585%25B7%25E6%259C%2589%25E7%25AA%2581%25E7%25A0%25B4gfw%25E7%25B3%25BB%25E7%25BB%259F%25E5%258A%259F%25E8%2583%25BD%25E5%25B9%25B6%25E5%25B0%2586%25E5%25AE%25A1%25E6%259F%25A5%25E6%259C%25AC%25E5%259C%25B0%25E5%258C%2596%25E7%259A%2584%25E5%2590%2588%25E6%25B3%2595%25E8%25B7%25A8%25E5%25A2%2583%25E6%25B5%258F%25E8%25A7%2588%25E5%2599%25A8%25E5%2588%2586%25E6%259E%2590%25E7%2581%25B5%25E7%258B%2590%25E9%259B%25B7%25E5%2585%2594%25E7%25BB%25BF%25E5%2585%2589%25E8%25A7%2586%25E7%2595%258C%25E9%2580%259A">外卖骑手：这并不是一个简单地剥削和压榨的故事</a>
+</h2>
+<p class=text-dark>01
+这两天，人物杂志的一篇文章《外卖骑手，困在系统里》刷屏了。这篇文章写得确实很好，采访的内容很扎实，切入点也好，看了让人感触很深。我在读这篇文章之前，也不清楚外卖骑手面临的这些巨大压力。但是《外卖骑手，困在系统里》把外卖骑手的各种困境都 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/8ff64c8d51a28d3dd2f93c9de2b444a9/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25A7%258D%25E5%259F%25BA%25E4%25BA%258Essproxy%25E5%2585%25B7%25E6%259C%2589%25E7%25AA%2581%25E7%25A0%25B4gfw%25E7%25B3%25BB%25E7%25BB%259F%25E5%258A%259F%25E8%2583%25BD%25E5%25B9%25B6%25E5%25B0%2586%25E5%25AE%25A1%25E6%259F%25A5%25E6%259C%25AC%25E5%259C%25B0%25E5%258C%2596%25E7%259A%2584%25E5%2590%2588%25E6%25B3%2595%25E8%25B7%25A8%25E5%25A2%2583%25E6%25B5%258F%25E8%25A7%2588%25E5%2599%25A8%25E5%2588%2586%25E6%259E%2590%25E7%2581%25B5%25E7%258B%2590%25E9%259B%25B7%25E5%2585%2594%25E7%25BB%25BF%25E5%2585%2589%25E8%25A7%2586%25E7%2595%258C%25E9%2580%259A">一些游戏为了过审，都做出过什么程度的让步？</a>
+</h2>
+<p class=text-dark>知乎用户 星群之蛇 发表 空中网首创日系军舰名称动植物和谐法，为国内其他游戏树立了标杆
+知乎用户 Comet Forever 发表 一个国产策略游戏，世界征服者 4，把世界地图上中国所在的那几个经度砍了
+知乎用户 河的第三条岸 发表 收 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/7a4f4eac1104a247bcc9cafe205b4588/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25A7%258D%25E5%259F%25BA%25E4%25BA%258Essproxy%25E5%2585%25B7%25E6%259C%2589%25E7%25AA%2581%25E7%25A0%25B4gfw%25E7%25B3%25BB%25E7%25BB%259F%25E5%258A%259F%25E8%2583%25BD%25E5%25B9%25B6%25E5%25B0%2586%25E5%25AE%25A1%25E6%259F%25A5%25E6%259C%25AC%25E5%259C%25B0%25E5%258C%2596%25E7%259A%2584%25E5%2590%2588%25E6%25B3%2595%25E8%25B7%25A8%25E5%25A2%2583%25E6%25B5%258F%25E8%25A7%2588%25E5%2599%25A8%25E5%2588%2586%25E6%259E%2590%25E7%2581%25B5%25E7%258B%2590%25E9%259B%25B7%25E5%2585%2594%25E7%25BB%25BF%25E5%2585%2589%25E8%25A7%2586%25E7%2595%258C%25E9%2580%259A">弱者的困境</a>
+</h2>
+<p class=text-dark>这两天被《人物》那篇《外卖骑手，困在系统里》刷屏了。文中以丰沛的细节、真实的笔触，让人感受到这种算法驱使下冒生命危险争分夺秒的日常生活，竟是如此残酷。
+像很多人一样，读完我也颇多感触，但我毕竟没有做过这样深入的调查，也难以置喙。不过刚才有人 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/ca37c734ef16f0800f0f496c97da722d/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25A7%258D%25E5%259F%25BA%25E4%25BA%258Essproxy%25E5%2585%25B7%25E6%259C%2589%25E7%25AA%2581%25E7%25A0%25B4gfw%25E7%25B3%25BB%25E7%25BB%259F%25E5%258A%259F%25E8%2583%25BD%25E5%25B9%25B6%25E5%25B0%2586%25E5%25AE%25A1%25E6%259F%25A5%25E6%259C%25AC%25E5%259C%25B0%25E5%258C%2596%25E7%259A%2584%25E5%2590%2588%25E6%25B3%2595%25E8%25B7%25A8%25E5%25A2%2583%25E6%25B5%258F%25E8%25A7%2588%25E5%2599%25A8%25E5%2588%2586%25E6%259E%2590%25E7%2581%25B5%25E7%258B%2590%25E9%259B%25B7%25E5%2585%2594%25E7%25BB%25BF%25E5%2585%2589%25E8%25A7%2586%25E7%2595%258C%25E9%2580%259A">「“规避GFW审查系统”的刑法问题」刍议——（一）三种入罪路径下的22则典型案例</a>
+</h2>
+<p class=text-dark>本篇系“翻墙”法律问题研究系列的全新篇章，谨以此文正式开启“翻墙”刑法相关问题的讨论。
+标题以“刍议”冠名，即意味着本篇尚不涉及正式讨论，仅陈列当前关于“规避GFW审查系统”刑法问题的既有观点和现行司法实践通说观点，并附上了22则典型案例， …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/c64697e90510941c7c3469a172b0cfb9/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25A7%258D%25E5%259F%25BA%25E4%25BA%258Essproxy%25E5%2585%25B7%25E6%259C%2589%25E7%25AA%2581%25E7%25A0%25B4gfw%25E7%25B3%25BB%25E7%25BB%259F%25E5%258A%259F%25E8%2583%25BD%25E5%25B9%25B6%25E5%25B0%2586%25E5%25AE%25A1%25E6%259F%25A5%25E6%259C%25AC%25E5%259C%25B0%25E5%258C%2596%25E7%259A%2584%25E5%2590%2588%25E6%25B3%2595%25E8%25B7%25A8%25E5%25A2%2583%25E6%25B5%258F%25E8%25A7%2588%25E5%2599%25A8%25E5%2588%2586%25E6%259E%2590%25E7%2581%25B5%25E7%258B%2590%25E9%259B%25B7%25E5%2585%2594%25E7%25BB%25BF%25E5%2585%2589%25E8%25A7%2586%25E7%2595%258C%25E9%2580%259A">蛆块链</a>
+</h2>
+<p class=text-dark>吕兆玉刚 V
+《蛆块链》
+劳力士，蛆块链，反国公知把台站；
+上赛场，为自己，无脊蛆虫国光言。
+骂马列，反党实，奸佞妄为动根源；
+反就反，请大胆，休得伪善来遮掩。
+不爱滚，懂王言，尔骂主子恐打残；
+真爱国，离恶远，毋与公知来纠缠。
+看冰山，花 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

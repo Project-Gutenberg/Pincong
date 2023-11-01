@@ -1,0 +1,466 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>【重要安全提示】截图可能带来的严重安全隐患</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 【重要安全提示】截图可能带来的严重安全隐患
+拓展阅读：去谷歌搜索“不可见水印”，了解更多技术层面的内容
+另外：不可见水印抓人已经发生过了：去谷歌搜索“月饼事件 不可见水印”
+(搜索结果含有墙内网站链接，建议使用tor浏览器)
+现在很多图片含有数字水印，并不是类似www.google.com这样的可见水印，而是使用快速离散fourier变换、快速离散小波变换加在图片中的不可见水印，并且进行了一定的编码，肉眼是无法辨别的，而通过特定加密软件解密就可以获得这个水印，并以此定位到截图者的具体身份信息。
+比如说：你在微博上截图一张
+图片看起来什么事情都没有，但是其中包含了不可见数字水印（例如：用户名：abc 时间：2019.1.1 IP：172.168.3.4），那么这张图片就和截图者进行了绑定！下面就可以喝茶了！
+注意：以下方法可能无法消除不可见的图片数字水印（频域水印有很高的抗干扰能力）
+1、美图、自动美化 2、调整对比度 3、滤镜 4、裁剪 5、旋转 6、镜像 7、拉伸 8、压缩图片 9、重新编码/有损格式（例如JPG）10、利用截图软件再次截图截图（再次截图没用）
+此安全隐患解决方案：
+使用手机或照相机拍摄屏幕（屏幕刷新率和闪烁会摧毁所有不可见数字水印）
+之后删除图片EXIF（照相机数据信息）信息（google有具体软件）
+可以置顶吗，我看很多人都在截图，但是完全不知道截图的风险。
+感谢置顶，另外就评论区集中问题回答一下，Q & A:（就不说昵称了）
+1、Q：不过好像还没看见因为这种水印抓人的报道？
+A：这个报道大概不会直接说因为截图，有的话就没人截图而改用其他方式了
+2、Q：不知道有没有人尝试过训练一个GAN来给图片加水印和去水印，听上去是个好主意。
+A：其实加入一些有色噪声就能破坏掉原有盲水印，但为了保险起见，建议拍摄屏幕
+3、Q：純文本的截屏是沒有水印的，只要把相關信息圖蓋掉即可。應該小心是背景圖片的
+A：错，背景无关，如果可能尽量处理所有截图（我觉得还是不要直接复制文字，复制文字说服力较弱），另外如果作为证据（避免出现251事件没有证据），也请保留截图，因为拍屏无法说明图片真实性和未经修改（图像质量损失太大，无法证明图片被修改过）
+4、Q：手机拍照记得关闭储存照片地理位置资讯的功能。
+A：感谢提醒，这很重要，另外国产手机太危险，云上贵州也不太安全吧，建议从美国买原版手机，并注册美国账号（如有可能）
+5、Q：**用手机拍照记得再裁剪压缩一下，否则能知道你的手机的分辨率。。。**比如你在网上发的照片是一亿分辨率的，人家一眼就能知道你用的是高贵的Mix alpha（雷军打钱）。
+A：感谢提醒，这很重要
+6、Q：对于普通的照片来说，用histogram of pixel values（ps就有的一个功能）就可以看出你的照片有没有加过水印，没有加过水印的照片的curve应该比较光滑。对于普通的照片来说，用histogram of pixel values（ps就有的一个功能）就可以看出你的照片有没有加过水印，没有加过水印的照片的curve应该比较光滑。
+A：这个不能作为不可见数字水印是否存在的标准，通过一些频域变换得到的水印会展在全部频域上，这种方式并不保证安全
+7、Q：手机自带的截屏功能应该没有产生水印吧？
+A：现在网页是可能带有不可见水印的，另外，手机可能也有，因为编码水印只有通过特定的私钥才能解密，所以加了不可见水印，可能也不知道，可能也无法检测，
+这产生了一个新的问题：手机拍照可能也不安全（美国版苹果可能安全？不确定）
+品葱用户 咕咕鸡 评论于 2019-12-06 记得一两年前有段时间微博的图片都加上了特别明显的满屏水印，后来大概因为怨气四起改掉了。但我一直怀疑只是水印变得不明显了。除了微博之外，我还纳闷怎么微信群还没出这个功能。不过好像还没看见因为这种水印抓人的报道？ ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 【重要安全提示】截图可能带来的严重安全隐患 ">
+<meta name=og:description content=" 【重要安全提示】截图可能带来的严重安全隐患
+拓展阅读：去谷歌搜索“不可见水印”，了解更多技术层面的内容
+另外：不可见水印抓人已经发生过了：去谷歌搜索“月饼事件 不可见水印”
+(搜索结果含有墙内网站链接，建议使用tor浏览器)
+现在很多图片含有数字水印，并不是类似www.google.com这样的可见水印，而是使用快速离散fourier变换、快速离散小波变换加在图片中的不可见水印，并且进行了一定的编码，肉眼是无法辨别的，而通过特定加密软件解密就可以获得这个水印，并以此定位到截图者的具体身份信息。
+比如说：你在微博上截图一张
+图片看起来什么事情都没有，但是其中包含了不可见数字水印（例如：用户名：abc 时间：2019.1.1 IP：172.168.3.4），那么这张图片就和截图者进行了绑定！下面就可以喝茶了！
+注意：以下方法可能无法消除不可见的图片数字水印（频域水印有很高的抗干扰能力）
+1、美图、自动美化 2、调整对比度 3、滤镜 4、裁剪 5、旋转 6、镜像 7、拉伸 8、压缩图片 9、重新编码/有损格式（例如JPG）10、利用截图软件再次截图截图（再次截图没用）
+此安全隐患解决方案：
+使用手机或照相机拍摄屏幕（屏幕刷新率和闪烁会摧毁所有不可见数字水印）
+之后删除图片EXIF（照相机数据信息）信息（google有具体软件）
+可以置顶吗，我看很多人都在截图，但是完全不知道截图的风险。
+感谢置顶，另外就评论区集中问题回答一下，Q & A:（就不说昵称了）
+1、Q：不过好像还没看见因为这种水印抓人的报道？
+A：这个报道大概不会直接说因为截图，有的话就没人截图而改用其他方式了
+2、Q：不知道有没有人尝试过训练一个GAN来给图片加水印和去水印，听上去是个好主意。
+A：其实加入一些有色噪声就能破坏掉原有盲水印，但为了保险起见，建议拍摄屏幕
+3、Q：純文本的截屏是沒有水印的，只要把相關信息圖蓋掉即可。應該小心是背景圖片的
+A：错，背景无关，如果可能尽量处理所有截图（我觉得还是不要直接复制文字，复制文字说服力较弱），另外如果作为证据（避免出现251事件没有证据），也请保留截图，因为拍屏无法说明图片真实性和未经修改（图像质量损失太大，无法证明图片被修改过）
+4、Q：手机拍照记得关闭储存照片地理位置资讯的功能。
+A：感谢提醒，这很重要，另外国产手机太危险，云上贵州也不太安全吧，建议从美国买原版手机，并注册美国账号（如有可能）
+5、Q：**用手机拍照记得再裁剪压缩一下，否则能知道你的手机的分辨率。。。**比如你在网上发的照片是一亿分辨率的，人家一眼就能知道你用的是高贵的Mix alpha（雷军打钱）。
+A：感谢提醒，这很重要
+6、Q：对于普通的照片来说，用histogram of pixel values（ps就有的一个功能）就可以看出你的照片有没有加过水印，没有加过水印的照片的curve应该比较光滑。对于普通的照片来说，用histogram of pixel values（ps就有的一个功能）就可以看出你的照片有没有加过水印，没有加过水印的照片的curve应该比较光滑。
+A：这个不能作为不可见数字水印是否存在的标准，通过一些频域变换得到的水印会展在全部频域上，这种方式并不保证安全
+7、Q：手机自带的截屏功能应该没有产生水印吧？
+A：现在网页是可能带有不可见水印的，另外，手机可能也有，因为编码水印只有通过特定的私钥才能解密，所以加了不可见水印，可能也不知道，可能也无法检测，
+这产生了一个新的问题：手机拍照可能也不安全（美国版苹果可能安全？不确定）
+品葱用户 咕咕鸡 评论于 2019-12-06 记得一两年前有段时间微博的图片都加上了特别明显的满屏水印，后来大概因为怨气四起改掉了。但我一直怀疑只是水印变得不明显了。除了微博之外，我还纳闷怎么微信群还没出这个功能。不过好像还没看见因为这种水印抓人的报道？ ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/191.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>【重要安全提示】截图可能带来的严重安全隐患</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/tech>Tech</a></span>,
+<span>at 07 December 2019</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%8a%a0%e5%af%86>加密</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%ae%89%e5%85%a8>安全</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%ae%89%e5%85%a8%e4%b8%8a%e7%bd%91>安全上网</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/780f553faeb0b21cdd5f9f2ee53e23fe.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/780f553faeb0b21cdd5f9f2ee53e23fe.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p><strong>【重要安全提示】截图可能带来的严重安全隐患</strong></p>
+<p><strong>拓展阅读：去谷歌搜索“不可见水印”，了解更多技术层面的内容</strong></p>
+<p><strong>另外：不可见水印抓人已经发生过了：去谷歌搜索“月饼事件 不可见水印”</strong></p>
+<p><strong>(搜索结果含有墙内网站链接，建议使用tor浏览器)</strong></p>
+<p>现在很多图片含有数字水印，并不是类似www.google.com这样的可见水印，而是使用快速离散fourier变换、快速离散小波变换加在图片中的不可见水印，并且进行了一定的编码，肉眼是无法辨别的，而通过特定加密软件解密就可以获得这个水印，并以此定位到截图者的具体身份信息。</p>
+<p>比如说：你在微博上截图一张<br>
+图片看起来什么事情都没有，但是其中包含了不可见数字水印（例如：用户名：abc 时间：2019.1.1 IP：172.168.3.4），那么这张图片就和截图者进行了绑定！下面就可以喝茶了！</p>
+<p>注意：以下方法可能无法消除不可见的图片数字水印（频域水印有很高的抗干扰能力）<br>
+1、美图、自动美化 2、调整对比度 3、滤镜 4、裁剪 5、旋转 6、镜像 7、拉伸 8、压缩图片 9、重新编码/有损格式（例如JPG）10、利用截图软件再次截图截图（再次截图没用）</p>
+<p><strong>此安全隐患解决方案：</strong><br>
+<strong>使用手机或照相机拍摄屏幕（屏幕刷新率和闪烁会摧毁所有不可见数字水印）</strong><br>
+<strong>之后删除图片EXIF（照相机数据信息）信息（google有具体软件）</strong></p>
+<p>可以置顶吗，我看很多人都在截图，但是完全不知道截图的风险。</p>
+<p>感谢置顶，另外就评论区集中问题回答一下，Q & A:（就不说昵称了）<br>
+1、Q：不过好像还没看见因为这种水印抓人的报道？<br>
+A：这个报道大概不会直接说因为截图，有的话就没人截图而改用其他方式了</p>
+<p>2、Q：不知道有没有人尝试过训练一个GAN来给图片加水印和去水印，听上去是个好主意。<br>
+A：其实加入一些有色噪声就能破坏掉原有盲水印，但为了保险起见，建议拍摄屏幕</p>
+<p>3、Q：純文本的截屏是沒有水印的，只要把相關信息圖蓋掉即可。應該小心是背景圖片的<br>
+A：<strong>错，背景无关，如果可能尽量处理所有截图</strong>（我觉得还是不要直接复制文字，复制文字说服力较弱），另外如果作为证据（避免出现251事件没有证据），也请保留截图，因为拍屏无法说明图片真实性和未经修改（图像质量损失太大，无法证明图片被修改过）</p>
+<p>4、Q：<strong>手机拍照记得关闭储存照片地理位置资讯的功能。</strong><br>
+A：感谢提醒，这很重要，另外国产手机太危险，云上贵州也不太安全吧，建议从美国买原版手机，并注册美国账号（如有可能）</p>
+<p>5、Q：**用手机拍照记得再裁剪压缩一下，否则能知道你的手机的分辨率。。。**比如你在网上发的照片是一亿分辨率的，人家一眼就能知道你用的是高贵的Mix alpha（雷军打钱）。<br>
+A：感谢提醒，这很重要</p>
+<p>6、Q：对于普通的照片来说，用histogram of pixel values（ps就有的一个功能）就可以看出你的照片有没有加过水印，没有加过水印的照片的curve应该比较光滑。对于普通的照片来说，用histogram of pixel values（ps就有的一个功能）就可以看出你的照片有没有加过水印，没有加过水印的照片的curve应该比较光滑。<br>
+A：这个不能作为不可见数字水印是否存在的标准，通过一些频域变换得到的水印会展在全部频域上，这种方式并不保证安全</p>
+<p>7、Q：手机自带的截屏功能应该没有产生水印吧？<br>
+A：现在网页是可能带有不可见水印的，另外，手机可能也有，因为编码水印只有通过特定的私钥才能解密，所以加了不可见水印，可能也不知道，可能也无法检测，<br>
+这产生了一个新的问题：手机拍照可能也不安全（美国版苹果可能安全？不确定）</p>
+<h3 id=品葱用户-咕咕鸡-评论于-2019-12-06>品葱用户 <strong>咕咕鸡</strong> 评论于 2019-12-06</h3>
+<p>记得一两年前有段时间微博的图片都加上了特别明显的满屏水印，后来大概因为怨气四起改掉了。但我一直怀疑只是水印变得不明显了。除了微博之外，我还纳闷怎么微信群还没出这个功能。不过好像还没看见因为这种水印抓人的报道？</p>
+<h3 id=品葱用户-历史的先声-评论于-2019-12-07>品葱用户 <strong>历史的先声</strong> 评论于 2019-12-07</h3>
+<p>不知道有没有人尝试过训练一个GAN来给图片加水印和去水印，听上去是个好主意。</p>
+<h3 id=品葱用户-经略-评论于-2019-12-07>品葱用户 <strong>经略</strong> 评论于 2019-12-07</h3>
+<p>純文本的截屏是沒有水印的，只要把相關信息覆蓋掉即可。</p>
+<p>應該小心是背景圖片的</p>
+<p>品蔥這個頁面就是含有品蔥的水印，如果截屏轉發的微信，就會曝光你使用了品蔥。</p>
+<p>品蔥該不該添加水印，是否從應討論一下？</p>
+<h3 id=品葱用户-江沢民-评论于-2019-12-06>品葱用户 <strong>江沢民</strong> 评论于 2019-12-06</h3>
+<p>用手机拍照记得再裁剪压缩一下，否则能知道你的手机的分辨率。。。比如你在网上发的照片是一亿分辨率的，人家一眼就能知道你用的是高贵的Mix alpha（雷军打钱）。</p>
+<p>聪明的我马上去网上学习了一下用傅里叶和小波变换来加盲水印的技巧。对于普通的照片来说，用histogram of pixel values（ps就有的一个功能）就可以看出你的照片有没有加过水印，没有加过水印的照片的curve应该比较光滑。至于截图的话应该会不一样，喜欢动手的葱油可以去试一下。</p>
+<p>感谢楼主回复，已证明上面一节都是没用的废话。。。</p>
+<h3 id=品葱用户-小钙>品葱用户 **小钙</h3>
+<p>历史的先声** 评论于 2019-12-07</p>
+<blockquote>
+<p>不知道有没有人尝试过训练一个GAN来给图片加水印和去水印，听上去是个好主意。</p>
+</blockquote>
+<p>已经有了，https://github.com/marcbelmont/cnn-watermark-removal，但是效果不好，没法generalize，拿cifar或VOC train的model没办法generalize到别的图片，比如文字，很多时候文字会被当成水印删掉</p>
+<h3 id=品葱用户-geena-评论于-2019-12-07>品葱用户 <strong>Geena</strong> 评论于 2019-12-07</h3>
+<p>请问墙外网站如yt截图呢？有可能被墙内追查吗？</p>
+<h3 id=品葱用户-zpin-评论于-2019-12-06>品葱用户 <strong>Zpin</strong> 评论于 2019-12-06</h3>
+<p>我也早就发现了这个问题。😂</p>
+<p>但是我怕美图秀秀之类也不安全…</p>
+<p>现在我用Picsew，还有更好的压缩和修改图片的APP可以推荐吗。蹲一个…</p>
+<h3 id=品葱用户-小钙-评论于-2019-12-07>品葱用户 <strong>小钙</strong> 评论于 2019-12-07</h3>
+<p>我很好奇是怎么做到的，如果你不用含有FFT或FWT的截图工具是无法添加水印的，比如只用Mac自带的快捷键截图是不可能加水印的，除非你在微博微信上发截图然后保存截图，或者截已经添加水印的图，但水印内容与截图者就没有关系了</p>
+<h3 id=品葱用户-artemis-评论于-2019-12-06>品葱用户 <strong>Artemis</strong> 评论于 2019-12-06</h3>
+<p>手机自带的截屏功能应该没有产生水印吧？</p>
+<h3 id=品葱用户-江沢民>品葱用户 **江沢民</h3>
+<p>小钙** 评论于 2019-12-07</p>
+<blockquote>
+<p>我很好奇是怎么做到的，如果你不用含有FFT或FWT的截图工具是无法添加水印的，比如只用Mac自带的快&mldr;</p>
+</blockquote>
+<p>我也很奇怪，比如微博，总不可能每一帧都FFT一下再IFFT回来再给你看吧。。。如果是那种普通的，很淡的水印我觉得倒是很可能</p>
+<h3 id=品葱用户-小钙-1>品葱用户 **小钙</h3>
+<p>江沢民** 评论于 2019-12-07</p>
+<blockquote>
+<p>我也很奇怪，比如微博，总不可能每一帧都FFT一下再IFFT回来再给你看吧。。。如果是那种普通的，很淡&mldr;</p>
+</blockquote>
+<p>和你葱一样加一个已经处理过的bitmap在background image里可不可行？</p>
+<h3 id=品葱用户-thinktank64-评论于-2019-12-07>品葱用户 <strong>ThinkTank64</strong> 评论于 2019-12-07</h3>
+<p>品葱上载图片，会不会保留了 EXIF?</p>
+<h3 id=品葱用户-江沢民-1>品葱用户 **江沢民</h3>
+<p>小钙** 评论于 2019-12-07</p>
+<blockquote>
+<p>和你葱一样加一个已经处理过的bitmap在background image里可不可行？</p>
+</blockquote>
+<p>阿里月饼事件似乎就是那样子的，有非常淡的水印，必须对比度最高才能看到，听知乎上说的。频域那种大概只有截图工具本身有问题才做得到吧</p>
+<h3 id=品葱用户-荆棘之心-评论于-2019-12-08>品葱用户 <strong>荆棘之心</strong> 评论于 2019-12-08</h3>
+<p>请问一下电脑截图有没有这样的信息？如果是部分软件自带的截图功能呢？（比如QQ）</p>
+<h3 id=品葱用户-沉默的广场-评论于-2019-12-08>品葱用户 <strong>沉默的广场</strong> 评论于 2019-12-08</h3>
+<p>如果是自然图像还是拍屏吧，网页截图应该还有其它办法</p>
+<p>把文字复制出来，原网页保留样式(比如知乎的logo)，背景部分一律填充纯色，再把文字填充回去。这相当于手动渲染一遍网页，杜绝css或者js里动手脚。</p>
+<h3 id=品葱用户-荆棘之心>品葱用户 **荆棘之心</h3>
+<p>moli** 评论于 2019-12-07</p>
+<blockquote>
+<p>安全是战斗的基础.win10自带截图和编辑;Chrome安装FireShot插件.再结合楼上上去水印&mldr;</p>
+</blockquote>
+<p>好吧 我还是WIN7 意思是即使是系统自带的截屏功能也会有水印吗（不局限于手机和截屏软件）？</p>
+<h3 id=品葱用户-昭明万邦>品葱用户 **昭明万邦</h3>
+<p>江沢民** 评论于 2019-12-07</p>
+<p>一亿像素目前量产发售的只有小米cc9pro（指出）</p>
+<h3 id=品葱用户-沉默的广场>品葱用户 **沉默的广场</h3>
+<p>荆棘之心** 评论于 2019-12-07</p>
+<blockquote>
+<p>好吧 我还是WIN7 意思是即使是系统自带的截屏功能也会有水印吗（不局限于手机和截屏软件）？</p>
+</blockquote>
+<p>电脑上的截图软件一般没问题，它最多会记录ip和mac，如果还不放心可以在虚拟机里截图。手机应该也差不多，特别是国外牌子。</p>
+<p>最有可能定位你的还是网页本身，知乎有些问题必须登录才能查看，在这些网页上截图要注意了</p>
+<h3 id=品葱用户-balibali-评论于-2019-12-08>品葱用户 <strong>balibali</strong> 评论于 2019-12-08</h3>
+<p>謝謝樓主的分享和提示。國內的蔥油一定一定要保護好自己，時刻注意安全，處在那種環境，你們是真勇士T_T</p>
+<h3 id=品葱用户-荆棘之心-1>品葱用户 **荆棘之心</h3>
+<p>沉默的广场** 评论于 2019-12-08</p>
+<blockquote>
+<p>电脑上的截图软件一般没问题，它最多会记录ip和mac，如果还不放心可以在虚拟机里截图。手机应该也差不&mldr;</p>
+</blockquote>
+<p>谢谢解答。</p>
+<h3 id=品葱用户-小钙-2>品葱用户 **小钙</h3>
+<p>江沢民** 评论于 2019-12-08</p>
+<blockquote>
+<p>阿里月饼事件似乎就是那样子的，有非常淡的水印，必须对比度最高才能看到，听知乎上说的。频域那种大概只有&mldr;</p>
+</blockquote>
+<p>所以有可能其实是黑屁，置顶不太合适，现在被取消了，，，</p>
+<h3 id=品葱用户-thomasyan>品葱用户 **ThomasYan</h3>
+<p>荆棘之心** 评论于 2019-12-07</p>
+<blockquote>
+<p>好吧 我还是WIN7 意思是即使是系统自带的截屏功能也会有水印吗（不局限于手机和截屏软件）？</p>
+</blockquote>
+<p>并不会，我知道的某些大公司为了防止信息泄露，会在网页上暗藏账号一类的信息，有的甚至只在截图的时候触发。信息泄露时可以通过水印来追查信息泄露源。 那合情理的推断一下，运用这种技术的网站应该会越来越多。特别是现在公安和互联网公司数据都是接上的（互联网公司数据直接往公安系统传），网警有什么要求，公司只能照着办。</p>
+<h3 id=品葱用户-荆棘之心-2>品葱用户 **荆棘之心</h3>
+<p>ThomasYan** 评论于 2019-12-08</p>
+<blockquote>
+<p>并不会，我知道的某些大公司为了防止信息泄露，会在网页上暗藏账号一类的信息，有的甚至只在截图的时候触发&mldr;</p>
+</blockquote>
+<p>“并不会”指的是系统自带的截屏功能不会记录信息吗？</p>
+<h3 id=品葱用户-thomasyan-1>品葱用户 **ThomasYan</h3>
+<p>荆棘之心** 评论于 2019-12-08</p>
+<blockquote>
+<p>“并不会”指的是系统自带的截屏功能不会记录信息吗？</p>
+</blockquote>
+<p>正版系统肯定不会的，不然微软要被告到负利润吧。</p>
+<h3 id=品葱用户-荆棘之心-3>品葱用户 **荆棘之心</h3>
+<p>ThomasYan** 评论于 2019-12-08</p>
+<blockquote>
+<p>正版系统肯定不会的，不然微软要被告到负利润吧。</p>
+</blockquote>
+<p>谢谢解答</p>
+<h3 id=品葱用户-thomasyan-2>品葱用户 **ThomasYan</h3>
+<p>荆棘之心** 评论于 2019-12-08</p>
+<blockquote>
+<p>谢谢解答</p>
+</blockquote>
+<p>☺️</p>
+<h3 id=品葱用户-望n負e-评论于-2019-12-07>品葱用户 <strong>望N負E</strong> 评论于 2019-12-07</h3>
+<p>按照樓主描述：</p>
+<p>截屏微博——獲得一張帶不可見水印的圖片——打開該圖——用其他截屏軟件再次對該圖截屏，那麽第二次截屏之圖是否仍帶不可見水印呢？</p>
+<h3 id=品葱用户-小习酱-评论于-2019-12-07>品葱用户 <strong>小习酱</strong> 评论于 2019-12-07</h3>
+<p>求个雕大的程序员开发个自动加噪点的开源截图软件</p>
+<h3 id=品葱用户-da886-评论于-2019-12-08>品葱用户 <strong>da886</strong> 评论于 2019-12-08</h3>
+<p>大部分人安全是因为没有搞你的价值，真要搞你没有人是安全的。雇水军也好，请喝茶也好，都是亏本买卖，如果不是为了完成指标，基层的人才懒得理你。在网上散布这种东西，八成是维稳的套路。</p>
+<h3 id=品葱用户-daxuesheng>品葱用户 **daxuesheng</h3>
+<p>江沢民** 评论于 2019-12-08</p>
+<p>客户端overlay就可以实现，现在最差的手机显核都可以实时处理这种操作。另外JPEG/MPEG压缩本身就是靠傅里叶变换，二进制格式存的都是频域，不用inverse就可以水印。</p>
+<h3 id=品葱用户-daxuesheng-评论于-2019-12-07>品葱用户 <strong>daxuesheng</strong> 评论于 2019-12-07</h3>
+<p>还有一点就是广告、排版、甚至内容上的微小差别也可以传递信息，类似的思路在防拷贝技术里面已经应用多年。</p>
+<p>虽然一个差别可能就是几bit，但33个bit就够区分世界上所有人编上号。</p>
+<p>我看翻车新闻经常把广告和评论不做处理就发出来，如果党国想搞那分分钟可以定位。</p>
+<h3 id=品葱用户-存在者09-评论于-2019-12-08>品葱用户 <strong>存在者09</strong> 评论于 2019-12-08</h3>
+<p>傅立叶变换方法在图像上的痕迹可以非常淡，根本察觉不到，但是在频域会很明显，这是空域和频域不能同时显著或隐藏的原则。</p>
+<p>应该说，达到图像加密的程度，必定会在频域上留下很明晰的特征信号，所以，解析频域应该就可以查到。其他的，如果搞成全息图像方式，可能会变得更容易追查，即便是碎片图像也能查，但技术上仍然要在频域留下显著信号，这一点没有不同。</p>
+<h3 id=品葱用户-一毛不拔>品葱用户 **一毛不拔</h3>
+<p>望N負E** 评论于 2019-12-07</p>
+<blockquote>
+<p>按照樓主描述：截屏微博——獲得一張帶不可見水印的圖片——打開該圖——用其他截屏軟件再次對該圖截屏，那&mldr;</p>
+</blockquote>
+<p>拍照才能去掉，截屏无论多少次也不管用。</p>
+<h3 id=品葱用户-myfuture-评论于-2019-12-08>品葱用户 <strong>myfuture</strong> 评论于 2019-12-08</h3>
+<p>那加速主义的粉红言论汇总贴里全是截图，是不是都得删掉？</p>
+<h3 id=品葱用户-ronga-评论于-2019-12-08>品葱用户 <strong>ronga</strong> 评论于 2019-12-08</h3>
+<p>相关问题：<br>
+《阿里巴巴公司根据截图查到泄露信息的具体员工的技术是什么？@知乎》<br>
+《<a href=%22https://zh.wikipedia.org/zh-hans/%E6%95%B8%E4%BD%8D%E6%B5%AE%E6%B0%B4%E5%8D%B0%22>数位浮水印</a> @wikipedia》<br>
+《<a href=%22https://www.ibm.com/developerworks/cn/security/l-info/index.html%22>信息隐藏与数字水印技术</a> @IBM Developer》</p>
+<p>隐藏式浮水印就是运用<a href=%22https://zh.wikipedia.org/wiki/%E9%9A%90%E5%86%99%E6%9C%AF%22>隐写术</a>（Steganography）+ <a href=%22https://zh.wikipedia.org/wiki/%E6%B0%B4%E5%8D%B0%22>水印技术</a>而诞生的新技术</p>
+<h3 id=品葱用户-niubility>品葱用户 **niubility</h3>
+<p>小习酱** 评论于 2019-12-10</p>
+<blockquote>
+<p>求个雕大的程序员开发个自动加噪点的开源截图软件</p>
+</blockquote>
+<p>数字水印是隐藏在频率信息里的，噪点是高频信号，加噪点是没用的。还是需要专业的人士来解决。</p>
+<h3 id=品葱用户-workingpaper-评论于-2019-12-10>品葱用户 <strong>workingpaper</strong> 评论于 2019-12-10</h3>
+<p>拍照最大的缺点就是严重影响阅读者，辣眼睛。<br>
+在顾及自身安全的同时又照顾阅读者眼睛，打开梯子或者tor之后，在不登录账号的情况下再截图是最好的办法。</p>
+<h3 id=品葱用户-resistance-评论于-2019-12-12>品葱用户 <strong>Resistance</strong> 评论于 2019-12-12</h3>
+<p>俺在编程随想博客评论区看到有人转发此帖，请问有没有相关技术细节？用 Hex 能否发现水印？</p>
+<h3 id=品葱用户-niubility-1>品葱用户 **niubility</h3>
+<p>Resistance** 评论于 2019-12-12</p>
+<blockquote>
+<p>俺在编程随想博客评论区看到有人转发此帖，请问有没有相关技术细节？用 Hex 能否发现水印？</p>
+</blockquote>
+<p>不可发现。隐藏数字水印一般会出现在照片之类非纯色背景的图像中，这类图像的频率域特征丰富，在加入了隐藏信息后肉眼无法觉察。但不论如何，频率域水印在fft变换之后都会闪亮亮，无法躲藏。</p>
+<p>但是纯色背景的图像，比如网页截图，在加入频率域水印之后，肉眼可以感知到图像的变化。这方面的隐写技术改进，还在学界研究之中。所以目前网页截图的水印，很多都是粗暴的使用了和背景色接近的文字或图案来做，这样反而不易感知。</p>
+<p><strong>重点说一下阿里系统，名称繁多，阿里云OS、YunOS、ALiOS、PMOS（公安定制的），截图都有公安追踪水印。使用魅族、vivo或其他联通定制手机的朋友们要当心。其他手机我没研究过，欢迎葱友补充</strong></p>
+<h3 id=品葱用户-username-评论于-2019-12-12>品葱用户 <strong>UserName</strong> 评论于 2019-12-12</h3>
+<p>哎，第三方Android rom自带系统截图会翻车吗？</p>
+<h3 id=品葱用户-username>品葱用户 **UserName</h3>
+<p>UserName** 评论于 2019-12-12</p>
+<blockquote>
+<p>哎，第三方Android rom自带系统截图会翻车吗？</p>
+</blockquote>
+<p>我懂了，看了知乎，一定要屏摄</p>
+<h3 id=品葱用户-強情公方-评论于-2020-02-15>品葱用户 <strong>強情公方</strong> 评论于 2020-02-15</h3>
+<p>弱弱的问一句，自从爆发疫情以来，我截图了很多东西，但是18号开始(也是我开始截图相关事情的时候)的截图在相册全看不见了，虽然我去文件找了还有，但是相册怎么恢复？截图不见跟监控有关吗？</p>
+<h3 id=品葱用户-evilccp-评论于-2020-02-17>品葱用户 <strong>evilccp</strong> 评论于 2020-02-17</h3>
+<p>大多人没有这个技术能力，连理解你们上面说的这些话都做不到<br>
+大牛开发个工具吧，提取图片可见层面图像，过滤隐藏信息</p>
+<h3 id=品葱用户-xjmbbs-评论于-2020-02-16>品葱用户 <strong>xjmbbs</strong> 评论于 2020-02-16</h3>
+<p>我一直用谷歌pixel</p>
+<h3 id=品葱用户-ppcc-评论于-2020-02-17>品葱用户 <strong>ppcc</strong> 评论于 2020-02-17</h3>
+<p>不登录实名关联账户，使用tor，使用虚拟机，水印就没用</p>
+<h3 id=品葱用户-ooo0o0000-评论于-2020-02-16>品葱用户 <strong>ooo0o0000</strong> 评论于 2020-02-16</h3>
+<p>耸人听闻。</p>
+<h3 id=品葱用户-solids>品葱用户 **solids</h3>
+<p>xjmbbs** 评论于 2020-05-09</p>
+<p>[</p>
+<blockquote>
+<p>我一直用谷歌pixel</p>
+</blockquote>
+<p>](<a href=https://pincong.rocks/article/item_id-249932#>https://pincong.rocks/article/item_id-249932#</a> &ldquo;<a href=https://pincong.rocks/article/item_id-249932#%22>https://pincong.rocks/article/item_id-249932#"</a>)<br>
+我一直都用华为手机啊 （</p>
+<h3 id=品葱用户-gratesque-评论于-2020-05-10>品葱用户 <strong>gratesque</strong> 评论于 2020-05-10</h3>
+<p>一句话：任何功能，别用山寨软件，什么事都不会有。</p>
+<p>你既然用，就自己承受后果。</p>
+<h3 id=品葱用户-gratesque>品葱用户 **gratesque</h3>
+<p>evilccp** 评论于 2020-05-10</p>
+<p>[</p>
+<blockquote>
+<p>大多人没有这个技术能力，连理解你们上面说的这些话都做不到大牛开发个工具吧，提取图片可见层面图像，过滤&mldr;</p>
+</blockquote>
+<p>](<a href=https://pincong.rocks/article/item_id-249021#>https://pincong.rocks/article/item_id-249021#</a> &ldquo;<a href=https://pincong.rocks/article/item_id-249021#%22>https://pincong.rocks/article/item_id-249021#"</a>)</p>
+<p>那是不可能的。</p>
+<p>如果我不知道对方的手段，无从寻找“隐藏信息”。</p>
+<p>假设你在一个房间内说藏了个硬币，既然我不可能轻易找得到，算法就是绝对不可能找到。</p>
+<h3 id=品葱用户-ldh>品葱用户 **LDH</h3>
+<p>Zpin** 评论于 2020-05-09</p>
+<p>[</p>
+<blockquote>
+<p>我也早就发现了这个问题。😂但是我怕美图秀秀之类也不安全…现在我用Picsew，还有更好的压缩和修改&mldr;</p>
+</blockquote>
+<p>](<a href=https://pincong.rocks/article/item_id-152981#>https://pincong.rocks/article/item_id-152981#</a> &ldquo;<a href=https://pincong.rocks/article/item_id-152981#%22>https://pincong.rocks/article/item_id-152981#"</a>)<br>
+Picsew 现在也开始搞 VIP 中 P 了。速拼3元解锁全部高级功能。</p>
+<h3 id=品葱用户-时政高见-评论于-2020-05-22>品葱用户 <strong>时政高见</strong> 评论于 2020-05-22</h3>
+<p>问一句外行的话，在截屏截下来的图片，自己再用软件加一次隐形水印，是否能破坏原隐形水印？</p>
+<h3 id=品葱用户-moli-评论于-2019-12-07>品葱用户 <strong>moli</strong> 评论于 2019-12-07</h3>
+<p>~已删除~</p>
+<h3 id=品葱用户-moli>品葱用户 **moli</h3>
+<p>荆棘之心** 评论于 2019-12-08</p>
+<p>~已删除~</p>
+<h3 id=品葱用户-alibob>品葱用户 **alibob</h3>
+<p>望N負E** 评论于 2019-12-07</p>
+<p>~已删除~</p>
+<h3 id=品葱用户-魔幻社会主义-评论于-2019-12-15>品葱用户 <strong>魔幻社会主义</strong> 评论于 2019-12-15</h3>
+<p>~已删除~</p>
+<blockquote>
+<p><a href=https://pincong.rocks/article/10526>点击品葱原文参与讨论</a></p>
+</blockquote>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/178f983cda6fa528d77416d505d1fc83/?utm_source=see_also&utm_medium=%25E9%2587%258D%25E8%25A6%2581%25E5%25AE%2589%25E5%2585%25A8%25E6%258F%2590%25E7%25A4%25BA%25E6%2588%25AA%25E5%259B%25BE%25E5%258F%25AF%25E8%2583%25BD%25E5%25B8%25A6%25E6%259D%25A5%25E7%259A%2584%25E4%25B8%25A5%25E9%2587%258D%25E5%25AE%2589%25E5%2585%25A8%25E9%259A%2590%25E6%2582%25A3">Win系统如何正确选择各种替代国内软件的干净程序？</a>
+</h2>
+<p class=text-dark>品葱用户 忠獻張 提问于 11/28/2019 听从各位葱友以及编程随想的建议，专门购入了一台干净的无后门电脑，并采用多层匿名来进行网络活动和反贼生活。
+但是在如此选择后，像俺这样的小白面临了一个比较苦恼的问题：如何选择各种替代国内软件的产 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/5a3f87fea69c71bd12dc800c95f1cc8e/?utm_source=see_also&utm_medium=%25E9%2587%258D%25E8%25A6%2581%25E5%25AE%2589%25E5%2585%25A8%25E6%258F%2590%25E7%25A4%25BA%25E6%2588%25AA%25E5%259B%25BE%25E5%258F%25AF%25E8%2583%25BD%25E5%25B8%25A6%25E6%259D%25A5%25E7%259A%2584%25E4%25B8%25A5%25E9%2587%258D%25E5%25AE%2589%25E5%2585%25A8%25E9%259A%2590%25E6%2582%25A3">如何购买比特币？如何安全匿名地使用？</a>
+</h2>
+<p class=text-dark>***开头说明，我币圈人不欢迎洗钱，赵家人请出门左转，qqqxx***
+***警告：请立即将bisq更新到最新版本！记得PGP验证签名！v1.2.9和之前的版本有安全漏洞！！！***
+购买比特币（Bitcoin, BTC）：
+可以网上搜索。 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/97a24e3db1b431867efc2c3b20fb8fe8/?utm_source=see_also&utm_medium=%25E9%2587%258D%25E8%25A6%2581%25E5%25AE%2589%25E5%2585%25A8%25E6%258F%2590%25E7%25A4%25BA%25E6%2588%25AA%25E5%259B%25BE%25E5%258F%25AF%25E8%2583%25BD%25E5%25B8%25A6%25E6%259D%25A5%25E7%259A%2584%25E4%25B8%25A5%25E9%2587%258D%25E5%25AE%2589%25E5%2585%25A8%25E9%259A%2590%25E6%2582%25A3">来测一测，你的浏览器匿名吗？苹果用户请调整浏览器设置</a>
+</h2>
+<p class=text-dark>品葱用户 silentmajority 提问于 10/14/2019 提供两个测试IP地址泄漏的网址
+https://whoer.net/
+在该页面向下拉，看flash，应该显示为disabled。禁用浏览器flash不会影响使 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/7b47e9ee921ccbd088c5687a5af559bc/?utm_source=see_also&utm_medium=%25E9%2587%258D%25E8%25A6%2581%25E5%25AE%2589%25E5%2585%25A8%25E6%258F%2590%25E7%25A4%25BA%25E6%2588%25AA%25E5%259B%25BE%25E5%258F%25AF%25E8%2583%25BD%25E5%25B8%25A6%25E6%259D%25A5%25E7%259A%2584%25E4%25B8%25A5%25E9%2587%258D%25E5%25AE%2589%25E5%2585%25A8%25E9%259A%2590%25E6%2582%25A3">（转）网监局查水表 原理 在某国著名你懂的网站上看到的帖子</a>
+</h2>
+<p class=text-dark>我们来假设一个案例，在一个月黑风高的晚上，小明在某论坛大肆批评政府，第二天小明刚一睡醒就听见咚咚咚，开门查水表，于是乎小明神秘消失了。
+好了，再以网监的角度来看看：
+一天，网监局的小红看到了一个网民在网上发了个大肆批判ZF的帖子，心想，这哥 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/3c9a0f2367b23a723d34def4952db0bb/?utm_source=see_also&utm_medium=%25E9%2587%258D%25E8%25A6%2581%25E5%25AE%2589%25E5%2585%25A8%25E6%258F%2590%25E7%25A4%25BA%25E6%2588%25AA%25E5%259B%25BE%25E5%258F%25AF%25E8%2583%25BD%25E5%25B8%25A6%25E6%259D%25A5%25E7%259A%2584%25E4%25B8%25A5%25E9%2587%258D%25E5%25AE%2589%25E5%2585%25A8%25E9%259A%2590%25E6%2582%25A3">（转）网监局查水表 原理 在某国著名你懂的网站上看到的帖子</a>
+</h2>
+<p class=text-dark>我们来假设一个案例，在一个月黑风高的晚上，小明在某论坛大肆批评政府，第二天小明刚一睡醒就听见咚咚咚，开门查水表，于是乎小明神秘消失了。
+好了，再以网监的角度来看看：
+一天，网监局的小红看到了一个网民在网上发了个大肆批判ZF的帖子，心想，这哥 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

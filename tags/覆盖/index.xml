@@ -1,0 +1,6 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>覆盖 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E8%A6%86%E7%9B%96/</link><description>Recent content in 覆盖 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Tue, 11 Oct 2022 12:54:09 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E8%A6%86%E7%9B%96/index.xml" rel="self" type="application/rss+xml"/><item><title>为什么没人去发明一个超强信号的路由器直接覆盖一省范围给几千万人提供 WiFi 信号呢?</title><link>https://project-gutenberg.github.io/Pincong/post/81395d0ee7b9868103221f5795c5951d/</link><pubDate>Tue, 11 Oct 2022 12:54:09 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/81395d0ee7b9868103221f5795c5951d/</guid><description>知乎用户 量子永生 发表 因为你低估了平方反比的威力。
+理想情况下，电磁波在真空中传播时，会向四面八方散开。
+用微积分思想理解，如果不考虑电磁波的反射和吸收，在传播路径中每个球壳中的信号分布之和是相等的。
+而球壳面积与半径为平方正比关系，可以推算信号密度与半径为平方反比关系。
+聪明的同学会发现这与引力和电荷力在真空传播中的衰减速度是一样的。
+国标的家庭 Wi-Fi 路由器对信号功率的限制是 100mW（有些带穿墙功能的型号或企业级路由的 …</description></item></channel></rss>

@@ -1,0 +1,254 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>软件 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E8%BD%AF%E4%BB%B6/</link><description>Recent content in 软件 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sun, 16 Jul 2023 00:52:36 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml"/><item><title>丝袜病毒入侵不了微信群，但能撕开政府软件外包的黑幕</title><link>https://project-gutenberg.github.io/Pincong/post/c20facc3d6ba28d1f0ddbc0ddc295bda/</link><pubDate>Sun, 16 Jul 2023 00:52:36 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/c20facc3d6ba28d1f0ddbc0ddc295bda/</guid><description>下三路的新闻总是吸引眼球，但没什么讨论的公共价值。所以，当湖南省政府办公厅“穿好丝袜等我”的截图流出的时候，我只是一笑置之。
+​
+万万没想到，当南国早报的记者采访涉事公司之后，画风突然变得很有意思，也很有公共价值，那我可就忍不住要说几句大实话了。
+​
+稍有技术常识的人都能知道，微信群不可能遭到病毒入侵，最多是某位用户的手机或电脑被病毒入侵控制，发布了并非本人操作的消息。但是话又说回来，假如黑客用病毒控制了一名省政府办公厅工作人员的手机， …</description></item><item><title>美国商务部宣布「断供 EDA 软件」，目前国产 EDA 水平如何？如何寻求突破？</title><link>https://project-gutenberg.github.io/Pincong/post/5ea793ea6dcccc97ad17f5e33f902cf2/</link><pubDate>Mon, 24 Oct 2022 18:02:10 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/5ea793ea6dcccc97ad17f5e33f902cf2/</guid><description>知乎用户 阳光下的沈同学​ 发表 首先客观来讲目前国产 EDA 企业综合水平和国际顶级 EDA 企业的水平有一大段差距
+主要是两点
+一，目前没有可以做芯片设计——制造——封测全产业链 EDA 软件的企业
+二，且国产的 EDA 企业在自己细分领域做的是相对低端的 EDA 芯片软件
+但不要慌！
+因为 EDA 断供主要影响高端芯片领域，应用的面积并不大
+真正实用的是中低端领域，不会说断供了我们就做不了芯片，只是做高端芯片的速度会减缓
+在未来是 …</description></item><item><title>当一个90后停用智能手机</title><link>https://project-gutenberg.github.io/Pincong/post/5341a8e7b003cd25d679423075e23800/</link><pubDate>Tue, 11 Oct 2022 11:12:12 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/5341a8e7b003cd25d679423075e23800/</guid><description>收录于合集 #李晓芳 47个
+**文 ****|**李晓芳
+**编辑 **| 周航
+一切都是必要的吗？ 手机本身没什么好坏可言，主要是你怎么样去用手机。
+有一次我工作到特别晚，回家差不多是晚上11点了，我观察了一下地铁上周围人的表情，大家都很累，眼睛都快闭上了，整个人瘫在椅子上，但手里一定会拽着手机在那里翻。他们不一定是在回工作消息，其实大多数时候只是在机械地划，划某条资讯，划某个公众号的文章，划视频，就是不愿意去休息。
+我后来就在地 …</description></item><item><title>如何评价「Telegram」这个 APP?</title><link>https://project-gutenberg.github.io/Pincong/post/c11150024c7f9f22577b92d158ba4117/</link><pubDate>Sat, 10 Sep 2022 13:26:24 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/c11150024c7f9f22577b92d158ba4117/</guid><description>知乎用户 李如一 发表 假设妳的好友被传唤，在警察进门前迅速给妳发了信息。妳不希望甚至害怕警察从她的手机上看到妳们的聊天记录。此时需要一种快速简单的办法，在碰不到她的手机和任何设备的前提下删除自己和她的对话。以我所见，目前的聊天软件只有 Telegram 提供这一功能。删除信息时，Telegram 会问妳是只要「Delete for me」还是「Delete for me and 对方姓名」。若选后者，则会同时在妳和她的所有设备上删除。 …</description></item><item><title>如何看待 8 月 13 日美国商务部发布最终规定「断供 EDA 软件」？这对我国国产芯片发展有何影响？</title><link>https://project-gutenberg.github.io/Pincong/post/dc7492d6b2967af0b04fd0db16c1e089/</link><pubDate>Mon, 15 Aug 2022 00:25:03 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/dc7492d6b2967af0b04fd0db16c1e089/</guid><description>知乎用户 温戈​​ 发表 该来的还是来了，芯片制造和 EDA 是国内半导体产业链最为薄弱的环节，美国也是瞄准了这些弱点，对我国半导体产业打出了一套组合拳。
+单看这次断供范围是针对「设计 GAAFET（全栅场效应晶体管）结构集成电路所必须的 EDA 软件」，事实上对国内半导体产业影响有限，或许会加快 EDA 国产化的进程。
+EDA**—**芯片设计之母 EDA 是电子设计自动化（Electronic Design Automation）的 …</description></item><item><title>如何看待 WPS 被曝会删除用户本地文件，真实情况如何？</title><link>https://project-gutenberg.github.io/Pincong/post/d37ce9d0ba9a79aad411c70788b2784c/</link><pubDate>Wed, 13 Jul 2022 22:52:59 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/d37ce9d0ba9a79aad411c70788b2784c/</guid><description>知乎用户 呆萌君 发表 我在想一个问题，现在深圳在搞自动驾驶，要是哪一天大环境觉得我反动了，会不会直接把我开进海里？
+知乎用户 水平线上 发表 国内的网盘不都这个尿性吗？
+百度网盘检测到敏感视频会自动替换成和谐警告，现在的阿里网盘也是。
+百度网盘现在还有个工作盘，就是类似 OneDrive 这样的同步盘。但是谁 tm 敢用他这个来同步？？
+网盘还好一点，最多是存在云端的文件被和谐了。同步盘可是会和本地文件同步的，云端的一旦被和谐，本地文 …</description></item><item><title>如何看待网传 WPS Office 自动探测并和谐用户本地文件？</title><link>https://project-gutenberg.github.io/Pincong/post/e2da0f2c19ee3bfa0441039a003ddd73/</link><pubDate>Tue, 12 Jul 2022 22:47:33 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e2da0f2c19ee3bfa0441039a003ddd73/</guid><description>知乎用户 纪者 发表 找了篇小黄文（请不要问我是什么文）做了简单测试，简要记录如下：
+1. 上午 10 点左右把小黄文做成本地 word 文档，做任何操作都没有被锁定；
+2. 把文档保存到云文档中，进行查看修改保存等操作都没有被锁定；
+3. 把云文档中的文件分享出去，通过分享连接无法打开，显示禁止访问。然后直接在云文档中再次尝试打开，显示需要申诉解锁；
+4. 本以为到 3 就结束了，但神奇的事情发生了——下午 5 点左右摸鱼完毕，发现被 …</description></item><item><title>wps 是不是一款垃圾软件?</title><link>https://project-gutenberg.github.io/Pincong/post/4e6258bb9101095487ec4e6f395ff815/</link><pubDate>Tue, 12 Jul 2022 10:35:41 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/4e6258bb9101095487ec4e6f395ff815/</guid><description>知乎用户 寸木生​ 发表 再垃圾在国产里属于拔尖的就行了，你不需要，但是国家需要。
+之前在做一个研究所的项目，离线环境开发，用他们的电脑。
+系统是麒麟系统（在开发项目之前我都没听说过这玩意儿），显示器主机键盘鼠标都是国产的垃圾牌子，难用的很，然后系统里所有可能用到的预装软件都是国产的。
+我当时还很纳闷，全是些不知名的软件，难用死了，里面唯一比较熟悉的就是 wps 了，有点感慨。（其实 linux 的 wps 其实没广告）
+稍微有点保密要 …</description></item><item><title>如何评价反诈 APP 口碑急转直下？</title><link>https://project-gutenberg.github.io/Pincong/post/aafd7da74b2add00bda0a625d240250b/</link><pubDate>Tue, 28 Jun 2022 23:15:10 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/aafd7da74b2add00bda0a625d240250b/</guid><description>知乎用户 六道绝形踪 发表 我只知道一件事, 确实有很多的事实表明.
+很多人装了反诈 app 之后, 自己装一个比较不正规的软件, 就会被打电话警告.
+哪怕这个不正规的软件可能只是一个看盗版小说的软件之类的, 更别提比如说 lsp 软件了.
+我觉得很多人不喜欢这种感觉非常正常吧?
+反诈 app 这件事本身就很奇怪, 因为身为 app 的目的就是为了在短信内容和通话内容以外额外对手机进行更加广泛的监控.
+否则仅仅是短信内容和通话信息的相关 …</description></item><item><title>钉钉管员工这么有效为何没在国外公司流行开来?</title><link>https://project-gutenberg.github.io/Pincong/post/f4f7c8c8756269d8fa7dddf57129ee59/</link><pubDate>Tue, 14 Jun 2022 12:33:59 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f4f7c8c8756269d8fa7dddf57129ee59/</guid><description>知乎用户 jetwaves 发表 因为很多功能在国外是犯法的
+以法国为例
+1. 下班后不能给发消息
+2. 不能强制打卡
+3. 不能获取员工的实时位置
+再加上 GDPR 要求，所有对员工的个人信息的应用全部要汇报为什么用和如何使用，要有专人负责流程审计和数据安全审计，数据必须要存在欧洲甚至法国本土境内，外包服务商必须同样合规
+所以国内的很多软件来了欧洲就是政府和公会眼里的一坨肥肉，还是烤香了正在滋滋冒油的那种
+╮(￣▽￣)╭
+知乎用户 踩 …</description></item><item><title>东航MU5735空难十点疑问</title><link>https://project-gutenberg.github.io/Pincong/post/fbe47937baf969033cd4032f4dd91218/</link><pubDate>Tue, 22 Mar 2022 02:31:52 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/fbe47937baf969033cd4032f4dd91218/</guid><description>作者：不详 中国东方航空MU5735号航班今天自昆明前往广州时，在梧州上空坠毁。拉总与所有人一样怀着悲痛的心情一直在持续关注。这架B-1791号飞机13:15从长水机场起飞，原本应该在15:05落地，但14:18分前后它在飞行跟踪软件上的高度突然降为0.
+随后的消息有些混乱，因为有软件显示它已经到达。但15:10左右陆续有传来广西村民拍摄的机翼碎片，和山火狼烟，专业飞友们于是断定为“失事”。16:03分，拉总收到了凤凰网推送，说客机在广 …</description></item><item><title>如何看待大疆因被美国列入了制裁名单而遭 Figma 冻结公司团队账户？</title><link>https://project-gutenberg.github.io/Pincong/post/59fb6ece5967f7fe296c3fdc542f2573/</link><pubDate>Sun, 13 Mar 2022 11:06:27 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/59fb6ece5967f7fe296c3fdc542f2573/</guid><description>知乎用户 刘老六 发表 今天上午的时候，突然有很多朋友发来消息，询问我们相关的情况，我们也第一时间通过各种渠道对这件事进行了求证。
+除了大疆之外，同样也已经波及到一些国内互联网公司和设计师，并对其设计资产的安全性造成影响，对此我们深感忧心，也决定迅速响应，希望能帮助所有受波及的企业和个人尽快获得解决办法。
+Figma 是一款很优秀的设计软件，遇到这样的情况我们也很遗憾，但是大家也不用担心，目前的情况是只会涉及到美国制裁名单中的 611 …</description></item><item><title>Oracle 、SAP 等软件公司宣布暂停俄罗斯业务，可能出于哪些原因？还有哪些信息值得我们关注？</title><link>https://project-gutenberg.github.io/Pincong/post/3d74f3045a66717670d5a1e2472a648b/</link><pubDate>Fri, 04 Mar 2022 23:50:40 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/3d74f3045a66717670d5a1e2472a648b/</guid><description>知乎用户 gashero​ 发表 此次俄乌冲突产生了很多不好的影响，西方国家为了一点优势，打破了很多业界惯例。使得很多之前大家可以信任的基础设施变得不再可靠。在 IT 行业，一些制裁包括：
+Oracle 宣布暂停俄罗斯业务，范围未知 SAP 暂停俄罗斯产品销售和服务 微软或退出俄罗斯市场 Google 暂停了俄罗斯 Youtube 的营收，暂停了 Google Pay 苹果停止供货，限制 Apple Pay 等服务， …</description></item><item><title>如何看待深信服开发的用以监控员工的行为感知系统？</title><link>https://project-gutenberg.github.io/Pincong/post/a4ba9e0235c27e46095d88906583b459/</link><pubDate>Mon, 14 Feb 2022 21:39:23 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a4ba9e0235c27e46095d88906583b459/</guid><description>知乎用户 天眼查​ 发表 咳咳，可能大家被检测的不止是离职倾向，天眼妹发现该公司还申请了员工状态分析 0-0
+根据专利可以看到，这个专利可以根据每个员工的工作行为数据，来判断在一段时间内该员工每个工作应用处于置顶状态时的使用时长，进而分析出每个员工在一段时间内的专注度。
+当然，除了这些离职倾向分析系统、员工工作状态分析系统，还有防止员工带薪拉屎的屁股压力感应器、追踪员工行动轨迹的 “智能工牌” 等监测工具。
+据 “智能工牌” 的介绍信息 …</description></item><item><title>福建一老板为防员工摸鱼抠走全公司电脑 Alt 键，如何评价该老板这一行为？</title><link>https://project-gutenberg.github.io/Pincong/post/a8b64c73a2838e1e55bf81a348edefef/</link><pubDate>Thu, 20 Jan 2022 22:54:38 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a8b64c73a2838e1e55bf81a348edefef/</guid><description>知乎用户 经济观察报​ 发表 坐以待毙不是办法，不能润的话可以提高水平继续斗智斗勇
+一些有用的快捷键，希望摸鱼人记住：
+Win+D：显示桌面
+Win+Tab：Alt+Tab 的高级版
+Win+Home：最小化除了当前窗口外的所有窗口
+Win+M：最小化所有窗口
+另外挂手游的可以看一下
+自定义老板键……
+知乎用户 长江骑士兰斯洛特​ 发表 半夜鸡叫现代版
+知乎用户 郑天玑 发表 地主周扒皮每天半夜里学鸡叫，然后把刚刚入睡的长工们喊起来下地 …</description></item><item><title>我用了 MIUI13，派出所打电话让我卸载 “诈骗软件”</title><link>https://project-gutenberg.github.io/Pincong/post/736ef6d5ab86b2246fc74c22adeb874f/</link><pubDate>Tue, 18 Jan 2022 21:14:08 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/736ef6d5ab86b2246fc74c22adeb874f/</guid><description>CDT 编者按：该帖由小米用户 @墨小白君 于 1 月 16 日发布于小米社区，所持设备为 Redmin K40/Pro，用户自称使用 MIUI13 后，隐私遭到警方窥探，疑与之前网传的 “整合国家反诈中心” 功能有关。
+用的 MIUI 13，前两天派出所打电话说安装的中国联通是盗版软件，不是应用市场的正规版，实际是那个软件因广告多，我用的精简版，跟派出所微信视频后发现本人名字、手机号、所用应用，安装时间都能查到，而且系统上标注我为高危 …</description></item><item><title>如何看待 faker.js 开源作者删除了所有的代码？</title><link>https://project-gutenberg.github.io/Pincong/post/b60a5d28eae1d05184399a040ddaddc4/</link><pubDate>Wed, 12 Jan 2022 22:12:24 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b60a5d28eae1d05184399a040ddaddc4/</guid><description>知乎用户 一直住顶楼​ 发表 写在最前面：开源软件是程序员的自媒体。 有些感慨，我记得这个哥们儿其实之前发过 twitter，他也就是想要一个 20 万美刀的 offer 而已，还是我记错了？这……
+按理说不至于啊，虽然老实说我不碰 js，我也不认为做了这个作品就代表什么特别特别牛的水平，但是按说仍然是应该随便找个公司混个程序员的位置不难吧。
+开源软件不是不能挣钱，但是这个东西就和你搞自媒体一样，真不是你做了 2 个爆款视频就应该能发财 …</description></item><item><title>如何看待腾讯华为承诺「不监听个人隐私」？这意味着什么？</title><link>https://project-gutenberg.github.io/Pincong/post/76f3df071ba6cb7828215c9dfa772bd8/</link><pubDate>Mon, 10 Jan 2022 23:59:45 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/76f3df071ba6cb7828215c9dfa772bd8/</guid><description>知乎用户 36 氪​ 发表 不监听个人隐私，最基本的就是不用强行登录。我打个电话，浏览个网页，查个天气，上 x 宝查个商品价格，为什么要让我登录？我不登录，难道电话就打不通了？我不登录，难道天气就查不了了？我不登录，难道商品的价格就不能给我看？这是什么行为？手机盒上有写 “必须登录才能使用” 吗？我去商场会登记我手机号、身份证吗？
+不监听个人隐私，其次就是 app 不联网也能使用。我拍个照片为什么要联网？我打字为什么要联网？我记点心得体 …</description></item><item><title>为什么最近出现很多关于国家反诈中心 APP 的负面消息？</title><link>https://project-gutenberg.github.io/Pincong/post/ebde83726b6eb0517f2178563c47b6ca/</link><pubDate>Mon, 10 Jan 2022 23:40:47 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ebde83726b6eb0517f2178563c47b6ca/</guid><description>知乎用户 陶陶萌宠​​ 发表 因为确实是不怎么给力。
+最近刚好遇到诈骗犯，然后我第一时间就在反诈中心 APP 上投诉了，
+现在已经四天了，除了这个记录，没有任何人联系我，也没有举报的处理结果。
+咱也不知道如果没有处理通知的话，设立这么个 APP 的用途是什么？占手机内存吗？
+还不如拨打 110 好使。
+知乎用户 毛太驴​ 发表 瓜田李下，古人都知道避嫌。
+如今因为疫情，我们推广健康码，民众理解，我们愿意让渡自己的行踪隐私来配合防疫，所以 …</description></item><item><title>为什么最近出现很多关于国家反诈中心 APP 的负面消息？</title><link>https://project-gutenberg.github.io/Pincong/post/86a7f9983d46c72dfb9908df96e4a7d9/</link><pubDate>Sun, 09 Jan 2022 16:50:43 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/86a7f9983d46c72dfb9908df96e4a7d9/</guid><description>知乎用户 铁剑库丹 发表 都是别有用心的群体炒作的！！！！
+我有一个朋友，自从安装了反诈 app 后就天天说我反诈 app 不好。
+因为我这朋友之前就是个妥妥的危险分子。
+他之前经常在贴吧知乎上评价当局，这是我们老百姓该干的吗？！
+自从安装了反诈 app，网上又有很多人因为不当言论受罚，他就再也不敢乱说了！每天嘴里只念叨着支持！赞成！感恩！
+反诈 app 是多好的改造软件啊。
+而且之前他手机里总有很多不法软件，叫什么 vpn 的，什么油 …</description></item><item><title>为什么最近出现很多关于国家反诈中心 APP 的负面消息？</title><link>https://project-gutenberg.github.io/Pincong/post/c2c49b2dc51f987ff4bb0ba109b7b9a1/</link><pubDate>Sun, 09 Jan 2022 13:58:04 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/c2c49b2dc51f987ff4bb0ba109b7b9a1/</guid><description>知乎用户 Kyriter 发表 是的。
+这款 APP 的确伤害到了一些人的利益。
+主要是宪法赋予他们的权利被它伤害到了。
+例如人身自由权。
+举我个人遇到过的几个情况。
+毕业前，我们进学校必须检查是否有安装反诈 APP，没有安装禁止进入校园。
+毕业后，我们出租屋所在的社区街道入口安排了执勤人员检查是否有安装反诈 APP，没有安装禁止进入社区。
+禁止进入校园和社区都成功阻止了我返回自己的宿舍和出租屋。
+不过当然，也并没有绝对的禁止，只要你 …</description></item><item><title>如何评价 MIUI 13 可能内置反诈系统，有什么影响？</title><link>https://project-gutenberg.github.io/Pincong/post/2d30728be622733aac6d6eafbe2a9a0d/</link><pubDate>Sat, 08 Jan 2022 14:11:33 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/2d30728be622733aac6d6eafbe2a9a0d/</guid><description>知乎用户 数据狗 发表 最近老 h 看到 MIUI13 内置反诈系统的消息，引起了网友广泛的讨论。
+老 h 认为，内置反诈系统确实是一件令人好的事情。大家也要看到，我们的祖国正在经历考验，很多不法分子想要利用网络干一些坏事，一些人甚至还下载了违法软件。这种恶意上网的行为是不妥的。大家应该体谅国家的难处。同时小米用户们也应该看看非洲的人，他们很多连手机都没有，而你们只是内置了反诈系统，这还有什么理由不感激呢？
+另外老 h 一直坚信，都预装 …</description></item><item><title>国家反诈中心被评低分了吗？</title><link>https://project-gutenberg.github.io/Pincong/post/cc5b3f86c90b6b8e9e4d99abbd5dd188/</link><pubDate>Fri, 31 Dec 2021 00:44:50 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/cc5b3f86c90b6b8e9e4d99abbd5dd188/</guid><description>知乎用户 谢更夫 发表 孩子的老师在家长群里要求必须安装反诈 APP，还需要最后截图反馈，否则微信电话反复找你。我和孩子妈妈都安装了，才算完成任务。另外再说说我亲身经历的两个安装反诈 APP 的场景。
+有一次，我在常规设卡检查的位置被几个身着警服的人给拦了下来。停好车，我翻出驾驶证和行车证，摇下车窗。一个没有戴帽子的联防凑过来：“安装反诈 APP 了没有？” 我…… 一直等我解锁手机给他确认安装了，才放行。
+还有一次去工厂车间验货，突然 …</description></item><item><title>如何评价 UOS 统一操作系统？</title><link>https://project-gutenberg.github.io/Pincong/post/b6c92f1a822694bc63c477c1039fb4ce/</link><pubDate>Sat, 18 Dec 2021 13:09:37 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b6c92f1a822694bc63c477c1039fb4ce/</guid><description>知乎用户 鸡先生 发表 统信软件（就是深度现在的母公司）适配中心的普通员工前来回答一发，生态建设正好是适配中心负责的范畴之一。
+首先赞赏
+@面向搜索引擎编程
+的理解，UOS 本身是一个普通的 Linux 发行版，当前产品正式名称是 统信 UOS，中文名统信操作系统，有三个版本：专业版、个人专业版和社区版，其中专业版主要面向政企用户，而非普通消费者，支持国产 6 个 CPU 平台；个人专业版主要面向中小企业和专业用户（指特定行业用户，而不 …</description></item><item><title>如何看待大牛助手 APP 因能修改手机位置被海淀检察院告，最终张某获刑 5 年 6 个月?</title><link>https://project-gutenberg.github.io/Pincong/post/0263451c97c4d65ab7edf399be63fe3f/</link><pubDate>Thu, 14 Oct 2021 04:01:26 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/0263451c97c4d65ab7edf399be63fe3f/</guid><description>知乎用户 发表 一打卡作弊软件 CEO 被判 5 年 6 个月，22 人团队，已赚四五百万元：因破坏了钉钉系统获取用户真实地理位置的功能
+如题
+知乎用户 逆情至深 发表 我不得不强答一回了。
+大牛助手是通过修改系统环境来达到欺骗钉钉的目的，该软件本身未修改钉钉软件。如果提供虚假环境违法的话，那所有用过虚拟机的人都应该抓去坐牢，开发虚拟机的应该被枪毙。
+知乎用户 王天宸 发表 补充下裁判文书中的一个细节：
+证人周某的证言证实：其是阿里巴 …</description></item><item><title>网友反馈在未主动激活 App 情况下，微信在后台反复读取用户相册，是否涉及侵犯用户隐私？</title><link>https://project-gutenberg.github.io/Pincong/post/0573ddb142dcdc4a0021bedbffdc4bfb/</link><pubDate>Tue, 12 Oct 2021 09:05:58 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/0573ddb142dcdc4a0021bedbffdc4bfb/</guid><description>知乎用户 发表 进展更新：
+微信方面回应称：iOS 系统为 APP 开发者提供相册更新通知标准能力，相册发生内容更新时会通知到APP，提醒APP可以提前做准备，APP的该准备行为会被记录成读取系统相册。
+当用户授权微信可以读取「系统相册权限」的前提后，为便于用户在微信聊天中按「+」时可以快速发图，微信使用了该系统能力，使用户发送图片体验更快速流畅。上述行为均仅在手机本地完成，最新版本中我们将取消对该系统能力的使用，优化快速发图功能。
+微 …</description></item><item><title>网友反馈在未主动激活 App 情况下，微信在后台反复读取用户相册，是否涉及侵犯用户隐私？</title><link>https://project-gutenberg.github.io/Pincong/post/15955dbeadbcd175dbe316edcbcd03ca/</link><pubDate>Sun, 10 Oct 2021 08:25:23 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/15955dbeadbcd175dbe316edcbcd03ca/</guid><description>知乎用户 Hackl0us 发表 ​
+目录
+网友反馈的网友就是我，作为当事人尽量全面地回答这个问题，包括客观分析和主观看法。
+这份回答也是在之前在微博承诺过的，在 26 岁生日前会写成一篇完整的事件报告呈现给大家。
+这份回答包含大家关心的微信官方团队的说法、技术实现和解读、个人态度和立场、我发起事件原因和气愤的点、防范隐私侵犯的方法等等内容。你也能在这份报告看到微信官方的态度，以及这样做的初衷及目的。
+因为 Telegram 最大字数限 …</description></item><item><title>高春辉 vs the World</title><link>https://project-gutenberg.github.io/Pincong/post/d7610665156a473ec76fdbef1dbe3119/</link><pubDate>Mon, 27 Sep 2021 11:37:54 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/d7610665156a473ec76fdbef1dbe3119/</guid><description>一个人 “赢了”，一个时代 “输了”。
+文｜姚胤米
+编辑｜黄俊杰
+为了写出这篇文章，作者花了一年时间准备。从正式动笔到写作完成，断断续续用了 10 天。然后，像许多创作者都会做的，他把文章拿给同事、关系紧密的朋友和律师看，改，再看，再改，不到3200 字的文章经过了几次打磨才最终写就。
+7 月 13 日，作者为它的面世特地选了一个日子。那天是星期二，正是一个周期里人们工作状态渐入佳境的时候。定时到晚上 8 点发布——也是特地挑的——互联 …</description></item><item><title>应用市场被曝出现仿冒健康码的 APP，可能对疫情防控带来哪些影响？这类 APP 涉嫌违法吗？</title><link>https://project-gutenberg.github.io/Pincong/post/bccdbb5f44c7ee36010deb7e258a6ed9/</link><pubDate>Sun, 22 Aug 2021 16:08:36 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/bccdbb5f44c7ee36010deb7e258a6ed9/</guid><description>知乎用户 孙傲之​ 发表 「模仿常用软件的 UI」这种事情其实是新手学习 UI 设计非常常用的手段，国内常见的软件基本都被模仿过：
+那个软件我下载下来用过，其实根本没什么技术含量。
+况且，如果是为了扰乱防疫工作，他不太可能去设计一个展示红码的功能。
+所以我最开始觉得是不懂行的网友大惊小怪了，说不定就是个学生的小练习罢了。
+但是我详细了解了一下之后觉得这事不太对： 第一、如果是出于学习目的编写了这个软件，为什么要上架应用商店呢？
+他上架的 …</description></item><item><title>为什么中国做游戏引擎的公司没有像美国的 unity unreal 一样能跑的出来？</title><link>https://project-gutenberg.github.io/Pincong/post/17ac5031e89441c5d89f39930ddc75bf/</link><pubDate>Fri, 06 Aug 2021 05:49:02 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/17ac5031e89441c5d89f39930ddc75bf/</guid><description>知乎用户 王哲​ 发表 作为 Cocos 创始人 &amp;amp; CEO，我觉得会有三方面原因吧，首先是时间，二是商业环境，三是人才。这三者又相互关联。
+1. 时间 国内在端游时代也有不少引擎大神，都是我的前辈，但基本都是给各家游戏公司自己用的自研引擎；如果说中国真正有全球开发者生态的通用游戏引擎，不谦虚地说应该是从 2010 年的 Cocos 开始。
+然而，虚幻引擎的 UE1 是 1996 年发布的，那年我还在读初二，中国的腾讯、网易、百 …</description></item><item><title>K 线图，来自东方的技术革命｜大象公会</title><link>https://project-gutenberg.github.io/Pincong/post/5737be166159fda45d8ece7855302a20/</link><pubDate>Sat, 17 Jul 2021 11:13:06 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/5737be166159fda45d8ece7855302a20/</guid><description>1990 年代初，新生的中国股市赶上了华尔街刚刚开始的一场技术分析革命。
+文｜苏两妻
+即使不关心股市的中国人，对 K 线图的色彩和形状也不会陌生。这种红绿柱体排列而成的图表，是今天人们心目中股票市场的标准形象，仅次于股民坐在大屏幕前面露难色、闭目长叹的新闻图片。
+· 2018 年疫苗事件前后，相关上市公司「ST 长生」的 K 线图
+K 线图在中国大陆的地位并不奇怪，1990 年沪深两大交易所开市，不久，台湾的行情软件公司跨过海峡来大陆 …</description></item><item><title>如何禁止安装百度杀毒？</title><link>https://project-gutenberg.github.io/Pincong/post/e9ba6ce94eb6ec83c17e640ba94cb299/</link><pubDate>Sat, 17 Apr 2021 23:33:44 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e9ba6ce94eb6ec83c17e640ba94cb299/</guid><description>知乎用户 Left 发表 组策略中证书规则，阻止百度一系列软件安装（对已安装的百度系列软件有影响）
+1. 下载百度系列软件一个（提取数字证书）
+2. 鼠标右键 属性 数字签名，如下图
+此处命名随便，证书存储路径随便，只要你记得。。。。。
+保存后直接下一步，下一步，最终得到一个证书文件
+3.win+r 调出运行框，输入 gpedit.msc 回车，打开组策略
+如上图（呵呵，我限制了不少东西）， 依次 计算机配置 windows 设置 安全 …</description></item><item><title>如何评价苏州思杰马克丁软件公司？</title><link>https://project-gutenberg.github.io/Pincong/post/b07cabab3f25d04effe25b9f075bdce5/</link><pubDate>Sun, 14 Mar 2021 13:26:38 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b07cabab3f25d04effe25b9f075bdce5/</guid><description>知乎用户 彼岸弥香 发表 怎么说呢，对于这家公司的话，如果说好话，广大网友不乐意；如果说坏话的话，这家公司的法务部不乐意。
+所以很遗憾，最好的解决方案只有沉默了。至少在这里是这样。
+知乎用户 Bond James 发表 如果是真心实意的维护正版的话，人家采取任何手段，其实也无话可说。可是这家公司完全就是集中国特色流氓软件之大成，使用该公司的 “正版授权” 软件，您将获得：高于正版数倍的价格，盗版中的盗版的体验。以一款简单的 win 环境 …</description></item><item><title>​事实核查：Dominion的服务器在德国被查封？软件公司背后有民主党大佬？</title><link>https://project-gutenberg.github.io/Pincong/post/cca1f5ccc378bde3b5b42d59d6525cfa/</link><pubDate>Mon, 16 Nov 2020 01:28:37 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/cca1f5ccc378bde3b5b42d59d6525cfa/</guid><description>编者按：**美国大选结束后，已经过了两个周末了。本周，随着多个州的选票清点工作告一段落，选举结果也更加明朗。拜登拿下了亚利桑那和佐治亚，而川普赢得了北卡，拜登以306票对232票的优势，赢得了大选。
+**
+然而，落后一方对选举舞弊的指控却并没有停止。在连续的诉讼尚无结果时，针对投票软件公司Dominion的指控又多了起来。这到底是一家什么公司？越来越离奇的故事究竟是不是真的？又是谁在传播呢？请看正义补丁美国大选辟谣第三篇。
+大选之后， …</description></item><item><title>如何看待Dominion Voting System这个计票软件？</title><link>https://project-gutenberg.github.io/Pincong/post/449ddd1a0e959ce8dc929e2907d82234/</link><pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/449ddd1a0e959ce8dc929e2907d82234/</guid><description>品葱用户 A意识形态对立 提问于 11/9/2020 继共和党人发现投票软件系统（Dominion Voting System ）的软件故障，导致密歇根州的安特里姆郡（Antrim County）将6,000张支持共和党候选人川普的选票错划归为其挑战者民主党候选人拜登后，安特里姆郡已经修复了这个错误，然后川普总统在该郡又居领先地位。但是全美还有30个州在使用Dominion投票系统。
+据悉，包括七大摇摆州内华达州、亚利桑那州、明尼苏达 …</description></item><item><title>如何评价 WPS 故意损坏文件，胁迫用户交钱的行为？</title><link>https://project-gutenberg.github.io/Pincong/post/5d731982c1569c17df3b635f2abf73f6/</link><pubDate>Tue, 22 Sep 2020 10:12:14 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/5d731982c1569c17df3b635f2abf73f6/</guid><description>知乎用户 匹马偏师 发表 office365 家庭版，凑齐人开车，一年差不多不到 100。
+不到 100 在微软这儿可以买到哪些呢？
+标配时刻最新的 office 三件套，不过在我国因为种种原因，web 版不能用，但是整体体验依然碾压 wps。
+附送一个适合重度邮件使用者的 outlook。当然，这个东西见仁见智，邮箱我习惯了 foxmail。
+还有 1TB OneDrive 的网盘空间，不过考虑到微软在我国的网速，聊胜于无吧，诸如分享 …</description></item><item><title>希望软件工程，程序员能看到这个问题，完全零基础想要开发应用，比如VPN应该学习哪些技术？</title><link>https://project-gutenberg.github.io/Pincong/post/64d863285ba422e9320ed8ba722a3543/</link><pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/64d863285ba422e9320ed8ba722a3543/</guid><description>品葱用户 说实话就被封号 提问于 9/9/2020 就是完全零基础，想报名培训班去学习，应该选择哪个方面？
+比如谷歌商店里的vpn都是用什么技术开发的？
+看了好多培训机构的课程，有python，java, go, linux运维，前端等等。
+该选择哪个？
+希望专业的程序员，软件工程师能解答，非常感谢。
+品葱用户 unchained_wen 评论于 2020-09-09 说实话，写个VPN还属于比较进阶的开发了。
+1，最大的头就是 计算机 …</description></item><item><title>一个网易云音乐9级用户的自我检讨</title><link>https://project-gutenberg.github.io/Pincong/post/e0fcd923d34cf00c8d60fac19ec5b681/</link><pubDate>Mon, 17 Aug 2020 16:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e0fcd923d34cf00c8d60fac19ec5b681/</guid><description>2013年9月30日，我下载了网易云音乐，并注册使用至今。
+当时网易云音乐仅仅正式上线了五个月，我成为了它区区七位数的用户之一。
+而2019年的数据显示，网易云音乐用户量已经突破了 8 亿。在这七年里，我曾经觉得网易云音乐像个“乌托邦”，但如今，我看到各路平台上的“网抑云”段子也会情不自禁被逗笑。
+我亲眼见证了网易云曾引以为傲的用户体验和社区氛围一步步崩坏的过程。必须要检讨的是，作为9级用户的我，也可以说是社区氛围崩坏的“始作俑者”之 …</description></item><item><title>【城市战争系列】“火拼程序狗”</title><link>https://project-gutenberg.github.io/Pincong/post/e59e7d5003f0b15a44704713802ff28e/</link><pubDate>Sat, 15 Aug 2020 04:02:19 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e59e7d5003f0b15a44704713802ff28e/</guid><description>这一篇讲述的是一个新兴的行业：软件及信息行业在全国的布局。对于广大的程序狗来说，阅读本文，有助于各位针对性的寻找心仪的工作机会。
+话说软件信息产业乃是中国人均产值最高的产业之一，2018 年我国总共 640 万的软件信息行业从业人员，创造了 63031 亿的行业总收入，人均创收 **98.5 万；**全行业净利润 8079 亿，人均创利 12.6 万。同时，我国软件信息行业也是一个内向型的市场，出口能力很差，2018 年我国信息软件行业 …</description></item><item><title>一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》</title><link>https://project-gutenberg.github.io/Pincong/post/efe792c8d7123377c3fa28e8693e6e9f/</link><pubDate>Sun, 09 Aug 2020 16:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/efe792c8d7123377c3fa28e8693e6e9f/</guid><description>本文首发于本人的今日头条同名号：蜀山熊猫。（公众号平台备份。）
+衷心感谢各位对本文的支持, 请勿用作任何的投资决策。
+证明
+这些天看了不少讲国内EDA情况的帖子，有客观的也有极其离谱的，作为一名从业十余年的芯片设计工程师，我以一线从业者的角度来谈谈我们在实际工作中的EDA软件使用情况究竟是怎样的吧。
+先回答个很常见的问题：没有了美国的EDA，我们是不是芯片都不能做了？这也是促成我写这篇文章的因素之一吧。
+我的简要回答 …</description></item><item><title>俄罗斯为何把微信禁了？</title><link>https://project-gutenberg.github.io/Pincong/post/ff4bb516a81667c0879d3016e8d7dcad/</link><pubDate>Sun, 09 Aug 2020 05:05:35 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ff4bb516a81667c0879d3016e8d7dcad/</guid><description>知乎用户 您好科技 发表 个人觉得有两个因素：
+1、保护本土的社交软件，就像我们对待谷歌、脸书一样。
+2、数据问题（用户数据）
+我们不妨想一想，现在的通讯社交软件到底都从我们这里获得了哪些信息？
+　通常在软件使用前，我们会被要求注册账号，此时，我们会设置用户名和密码（可能用于 “撞库” 攻击），有的还会要求绑定手机号码和电子邮箱（可能用于目标定位、发送木马病毒等）。
+　需要实名认证的软件，还会要求我们提供真实姓名、身份证信息，有的还要求 …</description></item><item><title>蓬佩奥宣称未来几天将对更多中国软件公司「下手」，你怎么看？</title><link>https://project-gutenberg.github.io/Pincong/post/412c105977b3c510c279b32690dd23cf/</link><pubDate>Thu, 06 Aug 2020 05:36:40 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/412c105977b3c510c279b32690dd23cf/</guid><description>知乎用户 申鹏 发表 帝国主义尝到甜头了呗，《南京条约》签得，《北京条约》签不得？《天津条约》签不得？你给英国人特权，就不能给法国人特权？就不能给美国人特权？你都割让香港了，为什么不能割让澳门、台湾？你都让西方传教士来内地传教、经商了，为什么不能让所有的洋人掠夺土地、欺压民众、奸淫妇女、草菅人命？
+侵华日军尝到甜头了呀，弄个九一八你们不反对，那么我就弄个一二八，弄个七七；搞一搞东北你们不反对，那我就再搞一搞上海，搞一搞河北……
+反动派尝 …</description></item><item><title>打车软件大战，那些不使用打车软件的人怎么办？</title><link>https://project-gutenberg.github.io/Pincong/post/4be0c67e349574a218980c262c290e75/</link><pubDate>Tue, 04 Aug 2020 13:45:43 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/4be0c67e349574a218980c262c290e75/</guid><description>知乎用户 chenqin​ 发表 从乘客的角度，上面的答案已经够丰富了，我从另外几个角度说点自己的看法。
+**一，被误解的空驶里程
+**先考虑没有打车软件的情况。一般情况下，如果没有电调系统，司机需要在在街道上空车驾驶以找到想打车的乘客。在前一个乘客下车之后，后一个乘客上车之前的路程，被称之为空驶里程。上海出租车平均每天行驶 380 到 400 公里，空驶率在 40% 左右。也就是说，每辆出租车每天都有 150 公里在道路上空驶。
+目前 …</description></item><item><title>推荐几个非常硬核的公众号</title><link>https://project-gutenberg.github.io/Pincong/post/d5ea10c9fe4c9b1601ef35fb9c1b93ae/</link><pubDate>Mon, 27 Jul 2020 08:51:24 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/d5ea10c9fe4c9b1601ef35fb9c1b93ae/</guid><description>今天推荐几个优质的公众号，他们有态度、有温度、有质量，值得拥有。
+stormzhang
+ID:googdev
+张哥可以算是每个技术人的榜样，前码农&amp;amp;产品人，现在成功转型成为一名自由职业者，创业者。另外，张哥也是公众号领域为数不多的同时被马化腾和张小龙打赏过的公号，我自己也是一名忠实读者，值得关注。
+▲长按上方二维码识别关注
+精进的就就
+ID：jiujiu-up
+就就是公众号「求职奶爸」、「精进的就就」的创始人。曾经的他，是一个 …</description></item><item><title>感觉中国程序员前景一片灰暗，是这样吗？</title><link>https://project-gutenberg.github.io/Pincong/post/a556a7ca5d926997fe88183e00c34c01/</link><pubDate>Sun, 26 Jul 2020 10:40:14 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a556a7ca5d926997fe88183e00c34c01/</guid><description>知乎用户 talktomyself 发表 嗯，是的。
+但是并不是因为技术更新快，涌入人员多。
+国外的软件行业这些问题都有，但是并没有内卷到这种程度。
+如果说是因为国外人少，我承认，有这个原因，但绝不是全部。
+我国互联网行业的管理其实是特别具有中国特色的，换句话说跟国际不接轨。越来越多海归的互联网从业人员可以证明的，早年建立当今这套管理体系的人，如果打着引进国外先进经验的旗号，那绝对是挂着羊头卖狗肉。
+首先，全体 KPI。国内的程序员羡慕 …</description></item><item><title>为什么学校里很多编程老师的电脑里都安装了像 360 这样的软件？</title><link>https://project-gutenberg.github.io/Pincong/post/836f531d2926457e794af8542b38926e/</link><pubDate>Tue, 21 Jul 2020 12:41:44 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/836f531d2926457e794af8542b38926e/</guid><description>知乎用户 诗与星空​ 发表 两点
+1、懒。
+2、你看到的 360 很可能是天擎。
+天擎现在是国内大型央企、机关、事业单位最常用的企业版杀毒软件。
+统一采购，强制安装。
+知乎用户 暗灭​ 发表 编程是一个很大的概念，360 这些流氓软件也和，安全软件也好，大部分的不做安全的人接触不到。
+同理，前端喜欢 chrome，是为了方便调试，但前端程序员的程序员群体中的一部分，大部分非前端程序员，和普通用户一样，和你并无不同。
+不要把编程的世界理解 …</description></item><item><title>如何看待第三方百度云 Pandownload 作者被捕？</title><link>https://project-gutenberg.github.io/Pincong/post/7cad1a7ed34d6804a17d7d4c456fd435/</link><pubDate>Sat, 18 Jul 2020 05:20:34 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/7cad1a7ed34d6804a17d7d4c456fd435/</guid><description>知乎用户 CH 兔​ 发表 我同意你说的每一个字，但我坚决支持开发者的合法权益。
+首先，“受害人刘某” 被泄露了多少数据？够不够得到立案标准？如果够不到，那么谁同意立案的，有没有考虑到可能案值太小导致浪费执法资源的可能？
+其次，“使用者达到数万人，致使百度公司损失高达上千万元”，案值计算是否合理？有知乎用户计算认为，该数据计算是假设 pandownload 用户均未购买五年会员造成的损失。请问 pandownload 是否可能造成这种侵 …</description></item><item><title>为什么谷歌全家桶我就想装，百度全家桶或者腾讯 360 全家桶我就想骂？</title><link>https://project-gutenberg.github.io/Pincong/post/e56b68d20ef3077ffb3047b4ef455a5f/</link><pubDate>Sat, 18 Jul 2020 05:08:38 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e56b68d20ef3077ffb3047b4ef455a5f/</guid><description>知乎用户 Vctcn93 发表 抛开 UI 设计和技术实力，
+我就问几个人性问题：
+Google 全家桶可否会
+在你只装了部分 Google 软件的情况下，
+弹出一个骇人听闻的诱导性的弹窗： “手机运行速度过慢，安装 xx 为手机提速”？
+“你的手机有 XX 风险，下载 XX 助手 / 管家”？
+可否会
+给你推送一条看似人畜无害的通知，
+然后你一点进去就自动下载某 app 并准备安装？
+可否会
+在你一不小心点到某个看起来不那 …</description></item><item><title>这个被人分尸的企业家，原本能大有作为。</title><link>https://project-gutenberg.github.io/Pincong/post/5e1b7433991693ce96b211600a3292d7/</link><pubDate>Fri, 17 Jul 2020 17:20:08 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/5e1b7433991693ce96b211600a3292d7/</guid><description>昨天，一则新闻震动了美国互联网。
+一位名叫萨利赫（ Fahim·Saleh ）的孟加拉裔企业家，被发现死在了他纽约曼哈顿的公寓中。
+虽然和马斯克、贝佐斯这样的商业巨佬比起来，萨利赫只算得上一个晚辈，但他的死还是引起了巨大反响，甚至孟加拉国的信息和通信技术部长都出面表示：“ 他的死是孟加拉的巨大损失。”
+因为，虽然萨利赫的公司市值不高，但他创立的共享自行车软件 Pathao 和摩托出租软件 Gokada 却给孟加拉国、尼日利亚这两个交通拥 …</description></item><item><title>分享文章：如果美国禁用微信，您准备好了吗？</title><link>https://project-gutenberg.github.io/Pincong/post/53354a03785c15de2e0b62e91f936d56/</link><pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/53354a03785c15de2e0b62e91f936d56/</guid><description>不是我写的，我只想来这里嘲笑一下，哈哈哈哈，我从没用过微信，不知道没有微信的世界，有啥后果。
+🤣🤣🤣🤣
+解滨
+抖音海外版 TikTok在美国被禁，很快就会有结果。 估计不超过三个月TikTok就会开始结束在美国的生涯。 这件事其实很清楚。 大道理不说了，就说美国的YouTube 在中国被禁若干年了，凭什么中国的抖音就应该在美国畅通无阻呢？ 来而无往非礼也。
+眼下在美国的华人最关心的不是抖音，而是微信会不会被禁。 和抖音一样，关于这件事， …</description></item><item><title>使用天朝的镜像、软件源是否有安全风险？</title><link>https://project-gutenberg.github.io/Pincong/post/a2f75bb85b5da9edd0d666b39fb3221f/</link><pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a2f75bb85b5da9edd0d666b39fb3221f/</guid><description>品葱用户 cope204 提问于 7/3/2020 linux、python等
+品葱用户 Kerr_Bird 评论于 2020-07-03 我觉得没有风险，现在linux都是用gpg来验证安装包的完整性，验证不过直接安装失败，除非像上次华为在linux源码加料。而且用http还可以加快速度，降低计算量。默认linux软件源都是http的。
+pypi可能有风险。
+（根据经验，镜像源国内的都可以，注意不要用华为，华为的源经常有文件校验不过问 …</description></item><item><title>618金融机构大放水，套现大军狂欢：“奋战一天，夺回疫情损失”</title><link>https://project-gutenberg.github.io/Pincong/post/ebad3424b05ec46b780f7a762b31e0c3/</link><pubDate>Tue, 30 Jun 2020 19:17:56 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ebad3424b05ec46b780f7a762b31e0c3/</guid><description>618来了。
+疫情期间，大家压抑了太久的欲望和需求，都等待着释放。
+而线上平台也指望着制造消费热点，冲击上半年的交易额。
+“夺回被疫情抢走的3个月损失。”线上平台喊着口号，开始全面筹备618。
+5月，618的推广活动就开始了，各家电商平台，都推出了满减活动和各类小游戏。
+比如，京东就推出了“瓜分20亿金贴”活动。在京东金融APP中，参与一些小游戏，就可以赚金贴。
+在购物时，1金贴可抵1元现金。
+压抑了半年的金融机构，也准备紧紧抓住上半年 …</description></item><item><title>“零收入”依然淡定，一家基础软件公司的冒险与底气 | 甲子光年</title><link>https://project-gutenberg.github.io/Pincong/post/b2582355151b6662bb43fe240e4706cd/</link><pubDate>Tue, 16 Jun 2020 01:36:40 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b2582355151b6662bb43fe240e4706cd/</guid><description>中国开源项目的雄起时刻到了吗？
+作者 | 王学琛
+编辑 | 火柴Q
+这是第三次了，年初的董事会召开前，投资方的投后同事来问星爵业绩规划，他说：“不需要做报表，我们今年的目标收入多半还是0。”
+这家“三年收入都为0”的企业，是星爵在2017年创立的Zilliz，一家做开源模式的基础软件公司，主打融合异构计算的数据科学软件。
+这类公司在中国市场颇为另类——做基础、通用型技术，运营模式是短期内不会也难以开启商业化的开源。
+不过今年以来，“基础 …</description></item><item><title>阶级斗争新动向，清华大学教授著文要大家「警惕开源软件科技侵略」</title><link>https://project-gutenberg.github.io/Pincong/post/fbbf655f301d24bf0e254b8d593f7824/</link><pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/fbbf655f301d24bf0e254b8d593f7824/</guid><description>~只有习主席亲自编程，亲自调试，亲自微博发布的才事好软件~
+~所以什么时候用上红旗Linux~
+~所以什么时候用上鸿蒙~
+品葱用户 xitlerchinazi 评论于 2020-06-11 有汉芯，有鸿蒙，不怕！
+品葱用户 江泽之民 评论于 2020-06-10 赶紧去把GITHUB封了，唧唧歪歪的，看看你国到时候程序员还能不能活
+品葱用户 钦明方泽忘了密码 评论于 2020-06-11 如果你看了这篇文章的头六行，你的第一想法不是“哦 …</description></item><item><title>在基础软件领域，你哪儿来的迷之自信？</title><link>https://project-gutenberg.github.io/Pincong/post/7bba9d48d114509387a2ac536b1aaa76/</link><pubDate>Sun, 24 May 2020 08:46:58 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/7bba9d48d114509387a2ac536b1aaa76/</guid><description>昨天在群里聊天，胡老师发了一个链接，是美国国家科学院院刊（PNAS）上刊发的一篇论文，题目叫“中国、印度、俄罗斯及美国学生在计算机科学领域的能力比较”。我没仔细阅读，但看这篇论文里边的一张张图表，就大概能够了解到：尽管我们中国人聪明、勤奋、努力、重视教育，但美国学生的计算机科学能力吊打中国、印度、俄罗斯，可以说美国独步天下，其他国家只能望其项背。这篇文章不翻墙也可以看到，所以我在文后给出了链接，有兴趣的同学可以去阅读一下。
+当然很多人会 …</description></item><item><title>中国翻墙软件黑名单-持续更新</title><link>https://project-gutenberg.github.io/Pincong/post/0fca939cf8cc3984847ee58d9dbd1ff9/</link><pubDate>Wed, 20 May 2020 01:30:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/0fca939cf8cc3984847ee58d9dbd1ff9/</guid><description>对于中国境内的翻墙用户而言，有各种各样五花八门的翻墙工具。对于一些不懂行的用户而言，很容易就被套路。我发布这份关于《中国用户翻墙软件黑名单》是考虑了很久的事情。因为这是一个得罪人的事儿。搞不好就会被人骂得狗血淋头。以下这些软件，并不是说不能帮助你进行翻墙，我主要是从数据安全、隐私、个人法律安全等这些层面去考量这个事情。其中我也会将不适合中国用户翻墙的VPN也列举出来，避免让你浪费时间再去尝试。如果有不对的地方，敬请指正。本文会持续更新， …</description></item><item><title>那些山寨12306的软件开发者们，可能已经躺着财富自由了。。。</title><link>https://project-gutenberg.github.io/Pincong/post/3a15c82576a1891f6660c6aa8a3928e7/</link><pubDate>Thu, 14 May 2020 17:22:17 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/3a15c82576a1891f6660c6aa8a3928e7/</guid><description>今天中午，世超收到了一条消息，说自己被 12306 额外收手续费了。
+看到这条消息的时候，世超简直是被气笑了。
+像 12306 这种民生软件，国家管控很严。这哥们怕不是中了高仿 App 的招吧？菜啊兄弟。。。
+原本这种简单的套路世超原本是提不起兴致的，但是去瞅了眼，还是觉得有必要写出来让大家了解下。
+原因嘛，很简单，中招的人居然真不少。。。
+光差评就好几百条 ,
+每个月都有人吐槽自己受骗了 ▼
+而且世超研究下来，这个套路有可能是个每个 …</description></item><item><title>我不想当流量</title><link>https://project-gutenberg.github.io/Pincong/post/3b8e7473bc1cd7c4b66379dcab8953f0/</link><pubDate>Tue, 12 May 2020 04:48:44 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/3b8e7473bc1cd7c4b66379dcab8953f0/</guid><description>这是半佛仙人的第249篇原创
+1
+我在很多社交软件上都有小号，就是用来关注自己的同学，以前的好友的，号里面基本都是些普通朋友，没有日常那么多骚话，也没有那么多独特的见解。
+只是像条咸鱼那样挂在那里，一年半载才会发一条动态，作为以往的那个自己还在的证明。
+前几天，我朋友问我，是不是拿小号来恰饭了，怎么几百粉的号还能恰饭？
+我打开一看，我的其中一个小号一直在给那些饭圈明星营销号点赞，点了已经有大半年了，看得我一肚子火。
+点赞也就罢了，钱呢， …</description></item><item><title>要不是百度网盘被曝光，我还真没发现想薅我羊毛的软件这么多。</title><link>https://project-gutenberg.github.io/Pincong/post/88b187652351b618ff00a7a153754b3a/</link><pubDate>Fri, 24 Apr 2020 07:50:10 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/88b187652351b618ff00a7a153754b3a/</guid><description>前几天百度网盘用户激励计划的事，各位差友应该都知道了。
+简而言之，就是百度网盘趁大家没留意偷了大家流量。
+这事爆出来后，网上群情激奋，百度官方反应也很快，表示会对全部用户做取消处理。
+但不知道大家在吃瓜的时候有没有发现一件有趣的事：其实这个计划去年 6 月份就有了。
+之所以前阵子爆出来，是因为最近百度把这件事情搬上了台面。
+如果百度网盘不吭声，不显现用户激励计划的相关按钮，说不好，现在还寄生在千万用户的后台安安心心薅羊毛呢 ~ 咦，那想 …</description></item><item><title>疫区爱欲自述：大瘟疫时代的约炮 &amp;#8211; Nei.st</title><link>https://project-gutenberg.github.io/Pincong/post/3af2b6a3d755b85c1c31f37a4ad43018/</link><pubDate>Sun, 05 Apr 2020 08:25:40 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/3af2b6a3d755b85c1c31f37a4ad43018/</guid><description>病毒自然不可能被你的高潮所吓倒。但我们大部分人可以感受到，欲望被缓解时的心理舒畅，这才是很多人隔离期间所需要的吧
+前几天脸书上的人气账号「纽约人类」(Human of New York) 发了一个暖化人心的故事，纽约小哥焦虑地等待检测结果之际，打开男同交友软件 Grindr，遇到一位退休医生，便向他讲述自己的焦虑。两人未有发生任何亲密接触，大叔不仅给予他很多心理安慰，还送来隔离期间的干粮放在家门口。
+被特朗普连篇累牍的卸责叫嚣激怒的美国 …</description></item><item><title>被谷歌剪掉命根子的出海应用，没几个冤枉的</title><link>https://project-gutenberg.github.io/Pincong/post/137fb24c232fdd2becbcb5c0c23d61b8/</link><pubDate>Fri, 20 Mar 2020 13:15:43 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/137fb24c232fdd2becbcb5c0c23d61b8/</guid><description>唐朝，模范和尚玄奘离长安出玉门，经八百里流沙，去往西天求取真经。在天竺十余年间，他遍访名师，于那烂陀寺登台说法，四座皆惊。作为中印交流的使者，他为出海者千古垂范。
+ 中世纪的北非，有一支改宗穆斯林拼凑的队伍，饱含热泪和哈喇子，前仆后继地向地中海对岸进发。他们以圣战之名，行掳良民、劫财物之实，横行四方为害数百年。
+ 此二者，都是史上经典的出海案例。
+ 近几年，中国互联的出海号角也是声震云霄。“到海外去！”，忽如一夜台风来，中国产应用漫山遍 …</description></item><item><title>微信在俄罗斯为何被禁？这事儿说起来还真不是小题大做</title><link>https://project-gutenberg.github.io/Pincong/post/507116a4db4412d9220c628ed40431a5/</link><pubDate>Thu, 11 May 2017 03:17:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/507116a4db4412d9220c628ed40431a5/</guid><description>2017-05-11 11:17 来源:解放军新闻传播中心
+原标题：微信在俄罗斯为何被禁？这事儿说起来还真不是小题大做
+来源：中国军网微信公众号 作者：李佳君
+“
+近日，俄罗斯官方将国际版微信WeChat列入黑名单，原因是违反信息技术和信息安全相关法律。这件事对于普通微信用户来说，可能有些难以接受和理解，但如果站在俄罗斯的立场上，从信息安全的角度去考虑，俄罗斯的做法值得深思。
+从微信在俄遭禁说开去
+■李佳君
+近日，据媒体报道，俄罗斯联邦 …</description></item><item><title>从微信在俄遭禁说开去</title><link>https://project-gutenberg.github.io/Pincong/post/4b997ef1e7d2b8c508b84a77e75eaed0/</link><pubDate>Wed, 10 May 2017 15:06:32 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/4b997ef1e7d2b8c508b84a77e75eaed0/</guid><description>近日，据媒体报道，俄罗斯联邦通信、信息技术和大众传媒监督局将微信海外版（Wechat）列入了被禁名单，以至于许多在俄罗斯的微信用户无法正常使用微信。
+其实，在俄罗斯被禁的不仅只是微信这一款通讯社交类软件。由加拿大 RIM 公司推出的黑莓手机社交平台 BlackBerry Messenger，以及由韩国互联网集团 NHN 日本子公司推出的通讯软件 LINE 等，也纷纷被禁。究其缘由，据称是因为这些通讯社交类软件违反了俄罗斯有关网络安全管理 …</description></item><item><title>Shadowsocks指导篇（总结归类）——从无到有，境无止尽！ | 逗比根据地</title><link>https://project-gutenberg.github.io/Pincong/post/51c498b9b2b4aeaea8e646fe6cd7ec9f/</link><pubDate>Tue, 12 Apr 2016 16:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/51c498b9b2b4aeaea8e646fe6cd7ec9f/</guid><description>广告
+本文最后更新于 2018年11月7日 17:53 可能会因为没有更新而失效。如已失效或需要修正，请留言！
+最近通过大家的反馈，我发现网站了一个问题，就是教程太碎了。很多人并没有去全部翻一遍，然后就找不到自己想要的教程，然后去群里问我的时候才发现原来有这些教程，这就很尴尬了。。。所以我就把本站的Shadowsocks教程都总结归类一下，让新手更容易找到想要的内容！
+我建议先大概从头到尾看一遍，理清思路再开始学习，这样子有助于更快的 …</description></item></channel></rss>

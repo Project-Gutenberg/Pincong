@@ -1,0 +1,236 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>三人成虎</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 互联网的好处是很明显的，信息传递快，交流方便。但随之而来的缺点也是显而易见的，那就是谣言也传的快。而且由于信息太多，大部分人没有时间（或能力）辨别真伪，于是就先入为主了。
+这几天关于民主党投票中作弊的消息满天飞。各种视频铁证，许多都非常可笑。这中间有没有真的？我不知道。但我相信法律，如果有真铁证，系统性地作弊，那法律是不会放过的。
+在嘈杂的“民主党投票中作弊”的噪音中，有一节“高音”抢入耳来，号称可以用统计理论证明民主党投票中作弊。搬出了本福特定律（Benford&rsquo;s Law)。
+一人言市有虎，王不信，二人言市有虎，王存疑，三人言市有虎，王信之。这是战国时的人就懂的道理。不管多荒谬的谣言，传的人多了，就有人信了。有理论支持的谣言，更能忽悠人。这个有本福特支持的信息已经传遍微信，微博等各大中文平台。我们这里就来看一看这个本福特是什么来头。
+本福特定律说，在现实产生的数据中，数字1出现的最多，其次是2，3，&mldr;，逐渐下降。
+“高音”说，拜登的票数不满足本福特定律，5出现最多，所以有假。
+下图是我收到的第一张图，有人问我如何解释。我的回答是：选举小区大小差不多，拜登支持率也差不多。如果每个小区大约一千投票人，拜登支持率50%+， 出来的结果就会有很多5打头的。根本原因就是：这些数是有关联的。
+于是，有人给我发来下面这张图。说：如果你的说法是对的，如何解释川普的投票数满足，而拜登的不满足。
+我的回答是：问的好 (按照美国人的套路，不管什么问题，先来一句&#34;This is a good question&#34;)。一个满足，另一个不满足的原因是有一个不是真的。有人为说明自己的观点不惜改动数字。图一与图二都是Michigan的数据。比较一下这两个图，图一里川普的数据也不符合，3明显鼓起(只是程度轻一点)。而图二那个图把3抹平了。信息太多，大家就不注意细节了。
+还有人发给我别的图，继续问。我没时间继续回答。不过，后来我收到的一个图比较有趣。发图者说，上面两图的数据都不对，这是他用原始数据自己做的图。我已经不知道该相信哪张图了。为了保险起见，我从他那里要来了原始数据，自己做了一张图（下图）。下图左面红色是川普的数字，右面是拜登的数字。可以看出拜登与川普的数都不满足本福特，只是程度不同而已。
+还有人挖出历史数据，说过去30年的选举数都不满足本福特。我没有时间和精力去核对。如果有人核对过原始数据，请在评论区留言。
+还有人转给我真正的本福特定律专家的推特。我们来看看专家如何解释。
+下图是专家对一个关于用本福特定律证明拜登作弊的推特的评论。他说：我是本福特定律的专家，你在 Netflix看的关于本福特定律的录像就是我做的。如果你想让我给你解释你是如何错的离谱，请吱声。
+评论以后，专家继续发推。用大写字母告诉大家：本福特定律对检测投票作弊无用。
+专家已经发话了，那些想用本福特定律证明民主党投票中作弊的人可以洗洗睡了。
+本来文章可以到此结束了，没想到，我把专家发言的截图发到微博上后，有评论说，靠拿专家头衔压人，没有具体解释，不厚道。我们这里就来简答解释一下。
+本福特定律成立的一个基本原因是，对自然产生的数字，任意固定位数，比如三位数，到300以前必须要先有200，到200以前必须要先有100，&mldr;。 比如一条街的门牌号码，必须先有100号才会有200号，&mldr;。所以，1比2出现的多，2比3出现的多。在进位时，先进到1，别的数只有前面n 个机会，而1有n+1个机会，优势是(n+1)/n。这里的n 是数的位数，而这个位数可以用它的对数直接表现出来。再加一些其他条件，于是就有了本福特公式：
+log10(1+1/d)
+这里的d 是数字。1，2，&mldr;, 9. 可以看出，1的比例最大。log10(2) = 0.301 就是30%，2的对后面的优势要在1分过之后，小一些，3就更小，9最小，不到5%.
+说明一下，上面不是证明，只是一种启发式的解释。因为本福特定律对所适应的数有一些要求，所以，没有一般条件下的严格证明。
+上面这个公式不只是对十进制适用，对任何进制都适用。有趣的是，在二进制下首位必须是1，而log2(1+1/1) = log2(2) = 1 = 100% 正好验证。
+从上面的解释可以看出，本福特定律要能适用，相关数字必须要有许多不同的位数，横跨多个数量级。如果都是同一个数量级的数，那么靠前的数字的优势就显示不出来了。总统选举，按选举区统计。选举区的大小都划分的差不多。比如Michigan 的这个数据，90%以上都是4位或5位，没有了本福特定律所需要的数字优势。如果区的大小差不多，支持率差不多，就会造成某个数字特别多。所以，
+结论：本福特定律对选举投票的数字不适用。
+上面是关于一般选举数据的结论。具体到Michigan的这个数据，这个数据样本太少，这么小的样本还要分成9分，单从样本量上就不满足本福特定律的要求。
+上面说的数量级的限制对首位数影响最大，于是有人抛开首位数，看第二位或三位以及其它位数。对其它位数，本福特公式是 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 三人成虎 ">
+<meta name=og:description content=" 互联网的好处是很明显的，信息传递快，交流方便。但随之而来的缺点也是显而易见的，那就是谣言也传的快。而且由于信息太多，大部分人没有时间（或能力）辨别真伪，于是就先入为主了。
+这几天关于民主党投票中作弊的消息满天飞。各种视频铁证，许多都非常可笑。这中间有没有真的？我不知道。但我相信法律，如果有真铁证，系统性地作弊，那法律是不会放过的。
+在嘈杂的“民主党投票中作弊”的噪音中，有一节“高音”抢入耳来，号称可以用统计理论证明民主党投票中作弊。搬出了本福特定律（Benford&rsquo;s Law)。
+一人言市有虎，王不信，二人言市有虎，王存疑，三人言市有虎，王信之。这是战国时的人就懂的道理。不管多荒谬的谣言，传的人多了，就有人信了。有理论支持的谣言，更能忽悠人。这个有本福特支持的信息已经传遍微信，微博等各大中文平台。我们这里就来看一看这个本福特是什么来头。
+本福特定律说，在现实产生的数据中，数字1出现的最多，其次是2，3，&mldr;，逐渐下降。
+“高音”说，拜登的票数不满足本福特定律，5出现最多，所以有假。
+下图是我收到的第一张图，有人问我如何解释。我的回答是：选举小区大小差不多，拜登支持率也差不多。如果每个小区大约一千投票人，拜登支持率50%+， 出来的结果就会有很多5打头的。根本原因就是：这些数是有关联的。
+于是，有人给我发来下面这张图。说：如果你的说法是对的，如何解释川普的投票数满足，而拜登的不满足。
+我的回答是：问的好 (按照美国人的套路，不管什么问题，先来一句&#34;This is a good question&#34;)。一个满足，另一个不满足的原因是有一个不是真的。有人为说明自己的观点不惜改动数字。图一与图二都是Michigan的数据。比较一下这两个图，图一里川普的数据也不符合，3明显鼓起(只是程度轻一点)。而图二那个图把3抹平了。信息太多，大家就不注意细节了。
+还有人发给我别的图，继续问。我没时间继续回答。不过，后来我收到的一个图比较有趣。发图者说，上面两图的数据都不对，这是他用原始数据自己做的图。我已经不知道该相信哪张图了。为了保险起见，我从他那里要来了原始数据，自己做了一张图（下图）。下图左面红色是川普的数字，右面是拜登的数字。可以看出拜登与川普的数都不满足本福特，只是程度不同而已。
+还有人挖出历史数据，说过去30年的选举数都不满足本福特。我没有时间和精力去核对。如果有人核对过原始数据，请在评论区留言。
+还有人转给我真正的本福特定律专家的推特。我们来看看专家如何解释。
+下图是专家对一个关于用本福特定律证明拜登作弊的推特的评论。他说：我是本福特定律的专家，你在 Netflix看的关于本福特定律的录像就是我做的。如果你想让我给你解释你是如何错的离谱，请吱声。
+评论以后，专家继续发推。用大写字母告诉大家：本福特定律对检测投票作弊无用。
+专家已经发话了，那些想用本福特定律证明民主党投票中作弊的人可以洗洗睡了。
+本来文章可以到此结束了，没想到，我把专家发言的截图发到微博上后，有评论说，靠拿专家头衔压人，没有具体解释，不厚道。我们这里就来简答解释一下。
+本福特定律成立的一个基本原因是，对自然产生的数字，任意固定位数，比如三位数，到300以前必须要先有200，到200以前必须要先有100，&mldr;。 比如一条街的门牌号码，必须先有100号才会有200号，&mldr;。所以，1比2出现的多，2比3出现的多。在进位时，先进到1，别的数只有前面n 个机会，而1有n+1个机会，优势是(n+1)/n。这里的n 是数的位数，而这个位数可以用它的对数直接表现出来。再加一些其他条件，于是就有了本福特公式：
+log10(1+1/d)
+这里的d 是数字。1，2，&mldr;, 9. 可以看出，1的比例最大。log10(2) = 0.301 就是30%，2的对后面的优势要在1分过之后，小一些，3就更小，9最小，不到5%.
+说明一下，上面不是证明，只是一种启发式的解释。因为本福特定律对所适应的数有一些要求，所以，没有一般条件下的严格证明。
+上面这个公式不只是对十进制适用，对任何进制都适用。有趣的是，在二进制下首位必须是1，而log2(1+1/1) = log2(2) = 1 = 100% 正好验证。
+从上面的解释可以看出，本福特定律要能适用，相关数字必须要有许多不同的位数，横跨多个数量级。如果都是同一个数量级的数，那么靠前的数字的优势就显示不出来了。总统选举，按选举区统计。选举区的大小都划分的差不多。比如Michigan 的这个数据，90%以上都是4位或5位，没有了本福特定律所需要的数字优势。如果区的大小差不多，支持率差不多，就会造成某个数字特别多。所以，
+结论：本福特定律对选举投票的数字不适用。
+上面是关于一般选举数据的结论。具体到Michigan的这个数据，这个数据样本太少，这么小的样本还要分成9分，单从样本量上就不满足本福特定律的要求。
+上面说的数量级的限制对首位数影响最大，于是有人抛开首位数，看第二位或三位以及其它位数。对其它位数，本福特公式是 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/65.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>三人成虎</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e4%b8%87%e7%b2%be%e6%b2%b9>万精油</a></span>,
+<span>at 10 November 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%8b%9c%e7%99%bb>拜登</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%9c%ac%e7%a6%8f>本福</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%bd%8d%e6%95%b0>位数</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%bd%9c%e5%bc%8a>作弊</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%b7%9d%e6%99%ae>川普</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/74a1f4e0d99220f12b4866740c51a8d7.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/74a1f4e0d99220f12b4866740c51a8d7.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>互联网的好处是很明显的，信息传递快，交流方便。但随之而来的缺点也是显而易见的，那就是谣言也传的快。而且由于信息太多，大部分人没有时间（或能力）辨别真伪，于是就先入为主了。</p>
+<p>这几天关于民主党投票中作弊的消息满天飞。各种视频铁证，许多都非常可笑。这中间有没有真的？我不知道。但我相信法律，如果有真铁证，系统性地作弊，那法律是不会放过的。</p>
+<p>在嘈杂的“民主党投票中作弊”的噪音中，有一节“高音”抢入耳来，号称可以用统计理论证明民主党投票中作弊。搬出了本福特定律（Benford&rsquo;s Law)。</p>
+<p>一人言市有虎，王不信，二人言市有虎，王存疑，三人言市有虎，王信之。这是战国时的人就懂的道理。不管多荒谬的谣言，传的人多了，就有人信了。有理论支持的谣言，更能忽悠人。这个有本福特支持的信息已经传遍微信，微博等各大中文平台。我们这里就来看一看这个本福特是什么来头。</p>
+<p>本福特定律说，在现实产生的数据中，数字1出现的最多，其次是2，3，&mldr;，逐渐下降。</p>
+<p>“高音”说，拜登的票数不满足本福特定律，5出现最多，所以有假。</p>
+<p>下图是我收到的第一张图，有人问我如何解释。我的回答是：选举小区大小差不多，拜登支持率也差不多。如果每个小区大约一千投票人，拜登支持率50%+， 出来的结果就会有很多5打头的。根本原因就是：这些数是有关联的。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/C58GFHZjq081y6Jd0Z6fIJJzhEAn9d1wTthfxP3Z92vpYKjJt46yUZGKWv3Bia3ucickicfgK5jqqK34wS2OBMWJw/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>于是，有人给我发来下面这张图。说：如果你的说法是对的，如何解释川普的投票数满足，而拜登的不满足。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/C58GFHZjq081y6Jd0Z6fIJJzhEAn9d1wic4751WDlyNdEBibMGHERcyqUaDfCJComCTZAxpUOIBknvbPklp8yzFw/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>我的回答是：问的好 (按照美国人的套路，不管什么问题，先来一句"This is a good question")。一个满足，另一个不满足的原因是有一个不是真的。有人为说明自己的观点不惜改动数字。图一与图二都是Michigan的数据。比较一下这两个图，图一里川普的数据也不符合，3明显鼓起(只是程度轻一点)。而图二那个图把3抹平了。信息太多，大家就不注意细节了。</p>
+<p>还有人发给我别的图，继续问。我没时间继续回答。不过，后来我收到的一个图比较有趣。发图者说，上面两图的数据都不对，这是他用原始数据自己做的图。我已经不知道该相信哪张图了。为了保险起见，我从他那里要来了原始数据，自己做了一张图（下图）。下图左面红色是川普的数字，右面是拜登的数字。可以看出拜登与川普的数都不满足本福特，只是程度不同而已。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/C58GFHZjq081y6Jd0Z6fIJJzhEAn9d1wIb1JVMtS0SONp3N03t5vHEKkHkfEGl1Ctgg6iadnmJxNOAfEBs8icUGA/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>还有人挖出历史数据，说过去30年的选举数都不满足本福特。我没有时间和精力去核对。如果有人核对过原始数据，请在评论区留言。</p>
+<p>还有人转给我真正的本福特定律专家的推特。我们来看看专家如何解释。</p>
+<p>下图是专家对一个关于用本福特定律证明拜登作弊的推特的评论。他说：我是本福特定律的专家，你在 Netflix看的关于本福特定律的录像就是我做的。如果你想让我给你解释你是如何错的离谱，请吱声。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/C58GFHZjq081y6Jd0Z6fIJJzhEAn9d1wpx4uDB5t4cxIATiaXeSkj1vFibZibPXhAb7oJcdqicLicUNw4AjYLW8Ria8A/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>评论以后，专家继续发推。用大写字母告诉大家：本福特定律对检测投票作弊无用。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/C58GFHZjq081y6Jd0Z6fIJJzhEAn9d1wmNFj7XmYU2c2z2FCJe43VbOHW6PsRbYxADuRoGEWZv3GTHkwKMSBkA/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>专家已经发话了，那些想用本福特定律证明民主党投票中作弊的人可以洗洗睡了。</p>
+<p>本来文章可以到此结束了，没想到，我把专家发言的截图发到微博上后，有评论说，靠拿专家头衔压人，没有具体解释，不厚道。我们这里就来简答解释一下。</p>
+<p>本福特定律成立的一个基本原因是，对自然产生的数字，任意固定位数，比如三位数，到300以前必须要先有200，到200以前必须要先有100，&mldr;。 比如一条街的门牌号码，必须先有100号才会有200号，&mldr;。所以，1比2出现的多，2比3出现的多。在进位时，先进到1，别的数只有前面n 个机会，而1有n+1个机会，优势是(n+1)/n。这里的n 是数的位数，而这个位数可以用它的对数直接表现出来。再加一些其他条件，于是就有了本福特公式：</p>
+<p><strong>log10(1+1/d)</strong></p>
+<p>这里的d 是数字。1，2，&mldr;, 9.   可以看出，1的比例最大。log10(2) = 0.301 就是30%，2的对后面的优势要在1分过之后，小一些，3就更小，9最小，不到5%.</p>
+<p>说明一下，上面不是证明，只是一种启发式的解释。因为本福特定律对所适应的数有一些要求，所以，没有一般条件下的严格证明。</p>
+<p>上面这个公式不只是对十进制适用，对任何进制都适用。有趣的是，在二进制下首位必须是1，而log2(1+1/1) = log2(2) = 1 = 100% 正好验证。</p>
+<p>从上面的解释可以看出，本福特定律要能适用，相关数字必须要有许多不同的位数，横跨多个数量级。如果都是同一个数量级的数，那么靠前的数字的优势就显示不出来了。总统选举，按选举区统计。选举区的大小都划分的差不多。比如Michigan 的这个数据，90%以上都是4位或5位，没有了本福特定律所需要的数字优势。如果区的大小差不多，支持率差不多，就会造成某个数字特别多。所以，</p>
+<p><strong>结论：本福特定律对选举投票的数字不适用。</strong></p>
+<p>上面是关于一般选举数据的结论。具体到Michigan的这个数据，这个数据样本太少，这么小的样本还要分成9分，单从样本量上就不满足本福特定律的要求。</p>
+<p>上面说的数量级的限制对首位数影响最大，于是有人抛开首位数，看第二位或三位以及其它位数。对其它位数，本福特公式是</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/C58GFHZjq08x8xNF8GklUKx6OfuxLSc7q1Ceiabe5R3YylbCLibVH6CMdiaqFmvLZ0nNicpL4lYa7vlNzo0TIA59nw/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>其中，n是第几位，d 是具体数字。据霍金说，文章每多一个公式就会少一半读者。我把这个复杂公式放在最后，希望影响不大。</p>
+<p>顺便说一句，我试过第二位数，拜登与川普的第二位数都不满足本福特，但拜登的更接近。但与第一位数一样，不能推出任何结论，所以，虽然我做了第二位数的图，但不想干扰主题，就不附了。有兴趣的读者可以找一些数来验证一下。</p>
+<p>长按二维码向我转账</p>
+<p>受苹果公司新规定影响，微信 iOS 版的赞赏功能被关闭，可通过二维码转账支持公众号。</p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/306871b9015fcf4e2338479a41c3fb12/?utm_source=see_also&utm_medium=%25E4%25B8%2589%25E4%25BA%25BA%25E6%2588%2590%25E8%2599%258E">本福特定律：数学好也能抓住大选舞弊？</a>
+</h2>
+<p class=text-dark>各位同学这几天是不是觉得朋友圈微信群里突然出现了很多关于本福特定律（Benford‘s law）讨论？
+目前广泛传播的主要有两个版本：
+一个是密歇根的选举数据。图片比较了拜登的曲线和川普的曲线，认为川普的曲线更符合本福特定律的分布，得出结论 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/6b0df75b3f514a4a2b156f40b67e3f44/?utm_source=see_also&utm_medium=%25E4%25B8%2589%25E4%25BA%25BA%25E6%2588%2590%25E8%2599%258E">如何看待北京还在观望，而台北率先向拜登朝贺？</a>
+</h2>
+<p class=text-dark>品葱用户 中華聯邦共和國 提问于 11/9/2020 对这事真有点失望，川普政府对台北可谓不薄，此举颇有些鲁莽。
+品葱用户 沉默的火安静地烧 评论于 沉迷捕风捉影没意思的
+品葱用户 呆呆加速师 评论于 分属不同阵营的两国自然异样
+品葱用户 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/66c42c2bc62f0ef3644ef51f9a4a235e/?utm_source=see_also&utm_medium=%25E4%25B8%2589%25E4%25BA%25BA%25E6%2588%2590%25E8%2599%258E">谎言真的重复了一千遍就会变成真理吗？关于邮寄选票的几则谣言</a>
+</h2>
+<p class=text-dark>**编者按：**周五醒来，GA和PA翻蓝了！感觉村里管事儿的终于要定下来了。
+不过，即便总统人选接近尘埃落定，围绕大选的谣言却不一定会短时间平风浪静，小补丁在后台都收到好几条网友的留言，催我们赶紧出来辟谣了。这不，应各位读者要求，辟谣大咖莫 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/30a91aae60c457b3729340373fdfd6a3/?utm_source=see_also&utm_medium=%25E4%25B8%2589%25E4%25BA%25BA%25E6%2588%2590%25E8%2599%258E">威斯康星重新计票：具体要怎么做，是否会改变选举结果？</a>
+</h2>
+<p class=text-dark>**编者按：**大选投票日已经过去两天了，由于最后几个关键摇摆州的计票结果迟迟未出，因此选举的最终结果还未出炉。不过由于昨天威斯康星州出现的反转，川普阵营表示对该州选票计数有所怀疑，可能会诉诸于重新计票。
+候选人究竟是否可以要求重新计票？如 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/aa1635012a988c53aec7bc8e323cbc8f/?utm_source=see_also&utm_medium=%25E4%25B8%2589%25E4%25BA%25BA%25E6%2588%2590%25E8%2599%258E">美國知識分子/城市人反川的原因真是一句無知/賺全球化錢/被洗腦就能概括?還是川普自身有什麼問題?</a>
+</h2>
+<p class=text-dark>品葱用户 ab842612 提问于 11/7/2020 年青白左我相信有機會被洗腦
+有錢人/跨國企業員工我相信是想賺全球化的錢
+但好像大家都認為大部份支持民主黨的人都是無知/要賺錢/被洗腦就可能有點過了,我們是不是沒真正了解美國城市人不喜歡 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

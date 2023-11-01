@@ -1,0 +1,23 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>迷雾通 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E8%BF%B7%E9%9B%BE%E9%80%9A/</link><description>Recent content in 迷雾通 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sun, 31 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E8%BF%B7%E9%9B%BE%E9%80%9A/index.xml" rel="self" type="application/rss+xml"/><item><title>华为太他妈贱了，我说怎么迷雾通用不了，原来是挂在后台会被华为禁掉迷雾通的网络？</title><link>https://project-gutenberg.github.io/Pincong/post/7ede0f60696cb22396c54ccf8de8608b/</link><pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/7ede0f60696cb22396c54ccf8de8608b/</guid><description>品葱用户 品葱1998 提问于 5/31/2020 一开始我还觉得奇怪，如果是被墙了至少网速箭头还有上传，刚刚发现上传都没有，网速箭头没有任何反应，直到我把迷雾通分屏，看着迷雾通运行才能翻墙，一旦挂在后台又不行了，我觉得华为在偷偷的更新手机文件，因为之前也发生过这种事，后来更新了迷雾通就没事了，现在又来这一套
+品葱用户 molest 评论于 2020-05-30 哈哈，千万别买华为，
+首先不买国产，如果真要买国产，一定不能买华为，切记切 …</description></item><item><title>深入浅出【迷雾通】之第二篇</title><link>https://project-gutenberg.github.io/Pincong/post/5efad1549937e2df6aa841f96ff146a2/</link><pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/5efad1549937e2df6aa841f96ff146a2/</guid><description>本文章由 @为啥改名还要葱 冠名赞助！
+他赞助了本文1600葱！
+感嘆作者的更新速度！我每次讀完代碼，打算開始寫文章，作者就又提交代碼了。。。
+還是繼續第一篇的主旋律【翻墻】，也就是客戶端到網橋這部分代碼。
+如果，今天我能説完網橋部分，我在下一篇更新出口通信。也就是tinyss協議【講起來挺多的】
+我們從網橋開始講起~
+/cmd/geph-bridge/main.go 我們注意到listenLoop函數
+人話版本：在網橋服務器上啓動隨機 …</description></item><item><title>深入浅出【迷雾通】之第二篇</title><link>https://project-gutenberg.github.io/Pincong/post/ac3191e16384fbc71e3d73d38a5be18f/</link><pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ac3191e16384fbc71e3d73d38a5be18f/</guid><description>本文章由 @为啥改名还要葱 冠名赞助！
+他赞助了本文1600葱！
+感嘆作者的更新速度！我每次讀完代碼，打算開始寫文章，作者就又提交代碼了。。。
+還是繼續第一篇的主旋律【翻墻】，也就是客戶端到網橋這部分代碼。
+如果，今天我能説完網橋部分，我在下一篇更新出口通信。也就是tinyss協議【講起來挺多的】
+我們從網橋開始講起~
+/cmd/geph-bridge/main.go 我們注意到listenLoop函數
+人話版本：在網橋服務器上啓動隨機 …</description></item><item><title>深入浅出【迷雾通】之第一篇</title><link>https://project-gutenberg.github.io/Pincong/post/ac1d3b21e301aa321add1bf728c172ba/</link><pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ac1d3b21e301aa321add1bf728c172ba/</guid><description>本文章由 @为啥改名还要葱 冠名赞助！
+他赞助了本文1600葱！
+正文开始：https://pincong.rocks/article/10365
+速度很快、特别难封：迷雾通的翻墙协议niaucchi4是我自己根据ScrambleSuit等在学术界认可的协议写的，基于UDP并在保证性能的前提下有高强度的混淆和加密。niaucchi4即使通过机械学习也难以辨别（初步用各种机械学习算法做过实测）。迷雾通运营两年多了，官网也早被封了（说明不 …</description></item><item><title>深入浅出【迷雾通】之第一篇</title><link>https://project-gutenberg.github.io/Pincong/post/e3a4b10cb1f95c1d9b5e8e13c33e62b6/</link><pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e3a4b10cb1f95c1d9b5e8e13c33e62b6/</guid><description>本文章由 @为啥改名还要葱 冠名赞助！
+他赞助了本文1600葱！
+正文开始：https://pincong.rocks/article/10365
+速度很快、特别难封：迷雾通的翻墙协议niaucchi4是我自己根据ScrambleSuit等在学术界认可的协议写的，基于UDP并在保证性能的前提下有高强度的混淆和加密。niaucchi4即使通过机械学习也难以辨别（初步用各种机械学习算法做过实测）。迷雾通运营两年多了，官网也早被封了（说明不 …</description></item></channel></rss>

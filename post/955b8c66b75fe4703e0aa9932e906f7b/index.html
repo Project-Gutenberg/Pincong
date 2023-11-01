@@ -1,0 +1,202 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>两个被中国人玩坏的AI研究方向：ELM和Metaheuris</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 两个被中国人玩坏的AI研究方向：ELM和Metaheuris
+作者：杜克林
+几年前开始，中国发表的学术论文的数量就已经是世界第一，论文自引数量也世界第一。中国的论文就如同中国的商品在国际上的声誉一样，只有极少数的领域有前沿的成果。从本人的实践中，在AI领域有两个研究方向已经被中国人玩坏，不吐不快。
+第一个是ELM（Extreme Learning Machine, 极限学习机）。ELM在2004年由新加坡国立大学的G.B. Huang提出来的时候，本人就觉得它就是RBF网络的特殊情况，只是把输入层的权重和RBF中心随机初始化，然后把输出层的权重解出来，实际上是解一个线性方程组，用一个伪逆操作即可完成。由于不需要输入层权重和RBF中心的调节，所以只要求出矩阵的伪逆，一步给出结果。作者发现用这种方法，比BP模型和SVM模型快1000倍。作者把这个trick 称为极限学习机。
+实际上，这个方法的思想是把一个含有大量冗余的模型的大量模型参数随机化或固化的方法，然后用其中的很少的参数对数据进行拟合。这种想法在1980年代后在各种模型中都有采用，没有什么新意，仅仅是一个小技巧而已。
+ELM的作者随即如获至宝，开始到中国大力推广ELM，并连续10多年在一些著名的国际会议上召集国际专题会，投稿人基本上都是中国大陆的作者，其中不乏清华大学，浙江大学，中国科学院的作者。据估计，应该有数千篇有关ELM的论文发表，不乏IEEE Transactions on Neural Networks and Learning Systems, Neural Networks等期刊上的论文。这些期刊的编委会成员主要也是华人。俨然ELM被国际学术界广泛接受的样子。
+但是早在10年前，深度学习的奠基人 Y. LeCun就公开在社交媒体上批评这个模型，说它对机器学习领域没有贡献，早在1958年就被神经网络领域的奠基人就研究过，却有大量中国最优秀的研究生在从事这种东西的研究，觉得不可思议。后来，LeCun对媒体说，“ELM is officially a fraud.”（https://actorsfit.com/a?ID=e170d2e1-62f6-43e0-9b64-f6510be36803）
+在2014年前后，我的邮箱中收到了G.B. Huang群发的email，说有个叫Wang的人对他的ELM进行抹黑，并进一步为他的ELM辩解。随后过了几天，我又收到一封匿名的群发邮件，标题是ELM丑闻。
+在过去10多年中，我遇到很多中国研究生对ELM非常膜拜，这些中国研究生容不得任何人说ELM不好。我也看到无数中国学者发表无数的有关ELM的论文，也看到了西安一个非常高产的中科院院士，在IEEE Transactions on Neural Networks and Learning Systems 发表了两篇连载论文来分析ELM模型，得出一些无关痛痒的结论。我也看到了G.B. Huang 成为AI领域被引用排名前几的科学家。
+我和国内的在AI领域有实力的朋友聊及此事，对方答曰：在中国没有真正的原创研究，大部分人都在跟风，不管是清华，浙大还是中科院。不管是不是原创，只要能够发表论文就可了。所以从这个角度来看，国内的考核制度，只能制造出越来越多的水货论文。
+其实，早在2015年知乎上就有人讨论ELM，基本上都是一致认为这个东西没有什么贡献（https://www.zhihu.com/question/28810567），和Y. LeCun的观点基本一致，说明国内的很多学者还是清醒的。但是持有这些观点的个体只能匿名非主流，在数千篇相关论文的中国作者面前只能是边缘人。
+最近有朋友要我帮一个在国内顶尖大学做研究的硕士生修改一篇ELM论文，在她的30多篇参考文献中，有关ELM的30多篇参考文献全是中国大陆学者发表在IEEE等高级别期刊上，而且无一例外都是中国大陆学者，所以这些研究都是在中国进行的。我只是对学生提出一些修改意见，学生基本上都不予理睬，答复说她的用法是目前的主流论文的用法。鉴于她的所有参考文献都是中国大陆作者的发表的ELM相关的论文，她说的主流论文毫无疑问就是中国大陆学者的论文。这种东西也都成了主流，不知道是学生对自己过于自信，还是被ELM的民族自豪感洗坏了脑子（全世界基本上只有中国人研究ELM，G.B. Huang也是从中国出去的，是中国人独创的）。所以，对学者的评价，不能光看发表的期刊的级别和引用数，也要看国际同行的评审意见。否则，你的自豪成为国际上的笑话。
+另一个被中国人玩坏的研究领域是Metaheuristics（启发式优化）。作为Scientific Reports的编委，我负责机器学习和自然计算的论文的评审和协调。我经常收到来自中国的关于某种启发式优化的投稿，在选择审稿人时，我发现，在系统推荐的数百个审稿人中，这些推荐的审稿人都是过去发表过相关的期刊论文，80%以上都是的工作单位是中国大陆 ，另外的基本上都是台湾人，韩国人，和海外的大陆人，还有几位伊朗人和埃及人，我几乎没看到有发达国家的非华人从事这种研究。这些启发式优化方法，基本上根据某种动物的捕食或交配等策略现象，或某种自然或物理现象，或某种人类的思维方式等设计一种简单策略来解决优化问题。在早期，这种方法还有一定的新颖性，但是如今，世界上各种动物、各种植物、山川湖海、物理原理、基本粒子、各种宗教，等等等等，实在繁多，都有人受启发来发表论文。如果继续下去，加上这些策略的组合，可以发表的论文数量是无限的。这种可以开发无限种方法的Metaheuristics，如今实在是被玩坏了。
+一个相似的例子是，蛋白质结构的解析，早前让中国人极为自豪的海归明星科学家施一公、颜宁等的实验室，每年解析一些蛋白质，发表一些CNS论文。但是自从2021年，Google子公司DeepMind开发的AlphaFold解析了这个星球上100多万种生物的2亿多个蛋白质结构，而且精度优于人工实验解释的结果，施一公和颜宁也只能够改行，都回国做学官。后来，Meta公司也推出了软件解析了6亿多种蛋白质。所以，AI让大量的这种原创性不强的科学家失业了。
+目前正处于AI热潮中，机器学习模型的各种要素的各种组合，或者对某个数据进行计算的一道研究生作业题，也都大量被用来发表学术论文。总而言之，大量低水平的论文吞噬了中国学者的研究经费和年轻学者的劳动力。除了产生一些虚假的学术GDP以外，对提升中国在研究水平并无益处。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 两个被中国人玩坏的AI研究方向：ELM和Metaheuris ">
+<meta name=og:description content=" 两个被中国人玩坏的AI研究方向：ELM和Metaheuris
+作者：杜克林
+几年前开始，中国发表的学术论文的数量就已经是世界第一，论文自引数量也世界第一。中国的论文就如同中国的商品在国际上的声誉一样，只有极少数的领域有前沿的成果。从本人的实践中，在AI领域有两个研究方向已经被中国人玩坏，不吐不快。
+第一个是ELM（Extreme Learning Machine, 极限学习机）。ELM在2004年由新加坡国立大学的G.B. Huang提出来的时候，本人就觉得它就是RBF网络的特殊情况，只是把输入层的权重和RBF中心随机初始化，然后把输出层的权重解出来，实际上是解一个线性方程组，用一个伪逆操作即可完成。由于不需要输入层权重和RBF中心的调节，所以只要求出矩阵的伪逆，一步给出结果。作者发现用这种方法，比BP模型和SVM模型快1000倍。作者把这个trick 称为极限学习机。
+实际上，这个方法的思想是把一个含有大量冗余的模型的大量模型参数随机化或固化的方法，然后用其中的很少的参数对数据进行拟合。这种想法在1980年代后在各种模型中都有采用，没有什么新意，仅仅是一个小技巧而已。
+ELM的作者随即如获至宝，开始到中国大力推广ELM，并连续10多年在一些著名的国际会议上召集国际专题会，投稿人基本上都是中国大陆的作者，其中不乏清华大学，浙江大学，中国科学院的作者。据估计，应该有数千篇有关ELM的论文发表，不乏IEEE Transactions on Neural Networks and Learning Systems, Neural Networks等期刊上的论文。这些期刊的编委会成员主要也是华人。俨然ELM被国际学术界广泛接受的样子。
+但是早在10年前，深度学习的奠基人 Y. LeCun就公开在社交媒体上批评这个模型，说它对机器学习领域没有贡献，早在1958年就被神经网络领域的奠基人就研究过，却有大量中国最优秀的研究生在从事这种东西的研究，觉得不可思议。后来，LeCun对媒体说，“ELM is officially a fraud.”（https://actorsfit.com/a?ID=e170d2e1-62f6-43e0-9b64-f6510be36803）
+在2014年前后，我的邮箱中收到了G.B. Huang群发的email，说有个叫Wang的人对他的ELM进行抹黑，并进一步为他的ELM辩解。随后过了几天，我又收到一封匿名的群发邮件，标题是ELM丑闻。
+在过去10多年中，我遇到很多中国研究生对ELM非常膜拜，这些中国研究生容不得任何人说ELM不好。我也看到无数中国学者发表无数的有关ELM的论文，也看到了西安一个非常高产的中科院院士，在IEEE Transactions on Neural Networks and Learning Systems 发表了两篇连载论文来分析ELM模型，得出一些无关痛痒的结论。我也看到了G.B. Huang 成为AI领域被引用排名前几的科学家。
+我和国内的在AI领域有实力的朋友聊及此事，对方答曰：在中国没有真正的原创研究，大部分人都在跟风，不管是清华，浙大还是中科院。不管是不是原创，只要能够发表论文就可了。所以从这个角度来看，国内的考核制度，只能制造出越来越多的水货论文。
+其实，早在2015年知乎上就有人讨论ELM，基本上都是一致认为这个东西没有什么贡献（https://www.zhihu.com/question/28810567），和Y. LeCun的观点基本一致，说明国内的很多学者还是清醒的。但是持有这些观点的个体只能匿名非主流，在数千篇相关论文的中国作者面前只能是边缘人。
+最近有朋友要我帮一个在国内顶尖大学做研究的硕士生修改一篇ELM论文，在她的30多篇参考文献中，有关ELM的30多篇参考文献全是中国大陆学者发表在IEEE等高级别期刊上，而且无一例外都是中国大陆学者，所以这些研究都是在中国进行的。我只是对学生提出一些修改意见，学生基本上都不予理睬，答复说她的用法是目前的主流论文的用法。鉴于她的所有参考文献都是中国大陆作者的发表的ELM相关的论文，她说的主流论文毫无疑问就是中国大陆学者的论文。这种东西也都成了主流，不知道是学生对自己过于自信，还是被ELM的民族自豪感洗坏了脑子（全世界基本上只有中国人研究ELM，G.B. Huang也是从中国出去的，是中国人独创的）。所以，对学者的评价，不能光看发表的期刊的级别和引用数，也要看国际同行的评审意见。否则，你的自豪成为国际上的笑话。
+另一个被中国人玩坏的研究领域是Metaheuristics（启发式优化）。作为Scientific Reports的编委，我负责机器学习和自然计算的论文的评审和协调。我经常收到来自中国的关于某种启发式优化的投稿，在选择审稿人时，我发现，在系统推荐的数百个审稿人中，这些推荐的审稿人都是过去发表过相关的期刊论文，80%以上都是的工作单位是中国大陆 ，另外的基本上都是台湾人，韩国人，和海外的大陆人，还有几位伊朗人和埃及人，我几乎没看到有发达国家的非华人从事这种研究。这些启发式优化方法，基本上根据某种动物的捕食或交配等策略现象，或某种自然或物理现象，或某种人类的思维方式等设计一种简单策略来解决优化问题。在早期，这种方法还有一定的新颖性，但是如今，世界上各种动物、各种植物、山川湖海、物理原理、基本粒子、各种宗教，等等等等，实在繁多，都有人受启发来发表论文。如果继续下去，加上这些策略的组合，可以发表的论文数量是无限的。这种可以开发无限种方法的Metaheuristics，如今实在是被玩坏了。
+一个相似的例子是，蛋白质结构的解析，早前让中国人极为自豪的海归明星科学家施一公、颜宁等的实验室，每年解析一些蛋白质，发表一些CNS论文。但是自从2021年，Google子公司DeepMind开发的AlphaFold解析了这个星球上100多万种生物的2亿多个蛋白质结构，而且精度优于人工实验解释的结果，施一公和颜宁也只能够改行，都回国做学官。后来，Meta公司也推出了软件解析了6亿多种蛋白质。所以，AI让大量的这种原创性不强的科学家失业了。
+目前正处于AI热潮中，机器学习模型的各种要素的各种组合，或者对某个数据进行计算的一道研究生作业题，也都大量被用来发表学术论文。总而言之，大量低水平的论文吞噬了中国学者的研究经费和年轻学者的劳动力。除了产生一些虚假的学术GDP以外，对提升中国在研究水平并无益处。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/183.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>两个被中国人玩坏的AI研究方向：ELM和Metaheuris</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e6%9d%9c%e5%85%8b%e6%9e%97>杜克林</a></span>,
+<span>at 21 October 2023</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/elm>Elm</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%ae%ba%e6%96%87>论文</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%b8%ad%e5%9b%bd%e4%ba%ba>中国人</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%8f%91%e8%a1%a8>发表</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%b8%ad%e5%9b%bd%e5%a4%a7%e9%99%86>中国大陆</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%96%b0%e8%af%ad%e4%b8%9d>新语丝</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/955b8c66b75fe4703e0aa9932e906f7b.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/955b8c66b75fe4703e0aa9932e906f7b.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>两个被中国人玩坏的AI研究方向：ELM和Metaheuris</p>
+<p>作者：杜克林</p>
+<p>几年前开始，中国发表的学术论文的数量就已经是世界第一，论文自引数量也世界第一。中国的论文就如同中国的商品在国际上的声誉一样，只有极少数的领域有前沿的成果。从本人的实践中，在AI领域有两个研究方向已经被中国人玩坏，不吐不快。</p>
+<p>第一个是ELM（Extreme Learning Machine, 极限学习机）。ELM在2004年由新加坡国立大学的G.B. Huang提出来的时候，本人就觉得它就是RBF网络的特殊情况，只是把输入层的权重和RBF中心随机初始化，然后把输出层的权重解出来，实际上是解一个线性方程组，用一个伪逆操作即可完成。由于不需要输入层权重和RBF中心的调节，所以只要求出矩阵的伪逆，一步给出结果。作者发现用这种方法，比BP模型和SVM模型快1000倍。作者把这个trick 称为极限学习机。</p>
+<p>实际上，这个方法的思想是把一个含有大量冗余的模型的大量模型参数随机化或固化的方法，然后用其中的很少的参数对数据进行拟合。这种想法在1980年代后在各种模型中都有采用，没有什么新意，仅仅是一个小技巧而已。</p>
+<p>ELM的作者随即如获至宝，开始到中国大力推广ELM，并连续10多年在一些著名的国际会议上召集国际专题会，投稿人基本上都是中国大陆的作者，其中不乏清华大学，浙江大学，中国科学院的作者。据估计，应该有数千篇有关ELM的论文发表，不乏IEEE Transactions on Neural Networks and Learning Systems, Neural Networks等期刊上的论文。这些期刊的编委会成员主要也是华人。俨然ELM被国际学术界广泛接受的样子。</p>
+<p>但是早在10年前，深度学习的奠基人 Y. LeCun就公开在社交媒体上批评这个模型，说它对机器学习领域没有贡献，早在1958年就被神经网络领域的奠基人就研究过，却有大量中国最优秀的研究生在从事这种东西的研究，觉得不可思议。后来，LeCun对媒体说，“ELM is officially a fraud.”（https://actorsfit.com/a?ID=e170d2e1-62f6-43e0-9b64-f6510be36803）</p>
+<p>在2014年前后，我的邮箱中收到了G.B. Huang群发的email，说有个叫Wang的人对他的ELM进行抹黑，并进一步为他的ELM辩解。随后过了几天，我又收到一封匿名的群发邮件，标题是ELM丑闻。</p>
+<p>在过去10多年中，我遇到很多中国研究生对ELM非常膜拜，这些中国研究生容不得任何人说ELM不好。我也看到无数中国学者发表无数的有关ELM的论文，也看到了西安一个非常高产的中科院院士，在IEEE Transactions on Neural Networks and Learning Systems 发表了两篇连载论文来分析ELM模型，得出一些无关痛痒的结论。我也看到了G.B. Huang 成为AI领域被引用排名前几的科学家。</p>
+<p>我和国内的在AI领域有实力的朋友聊及此事，对方答曰：在中国没有真正的原创研究，大部分人都在跟风，不管是清华，浙大还是中科院。不管是不是原创，只要能够发表论文就可了。所以从这个角度来看，国内的考核制度，只能制造出越来越多的水货论文。</p>
+<p>其实，早在2015年知乎上就有人讨论ELM，基本上都是一致认为这个东西没有什么贡献（https://www.zhihu.com/question/28810567），和Y. LeCun的观点基本一致，说明国内的很多学者还是清醒的。但是持有这些观点的个体只能匿名非主流，在数千篇相关论文的中国作者面前只能是边缘人。</p>
+<p>最近有朋友要我帮一个在国内顶尖大学做研究的硕士生修改一篇ELM论文，在她的30多篇参考文献中，有关ELM的30多篇参考文献全是中国大陆学者发表在IEEE等高级别期刊上，而且无一例外都是中国大陆学者，所以这些研究都是在中国进行的。我只是对学生提出一些修改意见，学生基本上都不予理睬，答复说她的用法是目前的主流论文的用法。鉴于她的所有参考文献都是中国大陆作者的发表的ELM相关的论文，她说的主流论文毫无疑问就是中国大陆学者的论文。这种东西也都成了主流，不知道是学生对自己过于自信，还是被ELM的民族自豪感洗坏了脑子（全世界基本上只有中国人研究ELM，G.B. Huang也是从中国出去的，是中国人独创的）。所以，对学者的评价，不能光看发表的期刊的级别和引用数，也要看国际同行的评审意见。否则，你的自豪成为国际上的笑话。</p>
+<p>另一个被中国人玩坏的研究领域是Metaheuristics（启发式优化）。作为Scientific Reports的编委，我负责机器学习和自然计算的论文的评审和协调。我经常收到来自中国的关于某种启发式优化的投稿，在选择审稿人时，我发现，在系统推荐的数百个审稿人中，这些推荐的审稿人都是过去发表过相关的期刊论文，80%以上都是的工作单位是中国大陆 ，另外的基本上都是台湾人，韩国人，和海外的大陆人，还有几位伊朗人和埃及人，我几乎没看到有发达国家的非华人从事这种研究。这些启发式优化方法，基本上根据某种动物的捕食或交配等策略现象，或某种自然或物理现象，或某种人类的思维方式等设计一种简单策略来解决优化问题。在早期，这种方法还有一定的新颖性，但是如今，世界上各种动物、各种植物、山川湖海、物理原理、基本粒子、各种宗教，等等等等，实在繁多，都有人受启发来发表论文。如果继续下去，加上这些策略的组合，可以发表的论文数量是无限的。这种可以开发无限种方法的Metaheuristics，如今实在是被玩坏了。</p>
+<p>一个相似的例子是，蛋白质结构的解析，早前让中国人极为自豪的海归明星科学家施一公、颜宁等的实验室，每年解析一些蛋白质，发表一些CNS论文。但是自从2021年，Google子公司DeepMind开发的AlphaFold解析了这个星球上100多万种生物的2亿多个蛋白质结构，而且精度优于人工实验解释的结果，施一公和颜宁也只能够改行，都回国做学官。后来，Meta公司也推出了软件解析了6亿多种蛋白质。所以，AI让大量的这种原创性不强的科学家失业了。</p>
+<p>目前正处于AI热潮中，机器学习模型的各种要素的各种组合，或者对某个数据进行计算的一道研究生作业题，也都大量被用来发表学术论文。总而言之，大量低水平的论文吞噬了中国学者的研究经费和年轻学者的劳动力。除了产生一些虚假的学术GDP以外，对提升中国在研究水平并无益处。</p>
+<p>(XYS20231008)</p>
+<p>◇◇新语丝(<a href=http://www.xys.org>www.xys.org</a>)(xinyusi.us)(groups.google.com/group/xinyusi)◇◇</p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/727d2e4bbdcf6bb62e29e4fe067fba5f/?utm_source=see_also&utm_medium=%25E4%25B8%25A4%25E4%25B8%25AA%25E8%25A2%25AB%25E4%25B8%25AD%25E5%259B%25BD%25E4%25BA%25BA%25E7%258E%25A9%25E5%259D%258F%25E7%259A%2584ai%25E7%25A0%2594%25E7%25A9%25B6%25E6%2596%25B9%25E5%2590%2591elm%25E5%2592%258Cmetaheuris">土-叙地震真的会引发中国境内大地震吗？</a>
+</h2>
+<p class=text-dark>土-叙地震真的会引发中国境内大地震吗？
+作者：方玄昌
+自唐山大地震以来，全世界每一次灾难性地震，几乎都会引出中国社会上与地震预测有关的各种神奇“学说”。目前已经造成数万死伤的土耳其-叙利亚群发地震自然不会例外。
+所不同的是，过往更多“神人” …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b4899b4883d56ae4922734856624ff5b/?utm_source=see_also&utm_medium=%25E4%25B8%25A4%25E4%25B8%25AA%25E8%25A2%25AB%25E4%25B8%25AD%25E5%259B%25BD%25E4%25BA%25BA%25E7%258E%25A9%25E5%259D%258F%25E7%259A%2584ai%25E7%25A0%2594%25E7%25A9%25B6%25E6%2596%25B9%25E5%2590%2591elm%25E5%2592%258Cmetaheuris">为什么中国人会觉得美国治安比中国差多了？</a>
+</h2>
+<p class=text-dark>为什么中国人会觉得美国治安比中国差多了？
+·方舟子·
+上次我对比了中国和美国的安全感，作为在这两个国家都曾经长期生活过的人，我觉得我在这个问题上还是很有发言权的。但还是有很多人不服，他们做出比我还了解美国治安状况的样子，要来教训我，说美国是 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/34fab4a0d03b37b59e93c470f26221ff/?utm_source=see_also&utm_medium=%25E4%25B8%25A4%25E4%25B8%25AA%25E8%25A2%25AB%25E4%25B8%25AD%25E5%259B%25BD%25E4%25BA%25BA%25E7%258E%25A9%25E5%259D%258F%25E7%259A%2584ai%25E7%25A0%2594%25E7%25A9%25B6%25E6%2596%25B9%25E5%2590%2591elm%25E5%2592%258Cmetaheuris">与蔡医生的一番话</a>
+</h2>
+<p class=text-dark>与蔡医生的一番话
+作者：李长青
+蔡医生是ICU的主治医生，父母是香港移民，他出生在美国，普通话和粤语都不怎么会说。作为主治医生，他是我的老师，我也从他这里学到了很多东西。他的未婚妻是大陆出生的移民，俩人明年即将结婚。前几天一起值夜班他向我请 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/225d1a97700bd70481d817dccd45a9b2/?utm_source=see_also&utm_medium=%25E4%25B8%25A4%25E4%25B8%25AA%25E8%25A2%25AB%25E4%25B8%25AD%25E5%259B%25BD%25E4%25BA%25BA%25E7%258E%25A9%25E5%259D%258F%25E7%259A%2584ai%25E7%25A0%2594%25E7%25A9%25B6%25E6%2596%25B9%25E5%2590%2591elm%25E5%2592%258Cmetaheuris">毛泽东同音乐工作者的谈话</a>
+</h2>
+<p class=text-dark>毛泽东同音乐工作者的谈话
+(一九五六年八月二十四日)
+实现社会主义革命的基本原则，各个国家都是相同的。但是在小的原则和基本原则的表现形式方面是有不同的。比如打仗的原理是一样的，都是攻、守、进、退、胜、败，但是在打法上，怎么攻，怎么守，各有不 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/a69248775d85402d72f3ff0b9cd8077e/?utm_source=see_also&utm_medium=%25E4%25B8%25A4%25E4%25B8%25AA%25E8%25A2%25AB%25E4%25B8%25AD%25E5%259B%25BD%25E4%25BA%25BA%25E7%258E%25A9%25E5%259D%258F%25E7%259A%2584ai%25E7%25A0%2594%25E7%25A9%25B6%25E6%2596%25B9%25E5%2590%2591elm%25E5%2592%258Cmetaheuris">三年后再来到中国，我相信这里会继续繁荣</a>
+</h2>
+<p class=text-dark>三年后再来到中国，我相信这里会继续繁荣
+作者：STEVEN RATTNER　2023年5月31日纽约时报
+这是我三年多来第一次来中国，一觉醒来，看到北京一反常态的蔚蓝天空。连翘和樱花开得正盛，整座城市熠熠生辉。
+在我看来，这至少是对我今春为 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

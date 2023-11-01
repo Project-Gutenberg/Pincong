@@ -1,0 +1,6 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>洛仑兹 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E6%B4%9B%E4%BB%91%E5%85%B9/</link><description>Recent content in 洛仑兹 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sun, 21 Jun 2020 13:51:05 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E6%B4%9B%E4%BB%91%E5%85%B9/index.xml" rel="self" type="application/rss+xml"/><item><title>关于磁场势能的帖子的更正</title><link>https://project-gutenberg.github.io/Pincong/post/3a587bbe3d59a4c1194c77900d04e7b5/</link><pubDate>Sun, 21 Jun 2020 13:51:05 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/3a587bbe3d59a4c1194c77900d04e7b5/</guid><description>关于磁场势能的帖子的更正
+作者：LB
+我那个关于磁场势能的帖子里面有错误，本来不好意思承认，但看到版主把它放到了新到上，赶紧更正：
+对于带电粒子在磁场中，应该是拉格朗日量（不是哈密顿量）中出现一个推广的势能（不是功）包含速度乘矢势的项。扯不上哈密顿量。
+其他都不变。杜克林关于存在磁场势能还是对的。对于磁矩，磁场势能是个常用概念，否则教课书都得改写了，磁共振这些技术也得重新解释了。
+对于带电粒子，磁场不是一个力场，磁力（洛仑兹力）才是。洛 …</description></item></channel></rss>

@@ -1,0 +1,326 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>以抽選 (Sortition) 實現民主</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 相信大部份人會同意，在每個人對每個議題都深思熟慮的前提下，公投是實現民主的有效形式。然而，實際上不可能人人研究所有議題，然後每星期投票，所以才出現了代議政制，讓我們每幾年投一次票，選出議員代表我們議政和決定政策。
+我想提出另一種實現民主的方式：抽選 (Sortition)。一個可能形式，是每星期召開議政會議，但並不需要普選議員，亦不需要全體人民的參與，而只需在會議前隨機從人民中抽出可參與者即可，下星期的參與者也是隨機抽出，惟與本星期的參與者完全不同，故長遠而言，每個人都有相同的參政機會。至於隨機抽選的百分比可以很低，參照民意調查取樣的數學，一千數百人已足以代表任何國家的全體人民，也就是說，其投票結果與全民公投幾乎是沒有分別的。
+至於如何進行隨機抽選，其實有個非常簡單的方法。以香港為例，每個居民都有獨一無二的身份證號碼，尾數（末位數字）基本上是隨機的。這個星期由尾數4327的身份證號碼持有者議事和投票，下星期則輪到尾數1507的人，每星期用攪珠抽出下星期尾數，若與過去重覆則重新再抽，周而復始。對於重大議題，也可以通過調整尾數數目增加參政人數，以確保議政會議有足夠代表性。
+對於未實現民主的地區，這個方法甚至可以讓民間自行組成有公信力的民主議會。由於每星期議政人數只是數百人，一個簡單小禮堂和十數名工作人員已經足夠，沒有政府提供的場地和人員也沒有關係。又由於這個方法在制度上不排斥任何士，不同意者頂多只能批評和自己不參與，無法通過不派員參選去杯葛。這個民間議會，可以比立法會和人大等更具代表性、更為民所信。
+品葱用户 **yyy1215 巴拉巴拉巴拉** 评论于 2019-09-16
+抽到的人有權出席會議，但不用強制，像大部份民主國家都並非強制投票。
+不過被抽中是難得的事情，相信願意出席和了解有關議題的人會比一般投票更多。
+品葱用户 **浙江大学 书记** 评论于 2019-09-14
+深度学习的drop out可和这个不同。drop out是在训练中进行的，相当于：如果抽选的代表投票不满足正确(ground truth)要求，就在BP时揍这个代表，直到他按照规范投票；这样训练的结果，导致不论怎么抽选代表，投票的结果都不会离预期太远，从而实现了健壮性。这算是希望的民主吗？
+品葱用户 书记 评论于 2019-09-15 我认为这是一个可行的方法，而且我也考虑过类似的选举办法。
+首先，这种有一定随机性的选举在历史上是出现过的，比如威尼斯共和国就采用了投票+抽签的方式选举总统。从结果上来看威尼斯的政治制度在古代欧洲无疑是成功的。
+在现代的实践中,谷歌提出了在深度学习中加入drop　out层，其本质就是每次只允许一部分神经元进行表决，这种方式训练出的模型往往更加健壮。
+品葱用户 leshphon 评论于 2019-09-15 我記得美國陪審團就是抽選制
+品葱用户 **yyy1215 为啥改名还要葱** 评论于 2019-09-14
+如果隨機抽出的人民經深思熟慮後仍無法理解和判斷，那麼他們能否正確選出可以理解和判斷政策對錯的議會代表呢？
+在未實現民主的社會，這個抽選出來的議政會議比任何法定機構都強。而在已經民主化的社會，也可以普選和抽選並行，經傳統普選產生的議員進行政策研究，並在議政會議上辯論、發表意見、引導抽選出來的人民代表投票，由於抽選民代必須出席會議並在聆聽各方觀點後方才投票，應比全民公投較為理性。
+品葱用户 **为啥改名还要葱 yyy1215** 评论于 2019-09-15
+我觉得你所补充的 专业议员制定议题，临时议员投票选择 的方式很有道理。
+品葱用户 **yyy1215 UCCMaoist** 评论于 2019-09-14 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 以抽選 (Sortition) 實現民主 ">
+<meta name=og:description content=" 相信大部份人會同意，在每個人對每個議題都深思熟慮的前提下，公投是實現民主的有效形式。然而，實際上不可能人人研究所有議題，然後每星期投票，所以才出現了代議政制，讓我們每幾年投一次票，選出議員代表我們議政和決定政策。
+我想提出另一種實現民主的方式：抽選 (Sortition)。一個可能形式，是每星期召開議政會議，但並不需要普選議員，亦不需要全體人民的參與，而只需在會議前隨機從人民中抽出可參與者即可，下星期的參與者也是隨機抽出，惟與本星期的參與者完全不同，故長遠而言，每個人都有相同的參政機會。至於隨機抽選的百分比可以很低，參照民意調查取樣的數學，一千數百人已足以代表任何國家的全體人民，也就是說，其投票結果與全民公投幾乎是沒有分別的。
+至於如何進行隨機抽選，其實有個非常簡單的方法。以香港為例，每個居民都有獨一無二的身份證號碼，尾數（末位數字）基本上是隨機的。這個星期由尾數4327的身份證號碼持有者議事和投票，下星期則輪到尾數1507的人，每星期用攪珠抽出下星期尾數，若與過去重覆則重新再抽，周而復始。對於重大議題，也可以通過調整尾數數目增加參政人數，以確保議政會議有足夠代表性。
+對於未實現民主的地區，這個方法甚至可以讓民間自行組成有公信力的民主議會。由於每星期議政人數只是數百人，一個簡單小禮堂和十數名工作人員已經足夠，沒有政府提供的場地和人員也沒有關係。又由於這個方法在制度上不排斥任何士，不同意者頂多只能批評和自己不參與，無法通過不派員參選去杯葛。這個民間議會，可以比立法會和人大等更具代表性、更為民所信。
+品葱用户 **yyy1215 巴拉巴拉巴拉** 评论于 2019-09-16
+抽到的人有權出席會議，但不用強制，像大部份民主國家都並非強制投票。
+不過被抽中是難得的事情，相信願意出席和了解有關議題的人會比一般投票更多。
+品葱用户 **浙江大学 书记** 评论于 2019-09-14
+深度学习的drop out可和这个不同。drop out是在训练中进行的，相当于：如果抽选的代表投票不满足正确(ground truth)要求，就在BP时揍这个代表，直到他按照规范投票；这样训练的结果，导致不论怎么抽选代表，投票的结果都不会离预期太远，从而实现了健壮性。这算是希望的民主吗？
+品葱用户 书记 评论于 2019-09-15 我认为这是一个可行的方法，而且我也考虑过类似的选举办法。
+首先，这种有一定随机性的选举在历史上是出现过的，比如威尼斯共和国就采用了投票+抽签的方式选举总统。从结果上来看威尼斯的政治制度在古代欧洲无疑是成功的。
+在现代的实践中,谷歌提出了在深度学习中加入drop　out层，其本质就是每次只允许一部分神经元进行表决，这种方式训练出的模型往往更加健壮。
+品葱用户 leshphon 评论于 2019-09-15 我記得美國陪審團就是抽選制
+品葱用户 **yyy1215 为啥改名还要葱** 评论于 2019-09-14
+如果隨機抽出的人民經深思熟慮後仍無法理解和判斷，那麼他們能否正確選出可以理解和判斷政策對錯的議會代表呢？
+在未實現民主的社會，這個抽選出來的議政會議比任何法定機構都強。而在已經民主化的社會，也可以普選和抽選並行，經傳統普選產生的議員進行政策研究，並在議政會議上辯論、發表意見、引導抽選出來的人民代表投票，由於抽選民代必須出席會議並在聆聽各方觀點後方才投票，應比全民公投較為理性。
+品葱用户 **为啥改名还要葱 yyy1215** 评论于 2019-09-15
+我觉得你所补充的 专业议员制定议题，临时议员投票选择 的方式很有道理。
+品葱用户 **yyy1215 UCCMaoist** 评论于 2019-09-14 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/130.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>以抽選 (Sortition) 實現民主</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/yyy1215>Yyy1215</a></span>,
+<span>at 15 September 2019</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%b0%91%e4%b8%bb>民主</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/a6fd1aed29de6e53bc4689afb23484ec.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/a6fd1aed29de6e53bc4689afb23484ec.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>相信大部份人會同意，在每個人對每個議題都深思熟慮的前提下，公投是實現民主的有效形式。然而，實際上不可能人人研究所有議題，然後每星期投票，所以才出現了代議政制，讓我們每幾年投一次票，選出議員代表我們議政和決定政策。</p>
+<p>我想提出另一種實現民主的方式：抽選 (Sortition)。一個可能形式，是每星期召開議政會議，但並不需要普選議員，亦不需要全體人民的參與，而只需在會議前隨機從人民中抽出可參與者即可，下星期的參與者也是隨機抽出，惟與本星期的參與者完全不同，故長遠而言，每個人都有相同的參政機會。至於隨機抽選的百分比可以很低，參照民意調查取樣的數學，一千數百人已足以代表任何國家的全體人民，也就是說，其投票結果與全民公投幾乎是沒有分別的。</p>
+<p>至於如何進行隨機抽選，其實有個非常簡單的方法。以香港為例，每個居民都有獨一無二的身份證號碼，尾數（末位數字）基本上是隨機的。這個星期由尾數4327的身份證號碼持有者議事和投票，下星期則輪到尾數1507的人，每星期用攪珠抽出下星期尾數，若與過去重覆則重新再抽，周而復始。對於重大議題，也可以通過調整尾數數目增加參政人數，以確保議政會議有足夠代表性。</p>
+<p>對於未實現民主的地區，這個方法甚至可以讓民間自行組成有公信力的民主議會。由於每星期議政人數只是數百人，一個簡單小禮堂和十數名工作人員已經足夠，沒有政府提供的場地和人員也沒有關係。又由於這個方法在制度上不排斥任何士，不同意者頂多只能批評和自己不參與，無法通過不派員參選去杯葛。這個民間議會，可以比立法會和人大等更具代表性、更為民所信。</p>
+<h3 id=品葱用户-yyy1215>品葱用户 **yyy1215</h3>
+<p>巴拉巴拉巴拉** 评论于 2019-09-16</p>
+<p>抽到的人有權出席會議，但不用強制，像大部份民主國家都並非強制投票。<br>
+不過被抽中是難得的事情，相信願意出席和了解有關議題的人會比一般投票更多。</p>
+<h3 id=品葱用户-浙江大学>品葱用户 **浙江大学</h3>
+<p>书记** 评论于 2019-09-14</p>
+<p>深度学习的drop out可和这个不同。drop out是在训练中进行的，相当于：如果抽选的代表投票不满足正确(ground truth)要求，就在BP时揍这个代表，直到他按照规范投票；这样训练的结果，导致不论怎么抽选代表，投票的结果都不会离预期太远，从而实现了健壮性。这算是希望的民主吗？</p>
+<h3 id=品葱用户-书记-评论于-2019-09-15>品葱用户 <strong>书记</strong> 评论于 2019-09-15</h3>
+<p>我认为这是一个可行的方法，而且我也考虑过类似的选举办法。<br>
+首先，这种有一定随机性的选举在历史上是出现过的，比如威尼斯共和国就采用了投票+抽签的方式选举总统。从结果上来看威尼斯的政治制度在古代欧洲无疑是成功的。<br>
+在现代的实践中,谷歌提出了在深度学习中加入drop　out层，其本质就是每次只允许一部分神经元进行表决，这种方式训练出的模型往往更加健壮。</p>
+<h3 id=品葱用户-leshphon-评论于-2019-09-15>品葱用户 <strong>leshphon</strong> 评论于 2019-09-15</h3>
+<p>我記得美國陪審團就是抽選制</p>
+<h3 id=品葱用户-yyy1215-1>品葱用户 **yyy1215</h3>
+<p>为啥改名还要葱** 评论于 2019-09-14</p>
+<p>如果隨機抽出的人民經深思熟慮後仍無法理解和判斷，那麼他們能否正確選出可以理解和判斷政策對錯的議會代表呢？</p>
+<p>在未實現民主的社會，這個抽選出來的議政會議比任何法定機構都強。而在已經民主化的社會，也可以普選和抽選並行，經傳統普選產生的議員進行政策研究，並在議政會議上辯論、發表意見、引導抽選出來的人民代表投票，由於抽選民代必須出席會議並在聆聽各方觀點後方才投票，應比全民公投較為理性。</p>
+<h3 id=品葱用户-为啥改名还要葱>品葱用户 **为啥改名还要葱</h3>
+<p>yyy1215** 评论于 2019-09-15</p>
+<p>我觉得你所补充的 专业议员制定议题，临时议员投票选择 的方式很有道理。</p>
+<h3 id=品葱用户-yyy1215-2>品葱用户 **yyy1215</h3>
+<p>UCCMaoist** 评论于 2019-09-14</p>
+<p>我反而覺得抽選在大國更適合，傳統投票需要的資源與人口成正比，七百萬人的地方需要數百萬張選票、數千個票站、以及公眾對數萬票站人員的無比信任。但抽選所需民意代表的數目不會隨人口大幅增加，以 confidence level 95% 和 confidence interval 5% 計算，7萬人口需要382人，700萬人口也只需要384人，其實抽選更為scalable。</p>
+<h3 id=品葱用户-yyy1215-3>品葱用户 **yyy1215</h3>
+<p>meta_chaos** 评论于 2019-09-15</p>
+<p>利用身份證號碼尾數就是為了減少做手腳的可能，難度會有一個組合是偏幫某方的嗎？而抽籤過程可以公開直播，就像香港的六合彩一樣，現在科技已經沒難度了。唯一需要信任的地方，就是進場人士的身份證號碼確是該期抽中的尾數，不過由於只需核對數百人的身份證，只要找兩個有名望的中立人士就可以了。</p>
+<h3 id=品葱用户-hokkien-评论于-2019-09-15>品葱用户 <strong>Hokkien</strong> 评论于 2019-09-15</h3>
+<p>這種做法只能在公民高度同質化的古希臘等社會實行，現在是絕對不行的</p>
+<h3 id=品葱用户-uccmaoist>品葱用户 **UCCMaoist</h3>
+<p>yyy1215** 评论于 2019-09-16</p>
+<p>一言以蔽之就是信任需要成本，人们不会无条件的信任社会里随机的某一个人，而只会信任自己理解知道的人。只有在至多不超过几万人的社区里，人与人之间的关系可以自动达到即使不直接认识也是间接理解的程度。超过这个限度就会因缺乏信任而无法实施..</p>
+<h3 id=品葱用户-kelsey>品葱用户 **kelsey</h3>
+<p>yyy1215** 评论于 2019-09-23</p>
+<p>我不認為菁英政治會導致獨裁 恰恰是平民政治容易造成獨裁</p>
+<h3 id=品葱用户-为啥改名还要葱-评论于-2019-09-15>品葱用户 <strong>为啥改名还要葱</strong> 评论于 2019-09-15</h3>
+<p>类似陪审团的形式。关系到每个人的社会议题相较于判断是非对错的法律案件更为复杂，我怀疑临时组成的议员能否胜任。</p>
+<h3 id=品葱用户-uccmaoist-评论于-2019-09-15>品葱用户 <strong>UCCMaoist</strong> 评论于 2019-09-15</h3>
+<p>不可能在人口高于几万人的国家实施。</p>
+<h3 id=品葱用户-ravla>品葱用户 **ravla</h3>
+<p>leshphon** 评论于 2019-09-14</p>
+<p>香港的陪審團就是抽選制</p>
+<h3 id=品葱用户-外星海底漫遊-评论于-2019-09-15>品葱用户 <strong>外星海底漫遊</strong> 评论于 2019-09-15</h3>
+<p>這是一種“間接民主”方法<br>
+實際上代議士比起這種方法更好<br>
+隨機出來的人不一定有足夠的智慧</p>
+<h3 id=品葱用户-巴拉巴拉巴拉-评论于-2019-09-14>品葱用户 <strong>巴拉巴拉巴拉</strong> 评论于 2019-09-14</h3>
+<p>概念很棒，但有点太随机了的感觉。<br>
+需要确保每一个人都有机会进入讨论，<br>
+所以抽签的方式需要加以设计。</p>
+<p>而如果要用这种方式，<br>
+必须要确保抽到的人都是有在关注国家议题的，<br>
+因为不是每一个人都对国家大事有兴趣。</p>
+<h3 id=品葱用户-meta_chaos-评论于-2019-09-15>品葱用户 <strong>meta_chaos</strong> 评论于 2019-09-15</h3>
+<p>對大國，一定會出現大量不認可統計學規律的人羣。<br>
+而且「抽籤」中可做手腳的地方太多。<br>
+對小國，還不如代議制。</p>
+<p>所以還是算了吧。</p>
+<h3 id=品葱用户-meta_chaos>品葱用户 **meta_chaos</h3>
+<p>yyy1215** 评论于 2019-09-14</p>
+<p>身份證和戶籍信息可以僞造，起碼共產黨就可以做到。<br>
+中立人士也可以「收買」。<br>
+還有就是，公開抽籤也不能排除作弊的可能。<br>
+收買、報復幾千人，可比對付全體國民容易多了。<br>
+還有窩原來說的，會有很多人沒學過／不相信統計學，更有一堆陰謀論者無條件反對你。<br>
+這些人的意見如何平衡呢？<br>
+從一般人的直覺上講，讓隨機選出的一千多人代表全體國民 ，過於兒戲了。</p>
+<h3 id=品葱用户-yyy1215-4>品葱用户 **yyy1215</h3>
+<p>meta_chaos** 评论于 2019-09-15</p>
+<p>身份證偽造和中立人士被收買的風險，在傳統選舉和公投都有，而且有多無少，看看全世界的選舉舞弊案就知道了。要在人口數百萬的城市舉辦選舉或公投，需要數以萬計中立的工作人員，任何一個都可能參與作弊，包括讓沒資格的人投票、把自行填劃的選票塞進票箱、點票時偷偷將選A的插進選B的一堆等等。抽選公正性的重點，是如何做到真正隨機的抽籤，我提出的身份證號碼尾數應該很難作弊，至少我想不出來。</p>
+<p>至於收買和報復幾千人方面，只要抽選議會採用暗票形式進行投票，其實很難證明某民意代表究竟投了什麼票。而且這幾千人只投一次票，誘因還比較低。說來，收買和報復幾十名民選議員不是更容易嗎？</p>
+<h3 id=品葱用户-齐心-评论于-2019-09-16>品葱用户 <strong>齐心</strong> 评论于 2019-09-16</h3>
+<p>那么，人大代表就会有N张身份证了</p>
+<h3 id=品葱用户-yyy1215-5>品葱用户 **yyy1215</h3>
+<p>UCCMaoist** 评论于 2019-09-15</p>
+<p>同意這也許是暫時大家未能接受的主因。但信任是相對的。在香港，立法會和選舉委員會不見得為公眾所信，如果能在民間先成立抽選議會，其公信力當超兩者，也可以作為和理非的抗爭手段。至於在民主成熟的社會，抽選議會的作用，也許在於補充現有制度，於政客失控時作為制衡。</p>
+<p>TED 有個關於 Sortition 的演講，值得一看：<br>
+<a href=https://youtu.be/cUee1I69nFs>https://youtu.be/cUee1I69nFs</a></p>
+<h3 id=品葱用户-kelsey-评论于-2019-09-17>品葱用户 <strong>kelsey</strong> 评论于 2019-09-17</h3>
+<p>其实民主就是一种治理国家的实现方式，抽选也是一个选择<br>
+另外还有一种选择就是精英治理，选举人必须有大学本科学历或者年纳税额超过一定值，阻止民粹势力加入选举<br>
+普选的坏处在于，在选举中真正左右结果的，是那些占比例最大的，底层最没有文化的落后势力，他们往往有强烈排外性<br>
+特朗普之所以当上总统，就是靠的这些底层势力，他们往往是反对移民，采取贸易保护主义，拒绝国际义务，专注国民经济，忽视意识形态传播</p>
+<p>为了减少这些底层人的人数优势，可以采取分段比例选民制。按照学历，收入来分段，每一个段随机产生相同数量的选民。</p>
+<h3 id=品葱用户-yyy1215-6>品葱用户 **yyy1215</h3>
+<p>kelsey** 评论于 2019-09-23</p>
+<p>問題是如何決定誰有多大份量的票，很容易被野心家操縱而變成專制、獨栽，一人一票始終是最簡單的方法。</p>
+<p>對於民粹興起問題，我認為還需要通過教育和一同吸收經驗解決。</p>
+<h3 id=品葱用户-singming-评论于-2019-09-24>品葱用户 <strong>SingMing</strong> 评论于 2019-09-24</h3>
+<p>**该用户被封禁，内容已自动替换**</p>
+<p>我们很不幸，生活在这样的末世。<br>
+小时候我爸妈谆谆教诲，以后都要说真话，办实事。 如今，我的父母以近乎哀求的语气对我说：“能不能别说真话？就算为我们老两口吧。” 是的，在一个颠倒黑白、是非不分、善恶美丑已经彻底混沌的时代，到底怎么说、怎么做才能让人不痛苦，已经成了13亿人头疼的重大难题。</p>
+<h3 id=品葱用户-thousandray-评论于-2019-09-25>品葱用户 <strong>Thousandray</strong> 评论于 2019-09-25</h3>
+<p>我认为这本质上和古代雅典民主制无异<br>
+古代雅典民主制最后如何不用多说</p>
+<h3 id=品葱用户-yyy1215-7>品葱用户 **yyy1215</h3>
+<p>SingMing** 评论于 2019-09-26</p>
+<p>相信你其實沒有了解我的意思，抽選議會代替/補充的是傳統民選議會，而不是專業行政人員，更不是私人企業的CEO。在民主社會中，絕大部分選民也是沒有管理過大機構，但是我們仍然相信他們有足夠智慧選出可以管理國家的人。</p>
+<h3 id=品葱用户-yyy1215-8>品葱用户 **yyy1215</h3>
+<p>Thousandray** 评论于 2019-10-01</p>
+<p>雅典民主制也許不完美，但仍然活了186年，比絕大部份帝制和威權體制都長。</p>
+<h3 id=品葱用户-aytc1998-评论于-2019-10-01>品葱用户 <strong>AYTC1998</strong> 评论于 2019-10-01</h3>
+<p>問題是負責抽選的人員的權力來自何方？<br>
+如果是來自人民，那就需要先選人員，再抽選人民議政。步驟和頻率（因為每一個議題都需要抽選一次）多了，成本會比代議政制多太多。倒不如使用代議政制。（權力都是來自人民）<br>
+如果是來自抽選人員自己，歷史告訴我們，他們很快就會腐化，走向專制獨裁。<br>
+傑弗遜 - 「自由的代價是永恆的警覺」</p>
+<h3 id=品葱用户-yyy1215-9>品葱用户 **yyy1215</h3>
+<p>AYTC1998** 评论于 2019-10-07</p>
+<p>如果抽選是用身份證號碼尾數，而且抽籤過程實時直播的話，那麼其實誰抽都沒有所謂，弄隻貓來抽也可以，或者更好。</p>
+<p>抽選制度唯一需要的信任，是入場人士持有的身份證是他的，而且尾數符合已公布的當次會議尾數，這大約需要一個有公信力的知名人士負責檢查身份證。無論如此，對比起全民投票和點票，所需要的信任已低了很多。</p>
+<h3 id=品葱用户-yyy1215-评论于-2019-10-08>品葱用户 <strong>yyy1215</strong> 评论于 2019-10-08</h3>
+<p>其實抽選也可以被視為迷你公投，若設較高投票門檻（如60%），其結果與真正公投幾乎沒有差別。但由於成本低，不需要大家對票站工作人員的信任，令這件事可以頻密的進行，每週可以，甚至每天都可以。希望和理非能切實考慮一下</p>
+<h3 id=品葱用户-yyy1215-评论于-2019-10-09>品葱用户 <strong>yyy1215</strong> 评论于 2019-10-09</h3>
+<p>其實身份證號碼是一個非常寶貴的資源，因為憑著這個號碼我們很容易就能將民眾隨機分為一千個、一萬個、十萬個群組，只要直播抽出其中一個，就能以極低成本組成能充份代表社會意見的議政團體。</p>
+<h3 id=品葱用户-harumimi-评论于-2020-05-20>品葱用户 <strong>Harumimi</strong> 评论于 2020-05-20</h3>
+<p>@kelsey</p>
+<p>我同样不赞成普选。但美国并不实行普选制，而是选举人团制 &mdash; &ldquo;An electoral college is a set of electors who are selected to elect a candidate to a particular office. Often these represent different organizations, political parties, or entities, with each organization, political party or entity represented by a particular number of electors or with votes <strong>weighted</strong> in a particular way.&rdquo;</p>
+<p>https://edition. cnn.com/election/2016/results/exit-polls<br>
+你对“民粹势力”以及“特朗普支持者”的学历、收入、阶级的假设是不符合事实的。</p>
+<h3 id=品葱用户-hesperus>品葱用户 **Hesperus</h3>
+<p>kelsey** 评论于 2020-05-20</p>
+<p>[</p>
+<blockquote>
+<p>其实民主就是一种治理国家的实现方式，抽选也是一个选择另外还有一种选择就是精英治理，选举人必须有大学本&mldr;</p>
+</blockquote>
+<p>](<a href=https://pincong.rocks/article/item_id-57824#>https://pincong.rocks/article/item_id-57824#</a> &ldquo;<a href=https://pincong.rocks/article/item_id-57824#%22>https://pincong.rocks/article/item_id-57824#"</a>)<br>
+法国大革命前三级会议警告&mldr;<br>
+虽然我是支持进行精英民主化的，但是这种制度需要非常小心才行&mldr;</p>
+<p>下面回题主:<br>
+抽选在古希腊玩过啊，但是古希腊那时候可是有奴隶阶层的&mldr;参考性没那么大，而且后来也玩崩了&mldr;<br>
+而且需要指出的是古希腊本来就分出了本国公民(限制男性)以及外国人，奴隶等等，某种程度上来说也算精英民主类&mldr;<br>
+用抽选的话正态分布一下结果确实和普选差不多。说起来卢梭那时候的瑞士就是高度同质化的公民，而且人少，所以民主制度没啥问题，换成抽选也一样。<br>
+但是抽选国家人数越多越难控制&mldr;比如像中国这么大的国家我感觉非常难操作&mldr;民众构成非常复杂，而且整体结构是金字塔型，而不是像大部分民主国家的纺锤型，这又减少了可行性。<br>
+操作中要考虑到:<br>
+-抽出来对政治一窍不通的白痴(很大可能)<br>
+-抽出大量粉红战狼(我的老天)，专制国家比如中国不能忽略官媒的洗脑力度&mldr;就算是换了制度这些人很可能也不会消失&mldr;<br>
+-抽选的可信度(如果用骰子或者抽签，你如何保证这里面没有被动手脚？电脑程序同理)<br>
+-抽选人是否会被收买(比如某些大财阀之类的需要这周通过一个议案，你抽三百人，他宁愿在其中挑200人每个人发100w来避免更大损失，这种情况怎么办？)<br>
+虽然法院的陪审团一部分国家是采用这种制度的，但需要指出对案件和嫌疑人是否有罪的判断要比议案等等复杂很多。而如果全民都有足够的政治素养(不太可能，任何国家都有一大票容易被忽悠的人群blabla)&mldr;这种情况下直接开放民主选举就好了啊！</p>
+<h3 id=品葱用户-钦明方泽忘了密码-评论于-2020-05-20>品葱用户 <strong>钦明方泽忘了密码</strong> 评论于 2020-05-20</h3>
+<p>公投绝不应该是大国民主的合理发展方向，倒更像是一种制度性的“推卸责任”。<br>
+只有地区独立是需要当地公投的，因为这件事唯有公投可以决定。</p>
+<blockquote>
+<p><a href=https://pincong.rocks/article/id-5029__sort_key-agree_count__sort-DESC>点击品葱原文参与讨论</a></p>
+</blockquote>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b6ef4e0c93010d8beb9f3b8b87fb2676/?utm_source=see_also&utm_medium=%25E4%25BB%25A5%25E6%258A%25BD%25E9%2581%25B8-sortition-%25E5%25AF%25A6%25E7%258F%25BE%25E6%25B0%2591%25E4%25B8%25BB">以抽選 (Sortition) 實現民主</a>
+</h2>
+<p class=text-dark>相信大部份人會同意，在每個人對每個議題都深思熟慮的前提下，公投是實現民主的有效形式。然而，實際上不可能人人研究所有議題，然後每星期投票，所以才出現了代議政制，讓我們每幾年投一次票，選出議員代表我們議政和決定政策。
+我想提出另一種實現民主的方 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/59e59bc1850f9ea2b2d3413f8462e428/?utm_source=see_also&utm_medium=%25E4%25BB%25A5%25E6%258A%25BD%25E9%2581%25B8-sortition-%25E5%25AF%25A6%25E7%258F%25BE%25E6%25B0%2591%25E4%25B8%25BB">大陸的蔥友聽過台灣的太陽花學運嗎?有什麼看法?</a>
+</h2>
+<p class=text-dark>品葱用户 停用 提问于 8/23/2019 太陽花學運又被稱作318學運、佔領國會事件，是指在2014年3月18日至4月10日期間，由台灣的大學學生與公民團體共同發起的政治運動。這次運動由抗議學生主導，佔領位在臺北市的立法院，還曾一度嘗試佔 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/d1c27f9cde50322e99c624dcf8613d3a/?utm_source=see_also&utm_medium=%25E4%25BB%25A5%25E6%258A%25BD%25E9%2581%25B8-sortition-%25E5%25AF%25A6%25E7%258F%25BE%25E6%25B0%2591%25E4%25B8%25BB">反送中Q&A方便想知道完整事实的中国人</a>
+</h2>
+<p class=text-dark>香港是由英国殖民地遗留下来的半民主社会. 因三权分立的制度加上只向特首负责的廉政公署而拥有清廉指数和法治指数在世界司法地区排名前20名内, 比日本和美国等地区更高.清廉和法治为投资者带来信心, 令香港成为世界其中一个主要投资中心
+注1: 清 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/e91e1ddeb90844cb040524a18bec5dca/?utm_source=see_also&utm_medium=%25E4%25BB%25A5%25E6%258A%25BD%25E9%2581%25B8-sortition-%25E5%25AF%25A6%25E7%258F%25BE%25E6%25B0%2591%25E4%25B8%25BB">共产党倒台后中国会出现新的独裁政府吗？</a>
+</h2>
+<p class=text-dark>品葱用户 蜜瓜铁树 提问于 7/25/2019 之前就有人问这个问题，但是我觉得说得都不全面。我现在最大的问题就是：共产党当年打着民主自由的旗号推翻了国民党，到时候历史会不会重演，一个党派（假设叫做民主自由党），推翻了共产党，但是之后以种种 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/d250401931e90c44ab48847a0e11cc92/?utm_source=see_also&utm_medium=%25E4%25BB%25A5%25E6%258A%25BD%25E9%2581%25B8-sortition-%25E5%25AF%25A6%25E7%258F%25BE%25E6%25B0%2591%25E4%25B8%25BB">给你一次机会，你会去参加民主运动吗？</a>
+</h2>
+<p class=text-dark>品葱用户 贫困人口 提问于 7/14/2019 在品葱里面，我们一边会讨论共产党会给国家带来多大多大的伤害，探讨权贵利益集团是如何如何吸取压榨人民的汗血；另一方面，我们也表达了对香港对台湾的支持。假如给你一次机会你会怎么支持他们呢？我以我的 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

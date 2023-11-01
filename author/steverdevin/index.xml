@@ -1,0 +1,5 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>steverdevin on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/author/steverdevin/</link><description>Recent content in steverdevin on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Fri, 19 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/author/steverdevin/index.xml" rel="self" type="application/rss+xml"/><item><title>如何尽可能避免自建翻墙服务被封 其实这很容易</title><link>https://project-gutenberg.github.io/Pincong/post/f18312333c498299241cd69100a34640/</link><pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f18312333c498299241cd69100a34640/</guid><description>这是一个由来已久的话题了，所以就无需废话，直接支招吧。
+我是一个前端，同时也在做Linux运维，以下均为在个人和团体中实践数年的经验。
+以下均为自身亲身实践经验，且能保证推荐给大家的方法是靠谱的，不过可能仍存在没有想到的地方，因此也非常欢迎大家交流讨论。
+1.（如果位于中国大陆）初次设置服务器时，不要直接ssh连接。
+解释：在2017-2019年的这段时间里，我发现了一个很有趣的现象，就是只要某个海外服务器产生过直接ssh流量，且同时安 …</description></item></channel></rss>

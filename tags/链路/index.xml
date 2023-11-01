@@ -1,0 +1,10 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>链路 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E9%93%BE%E8%B7%AF/</link><description>Recent content in 链路 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Wed, 01 Jul 2020 06:16:15 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E9%93%BE%E8%B7%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>营销的一半是无用功</title><link>https://project-gutenberg.github.io/Pincong/post/f18bf1f3a312f40d7aa5534229642e47/</link><pubDate>Wed, 01 Jul 2020 06:16:15 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f18bf1f3a312f40d7aa5534229642e47/</guid><description>这是半佛仙人的第291篇原创
+1
+如果这年头有人说自己不重视营销，那么他的这句话本身就是一种营销。
+我们并不能说今日是营销的时代，因为营销存在于所有时代。
+或者说【时代】这个词，本身就蕴含了营销的概念。
+给时光以分类，只要有分类，就可以有定位的营销策略赋能。
+前两天看了吴晓波与腾讯广告一起做的营销年中秀，突然发现一个非常有趣的现象。
+那就是每一个公司都爱谈论营销，但是落实到商业行为上，大部分企业对于营销的大部分认知还是处在投广告这件事情 …</description></item><item><title>Nginx中转Shadowsocks与负载均衡</title><link>https://project-gutenberg.github.io/Pincong/post/88e631bf6861390d08a222429ef27db6/</link><pubDate>Mon, 15 Jun 2020 11:40:16 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/88e631bf6861390d08a222429ef27db6/</guid><description>由于TCP/IP网络模型的瘦腰结构，最终所有流量都会通过IP协议传送。因此防火墙的终极大杀器，就是封禁IP。一旦IP被封杀，此服务器便废了。
+现在能正常上网的同学不要高兴太早。因为现在的防火墙采用的是黑名单方式，等到哪天逼急了采用白名单方式，那所以翻墙方法都会失效。因此闷声发大财，这是最好的。
+另一个瓶颈在于DNS协议。并且现在的DNS污染已经上升到新的高度，即使设置自定义DNS也不能避免。因为除非使用VPN，否则系统的DNS请求全部通 …</description></item></channel></rss>

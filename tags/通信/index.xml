@@ -1,0 +1,34 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>通信 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E9%80%9A%E4%BF%A1/</link><description>Recent content in 通信 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sun, 21 Jun 2020 14:27:29 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E9%80%9A%E4%BF%A1/index.xml" rel="self" type="application/rss+xml"/><item><title>中国首颗量子通信卫星又是世纪大骗局</title><link>https://project-gutenberg.github.io/Pincong/post/ec7edeb020a30bd5c5d91ce96a61c6ab/</link><pubDate>Sun, 21 Jun 2020 14:27:29 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ec7edeb020a30bd5c5d91ce96a61c6ab/</guid><description>中国首颗量子通信卫星又是世纪大骗局
+作者：VOLTES
+小弟刚看了这个新闻,还真吓了一跳,还以为中国在量子通信有什么重大突破,不过负责这个的潘健伟本来争议就很大,标准的牛皮大王一个,他干的事都要存疑,仔细看了一下内容,只差没喷饭。
+这哪里是什么量子通信??实际上的通信内容还是用传统方式加密通过激光传送,被量子加密的只有秘钥(先不谈真假),敌人要窃听根本不用去管被量子加密的秘钥,只要破解用传统手段加密的实际内容就成了,这个所谓的量子加密的 …</description></item><item><title>方舟子应该出来打打国内的量子热</title><link>https://project-gutenberg.github.io/Pincong/post/880edf47f945135c4299a56ce28cb548/</link><pubDate>Sun, 21 Jun 2020 14:26:05 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/880edf47f945135c4299a56ce28cb548/</guid><description>方舟子应该出来打打国内的量子热
+作者：sssa
+别的不说， 国内的相关报道一般混淆下面三个概念：
+1） 量子密码　2） 量子通信　3） 量子计算（机）
+如果我们把量子通信看成汽车行业的话，量子密码只是通信安全的一部分，连汽车防盗都还算不上， 算防技术开锁吧。
+量子通信可能只用量子的物理属性，而与想象中的量子计算机关系不大。
+量子密码技术的一个好处是也可以用于家庭门锁防技术开锁。只是性价比是不是一定好也难说。
+花上亿美金做防技术开锁也未尝 …</description></item><item><title>量子通信卫星解决的安全问题没有想象的大</title><link>https://project-gutenberg.github.io/Pincong/post/e1cc3dbb9d6326c9afd12a00154860e2/</link><pubDate>Sun, 21 Jun 2020 14:25:52 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e1cc3dbb9d6326c9afd12a00154860e2/</guid><description>量子通信卫星解决的安全问题没有想象的大
+作者：米粒之猪
+刚刚发射的“墨子号”量子通信卫星，使命主要有三项：进行星地量子保密通信实验、星地双向量子纠缠分发实验和地星量子隐形传态试验。赛先生8月16日刊载的，由中科院量子信息与量子科技前沿卓越创新中心、中国科学技术大学上海研究院副研究员张文卓所写的文章中，详细介绍了该项目涉及的科学原理，明确指出当前阶段主要是量子密码的应用，而量子纠缠和量子隐形传态将应用于未来的量子计算机。
+我们知道，数据传 …</description></item><item><title>为什么说量子卫星和它的鼓吹者欺世盗名？</title><link>https://project-gutenberg.github.io/Pincong/post/be2e7f93190cbc9f5b59fccae4fef492/</link><pubDate>Sun, 21 Jun 2020 14:25:34 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/be2e7f93190cbc9f5b59fccae4fef492/</guid><description>为什么说量子卫星和它的鼓吹者欺世盗名？
+作者：paulsan
+若要问为什么潘建伟是我们“科学大跃进时代”的奇葩，就要先听听他在焦点访谈中的奇谈怪论：“我觉得在原理上讲，至少目前的量子力学不禁止我们这么去做，你可以把它理解成为我把这边这个人还原成一团原始的物质了，然后到了那边把信息传过去之后，在量子纠缠的帮助之下，把他重构出来了，这个时候你的所有的记忆，所有的快乐，你所有的想法是完全一样的。”且不说这种“大变活人”说法常识上的荒唐，而且犯 …</description></item><item><title>量子通信安全性分析</title><link>https://project-gutenberg.github.io/Pincong/post/1a2ffdd0b3129cf4b4fc513fb71ab968/</link><pubDate>Sun, 21 Jun 2020 14:22:43 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/1a2ffdd0b3129cf4b4fc513fb71ab968/</guid><description>量子通信安全性分析
+作者：八里土人
+随着量子通信卫星“墨子”发射成功，近來量子通信成了热点。很多新闻中把量子通信说成绝对安全，把基于数学原理的现代密码学贬得一文不值。这里对量子通信的安全性做一个初步分析，澄清一些大众大误解。
+一般分析系统安全性，以CIA为维度。CIA并不是美国中央情报局，而是“机密性”，“完整性”，“可用性”作为评估维度。
+加解密与密钥基础 加解密算法粗分2种，对称密钥和非对称密钥。对称密钥是加解密密钥相同，加解密 …</description></item><item><title>谈谈我对量子通信的看法</title><link>https://project-gutenberg.github.io/Pincong/post/deb39411c8228d6248285b8602c01b68/</link><pubDate>Sun, 21 Jun 2020 13:03:42 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/deb39411c8228d6248285b8602c01b68/</guid><description>谈谈我对量子通信的看法
+作者：一土老兵
+我是一名从部队退休多年的通信工程师，从学校学习到工作从事这一专业大约有近三十年时间，可以说经历了我国通信业从落后到发展到发达的全过程，除了现在热炒的“量子通信”，所接触的领域几乎涵盖了传统的有线通信和无线通信的全部内容，应该说对通信知识、技术和装备的了解，比普通人更有发言权。看到网上最近对量子通信有很多话题，便忍不住想站出来说几句。本人文笔不好（学理工科的），看到用词不当可忽略，只看道理。
+我接触 …</description></item><item><title>质疑量子通信，对弥补“中国科学精神短板”是好事</title><link>https://project-gutenberg.github.io/Pincong/post/b6025915be0fae9bfe9d67d4d7348e08/</link><pubDate>Sun, 21 Jun 2020 12:34:02 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b6025915be0fae9bfe9d67d4d7348e08/</guid><description>质疑量子通信，对弥补“中国科学精神短板”是好事
+作者：科工力量　来源：科工力量
+6月6日，科技日报头版刊登了两篇文章，标题分别是《质疑缺位：科学精神的中国短板》和《发展离不开质疑，进步离不开批判》，其舆论导向已经非常清楚了。正如文章所说，质疑是科学精神不可分割的一部分。但在中国科技界，似乎缺乏这样的习惯。
+中国科技近年来发展迅速，许多新概念也层出不穷，也有一些工程上并不成熟的老概念被反复炒作，比如“量子计算机”、“可控核聚变”等。对于新 …</description></item><item><title>浙江理工大学徐伟强团队论文已被通信学报鉴定为抄袭并作出处理</title><link>https://project-gutenberg.github.io/Pincong/post/6a950e5874ebd895174c3ee81775ed54/</link><pubDate>Sun, 21 Jun 2020 12:12:26 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/6a950e5874ebd895174c3ee81775ed54/</guid><description>浙江理工大学徐伟强团队论文已被通信学报鉴定为抄袭并作出处理
+方先生，您好！
+在向新语丝反映浙江理工大学徐伟强团队论文与IEEE会议论文重复率过高问题 （见http://www.xys.org/xys/ebooks/others/science/dajia19/xuweiqiang.txt）之后，其发表的杂志通信学报第一时间做出了响应，已经对该文进行了处 …</description></item><item><title>疫情后大陆的移动网络质量是否显著下降？通信瓦房店化即将到来？</title><link>https://project-gutenberg.github.io/Pincong/post/b3438d97a86e5087240ef009dcbd7c9c/</link><pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b3438d97a86e5087240ef009dcbd7c9c/</guid><description>品葱用户 萨格尔王吃冰棒 提问于 6/17/2020 本人坐标东南沿海二线城市，和朋友都感觉疫情后移动网络网速明显下降且不稳定。不知大家是否有感觉？
+朋友听到传闻说大量4G基站被拆除，从而导致网络质量下降，莫非是厉害国通信领域也即将瓦房店化？
+抑或是为了强推5G，从而主动给4G废功？
+品葱用户 steverdevin 评论于 2020-06-17 移动通信网络质量下降与一个地区或者一个国家的决策没有什么关系，大多数都是因为以下原因。 …</description></item><item><title>请网易邮箱立即停止侵犯公民通信自由</title><link>https://project-gutenberg.github.io/Pincong/post/b7624d28bd59e48da525a1c13d061bdb/</link><pubDate>Wed, 11 Mar 2020 02:45:47 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b7624d28bd59e48da525a1c13d061bdb/</guid><description>很多关注了本公号的朋友都知道，除了在微信公号这个平台更新之外，新闻实验室还有一个，通过邮件（newsletter）的形式更新。
+订阅了会员计划之后，我们会定期（每3-4天）向你的电子邮箱里发送会员通讯。
+运营会员计划3年多以来，我遇到的一个重要烦恼是：某些国内邮箱时常屏蔽这些邮件，即便做了“星标联系人”、“白名单”等设置，依然如故。
+两年前的时候，我写过一篇文章讲过这件事，并提醒大家：这些邮箱很可能也会屏蔽来自国外大学、公司的重要邮件， …</description></item></channel></rss>

@@ -1,0 +1,55 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>rebecca on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/author/rebecca/</link><description>Recent content in rebecca on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Fri, 20 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/author/rebecca/index.xml" rel="self" type="application/rss+xml"/><item><title>【待查证】如何看待【武汉自封城至3月10日共火化21703具尸体】？</title><link>https://project-gutenberg.github.io/Pincong/post/260755c115221c02768b98bcefd77414/</link><pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/260755c115221c02768b98bcefd77414/</guid><description>品葱用户 rebecca 提问于 3/20/2020 数据只有一条，具体情况需要进一步分析。
+品葱用户 XitlerVirus 评论于 2020-03-20 記得之前有帖子計算一月中下旬的武漢火葬場工作量，滿載大概數據是一天可以燒2k+屍體，因為是初期，記得好像當時官方給出的確診數據還只有幾百人.
+要知道盡管後來建了方倉醫院，在大概二月中旬的時候依然有人在小區敲鑼打鼓希望被收治，也就是說，至少一直到二月中都處於support不足狀況.
+…</description></item><item><title>【湖北笑话】造谣高价菜，有吏夜捉人</title><link>https://project-gutenberg.github.io/Pincong/post/567d7c68977bdff86981eac2866a660e/</link><pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/567d7c68977bdff86981eac2866a660e/</guid><description>（湖北某派出所内）
+所长：今天我们要去xx小区里抓几个人。
+警员：抓什么人？
+所长：昨天聚众闹事，造谣菜价过高的那些业主。
+警员：他们具体造谣了什么
+所长：我也不清楚，但是上面安排了任务，要抓那几个带头的人。
+警员：小区几千人，怎么知道谁是带头的？
+所长：昨天我们锁定了27个微信群，群主共12人，身份证号和地址已经拿到了。
+警员：那为什么还不抓？
+所长：现在太早，等天黑再抓比较合适。
+警员：他们一整天都隔离在里面，白天晚上抓有什么区别？ …</description></item><item><title>特区政府提醒海外华侨华人：不要回国</title><link>https://project-gutenberg.github.io/Pincong/post/c16e08c2b2d3e2667009f90778c02e6e/</link><pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/c16e08c2b2d3e2667009f90778c02e6e/</guid><description>PCSAR Government Notice: Chinese expats should not return to China
+目前，中国大陆新冠肺炎疫情形势仍然严峻，人道灾难频发。
+特区政府提醒各位海外华侨华人同胞，不要轻信CCTV、人民日报关于新冠肺炎疫情的宣传，如无必要，切勿返回中国，以免横遭不测，提前去世。
+品葱特别行政区
+行政长官 习明泽
+2020年3月15 …</description></item><item><title>警在家中坐，习从天上来（图片集锦）</title><link>https://project-gutenberg.github.io/Pincong/post/88c8fb44a239653ede5aa7e4ff0be1ce/</link><pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/88c8fb44a239653ede5aa7e4ff0be1ce/</guid><description>原标题：习近平到访武汉，但我不怕，因为武汉公安在我家做安全排查
+相关问题：【治不了肺炎还治不了你】如何看待武汉小区每家安排代表防止乱喊？
+图片欣赏（部分图片由其他葱油上传，谢谢你们）：
+武汉政府对我们真是太好了。
+字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁字数补丁
+品葱用户 Nzdnp …</description></item><item><title>Tor命令行版本（不含浏览器捆绑）的使用指南，兼Tor技术简介</title><link>https://project-gutenberg.github.io/Pincong/post/b8f0bc05f927ba88fc11737636b90c25/</link><pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b8f0bc05f927ba88fc11737636b90c25/</guid><description>阅读本文之前，请先确认：
+你可以翻墙上网 警告：本文的安全系数比编程随想低很多，如果你需要编程随想的那种安全性，请不要继续阅读本文。 什么是Tor？
+Tor是一种通过【层层加密】【到处兜圈】，让网站无法知道你的ip地址（从而抓不到你），在需要的时候也可以让你无法知道网站的ip地址（从而抓不到建网站的人）的技术。 Tor让你在网络上接近于【匿名】，适合用来干坏事。 要使用这个技术，你需要安装Tor客户端。 Tor的好处
+假如明天 …</description></item><item><title>光复广州，二月退租。五大诉求，三月免租。视频寥寥，照片近无，为什么？</title><link>https://project-gutenberg.github.io/Pincong/post/d6b3d9dcf2d9206427281a903df254ae/</link><pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/d6b3d9dcf2d9206427281a903df254ae/</guid><description>品葱用户 rebecca 提问于 3/8/2020 今天，坎通尼亚首都坎通市发生了抗议。
+出了这么大的事情，我第一反应就是去找照片和视频，在google搜索图片，结果如下：
+看了一下来源，与这次事件相关的媒体报道，只有新唐人、大纪元、品葱、希望之声、秘密中国。
+我原本以为，上次茂名起事，图片和视频质量已经够差了。按理说，这次坎通尼亚出来抗议的，都是做生意的人，是资本主义的爪牙，应该会有所改善。没想到还是这么不善于使用媒体，传出来的视频和 …</description></item><item><title>【文宣】习近平到访品葱论坛媒体中心，并亲自注册品葱账号（已更新）</title><link>https://project-gutenberg.github.io/Pincong/post/d8dd3ff5938685ceb348e483aef63bb5/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/d8dd3ff5938685ceb348e483aef63bb5/</guid><description>文章正文有最少100字限制，但我不想发成问题，所以需要在这里写一些话来凑字数。
+（编辑：已制作新图，下面这张是新版，第二张是原版。）
+不确定能否起到宣传品葱的效果，但还是决定做出来看一下。
+各位有修改意见尽管提，我会根据大家的意见再做更多的版本。
+根据alexa的分析，目前品葱的主要流量来源是搜索，最常见关键词是“品葱”和“知乎”。所以我也不确定宣传图能够起到多大作用，除非图本身在墙内能得到广泛传播。
+海报在设计方面继续沿用社会主义美 …</description></item><item><title>因为人民币，我决定脱离体制 （已重写</title><link>https://project-gutenberg.github.io/Pincong/post/3a3cc2c8595c8843103499c7168a7ca8/</link><pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/3a3cc2c8595c8843103499c7168a7ca8/</guid><description>今天我决定讲一下我自己的故事。
+（备注：第一稿写的很烂，修改得很辛苦。刚刚终于改完了，现在你看到的是第三稿。
+我的父母并不是什么专家教授，但好在都有本科学历，在中国大概是前1%水平。
+虽然我家确实很少发生普通中国家庭常见的各种悲剧（比如家庭暴力），但思想上并不算太自由，尤其他们都是党员，每当祖国加速倒车的时候，他们也难免会情不自禁地跟着小跑一下。
+比如CCTV歌颂大国崛起的时候，他们通常不会像广大人民群众那样盯着电视血脉喷张，但每当凤凰 …</description></item><item><title>杨安泽退选后另辟蹊径，一举成名</title><link>https://project-gutenberg.github.io/Pincong/post/98e43d2ed3ce73a55b7090cb599edcd3/</link><pubDate>Fri, 21 Feb 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/98e43d2ed3ce73a55b7090cb599edcd3/</guid><description>有的同学不认识杨安泽，介绍一下。
+杨安泽的父亲是工程师，从台湾移民美国。出生在美国的杨安泽从小就成绩优异，大学毕业后轮番创业，最终成功。后来在美国中部（铁锈带）搞创业孵化器，对美国制度问题感触很深，决定竞选总统。
+提出竞选口号“政治以人为本(Humanity First)”，以及“让美国更加认真思考(Make America Think Harder)”。
+提出政治主张“无条件给每个成年美国公民每个月发1000美元的全民基本收 …</description></item><item><title>网络冲塔技术分析（兼人脸识别科普</title><link>https://project-gutenberg.github.io/Pincong/post/929f94387e5fae275526d993432b6ec6/</link><pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/929f94387e5fae275526d993432b6ec6/</guid><description>贝卡：大家好，我是丽贝卡，在品葱的用户名是rebecca，今天跟大家从技术角度谈一下网络冲塔。
+舒克：你说到这个冲塔，我身边的很多朋友都有在知乎、微博、QQ上冲塔，因为我们相信冲塔能够早日推翻共匪、实现民主。
+贝卡：没错，目前国内每天都有大量网友加入冲塔的行列。我本人是做人工智能研究的，对中国的各种监控技术都有比较深入的了解，对冲塔这件事，希望能够给大家提供一些专业视角。
+舒克：admin之前就怀疑你是网警。
+贝卡：不，我不是网警。
+舒 …</description></item><item><title>新品葱第二封调查问卷 结果出炉！（已更新：结果分男女）</title><link>https://project-gutenberg.github.io/Pincong/post/48aa5da4472e04cdae811f136e19b69e/</link><pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/48aa5da4472e04cdae811f136e19b69e/</guid><description>2020-2-7 编辑：
+调查问卷结果已经更新，包括截止至2月6号前提交的所有问卷。参与调查人数接近400。
+调查报告首次按照性别分类，反映男女用户认识上的差异。
+↓调查报告按照性别分类的HTML版本↓
+https://fanaticjapanesechin.htmlpasta.com/
+如果不想看报告，以下是官方结论：
+品葱1/4用户为女性。 在男性用户中，大陆居民占5/6，剩下为港台及其他地区居民。 在女性用户中，大陆居民只占一 …</description></item><item><title>【重要】请肺炎患者家属注意保留样本、证据</title><link>https://project-gutenberg.github.io/Pincong/post/0ae68f743f577c89a13fd98f58cbe7d9/</link><pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/0ae68f743f577c89a13fd98f58cbe7d9/</guid><description>目前官方发布的确诊人数和实际感染人数相去甚远。由于武汉医疗资源不足，很多武汉患者连确诊的机会都没有，就离开了这个世界，火化之后死无对证。
+如果你是患者家属，且患者目前仍然健在，请用下面方法保留样本。
+准备一个塑料饮料瓶，将内外清洗干净； 将患者使用过的、含有病毒样本的纸巾，塞到饮料瓶内，将盖子拧到最紧，确保密不透风。封口前应稍微将瓶身压扁，以确保瓶内气压低于外界气压，这样病毒不会在未来开盖时被喷到空气中。 将封好口的饮料瓶再次清洗干 …</description></item></channel></rss>

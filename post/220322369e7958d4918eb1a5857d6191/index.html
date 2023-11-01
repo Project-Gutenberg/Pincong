@@ -1,0 +1,256 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>如何计算水军数量</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 两星期前，我回答了中国人口激增是由于毛泽东时期鼓励生育造成的么？这个问题。这问题里，有一个回答来自妄想家（中国人口激增是由于毛泽东时期鼓励生育造成的么？ - 妄想家的回答）。
+这个答案的评论串里的Xie Yipeng和田锋，都是很早就被我拉黑的id了，原因可以在我这个回答里面找（非专业人士在讨论到涉及专业知识的话题时需要注意什么？ - chenqin 的回答）。对妄想家这个答案本身，我这里也不评论，今天我们来讨论一个更有趣的玩意儿。
+发现水军
+妄想家在11月24日晚十点零五最后一次修改了这个回答，表示反对我的答案。之后，他的回答的赞同数从32个一直上升到了截至我写完这篇专栏前的656个。在我写这篇专栏的时候，赞同数量以一分钟一个的速度上升，极为稳定。
+但当我打开他的赞同列表时，极大的违和感包围了我。
+这是最近的赞同：
+这是最早的赞同：
+最早三行赞同，有中文有英文，id有长有短，这是一个正常的赞同列表。但在第44个赞同齐濮过后，便是清一色的中文赞同，而且大多数id由两个汉字组成。其中夹杂的几个英文id赞同，也有着同样的规律，即一个英文单词的前几位中间插入一个空格。
+来看一下齐濮吧。
+两个不知所谓的回答，个人签名是三个字：吃零食。零赞同，零感谢，204个关注，竟然有183个被关注。最近赞同的三个问题，除了本题之外，分别是
+你为什么从中国移动离职？
+怎样在不引起尴尬的前提下提醒女生剃腋毛？
+有哪些好的网站，让人第一眼看了就怦然心动，流连忘返？
+这样的id，为什么会有人关注呢？让我们来看一下他赞同的第一个问题的赞同列表。
+这是距离最近的一些赞同
+这是其中一小段赞同。
+把这些赞同，和妄想家这个回答的赞同进行比较，可以发现，在齐濮之后赞同的614个赞同中，有165个赞同了中国移动离职这一题，他们之中有一些正是在那些壮观的二字id列表中。
+在妄想家这个答案里，齐濮之后两位是虞滕。看看他的主页
+同样是两个不知所谓的回答，二赞零感谢，大量关注和被关注。他的动态里有一个问题吸引了我：
+公务员考试科目行测和申论怎么学才好？
+莫名其妙的回答，却有315个赞同，赞同列表一样惨不忍睹
+不出所料，在齐濮之后赞同的614个赞同中，有153个赞同了公务员这一题。
+**翻一翻这些赞同者的关注和被关注列表，一个庞大的水军集团浮上了水面。**在他们的动态里，可以找到另外一些显然是由水军所投票来推高的问题。而且这些问题的赞同可能来自同一个水军集团。
+怎么上知乎日报？
+有哪些 GMAT 复习材料值得推荐？
+有哪些有意思好玩的网站、App 值得推荐？
+聊天时经常说「我去洗个澡，一会儿再聊」的女生考虑过男人的感受吗？
+计算水军总数
+如果只是看这几个营销回答的赞同数，我们似乎能得出结论：大概有3-500个水军id吧？但如果我们随机点一些id进去看，却又发现每个id点赞的时间和问题都不同，有时候公务员题被赞了，有时候app题被赞了，他们之间似乎有联系，但也不容易抓住这个联系。
+因为每一题的水军，都是其总数的冰山一角啊。
+从刚才的分析里面，我们能看出这一个水军集团的运作方式，随机赞同某些热门回答，再分批赞同其要推广的回答。因此，之前被人揪出来的一些所有水军批量赞同一个回答的情况，不太会出现了。但这并不妨碍我们把他们揪出来。
+现在来看一种大家都很熟悉的抽样方法。在一个池塘里打捞上来100条鱼，全部做记号之后放回池塘，隔两天再打捞100条鱼。此时做了记号的鱼有5条。那么，如果两批鱼的打捞是完全随机的，则这个池塘共有100乘以100除以5，共2000条鱼。
+在这四个问题，加上之前公务员相关的五个问题里，共有多少重复赞同呢？看这个矩阵
+上面的矩阵中，对角线表示给自己赞同的人数，对角线之外的元素表示两题之间有多少重复赞同。我们使用池塘捞鱼的方法，假设没两题之间水军分布完全随机，那么使用公式：
+水军总数=赞同第题的人赞同第题的人/同时赞同和的人
+这是根据池塘捉鱼改编的公式。使用它，我们可以根据每一个问题对，算出水军总数。
+上面的矩阵代表了根据每两个问题对算出的水军总数。在这里，我们可以发现GMAT和上日报这两题的重复赞同较多，赞同了GMAT那题的，有269个也赞同了上日报这题，因此这两题算出的水军总数只有416人。也许在这两题里水军随机数用到了同一个seed也说不定。
+但在其他问题的交互对里面，我们能发现一个相对稳定的数字，大概在1700到2100之间。APP问题和其他问题的重复值相对较低，而公务员和洗个澡问题的重复值较低，造成了这两个格子的数字大小不同。
+因此，我们大致可以得出结论：这是一批总量在1700-2100左右的水军，他们相互之间随机关注，随机提问，随机回答，随机赞同热门问题。但在真正需要顶的问题上，他们会分批出动，保证每个问题不至于有完全一致的赞同序列，而且如果两个id同时赞同了两个问题，他们的顺序必然是打乱的。例如，在GMAT问题和上日报问题里，269个重复赞的水军采取了完全不同的赞同顺序。
+我暂时没有找到触发他们批量点赞的机制。我看了几个id，他们都没有赞同过我的回答，尽管他们赞同某个热门回答也只是为了伪装自己，但这已经够让人恶心的了。
+我也不太相信妄想家会为了这么一个回答找水军，他的问题可能只是恰好被水军发现时一个批量刷赞的好去处而已。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 如何计算水军数量 ">
+<meta name=og:description content=" 两星期前，我回答了中国人口激增是由于毛泽东时期鼓励生育造成的么？这个问题。这问题里，有一个回答来自妄想家（中国人口激增是由于毛泽东时期鼓励生育造成的么？ - 妄想家的回答）。
+这个答案的评论串里的Xie Yipeng和田锋，都是很早就被我拉黑的id了，原因可以在我这个回答里面找（非专业人士在讨论到涉及专业知识的话题时需要注意什么？ - chenqin 的回答）。对妄想家这个答案本身，我这里也不评论，今天我们来讨论一个更有趣的玩意儿。
+发现水军
+妄想家在11月24日晚十点零五最后一次修改了这个回答，表示反对我的答案。之后，他的回答的赞同数从32个一直上升到了截至我写完这篇专栏前的656个。在我写这篇专栏的时候，赞同数量以一分钟一个的速度上升，极为稳定。
+但当我打开他的赞同列表时，极大的违和感包围了我。
+这是最近的赞同：
+这是最早的赞同：
+最早三行赞同，有中文有英文，id有长有短，这是一个正常的赞同列表。但在第44个赞同齐濮过后，便是清一色的中文赞同，而且大多数id由两个汉字组成。其中夹杂的几个英文id赞同，也有着同样的规律，即一个英文单词的前几位中间插入一个空格。
+来看一下齐濮吧。
+两个不知所谓的回答，个人签名是三个字：吃零食。零赞同，零感谢，204个关注，竟然有183个被关注。最近赞同的三个问题，除了本题之外，分别是
+你为什么从中国移动离职？
+怎样在不引起尴尬的前提下提醒女生剃腋毛？
+有哪些好的网站，让人第一眼看了就怦然心动，流连忘返？
+这样的id，为什么会有人关注呢？让我们来看一下他赞同的第一个问题的赞同列表。
+这是距离最近的一些赞同
+这是其中一小段赞同。
+把这些赞同，和妄想家这个回答的赞同进行比较，可以发现，在齐濮之后赞同的614个赞同中，有165个赞同了中国移动离职这一题，他们之中有一些正是在那些壮观的二字id列表中。
+在妄想家这个答案里，齐濮之后两位是虞滕。看看他的主页
+同样是两个不知所谓的回答，二赞零感谢，大量关注和被关注。他的动态里有一个问题吸引了我：
+公务员考试科目行测和申论怎么学才好？
+莫名其妙的回答，却有315个赞同，赞同列表一样惨不忍睹
+不出所料，在齐濮之后赞同的614个赞同中，有153个赞同了公务员这一题。
+**翻一翻这些赞同者的关注和被关注列表，一个庞大的水军集团浮上了水面。**在他们的动态里，可以找到另外一些显然是由水军所投票来推高的问题。而且这些问题的赞同可能来自同一个水军集团。
+怎么上知乎日报？
+有哪些 GMAT 复习材料值得推荐？
+有哪些有意思好玩的网站、App 值得推荐？
+聊天时经常说「我去洗个澡，一会儿再聊」的女生考虑过男人的感受吗？
+计算水军总数
+如果只是看这几个营销回答的赞同数，我们似乎能得出结论：大概有3-500个水军id吧？但如果我们随机点一些id进去看，却又发现每个id点赞的时间和问题都不同，有时候公务员题被赞了，有时候app题被赞了，他们之间似乎有联系，但也不容易抓住这个联系。
+因为每一题的水军，都是其总数的冰山一角啊。
+从刚才的分析里面，我们能看出这一个水军集团的运作方式，随机赞同某些热门回答，再分批赞同其要推广的回答。因此，之前被人揪出来的一些所有水军批量赞同一个回答的情况，不太会出现了。但这并不妨碍我们把他们揪出来。
+现在来看一种大家都很熟悉的抽样方法。在一个池塘里打捞上来100条鱼，全部做记号之后放回池塘，隔两天再打捞100条鱼。此时做了记号的鱼有5条。那么，如果两批鱼的打捞是完全随机的，则这个池塘共有100乘以100除以5，共2000条鱼。
+在这四个问题，加上之前公务员相关的五个问题里，共有多少重复赞同呢？看这个矩阵
+上面的矩阵中，对角线表示给自己赞同的人数，对角线之外的元素表示两题之间有多少重复赞同。我们使用池塘捞鱼的方法，假设没两题之间水军分布完全随机，那么使用公式：
+水军总数=赞同第题的人赞同第题的人/同时赞同和的人
+这是根据池塘捉鱼改编的公式。使用它，我们可以根据每一个问题对，算出水军总数。
+上面的矩阵代表了根据每两个问题对算出的水军总数。在这里，我们可以发现GMAT和上日报这两题的重复赞同较多，赞同了GMAT那题的，有269个也赞同了上日报这题，因此这两题算出的水军总数只有416人。也许在这两题里水军随机数用到了同一个seed也说不定。
+但在其他问题的交互对里面，我们能发现一个相对稳定的数字，大概在1700到2100之间。APP问题和其他问题的重复值相对较低，而公务员和洗个澡问题的重复值较低，造成了这两个格子的数字大小不同。
+因此，我们大致可以得出结论：这是一批总量在1700-2100左右的水军，他们相互之间随机关注，随机提问，随机回答，随机赞同热门问题。但在真正需要顶的问题上，他们会分批出动，保证每个问题不至于有完全一致的赞同序列，而且如果两个id同时赞同了两个问题，他们的顺序必然是打乱的。例如，在GMAT问题和上日报问题里，269个重复赞的水军采取了完全不同的赞同顺序。
+我暂时没有找到触发他们批量点赞的机制。我看了几个id，他们都没有赞同过我的回答，尽管他们赞同某个热门回答也只是为了伪装自己，但这已经够让人恶心的了。
+我也不太相信妄想家会为了这么一个回答找水军，他的问题可能只是恰好被水军发现时一个批量刷赞的好去处而已。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/1.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>如何计算水军数量</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<span>at 24 November 2014</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%b5%9e%e5%90%8c>赞同</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e9%9a%8f%e6%9c%ba>随机</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%a6%84%e6%83%b3>妄想</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%b8%a4%e9%a2%98>两题</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/220322369e7958d4918eb1a5857d6191.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/220322369e7958d4918eb1a5857d6191.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>两星期前，我回答了<a href=http://www.zhihu.com/question/26628171>中国人口激增是由于毛泽东时期鼓励生育造成的么？</a>这个问题。这问题里，有一个回答来自<a href=http://www.zhihu.com/people/wang-xiang-jia-82>妄想家</a>（<a href=http://www.zhihu.com/question/26628171/answer/33495789>中国人口激增是由于毛泽东时期鼓励生育造成的么？ - 妄想家的回答</a>）。</p>
+<p>这个答案的评论串里的<a href=http://www.zhihu.com/people/xie-yipeng-33>Xie Yipeng</a>和<a href=http://www.zhihu.com/people/tian-feng-21-25>田锋</a>，都是很早就被我拉黑的id了，原因可以在我这个回答里面找（<a href=http://www.zhihu.com/question/21624292/answer/19320223>非专业人士在讨论到涉及专业知识的话题时需要注意什么？ - chenqin 的回答</a>）。对妄想家这个答案本身，我这里也不评论，今天我们来讨论一个更有趣的玩意儿。</p>
+<p><strong>发现水军</strong></p>
+<p>妄想家在11月24日晚十点零五最后一次修改了这个回答，表示反对我的答案。之后，他的回答的赞同数从32个一直上升到了截至我写完这篇专栏前的656个。在我写这篇专栏的时候，赞同数量以一分钟一个的速度上升，极为稳定。</p>
+<p>但当我打开他的赞同列表时，极大的违和感包围了我。</p>
+<p>这是最近的赞同：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/0edfb4db70ba06fdf358e6bcc03cbfd5_b.jpg" alt></p>
+<p>这是最早的赞同：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//picb.zhimg.com/eb11964e0353a921dd3cdadcda87eadf_b.jpg" alt></p>
+<p>最早三行赞同，有中文有英文，id有长有短，这是一个正常的赞同列表。但在第44个赞同<a href=http://www.zhihu.com/people/qi-pu-66-62>齐濮</a>过后，便是清一色的中文赞同，而且大多数id由两个汉字组成。其中夹杂的几个英文id赞同，也有着同样的规律，即一个英文单词的前几位中间插入一个空格。</p>
+<p>来看一下<a href=http://www.zhihu.com/people/qi-pu-66-62>齐濮</a>吧。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//picb.zhimg.com/b805fd1afc3952319427736b13f57fc0_b.jpg" alt></p>
+<p>两个不知所谓的回答，个人签名是三个字：吃零食。零赞同，零感谢，204个关注，竟然有183个被关注。最近赞同的三个问题，除了本题之外，分别是</p>
+<p><a href=http://www.zhihu.com/question/22032880/answer/20101327>你为什么从中国移动离职？</a></p>
+<p><a href=http://www.zhihu.com/question/25287791/answer/32895745>怎样在不引起尴尬的前提下提醒女生剃腋毛？</a></p>
+<p><a href=http://www.zhihu.com/question/26380791/answer/32816918>有哪些好的网站，让人第一眼看了就怦然心动，流连忘返？</a></p>
+<p>这样的id，为什么会有人关注呢？让我们来看一下他赞同的第一个问题的赞同列表。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/c79aadd070184fd6217fb47c7a347aac_b.jpg" alt></p>
+<p>这是距离最近的一些赞同</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/9ba328056de4ba7d69a638512cb8c7c1_b.jpg" alt></p>
+<p>这是其中一小段赞同。</p>
+<p>把这些赞同，和妄想家这个回答的赞同进行比较，可以发现，在<a href=http://www.zhihu.com/people/qi-pu-66-62>齐濮</a>之后赞同的614个赞同中，有165个赞同了中国移动离职这一题，他们之中有一些正是在那些壮观的二字id列表中。</p>
+<p>在妄想家这个答案里，<a href=http://www.zhihu.com/people/qi-pu-66-62>齐濮</a>之后两位是<a href=http://www.zhihu.com/people/yu-teng-81>虞滕</a>。看看他的主页</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/650ca2404802cbb8edbf3872e525e10b_b.jpg" alt></p>
+<p>同样是两个不知所谓的回答，二赞零感谢，大量关注和被关注。他的动态里有一个问题吸引了我：</p>
+<p><a href=http://www.zhihu.com/question/20644760/answer/33483718>公务员考试科目行测和申论怎么学才好？</a></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/2a994b38ea1650998d727b2ec36cd2ba_b.jpg" alt></p>
+<p>莫名其妙的回答，却有315个赞同，赞同列表一样惨不忍睹</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/282e39f2bae404dab15d9b110718bd53_b.jpg" alt></p>
+<p>不出所料，在<a href=http://www.zhihu.com/people/qi-pu-66-62>齐濮</a>之后赞同的614个赞同中，有153个赞同了公务员这一题。</p>
+<p>**翻一翻这些赞同者的关注和被关注列表，一个庞大的水军集团浮上了水面。**在他们的动态里，可以找到另外一些显然是由水军所投票来推高的问题。而且这些问题的赞同可能来自同一个水军集团。</p>
+<p><a href=http://www.zhihu.com/question/24920202/answer/29707362>怎么上知乎日报？</a></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/a075c36edeb98c08c913fa7692af9394_b.jpg" alt></p>
+<p><a href=http://www.zhihu.com/question/20306867/answer/31650275>有哪些 GMAT 复习材料值得推荐？</a></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/711d4d61d21a51213c9e63c6090ae462_b.jpg" alt></p>
+<p><a href=http://www.zhihu.com/question/26488686/answer/33025183>有哪些有意思好玩的网站、App 值得推荐？</a></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//picb.zhimg.com/15efa7c861d82ab95c012ffa04401c8d_b.jpg" alt></p>
+<p><a href=http://www.zhihu.com/question/26632939/answer/33675700>聊天时经常说「我去洗个澡，一会儿再聊」的女生考虑过男人的感受吗？</a></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/2eb2e74f521bc44bf02efd85e3251d5e_b.jpg" alt></p>
+<p><strong>计算水军总数</strong></p>
+<p>如果只是看这几个营销回答的赞同数，我们似乎能得出结论：大概有3-500个水军id吧？但如果我们随机点一些id进去看，却又发现每个id点赞的时间和问题都不同，有时候公务员题被赞了，有时候app题被赞了，他们之间似乎有联系，但也不容易抓住这个联系。</p>
+<p>因为每一题的水军，都是其总数的冰山一角啊。</p>
+<p>从刚才的分析里面，我们能看出这一个水军集团的运作方式，<strong>随机赞同某些热门回答，再分批赞同其要推广的回答</strong>。因此，之前被人揪出来的一些所有水军批量赞同一个回答的情况，不太会出现了。但这并不妨碍我们把他们揪出来。</p>
+<p>现在来看一种大家都很熟悉的抽样方法。在一个池塘里打捞上来100条鱼，全部做记号之后放回池塘，隔两天再打捞100条鱼。此时做了记号的鱼有5条。那么，如果两批鱼的打捞是完全随机的，则这个池塘共有100乘以100除以5，共2000条鱼。</p>
+<p>在这四个问题，加上之前公务员相关的五个问题里，共有多少重复赞同呢？看这个矩阵</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//picb.zhimg.com/9a38c75974ee22624bbeb5c3d089ece5_b.jpg" alt></p>
+<p>上面的矩阵中，对角线表示给自己赞同的人数，对角线之外的元素表示两题之间有多少重复赞同。我们使用池塘捞鱼的方法，假设没两题之间水军分布完全随机，那么使用公式：</p>
+<p>水军总数=赞同第<img src="https://images.weserv.nl/?url=https%3A//www.zhihu.com/equation%3Ftex%3Di" alt=i>题的人<img src="https://images.weserv.nl/?url=https%3A//www.zhihu.com/equation%3Ftex%3D%255Ctimes%2B" alt="\times ">赞同第<img src="https://images.weserv.nl/?url=https%3A//www.zhihu.com/equation%3Ftex%3Dj" alt=j>题的人/同时赞同<img src="https://images.weserv.nl/?url=https%3A//www.zhihu.com/equation%3Ftex%3Di" alt=i>和<img src="https://images.weserv.nl/?url=https%3A//www.zhihu.com/equation%3Ftex%3Dj" alt=j>的人</p>
+<p>这是根据池塘捉鱼改编的公式。使用它，我们可以根据每一个问题对，算出水军总数。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/d967e3bdc460416421ea17192bf2ed8a_b.jpg" alt></p>
+<p>上面的矩阵代表了根据每两个问题对算出的水军总数。在这里，我们可以发现GMAT和上日报这两题的重复赞同较多，赞同了GMAT那题的，有269个也赞同了上日报这题，因此这两题算出的水军总数只有416人。也许在这两题里水军随机数用到了同一个seed也说不定。</p>
+<p>但在其他问题的交互对里面，我们能发现一个相对稳定的数字，大概在1700到2100之间。APP问题和其他问题的重复值相对较低，而公务员和洗个澡问题的重复值较低，造成了这两个格子的数字大小不同。</p>
+<p>因此，我们大致可以得出结论：<strong>这是一批总量在1700-2100左右的水军，他们相互之间随机关注，随机提问，随机回答，随机赞同热门问题。但在真正需要顶的问题上，他们会分批出动，保证每个问题不至于有完全一致的赞同序列，而且如果两个id同时赞同了两个问题，他们的顺序必然是打乱的。例如，在GMAT问题和上日报问题里，269个重复赞的水军采取了完全不同的赞同顺序。</strong></p>
+<p>我暂时没有找到触发他们批量点赞的机制。我看了几个id，他们都没有赞同过我的回答，尽管他们赞同某个热门回答也只是为了伪装自己，但这已经够让人恶心的了。</p>
+<p>我也不太相信妄想家会为了这么一个回答找水军，他的问题可能只是恰好被水军发现时一个批量刷赞的好去处而已。</p>
+<p>ps：</p>
+<p>在我写完这篇专栏不久，妄想家的回答就被折叠了，知乎的反机器人机制启动了，虽然我估计他的回答属于躺枪，没有请水军，却被水军刷了赞。</p>
+<p>虽然已经被折叠，但是这个回答赞同数仍然在以一分钟一个的速度稳步上升，让我们拭目以待最后能达到几个赞，以及“随机刷赞”的假设是不是准确。</p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

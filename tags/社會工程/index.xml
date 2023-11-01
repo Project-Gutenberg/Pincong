@@ -1,0 +1,6 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>社會工程 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E7%A4%BE%E6%9C%83%E5%B7%A5%E7%A8%8B/</link><description>Recent content in 社會工程 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Thu, 21 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E7%A4%BE%E6%9C%83%E5%B7%A5%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>我闲着没事爬了一下胡锡进的推特账号（更新3：胡总生活习惯讨论）</title><link>https://project-gutenberg.github.io/Pincong/post/b3e98f619ef4eb9abeac6dec798bd0ec/</link><pubDate>Thu, 21 Nov 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b3e98f619ef4eb9abeac6dec798bd0ec/</guid><description>对，我确实闲着没事。
+胡主编在twitter十分活跃，其实我没有关注他，但每天都能看到别人转发或者reply他的信息。我进去瞄了一眼他的账号，1500多tweet，于是我决定爬一爬分析一下图个乐呵。
+爬虫：tweepy
+目标账号：@HuXijin_GT （胡锡进的英语twitter账号）
+爬取结果：1505条记录（去重后，共1496条tweet），时间跨度：2014-08-29 （胡主编twitter玩的挺早）到 2019-11-19
+…</description></item></channel></rss>

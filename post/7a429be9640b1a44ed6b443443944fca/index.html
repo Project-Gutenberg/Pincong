@@ -1,0 +1,215 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>如何优化这段搬运图片的Python代码？</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 品葱用户 Cyberspace 提问于 9/19/2020 代码是抄网上后魔改的，如何减少大量的if语句和优化正则表达所在的那行代码？
+顺代一提正在用Python汇总翻车新闻和微博谈到一个文件里，自己边学边写。
+也请教下品葱的大佬。
+import os import re import time from base64 import b64encode import pyperclip import requests url = 'https://api.imgur.com/3/image' #备用https://api.mashiro.top/imgur-api/3/image def upload(url1): return requests.post(url, headers={'Authorization': 'Client-ID 98cd21cdfc58130'}, data={'image': b64encode(open(url1, 'rb').read()), 'type': 'base64'}).text PicDir = r'C:\\1' #本地图片存储目录 a = \[\] for Dir in os.listdir(PicDir): if Dir.split('.')\[1\] == 'jpeg': a. ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 如何优化这段搬运图片的Python代码？ ">
+<meta name=og:description content=" 品葱用户 Cyberspace 提问于 9/19/2020 代码是抄网上后魔改的，如何减少大量的if语句和优化正则表达所在的那行代码？
+顺代一提正在用Python汇总翻车新闻和微博谈到一个文件里，自己边学边写。
+也请教下品葱的大佬。
+import os import re import time from base64 import b64encode import pyperclip import requests url = 'https://api.imgur.com/3/image' #备用https://api.mashiro.top/imgur-api/3/image def upload(url1): return requests.post(url, headers={'Authorization': 'Client-ID 98cd21cdfc58130'}, data={'image': b64encode(open(url1, 'rb').read()), 'type': 'base64'}).text PicDir = r'C:\\1' #本地图片存储目录 a = \[\] for Dir in os.listdir(PicDir): if Dir.split('.')\[1\] == 'jpeg': a. ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/66.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>如何优化这段搬运图片的Python代码？</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/cyberspace>Cyberspace</a></span>,
+<span>at 19 September 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%bc%96%e7%a8%8b>编程</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%90%ac%e8%bf%90>搬运</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%bf%bb%e8%bd%a6%e6%96%b0%e9%97%bb>翻车新闻</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%be%ae%e5%8d%9a%e8%b0%88>微博谈</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/7a429be9640b1a44ed6b443443944fca.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/7a429be9640b1a44ed6b443443944fca.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<h3 id=品葱用户-cyberspace-提问于-9192020>品葱用户 <strong>Cyberspace</strong> 提问于 9/19/2020</h3>
+<p>代码是抄网上后魔改的，如何减少大量的if语句和优化正则表达所在的那行代码？<br>
+顺代一提正在用Python汇总翻车新闻和微博谈到一个文件里，自己边学边写。<br>
+也请教下品葱的大佬。</p>
+<pre tabindex=0><code>import os  
+import re  
+import time  
+from base64 import b64encode  
+import pyperclip  
+import requests  
+  
+url = 'https://api.imgur.com/3/image' #备用https://api.mashiro.top/imgur-api/3/image  
+  
+  
+def upload(url1):  
+    return requests.post(url, headers={'Authorization': 'Client-ID 98cd21cdfc58130'},  
+                         data={'image': b64encode(open(url1, 'rb').read()), 'type': 'base64'}).text  
+  
+  
+PicDir = r'C:\\1'  #本地图片存储目录  
+a = \[\]  
+for Dir in os.listdir(PicDir):  
+    if Dir.split('.')\[1\] == 'jpeg':  
+        a.append(PicDir + '\\\\' + Dir)  
+    elif Dir.split('.')\[1\] == 'png':  
+        a.append(PicDir + '\\\\' + Dir)  
+    elif Dir.split('.')\[1\] == 'gif':  
+        a.append(PicDir + '\\\\' + Dir)  
+    elif Dir.split('.')\[1\] == 'apng':  
+        a.append(PicDir + '\\\\' + Dir)  
+    elif Dir.split('.')\[1\] == 'jpg':  
+        a.append(PicDir + '\\\\' + Dir)  
+    elif Dir.split('.')\[1\] == 'tif':  
+        a.append(PicDir + '\\\\' + Dir)  
+    elif Dir.split('.')\[1\] == 'bmp':  
+        a.append(PicDir + '\\\\' + Dir)  
+a.append(a\[1\])   #搬运微博谈调换图片顺序  
+del a\[1\]  
+b = ''  
+for img in a:  
+    print(img)  
+    res = 'https://' + repr(re.findall(re.compile('i.imgur.com.\*?(?=&quot;})'), upload(img))).replace('\\\\', '')\[2:-2\]  
+    print(res)  
+    b += '\[img\]' + res + '\[/img\]\\n'  
+    time.sleep(0.5)  
+print('\\n' + b)  
+pyperclip.copy(b)
+</code></pre><blockquote>
+<p><a href=https://pincong.rocks/question/31195>点击品葱原文参与讨论</a></p>
+</blockquote>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/d496a133cdbf5ab39f75aafdd5b79260/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E4%25BC%2598%25E5%258C%2596%25E8%25BF%2599%25E6%25AE%25B5%25E6%2590%25AC%25E8%25BF%2590%25E5%259B%25BE%25E7%2589%2587%25E7%259A%2584python%25E4%25BB%25A3%25E7%25A0%2581">〖微博谈搬运2020/9/18〗“习惯”太可怕了</a>
+</h2>
+<p class=text-dark>搬运自博谈网
+原地址：https://botanwang.com/articles/202009/〖微博谈〗“习惯”太可怕了.html
+微博谈部分条目有较高娱乐性与魔幻现实主义色彩，故而加上“翻车新闻”标签。
+上一 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/9508efc6cfe59a156a5dc38eff6a83ae/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E4%25BC%2598%25E5%258C%2596%25E8%25BF%2599%25E6%25AE%25B5%25E6%2590%25AC%25E8%25BF%2590%25E5%259B%25BE%25E7%2589%2587%25E7%259A%2584python%25E4%25BB%25A3%25E7%25A0%2581">〖微博谈搬运2020/9/17〗恐怖分子才会这么做</a>
+</h2>
+<p class=text-dark>搬运自博谈网
+原地址：https://botanwang.com/articles/202009/〖微博谈〗恐怖分子才会这么做.html
+微博谈部分条目有较高娱乐性与魔幻现实主义色彩，故而加上“翻车新闻”标签。
+上一 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/c402cff8e94fe058f9f9114c02dfec6b/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E4%25BC%2598%25E5%258C%2596%25E8%25BF%2599%25E6%25AE%25B5%25E6%2590%25AC%25E8%25BF%2590%25E5%259B%25BE%25E7%2589%2587%25E7%259A%2584python%25E4%25BB%25A3%25E7%25A0%2581">〖微博谈搬运2020/9/16〗眼看他楼塌了</a>
+</h2>
+<p class=text-dark>搬运自博谈网
+原地址：https://botanwang.com/articles/202009/〖微博谈〗眼看他楼塌了.html
+微博谈部分条目有较高娱乐性与魔幻现实主义色彩，故而加上“翻车新闻”标签。
+上一 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b09769db499cd6883cff840fdac85194/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E4%25BC%2598%25E5%258C%2596%25E8%25BF%2599%25E6%25AE%25B5%25E6%2590%25AC%25E8%25BF%2590%25E5%259B%25BE%25E7%2589%2587%25E7%259A%2584python%25E4%25BB%25A3%25E7%25A0%2581">〖微博谈搬运2020/9/14〗这个言论的核心问题在于愚蠢</a>
+</h2>
+<p class=text-dark>搬运自博谈网
+原地址：https://botanwang.com/articles/202009/〖微博谈〗这个言论的核心问题在于愚蠢.html
+微博谈部分条目有较高娱乐性与魔幻现实主义色彩，故而加上“翻车新闻”标签。
+上一 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/cdc76ef12498d336d89ef6154f1bf539/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E4%25BC%2598%25E5%258C%2596%25E8%25BF%2599%25E6%25AE%25B5%25E6%2590%25AC%25E8%25BF%2590%25E5%259B%25BE%25E7%2589%2587%25E7%259A%2584python%25E4%25BB%25A3%25E7%25A0%2581">〖微博谈搬运2020/9/15〗这次中共参加东盟峰会自取其辱</a>
+</h2>
+<p class=text-dark>搬运自博谈网
+原地址：https://botanwang.com/articles/202009/〖微博谈〗这次中共参加东盟峰会自取其辱
+.html
+微博谈部分条目有较高娱乐性与魔幻现实主义色彩，故而加上“翻车新闻”标签。
+上一 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

@@ -1,0 +1,10 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>水印 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E6%B0%B4%E5%8D%B0/</link><description>Recent content in 水印 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sat, 19 Feb 2022 14:02:58 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E6%B0%B4%E5%8D%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>阿里巴巴公司根据截图查到泄露信息的具体员工的技术是什么？</title><link>https://project-gutenberg.github.io/Pincong/post/de7a2846092e6709c1d3fb2c5251f7c1/</link><pubDate>Sat, 19 Feb 2022 14:02:58 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/de7a2846092e6709c1d3fb2c5251f7c1/</guid><description>知乎用户 fuqiang liu 发表 本文通过一个的实验，简要介绍频域手段添加**数字盲水印的方法，并进一步验证其抗攻击性**。在上述实验的基础上，总结躲避数字盲水印的方法。（多图预警）
+本文分为五个部分，第一部分综述；第二部分频域数字盲水印制作原理介绍；第三部分盲水印攻击性实验；第四部分总结；第五部分附录（源代码）。
+一、综述
+本文提供的一种实现 “阿里通过肉眼无法识别的标识码追踪员工” 的技术手段。通过看其他答主的分析，阿里可能还 …</description></item><item><title>贺电教授的学术研究与书法艺术管窥</title><link>https://project-gutenberg.github.io/Pincong/post/08e6982d76930a116c0a7dd5fc3fbbd1/</link><pubDate>Wed, 29 Jul 2020 16:57:35 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/08e6982d76930a116c0a7dd5fc3fbbd1/</guid><description>找了一些材料，与大家一同拜读贺教授的学术论文和欣赏他的书法作品
+贺教授是吉林大学书法文献学方向的博士。学位获得年份是2017，入学年份没有去查。
+截取论文中的一些地方供一家一笑
+水印赫然在目，不知道王铎是不是和贺教授有过节。
+百度“郑板桥难得糊涂”，第一张图片是这样的：
+贺教授所附的图反而难找到，不知道是谁p的。
+图4-2是当代书法家卢中南（1950-）先生的楷书作品。图片有水印且不说，作品左下方署的“卢中南”的款不知道贺教授有没有看 …</description></item></channel></rss>

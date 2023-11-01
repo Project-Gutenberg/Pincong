@@ -1,0 +1,335 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>基尼系数临界值靠谱吗？</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 知乎用户 chenqin​ 发表 一，基尼系数是什么？
+下面几段文字和图片引用自河南省统计网
+基尼系数是衡量居民间收入差距的综合指标。该指标由意大利经济学家基尼在 20 世纪初提出。社会中每个人的收入都一样、收入分配绝对平均时，基尼系数是 0；全社会的收入都集中于 1 个人、收入分配绝对不平均时，基尼系数是 1。现实生活中，两种情况都不可能发生。每个人的收入有多有少差距大时，基尼系数就高，差距小时，基尼系数就低。
+基尼系数是根据洛伦茨曲线，即收入分布曲线计算的。在下图中，横轴是累计人口百分比，纵轴是累计收入百分比。对角线上的绿色斜线是绝对平均的收入分布线，黑色的纵线是绝对不平均的收入分布线，橙色的是通常见到的实际收入分布曲线。绿线与橙线之间的面积 A，相当于用于不平均分配的那部分收入。基尼系数等于 A/（A+B），经济学含义是用于不平均分配的那部分收入占全部收入的比例。，
+二，中国的基尼系数是多少？
+搞清楚基尼系数的含义之后，我们再来看看中国的基尼系数。中国的基尼系数主要有两个版本，分别来自于国家统计局的城调队数据，由中国收入分配研究院计算；以及西南财经大学的 “中国家庭金融调查” 数据。统计局的数据显示，2013 年中国的基尼系数为 0.473，从 2008 年的 0.491 一路降低，为近十年来的最低值。而西南财大的数据则显示中国的基尼系数高达 0.61。在这两个数据之外，北京大学的 CFPS 数据团队也报告了他们的基尼系数——2010 年为 0.51，2012 年下降至 0.49。
+不难发现，CFPS 数据和统计局数据相对比较接近，比起他们俩，CHFS 的数字则有些偏高了。关于谁的基尼系数才更接近真实值这个问题，双方团队没少打笔仗，从 2012 年 12 月开始，CHFS 一公布 0.61 这个数据，收入分配研究院就开始发难：
+岳希明：西南财经大学 0.61 基尼系数不可信！
+岳希明、李实：我们更应该相信谁的基尼系数?- 中国收入分配研究院
+然后是西南财大一方的回应
+甘犁：以公开科学的抽样调查揭示真实的中国
+然后收入分配研究院一方又回应…… ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 基尼系数临界值靠谱吗？ ">
+<meta name=og:description content=" 知乎用户 chenqin​ 发表 一，基尼系数是什么？
+下面几段文字和图片引用自河南省统计网
+基尼系数是衡量居民间收入差距的综合指标。该指标由意大利经济学家基尼在 20 世纪初提出。社会中每个人的收入都一样、收入分配绝对平均时，基尼系数是 0；全社会的收入都集中于 1 个人、收入分配绝对不平均时，基尼系数是 1。现实生活中，两种情况都不可能发生。每个人的收入有多有少差距大时，基尼系数就高，差距小时，基尼系数就低。
+基尼系数是根据洛伦茨曲线，即收入分布曲线计算的。在下图中，横轴是累计人口百分比，纵轴是累计收入百分比。对角线上的绿色斜线是绝对平均的收入分布线，黑色的纵线是绝对不平均的收入分布线，橙色的是通常见到的实际收入分布曲线。绿线与橙线之间的面积 A，相当于用于不平均分配的那部分收入。基尼系数等于 A/（A+B），经济学含义是用于不平均分配的那部分收入占全部收入的比例。，
+二，中国的基尼系数是多少？
+搞清楚基尼系数的含义之后，我们再来看看中国的基尼系数。中国的基尼系数主要有两个版本，分别来自于国家统计局的城调队数据，由中国收入分配研究院计算；以及西南财经大学的 “中国家庭金融调查” 数据。统计局的数据显示，2013 年中国的基尼系数为 0.473，从 2008 年的 0.491 一路降低，为近十年来的最低值。而西南财大的数据则显示中国的基尼系数高达 0.61。在这两个数据之外，北京大学的 CFPS 数据团队也报告了他们的基尼系数——2010 年为 0.51，2012 年下降至 0.49。
+不难发现，CFPS 数据和统计局数据相对比较接近，比起他们俩，CHFS 的数字则有些偏高了。关于谁的基尼系数才更接近真实值这个问题，双方团队没少打笔仗，从 2012 年 12 月开始，CHFS 一公布 0.61 这个数据，收入分配研究院就开始发难：
+岳希明：西南财经大学 0.61 基尼系数不可信！
+岳希明、李实：我们更应该相信谁的基尼系数?- 中国收入分配研究院
+然后是西南财大一方的回应
+甘犁：以公开科学的抽样调查揭示真实的中国
+然后收入分配研究院一方又回应…… ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/224.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>基尼系数临界值靠谱吗？</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<span>at 04 August 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%9f%ba%e5%b0%bc%e7%b3%bb%e6%95%b0>基尼系数</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%b7%ae%e8%b7%9d>差距</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%b4%ab%e5%af%8c%e5%b7%ae%e8%b7%9d>贫富差距</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%8a%a8%e8%8d%a1>动荡</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/d205d4b8545f039ad02eb87a88da154c.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/d205d4b8545f039ad02eb87a88da154c.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<h3 id=知乎用户-chenqin-发表>知乎用户 chenqin​ 发表</h3>
+<p><strong>一，基尼系数是什么？</strong></p>
+<p>下面几段文字和图片引用自<a href="https://link.zhihu.com/?target=http%3A//www.ha.stats.gov.cn/hntj/tjfw/tjcs/tjjd/webinfo/2013/01/1358990858069461.htm">河南省统计网</a><br>
+基尼系数是衡量居民间收入差距的综合指标。该指标由意大利经济学家基尼在 20 世纪初提出。社会中每个人的收入都一样、收入分配绝对平均时，基尼系数是 0；全社会的收入都集中于 1 个人、收入分配绝对不平均时，基尼系数是 1。现实生活中，两种情况都不可能发生。每个人的收入有多有少差距大时，基尼系数就高，差距小时，基尼系数就低。<br>
+　 基尼系数是根据洛伦茨曲线，即收入分布曲线计算的。在下图中，横轴是累计人口百分比，纵轴是累计收入百分比。对角线上的绿色斜线是绝对平均的收入分布线，黑色的纵线是绝对不平均的收入分布线，橙色的是通常见到的实际收入分布曲线。绿线与橙线之间的面积 A，相当于用于不平均分配的那部分收入。基尼系数等于 A/（A+B），经济学含义是用于不平均分配的那部分收入占全部收入的比例。，</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/bf8326699ec83ec926b5e1ede518a229_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><strong>二，中国的基尼系数是多少？</strong></p>
+<p>搞清楚基尼系数的含义之后，我们再来看看中国的基尼系数。中国的基尼系数主要有两个版本，分别来自于国家统计局的城调队数据，由中国收入分配研究院计算；以及西南财经大学的 “中国家庭金融调查” 数据。统计局的数据显示，2013 年中国的基尼系数为 0.473，从 2008 年的 0.491 一路降低，为近十年来的最低值。而西南财大的数据则显示中国的基尼系数高达 0.61。在这两个数据之外，北京大学的 <a href="https://link.zhihu.com/?target=http%3A//news.youth.cn/gn/201307/t20130718_3551033.htm">CFPS 数据团队也报告了他们的</a>基尼系数——2010 年为 0.51，2012 年下降至 0.49。</p>
+<p>不难发现，CFPS 数据和统计局数据相对比较接近，比起他们俩，CHFS 的数字则有些偏高了。关于谁的基尼系数才更接近真实值这个问题，双方团队没少打笔仗，从 2012 年 12 月开始，CHFS 一公布 0.61 这个数据，收入分配研究院就开始发难：<br>
+<a href="https://link.zhihu.com/?target=http%3A//www.ciidbnu.org/news/201212/20121228134128706.html">岳希明：西南财经大学 0.61 基尼系数不可信！</a><br>
+<a href="https://link.zhihu.com/?target=http%3A//www.ciidbnu.org/news/201301/20130123092800706.html">岳希明、李实：我们更应该相信谁的基尼系数?- 中国收入分配研究院</a><br>
+然后是西南财大一方的回应<br>
+<a href="https://link.zhihu.com/?target=http%3A//www.ciidbnu.org/news/201302/20130223120202706.html">甘犁：以公开科学的抽样调查揭示真实的中国</a><br>
+然后收入分配研究院一方又回应……<br>
+<a href="https://link.zhihu.com/?target=http%3A//www.ciidbnu.org/news/201302/20130203104343706.html">岳希明、李实：缺少说服力的回应――对西南财大住户调查项目公布的基尼系数再质疑</a><br>
+然后西南财大一方又再回应……<br>
+<a href="https://link.zhihu.com/?target=http%3A//www.ciidbnu.org/news/201302/20130223120901706.html">甘犁：关于中国家庭金融调查数据的再说明</a><br>
+综合来说，CHFS 数据虽然标榜了自己对高收入人群的覆盖，但他的抽样方法似乎又过多地覆盖了富裕地区的城镇人口以及贫穷地区的农村人口，因此可能会增加被调查人员的贫富差距；而统计局数据虽然在代表性上没问题，但却又因为最高收入者的低报而常常受到诟病，因此会低估贫富差距。如果将现有的三个数据信息统一考虑，我认为中国的基尼系数应当处于 0.5 至 0.55 之间。</p>
+<p><strong>三，不同大小的基尼系数值有什么含义？</strong></p>
+<p>人人都知道，社会的不平等程度达到一定程度时，人们的不满情绪就会上升。那么，0.5 以上的基尼系数会导致什么后果？不一定会有什么后果，因为这取决于人们能观察到的不平等程度。</p>
+<p>我们可以将基尼系数进行一个简单的分解。<br>
+首先，将所有人的收入替换为其所在省份的平均收入，计算第一个基尼系数。<br>
+其次，将所有人的收入替换为其所在省相同教育组别的平均收入，计算第二个基尼系数。<br>
+最后，将所有人的收入替换为他自己的真实收入，计算第三个基尼系数。</p>
+<p>不难发现，这三组基尼系数之间存在层层递进的关系，第一个数值仅仅度量了地区之间的收入分配不平等程度；第二个数值在地区间收入差距的基础上，进一步把不同教育程度之间的收入差距度量出来；第三个数值则把同地区、同教育的人群之中的收入差距给度量出来，即完整的基尼系数。我们对这三个基尼系数取差值，便完成了基尼系数的分解。下图是中国、美国和巴西的 2010 年的个人收入基尼系数的分解情况。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/02fd688dc28a7cf2ca2af125d4ac5ce5_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>其中，中国使用了 CHFS 数据，美国使用了 CPS2010 年 1 月数据，巴西使用了巴西 2010 年普查数据。<br>
+从图中可以看到，中国、美国和巴西的基尼系数都比较接近，都比较高，分别为 0.48、0.48 和 0.55，但其中的结构差异很大。中国的基尼系数之所以较高，<strong>地区间的收入差距</strong>贡献了一半以上，但在地区内部的收入差距是三个国家里最小的。<br>
+也就是说，中国的基尼系数高，可能更主要的原因是北京、上海等富裕省份的平均收入远高于贵州、广西等贫穷地区，但在北京上海贵州广西的内部，收入差距反而是比较小的。换句话说，如果我们把每个省都看成一个独立的经济单位来测量其基尼系数，我们会发现每个地区的基尼系数都很低。但合并起来后，基尼系数就高了。</p>
+<p>第二个部分在于<strong>教育差距</strong>。所谓教育差距，就是不同教育水平的人口的收入差距，在图上的三个国家中，教育差距最大的是美国，即相对于中国、巴西来说，在美国多上一年学，多拿一个学位，收入增长得更快。教育差距很大，有好处也有坏处。好处在于，教育至少还是一个部分可控的变量，如果教育水平提高收入真的会上升很快，那么更多的人就有动机增加自己的人力资本投资；而坏处在于，如果教育的机会本身不是那么公平，穷困人民没有机会接受更好的教育，那么教育差距就成为了阶层差距，难以缩小。从图中可以看到，中国在教育差距上，非常低。</p>
+<p>第三个部分是<strong>其他差距</strong>，他说的是处在同一个地区，接受了同等教育的人口的收入差距。事实上，这部分差距，才是会真正引发人们不满的部分。</p>
+<p>举一个例子，在假设两个国家的基尼系数一样高，但其中一个国家的 “其他差距” 很大，另一个国家的 “地区差距” 很大，那么哪个国家的人民会更加不满意？</p>
+<p>当然是前者。前者的上班族天天看着和自己同样学历的人收入比自己高，心里能舒服吗？而后者的上班族可能根本看不到这样的差异。除非他胸怀天下，每天都在关注其他地区人民的收入情况——啊，为什么 XX 省人民收入那么高？——而不是关注自己身边的人。</p>
+<p>于是，在基尼系数的三个部分中，地区差距——一般观察不到；教育差距——至少还有个盼头吧？但其他差距，到底是什么造成的呢？凭什么我们一样大学毕业，一样工作在北京，你收入就是我的好几倍？你说你工作能力强，我说还不是因为你爸是 X 刚，不满也就产生了。</p>
+<p>中国当前的基尼系数虽然看起来比较高，但实际上其中发挥主要作用的是地区差距。而从地区内部差异来看，中国仍然是比较低的。比起大部分南亚、南美国家，中国的贫富差距在感官上来说甚至可以说很低。而对于一些欧洲小国来说，他们可能根本不存在什么地区间的收入差异，用他们的基尼系数来和中国比较，意义不大。</p>
+<p><strong>四，基尼系数只是一个静态指标，人们更关注动态变化</strong></p>
+<p>比起基尼系数，其实人们更关注的还是收入流动性。道理很简单，你的收入高，我的收入低，可能并不要紧；要紧的是，你的收入永远比我高，你子女的收入也永远比我子女收入高，这让人怎么受得了？中国尽管基尼系数不算低，但在过去几十年中的收入流动性一直很高。文革被打倒的，有许多通过高考爬起来了；原本吃铁饭碗的，下海经商发达了；下岗再就业的，也有自主创业富起来的。基尼系数高加上收入流动性高，引出了一个 “正向隧道效应”。你在拥堵隧道中排队，此时如果排在你前面的车往前开了，你可能会更高兴——因为你也能往前开车了。也就是说，如果你也有提高收入的机会，那么此时基尼系数扩大，人们的不满意程度反而会降低。<br>
+但令人担忧的是，中国近些年来的收入流动性开始降低，此时如果基尼系数进一步增加，又会有一个 “反向隧道效应”：你在拥挤的隧道中排队，你发现你周围车道的车辆在纷纷往前移动，而你所在的车道却纹丝不动。更重要的是，你还不能换车道。这时，人们可能会因为基尼系数的扩大而变得不满。<br>
+所以，要把收入差距和社会稳定联系起来的话，收入流动性才是更重要的变量，他决定了人们的不满会朝着什么方向发生。</p>
+<p><strong>总结：</strong></p>
+<p>基尼系数本身的大小，能说明的信息不多，因为人们更关注的是那些无法被区域、教育水平所解释的收入差距。而在中国，这部分收入差距并不高，且基尼系数的值有一半贡献来自地区差距。单纯从 0.61 或者 0.49 这类数字出发，我们很难得出中国贫富差距非常大大甚至会引发社会不稳定的结论。</p>
+<p>其次，比起基尼系数，我们更应该关注的是收入的流动性。中国曾经是一个收入流动性很高的国家，但这个特征正在消失，中国的阶层固化现象也逐步出现。在贫富差距方面，基尼系数是一个重要的静态指标，但收入流动性的变化才是真正需要人们关注的问题。</p>
+<h3 id=知乎用户-苍穹蓝-发表>知乎用户 苍穹蓝 发表</h3>
+<p>基尼系数超过 0.6 造成社会动荡是一个必要不充分条件，动荡社会的基尼系数一定高，但反过来不一定成立，为什么？</p>
+<p>因为收入基尼系数的 “收入” 不一定是影响民众生活的**最大因素，**我个人认为现代社会对民众影响最大是公共生活五种要素：衣、食、住、教育、医疗，如果我们能通过政治、社会、金融手段在一定程度上平衡 5 种要素，能极大程度缓解收入差距带来的社会动荡。</p>
+<p>过去我们经常说人的欲望是无限的，人的幸福是比出来的，但这种说法较适合运用于个人，在社会整体层面，还是基本生活物质影响较大。富人吃什么、住什么、玩什么，对 “我” 有影响，但影响有限，只要 “我” 衣食满足健康标准、有房子住、社会教育资源较平衡、医疗条件能满足健康需求，那 “我” 也可以幸福。</p>
+<p>然而长远来看，这些手段一定会失效，因为资本增值需要空间，假设人只对这五种要素敏感，对其他要素都不敏感，那大资本一定要把手伸进这五个领域，否则就不能增值，资本不能增值同样会引发社会动荡，任何一个国家的政治家都活在两者的夹缝中，艰难地摸索着，希望再续一会。</p>
+<h3 id=知乎用户-匿名用户-发表>知乎用户 匿名用户 发表</h3>
+<p>有一个可能是：中国改革的初始状况就不怎么公平。<br>
+<a href="https://link.zhihu.com/?target=http%3A//blog.sina.com.cn/s/blog_67dbd70d0101cyj8.html">http://blog.sina.com.cn/s/blog_67dbd70d0101cyj8.html</a><br>
+该文论证，1978 年的基尼系数为 0.61，主要因素是城乡收入差距。<br>
+具体数值不评论，但改革前城乡收入差距很大是符合常识的。<br>
+而在西南财经大学的研究中，“2010 年中国家庭收入的基尼系数为 0.61，城镇家庭内部的基尼系数为 0.56，农村家庭内部的基尼系数为 0.60” （<a href="https://link.zhihu.com/?target=http%3A//economy.caixin.com/2012-12-10/100470454.html">西南财大发表中国家庭收入不平等报告</a>），城乡之间的收入差距反而不那么大。持续十几年的城市化进程，可能确实缩小了城乡间差距。<br>
+如果两个 0.61 都成立（a big if. 1978 的 0.61 是一家之言，西南财大的 0.61 也比国家统计局的 0.48 要大），那说明：改革之后，中国人的收入差距并没有扩大。并且，原来收入差距最大的群体，现在收入差距减小了。</p>
+<h3 id=知乎用户-vczh-发表>知乎用户 vczh 发表</h3>
+<p>第一次听到基尼系数可以按地区划分最后取平均值的。那我直接划分到人，再算平均值，基尼系数不就降为 0 了吗，可喜可贺。</p>
+<p>虽然不知道 0.61 是否真实，但是基尼系数大并不是一件难以理解的事情。北上广深的贡献应该非常高。要是基尼系数只有 0.2，就算北上广深赚钱很多，大家也不可能拼了老命也要挤进去。</p>
+<h3 id=知乎用户-匿名用户-发表-1>知乎用户 匿名用户 发表</h3>
+<p>1、我是西财经济学本科毕业生，身边不少同学都曾参与 “中国家庭金融调查（CHFS）” 数据收集，（提前培训，有博士生带队，挺用心的）项目主持人甘犁是我们学院院长。不知算不算利益申明。<br>
+2、感觉题主已经想得挺明白了，只是需要确认。姑且提供一些个人浅薄想法，<strong>欢迎指正</strong>。</p>
+<p>————————————————————</p>
+<p>一、关于 “有人<strong>觉得</strong>数据不可靠”：</p>
+<p>统计不是这么玩儿的，不是为了迎合多数人的直觉。<br>
+我们可以质疑统计方法的信度或效度，比如抽样、询问、矫正中的某一部分不合理甚至有误。<br>
+如果方法确实有误，那么结论再合乎直觉也无益；但如果统计方法挑不出毛病，不舒服也得承认。<br>
+（我不觉得 CHFS 是完美的调查，只恨大多数反对实在没反对到点子上）</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/697bbe1d7f35e0cb99d2e46184932a87_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>CHFS 似乎公布了调查过程和原始数据，不过我暂时没翻到…<br>
+评论里有人质疑的话，我就再找找问问。<br>
+除了忍不住要维护母校外，第一部分是想说：<br>
+经济学是经验性的，“<strong>确认数据，而后质疑结论</strong>”，而非 “确认结论，而后质疑数据”。</p>
+<p>二、关于 “国际<strong>惯例</strong>超 0.4 易动乱”：<br>
+甘犁：我们曾经做过文献检索，联合国所谓的 0.4 警戒线、超过警戒线社会处于 “危险” 状态的说法，<strong>没有任何学术研究作为支撑</strong>。相反，许多研究表明，收入不均与社会和谐没有直接的关系。真正对社会和谐有所影响的是 “机会不均”，而不是收入不均。</p>
+<p>欢迎质疑，一篇就够~</p>
+<p>三、关于基尼系数：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/3f32eee22e167c131c38bbe1dc58010a_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>经济学一般观点认为，效率和公平是很难兼顾的。全交给市场，资源配置自由，效率就高，但贫富差距容易过大。政府出手，高税率高福利，贫富差距会缩小，但是伤害效率。</p>
+<p>基尼系数：香港 0.537，新加坡 0.478（CIA 2012）；<br>
+经济自由度得分：香港 90.1，新加坡 89.4（传统基金会，2014）。<br>
+香港和新加坡，经济自由度分列全球第一第二。政府坚持低税收，贫富差距暴高，也没见出什么乱子。（偏题一句，普选可能改变这一切）</p>
+<p>北欧几乎兼顾了公平与效率，但这要求极高的社会生产率。<br>
+丹麦，基尼 0.248，自由度 76.1；<br>
+（营商自由、国际贸易自由、货币自由得分都和香港相埒，但是财政自由得分极低）<br>
+瑞典，基尼 0.23，自由度 73.1；</p>
+<p>但是经济自由度减分又怎样呢？这些数据说到底都是表盘而已，可以供研究者与决策者参考，但不是老百姓的行动指南。<br>
+（<strong>update：最后这句话说得不太恰当，一股拒绝量化指标的味儿。数据帝 chenqin 把机会公平和不稳定因素分析得很清楚，推荐阅读，不要怕长</strong>）<br>
+粗略一想，失业率过高倒是更有可能引起动乱。</p>
+<p>最后，中国的经济自由度得分 52.5，（全球平均分 60.3）任重道远啊…</p>
+<h3 id=知乎用户--图灵-don-发表>知乎用户 图灵 Don 发表</h3>
+<p>中国家庭金融调查与研究中心主任、西南财经大学经管研究院院长<strong>甘犁</strong>在（13 年 11 月）16 日召开的第十三届中国经济学年上表示，<strong>联合国关于基尼系数 0.4 警戒线之说没有任何学术研究支撑</strong>，大量研究表明，影响社会稳定的是机会不均而非收入不均。</p>
+<p>甘犁认为，中国当前的收入不均程度非常严重，高基尼系数是经济高速发展过程中的常见现象，是市场由市场配置资源的自然结果。</p>
+<p>资料出处：<a href="https://link.zhihu.com/?target=http%3A//business.sohu.com/20131117/n390271543.shtml">甘犁：基尼系数 0.4 警戒线之说无学术研究支撑</a></p>
+<p>甘犁简历：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/80/3cb2dfcd5b24f355e192c43c51c825a1_720w.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>1987 年获得清华经管学院学士学位，1998 年获得加州大学伯克利分校经济学博士及统计学硕士学位。甘犁长期从事应用微观经济学和计量经济学等领域的研究，师从 2000 年诺贝尔经济学奖获得者丹尼尔 · 麦克法登教授，获加州大学伯克利分校经济学博士学位，现任美国得克萨斯农工大学经济系教授，以及美国国民经济研究局研究员。</p>
+<h3 id=知乎用户-夏尔谢夫-发表>知乎用户 夏尔谢夫 发表</h3>
+<p>理论和现实不一致，是理论错了，还是现实错了？</p>
+<p>相信统计数据，相信现实，别相信狗屁经济学理论。</p>
+<h3 id=知乎用户-廖醉黄-发表>知乎用户 廖醉黄 发表</h3>
+<p>财富分配不均会导致动荡，动荡会不稳，不稳可以管理，控制和消除。</p>
+<p>理论上投入足够的成本可以做到。</p>
+<p>我不太清楚有没做这事，有的话投入了多少成本。</p>
+<h3 id=知乎用户-xcj302-发表>知乎用户 xcj302 发表</h3>
+<p>对特大样本不适用。</p>
+<p>以全球人类为样本，基尼系数一直在上升。</p>
+<p>能说明什么?</p>
+<p>如果一个大学宿舍里四个人之间的基尼系数过大，某人就该感谢不杀之恩了。</p>
+<p>可现实中大于 0.6 的宿舍多了去了。</p>
+<p>总之，类似项横比，某项纵比，都能用，但，不要随意横比，不要让数据为论点服务。</p>
+<h3 id=知乎用户-邻家老舅-发表>知乎用户 邻家老舅 发表</h3>
+<p>评论区有人嘲笑按地区划分的，我觉得嘲笑的对。这个指标必须按国家划分。</p>
+<p>国家是一个整体，就得放在一块算！那些大山里，一家人一年赚不上两万，听说有人一个月赚的都不止两万，贫富差距这么大，必须动荡起来！可是村里人条件都差不多，找谁搞事情呢？村民经过商议，决定找出那个一个月赚不止两万的蛀虫。</p>
+<p>于是村民把毕生积蓄拿出来，买了火车票，再徒步来到西二旗，锁定目标：年纪轻轻头发稀少，穿格子衫背双肩包！</p>
+<h3 id=知乎用户-石板镇的梧桐-发表>知乎用户 石板镇的梧桐 发表</h3>
+<p>我国幸福第一，基尼系数算什么，请随意，不够幸福的多看几遍新闻联播。</p>
+<h3 id=知乎用户-特布鲁-发表>知乎用户 特布鲁 发表</h3>
+<p>基尼系数的社会原型是西方工业化社会，这样的社会基础是私有制，既土地是个人的私有财产。在此基础上，计算出来的收入水平差距的参数。</p>
+<p>中国的土地政策决定了，基尼系数对中国的财富差距不适用。中国的土地政策是，所有城市的土地都为国有，各种商业用地实际上只有使用权，而没有产权。中国的农业用地归集体所有，集体有产权和使用权，没有变更土地使用方式的权利。农村人口的宅基地归个人所有，宅基地的买卖只能在集体所在区域内人口之间进行买卖。城镇人口没有在农村购买宅基地的权利。</p>
+<p>中国的这种土地使用政策，使得在以货币方式计算收入和财富价值的时候，夸大了城镇人口的财富价值（把使用权当成产权计算），忽略了农村人口的土地所有权价值和社会保障作用。</p>
+<p>随着中国的工业化和城镇化进程，以及国家的货币政策，城镇商业性地产的价值飙升，这也就造成了基尼系数在计算货币财富时，贫富差距被过度放大，从而导致基尼系数出现所谓的突破临界点的状态。这反映出在特定经济条件下的财富差距加大，是值得我们思考的问题，但是并不能简单地认为，我们已经进入了社会动荡的临界点。因为农民依然拥有土地。</p>
+<h3 id=知乎用户-opium-发表>知乎用户 opium 发表</h3>
+<p>一般认为基尼系数在 0.4 以下收入分配较平均，反之，存在贫富两极分化现象。<br>
+用基尼系数来描述宏观经济状况是实证经济学的范畴，也就是 “试图” 用一定的数据规律描述国民经济状况而已。<br>
+西南财大公布的基尼系数为 0.61，而超过 0.6 的国家均为易动乱国家只能说明一个国家的国民收入状况和社会稳定与否有一定关系，你要抛开其他一切与社会稳定相关的因素不管，单单从一个基尼系数推出一个国家易动乱，可以说难以成立。<br>
+由此，没有确凿的理由去怀疑 0.61 这个数据。</p>
+<h3 id=知乎用户-溪湖沉石-发表>知乎用户 溪湖沉石 发表</h3>
+<p>完全不靠谱！</p>
+<p>基尼系数在国家之间就没法横向比较。而且不同的文化背景，社会承受能力也是不一样的。</p>
+<p>如果是判断是否会社会动荡的话，那关注失业率要有效得多。</p>
+<p>如果只是单纯衡量生活是否幸福的话，关注社会的基尼系数远不如关注每个人的恩格尔系数，后者太高是真的能压死人！</p>
+<h3 id=知乎用户-理猹-发表>知乎用户 理猹 发表</h3>
+<p>不靠谱……<br>
+不信看看资本主义盛世的 1920 年代西方国家基尼系数（当然是后人估计结果）……<br>
+英帝看 1900 附近……<br>
+尤其是那时的美帝……<br>
+然后发生了什么呢？</p>
+<h3 id=知乎用户-匿名用户-发表-2>知乎用户 匿名用户 发表</h3>
+<p>呃，维稳经费超出军费的国家。。</p>
+<p>想起了中学女语文老师讲『不患贫而患不安，不患寡而患不均』时一脸鄙夷地说</p>
+<p>一个原子一个分子都要一人一个</p>
+<p>当时还觉得老师的话有一定道理，那么少就没必要平分了</p>
+<p>现在看来，原来只是单纯地嫌少而已，啧啧</p>
+<h3 id=知乎用户-匿名用户-发表-3>知乎用户 匿名用户 发表</h3>
+<p>关于基尼系数，地区间差异，有一定说服力，但我要补充的是，中国的媒体是垄断的。你无法从电视报纸上看到各种小的 “动荡”。这是所有调查者可能没有参考的变量。</p>
+<h3 id=知乎用户-tony-yong-发表>知乎用户 tony yong 发表</h3>
+<p>虽然大家在用基尼系数这一概念，但是各基尼系数并不能直接作比较。主要原因在于：由于现实世界的各种限制，统计抽样方法本身可能有偏差；由于收入数据的敏感性和私密性、由于部分收入可能是非货币化的，所得到的收入数据的准确性是个不易解决的问题；各机构对收入的定义可能不同；不同国家、不同地区、不同时期的社会制度是不同的，宗教信仰、价值观、生活方式也是不同的，因此拿不同机构对不同国家、不同时期所作基尼系数作简单比较是很不可靠的，因此所谓适用于世界各国的基尼系数临界值更是个有争议的问题。<br>
+关于西南财大公布的基尼系数是否存在问题，需要先了解其具体方法。但是从它与其他机构的研究结果差别很大这一点看，它的方法、定义或数据必定与其他机构有着较大的差别。问题是要弄清楚差别究竟来自何处，才能下结论。</p>
+<h3 id=知乎用户-匿名用户-发表-4>知乎用户 匿名用户 发表</h3>
+<p>我认为基尼系数对于特别大的国家，好像意义不大。</p>
+<p>比如新加坡和老挝，虽然贫富差距很大，但他们不是同一个国家，谈不上基尼系数。</p>
+<p>那比如上海市和凉山州，和两个国家有什么区别？两者之间的距离比新加坡和老挝的距离都远，两者互相都不知道对方的生活是什么样的，中国太大了，这个时候，基尼系数好像没有什么用。</p>
+<h3 id=知乎用户-匿名用户-发表-5>知乎用户 匿名用户 发表</h3>
+<p>基尼系数不能超 0.4 的指导意义。</p>
+<p>针对的是一个勉强自给自足的区域经济体。</p>
+<p>人口大概在 2000 万～9000 万之间，面积大概几十万 km²</p>
+<p>说白了就是起源于欧洲，他们自用的。</p>
+<p>欧洲作为一个整体，基尼系数一直徘徊在 0.6～0.8 之间。</p>
+<p>像中国这种国家，一个能顶两个欧洲……</p>
+<p>另外，全球基尼几千年大概从来都没有降低到过 0.9 以下。</p>
+<p>然后说一下我的个人看法：在原来的生产力水平上。对于超大型的国家，基尼高低本来是无所谓的，根本不重要。国家的核心凝聚力本来就不是经济配套。但是，5G 和五通可能会造成一些意想不到的深远影响。</p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/7daa2c39d4802bbd80afe81e88628def/?utm_source=see_also&utm_medium=%25E5%259F%25BA%25E5%25B0%25BC%25E7%25B3%25BB%25E6%2595%25B0%25E4%25B8%25B4%25E7%2595%258C%25E5%2580%25BC%25E9%259D%25A0%25E8%25B0%25B1%25E5%2590%2597">中国的基尼系数是多少?</a>
+</h2>
+<p class=text-dark>知乎用户 chenqin​ 发表 根据官方发布基尼系数的《中国住户调查年鉴》，从 2003 年到 2018 年，中国的基尼系数走势是这样的：
+在 2008 年前上升，从 2009 到 2015 年下降，随后再次上升。 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/a0372fde7c192f2d2f325c150441ef04/?utm_source=see_also&utm_medium=%25E5%259F%25BA%25E5%25B0%25BC%25E7%25B3%25BB%25E6%2595%25B0%25E4%25B8%25B4%25E7%2595%258C%25E5%2580%25BC%25E9%259D%25A0%25E8%25B0%25B1%25E5%2590%2597">为什么财阀掌控下的韩国，基尼系数比中国低？</a>
+</h2>
+<p class=text-dark>知乎用户 鹤云声 发表 韩国的劳动者：
+法国的劳动者：
+美国的劳动者：
+社畜：
+社畜在面对不公的时候，最喜欢做的事就是讲道理，耍嘴皮子，自动替资本家洗白，倾诉资本家的不容易。仿佛社畜受到剥削，不是因为资本家的错，而都是这个世界的错啊！
+知乎 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/8d00c4e0d3a2233335d817d6b0a64367/?utm_source=see_also&utm_medium=%25E5%259F%25BA%25E5%25B0%25BC%25E7%25B3%25BB%25E6%2595%25B0%25E4%25B8%25B4%25E7%2595%258C%25E5%2580%25BC%25E9%259D%25A0%25E8%25B0%25B1%25E5%2590%2597">为什么美国贫富差距那么大，美国年轻人却自得其乐，而中国年轻人近年来开始会因为《后浪》等而抱怨生活困难？</a>
+</h2>
+<p class=text-dark>知乎用户 Yifan 发表 你好，题主，我今年 24 岁，在英国待了四年，今年回国工作。虽然没有在美国生活过，暂不能对美国年轻人是否自得其乐这一命题做解答，但十分想谈谈我自己对于贫富差距的一点看法。
+人作为社会性动物，难免把身边的人当作锚定 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/cd8bcdd4c0bd1029ffab97effadb0140/?utm_source=see_also&utm_medium=%25E5%259F%25BA%25E5%25B0%25BC%25E7%25B3%25BB%25E6%2595%25B0%25E4%25B8%25B4%25E7%2595%258C%25E5%2580%25BC%25E9%259D%25A0%25E8%25B0%25B1%25E5%2590%2597">迈尔斯</a>
+</h2>
+<p class=text-dark>知乎用户 chenqin​ 发表 这张图包含的信息太过丰富，包括许多效果相反的东西都被混杂在其中，在没有进一步研究之前，是什么都看不出来的。
+先从代际收入弹性的测算说起。所谓代际收入弹性，就是父辈的收入对子女收入的影响。 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/5bf92005c687cce07e8ec99dfc95bc60/?utm_source=see_also&utm_medium=%25E5%259F%25BA%25E5%25B0%25BC%25E7%25B3%25BB%25E6%2595%25B0%25E4%25B8%25B4%25E7%2595%258C%25E5%2580%25BC%25E9%259D%25A0%25E8%25B0%25B1%25E5%2590%2597">OECD 2018 年 PISA 测试成绩出炉，中国在阅读、数学和科学方面拿下全球第一，如何看待该测试结果？</a>
+</h2>
+<p class=text-dark>知乎用户 闲鱼獭 发表 没想到这个问题最近又变得热门起来，补充一些信息吧~
+先简单介绍下这个测试。
+PISA 是经济合作与发展组织（OECD）发起的跨国、跨文化评价项目，测试选取了便于量化的阅读、数学、科学三项科目，在题目、测评学生和学校的 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

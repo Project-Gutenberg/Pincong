@@ -1,0 +1,413 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>中国做不出高端芯片（7nm,5nm），具体卡在了哪一步？</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 知乎用户 蔡小帅 发表 关于这个半导体到芯片，一定要搞明白研学产一条龙的模式。我们姑且把各个环节的参与者当成话
+众人开始扎堆讨论，TMD 美国人不能信啊，不能把命交到海外供应链里。
+于是，工信部出来讲话，要自强。发改委财政部出来给支持。中科院说缺啥咱就搞啥，但光靠我不行，要大家一起上。
+缺光刻机，中微想了一会儿站起来，看了华为一眼，说我是中字头，我先上。华创说，哥，我来搭把手。
+缺大硅片，沪硅想了一会儿站起来，看了一眼北京方阵，说我还年轻，死就死了，我上。
+缺光刻胶，一众个头小的企业手拉手站起来，说我们一个人干不成，但可以一起干。
+缺 EDA，大家都面面相觑，北京方阵站起来个小个子华大九天，哭着说，大家帮帮我，我去试试。
+众人拾柴火焰高
+知乎用户 刹那公子 发表 被卡在以前没被卡过。
+没被卡时，国际企业仗着先发优势，规模、技术、资金、人才、客户…… 在在都是优势，倾销之下，确实是造不如买，买不如租，后发企业只有挨打的命。
+除非——国家不计短期成本，企业不计短期效益的埋头苦干苦熬出头——韩国就这么干的。
+现在好了，人家卡脖子了，才一下发现别说产品，连造工具的工具都欠缺。
+幸在，我们有最大且增速最快的市场。
+幸在，工艺己近物理极限。
+幸在，满足基本安全与需求的我们还是能造的。
+幸在，我们自上而下有了清醒的认识。
+幸在，国人之坚韧之勤奋之聪慧…… 我们是苦难中泡大的民族。
+如此，现在被卡住了吗？不存在的，无非芯片慢点大点，可预见的将来，必将又是一个中国奇迹。
+反之，以前那样向我们敞开供应低价倾销才真正叫卡。
+知乎用户 干饭仙人 CSY 发表 产学研一条龙
+你缺了任意一个
+另外两个都会被快速拉低
+先说产吧
+自汉芯之后
+各路资本对半导体的投资意愿明显下降
+而制造端 (这里不说国企)
+站在民企的角度考量，造不如买，买不如租确实是局部最优解，
+难得有华为这样的公司思考到了
+局部最优解不等于全局最优解
+再来说学
+学这块，我看到的问题就更大了
+模电数电，有多少老师是自己真正懂的，又有多少老师不是念着 0 几年 ppt，天天给你吹水 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 中国做不出高端芯片（7nm,5nm），具体卡在了哪一步？ ">
+<meta name=og:description content=" 知乎用户 蔡小帅 发表 关于这个半导体到芯片，一定要搞明白研学产一条龙的模式。我们姑且把各个环节的参与者当成话
+众人开始扎堆讨论，TMD 美国人不能信啊，不能把命交到海外供应链里。
+于是，工信部出来讲话，要自强。发改委财政部出来给支持。中科院说缺啥咱就搞啥，但光靠我不行，要大家一起上。
+缺光刻机，中微想了一会儿站起来，看了华为一眼，说我是中字头，我先上。华创说，哥，我来搭把手。
+缺大硅片，沪硅想了一会儿站起来，看了一眼北京方阵，说我还年轻，死就死了，我上。
+缺光刻胶，一众个头小的企业手拉手站起来，说我们一个人干不成，但可以一起干。
+缺 EDA，大家都面面相觑，北京方阵站起来个小个子华大九天，哭着说，大家帮帮我，我去试试。
+众人拾柴火焰高
+知乎用户 刹那公子 发表 被卡在以前没被卡过。
+没被卡时，国际企业仗着先发优势，规模、技术、资金、人才、客户…… 在在都是优势，倾销之下，确实是造不如买，买不如租，后发企业只有挨打的命。
+除非——国家不计短期成本，企业不计短期效益的埋头苦干苦熬出头——韩国就这么干的。
+现在好了，人家卡脖子了，才一下发现别说产品，连造工具的工具都欠缺。
+幸在，我们有最大且增速最快的市场。
+幸在，工艺己近物理极限。
+幸在，满足基本安全与需求的我们还是能造的。
+幸在，我们自上而下有了清醒的认识。
+幸在，国人之坚韧之勤奋之聪慧…… 我们是苦难中泡大的民族。
+如此，现在被卡住了吗？不存在的，无非芯片慢点大点，可预见的将来，必将又是一个中国奇迹。
+反之，以前那样向我们敞开供应低价倾销才真正叫卡。
+知乎用户 干饭仙人 CSY 发表 产学研一条龙
+你缺了任意一个
+另外两个都会被快速拉低
+先说产吧
+自汉芯之后
+各路资本对半导体的投资意愿明显下降
+而制造端 (这里不说国企)
+站在民企的角度考量，造不如买，买不如租确实是局部最优解，
+难得有华为这样的公司思考到了
+局部最优解不等于全局最优解
+再来说学
+学这块，我看到的问题就更大了
+模电数电，有多少老师是自己真正懂的，又有多少老师不是念着 0 几年 ppt，天天给你吹水 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/217.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>中国做不出高端芯片（7nm,5nm），具体卡在了哪一步？</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<span>at 22 June 2021</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%8a%af%e7%89%87>芯片</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%85%89%e5%88%bb%e6%9c%ba>光刻机</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%8a%80%e6%9c%af>技术</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%bb%84%e8%a3%85%e5%8e%82>组装厂</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/3bae45b2acece724f54264dbe2084cc9.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/3bae45b2acece724f54264dbe2084cc9.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<h3 id=知乎用户-蔡小帅-发表>知乎用户 蔡小帅 发表</h3>
+<p>关于这个半导体到芯片，一定要搞明白研学产一条龙的模式。我们姑且把各个环节的参与者当成话</p>
+<p>众人开始扎堆讨论，TMD 美国人不能信啊，不能把命交到海外供应链里。</p>
+<p>于是，工信部出来讲话，要自强。发改委财政部出来给支持。中科院说缺啥咱就搞啥，但光靠我不行，要大家一起上。</p>
+<p><strong>缺光刻机</strong>，中微想了一会儿站起来，看了华为一眼，说我是中字头，我先上。华创说，哥，我来搭把手。</p>
+<p><strong>缺大硅片</strong>，沪硅想了一会儿站起来，看了一眼北京方阵，说我还年轻，死就死了，我上。</p>
+<p><strong>缺光刻胶</strong>，一众个头小的企业手拉手站起来，说我们一个人干不成，但可以一起干。</p>
+<p><strong>缺 EDA</strong>，大家都面面相觑，北京方阵站起来个小个子华大九天，哭着说，大家帮帮我，我去试试。</p>
+<p>众人拾柴火焰高</p>
+<h3 id=知乎用户-刹那公子-发表>知乎用户 刹那公子 发表</h3>
+<p>被卡在以前没被卡过。</p>
+<p>没被卡时，国际企业仗着先发优势，规模、技术、资金、人才、客户…… 在在都是优势，倾销之下，确实是造不如买，买不如租，后发企业只有挨打的命。</p>
+<p>除非——国家不计短期成本，企业不计短期效益的埋头苦干苦熬出头——韩国就这么干的。</p>
+<p>现在好了，人家卡脖子了，才一下发现别说产品，连造工具的工具都欠缺。</p>
+<p>幸在，我们有最大且增速最快的市场。</p>
+<p>幸在，工艺己近物理极限。</p>
+<p>幸在，满足基本安全与需求的我们还是能造的。</p>
+<p>幸在，我们自上而下有了清醒的认识。</p>
+<p>幸在，国人之坚韧之勤奋之聪慧…… 我们是苦难中泡大的民族。</p>
+<p>如此，现在被卡住了吗？不存在的，无非芯片慢点大点，可预见的将来，必将又是一个中国奇迹。</p>
+<p>反之，以前那样向我们敞开供应低价倾销才真正叫卡。</p>
+<h3 id=知乎用户-干饭仙人-csy-发表>知乎用户 干饭仙人 CSY 发表</h3>
+<p>产学研一条龙</p>
+<p>你缺了任意一个</p>
+<p>另外两个都会被快速拉低</p>
+<p>先说产吧</p>
+<p>自汉芯之后</p>
+<p>各路资本对半导体的投资意愿明显下降</p>
+<p>而制造端 (这里不说国企)</p>
+<p>站在民企的角度考量，造不如买，买不如租确实是局部最优解，</p>
+<p>难得有华为这样的公司思考到了</p>
+<p>局部最优解不等于全局最优解</p>
+<p>再来说学</p>
+<p>学这块，我看到的问题就更大了</p>
+<p>模电数电，有多少老师是自己真正懂的，又有多少老师不是念着 0 几年 ppt，天天给你吹水</p>
+<p>我相同的时间精力，408，不香？</p>
+<p>绝大多数人更本没到达喜欢一个学科的地步，更多都是路径依赖</p>
+<p>举个极端点的栗子，都是吃屎，然后拿钱，吃同样多的屎，我为什么不找个钱多的呢？</p>
+<p>以前是差不多，所以无所谓，但现在不一样啊，各行各业差距太大了，再加上网络平台，且不说一眼望穿吧，至少学生阶段，xx 专业的学生还是可以了解到 xx 工程师生存现状的</p>
+<p>当然这也没啥，可是一比较</p>
+<p>麻麻，408 太香了，CFA/CPA 太香了</p>
+<p>提桶跑路大有人在</p>
+<p>没跑路的，骑墙的，路径依赖的，你难道指望有多大建树么</p>
+<p>要恰饭的嘛 hhh</p>
+<p>研就更多了 hhh</p>
+<p>多逛几圈各大论坛</p>
+<p>和身边的硕博交流一下</p>
+<p>自然知道啥问题了</p>
+<h3 id=知乎用户--eidosper-发表>知乎用户 Eidosper​ 发表</h3>
+<p>主要卡脖子的是<strong>生产设备和原材料</strong>。</p>
+<p>生产设备这边主要是光刻机，其次离子注入机等等，原材料这边主要是光刻胶，其次还有各种其他的材料。</p>
+<p>生产工艺这边，ICRD 等都有研究以及部分专利。</p>
+<p>设计这边海思几乎有全套的自研架构，包括 gpu。</p>
+<p>EDA 这边海思据说有自研的工具。</p>
+<p>现在的问题是，ssa800 只要不翻车，smee 就是世界第二的光刻机制造商，可以反超尼康佳能。</p>
+<p>而各种其他设备进展未知。</p>
+<p>芯片生产分成两步，<strong>第一步是去美，第二部才是纯国产</strong>。去美主要是做出 amat lam 等设备和材料的替代，欧洲日韩供应商仍然可以供应。纯国产是第二步。</p>
+<p>现阶段能立刻拉出来的去美或者纯国产，是在 13 0nm 以上。45nm 有望明年实现去美，28nm 大概要 2022 年。</p>
+<p>等到 28nm 能解决，小海思基本上都能续。等到 7nm 解决，大海思的生产就不再会完全没法做。</p>
+<p>等麒麟重新回来，就不会再受到威胁。</p>
+<h3 id=知乎用户-竹笋-发表>知乎用户 竹笋 发表</h3>
+<p>这个问题比较大，我不系统的回答下。</p>
+<p>做芯片是个系统的工程，前后涉及的方面非常多，没有一个国家涵盖了整个行业的所有方面，即使牛逼如美国也仍然没有制造环节中光刻机的生产厂家，至于中国差得更多了。总体来说涉及的方面按照研发流程来分如下：</p>
+<ol>
+<li>
+<p>Design 。design 从架构到代码实现</p>
+</li>
+<li>
+<p>cpu cpu 涉及到体系结构，指令集；指令集上已经是 arm 和 x86 的天下，中国想另起炉灶做一个指令集的时代已经过去，arm 和 x86 已经建立完整的生态。x86 是封闭式的，只有 sumsong/intel/amd 三家在用，arm 相对开放，可以用高价买到指令集授权，100～1000 w 刀。</p>
+</li>
+<li>
+<p>高速模拟芯片需要经验，长时间积累，中国这方面积累为 0，外资企业对中方背景的人员严格保密；</p>
+</li>
+<li>
+<p>其他类别芯片，design 上中国不是弱项；</p>
+</li>
+<li>
+<p>eda 工具 整个 flow 的 eda 工具基本没有国产，空白项；</p>
+</li>
+<li>
+<p>foundry 厂，第一梯队台积电；第二梯队台联电；第三梯队中芯国际，基本差两代，28nm 良率都很差，但基本能用；这里面用到的设备，完全是荷兰 / 日本 / 德国的进口货；禁止中国用于自主研发芯片以及军用芯片；空白项；</p>
+</li>
+<li>
+<p>封测厂，第一梯队日月光，台企；中资企业第二梯队，可以用；</p>
+</li>
+</ol>
+<p>芯片是基础，上面有电路设计；操作系统，应用软件，形成一个生态，所以能做出芯片不一定市场认可。</p>
+<p>以上。</p>
+<h3 id=知乎用户-猿鸣三声泪沾裳-发表>知乎用户 猿鸣三声泪沾裳​ 发表</h3>
+<p><strong>惯例，先说是不是，再说有没有。</strong></p>
+<h2 id=中国不是做不出芯片而是暂时做不出最先进工艺的高端芯片或者说暂时不能在完全-去-a-化-的情况下做出先进芯片>中国不是做不出芯片，而是暂时做不出最先进工艺的高端芯片，或者说暂时不能在完全 “去 A 化” 的情况下做出先进芯片。</h2>
+<p>“技术无国界”，但你没有的技术就有国界了。可惜现在看不透或者被忽悠的国人还是大把，不知道是心坏还是屁股歪。</p>
+<p>归根结底一句话，“全球化” 是要我们自己掌握高端 / 核心技术（设计 / 制造）的全球化，而不是仰人鼻息，吃点残羹剩饭的全球化。</p>
+<p>希望五年后国产手机品牌在发布会上别动辄花半小时 / 一小时告诉我们高通骁龙有多厉害，性能有多强；三星的屏幕有多好，刷新率有多高；美光内存有多快，有多省电。</p>
+<p>那样我们永远只能 996 甚至 007 的给人家打工，还被人家鄙视，陷入 “中等收入陷阱” 里。</p>
+<p>那样我们怎么对得起当初抛头颅洒热血的革命先烈？怎么对得起开国伟人们的殚精竭虑？</p>
+<p>高科技战也是战争，不比攻山头守阵地容易，甚至过而不及。</p>
+<p>登不了基，那我们只能做 “阿奇那”、“塞斯黑”，做粘板上的肉，认人宰割。</p>
+<h3 id=知乎用户-ieeeeds-发表>知乎用户 ieeeeds 发表</h3>
+<p>谢不邀！你这个问题要分两步来回答。</p>
+<p>首先是 7nm。虽然上面有很多回复了，但是都没说到重点。其实重点就是卡在<strong>人才</strong>和<strong>时间</strong>。</p>
+<p>的确，我们现在很多东西还不能自己做，比如某些关键化工材料、某些软件工具、某些加工设备，但是在我看来这些都不是卡点，只要国家重视了、想做，没多久就能做出来。</p>
+<p>那么为什么之前国家不搞呢？因为没必要啊。我们一直觉得全球化就好了，那些玩意市场也不大，自己搞出来短期内也没太多直接收益，真不如买别人的。而且我国高端人才还供不应求，人才最好还是先用在更需要的地方。</p>
+<p>可是没想到美国出了个疯子，搞的这么狠，想以自宫为代价换取短期速成。这的确搞的我国很不爽，一时间看似到处都是卡点。但是不要紧，只要我们国家想做，这些东西都是能在短期内搞出来的，没有某些人吹的那么邪乎。我始终坚持认为最大的难点还是在<strong>人才缺乏</strong>上。目前国内没有太多愿意搞集成电路制造的高端人才，人才待遇也远低于隔壁行业。人定胜天，但是没人了怎么胜天？这是我国教育体制和产业构成决定的，短期内没办法得到实质的改善，只能慢慢来。相信未来的差距肯定是越来越小的。</p>
+<p>再说 5nm。这个有点麻烦，国外的主流技术是在 5nm 开始引入 EUV 了，如果我们没有找到颠覆性的创新技术的话，基本会被长期卡在 EUV 上。EUV 实在是涉及的高端技术太多了，如果现在把美国孤立，美国自己也不太可能在 10 年内搞出来。我想我国最好的策略是不再追求那么小的工艺尺寸，从其它角度入手，比如 DTCO 或者三维集成等新技术，反正最后看的是芯片性能，只要性能能持续提升，也算是找到一条适合自己的路线了。</p>
+<h3 id=知乎用户-boris-发表>知乎用户 Boris 发表</h3>
+<p>对比美国，中国缺乏这个领域系统的科研成果，所以卡脖子的地方很多，往往是走了一步，不知道下一步在哪儿。</p>
+<p>这不得不承认美国基础科研的扎实，人家搞半导体产业这方面的开发有前期系统的研究成果铺垫，不同阶段每个具体的领域如何推进，都有成熟的套路。</p>
+<p>反观中国的科研呢？东一榔头，西一棒槌，组织得相当混乱，很多相对简单的空白无人填，就一直空在那里，要用的时候就没有。</p>
+<p>其实技术开发本来就没想象的那么难，如果你知道每种情况如何应对，整个技术的方向往哪里发展，那一切都不是事，做一定出成果。</p>
+<h3 id=知乎用户-回眸一笑倒苍生-发表>知乎用户 回眸一笑倒苍生 发表</h3>
+<p>因为中国的机械和化工距离世界顶尖水平还有很大距离。</p>
+<p>现在的光刻机都靠多重曝光来提高精度。由于制程现在已经来到了 5nm，所以控制多重曝光的电机的精度也必须在 nm 级别，而这个电机还要同时负担几十公斤重的曝光台快速移动。满足这种功率和精度要求的电机，暂时我们还造不出来。</p>
+<p>另一方面，用来光刻的 EUV 的能量比普通深紫外光要高不少，已经接近 X 射线的级别，要生产适配 EUV 的光刻胶，也需要极高的化工水平。</p>
+<p>当然，这些东西美国都是可以买到的。所以中国做不出芯片，本质是还是卡在了航母数量不够。</p>
+<h3 id=知乎用户-夢了絕心痕-发表>知乎用户 夢了絕心痕​ 发表</h3>
+<p>谢邀，这个问题之前回答以下是链接<br>
+<a href=https://www.zhihu.com/question/273898244/answer/385168124>https://www.zhihu.com/question/273898244/answer/385168124</a></p>
+<h3 id=知乎用户-df1982-发表>知乎用户 df1982 发表</h3>
+<p>卡在人才上了</p>
+<h3 id=知乎用户--an0nym0us-发表>知乎用户 AN0NYM0US​ 发表</h3>
+<p>产学研销，</p>
+<p>市场被锁定了，只会去买国外的产品，而且红绿蓝三厂技术迭代和竞争营销做的都不错。</p>
+<p>说白了就是消费级 7nm 对本土产品的需求还是不够强烈</p>
+<p>政府把消费级芯片市场配比限制住，让消费者的需求倒逼国内厂商技术迭代升级，加上消费市场的资金不再大量外流从而涌入国内厂商，一定可以让国内产品逐渐发展起来</p>
+<hr>
+<p>制裁进口芯片的数量，外国厂商就没钱用来技术革新，一定就会发展放缓甚至是可能破产</p>
+<hr>
+<p>芯片专卖</p>
+<p>对哄抬消费级进口芯片价格的黄牛予以重罚</p>
+<p>政府管理消费级芯片市场，让进口芯片的盈利用来补贴国产芯片</p>
+<p>政府介入甚至可以让几个竞品的生产商恶性竞争，互相消耗</p>
+<h3 id=知乎用户--yunfei-发表>知乎用户 yunfei 发表</h3>
+<p>没人用是主要问题</p>
+<h3 id=知乎用户-小同学-发表>知乎用户 小同学 发表</h3>
+<p>这么多回答全是胡扯！</p>
+<p>中国做不出高端芯片只有两个原因，</p>
+<p>首先是培养不出人才，教育机制有问题。</p>
+<p>第二人们没有灵魂，如何能生产出设备的灵魂？</p>
+<h3 id=知乎用户-皮皮鹿-发表>知乎用户 皮皮鹿 发表</h3>
+<p>为啥我们新中国还没有诞生百岁老人么？最大的怎么才 71？</p>
+<h3 id=知乎用户-临界-z-零点-发表>知乎用户 临界 Z 零点 发表</h3>
+<p>卡在哪？自给自足。</p>
+<h2 id=或者说以此为业>或者说以此为业。</h2>
+<p>你的企业<strong>不是</strong>专业代工的厂，就<strong>没有</strong>大单给你做，那才是实实在在的需求和<strong>反馈</strong>，任何<strong>不足都会暴露</strong>和导致<strong>收入降低</strong>。</p>
+<p>一直活在实验室和新闻上，那就是爽文一样的东西，气球飞上天，不经打。</p>
+<h2 id=做事业要对自己狠一点>做事业，要对自己狠一点。</h2>
+<h3 id=知乎用户-袁七-发表>知乎用户 袁七 发表</h3>
+<p>我觉得是在材料上，线宽越小漏电越大，越多的能耗在漏电上而非晶体管上，材料基础研究若非有全面突破就等着一口口大火炉吧。</p>
+<h3 id=知乎用户-八叶重楼-发表>知乎用户 八叶重楼 发表</h3>
+<p>如果说具体卡在了哪一步，我们应该冒昧的思考一下，是不是一百年前的动荡造成的，那又会不会是四十年前的决策造成的，或者是 20 年前的政治环境造成，更可以说是不是国人的一贯思维造成。<br>
+现在说这些是不是太早啦，谁说中国人造不出芯片。对，到目前为止，我们还不能造，但是以后呢，我们是中国人，肯定是早已在筹备呢，差距肯定会有，我们会加紧追赶。现在的我们是供需缺口很大，但是我们要努力，填补这个缺口。</p>
+<h3 id=知乎用户-已注销-发表>知乎用户 「已注销」 发表</h3>
+<p>毫无疑问高端芯片我们绝对领先具有绝对碾压的优势</p>
+<h3 id=知乎用户-李李-发表>知乎用户 李李 发表</h3>
+<p>从原材料到设计到生产，每一步都卡着了呢。</p>
+<p>原材料高水平硅单晶依赖进口。</p>
+<p>芯片设计工具依赖进口。</p>
+<p>芯片设计技术主要靠抄国外的。</p>
+<p>芯片生产技术和生产工具依赖进口。</p>
+<p>基本上每个主要环节都卡着呢。</p>
+<p>据说国内连低端芯片生产也是主要靠进口国外已经刻好集成电路的半成品，到国内分割、封装好，就当成国内产的卖出去了。所以这低端芯片实质上也卡着呢。</p>
+<h3 id=知乎用户-随风依然-发表>知乎用户 随风依然 发表</h3>
+<p>卡了不是一步。</p>
+<p>是好几步，都打出来我怕你会感觉绝望。</p>
+<h3 id=知乎用户-ccc-发表>知乎用户 ccc 发表</h3>
+<p>要对自己的祖国有信心，14 亿中国人现在已经没有什么是做不了的了，你要做的就是好好学习好好生活，为自己，也为祖国</p>
+<h3 id=知乎用户--cyifovou-发表>知乎用户 Cyifovou 发表</h3>
+<p>卡在航母数量不够多吧。</p>
+<h3 id=知乎用户-wangcheng902-发表>知乎用户 wangcheng902 发表</h3>
+<p>那一步都差吧。而且现在都在关心硬件，软件其实也没有。举个不恰当例子，现在大家都想怎么干出一块 3090 显卡。但是呢，驱动在哪里？视乎没人关心</p>
+<h3 id=知乎用户-匿名用户-发表>知乎用户 匿名用户 发表</h3>
+<p>行业待遇低，最顶尖的人才纷纷投身金融，互联网。想让马儿跑也要给马吃草。</p>
+<h3 id=知乎用户-乐行玫瑰-发表>知乎用户 乐行玫瑰 发表</h3>
+<p>卡在每一个细节的步骤，纵观近十年的智能手机黄金时期，舞台上都是什么情况：</p>
+<p>1：小米 组装厂</p>
+<p>2：华为 组装厂</p>
+<p>3：OV 组装厂</p>
+<p>4：中兴 组装厂</p>
+<p>各位稍微再看点知识点的，大概还知道 魅族锤子联想等组装厂。</p>
+<p>再能进一步的，大约莫知道 海思，汇顶，BOE，舜宇，卓胜微等</p>
+<p>更进一步就全是美日韩</p>
+<p>射频御三家 - 美， FPGA 二人转 - 美，闪存 - 韩美，摄像头 - 日韩美，电源 - 美</p>
+<p>舞台下的的问题是：</p>
+<p>国产的制造业，无论是供应链公司还是品牌公司，无一例外没有开发出来任何一个独步天下的类目，让别人无可取代。 无一例外且任何的情况下，制裁各类组装公司，简直是手到擒来。</p>
+<p>我们的 5~7NM，可能要 10 年后再见了。</p>
+<p>最后但愿</p>
+<p>类似华为小米这样的企业，少一点，越少越好，基本不要在新闻里能看到。</p>
+<p>类似 汇顶科技，歌尔声学这样的企业多一点，多出来见见阳光，潜心做研发的企业太难了。</p>
+<h3 id=知乎用户-给时光取名为无心-发表>知乎用户 给时光取名为无心 发表</h3>
+<p>造出一台光刻机需要 10 万个零件，其中光源，透镜是最难制造的零件，也是最重要的零件，分别由德国和荷兰掌握技术，至今为止没有任何一个国家能单独制造一台光科机，光刻机的制造集成全球的顶尖技术，只是荷兰，德国，美国以及其他国家掌握着核心技术而且没有他们提供技术这个光刻机就无法完成制造，恰恰中国在这方面没有一项关键的技术能限制光刻机的制造，也就是说光刻机离开中国可以造出来，</p>
+<p>所以他们现在是不带中国玩了</p>
+<h3 id=知乎用户-竹子-发表>知乎用户 竹子 发表</h3>
+<p>老大吃肉，老二喝汤，老三只能观望，老四老五不挤到前列就只能等着饿死。。。这就是芯片行业。。。</p>
+<h3 id=知乎用户-tonycxd-发表>知乎用户 tonycxd 发表</h3>
+<p>做芯片之前，你要有做芯片的工具，要开发作芯片的工具，你首先还需要能做那套工具的工具。。。不是一下子就能做得出来的，芯片就在你眼前，材料也没有什么特别，你没有那种工艺工具，就是做不出来的</p>
+<h3 id=知乎用户-鸽子不放鸽子-发表>知乎用户 鸽子不放鸽子​ 发表</h3>
+<p>每一步吧&mldr;..</p>
+<p>从设计到制造</p>
+<p>除了技术上的问题还有专利的问题</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/50/v2-5825c4ff02f41dfbc8c08fd9e839e796_hd.jpg%3Fsource%3D1940ef5c" alt></p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/ed5ac34bcc541e91db84705a572da554/?utm_source=see_also&utm_medium=%25E4%25B8%25AD%25E5%259B%25BD%25E5%2581%259A%25E4%25B8%258D%25E5%2587%25BA%25E9%25AB%2598%25E7%25AB%25AF%25E8%258A%25AF%25E7%2589%25877nm5nm%25E5%2585%25B7%25E4%25BD%2593%25E5%258D%25A1%25E5%259C%25A8%25E4%25BA%2586%25E5%2593%25AA%25E4%25B8%2580%25E6%25AD%25A5">武汉弘芯烂尾始末</a>
+</h2>
+<p class=text-dark>3 月 1 日的湖北武汉很冷，大风刮在脸上生疼。几名弘芯员工离职前聚餐，路过厂区，一名员工指着不远处一栋虽未完工但已能看出气派的办公楼对财新记者说：「这本是我们未来的大楼。」语气难掩痛惜。
+工厂已全面停建，四野荒芜中，几栋在建厂房墙体斑驳， …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/c052f928f56a019f9927d45df0956f6a/?utm_source=see_also&utm_medium=%25E4%25B8%25AD%25E5%259B%25BD%25E5%2581%259A%25E4%25B8%258D%25E5%2587%25BA%25E9%25AB%2598%25E7%25AB%25AF%25E8%258A%25AF%25E7%2589%25877nm5nm%25E5%2585%25B7%25E4%25BD%2593%25E5%258D%25A1%25E5%259C%25A8%25E4%25BA%2586%25E5%2593%25AA%25E4%25B8%2580%25E6%25AD%25A5">36氪 | 千亿芯片大骗局</a>
+</h2>
+<p class=text-dark>为什么仅仅时隔一个月，千辛万苦求来的宝贝“光刻机”，就被抵押出去换钱了？这让芯片公司“武汉弘芯半导体”（以下简称“弘芯”）的管理层，尤其是新聘来的CEO、业界泰斗蒋尚义感到很不对劲。
+光刻机是制造芯片的关键设备，全世界仅有几家企业可以生产， …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/5af7ac15c8024c0382d740ac1e83c267/?utm_source=see_also&utm_medium=%25E4%25B8%25AD%25E5%259B%25BD%25E5%2581%259A%25E4%25B8%258D%25E5%2587%25BA%25E9%25AB%2598%25E7%25AB%25AF%25E8%258A%25AF%25E7%2589%25877nm5nm%25E5%2585%25B7%25E4%25BD%2593%25E5%258D%25A1%25E5%259C%25A8%25E4%25BA%2586%25E5%2593%25AA%25E4%25B8%2580%25E6%25AD%25A5">造芯片真的很难吗？</a>
+</h2>
+<p class=text-dark>今年以来，芯片制造无疑引起了许多人的兴趣，更有相当多的人在问：造芯片真的那么难吗？
+造芯片到底是难还是不难？这个问题比较复杂，涉及的因素很多，很难用一两句话讲清楚。不过，这并不妨碍我们从技术上了解“造芯片到底是怎么回事”。尽管现在已经有很多 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/266553682e2ac7127779cb177c84be1f/?utm_source=see_also&utm_medium=%25E4%25B8%25AD%25E5%259B%25BD%25E5%2581%259A%25E4%25B8%258D%25E5%2587%25BA%25E9%25AB%2598%25E7%25AB%25AF%25E8%258A%25AF%25E7%2589%25877nm5nm%25E5%2585%25B7%25E4%25BD%2593%25E5%258D%25A1%25E5%259C%25A8%25E4%25BA%2586%25E5%2593%25AA%25E4%25B8%2580%25E6%25AD%25A5">ASML：工业光魔</a>
+</h2>
+<p class=text-dark>如果问数字经济的中心在哪里，很多人会指向硅谷，那里聚集了苹果、谷歌、Facebook 以及数不胜数的炫酷的创业公司。其他人可能会说是亚马逊和微软总部所在的西雅图一带。或许还有人会说是中国的科技中心深圳。 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/3665d32f06e55253296b636ee08fe77a/?utm_source=see_also&utm_medium=%25E4%25B8%25AD%25E5%259B%25BD%25E5%2581%259A%25E4%25B8%258D%25E5%2587%25BA%25E9%25AB%2598%25E7%25AB%25AF%25E8%258A%25AF%25E7%2589%25877nm5nm%25E5%2585%25B7%25E4%25BD%2593%25E5%258D%25A1%25E5%259C%25A8%25E4%25BA%2586%25E5%2593%25AA%25E4%25B8%2580%25E6%25AD%25A5">光刻机大败局</a>
+</h2>
+<p class=text-dark>作****者
+：刘芮、邓宇
+支持：远川研究所科技组
+在芯片领域，有一样叫光刻机的设备，不是印钞机，但却比印钞机还金贵。
+历数全球，也只有荷兰一家叫做阿斯麦（ASML）的公司集全球高端制造业之大成，一年时间造的出二十台高端设备，台积电与三星每 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

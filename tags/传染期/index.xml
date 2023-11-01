@@ -1,0 +1,11 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>传染期 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E4%BC%A0%E6%9F%93%E6%9C%9F/</link><description>Recent content in 传染期 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sun, 12 Apr 2020 12:41:32 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E4%BC%A0%E6%9F%93%E6%9C%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>我们不用很麻烦就可以理解传染病</title><link>https://project-gutenberg.github.io/Pincong/post/4cdc6264d3a073e284019843e6ba3d57/</link><pubDate>Sun, 12 Apr 2020 12:41:32 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/4cdc6264d3a073e284019843e6ba3d57/</guid><description>刚刚开始玩Anylogic，发现教程里有SEIR模型，就按照教程建立了一个，还挺好玩的。
+全文分为7部分
+1.简单的SIR模型
+2.在Anylogic中建模SEIR模型
+3. 群体免疫的数学表达和模型展示
+4.不同的Re代表了什么
+5.给模型增加隔离条件
+6.给模型增加死亡和ICU条件
+7.可能一劳永逸的消灭传染病么
+（一）最简单的SIR模型
+理想情况下，传染病是以一定恒定的效率在人群中传播的，1个人传染给2个人,这两个人又分别再去感 …</description></item></channel></rss>

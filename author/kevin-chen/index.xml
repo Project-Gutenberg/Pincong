@@ -1,0 +1,5 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kevin Chen on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/author/kevin-chen/</link><description>Recent content in Kevin Chen on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Tue, 05 May 2020 10:41:09 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/author/kevin-chen/index.xml" rel="self" type="application/rss+xml"/><item><title>多Shadowsocks服务器负载均衡</title><link>https://project-gutenberg.github.io/Pincong/post/73866435b69ea6cfe569d099476deee9/</link><pubDate>Tue, 05 May 2020 10:41:09 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/73866435b69ea6cfe569d099476deee9/</guid><description>玩翻墙主机的人哪个没有好几个小鸡，所以多主机负载均衡访问这个需求应运而生，开源软件界当然已经有可以解决这个问题的软件——Haproxy
+HAProxy是一个使用C语言编写的基于TCP和HTTP的应用程序代理，其提供高可用性、负载均衡。
+整套系统的流程如图
+Haproxy 安装就不必多讲了，直接看看配置文件，默认在/etc/haproxy/haproxy.cfg
+global log /dev/log local0 log …</description></item></channel></rss>

@@ -1,0 +1,5 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>八里土人 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/author/%E5%85%AB%E9%87%8C%E5%9C%9F%E4%BA%BA/</link><description>Recent content in 八里土人 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sun, 21 Jun 2020 14:22:43 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/author/%E5%85%AB%E9%87%8C%E5%9C%9F%E4%BA%BA/index.xml" rel="self" type="application/rss+xml"/><item><title>量子通信安全性分析</title><link>https://project-gutenberg.github.io/Pincong/post/1a2ffdd0b3129cf4b4fc513fb71ab968/</link><pubDate>Sun, 21 Jun 2020 14:22:43 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/1a2ffdd0b3129cf4b4fc513fb71ab968/</guid><description>量子通信安全性分析
+作者：八里土人
+随着量子通信卫星“墨子”发射成功，近來量子通信成了热点。很多新闻中把量子通信说成绝对安全，把基于数学原理的现代密码学贬得一文不值。这里对量子通信的安全性做一个初步分析，澄清一些大众大误解。
+一般分析系统安全性，以CIA为维度。CIA并不是美国中央情报局，而是“机密性”，“完整性”，“可用性”作为评估维度。
+加解密与密钥基础 加解密算法粗分2种，对称密钥和非对称密钥。对称密钥是加解密密钥相同，加解密 …</description></item></channel></rss>

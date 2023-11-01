@@ -1,0 +1,17 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>V2Ray on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/v2ray/</link><description>Recent content in V2Ray on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Wed, 08 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/v2ray/index.xml" rel="self" type="application/rss+xml"/><item><title>如何评价著名机场喵帕斯被警方调查？</title><link>https://project-gutenberg.github.io/Pincong/post/a09a6abe9994636dd9b4c00ee82407c7/</link><pubDate>Wed, 08 Jul 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a09a6abe9994636dd9b4c00ee82407c7/</guid><description>品葱用户 基本资料2019 提问于 7/8/2020 真伪未知，似乎是真的。
+站长的身份信息被公布了出来
+但目前为止线路还可以使用
+看起来似乎是被同行阴了
+这家一直使用邀请制，没有屏蔽政治网站，
+屏蔽了360和百度定位
+然而作为名气比较大的机场，这些安全措施反而使之首当其冲。
+品葱用户 posclegom 评论于 2020-07-09 喵帕斯可是久经考验的大机场啊，名声很好，有口皆碑。毒药网也对其称赞有加。现在出了这种新闻，是否预示着墙 …</description></item><item><title>[转载]Shadowsocks 笔记 (一些翻墙软件的历史)</title><link>https://project-gutenberg.github.io/Pincong/post/66895b05805399ab17f346e6a35181d8/</link><pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/66895b05805399ab17f346e6a35181d8/</guid><description>https://github.com/JadaGates/ShadowsocksBio
+# Shadowsocks 笔记
+![AUTHOR](https://img.shields.io/badge/AUTHOR-JingX-green.svg)
+![LICENSE](https://img.shields.io/badge/LICENSE-CC--BY--SA--4.0-9cf.svg)
+&amp;gt; 时间会遗忘的。
+* [前言](#前 …</description></item><item><title>V2Ray翻墙完全教程(WS+TLS+Web)</title><link>https://project-gutenberg.github.io/Pincong/post/a1239fbb103f9eb0dc3548504cd4e26a/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a1239fbb103f9eb0dc3548504cd4e26a/</guid><description>前言
+本文是搭建V2Ray服务器（ws+tls+web）的完整教程。除了搭建V2Ray+ws+tls+web的过程，还包括配置CDN隐藏IP，打开BBR加速，以及简单配置防火墙防探测。最近（2020年初开始）防火墙加大了封杀VPN的力度，很多SS，SSR，纯VMess都开始间歇掉线，有些代理甚至直接被封IP。如果你打算自己搭建翻墙服务，强烈推荐V2Ray+ws+tls+web（CDN可选）一步到位。
+本文面向小白，你只要会购买虚拟主机， …</description></item><item><title>V2Ray翻墙完全教程(WS+TLS+Web)【请更新V2Ray客户端至4.23.2以上】</title><link>https://project-gutenberg.github.io/Pincong/post/3bc4e124ba3baa635de64fd2046c5f3f/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/3bc4e124ba3baa635de64fd2046c5f3f/</guid><description>前言
+本文是搭建V2Ray服务器（ws+tls+web）的完整教程。除了搭建V2Ray+ws+tls+web的过程，还包括配置CDN隐藏IP，打开BBR加速，以及简单配置防火墙防探测。最近（2020年初开始）防火墙加大了封杀VPN的力度，很多SS，SSR，纯VMess都开始间歇掉线，有些代理甚至直接被封IP。如果你打算自己搭建翻墙服务，强烈推荐V2Ray+ws+tls+web（CDN可选）一步到位。
+本文面向小白，你只要会购买虚拟主机， …</description></item></channel></rss>

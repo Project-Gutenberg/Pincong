@@ -1,0 +1,299 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>Shadowsocks指导篇（总结归类）——从无到有，境无止尽！ | 逗比根据地</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 广告
+
+本文最后更新于 2018年11月7日 17:53 可能会因为没有更新而失效。如已失效或需要修正，请留言！
+最近通过大家的反馈，我发现网站了一个问题，就是教程太碎了。很多人并没有去全部翻一遍，然后就找不到自己想要的教程，然后去群里问我的时候才发现原来有这些教程，这就很尴尬了。。。所以我就把本站的Shadowsocks教程都总结归类一下，让新手更容易找到想要的内容！
+我建议先大概从头到尾看一遍，理清思路再开始学习，这样子有助于更快的接受新内容！
+强烈推荐：搬瓦工官方出品机场，CN2 GIA 线路，官方保证 IP 可用，妈妈再也不用担心 IP 被封啦（优惠码：JMS9272283）：Just My Socks | 搬瓦工官方 Shadowsocks 代理服务 $2.88/月起
+一、了解Shadowsocks 首先如果你没有使用过Shadowsocks，那么你就需要看一下Shadowsocks的介绍、使用教程、和VPN的对比等文章。
+二、寻找Shadowsocks账号/搭建Shadowsocks服务 很多人想试试Shadowsocks好不好用，那就需要一个账号，但是Shadowsocks的账号都是在VPS上搭建的，没有VPS那就先用着免费的Shadowsocks账号吧！
+如果你有VPS或者想要购买一个VPS搭建Shadowsocks服务，请看 2.2。
+2.1、寻找Shadowsocks账号 本站提供了一些自建和其他逗比分享的免费Shadowsocks账号，当然因为用的人多，速度和稳定性方面始终不完美，如果只是想试一试，可以用用看。
+点击展开 查看更多
+现在的SS商家质量参差不齐，很多坑钱的跑路，所以大家请谨慎！
+互联网上有一些网站提供免费/付费的Shadowsocks服务，免费的固然好，但是能做到真正稳定的也不多。付费的也不一定最好，现在的SS商家质量参差不齐，一年跑路的SS商家几十上百个，如果要购买最好买月付的，即使不满意或者跑路了亏得也不多，那些强制半年/一年和永久的千万别买！
+遇到符合以下两个条件以上的 付费SS站 请警惕！  免费域名的别买！（比如：tk、ml、gq、ga、cf等后缀），一年几元/几十元的域名钱都不舍得掏。 **网站默认式样的别买！**既然是做的付费SS，最少也要有个差不多的门面，连网站的式样都懒得换，直接用默认的，要么就是不放在心上，要么就是方便*路。 Google+社区、微信、百度贴吧等宣传的别买！G+已经被SS商家攻占了，广告狗 跑路率一直居高不下。 吹的特别厉害的别买！什么CN2、海底光缆、黑科技、原创技术、国内中转、全天4K无压力的都太夸张，水分太大了。 强制 年付/半年付/季付 甚至终身套餐 的别买！付费SS站最好一个月一个月购买，那些 强制或者疯狂推销年付/半年付/季付 甚至终身套餐的看着就像捞一笔跑路的。   还有个问题我要说明一下，很多新手购买或者使用免费SS站服务后（特别是无限流量那种），就把这些节点公开共享出去！这个问题是很严重的，然而很多新手都没有意识到。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" Shadowsocks指导篇（总结归类）——从无到有，境无止尽！ | 逗比根据地 ">
+<meta name=og:description content=" 广告
+
+本文最后更新于 2018年11月7日 17:53 可能会因为没有更新而失效。如已失效或需要修正，请留言！
+最近通过大家的反馈，我发现网站了一个问题，就是教程太碎了。很多人并没有去全部翻一遍，然后就找不到自己想要的教程，然后去群里问我的时候才发现原来有这些教程，这就很尴尬了。。。所以我就把本站的Shadowsocks教程都总结归类一下，让新手更容易找到想要的内容！
+我建议先大概从头到尾看一遍，理清思路再开始学习，这样子有助于更快的接受新内容！
+强烈推荐：搬瓦工官方出品机场，CN2 GIA 线路，官方保证 IP 可用，妈妈再也不用担心 IP 被封啦（优惠码：JMS9272283）：Just My Socks | 搬瓦工官方 Shadowsocks 代理服务 $2.88/月起
+一、了解Shadowsocks 首先如果你没有使用过Shadowsocks，那么你就需要看一下Shadowsocks的介绍、使用教程、和VPN的对比等文章。
+二、寻找Shadowsocks账号/搭建Shadowsocks服务 很多人想试试Shadowsocks好不好用，那就需要一个账号，但是Shadowsocks的账号都是在VPS上搭建的，没有VPS那就先用着免费的Shadowsocks账号吧！
+如果你有VPS或者想要购买一个VPS搭建Shadowsocks服务，请看 2.2。
+2.1、寻找Shadowsocks账号 本站提供了一些自建和其他逗比分享的免费Shadowsocks账号，当然因为用的人多，速度和稳定性方面始终不完美，如果只是想试一试，可以用用看。
+点击展开 查看更多
+现在的SS商家质量参差不齐，很多坑钱的跑路，所以大家请谨慎！
+互联网上有一些网站提供免费/付费的Shadowsocks服务，免费的固然好，但是能做到真正稳定的也不多。付费的也不一定最好，现在的SS商家质量参差不齐，一年跑路的SS商家几十上百个，如果要购买最好买月付的，即使不满意或者跑路了亏得也不多，那些强制半年/一年和永久的千万别买！
+遇到符合以下两个条件以上的 付费SS站 请警惕！  免费域名的别买！（比如：tk、ml、gq、ga、cf等后缀），一年几元/几十元的域名钱都不舍得掏。 **网站默认式样的别买！**既然是做的付费SS，最少也要有个差不多的门面，连网站的式样都懒得换，直接用默认的，要么就是不放在心上，要么就是方便*路。 Google+社区、微信、百度贴吧等宣传的别买！G+已经被SS商家攻占了，广告狗 跑路率一直居高不下。 吹的特别厉害的别买！什么CN2、海底光缆、黑科技、原创技术、国内中转、全天4K无压力的都太夸张，水分太大了。 强制 年付/半年付/季付 甚至终身套餐 的别买！付费SS站最好一个月一个月购买，那些 强制或者疯狂推销年付/半年付/季付 甚至终身套餐的看着就像捞一笔跑路的。   还有个问题我要说明一下，很多新手购买或者使用免费SS站服务后（特别是无限流量那种），就把这些节点公开共享出去！这个问题是很严重的，然而很多新手都没有意识到。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/123.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>Shadowsocks指导篇（总结归类）——从无到有，境无止尽！ | 逗比根据地</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<span>at 12 April 2016</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%bd%af%e4%bb%b6>软件</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%95%99%e7%a8%8b>教程</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%85%8d%e8%b4%b9>免费</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%bb%a3%e7%90%86>代理</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/51c498b9b2b4aeaea8e646fe6cd7ec9f.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/51c498b9b2b4aeaea8e646fe6cd7ec9f.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>广告</p>
+<p><a href=http://bwggo.com/topad2><img src="https://images.weserv.nl/?url=bwgss-h.png" alt></a></p>
+<p>本文最后更新于 <strong>2018年11月7日 17:53</strong> 可能会因为没有更新而失效。如已失效或需要修正，请留言！</p>
+<p>最近通过大家的反馈，我发现网站了一个问题，就是教程太碎了。很多人并没有去全部翻一遍，然后就找不到自己想要的教程，然后去群里问我的时候才发现原来有这些教程，这就很尴尬了。。。所以我就把本站的Shadowsocks教程都总结归类一下，让新手更容易找到想要的内容！</p>
+<p>我建议先大概从头到尾看一遍，理清思路再开始学习，这样子有助于更快的接受新内容！</p>
+<p><img src="https://images.weserv.nl/?url=85ia6s4c.png" alt></p>
+<p>强烈推荐：搬瓦工官方出品机场，CN2 GIA 线路，<strong>官方保证 IP 可用</strong>，妈妈再也不用担心 IP 被封啦（优惠码：<a href=http://bwggo.com/bwgss/all/zh>JMS9272283</a>）：<a href=http://bwggo.com/bwgss/all/zh>Just My Socks | 搬瓦工官方 Shadowsocks 代理服务 $2.88/月起</a></p>
+<h2 id=一了解shadowsocks>一、了解Shadowsocks</h2>
+<p>首先如果你没有使用过Shadowsocks，那么你就需要看一下Shadowsocks的介绍、使用教程、和VPN的对比等文章。</p>
+<h2 id=二寻找shadowsocks账号搭建shadowsocks服务>二、寻找Shadowsocks账号/搭建Shadowsocks服务</h2>
+<p>很多人想试试Shadowsocks好不好用，那就需要一个账号，但是Shadowsocks的账号都是在VPS上搭建的，没有VPS那就先用着免费的Shadowsocks账号吧！</p>
+<p>如果你有VPS或者想要购买一个VPS搭建Shadowsocks服务，请看 <a href=6r9z6_wi.html#2.2%E3%80%81%E8%B4%AD%E4%B9%B0VPS%E5%B9%B6%E6%90%AD%E5%BB%BAShadowsocks%E6%9C%8D%E5%8A%A1><strong>2.2</strong></a>。</p>
+<h3 id=21寻找shadowsocks账号>2.1、寻找Shadowsocks账号</h3>
+<p>本站提供了一些自建和其他逗比分享的免费Shadowsocks账号，当然因为用的人多，速度和稳定性方面始终不完美，如果只是想试一试，可以用用看。</p>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>现在的SS商家质量参差不齐，很多坑钱的跑路，所以大家请谨慎！</p>
+<p>互联网上有一些网站提供免费/付费的Shadowsocks服务，免费的固然好，但是能做到真正稳定的也不多。付费的也不一定最好，现在的SS商家质量参差不齐，一年跑路的SS商家几十上百个，如果要购买最好买月付的，即使不满意或者跑路了亏得也不多，<strong>那些强制半年/一年和永久的千万别买！</strong></p>
+<h4 id=遇到符合以下两个条件以上的-付费ss站-请警惕>遇到符合以下两个条件以上的 付费SS站 请警惕！</h4>
+<ol>
+<li><strong>免费域名的别买！</strong>（比如：<strong>tk、ml、gq、ga、cf等后缀</strong>），<strong>一年几元/几十元的域名钱都不舍得掏。</strong></li>
+<li>**网站默认式样的别买！**既然是做的付费SS，最少也要有个差不多的门面，连网站的式样都懒得换，直接用默认的，<strong>要么就是不放在心上，要么就是方便*路。</strong></li>
+<li><strong>Google+社区、微信、百度贴吧等宣传的别买！G+已经被SS商家攻占了，广告狗 跑路率一直居高不下。</strong></li>
+<li><strong>吹的特别厉害的别买！<strong>什么</strong>CN2、海底光缆、黑科技、原创技术、国内中转、全天4K无压力</strong>的都太夸张，水分太大了。</li>
+<li><strong>强制 年付/半年付/季付 甚至终身套餐 的别买！<strong>付费SS站最好</strong>一个月一个月购买</strong>，那些 <strong>强制或者疯狂推销年付/半年付/季付 甚至终身套餐</strong>的看着就像<strong>捞一笔跑路</strong>的。</li>
+</ol>
+<blockquote>
+<p><strong>还有个问题我要说明一下，很多新手购买或者使用免费SS站服务后（特别是无限流量那种），就把这些节点公开共享出去！这个问题是很严重的，然而很多新手都没有意识到。</strong></p>
+<p>首先第一点，比如这个SS站有100个用户，那这些节点就是这100个用户共享的，你公开之后，会被大群的人去连接使用。这就会导致速度大幅下降，本来是100个人用的，一下子变成了200、500甚至更多，速度能不下降吗？</p>
+<p>第二点是，如果只是正常使用还好，有很多人会拿这些免费共享的节点去做恶意代理使用，比如DDOS、垃圾邮件等。这就会导致VPS商封掉这个SS节点的VPS，如果多封几个，就会给这个SS站长很大的经济压力。很多SS站长就是因为这样不玩的（毕竟赔钱了，在继续干下去就不值得了）。</p>
+<p><strong>你难道希望你买的SS服务，还没用几天就跑路了？就算是用的免费的SS站，这样子下去，谁还会做免费的？做事情要想清楚后果，不要一时头热就做了。就怕一些人还理直气壮！</strong></p>
+</blockquote>
+<h3 id=22购买vps并搭建shadowsocks服务>2.2、购买VPS并搭建Shadowsocks服务</h3>
+<h4 id=221购买vps>2.2.1、购买VPS</h4>
+<p><a href=#>点击展开 查看更多</a></p>
+<p><strong>写在前面（必读）：</strong></p>
+<p><strong>便宜的VPS基本都是Openvz虚拟框架，也就是超售之王！<strong>基本上卖openvz框架的</strong>VPS超售</strong>都在<strong>3-10倍</strong>，甚至更高！具体看商家人品。</p>
+<p>VPS是推荐 <strong>KVM / XEN构架 <strong>的，虽然也能超售，但是超售能力有限，不会像Openvz那样</strong>无限制的超售下去。</strong></p>
+<p><strong>买VPS千万不要盲目听别人的推荐！</strong></p>
+<p>**不要别人说速度快你就跟着买，全国各地各运营商 速度差异很大！盲目购买只会吃亏！**即使我这里是推荐一些性价比高的，<strong>也不会去说、去保证一定能满足多少多少速度，这些话都是骗人的。</strong></p>
+<p>对于有钱或者需求大的人来说，免费Shadowsocks和那些付费的已经不能满足需求了，那你就可以自己购买VPS搭建专属自己的Shadowsocks服务！</p>
+<p>因为国内的网络运营商线路比较复杂，一个VPS同一个地方不同运营商速度也不近相似甚至于完全两个极端，所以找一个适合自己的VPS也不是一件容易的事情。**请不要盲目的听从别人的推荐，别人的不一定适合你自己！**我这里简单的整理了一些VPS列表，大家可以看看。</p>
+<p>当然我毕竟不是专业研究VPS的，如果需要更多可以去看一下这些网站：<a href=https://www.zhujiceping.com/>国外主机评测</a>、<a href=http://www.vpsps.com/>VPS评审</a>、<a href=https://vps.best/>VPS.BEST</a>、<a href=http://www.freehao123.com/>免费资源部落</a>、<a href=http://www.vpsmm.com/>小夜博客</a> 等网站。</p>
+<p>购买VPS之前，先看看有没有官方的 测速IP 或者 下载测速链接，这样心里有底，其次是看一下 IDC 的 TOS（服务条款）中的退款条款，这样用着不好用也可以退款。</p>
+<p>测试IP可以搭配这两个软件来测试路由情况（比如：绕道）。</p>
+<p>当然做Shadowsocks更需要关注的是VPS把数据传回给你Shadowsocks客户端的 回程路由，所以你需要在VPS上面路由追踪国内的IP查看回程。</p>
+<ul>
+<li><a href=2s2oynd4-2.html>Linux中使用 路由追踪 测试VPS回程路由（回程路由比去程更影响SS速度）</a></li>
+</ul>
+<p>还有，海外IDC支持支付宝付款的比较少，大家一般都是PAYPAL或者信用卡付款，所以你可能要注意这几个问题：</p>
+<ul>
+<li><a href=_wro2m1t.html>PayPal取消自动循环付款/自动续费教程</a></li>
+<li><a href=bqjxhzxr.html>PayPal 更换汇率结算系统，把PayPal汇率结算 改为 银行汇率结算</a></li>
+</ul>
+<blockquote>
+<p>从地理位置上讲，亚洲最适合国内科学上网了。</p>
+<p>其中香港大多是小水管（独享2M/4M），大水管的SoftLayer机房也被国内的大部队摧毁了，现在SL香港、日本、新加坡全部取消直连了，延迟翻几番，绕美国一圈还不如美国的VPS速度。</p>
+<p>剩下的最热门的就是日本万金油了，我个人根据使用经验和与其他逗比的交流，推荐电信使用IDCF、樱花（这两个都需要日本验证），联通使用<a href="https://www.vultr.com/?ref=7684006">Vultr</a>（仅仅是个人使用经验，还请自己客观判断！）。Linode新用户买不到日本机房，而且也并没有那些人吹的那么好，至于Conoha、Z.com这种有点被玩坏了！</p>
+<p>然后就是偏贵一些的韩国VPS和偏冷门的俄罗斯、越南、缅甸等国家了。</p>
+</blockquote>
+<h4 id=222搭建shadowsocks服务>2.2.2、搭建Shadowsocks服务</h4>
+<p><a href=#>点击展开 查看更多</a></p>
+<h2 id=三优化shadowsocks>三、优化Shadowsocks</h2>
+<p>优化Shadowsocks的方法除了中继（国内中转）基本都是在服务端中操作，所以需要自己搭建Shadowsocks才行！</p>
+<p>既然自己都搭建了Shadowsocks服务，那么优化就必不可少了！</p>
+<p>**目前已知的优化速度方法有：**NetSpeed、KcpTun、TCP-BBR、锐速（Server Speeder）+LotServer、云语（Flash TCP）、服务器中继（国内中转）、高级算法hybla或者htcp。</p>
+<h3 id=netspeed><strong>NetSpeed</strong></h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>这是一个优化丢包的软件，原理很简单，就是双倍发包！TCP发送数据包会确认是否到达目的地，UDP则不会确认，有时候你丢包很严重了，Shadowsocks服务端就会重复发包去补数据包，这就导致了速度会间接降低！</p>
+<p>而双倍发包就可以避免这个问题，直接发两个数据包，丢一个还有一个，大大减少了丢包率。你想 不丢包了Shadowsocks服务端就不会去重复发包、补包，速度就会间接提升！</p>
+<ul>
+<li>OpenVZ / KVM 丢包优化教程 —— Net Speeder</li>
+</ul>
+<p>但是缺陷还是有的，比如：开启双倍发包后无法使用VPN、双倍发包意味着使用流量*2，也就是总流量减半。</p>
+<p>还有，如果你不丢包，那就不要使用这个软件！因为他只是通过修复丢包来间接提速的，<strong>不丢包用这个只是有害无益！！</strong></p>
+<h3 id=kcptun><strong>KcpTun</strong></h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>这是一个非常简单和快速的，基于 KCP 协议的 UDP 隧道，它可以将 TCP 流转换为 KCP+UDP 流。而 KCP 是一个快速可靠协议，能以比 TCP 浪费10%-20%的带宽的代价，换取平均延迟降低 30%-40%，且最大延迟降低三倍的传输效果。</p>
+<p>Kcptun 是 KCP 协议的一个简单应用，可以用于任意 TCP 网络程序的传输承载，以提高网络流畅度，降低掉线情况。由于 Kcptun 使用 Go 语言编写，内存占用低（经测试，在64M内存服务器上稳定运行），而且适用于所有平台，甚至 Arm 平台。</p>
+<p>这个软件同样也是双边加速软件，配合我写的 KcpTun Tools 软件辅助使用更方便！</p>
+<ul>
+<li>KCPTun 客户端教程 + 自写KcpTun Tools辅助工具</li>
+<li>Shadowsocks另一种双边加速软件 —— KCPTun（服务端教程）</li>
+<li>KCPTun 安卓 Shadowsocks客户端 使用教程</li>
+</ul>
+<p>但是要注意的是：KcpTun有个缺点，**就是实际流量消耗 最少是 你使用量的两倍！**如果参数调整有问题，可能会浪费十几倍的流量，而加速幅度也并不会上升多少。</p>
+<h4 id=作者的解释>作者的解释：</h4>
+<ul>
+<li>出现这个情况有几种可能：</li>
+<li>ISP 对UDP丢包极高，例如50%</li>
+<li>服务器，客户端本身的带宽较低，可以适当调低sndwnd /rcvwnd</li>
+<li>可以尝试 -dscp 46参数降低丢包率。</li>
+</ul>
+<p>希望你们注意一下这个问题，可能搞不好就被 IDC 以滥用网络的名义给封VPS了。</p>
+<blockquote>
+<p>多的懒得说了，<strong>FinalSpeed、NetSpeed、KCPTun这三种工具，抢占宽带、破坏平衡比较严重，所以在使用的时候一些IDC（就是卖你VPS的商家）可能会封你的VPS或账号。</strong></p>
+</blockquote>
+<h3 id=tcp-bbr>TCP-BBR</h3>
+<p>TCP-BBR是最新出来的一种TCP拥塞控制技术，和锐速差不多，不过这个加速效果个人测试强于锐速，免费，同样不支持OpenVZ。</p>
+<h3 id=锐速server-speeder-lotserver><strong>锐速（Server Speeder）+ LotServer</strong></h3>
+<p>这是一个TCP连接优化加速软件（不支持OpenVZ），因为官方破产，所以现在只能用用开心版（破解）的锐速了。</p>
+<p>这个软件也是非常强大，不需要多余设置，一键安装，效果明显！</p>
+<h3 id=云语flash-tcp><strong>云语（Flash TCP）</strong></h3>
+<p>同样是一个TCP连接优化加速软件（不支持OpenVZ），因为锐速取消了免费的20M加速套餐，所以可以用这个替代，这个同样也是有20M的免费加速套餐！</p>
+<p>安装和设置和锐速差不多，<strong>需要注意的是，如果装了锐速就不需要装这个软件了，因为原理差不多，并不会造成叠加加速！</strong></p>
+<ul>
+<li><a href=u224k90b.html>锐速取消免费后的另一个Linux TCP免费加速软件——云语（Flash TCP）</a></li>
+</ul>
+<h3 id=服务器中继国内中转><strong>服务器中继（国内中转）</strong></h3>
+<p>关于这个优化方法，一般人玩不起，国内VPS太贵，就简单说一下原理。</p>
+<p>国内中转就是，你在国内买一个VPS，然后让他去连接国外VPS上面的Shadowsocks服务，然后你去链接国内这个VPS，这样子就相当于，用国内VPS的优秀线路和宽度去链接国外的Shadowsocks服务，这样子你去链接国内的VPS延迟必然降低了，稳定性也提高不少！</p>
+<p><strong>简单总结一下下面这三种中继的方法的优势和缺点：</strong></p>
+<p><a href=#>点击展开 查看更多</a></p>
+<h3 id=高级算法hybla或者htcp><strong>高级算法hybla或者htcp</strong></h3>
+<p>在KVM虚拟框架的VPS中，只要内核支持都可以开启hybla或者htcp高级算法，他可以让你的Shadowsocks更加的稳定且快速！</p>
+<ul>
+<li><a href=1jg9z3mv-3.html>Linux 提高文件并发数、开启高级算法hybla 以优化Shadowsocks</a></li>
+</ul>
+<p>到这里，你基本就已经熟悉了Shadowsocks了。但是不同的人还有不同需求，下面放一些其他需求的Shadowsocks教程！</p>
+<h2 id=四其他需求非必需>四、其他需求（非必需）</h2>
+<h3 id=41shadowsocks代理其他软件>4.1、Shadowsocks代理其他软件</h3>
+<p>Shadowsocks使用的是Socks5代理，是通过修改系统代理设置来使用的，而浏览器默认使用系统代理设置，其他的软件一般都不支持，所以一些人想要Shadowsocks变成VPN一样可以让其他软件/游戏走Shadowsocks代理！</p>
+<p>这里有两款软件可以实现Socks5代理其他软件，其中Proxifier和SocksCap64区别是，Proxifier可以选择让所有软件走代理（类VPN）还是单独的进程，而SocksCap64只能一个个添加进程，想要做到所有软件或者大量软件走Socks5代理还是Proxifier更适合一些。从功能上来讲Proxifier更强大一点，毕竟这是个付费软件，不过破解版也不少。</p>
+<h3 id=42做一个shadowsocks免费服务站>4.2、做一个Shadowsocks免费服务站</h3>
+<p>一些人可能熟悉Shadowsocks后就想分享一下Shadowsocks账号，但是为了避免滥用和更好的管理，你应该需要**SS Panel **—— 一个方便的Shadowsocks多用户管理面板！</p>
+<p><a href=#>点击展开 查看更多</a></p>
+<h3 id=43shadowsocks一些错误的解决办法>4.3、Shadowsocks一些错误的解决办法</h3>
+<p>在使用Shadowsocks过程中，虽然Shadowsocks很简单，但是必不可少会遇到一些错误和问题，这里列出几个错误问题的解决方法，让大家参考一下。</p>
+<p>错误比较少，也就写了几个教程，这就比较尴尬了。。</p>
+<h3 id=44shadowsocks添加或编辑-pac-网址规则>4.4、Shadowsocks添加或编辑 PAC 网址规则</h3>
+<p>有时候访问一些网站，可能被墙或者打开很慢，于是想要让这个网站走Shadowsocks代理，但是又不想开全局模式，那么你就需要看下面这个文章了。</p>
+<ul>
+<li><a href=3we1qxzj-6.html>Shadowsocks手动 添加和编辑 PAC中的网址规则</a></li>
+<li><a href=3we1qxzj-7.html>ShadowsocksR PC客户端中的 [代理规则 – 用户自定义] 功能使用教程</a></li>
+</ul>
+<h2 id=五其他>五、其他</h2>
+<h3 id=51vpn一键安装脚本>5.1、VPN一键安装脚本</h3>
+<p>有人建议我把VPN的教程也加上，免得到处翻了。</p>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>我网站还有一些或许过时或者失效的教程，我就不再这里一一列出来了。</p>
+<p>这篇文章只是简单的整理一下Shadowsocks的从无到有的学习过程，或许不完美，但是希望大家可以多多指出错误，谢谢！</p>
+<p>可能会遗漏一些东西，大家发现了希望提醒一下，有什么更好的内容或者建议也可以在下面评论留言！</p>
+<p>需要了解一些其他的软件可以看：<a href=xk611kx-.html>安卓科学上网合集</a>、<a href=pnqap_t4.html>电脑科学上网合集</a>！</p>
+<p><strong>转载请超链接注明：</strong><a href=index.html>逗比根据地</a> » <a href=6r9z6_wi.html>Shadowsocks指导篇（总结归类）——从无到有，境无止尽！</a></p>
+<p>**责任声明：**本站一切资源仅用作交流学习，请勿用作商业或违法行为！如造成任何后果，本站概不负责！</p>
+<hr>
+<h4 id=page-2>Page 2</h4>
+<hr>
+<h4 id=page-3>Page 3</h4>
+<p>广告</p>
+<p><a href=http://bwggo.com/topad><img src="https://images.weserv.nl/?url=5ny9g1s2.gif" alt></a></p>
+<p>♦ 最新资讯 ♦Vultr 限时优惠，**注册送100刀！**3.5美元/月，IP被墙免费换，支持微信、支付宝。<img src="https://images.weserv.nl/?url=aabmo546.gif" alt><a href="https://www.vultr.com/?ref=7684006">立刻注册</a></p>
+<p><a href=w9qs7z5o.html>逗比软件</a></p>
+<p><a href=b2pv8ugx.html><img src="https://images.weserv.nl/?url=en_scpt90986.png%3Fsrc%3Dhttps%3A//doub.io/wp-content/uploads/SwitchyOmega.png%26h%3D123%26w%3D200%26q%3D90%26zc%3D1%26ct%3D1" alt="一个轻松快捷管理和切换多个代理的浏览器扩展 SwitchyOmega 使用教程"></a></p>
+<p>本文最后更新于 2018年10月16日 12:54 可能会因为没有更新而失效。如已失效或需要修正，请留言！SwitchyOmega 是一个我用了好几年的代理管理浏览器扩展，平时使用它来管理各个代理的使用，可以方便的切换代理或者设定什么网址走代理，什么网址不走代理。 之所以写 Sw&mldr;</p>
+<p><a href=3x8ussyf.html>Toyo</a> 8个月前 (04-02) <a href=b2pv8ugx.html#comments>46评论</a> <a href>138 赞</a></p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

@@ -1,0 +1,218 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>我看西安“一码通”崩溃事件：外行领导内行</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 1月4日，“新冠”疫情防控之际，西安市个人电子识别码系统（简称，西安“一码通”）崩溃，致使市民无法正常显示疫情防控码，生产生活受到影响。这是半个月来西安“一码通”第二次崩溃。西安市相关部门公开回应称，因访问量太大，全市“一码通”均出现无法正常显示的问题。
+　1月5日凌晨，西安市大数据资源管理局党组书记、局长刘军因履职不力，停职检查。
+　据了解，西安“一码通”是2020年2月西安市针对疫情防控牵头开发的大数据平台，业主单位是西安市大数据资源管理局。西安市大数据资源管理局官网信息显示，该平台可以每分钟服务120万人扫码。相比之下，广东的粤康码历史上的最高峰数据是每分钟扫码80万次，但粤康码未出现过西安“一码通”类似大规模、长时间集体瘫痪事件。
+　西安“一码通”具体瘫痪的原因到底是什么呢？目前有多种推测成因。
+　根据工信部“中国工信产业网”之前关于西安电信“一码通”的报道，“图片优化”曾经是该项目的一个难关，据报道称：
+ 　“由于系统群体规模和访问规模的特殊性，每行代码、每张图片、每个技术文档都反复核准，优化再优化，精益求精。为确保系统运行更高效，他们将一张图片从1MB压缩到500KB，再从500KB优化到100KB。这样的工作看似简单，却蕴含着高技术含量，他们连续两天两夜守在电脑前，终于攻下难关。在不断优化的过程中，“一码通”平台形成了A/B/C三个主从备环境的基本框架，能够在各种突发情况下，实现快速响应与切换高可用环境。一个又一个看似微不足道的改进，最终实现“一码通”平台整体的稳定、高效运行。”
+ 　有人因此怀疑，二维码是服务器端生成二维码图片，然后传送到客户端。
+　此外，还有人发现数据传输过程存在大图片传送，传送的图片是一张美化界面的横幅图片。
+　在高并发、高访问量的情况下，即使将图片从1M压缩到100KB意义也不算太大，因为这个“一码通项目”的使用场景根本就不需要图片传送，二维码在客户端生成，服务器端传送字符数据，界面也不需要图片展示，只要保证云端计算能力足够大即可，这样的APP做出来，功能完全可以满足，就是界面会变得非常“精简”，没有什么花里胡哨的东西。
+　但实际一码通项目里，为什么会出现图片传输的功能呢？传送二维码图片的可能性我估计不大，因为就算野鸡程序员也不一定会这么干，除非是自学成才的外行做的开发，根据客户端代码抓包发现，客户端有javascript生成二维码的程序，二维码图片的确是在客户端产生的。
+　因此图片传输有可能传送的是界面配图，增加配图的原因估计是为了界面好看，让领导满意，因为领导看到的只是界面，不会关心底层技术问题。
+　这就带来一个问题，无关紧要的图片在高并发、高访问量的情况下，会大幅占用带宽流量资源，使得系统变得越来越缓慢，最终可能导致系统出现一系列问题，这显然是得不偿失的，为了面子而失去了里子。
+　不过，真正导致一码通崩溃的原因可能并非图片问题，因为即使大图片也可以缓存，调用一次后就不需要再调用了，只是浪费了很多带宽而已，未必就能造成系统崩溃。
+　我觉得，系统崩溃的主要原因有可能是后端的架构设计问题，大部分后端开发人员写代码的时候没有考虑到高访问量并发查询的问题，相关的架构设计具有一定的技术门槛，这也就导致后端开发的代码只能在低并发的环境里运行，一到高并发环境就会出现各种各样的问题，最终导致系统崩溃。
+　对于高并发环境下的查询技术，一些科技大厂都有非常丰富的经验，也有很多不错的架构和资源可供使用。
+　我估计，“一码通”项目的负责人，也就是西安市大数据资源管理局的局长，有可能一点不懂技术，或者身边没有一个懂技术的人，以为这种一码通是很简单的东西，随便找两个人就能做的好，不知道这里面存在架构设计等复杂问题。
+　这些问题对于科技大厂来说，本来是一个很简单的事情，项目有预算资金，找阿里巴巴、腾讯等科技大厂招标，之后开发、测试、运维，估计到现在也不会出什么问题。但最终却是，387万的项目，只拿出了27万给外包开发。
+　结果就是，外行领导内行，看不起国内的科技公司，把开发人员当驴指挥，有了资金却层层外包，项目的开发人员做开发只为了应付领导，不考虑实际效率，糊弄了事，领导又不懂技术，只爱面子，最终这些因素合在一起，最终导致了这个“一码通项目”在实际使用过程中出现了严重事故。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 我看西安“一码通”崩溃事件：外行领导内行 ">
+<meta name=og:description content=" 1月4日，“新冠”疫情防控之际，西安市个人电子识别码系统（简称，西安“一码通”）崩溃，致使市民无法正常显示疫情防控码，生产生活受到影响。这是半个月来西安“一码通”第二次崩溃。西安市相关部门公开回应称，因访问量太大，全市“一码通”均出现无法正常显示的问题。
+　1月5日凌晨，西安市大数据资源管理局党组书记、局长刘军因履职不力，停职检查。
+　据了解，西安“一码通”是2020年2月西安市针对疫情防控牵头开发的大数据平台，业主单位是西安市大数据资源管理局。西安市大数据资源管理局官网信息显示，该平台可以每分钟服务120万人扫码。相比之下，广东的粤康码历史上的最高峰数据是每分钟扫码80万次，但粤康码未出现过西安“一码通”类似大规模、长时间集体瘫痪事件。
+　西安“一码通”具体瘫痪的原因到底是什么呢？目前有多种推测成因。
+　根据工信部“中国工信产业网”之前关于西安电信“一码通”的报道，“图片优化”曾经是该项目的一个难关，据报道称：
+ 　“由于系统群体规模和访问规模的特殊性，每行代码、每张图片、每个技术文档都反复核准，优化再优化，精益求精。为确保系统运行更高效，他们将一张图片从1MB压缩到500KB，再从500KB优化到100KB。这样的工作看似简单，却蕴含着高技术含量，他们连续两天两夜守在电脑前，终于攻下难关。在不断优化的过程中，“一码通”平台形成了A/B/C三个主从备环境的基本框架，能够在各种突发情况下，实现快速响应与切换高可用环境。一个又一个看似微不足道的改进，最终实现“一码通”平台整体的稳定、高效运行。”
+ 　有人因此怀疑，二维码是服务器端生成二维码图片，然后传送到客户端。
+　此外，还有人发现数据传输过程存在大图片传送，传送的图片是一张美化界面的横幅图片。
+　在高并发、高访问量的情况下，即使将图片从1M压缩到100KB意义也不算太大，因为这个“一码通项目”的使用场景根本就不需要图片传送，二维码在客户端生成，服务器端传送字符数据，界面也不需要图片展示，只要保证云端计算能力足够大即可，这样的APP做出来，功能完全可以满足，就是界面会变得非常“精简”，没有什么花里胡哨的东西。
+　但实际一码通项目里，为什么会出现图片传输的功能呢？传送二维码图片的可能性我估计不大，因为就算野鸡程序员也不一定会这么干，除非是自学成才的外行做的开发，根据客户端代码抓包发现，客户端有javascript生成二维码的程序，二维码图片的确是在客户端产生的。
+　因此图片传输有可能传送的是界面配图，增加配图的原因估计是为了界面好看，让领导满意，因为领导看到的只是界面，不会关心底层技术问题。
+　这就带来一个问题，无关紧要的图片在高并发、高访问量的情况下，会大幅占用带宽流量资源，使得系统变得越来越缓慢，最终可能导致系统出现一系列问题，这显然是得不偿失的，为了面子而失去了里子。
+　不过，真正导致一码通崩溃的原因可能并非图片问题，因为即使大图片也可以缓存，调用一次后就不需要再调用了，只是浪费了很多带宽而已，未必就能造成系统崩溃。
+　我觉得，系统崩溃的主要原因有可能是后端的架构设计问题，大部分后端开发人员写代码的时候没有考虑到高访问量并发查询的问题，相关的架构设计具有一定的技术门槛，这也就导致后端开发的代码只能在低并发的环境里运行，一到高并发环境就会出现各种各样的问题，最终导致系统崩溃。
+　对于高并发环境下的查询技术，一些科技大厂都有非常丰富的经验，也有很多不错的架构和资源可供使用。
+　我估计，“一码通”项目的负责人，也就是西安市大数据资源管理局的局长，有可能一点不懂技术，或者身边没有一个懂技术的人，以为这种一码通是很简单的东西，随便找两个人就能做的好，不知道这里面存在架构设计等复杂问题。
+　这些问题对于科技大厂来说，本来是一个很简单的事情，项目有预算资金，找阿里巴巴、腾讯等科技大厂招标，之后开发、测试、运维，估计到现在也不会出什么问题。但最终却是，387万的项目，只拿出了27万给外包开发。
+　结果就是，外行领导内行，看不起国内的科技公司，把开发人员当驴指挥，有了资金却层层外包，项目的开发人员做开发只为了应付领导，不考虑实际效率，糊弄了事，领导又不懂技术，只爱面子，最终这些因素合在一起，最终导致了这个“一码通项目”在实际使用过程中出现了严重事故。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/195.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>我看西安“一码通”崩溃事件：外行领导内行</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<span>at 06 January 2022</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%9b%be%e7%89%87>图片</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%a5%bf%e5%ae%89%e5%b8%82>西安市</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%ba%8c%e7%bb%b4%e7%a0%81>二维码</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%ae%a2%e6%88%b7%e7%ab%af>客户端</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%95%8c%e9%9d%a2>界面</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%ae%bf%e9%97%ae%e9%87%8f>访问量</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%b4%a9%e6%ba%83>崩溃</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%b5%84%e6%ba%90%e7%ae%a1%e7%90%86>资源管理</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%bc%a0%e9%80%81>传送</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%a5%bf%e5%ae%89>西安</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/6af262ec8e8dd17b80f4b345456e691f.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/6af262ec8e8dd17b80f4b345456e691f.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p><a href=https://www.williamlong.info/tag/Software.html><img src="https://images.weserv.nl/?url=https%3A//www.williamlong.info/logo/Software.gif" alt=软件></a></p>
+<p>　　1月4日，“新冠”疫情防控之际，西安市个人电子识别码系统（简称，西安“一码通”）崩溃，致使市民无法正常显示疫情防控码，生产生活受到影响。这是半个月来西安“一码通”第二次崩溃。西安市相关部门公开回应称，因访问量太大，全市“一码通”均出现无法正常显示的问题。</p>
+<p>　　1月5日凌晨，西安市大数据资源管理局党组书记、局长刘军因履职不力，停职检查。</p>
+<p>　　据了解，西安“一码通”是2020年2月西安市针对疫情防控牵头开发的大数据平台，业主单位是西安市大数据资源管理局。西安市大数据资源管理局官网信息显示，该平台可以每分钟服务120万人扫码。相比之下，广东的粤康码历史上的最高峰数据是每分钟扫码80万次，但粤康码未出现过西安“一码通”类似大规模、长时间集体瘫痪事件。</p>
+<p>　　西安“一码通”具体瘫痪的原因到底是什么呢？目前有多种推测成因。</p>
+<p>　　根据工信部“中国工信产业网”之前关于西安电信“一码通”的报道，“图片优化”曾经是该项目的一个难关，据报道称：</p>
+<blockquote>
+<p>　　“由于系统群体规模和访问规模的特殊性，每行代码、每张图片、每个技术文档都反复核准，优化再优化，精益求精。为确保系统运行更高效，他们将一张图片从1MB压缩到500KB，再从500KB优化到100KB。这样的工作看似简单，却蕴含着高技术含量，他们连续两天两夜守在电脑前，终于攻下难关。在不断优化的过程中，“一码通”平台形成了A/B/C三个主从备环境的基本框架，能够在各种突发情况下，实现快速响应与切换高可用环境。一个又一个看似微不足道的改进，最终实现“一码通”平台整体的稳定、高效运行。”</p>
+</blockquote>
+<p>　　有人因此怀疑，二维码是服务器端生成二维码图片，然后传送到客户端。</p>
+<p>　　此外，还有人发现数据传输过程存在大图片传送，传送的图片是一张美化界面的横幅图片。</p>
+<p><img src="https://images.weserv.nl/?url=../../upload/6670_1.jpg" alt=西安“一码通”崩溃事件></p>
+<p>　　在高并发、高访问量的情况下，即使将图片从1M压缩到100KB意义也不算太大，因为这个“一码通项目”的使用场景根本就不需要图片传送，二维码在客户端生成，服务器端传送字符数据，界面也不需要图片展示，只要保证云端计算能力足够大即可，这样的APP做出来，功能完全可以满足，就是界面会变得非常“精简”，没有什么花里胡哨的东西。</p>
+<p>　　但实际一码通项目里，为什么会出现图片传输的功能呢？传送二维码图片的可能性我估计不大，因为就算野鸡程序员也不一定会这么干，除非是自学成才的外行做的开发，根据客户端代码抓包发现，客户端有javascript生成二维码的程序，二维码图片的确是在客户端产生的。</p>
+<p>　　因此图片传输有可能传送的是界面配图，增加配图的原因估计是为了界面好看，让领导满意，因为领导看到的只是界面，不会关心底层技术问题。</p>
+<p>　　这就带来一个问题，无关紧要的图片在高并发、高访问量的情况下，会大幅占用带宽流量资源，使得系统变得越来越缓慢，最终可能导致系统出现一系列问题，这显然是得不偿失的，为了面子而失去了里子。</p>
+<p>　　不过，真正导致一码通崩溃的原因可能并非图片问题，因为即使大图片也可以缓存，调用一次后就不需要再调用了，只是浪费了很多带宽而已，未必就能造成系统崩溃。</p>
+<p>　　我觉得，系统崩溃的主要原因有可能是后端的架构设计问题，大部分后端开发人员写代码的时候没有考虑到高访问量并发查询的问题，相关的架构设计具有一定的技术门槛，这也就导致后端开发的代码只能在低并发的环境里运行，一到高并发环境就会出现各种各样的问题，最终导致系统崩溃。</p>
+<p>　　对于高并发环境下的查询技术，一些科技大厂都有非常丰富的经验，也有很多不错的架构和资源可供使用。</p>
+<p>　　我估计，“一码通”项目的负责人，也就是西安市大数据资源管理局的局长，有可能一点不懂技术，或者身边没有一个懂技术的人，以为这种一码通是很简单的东西，随便找两个人就能做的好，不知道这里面存在架构设计等复杂问题。</p>
+<p>　　这些问题对于科技大厂来说，本来是一个很简单的事情，项目有预算资金，找阿里巴巴、腾讯等科技大厂招标，之后开发、测试、运维，估计到现在也不会出什么问题。但最终却是，387万的项目，只拿出了27万给外包开发。</p>
+<p>　　结果就是，外行领导内行，看不起国内的科技公司，把开发人员当驴指挥，有了资金却层层外包，项目的开发人员做开发只为了应付领导，不考虑实际效率，糊弄了事，领导又不懂技术，只爱面子，最终这些因素合在一起，最终导致了这个“一码通项目”在实际使用过程中出现了严重事故。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//www.williamlong.info/logo/Software.jpg" alt=我看西安“一码通”崩溃事件：外行领导内行></p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/903721ea9a8d82209502fc1282deedb6/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E7%259C%258B%25E8%25A5%25BF%25E5%25AE%2589%25E4%25B8%2580%25E7%25A0%2581%25E9%2580%259A%25E5%25B4%25A9%25E6%25BA%2583%25E4%25BA%258B%25E4%25BB%25B6%25E5%25A4%2596%25E8%25A1%258C%25E9%25A2%2586%25E5%25AF%25BC%25E5%2586%2585%25E8%25A1%258C">西安大数据资源管理局局长停职检查，此前西安一码通半个月内两次崩溃，这给疫情防控带来哪些影响？</a>
+</h2>
+<p class=text-dark>知乎用户 每日经济新闻​ 发表 凌晨发布，连夜换人，履职不力，停职检查。
+根据历史信息：西安一码通系统是由西安市大数据管理局为业主单位，由中国电信西安分公司负责总集成建设的。
+对关键词 “西安 一码通” 搜索后，映入眼帘的是一系列 **“单 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/7ce3c64d8dbb3ae73680a32eaed8f3ef/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E7%259C%258B%25E8%25A5%25BF%25E5%25AE%2589%25E4%25B8%2580%25E7%25A0%2581%25E9%2580%259A%25E5%25B4%25A9%25E6%25BA%2583%25E4%25BA%258B%25E4%25BB%25B6%25E5%25A4%2596%25E8%25A1%258C%25E9%25A2%2586%25E5%25AF%25BC%25E5%2586%2585%25E8%25A1%258C">西安“一码通”为何半月崩溃两次？</a>
+</h2>
+<p class=text-dark>疫情已持续两年，多地曾出现过局部聚集性疫情，但“一码通”反复崩溃现象少见
+文 | **吴俊宇 柳书琪 **
+编辑 | 马克
+1月4日，“新冠”疫情防控之际，西安市个人电子识别码系统（下称，西安“一码通”）崩溃，致使市民无法正常显示疫情防控 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/902618f639002de3985aaac9fcb71e8b/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E7%259C%258B%25E8%25A5%25BF%25E5%25AE%2589%25E4%25B8%2580%25E7%25A0%2581%25E9%2580%259A%25E5%25B4%25A9%25E6%25BA%2583%25E4%25BA%258B%25E4%25BB%25B6%25E5%25A4%2596%25E8%25A1%258C%25E9%25A2%2586%25E5%25AF%25BC%25E5%2586%2585%25E8%25A1%258C">西安一码通崩溃，问题已有前兆</a>
+</h2>
+<p class=text-dark>今天故事的主题是
+**「 ******西安一码通崩溃 ****」
+1
+这一年，西安因为两件事为全民关注。一是四年一届的全运会，二是疫情防控的一码通。不过，西安办得了全运会，扫不了码。
+后疫情时代是一个打码的时代。无论人们来自何方去往何处，身 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/e28dc270e6f9f6d0ea3655b18edee1f1/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E7%259C%258B%25E8%25A5%25BF%25E5%25AE%2589%25E4%25B8%2580%25E7%25A0%2581%25E9%2580%259A%25E5%25B4%25A9%25E6%25BA%2583%25E4%25BA%258B%25E4%25BB%25B6%25E5%25A4%2596%25E8%25A1%258C%25E9%25A2%2586%25E5%25AF%25BC%25E5%2586%2585%25E8%25A1%258C">一位西安市民关于“吃菜难”问题的紧急建议</a>
+</h2>
+<p class=text-dark>2021年12月31日，西安疫情封城进入第十天。
+根据新闻媒体报道，12月9日零时至29日24时，该市累计报告本土确诊病例1117例。
+据了解，25日零时至29日24时，西安市每日新增本土确诊病例分别为155例、150例、175例、151例 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/6105d4c7c5707df9d88fd1dbb65613bb/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E7%259C%258B%25E8%25A5%25BF%25E5%25AE%2589%25E4%25B8%2580%25E7%25A0%2581%25E9%2580%259A%25E5%25B4%25A9%25E6%25BA%2583%25E4%25BA%258B%25E4%25BB%25B6%25E5%25A4%2596%25E8%25A1%258C%25E9%25A2%2586%25E5%25AF%25BC%25E5%2586%2585%25E8%25A1%258C">西安「孕妇流产」事件被认定为责任事故，多人被处罚，这带来哪些警示？疫情期间该如何救治孕妇等特殊人群？</a>
+</h2>
+<p class=text-dark>知乎用户 每日经济新闻​ 发表 孕妇的这个事情，很多人被追责了，有进步总是好事，虽然做什么惩罚，都换不回人命了。
+但是最近又接连爆出，患有心脏病，高血压，癌症等疾病的患者，差不多的情况，也是由于管理过严，也有不幸去世的（消息未经官方媒体证 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

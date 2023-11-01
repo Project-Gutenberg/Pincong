@@ -1,0 +1,17 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>定位 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E5%AE%9A%E4%BD%8D/</link><description>Recent content in 定位 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Wed, 12 Oct 2022 15:45:51 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E5%AE%9A%E4%BD%8D/index.xml" rel="self" type="application/rss+xml"/><item><title>如何看待百度地图宣布切换为优先运用北斗系统进行定位？</title><link>https://project-gutenberg.github.io/Pincong/post/a23b1410414752512f6c00833a6d3eff/</link><pubDate>Wed, 12 Oct 2022 15:45:51 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a23b1410414752512f6c00833a6d3eff/</guid><description>知乎用户 flyingfluff 发表 如果手机支持北斗定位的话（目前市场上绝大部分手机都支持北斗定位），手机会综合接收北斗、GPS、GLONASS 等系统的卫星信号，综合进行处理解算出手机当前的位置。接下来手机通过安卓系统的驱动程序接口，向 APP 提供定位的结果，包括经纬度、高度、速度、速度方向等等。百度地图、高德导航等地图应用都是从驱动程序提供的接口获取的位置信息，然后在地图上显示出手机所在的位置，并进行导航的。99% 以上的应用 …</description></item><item><title>为什么大数据不能帮他找儿子？因为法律不支持</title><link>https://project-gutenberg.github.io/Pincong/post/37bddfb88814dfb0cf1feaea9b267560/</link><pubDate>Fri, 21 Jan 2022 19:25:17 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/37bddfb88814dfb0cf1feaea9b267560/</guid><description>北京一名阳性病例的流调轨迹牵出一个令人泪湿眼眶的故事：
+中国新闻周刊报道截图
+为了寻找失联的大儿子，抚养上六年级的小儿子，赡养瘫痪的父亲、多病的母亲，撑起这个风雨飘摇的家庭，这位44岁的河南汉子在北京扛沙袋、搬水泥，运建筑垃圾……
+深夜出发，凌晨返回，小睡几个小时下午再接着出去找活儿。十几天时间里，岳某辗转31处地点打零工。全部是重体力活。
+虽然生活很苦，但他并不觉得自己可怜：
+我只是好好干活，我不偷不抢，靠自己的力气，靠自己的双手， …</description></item><item><title>如何看待官方解释北京健康宝从未采集个人位置信息，而是进行多源数据比对分析，这种实现方式可能吗？可靠吗？</title><link>https://project-gutenberg.github.io/Pincong/post/ee1b8d068fa049174719aee55c0d3a58/</link><pubDate>Fri, 10 Dec 2021 15:36:05 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ee1b8d068fa049174719aee55c0d3a58/</guid><description>知乎用户 木头龙​​ 发表 可能，但这是在玩文字游戏。
+按照我的理解，所谓的 “采集个人位置信息”，是特指手机的 GPS 定位数据。
+而多部门后台联动，则是你手机连接的基站信息，可能还有来自银行的刷卡信息、电商 / 外卖的送货信息、公共交通工具的搭乘记录、甚至某些监控摄像数据等交叉比对。这些数据足以勾勒出一个人大致的运行轨迹。
+这个时候，可以说个人的隐私，起码是活动位置这方面的，几乎是暴露无遗了，是否收集了手机的 GPS 定位数据有什么 …</description></item><item><title>如何看待大牛助手 APP 因能修改手机位置被海淀检察院告，最终张某获刑 5 年 6 个月?</title><link>https://project-gutenberg.github.io/Pincong/post/0263451c97c4d65ab7edf399be63fe3f/</link><pubDate>Thu, 14 Oct 2021 04:01:26 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/0263451c97c4d65ab7edf399be63fe3f/</guid><description>知乎用户 发表 一打卡作弊软件 CEO 被判 5 年 6 个月，22 人团队，已赚四五百万元：因破坏了钉钉系统获取用户真实地理位置的功能
+如题
+知乎用户 逆情至深 发表 我不得不强答一回了。
+大牛助手是通过修改系统环境来达到欺骗钉钉的目的，该软件本身未修改钉钉软件。如果提供虚假环境违法的话，那所有用过虚拟机的人都应该抓去坐牢，开发虚拟机的应该被枪毙。
+知乎用户 王天宸 发表 补充下裁判文书中的一个细节：
+证人周某的证言证实：其是阿里巴 …</description></item><item><title>女子凌晨打网约车取消订单遭司机辱骂，投诉平台遭司机掌掴，司机要承担什么责任？如何看待取消订单行为？</title><link>https://project-gutenberg.github.io/Pincong/post/48de7f9bd01450889be095f186b1ce55/</link><pubDate>Thu, 30 Sep 2021 08:13:54 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/48de7f9bd01450889be095f186b1ce55/</guid><description>知乎用户 发表 9月26日，长沙的周女士凌晨准备回家，叫了一辆网约车，司机认为周女士的定位不准，让她走过去，周女士觉得司机态度不好，直接取消了订单，导致了司机的辱骂，准备向平台投诉，遭遇司机掌掴。
+https://www.zhihu.com/video/1426519245282365440
+https://www.zhihu.com/video/1426582502202413056
+知乎用户 夜听繁星四月点点 发表 长沙，仙女，先通 …</description></item></channel></rss>

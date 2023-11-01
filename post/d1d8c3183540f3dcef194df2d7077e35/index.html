@@ -1,0 +1,300 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>学习哪些编程语言才能开发VPN的app？</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 品葱用户 Macgoy 提问于 3/9/2020 我想开发一个VPNapp，该从哪些编程语言入手？
+品葱用户 projectpolaris 评论于 2020-03-09 我是某开源代理软件的开发者组成员，我说一点实际的吧，上面的评论基本上泛泛而谈
+1.首先你需要一个开源的事件驱动的多线程网络库，这是高并发的关键，一般使用C/C++/go，现在可选的主要有libuv(最快)，libev, libevent, ACE, Boost.asio，当然golang在语言层级就已经支持异步操作。
+2. 加密库，这个其实就两种，openssl,libsodium,golang标准库自带
+3. 序列化库，用于配置解析，例如protobuf，cjson,fastjson等
+4.一些基础infra和算法：你应该熟悉分页内存池，动态数组，哈希表，红黑树，b+树，双端缓冲队列，因为有时候开源库里面或者语言自带这些容器和结构，但你得知道怎么用。路由算法方面（实现PAC机制）你应该会哈希表和trie树以及b+树，用来快速路由数据包里面的目的ip
+5.协议，不建议自建协议，但是你需要自己实现现有的协议，因为现有代理软件的开发者据我所知没有把自己协议封装成库的
+以上针对服务端，以下针对客户端：
+1. 首先确立一个观点，客户端只是一个用户交互的界面，所以正确做法是把服务端跨编嵌入你的客户端，作为一个独立进程建立一个本地server，客户端只用管理配置和启停。或者你可以直接把v2ray或shadowsocks-libev编译到你的平台作为core。
+2. 界面开发，如果你不想一个平台一套代码，可以使用xamarin，如果你想原生，那就原生（建议）
+3. 分应用代理实现：
+android 似乎系统提供了API（我不开发安卓，此条不可信）
+IOS, Darwin 没可能
+Linux 直接hook系统socket函数，或者写一个内核驱动去filter pid
+Windows 最麻烦，win hook现在很容易崩溃，你需要写WFP或者NDIS驱动，并自己买张EV证书签名
+最后, 不要觉得自己可以把上面全部掌握完，多多使用开源库。
+具体细节，可以在回复里问题
+品葱用户 ilovejp 评论于 2020-03-09 想搞正规一点的话，从Java入手
+想搞快一点，做个玩具，从Python入手
+想从原子级别开始做一套完全自主的工具，从C++入手
+（以上皆针对PC端而言）
+另外现在VPN要解决的问题主要是混淆 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 学习哪些编程语言才能开发VPN的app？ ">
+<meta name=og:description content=" 品葱用户 Macgoy 提问于 3/9/2020 我想开发一个VPNapp，该从哪些编程语言入手？
+品葱用户 projectpolaris 评论于 2020-03-09 我是某开源代理软件的开发者组成员，我说一点实际的吧，上面的评论基本上泛泛而谈
+1.首先你需要一个开源的事件驱动的多线程网络库，这是高并发的关键，一般使用C/C++/go，现在可选的主要有libuv(最快)，libev, libevent, ACE, Boost.asio，当然golang在语言层级就已经支持异步操作。
+2. 加密库，这个其实就两种，openssl,libsodium,golang标准库自带
+3. 序列化库，用于配置解析，例如protobuf，cjson,fastjson等
+4.一些基础infra和算法：你应该熟悉分页内存池，动态数组，哈希表，红黑树，b+树，双端缓冲队列，因为有时候开源库里面或者语言自带这些容器和结构，但你得知道怎么用。路由算法方面（实现PAC机制）你应该会哈希表和trie树以及b+树，用来快速路由数据包里面的目的ip
+5.协议，不建议自建协议，但是你需要自己实现现有的协议，因为现有代理软件的开发者据我所知没有把自己协议封装成库的
+以上针对服务端，以下针对客户端：
+1. 首先确立一个观点，客户端只是一个用户交互的界面，所以正确做法是把服务端跨编嵌入你的客户端，作为一个独立进程建立一个本地server，客户端只用管理配置和启停。或者你可以直接把v2ray或shadowsocks-libev编译到你的平台作为core。
+2. 界面开发，如果你不想一个平台一套代码，可以使用xamarin，如果你想原生，那就原生（建议）
+3. 分应用代理实现：
+android 似乎系统提供了API（我不开发安卓，此条不可信）
+IOS, Darwin 没可能
+Linux 直接hook系统socket函数，或者写一个内核驱动去filter pid
+Windows 最麻烦，win hook现在很容易崩溃，你需要写WFP或者NDIS驱动，并自己买张EV证书签名
+最后, 不要觉得自己可以把上面全部掌握完，多多使用开源库。
+具体细节，可以在回复里问题
+品葱用户 ilovejp 评论于 2020-03-09 想搞正规一点的话，从Java入手
+想搞快一点，做个玩具，从Python入手
+想从原子级别开始做一套完全自主的工具，从C++入手
+（以上皆针对PC端而言）
+另外现在VPN要解决的问题主要是混淆 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/213.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>学习哪些编程语言才能开发VPN的app？</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/macgoy>Macgoy</a></span>,
+<span>at 09 March 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%bc%96%e7%a8%8b>编程</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/d1d8c3183540f3dcef194df2d7077e35.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/d1d8c3183540f3dcef194df2d7077e35.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<h3 id=品葱用户-macgoy-提问于-392020>品葱用户 <strong>Macgoy</strong> 提问于 3/9/2020</h3>
+<p>我想开发一个VPNapp，该从哪些编程语言入手？</p>
+<h3 id=品葱用户-projectpolaris-评论于-2020-03-09>品葱用户 <strong>projectpolaris</strong> 评论于 2020-03-09</h3>
+<p>我是某开源代理软件的开发者组成员，我说一点实际的吧，上面的评论基本上泛泛而谈</p>
+<p>1.首先你需要一个开源的事件驱动的多线程网络库，这是高并发的关键，一般使用C/C++/go，现在可选的主要有libuv(最快)，libev, libevent, ACE, Boost.asio，当然golang在语言层级就已经支持异步操作。</p>
+<p>2. 加密库，这个其实就两种，openssl,libsodium,golang标准库自带</p>
+<p>3. 序列化库，用于配置解析，例如protobuf，cjson,fastjson等<br>
+ <br>
+4.一些基础infra和算法：你应该熟悉分页内存池，动态数组，哈希表，红黑树，b+树，双端缓冲队列，因为有时候开源库里面或者语言自带这些容器和结构，但你得知道怎么用。路由算法方面（实现PAC机制）你应该会哈希表和trie树以及b+树，用来快速路由数据包里面的目的ip</p>
+<p>5.协议，不建议自建协议，但是你需要自己实现现有的协议，因为现有代理软件的开发者据我所知没有把自己协议封装成库的<br>
+以上针对服务端，以下针对客户端：<br>
+1. 首先确立一个观点，客户端只是一个用户交互的界面，所以正确做法是把服务端跨编嵌入你的客户端，作为一个独立进程建立一个本地server，客户端只用管理配置和启停。或者你可以直接把v2ray或shadowsocks-libev编译到你的平台作为core。<br>
+2. 界面开发，如果你不想一个平台一套代码，可以使用xamarin，如果你想原生，那就原生（建议）<br>
+3. 分应用代理实现：<br>
+android  似乎系统提供了API（我不开发安卓，此条不可信）<br>
+IOS, Darwin 没可能<br>
+Linux 直接hook系统socket函数，或者写一个内核驱动去filter pid<br>
+Windows 最麻烦，win hook现在很容易崩溃，你需要写WFP或者NDIS驱动，并自己买张EV证书签名</p>
+<p>最后, 不要觉得自己可以把上面全部掌握完，多多使用开源库。</p>
+<p>具体细节，可以在回复里问题</p>
+<h3 id=品葱用户-ilovejp-评论于-2020-03-09>品葱用户 <strong>ilovejp</strong> 评论于 2020-03-09</h3>
+<p>想搞正规一点的话，从Java入手<br>
+想搞快一点，做个玩具，从Python入手<br>
+想从原子级别开始做一套完全自主的工具，从C++入手<br>
+（以上皆针对PC端而言）<br>
+另外现在VPN要解决的问题主要是<strong>混淆</strong><br>
+v2ray是个很不错的方案，你可以照着做一个<br>
+如果光是用Python快速做一个的话，只需要先学会Python语法，然后学会使用一些http、加密、混淆之类的库，组装起来就可以做一个“自主可控”的翻墙软件<br>
+要是用C++从原子层面做起的话，还得学习密码学、计算机网络这种底层的知识，用C++逐步实现，才能开始往上逐步搭一个平台出来</p>
+<p>要是想做移动端的话，还得学习对应的编程语言<br>
+安卓：Java或者kotlin<br>
+ios：Objective-C</p>
+<h3 id=品葱用户-立紗lisa-评论于-2020-03-10>品葱用户 <strong>立紗Lisa</strong> 评论于 2020-03-10</h3>
+<p>我觉得你们吓到楼主了。。。</p>
+<p>我给个思路，不说具体的<br>
+首先，我翻墙的主要用途是<strong>浏览器</strong>。那么浏览器如何翻墙呢？设置代理！<br>
+第二个问题，浏览器支持哪些代理方式？<strong>socks5 和 http代理</strong>！而且http代理优先，因为socks5代理很多软件不支持。而且windows默认只能http代理，不支持socks5.<br>
+既然浏览器默认不支持自定义的代理协议，为什么我们要去研发自己的协议呢？<br>
+第三个问题，为什么把代理地址为什么是127.0.0.1 这样的本地地址，而不是直接填写远程服务器地址？<br>
+关键来了：因为不论是http代理还是socks5代理，都是明文。。。<br>
+如果是http代理，每次都要发CONNECT请求【类似POST和GET】<br>
+socks5也是一样的，参考RFC文档<br>
+所以部署在本地，然后由<strong>客户端加密</strong>以后发给远程服务器。<br>
+第四个问题，客户端和服务端通信，<strong>为什么要走https</strong>？<br>
+实际上，<strong>我觉得不需要</strong>，因为协议其实跑在TLS上，对于第三方而言，它完全没法知道这个是https<br>
+https交互过程<br>
+客户端 和 服务端 建立 TCP连接<br>
+客户端 和 服务端 建立 TLS连接<br>
+客户端 和 服务端 开始HTTP报文<br>
+-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;<br>
+所以，对于第三方来讲只能看到这里在TLS通信，<strong>看不到TLS里的内容，自然也就没法知道是https协议了</strong></p>
+<p>第五个问题，既然为了保密一定要用TLS，我该学习什么呢？<br>
+不要学习这么多，为难你自己。你只要下载一个openssl或者boringssl，<br>
+<strong>学习ssl_connect,ssl_accept,ssl_write,ssl_read 四个api就可以了。。。</strong><br>
+包教包会，别无聊去看源码。看下上面四个api的demo，足以学会TLS使用了！！！</p>
+<p>第六个问题，说了这么多，翻墙软件怎么写呢？<br>
+翻墙过程如下<br>
+你的浏览器 &mdash;socks代理&mdash;> 翻墙客户端&mdash;tls&mdash;> 翻墙服务端 &mdash;> 你的目标网站</p>
+<p>正常人应该发现我们要做的是什么了，对，实现 socks5 over TLS！<br>
+网上搜索 socks5 over TLS，刚好发现了一堆开源项目！随便学习，你想学什么语言都可以了。。。<br>
+翻墙客户端，功能就是<strong>把socks5协议转成TLS或基于TLS的协议【比如https】</strong>，做了一个协议中转的功能。【自己读了下，发现不严谨，但是大概意思没错了】<br>
+翻墙服务端，功能就是代理了。发收到的代理请求转发实现。<br>
+压根用不到libuv，libev这些。更加不可能去hook 系统的socket，写内核，写驱动。。。<br>
+写机场是另外一回事了<br>
+也不用学习红黑树，内存分页。。。纯无聊，<strong>我们是造轮子，不是造钉子</strong>！</p>
+<p>第七个问题，PAC又是什么东西？<br>
+PAC是一个配置文件，告诉浏览器，那些需要走代理，哪些不需要走代理。。。<br>
+<strong>完全跑在浏览器或者客户端上</strong>，服务端是不需要走PAC的！<br>
+这个问题有点复杂，你就当不知道pac的存在吧。也就是都走代理模式。。。。<br>
+没有安全意识的人，不要不配置pac！<br>
+没有安全意识的人，不要不配置pac！<br>
+没有安全意识的人，不要不配置pac！</p>
+<p>第八个问题，为什么我写的翻墙软件会被封掉？<br>
+浏览器访问一个网站，比如www.google.com，需要先向DNS询问IP地址<br>
+DNS查询是明文的！<br>
+封掉你的逻辑是这样的<br>
+1.你翻墙以后，浏览器浏览google，浏览器不认识google，所以向dns查ip地址<br>
+2.共产党截获了你的电脑的请求，给了一个不存在的ip，6.6.6.6<br>
+3.你的浏览器告诉 你的翻墙软件，说你要访问6.6.6.6<br>
+4.翻墙软件把你的请求，转发给了6.6.6.6，然后你就上不了网！</p>
+<p>解决办法，你必须保证自己的DNS是安全的！<br>
+也就是DNS over TLS，或者DNS over HTTPS<br>
+第九个问题，如何配置DNS 为 DNS over TLS？<br>
+去https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/<br>
+根据教程，配置cloudflared</p>
+<p>然后把DNS地址设置成127.0.0.1，你就安全了！！！</p>
+<h3 id=品葱用户-crench-评论于-2020-03-09>品葱用户 <strong>Crench</strong> 评论于 2020-03-09</h3>
+<p>Racket吧（逃）<br>
+迷雾通有一部分就是用Racket写的。</p>
+<p>一本正经的说，从头造轮子不是不可取（自由门跟迷雾通基本上就是从底层开始写起），但是花费的时间和精力太多。</p>
+<h3 id=品葱用户-灰色幽灵-评论于-2020-03-08>品葱用户 <strong>灰色幽灵</strong> 评论于 2020-03-08</h3>
+<p>不要从头造轮子，有很多现成的产品可以用了，作为通讯工具vpn及vpn协议在稳定性和安全性上都有很高的要求，需要大量的与网络相关的知识以及编程经验(还有安全审计方面的知识)，是一个需要漫长周期的工程，参考wireguard吹了多少年还是没能换掉openvpn。不是打击你的热情，如果编程基础都没有就想搞这个确实有点难，好好用现在成熟的工具和协议吧。当然如果你只是玩点花样折腾一下，借用现有协议和各种开源模块做一个自己的换皮客户端，以便于你可以对你的朋友说“看啊，这是我自己的翻墙软件”，建议去网上学一下安卓开发就好。</p>
+<h3 id=品葱用户-被注册新用户-评论于-2020-03-09>品葱用户 <strong>被注册新用户</strong> 评论于 2020-03-09</h3>
+<p>這話說的我只能推薦你去學好Python後再說VPN的事情。</p>
+<h3 id=品葱用户-pincong9898-评论于-2020-03-09>品葱用户 <strong>pincong9898</strong> 评论于 2020-03-09</h3>
+<p>和语言没有关系,和网络协议有关系.</p>
+<p>这点都分不清楚,就别下水游泳了.</p>
+<p>现在的小孩无知到这种程度了?</p>
+<h3 id=品葱用户-wixipedia-评论于-2020-03-08>品葱用户 <strong>Wixipedia</strong> 评论于 2020-03-08</h3>
+<p>Android app：kotlin java<br>
+shadowsocks-libev服务器端是c++<br>
+我也想学，谁带带我<br>
+20字是干嘛的字体的人物的时候就是这样的时候就是这样</p>
+<h3 id=品葱用户-resistance-评论于-2020-03-08>品葱用户 <strong>Resistance</strong> 评论于 2020-03-08</h3>
+<p>俺推荐 Rust。但你要做好思想准备，开发翻墙工具对计算机网络要有深入了解，对你的编程水平也有很高的要求，一般人很难做到。</p>
+<h3 id=品葱用户-jordan8-评论于-2020-03-10>品葱用户 <strong>jordan8</strong> 评论于 2020-03-10</h3>
+<p>服务端其实不是太麻烦。主要是客户端麻烦。基本每个客户端都需要单独做一个软件出来，工作量非常大。</p>
+<h3 id=品葱用户-梁啓超-评论于-2020-03-09>品葱用户 <strong>梁啓超</strong> 评论于 2020-03-09</h3>
+<p>底层协议基本都是用现成的，无非是用什么套壳，建议Python</p>
+<h3 id=品葱用户-calciumonoxide-评论于-2020-03-09>品葱用户 <strong>calciumonoxide</strong> 评论于 2020-03-09</h3>
+<p>除非题主真的有很好的想法和储备知识，不然我不大推荐这样做，比较花时间效果也不一定好。<br>
+可以先学学一些开源梯子是怎么实现的。</p>
+<p>至于语言的话，现在蛮多工具都是基于Go的，可以试试，PC跨平台GUI的话推荐用electron。</p>
+<h3 id=品葱用户-hatsumemiku-评论于-2020-03-09>品葱用户 <strong>HatsumeMiku</strong> 评论于 2020-03-09</h3>
+<p>題主提到了APP&mldr;<br>
+APP 的話如果是 Android 需要 java 或者 kotlin ，ios的話則是Objective-C或者Swift，當然最主要的是通訊協議的問題，可以參考下市面上開源的 vpn軟件，當然也可以自實現，不過不建議重複造輪子，像v2ray 或者shadowsocks 在 github上開源，可以clone后二改，當然這個對編程水平要求較高，你可以從簡單的入手，比如去看看SOCKS5(<a href=%22https://www.ietf.org/rfc/rfc1928.txt%22>rfc1928</a>)的通訊邏輯然後先實現簡單的局域網SOCKS5代理等等等，先把基礎打牢吧。</p>
+<h3 id=品葱用户-习习哈哈-评论于-2020-03-10>品葱用户 <strong>习习哈哈</strong> 评论于 2020-03-10</h3>
+<p>语言从来就不是重点，重点是你要做到何种深度<br>
+当前回答字数不足20，是否回复为讨论?</p>
+<h3 id=品葱用户-patrick999-评论于-2020-03-10>品葱用户 <strong>patrick999</strong> 评论于 2020-03-10</h3>
+<p>介紹你參考wireguard，已有opensource，不過使用的技術門檻很高，只要把code拿來包裝成普通人也容易用就行了。</p>
+<p>另外v2ray和shadowsocks嚴格來說不是VPN，而是Proxy。</p>
+<h3 id=品葱用户-咸鱼老李-评论于-2020-03-10>品葱用户 <strong>咸鱼老李</strong> 评论于 2020-03-10</h3>
+<p>服务端用Python吧，至少开发难度小一点，现有的库不少，很多翻墙软件用的就是Python开发的服务端，比如说有名的GoAgent、原生SS，但是这类软件不是严格意义上的VPN，只是增强版的加密代理，安全性上比不过传统的VPN乃至Tor，要开发高安全性的翻墙工具，请使用C/C++/Java此类语言，而且还要结合着其他编程语言使用，在目前的需求下只使用一种编程语言来开发强大的翻墙工具是不现实的<br>
+客户端得看平台，桌面（Linux/Windows/Mac os）的话Python/C/C++/Java都行，但是手机端就受制于平台了，Android只能用Go/Java/Kotlin，iOS只能Swift/Objective-C，~不提具体需求光谈实现方式简直就是耍流氓啊~<br>
+然后在开发的时候多看看开源的那些梯子是怎么实现的，这玩意才是一款梯子性能高低以及安全程度的关键问题，要多借鉴学习现有的协议，别从头开始造轮子，那样太费事，当然借鉴的过程中也别违背开源协议（尤其是GPL），当然这些都是大工程，新手还是先从学习现有梯子的原理做起吧，打好基本功再来魔改现有协议或是创造新的协议。</p>
+<h3 id=品葱用户-jero-评论于-2020-03-11>品葱用户 <strong>Jero</strong> 评论于 2020-03-11</h3>
+<p>个人建议go<br>
+容易学的里面它最快<br>
+性能高的里面它最容易学</p>
+<h3 id=品葱用户-第三新索多玛-评论于-2020-03-10>品葱用户 <strong>第三新索多玛</strong> 评论于 2020-03-10</h3>
+<p>答案就是别写，你根本不知道一个新手写程序能出多少BUG。<br>
+普通程序出BUG无所谓，VPN出BUG就是送人头。</p>
+<h3 id=品葱用户-小君撫-评论于-2020-03-11>品葱用户 <strong>小君撫</strong> 评论于 2020-03-11</h3>
+<p>楼主是想独自创新一种流量传输协议还是给现有的协议带个套做成client呢？后者的话看平台，Android的话kotlin吧，pc端Python/Go，C++学习曲线太陡了不建议。前者的话我也不知道，创新这种东西都是可遇不可求的，而且需要很长的时间积累</p>
+<p>另外软件这种东西单打独斗基本上比较困难，个人开发者我觉得能做到不出重大bug下给v2ray-core 这种带个套已经很不错了（当然本质上还是玩具）</p>
+<h3 id=品葱用户-rocks1-评论于-2020-03-10>品葱用户 <strong>rocks1</strong> 评论于 2020-03-10</h3>
+<p>这么多软件高手，兄弟借这个话题，请教一下各位高手，不知道是不是会违反平台规定?谢谢！<br>
+我在做邮件群发，因为手上有非常多的客户邮件地址，同时也有很多带密码的邮件，购买邮件发件箱费用太高，所以我一直在找邮件及其密码的是否还有效的验证软件，也就是我已经有的带密码邮件，不知道密码是否被修改了，用这个密码是不是还可以打开这个邮箱的验证软件，而且需要批量的验证这些邮件及对应的密码。<br>
+兄弟们有这方面的软件或者其他什么方法推荐吗?另外，动态变动IP地址和MAC码的软件，大家有好的推荐吗?万分感谢！如果违反平台规定，请管理提醒我，我马上删除，再次感谢！</p>
+<blockquote>
+<p><a href=https://pincong.rocks/question/20551>点击品葱原文参与讨论</a></p>
+</blockquote>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

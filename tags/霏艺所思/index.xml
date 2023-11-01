@@ -1,0 +1,8 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>霏艺所思 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E9%9C%8F%E8%89%BA%E6%89%80%E6%80%9D/</link><description>Recent content in 霏艺所思 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E9%9C%8F%E8%89%BA%E6%89%80%E6%80%9D/index.xml" rel="self" type="application/rss+xml"/><item><title>【霏艺所思】什么是反应器（Reactor）和前摄器（Proactor）？</title><link>https://project-gutenberg.github.io/Pincong/post/9f270627bf3a19eaa69c1574dcf517c1/</link><pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/9f270627bf3a19eaa69c1574dcf517c1/</guid><description>我已经说了**，我不想继续讨论翻墙的事情。。。**
+# 什么是同步？什么是异步？
+这种基本概念，其实网上一堆。。。我再来一次吧！
+我给 XXX 打了一个电话，这个就是同步消息！
+我给 XXX 寄了一封邮件，这个就是异步消息！
+怎么理解呢？
+打电话，我和 XXX 的通信 是 “实时”的，我说的内容， XXX 可以即时收到，体现了“实时性”。
+发邮件，我和 XXX 的通信 不是 “实时”的！我寄完信，根本不知道 XXX 会不会去读，甚至无法 …</description></item></channel></rss>

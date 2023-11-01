@@ -1,0 +1,208 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>科学上网之服务器建立篇</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 翻墙技术之服务器搭建
+VPS (virtual private server)供应商选择 本人用的几家vultr, linode 阿里云轻量服务器(阿里云两台VPS，已经用了一年，都装有翻墙工具)
+Vultr linode两家的服务器配置
+最低档$5元/月, 内存1G 硬盘25G 流量1000G 带宽1G 不过国内扶墙带宽这个没什么卵用(国内访问速度一般)。按小时扣费。
+vultr机房较多,linode以前只有三个机房,现在也有十个左右了.常见日本,新加坡做节点速度还快些,国内有些地区是美国机房速度快。
+阿里云轻量应用服务器（香港机房）有人会说阿里被CCP收买不安全。这个世界哪有绝对安全。还是那句话，只是翻墙而已，不是什么高价值目标，没人理你的。
+阿里云配置跟vultr linode最低档一样(24元人民币/月)，只是带宽有限制峰值30Mbps（也就是说30/8=3.5MB/s左右，这速度扶墙没问题）我这里广东移动100M光纤 youtube 1080p在晚上十点高峰期还能流畅，非高峰期阿里云速度很快的。
+确定好服务商之后就是建立服务器了，vultr支持creditcard paypal 比特币 支付宝付款 linode可用信用卡和paypal 阿里云还用说吗。
+Vultr在product里depoly new server， Vultr有ipv6的（免费）建立服务器的时候选上。
+linode 在linodes create new linodes阿里云选轻量应用服务器，节点选香港或者新加坡。
+系统选择debian10或者ubuntu20.04LTS 阿里云ubuntu只有18.04可以后期升级到20.04 选新系统是因为内核较新，集成了bbr以及wireguard 方便后面安装wireguard，
+系统建立好之后先ping下你的服务器ip简单检测一下响应速度，如果ping不通，有可能是被 封了，在这里下http://tool.chinaz.com/ 确定被封就删除再建一个。别在高峰期（晚上8点后到凌晨2点）,如果速度很差丢包率很高，就把服务器删除再换个机房重建一个vultr linode是按小时付费 没什么大不了的，阿里云不行（月付）阿里云服务器建好之后要删除系统带的监控程序（安骑士方法网上有）,阿里云还要在控制台开放端口默认只开了22 80 443。再改下root密码
+上面做完之后就是找个终端工具连接服务器开始操作了，网上的教程里常见putty xshell 之类 如果你的电脑是windows10 则不用额外的下载那些软件了，用系统自带的cmd命令行，win10已经集成了ssh工具，想功能再强点就在win10应用商店里安装windows terminal。用ssh 连上你的服务器安装代理软件 现在我常用三个openconnect wireguard trojan ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 科学上网之服务器建立篇 ">
+<meta name=og:description content=" 翻墙技术之服务器搭建
+VPS (virtual private server)供应商选择 本人用的几家vultr, linode 阿里云轻量服务器(阿里云两台VPS，已经用了一年，都装有翻墙工具)
+Vultr linode两家的服务器配置
+最低档$5元/月, 内存1G 硬盘25G 流量1000G 带宽1G 不过国内扶墙带宽这个没什么卵用(国内访问速度一般)。按小时扣费。
+vultr机房较多,linode以前只有三个机房,现在也有十个左右了.常见日本,新加坡做节点速度还快些,国内有些地区是美国机房速度快。
+阿里云轻量应用服务器（香港机房）有人会说阿里被CCP收买不安全。这个世界哪有绝对安全。还是那句话，只是翻墙而已，不是什么高价值目标，没人理你的。
+阿里云配置跟vultr linode最低档一样(24元人民币/月)，只是带宽有限制峰值30Mbps（也就是说30/8=3.5MB/s左右，这速度扶墙没问题）我这里广东移动100M光纤 youtube 1080p在晚上十点高峰期还能流畅，非高峰期阿里云速度很快的。
+确定好服务商之后就是建立服务器了，vultr支持creditcard paypal 比特币 支付宝付款 linode可用信用卡和paypal 阿里云还用说吗。
+Vultr在product里depoly new server， Vultr有ipv6的（免费）建立服务器的时候选上。
+linode 在linodes create new linodes阿里云选轻量应用服务器，节点选香港或者新加坡。
+系统选择debian10或者ubuntu20.04LTS 阿里云ubuntu只有18.04可以后期升级到20.04 选新系统是因为内核较新，集成了bbr以及wireguard 方便后面安装wireguard，
+系统建立好之后先ping下你的服务器ip简单检测一下响应速度，如果ping不通，有可能是被 封了，在这里下http://tool.chinaz.com/ 确定被封就删除再建一个。别在高峰期（晚上8点后到凌晨2点）,如果速度很差丢包率很高，就把服务器删除再换个机房重建一个vultr linode是按小时付费 没什么大不了的，阿里云不行（月付）阿里云服务器建好之后要删除系统带的监控程序（安骑士方法网上有）,阿里云还要在控制台开放端口默认只开了22 80 443。再改下root密码
+上面做完之后就是找个终端工具连接服务器开始操作了，网上的教程里常见putty xshell 之类 如果你的电脑是windows10 则不用额外的下载那些软件了，用系统自带的cmd命令行，win10已经集成了ssh工具，想功能再强点就在win10应用商店里安装windows terminal。用ssh 连上你的服务器安装代理软件 现在我常用三个openconnect wireguard trojan ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/141.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>科学上网之服务器建立篇</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/loveyou521>Loveyou521</a></span>,
+<span>at 01 October 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%bf%bb%e5%a2%99>翻墙</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/05f0f3aba30743b4b9a8f968fef31639.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/05f0f3aba30743b4b9a8f968fef31639.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p> 翻墙技术之服务器搭建</p>
+<p>VPS (virtual private server)供应商选择 本人用的几家vultr, linode 阿里云轻量服务器(阿里云两台VPS，已经用了一年，都装有翻墙工具)</p>
+<p>Vultr linode两家的服务器配置</p>
+<p>最低档$5元/月, 内存1G 硬盘25G 流量1000G 带宽1G 不过国内扶墙带宽这个没什么卵用(国内访问速度一般)。按小时扣费。</p>
+<p>vultr机房较多,linode以前只有三个机房,现在也有十个左右了.常见日本,新加坡做节点速度还快些,国内有些地区是美国机房速度快。</p>
+<p>阿里云轻量应用服务器（香港机房）有人会说阿里被CCP收买不安全。这个世界哪有绝对安全。还是那句话，只是翻墙而已，不是什么高价值目标，没人理你的。</p>
+<p>阿里云配置跟vultr linode最低档一样(24元人民币/月)，只是带宽有限制峰值30Mbps（也就是说30/8=3.5MB/s左右，这速度扶墙没问题）我这里广东移动100M光纤 youtube 1080p在晚上十点高峰期还能流畅，非高峰期阿里云速度很快的。</p>
+<p>确定好服务商之后就是建立服务器了，vultr支持creditcard paypal 比特币 支付宝付款  linode可用信用卡和paypal  阿里云还用说吗。</p>
+<p>Vultr在product里depoly new server，  Vultr有ipv6的（免费）建立服务器的时候选上。</p>
+<p>linode 在linodes create new linodes阿里云选轻量应用服务器，节点选香港或者新加坡。</p>
+<p>系统选择debian10或者ubuntu20.04LTS 阿里云ubuntu只有18.04可以后期升级到20.04 选新系统是因为内核较新，集成了bbr以及wireguard 方便后面安装wireguard，</p>
+<p>系统建立好之后先ping下你的服务器ip简单检测一下响应速度，如果ping不通，有可能是被 封了，在这里下http://tool.chinaz.com/   确定被封就删除再建一个。别在高峰期（晚上8点后到凌晨2点）,如果速度很差丢包率很高，就把服务器删除再换个机房重建一个vultr linode是按小时付费 没什么大不了的，阿里云不行（月付）阿里云服务器建好之后要删除系统带的监控程序（安骑士方法网上有）,阿里云还要在控制台开放端口默认只开了22 80 443。再改下root密码</p>
+<p>上面做完之后就是找个终端工具连接服务器开始操作了，网上的教程里常见putty  xshell 之类 如果你的电脑是windows10  则不用额外的下载那些软件了，用系统自带的cmd命令行，win10已经集成了ssh工具，想功能再强点就在win10应用商店里安装windows terminal。用ssh 连上你的服务器安装代理软件  现在我常用三个openconnect   wireguard  trojan</p>
+<p>先来装openconnect  用逗比的一键脚本上个链接<a href=%22https://doubibackup.com/nr2hjmg2.html%22>https://doubibackup.com/nr2hjmg2.html</a>  逗比已经被抓了，这是他网站的备份，被抓不是因为他搞什么翻墙脚本技术之类，是因为跟别人合伙卖vps，有人卷钱跑路，合伙人把他给告了。</p>
+<p>Wireguard  用这个链接的一键脚本<a href=%22https://ssr.tools/1492%22>https://ssr.tools/1492</a></p>
+<p>Trojan比上面的复杂 ，这个需要服务器+域名+ssl证书  vps买好后可以去freenom注册个免费域名，然后解析到你的vps上，也可以买那种一年$1的便宜货，等能ping通你的域名的时候，就是解析好了，这时候就可以安装trojan  现在有可以docker运行的trojan很方便 不用在系统添加乱七八糟的文件之类的，链接在这里<a href=%22https://github.com/Jrohy/trojan%22>https://github.com/Jrohy/trojan</a>  按照说明操作即可，证书选里面的自签名，整个过程很简单</p>
+<p>不能发图，乱写一气。写这个主要是想写下一篇《翻墙之路由器上科学上网》</p>
+<p>Vultr有个限时优惠  如下</p>
+<p><a href="https://www.vultr.com/?ref=8406662-6G">https://www.vultr.com/?ref=8406662-6G</a></p>
+<p>注意必须从上述活动链接注册Vultr新用户才能活得免费的100美元（直接Vultr官网注册则不赠送100美元），且这个免费的100美元将在30天过期，过期后开始用你自己充值的账户余额</p>
+<h3 id=品葱用户-klvnngko-评论于-2020-09-30>品葱用户 <strong>KLVnNgkO</strong> 评论于 2020-09-30</h3>
+<p>貌似阿里云会检查翻墙软件吧。。<br>
+发警告信什么的</p>
+<h3 id=品葱用户-sean1999-评论于-2020-10-01>品葱用户 <strong>Sean1999</strong> 评论于 2020-10-01</h3>
+<p>突然想起我的vultr上还有12刀 XD</p>
+<h3 id=品葱用户-loveyou521>品葱用户 **loveyou521</h3>
+<p>KLVnNgkO** 评论于 2020-09-30</p>
+<blockquote>
+<p><a href=%22/article/item_id-506875#%22>>></a>貌似阿里云会检查翻墙软件吧。。发警告信什么的</p>
+</blockquote>
+<p>删除了安骑士就监测不到了，以前ssr容易 检测，现在方法多了，而且openconnect是anyconnect一样的协议，就算检测到也不管，我两台阿里云用一年，没人鸟我。wireguard是内核集成了，trojan是伪装web https</p>
+<blockquote>
+<p><a href=https://pincong.rocks/article/24596>点击品葱原文参与讨论</a></p>
+</blockquote>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/77fdca7de2c2a288689b347d624fe6dc/?utm_source=see_also&utm_medium=%25E7%25A7%2591%25E5%25AD%25A6%25E4%25B8%258A%25E7%25BD%2591%25E4%25B9%258B%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%25BB%25BA%25E7%25AB%258B%25E7%25AF%2587">如何评价expressvpn在某盗版影片网站上的高雅广告？</a>
+</h2>
+<p class=text-dark>品葱用户 yogafire 提问于 9/30/2020 说句实在的，我甚至不排除我将来有一天真的会用到这个功能的可能
+但是现在人家美国根本就没有用类似中共的墙的技术来禁止微信，甚至也并没有表达出这种意思，它就用这个来给自己做广告，实在是有一 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/eb82d9204d74f80970d81c81e23a9691/?utm_source=see_also&utm_medium=%25E7%25A7%2591%25E5%25AD%25A6%25E4%25B8%258A%25E7%25BD%2591%25E4%25B9%258B%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%25BB%25BA%25E7%25AB%258B%25E7%25AF%2587">中国为什么不让人民上脸书推特油管维基谷歌却花很多很多的钱去渗透脸书推特油管维基谷歌？</a>
+</h2>
+<p class=text-dark>品葱用户 我喜爱派克笔 提问于 9/19/2020 据我了解，中国一直不许人民上脸书推特油管维基，而且现在中国如果你要是不经过中共允许上脸书推特油管维基的话就会被国宝警察抓，眼中的甚至把你抓进再教育营里迫害致死。而且现在墙内的网络质量不如墙 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/ed72512cf139372c4d67308327084e10/?utm_source=see_also&utm_medium=%25E7%25A7%2591%25E5%25AD%25A6%25E4%25B8%258A%25E7%25BD%2591%25E4%25B9%258B%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%25BB%25BA%25E7%25AB%258B%25E7%25AF%2587">「翻墙违法是无可争议的事实」浙江省仅8月份“个人翻墙”行政处罚达18起（全年60例）</a>
+</h2>
+<p class=text-dark>以下内容来源于微信公众号，墙内服务故不附链接，如有必要可自行搜索关键字进行查证。
+————————————————————————————————————————
+**信息来源：**浙江政务服务网 行政处罚结果信息公开系统
+①只要你不干违法 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/67b0a1c55a052928dd9aa0c050964418/?utm_source=see_also&utm_medium=%25E7%25A7%2591%25E5%25AD%25A6%25E4%25B8%258A%25E7%25BD%2591%25E4%25B9%258B%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%25BB%25BA%25E7%25AB%258B%25E7%25AF%2587">「“规避GFW审查系统”的刑法问题」刍议——（二）“VPN技术的中立性”没有任何探讨价值</a>
+</h2>
+<p class=text-dark>相关链接
+「“规避GFW审查系统”的刑法问题」刍议——（一）三种入罪路径下的22则典型案例
+目录
+**一、**VPN的技术中立性？——与“翻墙”无关
+**二、**Proxy Server的技术中立性？——开发者自己都不承认
+** …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/ca37c734ef16f0800f0f496c97da722d/?utm_source=see_also&utm_medium=%25E7%25A7%2591%25E5%25AD%25A6%25E4%25B8%258A%25E7%25BD%2591%25E4%25B9%258B%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%25BB%25BA%25E7%25AB%258B%25E7%25AF%2587">「“规避GFW审查系统”的刑法问题」刍议——（一）三种入罪路径下的22则典型案例</a>
+</h2>
+<p class=text-dark>本篇系“翻墙”法律问题研究系列的全新篇章，谨以此文正式开启“翻墙”刑法相关问题的讨论。
+标题以“刍议”冠名，即意味着本篇尚不涉及正式讨论，仅陈列当前关于“规避GFW审查系统”刑法问题的既有观点和现行司法实践通说观点，并附上了22则典型案例， …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

@@ -1,0 +1,347 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>如何看待 9 月 10 日华为发布的鸿蒙 OS 2.0 系统，应用前景如何？</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 知乎用户 Wchchc 发表 感谢美国，把中国逼迫成无所不能的国家，把华为逼迫成无所不能的企业。
+取匿了，喷子们要喷就喷吧。
+=====
+专业人士来了，我从事安卓开发也有不少年头了，在那之前还参与开发了 pintos ，liteos 等知名系统 kernel，在 os 界摸爬滚打多年，给 pintos 系统贡献过不少代码，自认为对这行比较熟悉。这次鸿蒙真的是打了所有质疑人的脸了，因为这次华为真的发力了，先上图
+这是鸿蒙的 ide 界面，可以看到完善度已经很高了，基本已经达到了上线的水平了。我看了一下华为的代码，发现竟然我们鸿蒙已经实现了在 cpu 的 ISA 给全部替换为我们自主研发的 html 语言，这真的是件非常大的创新！华为实现了英特尔还在探索中的东西，估计是下一步要上麒麟芯片，这样一搞，实现了从芯片层面直接运行 Javascript bytecode 和 rendering DOM，实在是太精妙了，估计还跟分布式类小程序系统有关，拭目以待吧！我认为我们在 os 研发和微应用绝对已经领先了！中华有为，我真的为华为工程师所付出的努力感到骄傲
+=== 第 n+1 次更新
+看代码看的眼花了，来更新下，先解答下关于代码里面有安卓的争议，先上图。
+外行的朋友可能看不懂，我来给大家解释一下，这张图是鸿蒙分布式内核 hdc 和普通安卓 adb disassemble 操作后的函数列表。大家可以清晰的看到，尽管鸿蒙 os 为了兼容安卓的写法和 idiom 所以一部分的函数名非常像，但这相似仅仅止步于名字而已，这图下面的两个红框内可以明显的看出，很多 method 的 signature 其实完全是不同的，进一步印证了鸿蒙系统是一个自主研发和编写的 os。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 如何看待 9 月 10 日华为发布的鸿蒙 OS 2.0 系统，应用前景如何？ ">
+<meta name=og:description content=" 知乎用户 Wchchc 发表 感谢美国，把中国逼迫成无所不能的国家，把华为逼迫成无所不能的企业。
+取匿了，喷子们要喷就喷吧。
+=====
+专业人士来了，我从事安卓开发也有不少年头了，在那之前还参与开发了 pintos ，liteos 等知名系统 kernel，在 os 界摸爬滚打多年，给 pintos 系统贡献过不少代码，自认为对这行比较熟悉。这次鸿蒙真的是打了所有质疑人的脸了，因为这次华为真的发力了，先上图
+这是鸿蒙的 ide 界面，可以看到完善度已经很高了，基本已经达到了上线的水平了。我看了一下华为的代码，发现竟然我们鸿蒙已经实现了在 cpu 的 ISA 给全部替换为我们自主研发的 html 语言，这真的是件非常大的创新！华为实现了英特尔还在探索中的东西，估计是下一步要上麒麟芯片，这样一搞，实现了从芯片层面直接运行 Javascript bytecode 和 rendering DOM，实在是太精妙了，估计还跟分布式类小程序系统有关，拭目以待吧！我认为我们在 os 研发和微应用绝对已经领先了！中华有为，我真的为华为工程师所付出的努力感到骄傲
+=== 第 n+1 次更新
+看代码看的眼花了，来更新下，先解答下关于代码里面有安卓的争议，先上图。
+外行的朋友可能看不懂，我来给大家解释一下，这张图是鸿蒙分布式内核 hdc 和普通安卓 adb disassemble 操作后的函数列表。大家可以清晰的看到，尽管鸿蒙 os 为了兼容安卓的写法和 idiom 所以一部分的函数名非常像，但这相似仅仅止步于名字而已，这图下面的两个红框内可以明显的看出，很多 method 的 signature 其实完全是不同的，进一步印证了鸿蒙系统是一个自主研发和编写的 os。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/212.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>如何看待 9 月 10 日华为发布的鸿蒙 OS 2.0 系统，应用前景如何？</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<span>at 13 September 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e9%b8%bf%e8%92%99>鸿蒙</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%ae%89%e5%8d%93>安卓</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%bb%a3%e7%a0%81>代码</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%bc%96%e8%af%91>编译</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%86%85%e5%ad%98>内存</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/94abc6c08f305b225d65ec15840f6a85.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/94abc6c08f305b225d65ec15840f6a85.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<h3 id=知乎用户-wchchc-发表>知乎用户 Wchchc 发表</h3>
+<p>感谢美国，把中国逼迫成无所不能的国家，把华为逼迫成无所不能的企业。</p>
+<p>取匿了，喷子们要喷就喷吧。</p>
+<p>=====</p>
+<p>专业人士来了，我从事安卓开发也有不少年头了，在那之前还参与开发了 pintos ，liteos 等知名系统 kernel，在 os 界摸爬滚打多年，给 pintos 系统贡献过不少代码，自认为对这行比较熟悉。这次鸿蒙真的是打了所有质疑人的脸了，因为这次华为真的发力了，先上图</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-80157e69831e45b5c2b4cc290e1672bd_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>这是鸿蒙的 ide 界面，可以看到完善度已经很高了，基本已经达到了上线的水平了。我看了一下华为的代码，发现竟然我们鸿蒙已经实现了在 cpu 的 ISA 给全部替换为我们自主研发的 html 语言，这真的是件非常大的创新！华为实现了英特尔还在探索中的东西，估计是下一步要上麒麟芯片，这样一搞，实现了从芯片层面直接运行 Javascript bytecode 和 rendering DOM，实在是太精妙了，估计还跟分布式类小程序系统有关，拭目以待吧！我认为我们在 os 研发和微应用绝对已经领先了！中华有为，我真的为华为工程师所付出的努力感到骄傲</p>
+<p>=== 第 n+1 次更新</p>
+<p>看代码看的眼花了，来更新下，先解答下关于代码里面有安卓的争议，先上图。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-362b8060588ed14780d159cf5d11e76f_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>外行的朋友可能看不懂，我来给大家解释一下，这张图是鸿蒙分布式内核 hdc 和普通安卓 adb disassemble 操作后的函数列表。大家可以清晰的看到，尽管鸿蒙 os 为了兼容安卓的写法和 idiom 所以一部分的函数名非常像，但这相似仅仅止步于名字而已，这图下面的两个红框内可以明显的看出，很多 method 的 signature 其实完全是不同的，进一步印证了鸿蒙系统是一个自主研发和编写的 os。</p>
+<p>进一步来看，我认为鸿蒙兼容安卓软件的方法也是首屈一指，对 class 内 method 名称执行了经典 PCRE 操作，也就是 regex.replace，确实是现阶段最快速的兼容方法了，为华为点赞！</p>
+<p>所以，我认为可以很明确的看出，华为确实投入了非常多的人力物力来撑起我们国家 os 研发的一片天，让我们拭目以待吧。</p>
+<p>=== 第 n 次更新</p>
+<p>亮点来了！鸿蒙采用最近业界比较新颖的 switch 采样率转化算法来处理音频，我个人认为这是个非常新颖的想法，估计能比传统方法快上一些，但是确实还需要优化一下，可能导致. c 文件代码行数过多的问题，先上图</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-e3e89cce217df1ba0ac3f60b32a49aa8_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>红框内大家可以明显地看到，32000 采样率的音频被通过鸿蒙系统转化为 24000 采样率了，这里科普一下，采样率越高，内存占用越大，估计鸿蒙内存还能省！太强了吧，没想到学术界的想法这么快就被华为应用了！，一个字， 牛！</p>
+<p>=== 第一次更新</p>
+<p>我刚刚看到了鸿蒙 os 的演示代码，先上图</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/v2-87de64adccc58abbb4db9a408d16a4d5_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-71081b9df1919a92247c016adc49c36d_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>果然不出所料，鸿蒙果然是走的路线在 isa level 直接支持 java 的运行，这结合了刚刚看到的 html，完美的实现了 javascript！十分的巧妙！</p>
+<p>====</p>
+<p>鸿蒙内核 loader 写的太巧妙了，直接把整个 kernel 在 5 行指令就 load 到 cpu L1 cache，这是绝无仅有的，安卓哪里可能把 kernel 加载到 l1 cache? 看来鸿蒙系统配上麒麟芯片上巨大的 L1 cache 真的是太强了，以后不用考虑 cache hit 等问题。 预计比安卓的机制要快至少 60%，坐等华为发布测试数据。</p>
+<p>=====</p>
+<p>下面来个具体的例子，华为这次真的成了！</p>
+<p>这是鸿蒙系统 mem.c 内核代码文件</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/v2-5a1f72c530da05d3479fed353d7b8e04_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>外行用户可能看不懂，我讲解讲解，鸿蒙系统简化了以往 linux 系统有很多 file descriptor 的弊端，直接分布式的把所有 descriptor 设置为 0（打开文件速度显著提升），极大的简化了打开文件的 heap 内存开销，至少减少内存使用一半！</p>
+<p>第二，所有 read 操作都会很快的返回 0 值，意思就是读写操作速度的巨大提升！</p>
+<p>我觉得真不错！</p>
+<p>很多人说这里 return 0 有啥用呢？我来补充一点，其实在鸿蒙的 assembly 里面，返回值已经存在了 register 里面。</p>
+<p>那几个内存操作的函数，看起来只是 return 0，<br>
+其实是把整个内存操作塞在 return 这个 instruction 里面了。因为在底层的 isa 里，一个指令就能搞定内存操作。</p>
+<p>说的挺好的。</p>
+<p>=====</p>
+<p>评论看到华为对 mmu 和调度器的优化也非常大，我有时间继续更新，先研究研究代码。</p>
+<h3 id=知乎用户-江峰-发表>知乎用户 江峰 发表</h3>
+<p>发布会没看，晚上八点多看到消息，在 gitee 上看了下项目文档：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-a76aa98a0b80854c21128e7f44102195_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>快速入门里面支持的全部都是 Hi35xx 系列的芯片，这个系列芯片是属于小海思的产品，常用于视频监控领域，也就是常说的摄像头，性能无法与手机相提并论。</p>
+<p>正巧，我手里有一块 Hi3518EV300 的开发板，跑下试试鸿蒙 OS 2.0。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//picb.zhimg.com/v2-036376d480b177ce272881a74907612b_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>过程很简单，参考下官网的文档：</p>
+<p>[quick-start / 搭建环境 - 2.md · OpenHarmony/docs - 码云 Gitee.com​gitee.com</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-d9ed8cc7800391932b5b55eb259d8744_ipico.jpg" alt></p>
+<p>](<a href="https://link.zhihu.com/?target=https%3A//gitee.com/openharmony/docs/blob/master/quick-start/%25E6%2590%25AD%25E5%25BB%25BA%25E7%258E%25AF%25E5%25A2%2583-2.md">https://link.zhihu.com/?target=https%3A//gitee.com/openharmony/docs/blob/master/quick-start/%25E6%2590%25AD%25E5%25BB%25BA%25E7%258E%25AF%25E5%25A2%2583-2.md</a>)</p>
+<p>装一堆的依赖，包括 Python3.8 和 llvm 这两个重头戏。构建系统和 Chromium 一样，都是 ninja 和 GN。整个安装过程还算比较顺利，当然前提是你使用的是国内的 PIP 源和镜像站。</p>
+<p>下一步就是编译代码了，<strong>整个代码包下载 (226MB)</strong>：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-8bdffccc1d174d225098979681270f4d_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>解压后如下：</p>
+<pre tabindex=0><code>vroot@deskmount:~/packages/code$ tree -L 2
+.
+├── applications
+│   └── sample
+├── base
+│   ├── global
+│   ├── hiviewdfx
+│   ├── iot\_hardware
+│   ├── security
+│   └── startup
+├── build
+│   └── lite
+├── build.py -&gt; build/lite/build.py
+├── docs
+│   ├── api
+│   ├── bundles
+│   ├── contribute
+│   ├── docs-en
+│   ├── driver
+│   ├── get-code
+│   ├── guide
+│   ├── kernel
+│   ├── quick-start
+│   ├── readme
+│   ├── Readme-CN.md
+│   ├── RELEASE-NOTES.txt
+│   ├── security
+│   ├── subsystems
+│   └── term
+├── domains
+│   └── iot
+├── drivers
+│   ├── hdf
+│   └── liteos
+├── foundation
+│   ├── aafwk
+│   ├── ace
+│   ├── appexecfwk
+│   ├── communication
+│   ├── distributedschedule
+│   ├── graphic
+│   └── multimedia
+├── kernel
+│   ├── liteos\_a
+│   └── liteos\_m
+├── prebuilts
+│   └── lite
+├── test
+│   ├── developertest
+│   ├── xdevice
+│   └── xts
+├── third\_party
+│   ├── bounds\_checking\_function
+│   ├── cJSON
+│   ├── cmsis
+│   ├── curl
+│   ├── FatFs
+│   ├── FreeBSD
+│   ├── freetype
+│   ├── googletest
+│   ├── harfbuzz
+│   ├── iniparser
+│   ├── jerryscript
+│   ├── libjpeg
+│   ├── libpng
+│   ├── Linux\_Kernel
+│   ├── ltp
+│   ├── lwip
+│   ├── mbedtls
+│   ├── mtd-utils
+│   ├── musl
+│   ├── NuttX
+│   ├── openssl
+│   ├── rt\_thread
+│   ├── unity
+│   ├── wpa\_supplicant
+│   └── zlib
+├── utils
+│   └── native
+└── vendor
+    ├── hisi
+    └── huawei
+
+77 directories, 3 files
+
+</code></pre><p>里面 kernel 文件夹里有<code>liteos_a</code> 和 <code>liteos_m</code>这两个文件夹，猜测分别对应 ARM 的 Cotex-A 和 Cortex-M 架构？？？其他还没有来的及看，后面再分析。</p>
+<p>helloworld.c 程序在<code>applications/sample/camera/app/src</code>目录，内容也比较简洁，和 Linux 的 helloworld 基本一致，除了引入<code>los_sample.h</code>和 <code>LOS_Sample(g_num);</code>。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-92ee57787a6013df47d1411451c226ef_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>在根目录下，使用<code>python build.py ipcamera_hi3518ev300 -b debug</code> 直接编译，过程很流畅，也没出什么幺蛾子。编译的时候没有看到之前要安装的交叉编译工具链 arm-himix100-linux-gcc，用的是 clang 这套东西。整个编译过程速度还是比较快的，几分钟解决战斗。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-09f1655f1193a8e2453fc4fce1675e42_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>![](data:image/svg+xml;utf8,)</p>
+<p>下一步就是烧写。</p>
+<p>烧写使用的还是海思之前提供的工具，编译好的文件分为<code>OHOS_Image.bin</code>应该是内核文件，</p>
+<p><code>rootfs.img</code> 应该是根文件系统，<code>userfs.img</code>应该是用户文件系统。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/v2-e4edf1dd8cb25c82fb4cd91e0f359a44_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><strong>内核编译完成只有 3.9MB</strong>。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-5ee0e0d01b17a0224a1e1ea685cf9056_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>因为是串口烧录的，<strong>整个过程花费了 28 分钟</strong>。。。</p>
+<p>继续设置下 uboot 的参数，对你没看错，用的还是 Uboot。</p>
+<p>启动后，运行下程序，正确打印！</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//picb.zhimg.com/v2-51fc1a9aa16cb223bd1054814fb6277d_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><strong>Hello OHOS!</strong></p>
+<h2 id=后记>后记</h2>
+<ol>
+<li>整个编译过程还是十分顺利；</li>
+<li>系统目前只能在嵌入式设备（低端）上运行；</li>
+<li>其他功能还需要探索，比如软总线？？？</li>
+<li>看起来支持的设备还比较少，怎么样移植到其他设备上？？</li>
+<li>去除意识形态后和 linux 相比又有什么优势？</li>
+<li>这个能用来做产品吗？有什么风险和收益？</li>
+<li>目前这个版本和<code>TencentOS-tiny</code>比又如何？？</li>
+<li>鸿蒙 OS 开源社区能否长久的聚集人气, 吸引开发者？？？</li>
+<li><strong>恭喜鸿蒙 OS 迈出开源的第一步~</strong></li>
+</ol>
+<p>PS : 求教怎么样支持 USB 网卡，有驱动吗？？？</p>
+<h3 id=知乎用户-toyama-nao-发表>知乎用户 toyama nao 发表</h3>
+<p>证明一下在现场</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-81ecbd01657339e08e7b9c3c5569accf_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-af35b67c6977517fc0748ed69f3f9fb5_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-9b04712b709847bce0371bf45e65e27f_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>作为比较早期跟鸿蒙团队有接触的开发者。</p>
+<p>（此段避免误解，有修改）18 年那会是真的一行代码也不给看的，能给看的只有负责人手里的 20 页 ppt，讲鸿蒙概念，都非常宽泛。负责人也很虚心的听了我们开发者的一些想法和诉求。</p>
+<p>19 年再交流就好了不少，看的出来有成型的思路了。当时讲的一些开发理念，在今天的大会上又再次确认。</p>
+<p>到了今年前段时间，突然有了 60 多 Mb 的鸿蒙文档，事无巨细的讲每个鸿蒙概念，每个 API 出入参，用法，只能感慨这个团队是真的能做事的。</p>
+<p>今天开源的应该是面向 iot 那部分，真正给手机用的部分要明年，所以我们跟鸿蒙合作的部分，还是不知道能不能细讲。</p>
+<p>只能说手机鸿蒙已经有了，在存量设备上就能跑。但 api 还不完善，很多 android 有的特性，鸿蒙还没有，所以应用迁移起来还有点阻碍。到明年应该就还好了。</p>
+<p>另外鸿蒙团队也很清楚存量 app 迁移的问题，跑 android 虚拟机的方案是不存在的。但他们有一个更折衷的方案去绕。暂不细讲。</p>
+<p>最后，来东莞的路上遇到了暴雨，但从会场出来，看到了很漂亮的彩虹。祝福鸿蒙系统，祝福鸿蒙团队。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-f2c3a3daeab7d0dd6e6a17f2a5830a13_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/6f5a31ba1d48a0bd928df3d92f65fceb/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585-9-%25E6%259C%2588-10-%25E6%2597%25A5%25E5%258D%258E%25E4%25B8%25BA%25E5%258F%2591%25E5%25B8%2583%25E7%259A%2584%25E9%25B8%25BF%25E8%2592%2599-os-2.0-%25E7%25B3%25BB%25E7%25BB%259F%25E5%25BA%2594%25E7%2594%25A8%25E5%2589%258D%25E6%2599%25AF%25E5%25A6%2582%25E4%25BD%2595">［厉害了抄的国］鸿蒙？安卓改个名而已</a>
+</h2>
+<p class=text-dark>连结就不放了，推特传得到处都是，简单来说就是安卓改个名，源文件都没有改
+Apk 改成 Hap，就是鸿蒙安装档，哈哈哈都笑吐了，搁那玩把戏呢，出了中国谷歌还不告死你
+吹嘘动员 140 万人做鸿蒙，这个就是传说中的 大 型 抄 袭 现 场？
+厉 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/442cf3419a09973093e20e685d4f00bd/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585-9-%25E6%259C%2588-10-%25E6%2597%25A5%25E5%258D%258E%25E4%25B8%25BA%25E5%258F%2591%25E5%25B8%2583%25E7%259A%2584%25E9%25B8%25BF%25E8%2592%2599-os-2.0-%25E7%25B3%25BB%25E7%25BB%259F%25E5%25BA%2594%25E7%2594%25A8%25E5%2589%258D%25E6%2599%25AF%25E5%25A6%2582%25E4%25BD%2595">如何看待华为的鸿蒙2.0 ？</a>
+</h2>
+<p class=text-dark>品葱用户 马格斯 提问于 9/10/2020 华为开发者大会 发布了鸿蒙 OS 2.0 系统， 这次也不完全是ppt 系统了 开源了部分系统 大家怎么看
+-&mdash;&mdash;- 作为码农 发现这个问题算是自己的专业范畴 所以先说一 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/64ea64d26e41ef200d5b9ecc17d570e2/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585-9-%25E6%259C%2588-10-%25E6%2597%25A5%25E5%258D%258E%25E4%25B8%25BA%25E5%258F%2591%25E5%25B8%2583%25E7%259A%2584%25E9%25B8%25BF%25E8%2592%2599-os-2.0-%25E7%25B3%25BB%25E7%25BB%259F%25E5%25BA%2594%25E7%2594%25A8%25E5%2589%258D%25E6%2599%25AF%25E5%25A6%2582%25E4%25BD%2595">習近平小學（熊）維尼遨遊瘋狂宇宙陪你編碼 - VS Code Plugin 语音包</a>
+</h2>
+<p class=text-dark>大家好，欢迎使用习近平小熊维尼VS Code语音包插件。
+他会在你编码的时候，发出**小学语音，让你代码的质量提高一万倍**。
+品葱用户 通音宽依 评论于 2020-08-25 加个rainbow-fart标签 (Topics) …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/49b962a6063b9b423795fa3aeeabafb8/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585-9-%25E6%259C%2588-10-%25E6%2597%25A5%25E5%258D%258E%25E4%25B8%25BA%25E5%258F%2591%25E5%25B8%2583%25E7%259A%2584%25E9%25B8%25BF%25E8%2592%2599-os-2.0-%25E7%25B3%25BB%25E7%25BB%259F%25E5%25BA%2594%25E7%2594%25A8%25E5%2589%258D%25E6%2599%25AF%25E5%25A6%2582%25E4%25BD%2595">中国制作外挂为什么这么厉害？</a>
+</h2>
+<p class=text-dark>知乎用户 emmm 发表 外挂并不是逆向技术的唯一的用途，在回答里也说明了，我并不支持外挂。技术是一把双刃剑，用在什么地方在于人。仅回答问题，保持客观中立。
+======================
+现在国内辅助开发者，大都是早期跟着手 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/9ac9cc61c5c52e4e08b1a2c70fb26f50/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585-9-%25E6%259C%2588-10-%25E6%2597%25A5%25E5%258D%258E%25E4%25B8%25BA%25E5%258F%2591%25E5%25B8%2583%25E7%259A%2584%25E9%25B8%25BF%25E8%2592%2599-os-2.0-%25E7%25B3%25BB%25E7%25BB%259F%25E5%25BA%2594%25E7%2594%25A8%25E5%2589%258D%25E6%2599%25AF%25E5%25A6%2582%25E4%25BD%2595">你对国产操作系统 “天赐” 有什么期待？</a>
+</h2>
+<p class=text-dark>知乎用户 匿名用户 发表 大家好，虽然我拥有软件工程方向的硕士学位和计算机方向的高级职称，是一个不折不扣的码农，但是，我其实和篮球圈走得很近。下面我谈谈 “天赐” 是如何助力篮球运动智能化的。
+对于国产操作系统 “天赐”，其实第一次听说的时 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

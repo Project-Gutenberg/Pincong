@@ -1,0 +1,224 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>用C++手撸雨课堂，清华自动化系大一作业引热议，网友：这可以去BAT了</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 作者 | 冬梅，陈思
+近日，清华大学自动化系大一 C++ 作业要求写一个更强大的雨课堂引发热议，网友：这题太难了！
+事件回溯
+近日，知乎上一篇名为《如何看待清华大学自动化系 2020 年大一 c++ 大作业是写一个功能更强大的雨课堂（雷课堂）》的帖子引来了诸多关注和讨论：
+https://www.zhihu.com/question/389457315。
+ 注：雨课堂是学堂在线与清华大学在线教育办公室共同研发的智慧教学工具，目的是全面提升课堂教学体验，让师生互动更多、教学更为便捷。教师可以将带有 MOOC 视频、习题、语音的课前预习课件推送到学生手机，师生沟通及时反馈；课堂上实时答题、弹幕互动。
+ 帖文中披露了清华大学自动化系 2020 年大一 C++ 作业要求的 PDF 文章，从 文章中可以看出，之所以会布置这样一份作业，是因为疫情期间学校推延了开学日期，学校采用了以“雨课堂”为主，腾讯会议和 Zoom 等网络会议软件为辅的线上教学模式。在使用这些软件时发现，软件虽然可以实现 PPT 展示、在线答题、随机点名等功能，但却缺乏教学信息的统计功能。在这学期 C++ 课程开始前的系统测试中，有同学建议自主开发一款集合雨课堂和网络会议优点于一体的网络教学软件，任课老师和助教经过多番讨论后，决定采纳这一想法，于是便布置了题为“雷课堂 Thunder Class）的作业安排。
+没想到，这份作业安排被曝光之后，引发了各界人士的高度关注，并纷纷表示：实现难度太高了。
+实现难度
+那么，这个作业到底有多难呢？有人在回复里用了这样一张图来直观地说明：
+玩笑归玩笑，在认真看过这一项作业的要求后，很多网友表示：这确实不是大一学生能做到的。
+先从功能实现上来说，作业的要求是这样的：
+首先要有用户登录功能，要求用户名密码登录，三次密码错误自动退出，账号可根据教师 / 学生不同身份进行切换，且必须有一个管理员账户，可用于教师及学生帐号的增删改——这一功能似乎没什么异议，毕竟大部分系统都有这样的要求，但是接下来的一些功能恐怕真的不是一般学生能做到的。
+除了基础的登录功能外，作业还要求系统实现：语音设备的切换功能、共享屏幕功能、语音直播功能、随机语音提问、在线发题 / 答题、签到、注意力监控（软件处于焦点窗口的时长与学生在线时长的百分比）、麦克风管制&mldr;
+不知道读者中是否有大神对于这些功能的实现表示不屑，但是在此话题下，各路答主、包括认证显示为清华本校生的答主都表示：大一学生做这个作业，真的是有些过于困难了。抛开完成作业所需的时长不说（有人预计约 200 小时以上），实现上述各项功能所需的技术恐怕也并非大一学生能接触到的。
+另外，除了常规的代码规范要求以外，作业还要求：不可使用任何非开源的第三方类库。
+这一要求也引发了不小的争议，有网友说：本身功能实现就够困难了，还不允许使用库，这就是让徒手造轮子啊？ ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 用C++手撸雨课堂，清华自动化系大一作业引热议，网友：这可以去BAT了 ">
+<meta name=og:description content=" 作者 | 冬梅，陈思
+近日，清华大学自动化系大一 C++ 作业要求写一个更强大的雨课堂引发热议，网友：这题太难了！
+事件回溯
+近日，知乎上一篇名为《如何看待清华大学自动化系 2020 年大一 c++ 大作业是写一个功能更强大的雨课堂（雷课堂）》的帖子引来了诸多关注和讨论：
+https://www.zhihu.com/question/389457315。
+ 注：雨课堂是学堂在线与清华大学在线教育办公室共同研发的智慧教学工具，目的是全面提升课堂教学体验，让师生互动更多、教学更为便捷。教师可以将带有 MOOC 视频、习题、语音的课前预习课件推送到学生手机，师生沟通及时反馈；课堂上实时答题、弹幕互动。
+ 帖文中披露了清华大学自动化系 2020 年大一 C++ 作业要求的 PDF 文章，从 文章中可以看出，之所以会布置这样一份作业，是因为疫情期间学校推延了开学日期，学校采用了以“雨课堂”为主，腾讯会议和 Zoom 等网络会议软件为辅的线上教学模式。在使用这些软件时发现，软件虽然可以实现 PPT 展示、在线答题、随机点名等功能，但却缺乏教学信息的统计功能。在这学期 C++ 课程开始前的系统测试中，有同学建议自主开发一款集合雨课堂和网络会议优点于一体的网络教学软件，任课老师和助教经过多番讨论后，决定采纳这一想法，于是便布置了题为“雷课堂 Thunder Class）的作业安排。
+没想到，这份作业安排被曝光之后，引发了各界人士的高度关注，并纷纷表示：实现难度太高了。
+实现难度
+那么，这个作业到底有多难呢？有人在回复里用了这样一张图来直观地说明：
+玩笑归玩笑，在认真看过这一项作业的要求后，很多网友表示：这确实不是大一学生能做到的。
+先从功能实现上来说，作业的要求是这样的：
+首先要有用户登录功能，要求用户名密码登录，三次密码错误自动退出，账号可根据教师 / 学生不同身份进行切换，且必须有一个管理员账户，可用于教师及学生帐号的增删改——这一功能似乎没什么异议，毕竟大部分系统都有这样的要求，但是接下来的一些功能恐怕真的不是一般学生能做到的。
+除了基础的登录功能外，作业还要求系统实现：语音设备的切换功能、共享屏幕功能、语音直播功能、随机语音提问、在线发题 / 答题、签到、注意力监控（软件处于焦点窗口的时长与学生在线时长的百分比）、麦克风管制&mldr;
+不知道读者中是否有大神对于这些功能的实现表示不屑，但是在此话题下，各路答主、包括认证显示为清华本校生的答主都表示：大一学生做这个作业，真的是有些过于困难了。抛开完成作业所需的时长不说（有人预计约 200 小时以上），实现上述各项功能所需的技术恐怕也并非大一学生能接触到的。
+另外，除了常规的代码规范要求以外，作业还要求：不可使用任何非开源的第三方类库。
+这一要求也引发了不小的争议，有网友说：本身功能实现就够困难了，还不允许使用库，这就是让徒手造轮子啊？ ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/82.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>用C++手撸雨课堂，清华自动化系大一作业引热议，网友：这可以去BAT了</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/ai%e5%89%8d%e7%ba%bf%e5%b0%8f%e7%bb%84>Ai前线小组</a></span>,
+<span>at 22 April 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%bd%9c%e4%b8%9a>作业</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%8a%9f%e8%83%bd>功能</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%af%be%e5%a0%82>课堂</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%ad%a6%e7%94%9f>学生</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%a6%81%e6%b1%82>要求</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/fcc7f92da1f0b7f3322d7478952cc4d3.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/fcc7f92da1f0b7f3322d7478952cc4d3.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/ZBjVrHIdkOllHTjWHR68Ku9jWI43ia0ewIByHOkvt40zs6eDBD0RpfiaI3AEn39AXHicfpaNaPc6AibtB2MHZjZ4qw/640%3Fwx_fmt%3Dpng" alt></p>
+<p>作者 | 冬梅，陈思</p>
+<p>近日，清华大学自动化系大一 C++ 作业要求写一个更强大的雨课堂引发热议，网友：这题太难了！</p>
+<p>事件回溯</p>
+<p>近日，知乎上一篇名为《如何看待清华大学自动化系 2020 年大一 c++ 大作业是写一个功能更强大的雨课堂（雷课堂）》的帖子引来了诸多关注和讨论：</p>
+<p><a href=https://www.zhihu.com/question/389457315>https://www.zhihu.com/question/389457315</a>。</p>
+<blockquote>
+<p>注：雨课堂是学堂在线与清华大学在线教育办公室共同研发的智慧教学工具，目的是全面提升课堂教学体验，让师生互动更多、教学更为便捷。教师可以将带有 MOOC 视频、习题、语音的课前预习课件推送到学生手机，师生沟通及时反馈；课堂上实时答题、弹幕互动。</p>
+</blockquote>
+<p>帖文中披露了清华大学自动化系 2020 年大一 C++ 作业要求的 PDF 文章，从 文章中可以看出，之所以会布置这样一份作业，是因为疫情期间学校推延了开学日期，学校采用了以“雨课堂”为主，腾讯会议和 Zoom 等网络会议软件为辅的线上教学模式。在使用这些软件时发现，软件虽然可以实现 PPT 展示、在线答题、随机点名等功能，但却缺乏教学信息的统计功能。在这学期 C++ 课程开始前的系统测试中，<strong>有同学建议自主开发一款集合雨课堂和网络会议优点于一体的网络教学软件</strong>，<strong>任课老师和助教经过多番讨论后，决定采纳这一想法，于是便布置了题为“雷课堂 Thunder Class）的作业安排。</strong></p>
+<p>没想到，这份作业安排被曝光之后，引发了各界人士的高度关注，并纷纷表示：实现难度太高了。</p>
+<p>实现难度</p>
+<p>那么，这个作业到底有多难呢？有人在回复里用了这样一张图来直观地说明：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/ZBjVrHIdkOllHTjWHR68Ku9jWI43ia0ewL5O8gW44JquCSEnT4wZ2ypIibbeEsicje0pTOIH5ktvbfwo8DZR5gqIg/640%3Fwx_fmt%3Dpng" alt></p>
+<p>玩笑归玩笑，在认真看过这一项作业的要求后，很多网友表示：这确实不是大一学生能做到的。</p>
+<p>先从功能实现上来说，作业的要求是这样的：</p>
+<p>首先要有用户登录功能，要求用户名密码登录，三次密码错误自动退出，账号可根据教师 / 学生不同身份进行切换，且必须有一个管理员账户，可用于教师及学生帐号的增删改——这一功能似乎没什么异议，毕竟大部分系统都有这样的要求，但是接下来的一些功能恐怕真的不是一般学生能做到的。</p>
+<p>除了基础的登录功能外，作业还要求系统实现：<strong>语音设备的切换功能、共享屏幕功能、语音直播功能、随机语音提问、在线发题 / 答题、签到、注意力监控（软件处于焦点窗口的时长与学生在线时长的百分比）、麦克风管制</strong>&mldr;</p>
+<p>不知道读者中是否有大神对于这些功能的实现表示不屑，但是在此话题下，各路答主、包括认证显示为清华本校生的答主都表示：大一学生做这个作业，真的是有些过于困难了。抛开完成作业所需的时长不说（有人预计约 200 小时以上），实现上述各项功能所需的技术恐怕也并非大一学生能接触到的。</p>
+<p>另外，除了常规的代码规范要求以外，作业还要求：<strong>不可使用任何非开源的第三方类库</strong>。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/ZBjVrHIdkOllHTjWHR68Ku9jWI43ia0ewVKZ2iayibE2D2C9qORiceysLibMsWlxo6tUFIDdaEuvt5qcr3M0xweuLSw/640%3Fwx_fmt%3Dpng" alt></p>
+<p>这一要求也引发了不小的争议，有网友说：本身功能实现就够困难了，还不允许使用库，这就是让徒手造轮子啊？</p>
+<p>各方反应</p>
+<p>即便是对于清华大学这样门槛很高的院校的大一新生来说，这种作业的难度也十分惊人。此事一出，网友纷纷评论表示：</p>
+<blockquote>
+<p>能遇到需求如此明确的甲方，也是人间值得了，啥也别多说了，我就想问问谁能救救孩子？现在有理由怀疑纽约原油价格暴跌是清华某个系的作业要求了；能完成这种大作业的“00 后”真是后生可畏，不说了，我去写代码了，我怕被拍在沙滩上；</p>
+</blockquote>
+<p>但在帖子的回复中，也有网友提供了已经石锤的该课程任课老师的最新回复：</p>
+<blockquote>
+<p>前面肯定不是坦途，但绝对不是悬崖。题目设计初衷上，重点本来就不再数据库、语音、截屏、网络通信，因为 C++ 就是一门面向对象的语言。</p>
+</blockquote>
+<p>甚至一位从清华大学毕业多年，获得硕士学位的校友表示：</p>
+<blockquote>
+<p>将此内容布置为这门课的大作业，已经达到了教学事故的程度，因此，恳请校领导督促教师整改，并处理责任人。这不是一个普通大一学生在一个学期内能够完成的课程作业。我认为，如果同样的需求交给我公司的同事，需要 3 至 5 人团队几个月的时间才可能做到。</p>
+</blockquote>
+<p>福利时刻</p>
+<p>更多人工智能与机器学习相关实践请持续关注QCon北京2020，来跟业界大牛关注人工智能领域中正在兴起的技术和关键进展，探讨应用于机器学习问题的工程挑战及解决方案。目前大会8折报名中，点击**【阅读原文】**或识别二维码了解更多。有任何问题欢迎联系票务小姐姐Ring：17310043226（微信同号）</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/ZBjVrHIdkOllHTjWHR68Ku9jWI43ia0ewxX8tp57oYaK2fRiaRnqlxicu2CAtJGtXibzW5cD9jPtOdQ2vmH048v2xg/640%3Fwx_fmt%3Dpng" alt></p>
+<p>点击下方图片即可阅读</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU1NDA4NjU2MA==&mid=2247501546&idx=1&sn=c6129fbaa0430145860d2b307c7bf69a&chksm=fbea7f25cc9df63307715ac74c5a06be759e934a0ef4d1626e0a1c50a613188f6914b8ed6376&scene=21#wechat_redirect"><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/ZBjVrHIdkOmH3NWT4WdQMAxx2eytkPsG1dwiaUWxa98kE8IRM8vPBgCHxhgD2A9oTtafSs6mXnxSbEAEQ2RibRjw/640%3Fwx_fmt%3Dpng" alt></a></p>
+<p>吴恩达的公司发布社交距离监控工具，疫情期间别靠太近！</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ZBjVrHIdkOkryYusLzT9ia9lz01oBicq7FEceAt3GkkJJpycvFkcz65lkUy23UaYF26INBujQsSxdTsEfzt5eZAQ/640%3Fwx_fmt%3Dgif" alt></p>
+<p><strong><strong><strong>你也</strong></strong>「在看」吗</strong>******？******👇</p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/1d49d4f45e909b9735179f676e24d076/?utm_source=see_also&utm_medium=%25E7%2594%25A8c%2b%2b%25E6%2589%258B%25E6%2592%25B8%25E9%259B%25A8%25E8%25AF%25BE%25E5%25A0%2582%25E6%25B8%2585%25E5%258D%258E%25E8%2587%25AA%25E5%258A%25A8%25E5%258C%2596%25E7%25B3%25BB%25E5%25A4%25A7%25E4%25B8%2580%25E4%25BD%259C%25E4%25B8%259A%25E5%25BC%2595%25E7%2583%25AD%25E8%25AE%25AE%25E7%25BD%2591%25E5%258F%258B%25E8%25BF%2599%25E5%258F%25AF%25E4%25BB%25A5%25E5%258E%25BBbat%25E4%25BA%2586">二〇一六</a>
+</h2>
+<p class=text-dark>2016年的七八月间，过往三五年里的人生选择，忽然需要做个了断。学系趁暑期装修，只能去山腰一间办公室落脚。墙壁乳白色，窗是细细一条，需等后半天才能有自然的光亮挤进来。晚饭过后，四下无声，只有冷气机嘶鸣。我习惯每天后半夜徒步走回住处，只听宋冬 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/22c5761e904a0aef44e042a22bf36a7a/?utm_source=see_also&utm_medium=%25E7%2594%25A8c%2b%2b%25E6%2589%258B%25E6%2592%25B8%25E9%259B%25A8%25E8%25AF%25BE%25E5%25A0%2582%25E6%25B8%2585%25E5%258D%258E%25E8%2587%25AA%25E5%258A%25A8%25E5%258C%2596%25E7%25B3%25BB%25E5%25A4%25A7%25E4%25B8%2580%25E4%25BD%259C%25E4%25B8%259A%25E5%25BC%2595%25E7%2583%25AD%25E8%25AE%25AE%25E7%25BD%2591%25E5%258F%258B%25E8%25BF%2599%25E5%258F%25AF%25E4%25BB%25A5%25E5%258E%25BBbat%25E4%25BA%2586">国内名校就业惨不忍睹，纷纷出面公开发文求助，怎么看待？</a>
+</h2>
+<p class=text-dark>品葱用户 Bijun 提问于 4/20/2020 具体链接不贴了，因为一个是微信链接，另一个已经撤掉，只剩部分截图，不想连累发截图的人。
+PS：想看图的朋友，去知乎搜索“南京大学化学化工学院”，第一个问题就是，里面可以看到各种名校的哀鸣和就 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/9068f1893db661d1b6549bc682c2ecfa/?utm_source=see_also&utm_medium=%25E7%2594%25A8c%2b%2b%25E6%2589%258B%25E6%2592%25B8%25E9%259B%25A8%25E8%25AF%25BE%25E5%25A0%2582%25E6%25B8%2585%25E5%258D%258E%25E8%2587%25AA%25E5%258A%25A8%25E5%258C%2596%25E7%25B3%25BB%25E5%25A4%25A7%25E4%25B8%2580%25E4%25BD%259C%25E4%25B8%259A%25E5%25BC%2595%25E7%2583%25AD%25E8%25AE%25AE%25E7%25BD%2591%25E5%258F%258B%25E8%25BF%2599%25E5%258F%25AF%25E4%25BB%25A5%25E5%258E%25BBbat%25E4%25BA%2586">大批留学生滞留海外，中国政府陷入两难 - 纽约时报中文网</a>
+</h2>
+<p class=text-dark>北卡罗莱纳州达勒姆的佩妮·裴上周六说，她花了1.2万美元向一家旅行社购买了一张从芝加哥到中国厦门的经济舱机票。 Travis Dove for The New York Times
+[欢迎点击此处订阅新冠病毒疫情每日中文简报，或发送邮件 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/2a3dbddf0d975ffd6130dcb3d6b09d1d/?utm_source=see_also&utm_medium=%25E7%2594%25A8c%2b%2b%25E6%2589%258B%25E6%2592%25B8%25E9%259B%25A8%25E8%25AF%25BE%25E5%25A0%2582%25E6%25B8%2585%25E5%258D%258E%25E8%2587%25AA%25E5%258A%25A8%25E5%258C%2596%25E7%25B3%25BB%25E5%25A4%25A7%25E4%25B8%2580%25E4%25BD%259C%25E4%25B8%259A%25E5%25BC%2595%25E7%2583%25AD%25E8%25AE%25AE%25E7%25BD%2591%25E5%258F%258B%25E8%25BF%2599%25E5%258F%25AF%25E4%25BB%25A5%25E5%258E%25BBbat%25E4%25BA%2586">跟大家分享一下我身边的一个有钱的官二代</a>
+</h2>
+<p class=text-dark>之前有在别人的评论区里面说过，我是某国际学校高中生。今天就想说说我身边一个富得流油的官二代吧。
+先告诉大家，我的学校并不是像深国交那种学校，应该算是国际学校二流靠近一流吧。所以并不是所有人都是非常富有的。这样说吧，有一部分人甚至都不会配得齐 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/844df76aa62b3084a8297601526a612f/?utm_source=see_also&utm_medium=%25E7%2594%25A8c%2b%2b%25E6%2589%258B%25E6%2592%25B8%25E9%259B%25A8%25E8%25AF%25BE%25E5%25A0%2582%25E6%25B8%2585%25E5%258D%258E%25E8%2587%25AA%25E5%258A%25A8%25E5%258C%2596%25E7%25B3%25BB%25E5%25A4%25A7%25E4%25B8%2580%25E4%25BD%259C%25E4%25B8%259A%25E5%25BC%2595%25E7%2583%25AD%25E8%25AE%25AE%25E7%25BD%2591%25E5%258F%258B%25E8%25BF%2599%25E5%258F%25AF%25E4%25BB%25A5%25E5%258E%25BBbat%25E4%25BA%2586">你是不是也不知道自己的目标是什么？</a>
+</h2>
+<p class=text-dark>这是奴隶社会的第 2068 篇文章
+题图：来自作者。
+作者：张义飞，一土中学筹备负责人，清华大学苏世民书院及FORTIS学者导师，中国大智汇China Thinks Big总决赛评委，原北大附中成长与实践体验中心主任。多伦多大学学士，清华经 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

@@ -1,0 +1,91 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>王宇扬 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/author/%E7%8E%8B%E5%AE%87%E6%89%AC/</link><description>Recent content in 王宇扬 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sat, 01 May 2021 13:40:04 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/author/%E7%8E%8B%E5%AE%87%E6%89%AC/index.xml" rel="self" type="application/rss+xml"/><item><title>“翻墙”技术与法学问题7000字综述——对过去一年13万余字研究成果的回顾</title><link>https://project-gutenberg.github.io/Pincong/post/91ebd4c5b1f9ba19cd50e8ea6836a1ba/</link><pubDate>Sat, 01 May 2021 13:40:04 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/91ebd4c5b1f9ba19cd50e8ea6836a1ba/</guid><description>前言
+截止本文发表之日，正值笔者研究翻墙问题一周年之际。2020年5月2日，在朋友的鼓励下，我的第一篇“翻墙”系列文章成功发布，并推送给了自己仅存的13个订阅号读者。一年间，我陆续撰写了18篇系列文章，粗略计算已形成13万余字成果，而粉丝数也增长了1000倍。
+抛开前述“数据主义”的桎梏，重新审视这数十万字，其中有费尽心思、自己较为满意的部分，亦有少许文字存在划水、重复“造轮子”的嫌疑。每每翻阅自己的公众号，时常感觉“翻墙”相关的文章过 …</description></item><item><title>关于上一篇文章的澄清、兼论“翻墙”违法性之争的来龙去脉</title><link>https://project-gutenberg.github.io/Pincong/post/432fef3ca3bf8004e2e1093eb55b381f/</link><pubDate>Thu, 29 Oct 2020 14:21:22 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/432fef3ca3bf8004e2e1093eb55b381f/</guid><description>上一篇文章《「翻墙违法是无可争议的事实」浙江省仅8月份“个人翻墙”行政处罚达18起》可能会引起一些严重误解，因此笔者有必要借此文作一些澄清。以下为正文：
+在文章开头，我必须要说：
+①请你继续无忧地访问合法境外网站；
+②请不要把我的上一篇文章理解成一种“威胁”，因此担惊受怕，亦或是放弃继续访问境外网站，并因此导致个人的学习、生活遭受消极影响；
+③遭受处罚的可能性是存在的。
+当笔者声称“翻墙违法是无可争议的事实”时，我的根本目的是为了提示此 …</description></item><item><title>关于“翻墙”处罚的阶段性案例检索（二）——载有具体案情的32个浙江省案例精选</title><link>https://project-gutenberg.github.io/Pincong/post/54a73bed69739f274e26b1595d842c28/</link><pubDate>Thu, 29 Oct 2020 14:20:57 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/54a73bed69739f274e26b1595d842c28/</guid><description>原创 王宇扬 不能使用该名称
+不能使用该名称
+微信号 ForbiddenSpeech
+功能介绍 一个在校法学生的个人写作平台，专注于各类法律问题的探讨和研究。
+**注：**本文为一个普通的案例检索结果备份
+文末有网盘下载链接，****附带了此前所有浙江省案例的官网快照备份文件（pdf格式）（截止至9月22日/9月份更新6例）、以及本文精选的32个案例的pdf文件；同时附带了此前笔者所有行政法研究所涉及的论文、各类资料，供各位学习和研究使 …</description></item><item><title>一项由立法技术缺陷所引发的文字游戏——论“不得自行建立或者使用其他信道进行国际联网”</title><link>https://project-gutenberg.github.io/Pincong/post/0e98ca972589a06366a1b761476de2b7/</link><pubDate>Sat, 03 Oct 2020 10:10:14 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/0e98ca972589a06366a1b761476de2b7/</guid><description>相关文章：
+《“国际出入口信道”、“接入网络”概念的规范解释——再论“翻墙”行政处罚系适用法律错误》
+本文简要讨论此前系列文章的遗留问题，即关于“其他信道”的概念争议——究竟系物理信道，抑或是泛指包括“逻辑信道&amp;amp;虚拟信道”在内的一切“信道”？
+我们先尝试将这句话单独拎出来端详一番，做一个句子结构分析。
+《中华人民共和国计算机信息网络国际联网管理暂行规定》第六条第二句：“任何单位和个人不得自行建立或者使用其他信道进行国际联网。”
+…</description></item><item><title>一种基于ssproxy、具有突破“GFW系统”功能并将审查本地化的“合法”跨境浏览器分析（灵狐、雷兔、绿光、视界通…）</title><link>https://project-gutenberg.github.io/Pincong/post/fd8da5369d2ebe10587997d7b65387d7/</link><pubDate>Wed, 23 Sep 2020 12:34:04 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/fd8da5369d2ebe10587997d7b65387d7/</guid><description>**注：****本文并非恰饭，仅仅是事件、事实陈述，提及的供应商与笔者无任何利益关联。**笔者不推荐、也不反对使用标题提及的类似软件以及付费服务。
+文章尾部有关于刑法问题的探讨，并附带评论区，欢迎就相关学术问题探讨给予批评和指正。
+不妨回顾一下此前关于“翻墙”刑法问题的讨论进度。
+通过《「“规避GFW审查系统”的刑法问题」刍议——（一）三种入罪路径下的22则典型案例**》，**笔者揭示了现行司法实践中针对“提供具有规避GFW审查功能的工 …</description></item><item><title>「“规避GFW审查系统”的刑法问题」刍议——（二）“VPN技术的中立性”没有任何探讨价值</title><link>https://project-gutenberg.github.io/Pincong/post/67b0a1c55a052928dd9aa0c050964418/</link><pubDate>Sat, 05 Sep 2020 03:45:54 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/67b0a1c55a052928dd9aa0c050964418/</guid><description>相关链接
+「“规避GFW审查系统”的刑法问题」刍议——（一）三种入罪路径下的22则典型案例
+目录
+**一、**VPN的技术中立性？——与“翻墙”无关
+**二、**Proxy Server的技术中立性？——开发者自己都不承认
+**三、**VPN=翻墙？——不过是冰山一角罢了
+**四、**法官忽视了VPN的技术中立性？——完全没有这样的案例
+**五、**避免“醉翁之意不在酒”的无效讨论——翻墙问题的讨论前景
+正文
+每当谈及“提供侵入、非法控 …</description></item><item><title>「“规避GFW审查系统”的刑法问题」刍议——（一）三种入罪路径下的22则典型案例</title><link>https://project-gutenberg.github.io/Pincong/post/ca37c734ef16f0800f0f496c97da722d/</link><pubDate>Sat, 05 Sep 2020 03:45:33 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ca37c734ef16f0800f0f496c97da722d/</guid><description>本篇系“翻墙”法律问题研究系列的全新篇章，谨以此文正式开启“翻墙”刑法相关问题的讨论。
+标题以“刍议”冠名，即意味着本篇尚不涉及正式讨论，仅陈列当前关于“规避GFW审查系统”刑法问题的既有观点和现行司法实践通说观点，并附上了22则典型案例，为后续的研究作铺垫，充当基础研究素材。
+根据现行司法实践的“通说观点”，制作并销售“翻墙”工具的行为具有刑事违法性几乎毫无争议。
+然而在现实中，近乎一模一样的案情，却分立为了三种完全不同的规制路径，此 …</description></item><item><title>“翻墙”文后记（四）——针对翻墙处罚的行政复议申请指南（附申请书样例）</title><link>https://project-gutenberg.github.io/Pincong/post/e0a3d8156846a295b392975b77dd49d9/</link><pubDate>Sat, 05 Sep 2020 03:45:07 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e0a3d8156846a295b392975b77dd49d9/</guid><description>【相关链接】
+【1】个人使用vpn&amp;quot;翻墙&amp;quot;是否违法？
+【2】“翻墙”文章后记——最近几个月的一些思考
+【3】“翻墙”文后记（二）——行政处罚的神秘主义色彩
+【4】“翻墙”文后记（三）——“申辩不加罚”制度的架空“指南”
+【目录】
+**一、前言
+**
+二、行政复议的定义
+三、申请行政复议的价值考量
+四、具体策略
+1、得向谁申请复议？向谁投递材料？
+2、须准备哪些材料？
+（1）准备材料
+（2）行政复议申请书内容
+3、如何 …</description></item><item><title>“翻墙”文后记（三）——行政处罚中“申辩不加罚”制度的架空“指南”</title><link>https://project-gutenberg.github.io/Pincong/post/016349890bb153faaf2f1b10ec750033/</link><pubDate>Sat, 05 Sep 2020 03:44:41 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/016349890bb153faaf2f1b10ec750033/</guid><description>【相关链接】
+【1】个人使用vpn&amp;quot;翻墙&amp;quot;是否违法？
+【2】“翻墙”文章后记——最近几个月的一些思考
+【3】“翻墙”文后记（二）——行政处罚的神秘主义色彩
+【目录】
+一、前言
+**二、**申辩不加罚制度的定义及法条依据
+**三、**如何架空“申辩不加罚”制度？
+1、从适用前提入手：非典型“行政处罚”
+（1）“训诫书”
+（2）“净网”行动：要求删除推特账号
+2、从实质性审查入手：“挑选违法事实”
+3、“从程序入手”之 …</description></item><item><title>“翻墙”文后记（二）——破除行政处罚的神秘主义色彩</title><link>https://project-gutenberg.github.io/Pincong/post/6d5d98689fdcef4c37af578d7d7ba460/</link><pubDate>Sat, 05 Sep 2020 03:44:09 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/6d5d98689fdcef4c37af578d7d7ba460/</guid><description>目录：
+一、敏感内容是否禁止出现在公开的法律文书中？
+二、在行政处罚决定书上如实记载违法情节的目的是什么？
+三、在法律文书中隐瞒事实的危害
+四、打破行政机关的神秘主义色彩
+正文：
+5月30日，笔者有幸参与了中国政法大学网络法学研究院的一次线上法律论坛，当期主题为“VPN的应用及法律定性”。研讨的主讲和评议皆是各大法学院校的硕士、博士研究生学长学姐。因线上讨论主要围绕主讲学长的一篇力作，论述的是关于vpn的刑法问题，这在我之前那篇文章中所 …</description></item><item><title>“翻墙”文后记（一）补遗——历时三个月的行政法问题研习感言</title><link>https://project-gutenberg.github.io/Pincong/post/1369b102a4526dc05ff04e694879ac22/</link><pubDate>Sat, 05 Sep 2020 03:43:28 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/1369b102a4526dc05ff04e694879ac22/</guid><description>由于该系列原标题为《“翻墙”文章后记——最近几个月的一些思考》的文章涉嫌违规而遭删除，因此整个“后记”系列尚留有一个“空位”供笔者自由发挥。
+本文发布之际，该公众号听众恰好突破了7000；因此笔者欲借此契机，与读者朋友们聊聊近三个月以来“翻墙”问题法律写作的心路历程，并抒发该“法律话题”之下的其他感受。
+目录
+一、****“翻墙”文始末
+**1、**行政处罚问题研究宣告终结
+**2、**第一篇文章“火爆”之始末
+**二、****本公众号 …</description></item><item><title>关于“翻墙”处罚的阶段性案例检索——处罚50例、诉讼案件1例</title><link>https://project-gutenberg.github.io/Pincong/post/a5f2ac6ac340954f4e91a6fa0a710a5f/</link><pubDate>Sat, 05 Sep 2020 03:42:18 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a5f2ac6ac340954f4e91a6fa0a710a5f/</guid><description>【相关链接】
+【1】个人使用vpn&amp;quot;翻墙&amp;quot;是否违法？
+【2】“翻墙”文后记（二）——行政处罚的神秘主义色彩
+【3】“翻墙”文后记（三）——“申辩不加罚”制度的架空“指南”
+【4】“翻墙”文后记（四）——针对翻墙处罚的行政复议申请指南（附申请书样例）
+【5】【关于《后记四》“行政复议“文章的一处重要勘误！】&amp;hellip;
+【6】“垃圾车运肉”事件的法律问题回顾——兼论灾害类行政给付 （文末有关于《后记二》的勘误）
+【 …</description></item><item><title>“国际出入口信道”、“接入网络”概念的规范解释——再论“翻墙”行政处罚系适用法律错误</title><link>https://project-gutenberg.github.io/Pincong/post/3404b89dc6ff584eb6a6a3cb29c5ad79/</link><pubDate>Sat, 05 Sep 2020 03:41:53 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/3404b89dc6ff584eb6a6a3cb29c5ad79/</guid><description>王宇扬
+**著作权声明：**未经作者许可，任何网站、个人、媒体不得擅自对本作品进行修改或以其他方式复制发表（朋友圈转载无须授权），不得擅自进行改编（包括改编成视频形式的作品）、汇编。对本作品设置外链、深度链接的，须在显著位置标明作者及来源。对于任何侵害本作品信息网络传播权等著作权利的行为，作者将采取法律手段维护自身权益。
+（全文两万余字，因此可能消耗过多时间，可根据目录选择感兴趣的部分）
+评论区
+摘要：“翻墙”行政处罚的“乱象”已于近年 …</description></item><item><title>「翻墙违法是无可争议的事实」浙江省仅8月份“个人翻墙”行政处罚达18起（全年60例）</title><link>https://project-gutenberg.github.io/Pincong/post/ceaf683076344ce7a60630f646e3c240/</link><pubDate>Fri, 04 Sep 2020 10:40:16 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ceaf683076344ce7a60630f646e3c240/</guid><description>原创 王宇扬 不能使用该名称
+不能使用该名称
+微信号 ForbiddenSpeech
+功能介绍 一个在校法学生的个人写作平台，专注于各类法律问题的探讨和研究。
+文末附有浙江省全年60余例翻墙行政处罚的列表，仅8月份就达到18例；
+**信息来源：**浙江政务服务网 行政处罚结果信息公开系统
+之所以能从浙江省信息公开平台找到如此多的案例，得益于浙江信息公开系统是全国少有的提供关键词搜索的检索系统。（PS：一个没有“关键词检索功能”的信息主动 …</description></item><item><title>个人使用vpn&amp;quot;翻墙&amp;quot;是否违法？——基于规范性法律文件、案例以及相关计算机技术的分析与讨论</title><link>https://project-gutenberg.github.io/Pincong/post/c5dc3e77effc8486f4c509b95a1c1139/</link><pubDate>Wed, 29 Jul 2020 11:34:14 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/c5dc3e77effc8486f4c509b95a1c1139/</guid><description>本文旨在分析“翻墙”行为的法律风险，并基于现行规范性法律文件和相关案例进行学术讨论。在分析相关法条时可能需要对部分计算机专业术语进行释义。但本文****不涉及有关“翻墙”的任何技术指导或方法的具体介绍。
+另，本文讨论的一切“XXX合法与违法”问题，分析的主体都是“单纯访问境外网站”，不包括“访问、发布、传播违法有害信息”，后者当然属于违法犯罪行为，但这和翻墙行为没有任何本质联系，因为在境内网站也可访问、发布、传播违法有害信息。
+在本文大 …</description></item></channel></rss>

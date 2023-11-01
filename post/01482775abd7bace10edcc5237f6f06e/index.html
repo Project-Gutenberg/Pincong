@@ -1,0 +1,246 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>内地自造的龙芯处理器，能够对抗美国的芯片和处理器封锁吗？</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 品葱用户 叼盘侠 提问于 10/25/2020 龙芯买的是 MIPS 指令集的授权。
+链接：https://www.zhihu.com/question/58816532/answer/160144528
+1. 龙芯这种从下到上都是自主设计，指令集虽然是模仿的，但也勉强算是自主的，现代CPU架构下指令集的差异性已经不大了。
+2. 用开源的硬件方案的，代表类型有SPARC架构下的一些CPU，比如神舟飞船上用的就是这类，拿别人开源的东西改改就可以用了。
+3. 直接买别人的硬件方案，这了指的是买了全套东西的那种，代表类型有alpha架构，也就是申威系列，太湖之光用的。
+4. 拿别人的授权，然后生产CPU的，代表类型是华为海思这种，拿到ARM的授权，然后重新设计的，虽然ARM会提供公版，但像拿来直接用还是有点难度的。
+5. 破解、抄袭、打磨别人家的CPU的，有一些研究所在做。
+龙芯这种其实意义是最大的，基本上把CPU设计中所有的水都试过，虽然也出过能跑Linux的桌面版本，但整体技术来说有点落后，并且市场前景也不乐观，MIPS自己都快死了。
+龙芯肯定会活着，至少作为国家战略的技术储备，也会有人让它活着，但活的好不好就难说了。玩硬件太烧钱了，看Intel挣的多，烧的钱更多。
+SPARC和alpha其实在实际中差不多，一种是开源的，另一种是整体买过来的。问题在于，不管是开源还是买的，基本上搞不到太好的东西，虽然申威拿到的超算的第一，但申威自身的问题很多，比如内存设计就很弱，适合做并行计算，但不适合民用。当年太湖之光拿下超算第一的时候，很多人觉得国产CPU成气候了，其实不是那么一回事，民用领域对单核性能要求很高的，申威的单核可能还不如龙芯（没研究过具体数据，可能有偏差），申威的优势在于浮点性能强悍，但普通用户要那么强的浮点性能干嘛？
+SPARC多用在航天领域，欧洲人一直在用，我们在后面跟着学（之前写的有误，老美用的是PPC，欧洲人用SPARC），我们自己造的SPARC整体上还是有一定的差距，如果只是使用的话，已经足够了。
+再次强调，这两类不太适合民用。
+第四类就是拿授权，自己设计Soc之类的，这类包含很多，广义一点来说，兆芯（x86）、飞腾（ARM）、海思（ARM）、展讯（ARM）等等，好像PPC指令集在国内也有拿到授权的。龙芯拿到MIPS授权以后，其实也可以归到这类，但毕竟龙芯早期确实是全自主设计，只不过是“兼容”MIPS指令，而且龙芯发布的年代国内缺人缺钱，条件要困难的多。
+狭义的看，像兆芯这种其实不算，因为没有什么自主性可言，其实就是VIA，但要是哪天VIA卖给国内也许不是什么坏事，起码可以合法生产x86的CPU了（评论里说最新的兆芯已经重新设计IP了，如果这样就跟海思之类的差不多）。
+拿到的授权不同，自主的程度也不一样，有些可以做深度定制，有些就只能简单改改，因为这类厂商实在是太多了，我了解的不全，不好一一评价。但我个人认为，从商业化的角度上看，这条路是最好走的。兼容性上没有门槛，前期不需要烧特别多的钱（但也不少），对于商业化来说相对比较容易。
+最后一类是拿别人的片子搞破解抄袭之类的，基本没有什么市场可言，要么是打着科研的旗号，要么打着国防的旗号，要么就是纯粹骗钱，当然可能两三种情况并存的也有。还有，特别注意区别一下龙芯是自己做出来的，汉芯是靠打磨骗钱的，两个不是一回事。
+生产方面，国内芯片工艺相对落后，光刻机被卡着脖子，高端的芯片生产不了。这里的芯片类型包括但不限于CPU、内存、Flash存储等，低端的可以做一些，高端的基本没戏。设计CPU已经很烧钱了，造CPU就更烧钱，这方面除了收购别人已经没有捷径可言，可是稍微好点的又限制中国收购（镁光），龙芯过去都是委托别人制造的。
+光刻机虽然是别人不卖，但主要原因还是工业积累的时间不够长。从科技树的角度上看，光刻机依赖于高精度机床、高精度光学设备（镜片），这些东西国产的都不行，说到尼康，都知道是做单反的，其实尼康还做光刻机，而国内就没有这样的企业，所以国产光刻机的路还很漫长。
+品葱用户 吳樂天 评论于 2020-10-25 豈止高階芯片被綁死 舉個栗子
+據中國海關數據顯示:2019年我国_芯片_的_进口_金额为3040亿美元
+低中高都要進口 整個關鍵專利 產業閉環 都在西方世界手裡
+真要靠中國自產 怕不是像朝鮮一樣變阿里郎手機
+品葱用户 needfreedom 评论于 2020-10-26 内地自造的龙芯处理器貌似也是瓦房店 而且性能極差
+品葱用户 upgraded 评论于 2020-10-25 美国不只是封锁了硬件，就连设计芯片的软件也封锁 ~ ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 内地自造的龙芯处理器，能够对抗美国的芯片和处理器封锁吗？ ">
+<meta name=og:description content=" 品葱用户 叼盘侠 提问于 10/25/2020 龙芯买的是 MIPS 指令集的授权。
+链接：https://www.zhihu.com/question/58816532/answer/160144528
+1. 龙芯这种从下到上都是自主设计，指令集虽然是模仿的，但也勉强算是自主的，现代CPU架构下指令集的差异性已经不大了。
+2. 用开源的硬件方案的，代表类型有SPARC架构下的一些CPU，比如神舟飞船上用的就是这类，拿别人开源的东西改改就可以用了。
+3. 直接买别人的硬件方案，这了指的是买了全套东西的那种，代表类型有alpha架构，也就是申威系列，太湖之光用的。
+4. 拿别人的授权，然后生产CPU的，代表类型是华为海思这种，拿到ARM的授权，然后重新设计的，虽然ARM会提供公版，但像拿来直接用还是有点难度的。
+5. 破解、抄袭、打磨别人家的CPU的，有一些研究所在做。
+龙芯这种其实意义是最大的，基本上把CPU设计中所有的水都试过，虽然也出过能跑Linux的桌面版本，但整体技术来说有点落后，并且市场前景也不乐观，MIPS自己都快死了。
+龙芯肯定会活着，至少作为国家战略的技术储备，也会有人让它活着，但活的好不好就难说了。玩硬件太烧钱了，看Intel挣的多，烧的钱更多。
+SPARC和alpha其实在实际中差不多，一种是开源的，另一种是整体买过来的。问题在于，不管是开源还是买的，基本上搞不到太好的东西，虽然申威拿到的超算的第一，但申威自身的问题很多，比如内存设计就很弱，适合做并行计算，但不适合民用。当年太湖之光拿下超算第一的时候，很多人觉得国产CPU成气候了，其实不是那么一回事，民用领域对单核性能要求很高的，申威的单核可能还不如龙芯（没研究过具体数据，可能有偏差），申威的优势在于浮点性能强悍，但普通用户要那么强的浮点性能干嘛？
+SPARC多用在航天领域，欧洲人一直在用，我们在后面跟着学（之前写的有误，老美用的是PPC，欧洲人用SPARC），我们自己造的SPARC整体上还是有一定的差距，如果只是使用的话，已经足够了。
+再次强调，这两类不太适合民用。
+第四类就是拿授权，自己设计Soc之类的，这类包含很多，广义一点来说，兆芯（x86）、飞腾（ARM）、海思（ARM）、展讯（ARM）等等，好像PPC指令集在国内也有拿到授权的。龙芯拿到MIPS授权以后，其实也可以归到这类，但毕竟龙芯早期确实是全自主设计，只不过是“兼容”MIPS指令，而且龙芯发布的年代国内缺人缺钱，条件要困难的多。
+狭义的看，像兆芯这种其实不算，因为没有什么自主性可言，其实就是VIA，但要是哪天VIA卖给国内也许不是什么坏事，起码可以合法生产x86的CPU了（评论里说最新的兆芯已经重新设计IP了，如果这样就跟海思之类的差不多）。
+拿到的授权不同，自主的程度也不一样，有些可以做深度定制，有些就只能简单改改，因为这类厂商实在是太多了，我了解的不全，不好一一评价。但我个人认为，从商业化的角度上看，这条路是最好走的。兼容性上没有门槛，前期不需要烧特别多的钱（但也不少），对于商业化来说相对比较容易。
+最后一类是拿别人的片子搞破解抄袭之类的，基本没有什么市场可言，要么是打着科研的旗号，要么打着国防的旗号，要么就是纯粹骗钱，当然可能两三种情况并存的也有。还有，特别注意区别一下龙芯是自己做出来的，汉芯是靠打磨骗钱的，两个不是一回事。
+生产方面，国内芯片工艺相对落后，光刻机被卡着脖子，高端的芯片生产不了。这里的芯片类型包括但不限于CPU、内存、Flash存储等，低端的可以做一些，高端的基本没戏。设计CPU已经很烧钱了，造CPU就更烧钱，这方面除了收购别人已经没有捷径可言，可是稍微好点的又限制中国收购（镁光），龙芯过去都是委托别人制造的。
+光刻机虽然是别人不卖，但主要原因还是工业积累的时间不够长。从科技树的角度上看，光刻机依赖于高精度机床、高精度光学设备（镜片），这些东西国产的都不行，说到尼康，都知道是做单反的，其实尼康还做光刻机，而国内就没有这样的企业，所以国产光刻机的路还很漫长。
+品葱用户 吳樂天 评论于 2020-10-25 豈止高階芯片被綁死 舉個栗子
+據中國海關數據顯示:2019年我国_芯片_的_进口_金额为3040亿美元
+低中高都要進口 整個關鍵專利 產業閉環 都在西方世界手裡
+真要靠中國自產 怕不是像朝鮮一樣變阿里郎手機
+品葱用户 needfreedom 评论于 2020-10-26 内地自造的龙芯处理器貌似也是瓦房店 而且性能極差
+品葱用户 upgraded 评论于 2020-10-25 美国不只是封锁了硬件，就连设计芯片的软件也封锁 ~ ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/228.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>内地自造的龙芯处理器，能够对抗美国的芯片和处理器封锁吗？</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e5%8f%bc%e7%9b%98%e4%be%a0>叼盘侠</a></span>,
+<span>at 25 October 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%ae%a1%e7%ae%97%e6%9c%ba>计算机</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%8f%b0%e7%a7%af%e7%94%b5>台积电</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%8a%af%e7%89%87>芯片</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%be%8e%e5%9b%bd>美国</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%a4%84%e7%90%86%e5%99%a8>处理器</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/01482775abd7bace10edcc5237f6f06e.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/01482775abd7bace10edcc5237f6f06e.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<h3 id=品葱用户-叼盘侠-提问于-10252020>品葱用户 <strong>叼盘侠</strong> 提问于 10/25/2020</h3>
+<p>龙芯买的是 MIPS 指令集的授权。</p>
+<p>链接：https://www.zhihu.com/question/58816532/answer/160144528</p>
+<p>1. 龙芯这种从下到上都是自主设计，指令集虽然是模仿的，但也勉强算是自主的，现代CPU架构下指令集的差异性已经不大了。</p>
+<p>2. 用开源的硬件方案的，代表类型有SPARC架构下的一些CPU，比如神舟飞船上用的就是这类，拿别人开源的东西改改就可以用了。</p>
+<p>3. 直接买别人的硬件方案，这了指的是买了全套东西的那种，代表类型有alpha架构，也就是申威系列，太湖之光用的。</p>
+<p>4. 拿别人的授权，然后生产CPU的，代表类型是华为海思这种，拿到ARM的授权，然后重新设计的，虽然ARM会提供公版，但像拿来直接用还是有点难度的。</p>
+<p>5. 破解、抄袭、打磨别人家的CPU的，有一些研究所在做。</p>
+<p>龙芯这种其实意义是最大的，基本上把CPU设计中所有的水都试过，虽然也出过能跑Linux的桌面版本，但整体技术来说有点落后，并且市场前景也不乐观，MIPS自己都快死了。</p>
+<p>龙芯肯定会活着，至少作为国家战略的技术储备，也会有人让它活着，但活的好不好就难说了。玩硬件太烧钱了，看Intel挣的多，烧的钱更多。</p>
+<p>SPARC和alpha其实在实际中差不多，一种是开源的，另一种是整体买过来的。问题在于，不管是开源还是买的，基本上搞不到太好的东西，虽然申威拿到的超算的第一，但申威自身的问题很多，比如内存设计就很弱，适合做并行计算，但不适合民用。当年太湖之光拿下超算第一的时候，很多人觉得国产CPU成气候了，其实不是那么一回事，民用领域对单核性能要求很高的，申威的单核可能还不如龙芯（没研究过具体数据，可能有偏差），申威的优势在于浮点性能强悍，但普通用户要那么强的浮点性能干嘛？</p>
+<p>SPARC多用在航天领域，欧洲人一直在用，我们在后面跟着学（之前写的有误，老美用的是PPC，欧洲人用SPARC），我们自己造的SPARC整体上还是有一定的差距，如果只是使用的话，已经足够了。</p>
+<p>再次强调，这两类不太适合民用。</p>
+<p>第四类就是拿授权，自己设计Soc之类的，这类包含很多，广义一点来说，兆芯（x86）、飞腾（ARM）、海思（ARM）、展讯（ARM）等等，好像PPC指令集在国内也有拿到授权的。龙芯拿到MIPS授权以后，其实也可以归到这类，但毕竟龙芯早期确实是全自主设计，只不过是“兼容”MIPS指令，而且龙芯发布的年代国内缺人缺钱，条件要困难的多。</p>
+<p>狭义的看，像兆芯这种其实不算，因为没有什么自主性可言，其实就是VIA，但要是哪天VIA卖给国内也许不是什么坏事，起码可以合法生产x86的CPU了（评论里说最新的兆芯已经重新设计IP了，如果这样就跟海思之类的差不多）。</p>
+<p>拿到的授权不同，自主的程度也不一样，有些可以做深度定制，有些就只能简单改改，因为这类厂商实在是太多了，我了解的不全，不好一一评价。但我个人认为，从商业化的角度上看，这条路是最好走的。兼容性上没有门槛，前期不需要烧特别多的钱（但也不少），对于商业化来说相对比较容易。</p>
+<p>最后一类是拿别人的片子搞破解抄袭之类的，基本没有什么市场可言，要么是打着科研的旗号，要么打着国防的旗号，要么就是纯粹骗钱，当然可能两三种情况并存的也有。还有，特别注意区别一下龙芯是自己做出来的，汉芯是靠打磨骗钱的，两个不是一回事。</p>
+<p>生产方面，国内芯片工艺相对落后，光刻机被卡着脖子，高端的芯片生产不了。这里的芯片类型包括但不限于CPU、内存、Flash存储等，低端的可以做一些，高端的基本没戏。设计CPU已经很烧钱了，造CPU就更烧钱，这方面除了收购别人已经没有捷径可言，可是稍微好点的又限制中国收购（镁光），龙芯过去都是委托别人制造的。</p>
+<p>光刻机虽然是别人不卖，但主要原因还是工业积累的时间不够长。从科技树的角度上看，光刻机依赖于高精度机床、高精度光学设备（镜片），这些东西国产的都不行，说到尼康，都知道是做单反的，其实尼康还做光刻机，而国内就没有这样的企业，所以国产光刻机的路还很漫长。</p>
+<h3 id=品葱用户-吳樂天-评论于-2020-10-25>品葱用户 <strong>吳樂天</strong> 评论于 2020-10-25</h3>
+<p>豈止高階芯片被綁死    舉個栗子</p>
+<p>據中國海關數據顯示:2019年我国_芯片_的_进口_金额为3040亿美元</p>
+<p>低中高都要進口      整個關鍵專利    產業閉環     都在西方世界手裡</p>
+<p>真要靠中國自產      怕不是像朝鮮一樣變阿里郎手機</p>
+<h3 id=品葱用户-needfreedom-评论于-2020-10-26>品葱用户 <strong>needfreedom</strong> 评论于 2020-10-26</h3>
+<p>内地自造的龙芯处理器貌似也是瓦房店 而且性能極差</p>
+<h3 id=品葱用户-upgraded-评论于-2020-10-25>品葱用户 <strong>upgraded</strong> 评论于 2020-10-25</h3>
+<p>美国不只是封锁了硬件，就连设计芯片的软件也封锁 ~</p>
+<p>以前是在沙滩上起高楼大厦，现在需要搞好地基。</p>
+<p>路还很长 ~</p>
+<blockquote>
+<p><a href=https://pincong.rocks/question/32661>点击品葱原文参与讨论</a></p>
+</blockquote>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/72fca26ebccd0639c3cd76b56ff59182/?utm_source=see_also&utm_medium=%25E5%2586%2585%25E5%259C%25B0%25E8%2587%25AA%25E9%2580%25A0%25E7%259A%2584%25E9%25BE%2599%25E8%258A%25AF%25E5%25A4%2584%25E7%2590%2586%25E5%2599%25A8%25E8%2583%25BD%25E5%25A4%259F%25E5%25AF%25B9%25E6%258A%2597%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584%25E8%258A%25AF%25E7%2589%2587%25E5%2592%258C%25E5%25A4%2584%25E7%2590%2586%25E5%2599%25A8%25E5%25B0%2581%25E9%2594%2581%25E5%2590%2597">如果台积电不给华为麒麟处理器代工，那么麒麟处理器会怎么样？如果台积电不给华为麒麟处理器代工，那么麒麟处理器会怎么样？</a>
+</h2>
+<p class=text-dark>知乎用户 匿名用户 发表 最担心的事情果然发生了，台积电终止供货了
+谢谢大家的赞！
+但没想到会有那么多喷我的。。。这里只是想单纯从技术和商业角度谈一下！
+原回答:
+这个话题下抖机灵以及答非所问的太多了
+先说结论:
+1. 如果现在台积电停 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/2cc6e5b65b96066400fc2ee8c48bb768/?utm_source=see_also&utm_medium=%25E5%2586%2585%25E5%259C%25B0%25E8%2587%25AA%25E9%2580%25A0%25E7%259A%2584%25E9%25BE%2599%25E8%258A%25AF%25E5%25A4%2584%25E7%2590%2586%25E5%2599%25A8%25E8%2583%25BD%25E5%25A4%259F%25E5%25AF%25B9%25E6%258A%2597%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584%25E8%258A%25AF%25E7%2589%2587%25E5%2592%258C%25E5%25A4%2584%25E7%2590%2586%25E5%2599%25A8%25E5%25B0%2581%25E9%2594%2581%25E5%2590%2597">如何看待国产龙芯处理器？</a>
+</h2>
+<p class=text-dark>知乎用户 匿名用户 发表 使用过龙芯的片子，和龙芯的工程师一起战斗过！
+龙芯是国人的骄傲
+他们真的是在用信念搞研发，工资在同行业内真的不高
+他们真的很勤奋，龙芯的对面就是华为，龙芯工程师出门换工作，工资就能翻倍
+龙芯研发人员几百人，确实不 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/a4123829a1678767be642351e59368a1/?utm_source=see_also&utm_medium=%25E5%2586%2585%25E5%259C%25B0%25E8%2587%25AA%25E9%2580%25A0%25E7%259A%2584%25E9%25BE%2599%25E8%258A%25AF%25E5%25A4%2584%25E7%2590%2586%25E5%2599%25A8%25E8%2583%25BD%25E5%25A4%259F%25E5%25AF%25B9%25E6%258A%2597%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584%25E8%258A%25AF%25E7%2589%2587%25E5%2592%258C%25E5%25A4%2584%25E7%2590%2586%25E5%2599%25A8%25E5%25B0%2581%25E9%2594%2581%25E5%2590%2597">1000亿芯片项目爆雷！中国芯片史上最大的骗局</a>
+</h2>
+<p class=text-dark>举国之力，我们能不能造出最先进的芯片？
+这几年以来，芯片，一直都是美国的核心杀招，让全国人民意识到，中国芯片产业的薄弱。
+在美国全面封锁的情况下，奋发追赶，或许是中国芯片产业唯一可以且必须走的道路。
+据彭博社报道，中国正在规划制定一套全面的 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/d2b53be8c52692de95b942046bac61d9/?utm_source=see_also&utm_medium=%25E5%2586%2585%25E5%259C%25B0%25E8%2587%25AA%25E9%2580%25A0%25E7%259A%2584%25E9%25BE%2599%25E8%258A%25AF%25E5%25A4%2584%25E7%2590%2586%25E5%2599%25A8%25E8%2583%25BD%25E5%25A4%259F%25E5%25AF%25B9%25E6%258A%2597%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584%25E8%258A%25AF%25E7%2589%2587%25E5%2592%258C%25E5%25A4%2584%25E7%2590%2586%25E5%2599%25A8%25E5%25B0%2581%25E9%2594%2581%25E5%2590%2597">历史潮头上的台积电：两堵高墙，一柄尖刀</a>
+</h2>
+<p class=text-dark>以下文章来源于远川研究所 ，作者陈帅
+有趣且深度的硬核财经
+行业故事 -No.38
+历史潮头上的台积电
+作者：陈帅/董指导
+支持：王平阳（东吴证券电子首席）
+1989年12月，台北的冷雨淋淋漓漓，三星掌门人李健熙赴台考察，秘密约了台积电创 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/88422be23e984abb62401b84da46debc/?utm_source=see_also&utm_medium=%25E5%2586%2585%25E5%259C%25B0%25E8%2587%25AA%25E9%2580%25A0%25E7%259A%2584%25E9%25BE%2599%25E8%258A%25AF%25E5%25A4%2584%25E7%2590%2586%25E5%2599%25A8%25E8%2583%25BD%25E5%25A4%259F%25E5%25AF%25B9%25E6%258A%2597%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584%25E8%258A%25AF%25E7%2589%2587%25E5%2592%258C%25E5%25A4%2584%25E7%2590%2586%25E5%2599%25A8%25E5%25B0%2581%25E9%2594%2581%25E5%2590%2597">华为以后是不是再也没有麒麟处理器了？</a>
+</h2>
+<p class=text-dark>知乎用户 木匠小强​ 发表 悲观的小伙伴，可以看下北斗的进程。
+美国版知乎 Quora 有网友提问：中国现在拥有像我们 GPS 一样的的全球定位系统。这会降低美军的优势么？ 为什么美国政府不阻止中国发展这个呢？（感谢
+@浮萍草芥
+提供）
+下 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

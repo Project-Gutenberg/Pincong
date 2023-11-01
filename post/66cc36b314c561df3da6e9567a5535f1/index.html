@@ -1,0 +1,324 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>人脸识别、轨迹追踪、3D体感摄影，「百发百中」篮板升级，网友：你怎么那么有钱有闲有知识</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 机器之心报道
+参与：张倩、魔王、杜伟
+ 还记得那个让你「百发百中」的篮板吗？虽然它已经极大地提高了进球率，但作者似乎并不满意。最近，他又做了个改进版，用上了机器人和计算机视觉技术！他还说，「如果都这样了你还进不了，那只能说你太菜了（you really suck）」。
+ _闭着眼都能「包你进」的智能篮板 2.0。
+_
+在上个月发布的一个 YouTube 视频中，一位名叫 Shane Wighton 的小哥展示了一款特殊的篮板。与普通的平面篮板不同，这个篮板是曲面的，每个位置的弧度都经过了周密计算。整个过程利用了蒙特卡罗法和最小二乘法，极大地提高了进球率，视频的播放量也超过了 400 万。
+但是，作者本人好像并没有很满意，因为他发现如果你投的球是平飞球（击出之球又直又快），还是很难保证球落到篮筐里。
+于是他继续创新。这回，他使用了机器人和计算机视觉！改进后的篮板长这样：
+它可以前后、上下、左右来回晃动：
+‍也就是说，当球打在篮板上的时候，篮板会自己调整角度，「想法设法」把球弹到篮筐里。它知道你的球从哪里来、何时来、轨迹是什么样的，因为整个房间都在它的「监控」之下。
+然后，它会借助这些信息调整自己的角度帮你进球。
+此外，它还知道投球的人是谁，因为上面安装了人脸识别系统。
+‍要做一个这样的篮板有很多困难。首先，篮板需要尽可能灵活，能够上下左右前后灵活转变方位；其次，机械动作的完成要尽可能快，因为从球脱手到击中篮板通常只有 600 毫秒。
+他在篮板的后面安装了 3 个小电机，每个电机控制一个连杆，因此这个篮板有三个自由度。由于电机功率较小，所以他选择的篮板质地很轻。
+篮板后边用的材料都是金属，借助等离子切割技术切割而成，这部分金属材料大约花了 5 美元。此外，他还用 3D 打印技术做了一些零部件。
+‍完成这些机械制造部分之后，接下来要考虑的是如何让篮板「掌握」投球者的信息。
+在硬件方面，Wighton 用到了微软为 XBOX360 打造的 3D 体感摄影机——Kinect。Kinect 可以为软件提供视频输入，视频中带有深度信息，可以表示你和摄像头之间的距离。Wighton 借助这些信息完成球的轨迹追踪。
+最难的部分是软件，这花费了作者的大部分时间。Wighton 表示：与软件相比，机械设计部分简直太简单了。
+首先，软件需要在视频中找到球，而且要尽可能又快又准。
+在视频中，基于单一的帧很难区分出哪个是球，「聪明」的计算机视觉系统把篮球、人头甚至是角落的杂物都当成了球。
+于是，Wighton 只能凭借视频中每个物体的轨迹来判断哪个是球。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 人脸识别、轨迹追踪、3D体感摄影，「百发百中」篮板升级，网友：你怎么那么有钱有闲有知识 ">
+<meta name=og:description content=" 机器之心报道
+参与：张倩、魔王、杜伟
+ 还记得那个让你「百发百中」的篮板吗？虽然它已经极大地提高了进球率，但作者似乎并不满意。最近，他又做了个改进版，用上了机器人和计算机视觉技术！他还说，「如果都这样了你还进不了，那只能说你太菜了（you really suck）」。
+ _闭着眼都能「包你进」的智能篮板 2.0。
+_
+在上个月发布的一个 YouTube 视频中，一位名叫 Shane Wighton 的小哥展示了一款特殊的篮板。与普通的平面篮板不同，这个篮板是曲面的，每个位置的弧度都经过了周密计算。整个过程利用了蒙特卡罗法和最小二乘法，极大地提高了进球率，视频的播放量也超过了 400 万。
+但是，作者本人好像并没有很满意，因为他发现如果你投的球是平飞球（击出之球又直又快），还是很难保证球落到篮筐里。
+于是他继续创新。这回，他使用了机器人和计算机视觉！改进后的篮板长这样：
+它可以前后、上下、左右来回晃动：
+‍也就是说，当球打在篮板上的时候，篮板会自己调整角度，「想法设法」把球弹到篮筐里。它知道你的球从哪里来、何时来、轨迹是什么样的，因为整个房间都在它的「监控」之下。
+然后，它会借助这些信息调整自己的角度帮你进球。
+此外，它还知道投球的人是谁，因为上面安装了人脸识别系统。
+‍要做一个这样的篮板有很多困难。首先，篮板需要尽可能灵活，能够上下左右前后灵活转变方位；其次，机械动作的完成要尽可能快，因为从球脱手到击中篮板通常只有 600 毫秒。
+他在篮板的后面安装了 3 个小电机，每个电机控制一个连杆，因此这个篮板有三个自由度。由于电机功率较小，所以他选择的篮板质地很轻。
+篮板后边用的材料都是金属，借助等离子切割技术切割而成，这部分金属材料大约花了 5 美元。此外，他还用 3D 打印技术做了一些零部件。
+‍完成这些机械制造部分之后，接下来要考虑的是如何让篮板「掌握」投球者的信息。
+在硬件方面，Wighton 用到了微软为 XBOX360 打造的 3D 体感摄影机——Kinect。Kinect 可以为软件提供视频输入，视频中带有深度信息，可以表示你和摄像头之间的距离。Wighton 借助这些信息完成球的轨迹追踪。
+最难的部分是软件，这花费了作者的大部分时间。Wighton 表示：与软件相比，机械设计部分简直太简单了。
+首先，软件需要在视频中找到球，而且要尽可能又快又准。
+在视频中，基于单一的帧很难区分出哪个是球，「聪明」的计算机视觉系统把篮球、人头甚至是角落的杂物都当成了球。
+于是，Wighton 只能凭借视频中每个物体的轨迹来判断哪个是球。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/43.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>人脸识别、轨迹追踪、3D体感摄影，「百发百中」篮板升级，网友：你怎么那么有钱有闲有知识</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/synced>Synced</a></span>,
+<span>at 13 May 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%af%ae%e6%9d%bf>篮板</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%a7%86%e9%a2%91>视频</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%bd%a8%e8%bf%b9>轨迹</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%a7%bb%e5%8a%a8>移动</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/66cc36b314c561df3da6e9567a5535f1.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/66cc36b314c561df3da6e9567a5535f1.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>机器之心报道</p>
+<p><strong>参与：张倩、魔王、杜伟</strong></p>
+<blockquote>
+<p>还记得那个让你<a href="https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2650786794&idx=3&sn=e289bbb80cdb4a824de6af3e340736ba&scene=21#wechat_redirect">「百发百中」的篮板</a>吗？虽然它已经极大地提高了进球率，但作者似乎并不满意。最近，他又做了个改进版，用上了机器人和计算机视觉技术！他还说，「如果都这样了你还进不了，那只能说你太菜了（you really suck）」。</p>
+</blockquote>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkx7em1siaruh5NYu9Euvk6cDwSjVhJpzbamu0ca0iadTUuSAA0N2IU6YA/640%3Fwx_fmt%3Dgif" alt></p>
+<p>_闭着眼都能「包你进」的智能篮板 2.0。<br>
+_</p>
+<p>在上个月发布的一个 YouTube 视频中，一位名叫 Shane Wighton 的小哥展示了一款特殊的篮板。与普通的平面篮板不同，这个篮板是曲面的，每个位置的弧度都经过了周密计算。整个过程利用了蒙特卡罗法和最小二乘法，极大地提高了进球率，视频的播放量也超过了 400 万。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkXibHWpVtQ8p0QIalvYwC3S8TpCiaSQQyv0kxQib0PLDPxPQkImyAbO2Vg/640%3Fwx_fmt%3Dgif" alt></p>
+<p>但是，作者本人好像并没有很满意，因为他发现如果你投的球是平飞球（击出之球又直又快），还是很难保证球落到篮筐里。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkiaJyfKdvqIJLjTPFGp1k2mOxpIN5jnWq6uwJvqWwhSUEzXXv0Q0JxnQ/640%3Fwx_fmt%3Dgif" alt></p>
+<p>于是他继续创新。这回，他使用了机器人和计算机视觉！改进后的篮板长这样：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkK9z0K2nyoG8XvpTYf8icmRpicxn39Xuc0LSAicGppic1qU8bIxiaZlkzylg/640%3Fwx_fmt%3Dgif" alt></p>
+<p>它可以前后、上下、左右来回晃动：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkGrQ4DmBFE3ibddtASZkop4GCORibSedRFI8hZYsb387dTKPjibBtGDeuw/640%3Fwx_fmt%3Dgif" alt></p>
+<p>‍也就是说，当球打在篮板上的时候，篮板会自己调整角度，「想法设法」把球弹到篮筐里。它知道你的球从哪里来、何时来、轨迹是什么样的，因为整个房间都在它的「监控」之下。</p>
+<p>然后，它会借助这些信息调整自己的角度帮你进球。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkgicibZ2qF4HkN8YrZMbsGkoBB5ayQ0dBVPRiawfaiahKzvTtwZDT2Dxkbg/640%3Fwx_fmt%3Djpeg" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkpMDBD8Aay6Avibd1OgPsn1CM5RyTfDibCFhAZ2mt9a9clEfldElOgk4Q/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>此外，它还知道投球的人是谁，因为上面安装了人脸识别系统。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkBGfYew9cPcKoKzicukfUe73OOuGMZ2SGbQrcITTyg8eFx79sUocUSibg/640%3Fwx_fmt%3Dgif" alt></p>
+<p>‍要做一个这样的篮板有很多困难。首先，篮板需要尽可能灵活，能够上下左右前后灵活转变方位；其次，机械动作的完成要尽可能快，因为从球脱手到击中篮板通常只有 600 毫秒。</p>
+<p>他在篮板的后面安装了 3 个小电机，每个电机控制一个连杆，因此这个篮板有三个自由度。由于电机功率较小，所以他选择的篮板质地很轻。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkUHdJYTyS5l1D3ahjLb9jzxBAd53d45VncjqjIpXSt9bKWYdQAm4jxQ/640%3Fwx_fmt%3Dgif" alt></p>
+<p>篮板后边用的材料都是金属，借助等离子切割技术切割而成，这部分金属材料大约花了 5 美元。此外，他还用 3D 打印技术做了一些零部件。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkUaoKBRqZiaoXXO9Gu5fXs7eia6EpmL7ibX1zgC0iaYY1ClpUu4wt9GibvKQ/640%3Fwx_fmt%3Dgif" alt></p>
+<p>‍完成这些机械制造部分之后，接下来要考虑的是如何让篮板「掌握」投球者的信息。</p>
+<p>在硬件方面，Wighton 用到了微软为 XBOX360 打造的 3D 体感摄影机——Kinect。Kinect 可以为软件提供视频输入，视频中带有深度信息，可以表示你和摄像头之间的距离。Wighton 借助这些信息完成球的轨迹追踪。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkOyvL2gD5BnGj5ibMTU7ofiaMx2cyVxia1tXaI5GPmy6hrHoH8PYL9nq1A/640%3Fwx_fmt%3Dgif" alt></p>
+<p>最难的部分是软件，这花费了作者的大部分时间。Wighton 表示：与软件相比，机械设计部分简直太简单了。</p>
+<p>首先，软件需要在视频中找到球，而且要尽可能又快又准。</p>
+<p>在视频中，基于单一的帧很难区分出哪个是球，「聪明」的计算机视觉系统把篮球、人头甚至是角落的杂物都当成了球。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkh0Pl5CqaWDWgqFGUzH4ntqicrwfbcwGoxibn9wpF0N5Hdghic2zLgqbIA/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>于是，Wighton 只能凭借视频中每个物体的轨迹来判断哪个是球。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkP0LgKleibA5hTPuoZicj9A1yUkeLY2m5G1WO9dQ1FZHwF5zsyv2Zj26Q/640%3Fwx_fmt%3Djpeg" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkmiavqJibtMqg6PI0NjIgp82WeYN67qZF0Hz0XdjhficVHRiaH0IBH4Uiaew/640%3Fwx_fmt%3Djpeg" alt></p>
+<p><em>篮球的轨迹应该是一条平滑的抛物线，Wighton 借助这一物理常识来判断哪个是篮球。</em></p>
+<p>找到球之后，接下来就是预测球的完整轨迹以及球可能打在篮板的哪个位置：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkRoeFo4I9OTaUA2CglkBUZUc5artKGE6jHhqBJ3coXJJBoC8bDFSFcA/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>在这个过程中，收集的数据越多，预测就越准确。由于 Wighton 能算出从下达指令到篮板移动的时间，因此他选择在篮球快要击中篮板的最后几毫秒下达指令，这样能大大缩小落点的潜在范围。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkicyO0J3STQxNAJAR9WZvc6gOIYjbAkl1A4diaTibJWRuWZLib5aauEdQKg/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>算出了这些信息之后，接下来就要讨论如何移动篮板。此处的原理也比较容易理解，如果系统判断篮板该往前移，它就会让篮板适当下压，反之则适当上翘。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkAiajxxzwcjC8KUf9Jr5plkYQlpANYGVB2IjXt55KlClz0xcr0RAKS6w/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>当然，移动方案并不是固定的，Wighton 选择方案的标准是：这个方案能做到吗？要花多长时间？整个的计算过程其实是非常复杂的，充满了各种数学方程。</p>
+<p>目前，这个篮板还存在一些问题，如 Windows 太慢，有时候会胡乱下指令，还有很多 bug 没有修复…… 这些问题也导致篮板在关键时刻翻车，比如在作者老婆试用的时候：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkVgiamZ18ibSHsBnxZ9OaiaLyVmbAZOu2Mc8asCicD1hCU9z84TRRXESUJg/640%3Fwx_fmt%3Dgif" alt></p>
+<p>翻车就算了，还有语音反馈：“you really suck at basketball”。</p>
+<p>**用到了哪些工具<br>
+**</p>
+<p>看了整个过程，你是不是也想动手复现 Wighton 的篮板项目？在复现过程中，你需要这些材料和设备：</p>
+<p>首先是篮板。</p>
+<p>这回他没有选择手工制作，而是网购了一个。为了达到最佳效果，Wighton 也是拼了！</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkgBNZ4MEPSwdmZO6kpY0sw2W9oshzNqlB3fzzNplA1yk68AWhDq5Xlw/640%3Fwx_fmt%3Djpeg" alt></p>
+<p><em>这次的篮板长这样。</em></p>
+<p>技术制图时，他使用了 13 英寸的 iPad Pro。</p>
+<p>实际操作过程中用到的工具更是纷繁复杂，且昂贵……</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkyPhZ5a2gPd5icLt0owESHUlMlwz9hgjsDcTjR1mmib9hw9SgCSFr0bOw/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>_Wera allen keys 五金工具、马克笔、电焊机、铆接套件、AngleCube 数字量角器、压弯机、20 吨折弯机、无线角磨机、Powermax45 XP 专业级机用等离子切割系统等等。<br>
+_</p>
+<p>除了实体硬件和工具以外，知识才是做成这个项目最重要的工具。</p>
+<p>书到用时方恨少？不存在的。Wighton 在做这个项目前阅读了以下书籍，从中获得了很多技能：</p>
+<ul>
+<li>
+<p>Real-Time Collision Detection</p>
+</li>
+<li>
+<p>Introduction to Algorithims</p>
+</li>
+<li>
+<p>Planning Algorithims</p>
+</li>
+<li>
+<p>Statistics</p>
+</li>
+<li>
+<p>Computational Geometry</p>
+</li>
+</ul>
+<p>这些书籍涉及算法、统计学、计算几何学等等，看来 Wighton 做了相当充分的准备。</p>
+<p><strong>网友神评论：别问我记不记得高中几何，问就是不记得！</strong></p>
+<p>面对 Wighton 不达目的（百发百中）绝不罢休的精神，网友展开了神评论：</p>
+<blockquote>
+<p>我本来打算吐槽『这个人竟然在这个领域浪费时间，之前那个小哥的木制篮板已经很强了……』然后发现，额，竟然是同一个人做的……</p>
+<p>你竟然在几周内就做了这么多？！</p>
+<p>这怎么可能？你怎么会具备这么多不同领域的专业知识、这么多昂贵的机器和这么多时间？</p>
+<p>这是我第一次不了解一个人做一件事的目的。</p>
+</blockquote>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkBN48MKNRwTIECdiaH7GJUujqCMWPcxevgqibOow1hFa0AVic0mklP26Mg/640%3Fwx_fmt%3Dpng" alt></p>
+<p>这位朋友你说出了我们的心声！</p>
+<p>计算机科学系学生也表达了自己的感受：</p>
+<blockquote>
+<p>作为一名计算机科学系的学生，我曾经告诉自己数学无用。但是你的所作所为证明我错了……</p>
+</blockquote>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkTYmMWSocNlPnwMrUGnOdxUg3kvQibHOvmgjKicC2EwYmaibfjUTTTc70Q/640%3Fwx_fmt%3Dpng" alt></p>
+<p>更多网友表达了被高中教师支配的恐惧：</p>
+<blockquote>
+<p>你问我还记得高中几何吗？</p>
+<p>我只能说：是那个表示形状的几何吗？</p>
+</blockquote>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkgD7Fnkq3kOFSkGUnDZzcVOv1gZzlZfyDx4Gw8xiamSz77Sya355yhlw/640%3Fwx_fmt%3Dpng" alt></p>
+<blockquote>
+<p>你问了很多次「还记得…… 吗」，我对此只有一句回答：「不记得」……</p>
+</blockquote>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkElv8SkN9UickEFQ2ySDdFRc7lxibB2snt2ianWEfM1Kk8wURSYsD4o3jw/640%3Fwx_fmt%3Dpng" alt></p>
+<p>也有网友提出疑问：为什么要在最后一瞬间移动？</p>
+<p>Wighton 对此的回复是：</p>
+<blockquote>
+<p>最后瞬间才移动的原因是，估计到的轨迹很容易改变，而这需要方向反转（即它们并不是单调地接近正确解）。如果发生了这种现象，我必须减速直至停下，然后再从另一个方向加速。最糟糕的情况是从一侧移动另一侧。我对此进行了基础分析，发现在最后时刻移动篮板得到的平均结果更好。</p>
+<p>方向反转的另一个问题是，从完全正的加速转向完全负的加速会造成双倍的系统冲击（即加速改变率）。这会带来较多的机械振动，导致各种各样的问题。</p>
+</blockquote>
+<p><strong>Shane Wighton 是谁？</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkxhkF0FGkbHdTnNfsxyOBEeOMM4JqX25DPvCBj7gIF72vIZHauxd9ibg/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>Shane Wighton 毕业于北卡罗来纳大学夏洛特分校，获得了机械工程学士学位和计算机科学硕士学位。他目前在 3D 打印技术开发商和制造商 Formlabs 公司担任首席工程师，热爱制作东西。曾发表专利：Additive fabrication support structures（增材制造支持结构）。</p>
+<p>Wighton 于 2020 年 3 月开通了自己的 YouTube 频道，短短两个月已经收获了 10 万 + 订阅者。</p>
+<p>除了我们介绍的两个篮板视频外，Shane Wighton 的 YouTube 频道中的其他视频也多与「制造」相关。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkZibefRR9931FibYRn0treXBgxof5Hkf4by6kOYOW3iataOoDRfwsmW2EQ/640%3Fwx_fmt%3Dpng" alt></p>
+<p>他在 YouTube 频道简介中这样写道：</p>
+<blockquote>
+<p>我创造各种各样的事物，并且希望用有趣的方式来分享。我的大部分创造是制造项目，不过我也写软件、制作电子设备等。</p>
+</blockquote>
+<p>有那么多人喜欢、分享自己的创造，并给出反馈，是件挺快乐的事吧。</p>
+<p>话说回来，Wighton 还打算再接再厉，继续改进，说不定还会有第三版智能篮板呢！</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnkj8FclicxEVCyR4qHCrrSUVtXHpqvCC8Mk7qNmZdEJ6tiacmtZgTzuCMw/640%3Fwx_fmt%3Djpeg" alt></p>
+<p>完整视频请戳：</p>
+<p>机器之心 CVPR 2020 线上分享的第三期，我们邀请到腾讯优图实验室高级研究员 Louis 为我们做主题为《带噪学习和协作学习：不完美场景下的神经网络优化策略》的线上分享，欢迎读者报名学习。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/KmXPKA19gWicUJnpRAfebKNAZ98tFecnk2SkM5tr1q0JJ5vf1TibvUgWzdZvicbxYOpxGyBXy0hq0OjF9ebkvQpTA/640%3Fwx_fmt%3Djpeg" alt></p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/7c78f136b3e48f5cb59aa89cb0d5f1ed/?utm_source=see_also&utm_medium=%25E4%25BA%25BA%25E8%2584%25B8%25E8%25AF%2586%25E5%2588%25AB%25E8%25BD%25A8%25E8%25BF%25B9%25E8%25BF%25BD%25E8%25B8%25AA3d%25E4%25BD%2593%25E6%2584%259F%25E6%2591%2584%25E5%25BD%25B1%25E7%2599%25BE%25E5%258F%2591%25E7%2599%25BE%25E4%25B8%25AD%25E7%25AF%25AE%25E6%259D%25BF%25E5%258D%2587%25E7%25BA%25A7%25E7%25BD%2591%25E5%258F%258B%25E4%25BD%25A0%25E6%2580%258E%25E4%25B9%2588%25E9%2582%25A3%25E4%25B9%2588%25E6%259C%2589%25E9%2592%25B1%25E6%259C%2589%25E9%2597%25B2%25E6%259C%2589%25E7%259F%25A5%25E8%25AF%2586">肖战背后：腾讯的背水一战</a>
+</h2>
+<p class=text-dark>2020-05-13 12:07 来源：澎湃新闻·澎湃号·湃客
+字号
+1 背水一战
+前两天说阅文新合同和肖战模式的时候，我说了这是腾讯的背水一战。很多人无法理解，这明明是作者和用户被逼到极致了，腾讯依旧那么庞大那么赚钱，依旧是中国互联网的超 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/89910bcd890123492f579255831e1510/?utm_source=see_also&utm_medium=%25E4%25BA%25BA%25E8%2584%25B8%25E8%25AF%2586%25E5%2588%25AB%25E8%25BD%25A8%25E8%25BF%25B9%25E8%25BF%25BD%25E8%25B8%25AA3d%25E4%25BD%2593%25E6%2584%259F%25E6%2591%2584%25E5%25BD%25B1%25E7%2599%25BE%25E5%258F%2591%25E7%2599%25BE%25E4%25B8%25AD%25E7%25AF%25AE%25E6%259D%25BF%25E5%258D%2587%25E7%25BA%25A7%25E7%25BD%2591%25E5%258F%258B%25E4%25BD%25A0%25E6%2580%258E%25E4%25B9%2588%25E9%2582%25A3%25E4%25B9%2588%25E6%259C%2589%25E9%2592%25B1%25E6%259C%2589%25E9%2597%25B2%25E6%259C%2589%25E7%259F%25A5%25E8%25AF%2586">《后浪》，有让你感到阶层割裂的焦虑吗？</a>
+</h2>
+<p class=text-dark>对于大家热议的《后浪》，你有看出阶层割裂感吗？
+5月4日，B站出品的宣传片《后浪》，在社交媒体上掀起了巨大的舆论热浪。
+它以中年人的视角对年轻人发出期许和赞叹，想要说明当下的新一代青年人所拥有的的自由、财富和权利，本意是“心灵鸡汤”和“热 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b323b48e0742a7ab311aef8a7a93a736/?utm_source=see_also&utm_medium=%25E4%25BA%25BA%25E8%2584%25B8%25E8%25AF%2586%25E5%2588%25AB%25E8%25BD%25A8%25E8%25BF%25B9%25E8%25BF%25BD%25E8%25B8%25AA3d%25E4%25BD%2593%25E6%2584%259F%25E6%2591%2584%25E5%25BD%25B1%25E7%2599%25BE%25E5%258F%2591%25E7%2599%25BE%25E4%25B8%25AD%25E7%25AF%25AE%25E6%259D%25BF%25E5%258D%2587%25E7%25BA%25A7%25E7%25BD%2591%25E5%258F%258B%25E4%25BD%25A0%25E6%2580%258E%25E4%25B9%2588%25E9%2582%25A3%25E4%25B9%2588%25E6%259C%2589%25E9%2592%25B1%25E6%259C%2589%25E9%2597%25B2%25E6%259C%2589%25E7%259F%25A5%25E8%25AF%2586">究竟谁是“后浪”？：关于《后浪》的三点不满</a>
+</h2>
+<p class=text-dark>哔哩哔哩在五四青年节所放出的《后浪》演讲（广告）成功的引起了轩然大波，从某种角度来说，这可能是B站希望达到的效果。毕竟在中央电视台在新闻联播后面的广告位价格不菲，能成为社会热点这件事证明广告已经成功了大半。
+何冰老师铿锵有力的声音配合着带有 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/26c32f6e3fcac13e11d6a8be4516f2d2/?utm_source=see_also&utm_medium=%25E4%25BA%25BA%25E8%2584%25B8%25E8%25AF%2586%25E5%2588%25AB%25E8%25BD%25A8%25E8%25BF%25B9%25E8%25BF%25BD%25E8%25B8%25AA3d%25E4%25BD%2593%25E6%2584%259F%25E6%2591%2584%25E5%25BD%25B1%25E7%2599%25BE%25E5%258F%2591%25E7%2599%25BE%25E4%25B8%25AD%25E7%25AF%25AE%25E6%259D%25BF%25E5%258D%2587%25E7%25BA%25A7%25E7%25BD%2591%25E5%258F%258B%25E4%25BD%25A0%25E6%2580%258E%25E4%25B9%2588%25E9%2582%25A3%25E4%25B9%2588%25E6%259C%2589%25E9%2592%25B1%25E6%259C%2589%25E9%2597%25B2%25E6%259C%2589%25E7%259F%25A5%25E8%25AF%2586">B站和“后浪”视频制作商：何冰在B站很红，也致敬年轻人的父母|界面新闻</a>
+</h2>
+<p class=text-dark>记者 | 刘雨静
+编辑 | 许悦
+1
+一条关于“后浪”的演讲视频“五四青年节”前夕成了社交媒体上的刷屏爆款。
+截止5月5日下午3点，B站视频点击量超过1000万，弹幕数量达到17.1万条。
+后浪的播放数据。截图时间为5月5日
+一个有趣的现 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/65d5004f2babe7e30b1200afbe7b85e6/?utm_source=see_also&utm_medium=%25E4%25BA%25BA%25E8%2584%25B8%25E8%25AF%2586%25E5%2588%25AB%25E8%25BD%25A8%25E8%25BF%25B9%25E8%25BF%25BD%25E8%25B8%25AA3d%25E4%25BD%2593%25E6%2584%259F%25E6%2591%2584%25E5%25BD%25B1%25E7%2599%25BE%25E5%258F%2591%25E7%2599%25BE%25E4%25B8%25AD%25E7%25AF%25AE%25E6%259D%25BF%25E5%258D%2587%25E7%25BA%25A7%25E7%25BD%2591%25E5%258F%258B%25E4%25BD%25A0%25E6%2580%258E%25E4%25B9%2588%25E9%2582%25A3%25E4%25B9%2588%25E6%259C%2589%25E9%2592%25B1%25E6%259C%2589%25E9%2597%25B2%25E6%259C%2589%25E7%259F%25A5%25E8%25AF%2586">我不喜欢B站的《后浪》视频</a>
+</h2>
+<p class=text-dark>昨天晚上，B站视频《后浪——Bilibili献给新一代的演讲》在朋友圈刷屏。
+看那么多人热血转发，我就打开看了。
+不看不要紧，一看就把自己恶心得不行。煽动性的演讲、混剪的视频、激昂的BGM，都掩盖不了语言的漏洞百出，每一句话都让人有吐不完的 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

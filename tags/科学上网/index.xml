@@ -1,0 +1,31 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>科学上网 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</link><description>Recent content in 科学上网 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sat, 09 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/index.xml" rel="self" type="application/rss+xml"/><item><title>2021/2022年适合中国大陆的三款VPN梯子软件测评，兼容ios-电脑-安卓-mac-路由器</title><link>https://project-gutenberg.github.io/Pincong/post/93ae148985e766acf1d2a58cc92b59d9/</link><pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/93ae148985e766acf1d2a58cc92b59d9/</guid><description>本文所列出的几个梯子，都是老白自己在过去四年的测评生涯当中精挑细选出来的，在国内使用历史至少都在3年以上，同时兼顾了运营商所在区域和安全性，可以说是目前业内最好也是最老牌的几款，稳定而高端，并且都支持电脑（win）,手机（ios,Andriod），mac等多系统使用，基本能满足用户的日常视频游戏等需求，每款梯子都列出了其优点，可以根据自己的实际情况选择。
+到目前为止，各类小型机场在国内层出不穷，小机场存在不稳定性和跑路的风险，远不如老品 …</description></item><item><title>请问，现在的手机拍照，相片是否藏有不可见的水印。</title><link>https://project-gutenberg.github.io/Pincong/post/3b927f2d6fb8a076915c82c4c923709c/</link><pubDate>Thu, 29 Apr 2021 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/3b927f2d6fb8a076915c82c4c923709c/</guid><description>看了品葱的一些帖子，才知道原来从一些APP内截图都是不安全的。
+很多墙国APP的图片，藏有不可见的水印。
+我想问问，那么用手机拍照，相片是否也藏有不可见的水印。可以从中窥见你的拍摄地点，手机号等个人信息？
+品葱用户 十字军征支大佐 评论于 2021-04-30 EXIF了解一下。
+品葱用户 xlgzs 评论于 2021-04-29 肯定有，不是光exif的这么简单，所以建议用google play上的外国相机软件拍照。
+品葱用户 **暴 …</description></item><item><title>科学上网新方法之路由器翻墙篇</title><link>https://project-gutenberg.github.io/Pincong/post/fddb86dfcad032f11548679ee1a8f33c/</link><pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/fddb86dfcad032f11548679ee1a8f33c/</guid><description>上一篇简单介绍了VPS服务器购买安装。 https://pincong.rocks/article/24596
+** 现在说说路由器翻墙**
+有了服务器之后就可以用客户端连接服务器翻墙了
+现在在手机上翻墙的比较多，毕竟手机现在是工作生活不可分割的一部分了。
+手机上翻墙方便广泛，但是，手机翻墙优点有，缺点也有，在我看来缺点甚至比优点大，
+**列举一下1. 速度慢，**China特色，费用高速度低是基本套路，特别是现在5G出来，为了给5G让 …</description></item><item><title>那些在大陆被请喝茶的具体原因是什么？</title><link>https://project-gutenberg.github.io/Pincong/post/52130423687bfb9b24e7cb3441b13dee/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/52130423687bfb9b24e7cb3441b13dee/</guid><description>品葱用户 就喜欢奶茶 提问于 8/16/2020 现有问题 https://pincong.rocks/question/23881
+和 https://pincong.rocks/question/7226，但是最根本的原因还是在于本人和海外帐号的关联是怎样被大陆审查找到的。
+是因为使用了大陆的手机号？还是使用了大陆的邮箱？还是海外的邮箱和手机号等这些相关连的东西和本人有联系，能通过社会工程学的方式，也就是链状关系找到？还是因为账户 …</description></item><item><title>文明自由门M通道，轻松突开野蛮GFW，，，</title><link>https://project-gutenberg.github.io/Pincong/post/b0cb637f35bb8f40a8e531950c3383de/</link><pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b0cb637f35bb8f40a8e531950c3383de/</guid><description>如题，，，
+经抓包分析，自由门M通道使用了WS+TLS协议，Cloudfront的CDN，，，
+文明无比，，，一突开搞得GFW啊满墙漏洞啊，满墙是洞
+品葱用户 超人13 评论于 2020-05-20 M通道作为Tor前置代理时，只能选择HTTP协议，选择SOCKS5协议会出错，，，
+品葱用户 Chauchat 评论于 2020-05-20 难怪破墙能力强劲无比
+品葱用户 肩扛200斤女人 评论于 2020-05-19 支持自由门，反对法 …</description></item><item><title>【向Cloudflare致敬】免费安全可靠的Cloudflare WARP VPN</title><link>https://project-gutenberg.github.io/Pincong/post/8ab8470cbb69c276afc9dcacc4fa061c/</link><pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/8ab8470cbb69c276afc9dcacc4fa061c/</guid><description>Cloudflare近日正式推出了其基于wireguard的WARP VPN。
+请见loveyou521大神关于wireguard的讲解。
+目前我只是尝试了免费的WARP，虽然免费版的速度还是很慢，但感觉算是能用吧，可以作为备用翻墙手段存起来。不知道付费版的WARP+速度会不会好一点。
+有葱友们尝试过吗？
+PS: 一则伤心的故事，邮箱被赵弹塞满，已废。/(ㄒoㄒ)/
+☰
+Cloudflare’s free mobile VPN is …</description></item><item><title>【向Cloudflare致敬】免费安全可靠的Cloudflare WARP VPN</title><link>https://project-gutenberg.github.io/Pincong/post/f17106e84686662e5a5c4aa67ff9e9cd/</link><pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f17106e84686662e5a5c4aa67ff9e9cd/</guid><description>Cloudflare近日正式推出了其基于wireguard的WARP VPN。
+请见loveyou521大神关于wireguard的讲解。
+目前我只是尝试了免费的WARP，虽然免费版的速度还是很慢，但感觉算是能用吧，可以作为备用翻墙手段存起来。不知道付费版的WARP+速度会不会好一点。
+有葱友们尝试过吗？
+PS: 一则伤心的故事，邮箱被赵弹塞满，已废。/(ㄒoㄒ)/
+☰
+Cloudflare’s free mobile VPN is …</description></item></channel></rss>

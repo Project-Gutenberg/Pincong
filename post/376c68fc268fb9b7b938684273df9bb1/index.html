@@ -1,0 +1,268 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>显卡的价格为什么会这么高？预计什么时候能恢复正常？</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 品葱用户 平壤网警 提问于 2/24/2021 如题，由于学习工作，想配置一台新电脑，可是吃惊的发现显卡的价格从去年开始就一路疯涨。原本由于学习工作的需要不得不暂时被搁置。
+在墙内搜索了相关的话题后，发现大部分给出的理由是：1.比特币等虚拟货币价格增长导致显卡需求暴增。2.全球由于受疫情影响，显卡产能不足。或者一些乱七八糟的理由。对于显卡价格回落日期的预测就更众说纷纭了，有说今年夏季回落的，也有说要等到年底的等等。品葱上对此讨论的热度似乎并不高，由于本人对硬件方面几乎一窍不通，以上只是抛砖引玉。欢迎各位葱油踊跃讨论。
+品葱用户 RTX3090 评论于 2021-02-25 首先从最根本上的原因来说，本质是：
+本来产能就不算高的2020，遇上前所未有的超高需求。
+现在世界上两家大的Fab，TSMC和三星都遇到了前所未有的需求（Intel的14nm没人要，只有自家的显卡用着自己的Fab，虽然10nm已经on the way了但是即便是现在也是雷声大雨点小，这一代又是14nm++++），而疫情造成的产能不足，导致现在恢复后仍然积压了非常多的问题。这一代显卡Nvidia的芯片供应商是三星，而AMD的新卡则是AMD的好朋友TSMC。
+抛开三星先说说另一个供给方的TSMC，现在TSMC代工的中高端产品中，光是一下子能让大众反应过来的名字就有好多个：苹果的M系列和A系列芯片（5nm），AMD的Zen系列CPU（7nm），AMD的RNDA2（7nm），XBox和PlayStation的显卡+CPU（7nm，本质仍然是AMD），高通的SnapDragon系列ARM处理器。其中光是Snapdragon，XBox和PlayStation各个都是千万级销量的产品，那么为了他们优先分配7nm的产能也合情合理，毕竟高通索尼微软都和TSMC肯定签了合同保证他们的芯片供给。而AMD的这一代CPU性能也是有目共睹，十多年来第一次重新坐在了单线程最强，多线程上桌面级把HEDT的英特尔按在地上暴揍的宝座上，消费者们终于从前几年的喊着AMD Yes而转投Intel变成了喊着AMD Yes买着AMD产品。所以CPU的需求也相当高。
+这样一来就让AMD显卡的地位略显尴尬。横向对比Nvidia虽然传统光栅渲染领域在同价位甚至小有胜利，但是在生态系统上完全被Nvidia全面碾压（没有CUDA支持意味着很多计算软件渲染软件根本跑不起来，那些跑在OpenGL上的渲染软件表现也极差），再加上Nvidia的游戏支持（RTX，BroadCast，DLSS2.0）意味着就算在相同分辨率下AMD在传统渲染能力上小胜，也无法在打赢开着RTX和DLSS2.0的Nvidia。
+之所以要说到性能上的优劣，其实这也是决定了AMD策略的一部分。因为AMD要把TSMC已有的产能分配给用芯大头索尼和微软让他们做主机，也要保证他们CPU的产能——因为相比显卡的架构和晶圆面积，CPU的利润更高（良品率稍高，同时这一代Nvidia的性价比比起上一代简直是超高），而在性能优势不显著甚至有些劣势（预期的需求更低，注意是预期的需求），且还不如自家其他产品赚钱的情况下的显卡的地位就相当尴尬了，也就自然分配不到TSMC有限的优先生产队列：AMD相当于是用自家的产品把另外的产品的产能干掉了。
+再说回Nvidia，去年九月自从那张RTX3070打赢上一代旗舰2080Ti的那一刻就注定了这一代人人想买。Nvidia的2000系列性价比极低，再加上滑铁卢的宣传让人们更加热衷于玩RTX的梗而不是RTX的游戏。所以很多买了1000系列或是900系列的用户选择了观望态度。而要知道，1000系列的玩家大多是16-17年入手的卡，而900系列要追溯到更早。这些玩家有的都等了6年，终于盼来了一代性价比超高（相比2000系列）的显卡，一个个都跃跃欲试想要系统升级（那么问题来了，市面上最好的CPU是AMD，那么自然而然大家的选择就是（），让他们家的demand更高&mldr;.），把本来就已经夸张的疫情期间的需求冲击得更高。毕竟疫情期间，吉他断货，因为人们想用lock down的时间试试看弹吉他；锻炼器材断货，因为人们想在家保持fitness；手工制作用品断货，因为有人想要把吃灰了好几年的塑料模型做起来；电子产品（比如游戏主机断货），因为人们实在没啥能投入的兴趣只能玩游戏消遣了——
+说回Nvidia，时常是脚踏两只船的绿厂经常会在三星和TSMC两个Fab来回横跳，看谁的产能高，制程好，或者能优先满足Nvidia的需求就找谁。这次找了三星的Fab用上了三星的8nm制程（要注意的是显卡上制程的优势可以很大程度上被架构弥补，同时三星的制程和TSMC的制程不能横向通过nm数比较），多半是预期到了TSMC的超饱和订单需求。但是三星自己也忙着自己的手机芯片，同时也在为很多其他公司代工一些虽然不是旗舰产品但是需求量也超高的芯片。Nvidia虽然可以说是是三星当前最大的客户，无奈产能确实实在有限，即使去年已经生产了在对比以往发布期间最多的GPU芯片，也仍然无法补上世界范围内对显卡的高需求。（没错，说了这么多，就是产能不足）
+这也要说到AIB。另一个显卡对比CPU产能不足的原因是（虽然你也买不到CPU），显卡不光只是芯片，还需要给显卡分配电压，显存的PCB。这就好比CPU本身啥事都做不了，要插上主板插上内存才能进行计算。而适配显卡的PCB生产这一部分工作的大头都是交由AIB（add-in board partner），就是大家平时说的华硕显卡，MSI显卡，技嘉显卡，等等。这些PCB就像是主板，上面也有好多芯片和电子元件，而现在一提到芯片和电子元件那悲伤的产能和国际运输供应链的问题，想必大家也能想象这些东西也不好生产&mldr;. 没有PCB的显卡芯片也只能干等着。
+注意上述的产品都是消费级/桌面级产品，企业级产品会受到多大影响，大约会取决于那些大头的计算公司和上述两家签的合约如何，不过消费者也估计不会花上冤大头的价格去买那些企业用着discount入手的计算产品——很不划算
+另外影响矿工买GPU的原因其实和BitCoin本身没多大影响，因为现在的BitCoin mining要是用传统CPU/GPU挖矿，就算是100年也回不来本。现在比特币矿工都是用特制的Hash计算单元去挖矿，和CPU，GPU的需求没有任何关系
+影响GPU需求的货币还是以以太坊为首的其他虚拟货币，这些货币用GPU挖矿仍然能获得可观的收入。而这一代AMD每张卡Hashing效率都很高，Nvidia这里3060也有着超高的Hashing/价格优势，导致Nvidia的3060桌面级还未公布就已经被砍了一刀（软硬结合去检测挖矿算法，遇到挖矿算法时自己砍自己一刀让挖矿效率减半）来让矿工望而却步（然而并不能，建议这个可以去关注一下LinusTechTip的视频:https://www.youtube.com/watch?v=XfIibTBaoMM 总结的会比我好很多）
+所以矿工把目光放在了笔电的3060上，因为笔电的3060同样用着和桌面的3060同样的GA104芯片，在架构和优化上是一个东西，同样有着优秀的Hashing能力，Nvidia也没有砍去这些在笔电上的芯片的挖矿算力，同时价格比较实惠，这也是为什么能看到那些倒挂笔记本的矿场的原因&mldr;.
+剩下的总结，太懒了不想写了&mldr;.总的而言，就是今年的供给多半也无法恢复到往常水平。
+&ndash; RTX, ON
+品葱用户 Acca04298 评论于 2021-02-25 因為比特幣跟其他數字貨幣挖礦啊&mldr;..聽說現在價格暴漲，有人被逼到去買筆電挖礦，然後“有種說法”（先說我對顯卡生產產線不熟）顯卡似乎都在中國挖礦者手上？
+還聽說中國出現了假礦機，一開始可以挖螢幕也有顯示，結果後來完全沒反應，打開一看才發現裡面是磚頭&mldr;..一開始挖的都是眼睛業障重
+品葱用户 慶豐大帝習禁評 评论于 2021-02-24 靠北，挖礦那個是加速計算的多線程gpu
+和你玩筆電的普通顯卡是2種玩意
+若是說提高加速卡的產能壓縮普通卡還有那麼一點可能性 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 显卡的价格为什么会这么高？预计什么时候能恢复正常？ ">
+<meta name=og:description content=" 品葱用户 平壤网警 提问于 2/24/2021 如题，由于学习工作，想配置一台新电脑，可是吃惊的发现显卡的价格从去年开始就一路疯涨。原本由于学习工作的需要不得不暂时被搁置。
+在墙内搜索了相关的话题后，发现大部分给出的理由是：1.比特币等虚拟货币价格增长导致显卡需求暴增。2.全球由于受疫情影响，显卡产能不足。或者一些乱七八糟的理由。对于显卡价格回落日期的预测就更众说纷纭了，有说今年夏季回落的，也有说要等到年底的等等。品葱上对此讨论的热度似乎并不高，由于本人对硬件方面几乎一窍不通，以上只是抛砖引玉。欢迎各位葱油踊跃讨论。
+品葱用户 RTX3090 评论于 2021-02-25 首先从最根本上的原因来说，本质是：
+本来产能就不算高的2020，遇上前所未有的超高需求。
+现在世界上两家大的Fab，TSMC和三星都遇到了前所未有的需求（Intel的14nm没人要，只有自家的显卡用着自己的Fab，虽然10nm已经on the way了但是即便是现在也是雷声大雨点小，这一代又是14nm++++），而疫情造成的产能不足，导致现在恢复后仍然积压了非常多的问题。这一代显卡Nvidia的芯片供应商是三星，而AMD的新卡则是AMD的好朋友TSMC。
+抛开三星先说说另一个供给方的TSMC，现在TSMC代工的中高端产品中，光是一下子能让大众反应过来的名字就有好多个：苹果的M系列和A系列芯片（5nm），AMD的Zen系列CPU（7nm），AMD的RNDA2（7nm），XBox和PlayStation的显卡+CPU（7nm，本质仍然是AMD），高通的SnapDragon系列ARM处理器。其中光是Snapdragon，XBox和PlayStation各个都是千万级销量的产品，那么为了他们优先分配7nm的产能也合情合理，毕竟高通索尼微软都和TSMC肯定签了合同保证他们的芯片供给。而AMD的这一代CPU性能也是有目共睹，十多年来第一次重新坐在了单线程最强，多线程上桌面级把HEDT的英特尔按在地上暴揍的宝座上，消费者们终于从前几年的喊着AMD Yes而转投Intel变成了喊着AMD Yes买着AMD产品。所以CPU的需求也相当高。
+这样一来就让AMD显卡的地位略显尴尬。横向对比Nvidia虽然传统光栅渲染领域在同价位甚至小有胜利，但是在生态系统上完全被Nvidia全面碾压（没有CUDA支持意味着很多计算软件渲染软件根本跑不起来，那些跑在OpenGL上的渲染软件表现也极差），再加上Nvidia的游戏支持（RTX，BroadCast，DLSS2.0）意味着就算在相同分辨率下AMD在传统渲染能力上小胜，也无法在打赢开着RTX和DLSS2.0的Nvidia。
+之所以要说到性能上的优劣，其实这也是决定了AMD策略的一部分。因为AMD要把TSMC已有的产能分配给用芯大头索尼和微软让他们做主机，也要保证他们CPU的产能——因为相比显卡的架构和晶圆面积，CPU的利润更高（良品率稍高，同时这一代Nvidia的性价比比起上一代简直是超高），而在性能优势不显著甚至有些劣势（预期的需求更低，注意是预期的需求），且还不如自家其他产品赚钱的情况下的显卡的地位就相当尴尬了，也就自然分配不到TSMC有限的优先生产队列：AMD相当于是用自家的产品把另外的产品的产能干掉了。
+再说回Nvidia，去年九月自从那张RTX3070打赢上一代旗舰2080Ti的那一刻就注定了这一代人人想买。Nvidia的2000系列性价比极低，再加上滑铁卢的宣传让人们更加热衷于玩RTX的梗而不是RTX的游戏。所以很多买了1000系列或是900系列的用户选择了观望态度。而要知道，1000系列的玩家大多是16-17年入手的卡，而900系列要追溯到更早。这些玩家有的都等了6年，终于盼来了一代性价比超高（相比2000系列）的显卡，一个个都跃跃欲试想要系统升级（那么问题来了，市面上最好的CPU是AMD，那么自然而然大家的选择就是（），让他们家的demand更高&mldr;.），把本来就已经夸张的疫情期间的需求冲击得更高。毕竟疫情期间，吉他断货，因为人们想用lock down的时间试试看弹吉他；锻炼器材断货，因为人们想在家保持fitness；手工制作用品断货，因为有人想要把吃灰了好几年的塑料模型做起来；电子产品（比如游戏主机断货），因为人们实在没啥能投入的兴趣只能玩游戏消遣了——
+说回Nvidia，时常是脚踏两只船的绿厂经常会在三星和TSMC两个Fab来回横跳，看谁的产能高，制程好，或者能优先满足Nvidia的需求就找谁。这次找了三星的Fab用上了三星的8nm制程（要注意的是显卡上制程的优势可以很大程度上被架构弥补，同时三星的制程和TSMC的制程不能横向通过nm数比较），多半是预期到了TSMC的超饱和订单需求。但是三星自己也忙着自己的手机芯片，同时也在为很多其他公司代工一些虽然不是旗舰产品但是需求量也超高的芯片。Nvidia虽然可以说是是三星当前最大的客户，无奈产能确实实在有限，即使去年已经生产了在对比以往发布期间最多的GPU芯片，也仍然无法补上世界范围内对显卡的高需求。（没错，说了这么多，就是产能不足）
+这也要说到AIB。另一个显卡对比CPU产能不足的原因是（虽然你也买不到CPU），显卡不光只是芯片，还需要给显卡分配电压，显存的PCB。这就好比CPU本身啥事都做不了，要插上主板插上内存才能进行计算。而适配显卡的PCB生产这一部分工作的大头都是交由AIB（add-in board partner），就是大家平时说的华硕显卡，MSI显卡，技嘉显卡，等等。这些PCB就像是主板，上面也有好多芯片和电子元件，而现在一提到芯片和电子元件那悲伤的产能和国际运输供应链的问题，想必大家也能想象这些东西也不好生产&mldr;. 没有PCB的显卡芯片也只能干等着。
+注意上述的产品都是消费级/桌面级产品，企业级产品会受到多大影响，大约会取决于那些大头的计算公司和上述两家签的合约如何，不过消费者也估计不会花上冤大头的价格去买那些企业用着discount入手的计算产品——很不划算
+另外影响矿工买GPU的原因其实和BitCoin本身没多大影响，因为现在的BitCoin mining要是用传统CPU/GPU挖矿，就算是100年也回不来本。现在比特币矿工都是用特制的Hash计算单元去挖矿，和CPU，GPU的需求没有任何关系
+影响GPU需求的货币还是以以太坊为首的其他虚拟货币，这些货币用GPU挖矿仍然能获得可观的收入。而这一代AMD每张卡Hashing效率都很高，Nvidia这里3060也有着超高的Hashing/价格优势，导致Nvidia的3060桌面级还未公布就已经被砍了一刀（软硬结合去检测挖矿算法，遇到挖矿算法时自己砍自己一刀让挖矿效率减半）来让矿工望而却步（然而并不能，建议这个可以去关注一下LinusTechTip的视频:https://www.youtube.com/watch?v=XfIibTBaoMM 总结的会比我好很多）
+所以矿工把目光放在了笔电的3060上，因为笔电的3060同样用着和桌面的3060同样的GA104芯片，在架构和优化上是一个东西，同样有着优秀的Hashing能力，Nvidia也没有砍去这些在笔电上的芯片的挖矿算力，同时价格比较实惠，这也是为什么能看到那些倒挂笔记本的矿场的原因&mldr;.
+剩下的总结，太懒了不想写了&mldr;.总的而言，就是今年的供给多半也无法恢复到往常水平。
+&ndash; RTX, ON
+品葱用户 Acca04298 评论于 2021-02-25 因為比特幣跟其他數字貨幣挖礦啊&mldr;..聽說現在價格暴漲，有人被逼到去買筆電挖礦，然後“有種說法”（先說我對顯卡生產產線不熟）顯卡似乎都在中國挖礦者手上？
+還聽說中國出現了假礦機，一開始可以挖螢幕也有顯示，結果後來完全沒反應，打開一看才發現裡面是磚頭&mldr;..一開始挖的都是眼睛業障重
+品葱用户 慶豐大帝習禁評 评论于 2021-02-24 靠北，挖礦那個是加速計算的多線程gpu
+和你玩筆電的普通顯卡是2種玩意
+若是說提高加速卡的產能壓縮普通卡還有那麼一點可能性 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/180.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>显卡的价格为什么会这么高？预计什么时候能恢复正常？</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e5%b9%b3%e5%a3%a4%e7%bd%91%e8%ad%a6>平壤网警</a></span>,
+<span>at 24 February 2021</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%94%b5%e8%84%91>电脑</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%94%b5%e8%84%91%e7%a1%ac%e4%bb%b6>电脑硬件</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/376c68fc268fb9b7b938684273df9bb1.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/376c68fc268fb9b7b938684273df9bb1.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<h3 id=品葱用户-平壤网警-提问于-2242021>品葱用户 <strong>平壤网警</strong> 提问于 2/24/2021</h3>
+<p>如题，由于学习工作，想配置一台新电脑，可是吃惊的发现显卡的价格从去年开始就一路疯涨。原本由于学习工作的需要不得不暂时被搁置。</p>
+<p>在墙内搜索了相关的话题后，发现大部分给出的理由是：1.比特币等虚拟货币价格增长导致显卡需求暴增。2.全球由于受疫情影响，显卡产能不足。或者一些乱七八糟的理由。对于显卡价格回落日期的预测就更众说纷纭了，有说今年夏季回落的，也有说要等到年底的等等。品葱上对此讨论的热度似乎并不高，由于本人对硬件方面几乎一窍不通，以上只是抛砖引玉。欢迎各位葱油踊跃讨论。</p>
+<h3 id=品葱用户-rtx3090-评论于-2021-02-25>品葱用户 <strong>RTX3090</strong> 评论于 2021-02-25</h3>
+<p>首先从最根本上的原因来说，本质是：<br>
+本来产能就不算高的2020，遇上前所未有的超高需求。</p>
+<p>现在世界上两家大的Fab，TSMC和三星都遇到了前所未有的需求（Intel的14nm没人要，只有自家的显卡用着自己的Fab，虽然10nm已经on the way了但是即便是现在也是雷声大雨点小，这一代又是14nm++++），而疫情造成的产能不足，导致现在恢复后仍然积压了非常多的问题。这一代显卡Nvidia的芯片供应商是三星，而AMD的新卡则是AMD的好朋友TSMC。<br>
+抛开三星先说说另一个供给方的TSMC，现在TSMC代工的中高端产品中，光是一下子能让大众反应过来的名字就有好多个：苹果的M系列和A系列芯片（5nm），AMD的Zen系列CPU（7nm），AMD的RNDA2（7nm），XBox和PlayStation的显卡+CPU（7nm，本质仍然是AMD），高通的SnapDragon系列ARM处理器。其中光是Snapdragon，XBox和PlayStation各个都是千万级销量的产品，那么为了他们优先分配7nm的产能也合情合理，毕竟高通索尼微软都和TSMC肯定签了合同保证他们的芯片供给。而AMD的这一代CPU性能也是有目共睹，十多年来第一次重新坐在了单线程最强，多线程上桌面级把HEDT的英特尔按在地上暴揍的宝座上，消费者们终于从前几年的喊着AMD Yes而转投Intel变成了喊着AMD Yes买着AMD产品。所以CPU的需求也相当高。<br>
+这样一来就让AMD显卡的地位略显尴尬。横向对比Nvidia虽然传统光栅渲染领域在同价位甚至小有胜利，但是在生态系统上完全被Nvidia全面碾压（没有CUDA支持意味着很多计算软件渲染软件根本跑不起来，那些跑在OpenGL上的渲染软件表现也极差），再加上Nvidia的游戏支持（RTX，BroadCast，DLSS2.0）意味着就算在相同分辨率下AMD在传统渲染能力上小胜，也无法在打赢开着RTX和DLSS2.0的Nvidia。<br>
+之所以要说到性能上的优劣，其实这也是决定了AMD策略的一部分。因为AMD要把TSMC已有的产能分配给用芯大头索尼和微软让他们做主机，也要保证他们CPU的产能——因为相比显卡的架构和晶圆面积，CPU的利润更高（良品率稍高，同时这一代Nvidia的性价比比起上一代简直是超高），而在性能优势不显著甚至有些劣势（预期的需求更低，注意是预期的需求），且还不如自家其他产品赚钱的情况下的显卡的地位就相当尴尬了，也就自然分配不到TSMC有限的优先生产队列：AMD相当于是用自家的产品把另外的产品的产能干掉了。<br>
+再说回Nvidia，去年九月自从那张RTX3070打赢上一代旗舰2080Ti的那一刻就注定了这一代人人想买。Nvidia的2000系列性价比极低，再加上滑铁卢的宣传让人们更加热衷于玩RTX的梗而不是RTX的游戏。所以很多买了1000系列或是900系列的用户选择了观望态度。而要知道，1000系列的玩家大多是16-17年入手的卡，而900系列要追溯到更早。这些玩家有的都等了6年，终于盼来了一代性价比超高（相比2000系列）的显卡，一个个都跃跃欲试想要系统升级（那么问题来了，市面上最好的CPU是AMD，那么自然而然大家的选择就是（），让他们家的demand更高&mldr;.），把本来就已经夸张的疫情期间的需求冲击得更高。毕竟疫情期间，吉他断货，因为人们想用lock down的时间试试看弹吉他；锻炼器材断货，因为人们想在家保持fitness；手工制作用品断货，因为有人想要把吃灰了好几年的塑料模型做起来；电子产品（比如游戏主机断货），因为人们实在没啥能投入的兴趣只能玩游戏消遣了——<br>
+说回Nvidia，时常是脚踏两只船的绿厂经常会在三星和TSMC两个Fab来回横跳，看谁的产能高，制程好，或者能优先满足Nvidia的需求就找谁。这次找了三星的Fab用上了三星的8nm制程（要注意的是显卡上制程的优势可以很大程度上被架构弥补，同时三星的制程和TSMC的制程不能横向通过nm数比较），多半是预期到了TSMC的超饱和订单需求。但是三星自己也忙着自己的手机芯片，同时也在为很多其他公司代工一些虽然不是旗舰产品但是需求量也超高的芯片。Nvidia虽然可以说是是三星当前最大的客户，无奈产能确实实在有限，即使去年已经生产了在对比以往发布期间最多的GPU芯片，也仍然无法补上世界范围内对显卡的高需求。（没错，说了这么多，就是产能不足）<br>
+这也要说到AIB。另一个显卡对比CPU产能不足的原因是（虽然你也买不到CPU），显卡不光只是芯片，还需要给显卡分配电压，显存的PCB。这就好比CPU本身啥事都做不了，要插上主板插上内存才能进行计算。而适配显卡的PCB生产这一部分工作的大头都是交由AIB（add-in board partner），就是大家平时说的华硕显卡，MSI显卡，技嘉显卡，等等。这些PCB就像是主板，上面也有好多芯片和电子元件，而现在一提到芯片和电子元件那悲伤的产能和国际运输供应链的问题，想必大家也能想象这些东西也不好生产&mldr;. 没有PCB的显卡芯片也只能干等着。</p>
+<p>注意上述的产品都是消费级/桌面级产品，企业级产品会受到多大影响，大约会取决于那些大头的计算公司和上述两家签的合约如何，不过消费者也估计不会花上冤大头的价格去买那些企业用着discount入手的计算产品——很不划算</p>
+<p>另外影响矿工买GPU的原因其实和BitCoin本身没多大影响，因为现在的BitCoin mining要是用传统CPU/GPU挖矿，就算是100年也回不来本。现在比特币矿工都是用特制的Hash计算单元去挖矿，和CPU，GPU的需求没有任何关系<br>
+影响GPU需求的货币还是以以太坊为首的其他虚拟货币，这些货币用GPU挖矿仍然能获得可观的收入。而这一代AMD每张卡Hashing效率都很高，Nvidia这里3060也有着超高的Hashing/价格优势，导致Nvidia的3060桌面级还未公布就已经被砍了一刀（软硬结合去检测挖矿算法，遇到挖矿算法时自己砍自己一刀让挖矿效率减半）来让矿工望而却步（然而并不能，建议这个可以去关注一下LinusTechTip的视频:https://www.youtube.com/watch?v=XfIibTBaoMM 总结的会比我好很多）<br>
+所以矿工把目光放在了笔电的3060上，因为笔电的3060同样用着和桌面的3060同样的GA104芯片，在架构和优化上是一个东西，同样有着优秀的Hashing能力，Nvidia也没有砍去这些在笔电上的芯片的挖矿算力，同时价格比较实惠，这也是为什么能看到那些倒挂笔记本的矿场的原因&mldr;.</p>
+<p>剩下的总结，太懒了不想写了&mldr;.总的而言，就是今年的供给多半也无法恢复到往常水平。<br>
+ &ndash; RTX, ON</p>
+<h3 id=品葱用户-acca04298-评论于-2021-02-25>品葱用户 <strong>Acca04298</strong> 评论于 2021-02-25</h3>
+<p>因為比特幣跟其他數字貨幣挖礦啊&mldr;..聽說現在價格暴漲，有人被逼到去買筆電挖礦，然後“有種說法”（先說我對顯卡生產產線不熟）顯卡似乎都在中國挖礦者手上？</p>
+<p>還聽說中國出現了假礦機，一開始可以挖螢幕也有顯示，結果後來完全沒反應，打開一看才發現裡面是磚頭&mldr;..一開始挖的都是眼睛業障重</p>
+<h3 id=品葱用户-慶豐大帝習禁評-评论于-2021-02-24>品葱用户 <strong>慶豐大帝習禁評</strong> 评论于 2021-02-24</h3>
+<p>靠北，挖礦那個是加速計算的多線程gpu</p>
+<p>和你玩筆電的普通顯卡是2種玩意</p>
+<p>若是說提高加速卡的產能壓縮普通卡還有那麼一點可能性</p>
+<p>現實是中國肺炎導致車載晶片大缺，產能被挪去做這個了</p>
+<h3 id=品葱用户-yogafire-评论于-2021-02-24>品葱用户 <strong>yogafire</strong> 评论于 2021-02-24</h3>
+<p>个人觉得和虚拟货币什么的关系不大<br>
+我觉得供应方面是主要因为疫情影响了产能和物流。<br>
+物流其实在生产环节就很重要，因为全球化的大背景下，显卡这种比较复杂的高科技产品，很多不同材料都要从多国进口，现在疫情背景下成本大大提高。<br>
+需求侧我觉得是因为现在很多人因为疫情影响都宅在家玩游戏，对显卡需求会有提高，还有，因为疫情的原因很多人要远程工作，对电脑的需求也会提升，他们选择电脑的时候也不一定就会选择适合他们的集显电脑，我有遇到不少不差钱的商务人士就算为了办公也买独显的高级电脑</p>
+<h3 id=品葱用户-屋下有雨-评论于-2021-02-26>品葱用户 <strong>屋下有雨</strong> 评论于 2021-02-26</h3>
+<p>如果你想買，建議你別等了。</p>
+<p>直接一張買下去，有災情也是少數，最重要的是你已經提早用了</p>
+<p>再等一年？</p>
+<p>忘記那些想等2080降價，結果出了3080的傻子？</p>
+<p>想等降價買，結果新卡出來，舊卡不降，又想等新卡降價</p>
+<p>既然你是工作剛需，那直接買也是種止損</p>
+<h3 id=品葱用户-sousou-评论于-2021-02-26>品葱用户 <strong>sousou</strong> 评论于 2021-02-26</h3>
+<p>楼主，你的学习工作需要的电脑性能需要配置那么高的显卡么&mldr;.除非是做视频剪辑和或者图形渲染的，否则根本就不需要配置那么好。<br>
+配置低，还可以让自己节约玩游戏的时间。</p>
+<h3 id=品葱用户-han_chinese-评论于-2021-02-25>品葱用户 <strong>han_chinese</strong> 评论于 2021-02-25</h3>
+<p>兩個理由：<br>
+一是因為疫情原因，全球放水貨幣通膨消費低迷工廠開工不足能源過剩價格低市場上的熱錢涌入虛幣投機市場。<br>
+二是產能不足。三星近年的先進工藝推進不如預期。以前是三星與台積電生產先進工藝的半導體晶片，現在業界的訂單都擠在台積電了，受限台積電產能，這種情況短期內不會改善。</p>
+<p>疫情的影響再過二三個月就過去，虛幣價格上半年會崩盤，顯卡的價格會回落到去年年底的價格。<br>
+產能不足的問題，今明兩年也可能解決不了，所以顯卡價格短期內不會回落到正常價位。</p>
+<p>如果想買顯卡，過二三個月虛幣崩盤後價格回落一些後入手就好，產能問題短期內不會被解決，顯卡短期內是不會再進一步回落了。</p>
+<h3 id=品葱用户-joshua-评论于-2021-02-24>品葱用户 <strong>Joshua</strong> 评论于 2021-02-24</h3>
+<p>突然想到一个问题，比特币价值高企的当下，天河二号这样的超算会不会动用来挖矿为中共创汇？</p>
+<p>参考下面这位知乎网友的回答，每小时花2000美元的电费挖到2枚现价高达10万美元的比特币，还不赚翻了？</p>
+<p><img src="https://images.weserv.nl/?url=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FBaj5dLMCMAAWEc-%3Fformat%3Dpng%26name%3Dorig" alt="https://images.weserv.nl/?url=https://pbs.twimg.com/media/Baj5dLMCMAAWEc-?format=png&name=orig"></p>
+<h3 id=品葱用户-习大大的八个情人-评论于-2021-02-25>品葱用户 <strong>习大大的八个情人</strong> 评论于 2021-02-25</h3>
+<p><a href=https://www.google.com/amp/s/www.tomshardware.com/amp/news/rtx30series-laptops-mining-ethereum>https://www.google.com/amp/s/www.tomshardware.com/amp/news/rtx30series-laptops-mining-ethereum</a><br>
+矿工们已经开始用笔记本挖矿了，因为收益太高了<br>
+从这个问题可以看出，绝大多数葱油对于虚拟币几乎毫无了解。首先，虽然比特币需要用专用的asic矿机进行hash运算，但是相当多的虚拟币从设计之初就杜绝了专有硬件，算法要求容量大且高速的显存进行挖矿，也就是游戏显卡。<br>
+所以显卡脱销就两个原因：1.武汉大瘟疫导致电子产品需求量大幅上升，产能严重不足。<br>
+2.矿老板的投资需要。<br>
+至于为什么虚拟币价格暴涨，看看美股就知道了。</p>
+<h3 id=品葱用户-范松忠-评论于-2021-02-24>品葱用户 <strong>范松忠</strong> 评论于 2021-02-24</h3>
+<p>真的如此？我不太关注，你先搜搜美国的价格，再看看是不是习畜的阴谋，如果是全球性的，那就没办法了。</p>
+<h3 id=品葱用户-正義終將戰勝歸來-评论于-2021-02-24>品葱用户 <strong>正義終將戰勝歸來</strong> 评论于 2021-02-24</h3>
+<p>以前的渠道商今天告诉我供货商发话三个月内价格下不来。（我也加入了矿工大军o(〃&lsquo;▽&rsquo;〃)o）</p>
+<h3 id=品葱用户-chenxiyizhi-评论于-2021-02-24>品葱用户 <strong>chenxiyizhi</strong> 评论于 2021-02-24</h3>
+<p>大概是因为比特币的价格疯长，作为挖矿用具，显卡的价格也随之增长，再加上因为疫情而平添的各种防护费用，显卡才涨价的吧。</p>
+<h3 id=品葱用户-diaoge668-评论于-2021-02-24>品葱用户 <strong>DiaoGe668</strong> 评论于 2021-02-24</h3>
+<p>This is a forum talking about CCP. Why are you talking about computers?  Ask Reddit, man.</p>
+<blockquote>
+<p><a href=https://pincong.rocks/question/36619>点击品葱原文参与讨论</a></p>
+</blockquote>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/fdf4bb4a0e1a31415888c108dc459c1f/?utm_source=see_also&utm_medium=%25E6%2598%25BE%25E5%258D%25A1%25E7%259A%2584%25E4%25BB%25B7%25E6%25A0%25BC%25E4%25B8%25BA%25E4%25BB%2580%25E4%25B9%2588%25E4%25BC%259A%25E8%25BF%2599%25E4%25B9%2588%25E9%25AB%2598%25E9%25A2%2584%25E8%25AE%25A1%25E4%25BB%2580%25E4%25B9%2588%25E6%2597%25B6%25E5%2580%2599%25E8%2583%25BD%25E6%2581%25A2%25E5%25A4%258D%25E6%25AD%25A3%25E5%25B8%25B8">中国人对发明电脑做出了巨大贡献。是真的吗?</a>
+</h2>
+<p class=text-dark>品葱用户 vip0144 提问于 1/31/2021 是从b站一位up主的科普文上看到的。觉得有点道理，请问他说的对吗?
+现代电脑是建立在图灵的图灵机的设计上的，而图灵是20世纪的人。但是中国在一千多年前就已经有了算盘。图灵机的设计和算盘不 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/1ce3928eb335ea1ff50e4507eaeda7b5/?utm_source=see_also&utm_medium=%25E6%2598%25BE%25E5%258D%25A1%25E7%259A%2584%25E4%25BB%25B7%25E6%25A0%25BC%25E4%25B8%25BA%25E4%25BB%2580%25E4%25B9%2588%25E4%25BC%259A%25E8%25BF%2599%25E4%25B9%2588%25E9%25AB%2598%25E9%25A2%2584%25E8%25AE%25A1%25E4%25BB%2580%25E4%25B9%2588%25E6%2597%25B6%25E5%2580%2599%25E8%2583%25BD%25E6%2581%25A2%25E5%25A4%258D%25E6%25AD%25A3%25E5%25B8%25B8">美籍华人工程师因带公司电脑来中国旅游，被美国法院判处 38 个月监禁，对此你怎么看？</a>
+</h2>
+<p class=text-dark>知乎用户 杨文​ 发表 观网的邀请怎么都要回了。
+首先，排除一切其他因素。就事情而言，这是一个美国人，带着装有公司资料的手提电脑，在知道这些信息有可能涉密的情况下去到一个可能发生泄密的区域，这是不恰当的。
+场景换成可口可乐公司的新品研发专家 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/c2dc251c46bf4de67ea6e698a855d814/?utm_source=see_also&utm_medium=%25E6%2598%25BE%25E5%258D%25A1%25E7%259A%2584%25E4%25BB%25B7%25E6%25A0%25BC%25E4%25B8%25BA%25E4%25BB%2580%25E4%25B9%2588%25E4%25BC%259A%25E8%25BF%2599%25E4%25B9%2588%25E9%25AB%2598%25E9%25A2%2584%25E8%25AE%25A1%25E4%25BB%2580%25E4%25B9%2588%25E6%2597%25B6%25E5%2580%2599%25E8%2583%25BD%25E6%2581%25A2%25E5%25A4%258D%25E6%25AD%25A3%25E5%25B8%25B8">事实核查 | 拜登儿子的“电脑门”究竟有没有门？</a>
+</h2>
+<p class=text-dark>如需转载请在后台留言获得许可，
+转载时请注明出处及作者署名，
+违者必究。
+编辑：江南
+文：纽约华人资讯网主笔 詹涓
+周三，《纽约邮报》刊发了一篇报道，再次暗示拜登父子与乌克兰能源公司有不当关系。由于证据链并不充分，一些媒体开始追踪这条新闻中 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/836f531d2926457e794af8542b38926e/?utm_source=see_also&utm_medium=%25E6%2598%25BE%25E5%258D%25A1%25E7%259A%2584%25E4%25BB%25B7%25E6%25A0%25BC%25E4%25B8%25BA%25E4%25BB%2580%25E4%25B9%2588%25E4%25BC%259A%25E8%25BF%2599%25E4%25B9%2588%25E9%25AB%2598%25E9%25A2%2584%25E8%25AE%25A1%25E4%25BB%2580%25E4%25B9%2588%25E6%2597%25B6%25E5%2580%2599%25E8%2583%25BD%25E6%2581%25A2%25E5%25A4%258D%25E6%25AD%25A3%25E5%25B8%25B8">为什么学校里很多编程老师的电脑里都安装了像 360 这样的软件？</a>
+</h2>
+<p class=text-dark>知乎用户 诗与星空​ 发表 两点
+1、懒。
+2、你看到的 360 很可能是天擎。
+天擎现在是国内大型央企、机关、事业单位最常用的企业版杀毒软件。
+统一采购，强制安装。
+知乎用户 暗灭​ 发表 编程是一个很大的概念，360 这些流氓软件也和， …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/2a1a97af53f3d57439745b4df67a9196/?utm_source=see_also&utm_medium=%25E6%2598%25BE%25E5%258D%25A1%25E7%259A%2584%25E4%25BB%25B7%25E6%25A0%25BC%25E4%25B8%25BA%25E4%25BB%2580%25E4%25B9%2588%25E4%25BC%259A%25E8%25BF%2599%25E4%25B9%2588%25E9%25AB%2598%25E9%25A2%2584%25E8%25AE%25A1%25E4%25BB%2580%25E4%25B9%2588%25E6%2597%25B6%25E5%2580%2599%25E8%2583%25BD%25E6%2581%25A2%25E5%25A4%258D%25E6%25AD%25A3%25E5%25B8%25B8">散热升级版超薄笔记本支架上市，抬高电脑、拯救颈椎</a>
+</h2>
+<p class=text-dark>移动办公似乎已经成为了现代人的生活常态，高铁、书吧、咖啡厅&mldr;&mldr;随处可见拿着电脑办公的人。
+但我们都知道，长期俯案办公，对人的颈椎是有损害的。网络上有一张图，清楚地展示了弯腰、探头、俯身对人脊椎、颈椎的压力有多大。 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

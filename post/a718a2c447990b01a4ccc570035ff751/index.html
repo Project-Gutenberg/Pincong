@@ -1,0 +1,353 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>已知邮箱，求手机号码?</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" （ 本文中出现的所有数据均为虚构，如有雷同纯属巧合。）
+个人隐私泄漏越来越严重。个人基本信息的重要程度大致排序如下图，最右为最高。
+已知某人邮箱为zhangsanXXX@sohu.com,如何找到他的手机号码？
+解：
+工信部《电信网编号计划2017版》规定：公众移动网电话号码为11位，物联网网号为13位。从理论上讲，11位数有1000亿个。
+ 01
+第一步：通过“密码找回”获取手机号片段：
+大多数人会使用相同的邮箱相同的手机号注册微信、微博、京东、淘宝、支付宝、携程、豆瓣、大众点评等应用。在“找回密码”页面输入已知的邮件地址：
+京东的密码找回页面
+输入邮件地址后，会提示通过邮件验证码或手机短信验证码+其他因素进行双重认证。选择使用手机验证，下一页将提示与目标账户相关联的手机号码片段。
+我试验了大部分热门应用的密码重置过程，大致如此，有的是前两位后四位，有的是前三位和后两位……。没有标准，屏蔽位数完全由企业和开发人员决定。
+淘宝
+**APPLE只给两位数 微博 **
+支付宝除了部分手机号，还能看到银行卡开户行和卡号后四位。
+携程不错，给的多。
+还有些应用也得表扬，不一一列出。
+经过上述找回密码操作，可得到如下结果。
+158**-XXXX-**8916
+如果你的邮件、手机关联了相关应用，那么11个数字已知7个，还差4个。可能性从1000亿个降低到1万个。
+ 02
+第二步：使用公开数据库筛选：
+为什么公布个人信息时一般是隐藏中间4位号码？目前我国手机号码格式为：3位网号 +4位HLR识别号+4位用户号码。
+ 139**-1234****-**5678
+其中139代表运营商（移动），5678是用户号码。1234是HSS/HLR识别码，或者叫地区编码，相当于你手机归属地的运营商服务器编号，记录了客户数据，包括基本资料、套餐、位置信息、路由以及业务状态数据等等。比如1391234是移动江苏常州的HLR编号，1301234是联通重庆的HLR编号。
+在网上可找到每月更新的手机归属地数据库，字段包括省份、城市、运营商等信息。
+假如我知道张三常住北京，根据数据库筛选结果，158移动目前北京有230个号段，1580100~1580169,1581000~1581159。
+待筛选号码剩下230个。
+如果是其他省市，158XXXX，上海有210个，成都有170个，西安有108个。如果是二级城市，范围就更小了。
+以zhangsanXX在北京为例，生成158XXXX8916的230条手机号码。
+先放到网上的空号检测平台（广泛应用于短信群发、电话营销、呼叫中心外包、保险代理等行业），筛选是否为**实号，空号，停机，流量卡，沉默号。**可再次缩小范围。
+待筛选号码剩下163个。
+ 03
+第三步：反查
+反查方法一：
+用筛选后的手机号码来重置密码，获取邮件地址片段进行反向验证。
+以京东为例，依次输入手机号码后，选择使用邮件验证，下一页将提示与目标账户相关联的邮件地址片段。
+和已知邮件地址特征匹配，大功告成！
+反查方法二：
+微信，支付宝反查；
+将筛选后的手机列表导入手机通讯录，因为现在手机大多都绑定支付宝或微信，导入通讯录后会关联他的微信，通过相关细节可确定手机号；
+或使用支付宝转账功能反查，通过向手机号或邮箱转账，匹配姓氏，找出可能性接近的进行核实，如果对方没有关闭“通过邮箱找到我”、“通过手机号找到我”，可迅速匹配。
+支付宝转账时会提示真实姓名片段 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 已知邮箱，求手机号码? ">
+<meta name=og:description content=" （ 本文中出现的所有数据均为虚构，如有雷同纯属巧合。）
+个人隐私泄漏越来越严重。个人基本信息的重要程度大致排序如下图，最右为最高。
+已知某人邮箱为zhangsanXXX@sohu.com,如何找到他的手机号码？
+解：
+工信部《电信网编号计划2017版》规定：公众移动网电话号码为11位，物联网网号为13位。从理论上讲，11位数有1000亿个。
+ 01
+第一步：通过“密码找回”获取手机号片段：
+大多数人会使用相同的邮箱相同的手机号注册微信、微博、京东、淘宝、支付宝、携程、豆瓣、大众点评等应用。在“找回密码”页面输入已知的邮件地址：
+京东的密码找回页面
+输入邮件地址后，会提示通过邮件验证码或手机短信验证码+其他因素进行双重认证。选择使用手机验证，下一页将提示与目标账户相关联的手机号码片段。
+我试验了大部分热门应用的密码重置过程，大致如此，有的是前两位后四位，有的是前三位和后两位……。没有标准，屏蔽位数完全由企业和开发人员决定。
+淘宝
+**APPLE只给两位数 微博 **
+支付宝除了部分手机号，还能看到银行卡开户行和卡号后四位。
+携程不错，给的多。
+还有些应用也得表扬，不一一列出。
+经过上述找回密码操作，可得到如下结果。
+158**-XXXX-**8916
+如果你的邮件、手机关联了相关应用，那么11个数字已知7个，还差4个。可能性从1000亿个降低到1万个。
+ 02
+第二步：使用公开数据库筛选：
+为什么公布个人信息时一般是隐藏中间4位号码？目前我国手机号码格式为：3位网号 +4位HLR识别号+4位用户号码。
+ 139**-1234****-**5678
+其中139代表运营商（移动），5678是用户号码。1234是HSS/HLR识别码，或者叫地区编码，相当于你手机归属地的运营商服务器编号，记录了客户数据，包括基本资料、套餐、位置信息、路由以及业务状态数据等等。比如1391234是移动江苏常州的HLR编号，1301234是联通重庆的HLR编号。
+在网上可找到每月更新的手机归属地数据库，字段包括省份、城市、运营商等信息。
+假如我知道张三常住北京，根据数据库筛选结果，158移动目前北京有230个号段，1580100~1580169,1581000~1581159。
+待筛选号码剩下230个。
+如果是其他省市，158XXXX，上海有210个，成都有170个，西安有108个。如果是二级城市，范围就更小了。
+以zhangsanXX在北京为例，生成158XXXX8916的230条手机号码。
+先放到网上的空号检测平台（广泛应用于短信群发、电话营销、呼叫中心外包、保险代理等行业），筛选是否为**实号，空号，停机，流量卡，沉默号。**可再次缩小范围。
+待筛选号码剩下163个。
+ 03
+第三步：反查
+反查方法一：
+用筛选后的手机号码来重置密码，获取邮件地址片段进行反向验证。
+以京东为例，依次输入手机号码后，选择使用邮件验证，下一页将提示与目标账户相关联的邮件地址片段。
+和已知邮件地址特征匹配，大功告成！
+反查方法二：
+微信，支付宝反查；
+将筛选后的手机列表导入手机通讯录，因为现在手机大多都绑定支付宝或微信，导入通讯录后会关联他的微信，通过相关细节可确定手机号；
+或使用支付宝转账功能反查，通过向手机号或邮箱转账，匹配姓氏，找出可能性接近的进行核实，如果对方没有关闭“通过邮箱找到我”、“通过手机号找到我”，可迅速匹配。
+支付宝转账时会提示真实姓名片段 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/40.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>已知邮箱，求手机号码?</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/lymmmx>Lymmmx</a></span>,
+<span>at 03 December 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%b8%aa%e4%ba%ba%e4%bf%a1%e6%81%af>个人信息</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%89%8b%e6%9c%ba%e5%8f%b7%e7%a0%81>手机号码</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%89%8b%e6%9c%ba%e5%8f%b7>手机号</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%ad%9b%e9%80%89>筛选</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/a718a2c447990b01a4ccc570035ff751.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/a718a2c447990b01a4ccc570035ff751.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>（ 本文中出现的所有数据均为虚构，如有雷同纯属巧合。）</p>
+<p>个人隐私泄漏越来越严重。个人基本信息的重要程度大致排序如下图，最右为最高。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzveicBGaBppy6Hp3mFnFcibAspyKDVibdHhhqekunJn1T6q5dFNgpMWP0XKUyQBzseyVAPplzjcQL5ojw/640%3Fwx_fmt%3Dpng" alt></p>
+<p><strong>已知某人邮箱为zhangsanXXX@sohu.com,如何找到他的手机号码？</strong></p>
+<p><strong>解：</strong></p>
+<p>工信部《电信网编号计划2017版》规定：公众移动网电话号码为11位，物联网网号为13位。从理论上讲，11位数有1000亿个。</p>
+<p> 01</p>
+<p><strong>第一步：通过“密码找回”获取手机号片段：</strong></p>
+<p>大多数人会使用<strong>相同的邮箱相同的手机号</strong>注册微信、微博、京东、淘宝、支付宝、携程、豆瓣、大众点评等应用。在“找回密码”页面输入已知的邮件地址：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzveicBGaBppy6Hp3mFnFcibAspseMN4ksuNicybIN3X0oicKpKpfayookxcwvFJfETriaHcOickW7QufOHAg/640%3Fwx_fmt%3Dpng" alt></p>
+<p><strong>京东的密码找回页面</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzveicBGaBppy6Hp3mFnFcibAsph7A4pwKrb2cDPuYFo9vXXPka0QwiaCKUY8hAvgkZ8YUtky9YFIV8vBA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>输入邮件地址后，会提示通过邮件验证码或手机短信验证码+其他因素进行双重认证。选择使用手机验证，下一页将提示与目标账户相关联的手机号码片段。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzveicBGaBppy6Hp3mFnFcibAspZqCywezYfSia8IialIFuQNpbPWfaL4UDPmXMiaFjHynFCHdC3ibo2rAGSA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>我试验了大部分热门应用的密码重置过程，大致如此，有的是前两位后四位，有的是前三位和后两位……。没有标准，屏蔽位数完全由企业和开发人员决定。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzveicBGaBppy6Hp3mFnFcibAspwtfUSb7BlfqheLYF62HyibHCG9NK0GViaybuS46uricEyq7bBMzEFbg5Q/640%3Fwx_fmt%3Dpng" alt></p>
+<p><strong>淘宝</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzveicBGaBppy6Hp3mFnFcibAsp8Z6IpkJ8JjxvDnjz6ZibtSYiaHsTBHy0wx8POMmkFnGc9dAGQ8liadEaA/640%3Fwx_fmt%3Dpng" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzveicBGaBppy6Hp3mFnFcibAspw5JhoiaU4FMHibbUmWKcfW4fpXUqHNW3SWQTEL3BDj9naBCt56PBlzJA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>**APPLE只给两位数                            微博 **</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzveicBGaBppy6Hp3mFnFcibAsprNicKPapwjPZqGqd1uCmCOkp24E3ibIfJk41xohicqERsNk5fKVPsj1sA/640%3Fwx_fmt%3Dpng" alt></p>
+<p><strong>支付宝除了部分手机号，还能看到银行卡开户行和卡号后四位。</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzveicBGaBppy6Hp3mFnFcibAspnNia3tcyuq0F2ntS6cdV4WuZ9ey50hG2VUzaTZ2kQJaV898MooqZkoA/640%3Fwx_fmt%3Dpng" alt></p>
+<p><strong>携程不错，给的多。</strong></p>
+<p><strong>还有些应用也得表扬，不一一列出。</strong></p>
+<p>经过上述找回密码操作，可得到如下结果。</p>
+<p><strong>158</strong>**-<strong><strong>XXXX</strong></strong>-**<strong>8916</strong></p>
+<p>如果你的邮件、手机关联了相关应用，那么11个数字已知7个，还差4个。可能性<strong>从1000亿个降低到1万个</strong>。</p>
+<p> 02</p>
+<p><strong>第二步：使用公开数据库筛选：</strong></p>
+<p>为什么公布个人信息时一般是隐藏中间4位号码？目前我国手机号码格式为：3位网号 +4位HLR识别号+4位用户号码。</p>
+<p> <strong>139</strong>**-1234****-**<strong>5678</strong></p>
+<p>其中139代表运营商（移动），5678是用户号码。1234是HSS/HLR识别码，或者叫地区编码，相当于你手机归属地的运营商服务器编号，记录了客户数据，包括基本资料、套餐、位置信息、路由以及业务状态数据等等。比如1391234是移动江苏常州的HLR编号，1301234是联通重庆的HLR编号。</p>
+<p>在网上可找到每月更新的手机归属地数据库，字段包括省份、城市、运营商等信息。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzvdhYheiarmHF4RibLOwuoysDzSWlktyBX0MpkftdR3352EuNiaZz5pKficbODr13D8ec8GnKXrUHibiaSug/640%3Fwx_fmt%3Dpng" alt></p>
+<p>假如我知道张三常住北京，根据数据库筛选结果，158移动目前北京有230个号段，1580100~1580169,1581000~1581159。</p>
+<p><strong>待筛选号码剩下230个</strong>。</p>
+<p>如果是其他省市，158XXXX，上海有210个，成都有170个，西安有108个。如果是二级城市，范围就更小了。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzvdhYheiarmHF4RibLOwuoysDzRXAdvpt8kicXXOGhqYQ5nHMaOiaxqldu90oWb0Nv7rtSGKlbMw09tlgA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>以zhangsanXX在北京为例，生成158XXXX8916的230条手机号码。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzvdhYheiarmHF4RibLOwuoysDzZeBtTPbIUxphBVGSsVgn7QqXwpmyLerHSesnVPNLMeaF0YaFPQUOWg/640%3Fwx_fmt%3Dpng" alt></p>
+<p>先放到网上的空号检测平台（广泛应用于短信群发、电话营销、呼叫中心外包、保险代理等行业），筛选是否为**实号，空号，停机，流量卡，沉默号。**可再次缩小范围。</p>
+<p><strong>待筛选号码剩下163个</strong>。</p>
+<p> 03</p>
+<p><strong>第三步：反查</strong></p>
+<p>反查方法一：</p>
+<p>用筛选后的手机号码来重置密码，获取邮件地址片段进行反向验证。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzvdhYheiarmHF4RibLOwuoysDzeESicxiaQl5K2gGic9HhZvaeiaDpOLxeMFCKj8ztgxVsJrZmZGcWhPBE8A/640%3Fwx_fmt%3Dpng" alt></p>
+<p>以京东为例，依次输入手机号码后，选择使用邮件验证，下一页将提示与目标账户相关联的邮件地址片段。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzvdhYheiarmHF4RibLOwuoysDzCibsjsJ3CELeibLCVAdteGY6HUD9zCUgc615Oe5yHTa0ueDdI1q470Gw/640%3Fwx_fmt%3Dpng" alt></p>
+<p>和已知邮件地址特征匹配，大功告成！</p>
+<p>反查方法二：</p>
+<p>微信，支付宝反查；</p>
+<p>将筛选后的手机列表导入手机通讯录，因为现在手机大多都绑定支付宝或微信，导入通讯录后会关联他的微信，通过相关细节可确定手机号；</p>
+<p>或使用支付宝转账功能反查，通过向手机号或邮箱转账，匹配姓氏，找出可能性接近的进行核实，如果对方没有关闭“通过邮箱找到我”、“通过手机号找到我”，可迅速匹配。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzvdhYheiarmHF4RibLOwuoysDzq0odoS6ueEOCXGFNrmH0D4iba4sjTPDjic3R3XtByYJ2x8ZpfrUgYamw/640%3Fwx_fmt%3Dpng" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzvdhYheiarmHF4RibLOwuoysDzpaicqcelJxjcKzBb2x6wOS9hpksRFewD52ctBT9FYjh6Nm0Zwic7HTJw/640%3Fwx_fmt%3Dpng" alt></p>
+<p><strong>支付宝转账时会提示真实姓名片段</strong></p>
+<p><strong>通过以上一二三步，可在对方无感知的情况下且不使用工具，即可获取与电子邮件地址关联的完整手机号码。</strong></p>
+<p> 04</p>
+<p>如果城市未知或其他情况，还可以采取其他多种方式进一步进行筛选，163个待筛选号码通过相关搜索也可再次缩小范围。</p>
+<p>通过搜索引擎和相关泄漏数据库查找线索，可进一步获取目标邮件地址的相关信息，比如性别、学校通讯录、姓名、开房记录或兴趣爱好，并可判断大致的年龄；甚至目标有可能将其电话号码留在论坛，网站中。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzveicBGaBppy6Hp3mFnFcibAspDBLiaptyKNsYGCgvp27qkXAIWiaZia2BhQaHLQ5afUIc6YNug7TFUvibWw/640%3Fwx_fmt%3Dpng" alt></p>
+<p>这是使用某开源情报工具搜索该邮件地址的结果。可看到此邮件地址注册的APPLE、领英、Twitter账户和GOOGLE用户ID，部分社交媒体的头像和ID，部分曾泄露的天涯、机锋、ADOBE等账户信息和密码，均可做为进一步搜索的依据。类似出生日期的78****，可进行身份证推算。</p>
+<p> 05</p>
+<p>由于网络实名制的要求和大数据商业利益驱动，现在大部分的应用都强制要求绑定手机，甚至现在国内注册免费邮箱，几乎没有不要手机号的。</p>
+<p>短信验证码机制算是性价比相对较高的二次验证方法，但“用隐私交换便捷”，在提供安全保护的同时也是安全隐患所在。仅知道邮件地址，攻击手段限于广告、骚扰及钓鱼等，但如果知道手机号以后，可干的事儿就多多了&mldr;&mldr;</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzveicBGaBppy6Hp3mFnFcibAspEQOxick2iblZfPnWuXO4eZOKJibVFSG0BoCYcJhLuzWZUaKO7Yj5RcYAA/640%3Fwx_fmt%3Dpng" alt></p>
+<p>不要裸奔！</p>
+<p><strong>建议：</strong></p>
+<p>1、<strong>分类分级</strong></p>
+<p>将自己在线上和线下的身份区分开，将自己工作和生活的身份区分开，将重要信息和普通信息所关联的身份区分开。</p>
+<p>工作使用企业邮箱，生活使用个人邮箱，不同APP不同重要级别的账户使用不同的用户名和口令，社交媒体尽量不使用相同账号。不同数据库无法撞库，无法形成关联；</p>
+<p>2、许多在线服务并没有真正对用户手机号码的业务需求，他们只是想获取你更多的信息。所以除非严格要求，尽可能不在网上提供电话号码，如果必须提供，尽可能使用小号，<strong>谨慎公开主要号码</strong>。应用提供的安全设置应尽可能仔细逐项设置。更换手机号码要对原来的手机应用进行彻底解绑；</p>
+<p>3、应用服务商应进一步完善密码找回功能的安全设置及账户注销、解绑、抹除数据等功能。</p>
+<p>以上。</p>
+<p>已知常用邮箱和手机号，如何进一步查找对应的身份证号码，下期汇报。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/dX7qOpOgzveicBGaBppy6Hp3mFnFcibAspejmvDM8NIzwzDFoDdiaD5Y1wbVJkwcXsjATvXUibczuZE9rrktaRFEQw/640%3Fwx_fmt%3Dpng" alt></p>
+<p> &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</p>
+<p>以上信息均为虚构。“人肉搜索”不能越界。</p>
+<p>刑法第二百五十三条：**【侵犯公民个人信息罪】**违反国家有关规定，向他人出售或者提供公民个人信息，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金;情节特别严重的，处三年以上七年以下有期徒刑，并处罚金。</p>
+<p><strong>《最高人民法院、最高人民检察院关于办理侵犯公民个人信息刑事案件适用法律若干问题的解释》（2017年5月）：</strong></p>
+<p>1、“公民个人信息”,是指以电子或者其他方式记录的能够单独或者与其他信息结合识别特定自然人身份或者反映特定自然人活动情况的各种信息，包括<strong>姓名、身份证件号码、通信通讯联系方式、住址、账号密码、财产状况、行踪轨迹</strong>等。</p>
+<p>2、向特定人提供公民个人信息，以及通过信息网络或者其他途径发布公民个人信息的；未经被收集者同意，将合法收集的公民个人信息向他人提供的，应当认定为刑法第二百五十三条之一规定的“提供公民个人信息”，但是经过处理无法识别特定个人且不能复原的除外。</p>
+<p>图片和文字来源：</p>
+<p><a href=https://www.jd.com>https://www.jd.com</a> 京东</p>
+<p><a href=https://www.taobao.com/>https://www.taobao.com/</a> 淘宝</p>
+<p><a href=https://www.alipay.com/>https://www.alipay.com/</a> 支付宝</p>
+<p><a href=https://weibo.com/>https://weibo.com/</a> 微博</p>
+<p><a href=https://secure.www.apple.com.cn/>https://secure.www.apple.com.cn/</a> APPLE</p>
+<p><a href=https://www.ctrip.com/>https://www.ctrip.com/</a> 携程</p>
+<p><a href=https://lampyre.io/>https://lampyre.io/</a></p>
+<p><a href=https://www.martinvigo.com/>https://www.martinvigo.com/</a></p>
+<p><a href=http://www.miit.gov.cn/n1146295/n1652858/n1652930/n3757020/c5623267/content.html>http://www.miit.gov.cn/n1146295/n1652858/n1652930/n3757020/c5623267/content.html</a>  工信部《电信网编号计划（2017版）》</p>
+<p><a href=https://www.martinvigo.com/http://www.spp.gov.cn/xwfbh/wsfbt/201705/t20170509>https://www.martinvigo.com/http://www.spp.gov.cn/xwfbh/wsfbt/201705/t20170509</a>_190088.shtml  《最高人民法院 最高人民检察院关于办理侵犯公民个人信息刑事案件适用法律若干问题的解释》</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/dX7qOpOgzvfTiaA835tCYxHLJO7fDnTwtAU2JRMEfFpOmkXfMBwn27t76EQKVq5tnJVJRYvLAFjtMibuxC4sCAnw/640%3Fwx_fmt%3Djpeg" alt></p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/932196f6f46abef2e9f5a91d2223fa2a/?utm_source=see_also&utm_medium=%25E5%25B7%25B2%25E7%259F%25A5%25E9%2582%25AE%25E7%25AE%25B1%25E6%25B1%2582%25E6%2589%258B%25E6%259C%25BA%25E5%258F%25B7%25E7%25A0%2581">隐私都泄露成这样了，还磕CP呢？？</a>
+</h2>
+<p class=text-dark>01
+今天还是说说隐私泄露的事情。
+官方通报上海新增确诊一例以后，我每个本地群都在为这件事烦心，自然而然也会聊一些和疫情防控有关的话题。
+比如健康吗会不会变黄啊，比如行程码为什么“上海”两个字变红啦，比如这位感染者在确诊前都去过什么地方啊。 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/a6a41c47804666c124c81265306ccf44/?utm_source=see_also&utm_medium=%25E5%25B7%25B2%25E7%259F%25A5%25E9%2582%25AE%25E7%25AE%25B1%25E6%25B1%2582%25E6%2589%258B%25E6%259C%25BA%25E5%258F%25B7%25E7%25A0%2581">低通胀环境下值得考虑买入的43只美股</a>
+</h2>
+<p class=text-dark>文 | 《巴伦周刊》撰稿人丽莎·贝尔弗斯
+编辑 | 张晓添
+在一种无通胀或通缩的环境中，利率会下降，并会在数年内保持低位。这意味着，投资者应该特别投资于科技和必需消费品，并且将重点放在成长股而非价值股上，因为价值股在通胀和利率上升时表现更 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/f4961024e6030181be792857a02d2b83/?utm_source=see_also&utm_medium=%25E5%25B7%25B2%25E7%259F%25A5%25E9%2582%25AE%25E7%25AE%25B1%25E6%25B1%2582%25E6%2589%258B%25E6%259C%25BA%25E5%258F%25B7%25E7%25A0%2581">为了租房不交中介费，我豁出去了&mldr;</a>
+</h2>
+<p class=text-dark>大家好
+最近地摊经济贼火
+遍地都在教你如何摆摊致富
+然后还有层出不穷的
+各专业人士摆摊指****南
+虽然写指南的人可能压根没摆过地摊
+搞得我都开始按耐不住
+买了辆地摊神车，准备另辟蹊径&mldr;
+结果正当我欲大展宏图之时
+却发现情况好 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/9c2057a146e8adbd3c1afbe46f233755/?utm_source=see_also&utm_medium=%25E5%25B7%25B2%25E7%259F%25A5%25E9%2582%25AE%25E7%25AE%25B1%25E6%25B1%2582%25E6%2589%258B%25E6%259C%25BA%25E5%258F%25B7%25E7%25A0%2581">​有没有发现：她们都很像？</a>
+</h2>
+<p class=text-dark>**文/六神磊磊
+**
+懒得管段落了，就这么一句一句写。
+苟晶，陈春秀，还有王娜娜、罗彩霞……
+这些，都是高考被人冒名顶替的女孩。
+看了她们全部人的采访，
+你有没有发现一点：
+她们都很像？
+我说的“像”，
+不只是说她们都来自农村、家庭贫困。 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/412686be82dd11608ad4a12b212e13b1/?utm_source=see_also&utm_medium=%25E5%25B7%25B2%25E7%259F%25A5%25E9%2582%25AE%25E7%25AE%25B1%25E6%25B1%2582%25E6%2589%258B%25E6%259C%25BA%25E5%258F%25B7%25E7%25A0%2581">​有没有发现：她们都很像？</a>
+</h2>
+<p class=text-dark>**文/六神磊磊
+**
+懒得管段落了，就这么一句一句写。
+苟晶，陈春秀，还有王娜娜、罗彩霞……
+这些，都是高考被人冒名顶替的女孩。
+看了她们全部人的采访，
+你有没有发现一点：
+她们都很像？
+我说的“像”，
+不只是说她们都来自农村、家庭贫困。 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

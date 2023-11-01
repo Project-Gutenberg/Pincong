@@ -1,0 +1,354 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>关于Shadowsocks的小白常见问题 总结篇 | 逗比根据地</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 广告
+
+本文最后更新于 2018年7月19日 12:37 可能会因为没有更新而失效。如已失效或需要修正，请留言！
+平时在网站评论和群里，老是有一些小白问一些很常见很基础的问题，一次两次还好，回复次数多了我也烦了。所以就干脆写一个 小白常见问题总结！到时候一丢网址就完事啦！
+本文章会根据平时见到多的常见的问题不停的补充完善，欢迎评论中留言提建议或者指出错误！
+强烈推荐：搬瓦工官方出品机场，CN2 GIA 线路，官方保证 IP 可用，妈妈再也不用担心 IP 被封啦（优惠码：JMS9272283）：Just My Socks | 搬瓦工官方 Shadowsocks 代理服务 $2.88/月起
+Shadowsocks介绍相关问题 Shadowsocks作者是谁？是否还在更新？ 点击展开 查看更多
+Shadowsocks是否安全？加密性如何？ 点击展开 查看更多
+Shadowsocks和VPN 的区别是什么？ 详细说明请看：Shadowsocks（Sock5代理）的PAC模式与全局模式与VPN的区别
+Shadowsocks各分支版本地址 点击展开 查看更多
+Shadowsocks客户端相关问题 Shadowsocks / ShadowsocksR / 安卓客户端 怎么使用？ 新手使用教程请看：Shadowsocks的小白使用教程
+ShadowsocksR客户端 有什么隐藏的功能吗？ 请看：ShadowsocksR 客户端 各种隐藏使用技巧说明
+Shadowsocks原版和ShadowsocksR的区别是什么？ 点击展开 查看更多 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 关于Shadowsocks的小白常见问题 总结篇 | 逗比根据地 ">
+<meta name=og:description content=" 广告
+
+本文最后更新于 2018年7月19日 12:37 可能会因为没有更新而失效。如已失效或需要修正，请留言！
+平时在网站评论和群里，老是有一些小白问一些很常见很基础的问题，一次两次还好，回复次数多了我也烦了。所以就干脆写一个 小白常见问题总结！到时候一丢网址就完事啦！
+本文章会根据平时见到多的常见的问题不停的补充完善，欢迎评论中留言提建议或者指出错误！
+强烈推荐：搬瓦工官方出品机场，CN2 GIA 线路，官方保证 IP 可用，妈妈再也不用担心 IP 被封啦（优惠码：JMS9272283）：Just My Socks | 搬瓦工官方 Shadowsocks 代理服务 $2.88/月起
+Shadowsocks介绍相关问题 Shadowsocks作者是谁？是否还在更新？ 点击展开 查看更多
+Shadowsocks是否安全？加密性如何？ 点击展开 查看更多
+Shadowsocks和VPN 的区别是什么？ 详细说明请看：Shadowsocks（Sock5代理）的PAC模式与全局模式与VPN的区别
+Shadowsocks各分支版本地址 点击展开 查看更多
+Shadowsocks客户端相关问题 Shadowsocks / ShadowsocksR / 安卓客户端 怎么使用？ 新手使用教程请看：Shadowsocks的小白使用教程
+ShadowsocksR客户端 有什么隐藏的功能吗？ 请看：ShadowsocksR 客户端 各种隐藏使用技巧说明
+Shadowsocks原版和ShadowsocksR的区别是什么？ 点击展开 查看更多 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/210.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>关于Shadowsocks的小白常见问题 总结篇 | 逗比根据地</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<span>at 27 July 2016</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%ae%a2%e6%88%b7%e7%ab%af>客户端</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%b7%b7%e6%b7%86>混淆</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%8e%9f%e7%89%88>原版</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/2a3cdc82fca20b580ba8beedd8174b06.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/2a3cdc82fca20b580ba8beedd8174b06.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>广告</p>
+<p><a href=http://bwggo.com/topad2><img src="https://images.weserv.nl/?url=bwgss-h.png" alt></a></p>
+<p>本文最后更新于 <strong>2018年7月19日 12:37</strong> 可能会因为没有更新而失效。如已失效或需要修正，请留言！</p>
+<p>平时在网站评论和群里，老是有一些小白问一些很常见很基础的问题，一次两次还好，回复次数多了我也烦了。所以就干脆写一个 小白常见问题总结！到时候一丢网址就完事啦！</p>
+<p>本文章会根据平时见到多的常见的问题不停的补充完善，欢迎评论中留言提建议或者指出错误！</p>
+<p><img src="https://images.weserv.nl/?url=qvd2s83a.png" alt></p>
+<p>强烈推荐：搬瓦工官方出品机场，CN2 GIA 线路，<strong>官方保证 IP 可用</strong>，妈妈再也不用担心 IP 被封啦（优惠码：<a href=http://bwggo.com/bwgss/all/zh>JMS9272283</a>）：<a href=http://bwggo.com/bwgss/all/zh>Just My Socks | 搬瓦工官方 Shadowsocks 代理服务 $2.88/月起</a></p>
+<h2 id=shadowsocks介绍相关问题>Shadowsocks介绍相关问题</h2>
+<h3 id=shadowsocks作者是谁是否还在更新>Shadowsocks作者是谁？是否还在更新？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<h3 id=shadowsocks是否安全加密性如何>Shadowsocks是否安全？加密性如何？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<h3 id=shadowsocks和vpn-的区别是什么>Shadowsocks和VPN 的区别是什么？</h3>
+<p>详细说明请看：<a href=4e-hd3iu-2.html>Shadowsocks（Sock5代理）的PAC模式与全局模式与VPN的区别</a></p>
+<h3 id=shadowsocks各分支版本地址>Shadowsocks各分支版本地址</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<h2 id=shadowsocks客户端相关问题>Shadowsocks客户端相关问题</h2>
+<h3 id=shadowsocks--shadowsocksr--安卓客户端-怎么使用>Shadowsocks / ShadowsocksR / 安卓客户端 怎么使用？</h3>
+<p>新手使用教程请看：<a href=jeptq9ir-2.html>Shadowsocks的小白使用教程</a></p>
+<h3 id=shadowsocksr客户端-有什么隐藏的功能吗>ShadowsocksR客户端 有什么隐藏的功能吗？</h3>
+<p>请看：<a href=kd691l4o-3.html>ShadowsocksR 客户端 各种隐藏使用技巧说明</a></p>
+<h3 id=shadowsocks原版和shadowsocksr的区别是什么>Shadowsocks原版和ShadowsocksR的区别是什么？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>Shadowsocks原版在更新到 v2.5.8 之后被“相关部门”约谈喝茶了，于是就停止了更新。但是应网友要求，另一个开发者把 v2.5.8 的一些严重BUG修复了更新为 v3.0，然后宣布不再管了。</p>
+<p>Shadowsocks原版本身，也是具有协议和混淆功能的，也就是原版协议/混淆，只是只有一个不能自行选择，并且全靠作者维护，作者喝茶后，就GG了，其他的接手者只是继续完善其他的功能。</p>
+<p>而ShadowsocksR是在 原版作者喝茶前，由另一个程序员 <a href=https://twitter.com/breakwa11>@breakwa11</a> 制作的第三方版本，主要特点是增加了一些人性化功能，<strong>比如服务器连接统计、连接管理、协议转换、多重代理等。</strong></p>
+<p>最主要的是ShadowsocksR的<strong>混淆协议和插件功能</strong>，因为Shadowsocks原版项目已经无人维护，同时 墙 的工作人员也在不停的寻找效率批量匹配特征的方法，<strong>目前SS原版协议在大部分地区已经被 匹配流量特征QOS限速了。</strong></p>
+<p>所以ShadowsocksR的混淆协议和插件就应运而生，<strong>其目的就是欺骗 墙 目前的流量匹配功能和QOS限速。</strong></p>
+<p>需要说明的是，ShadowsocksR目前最新的协议和混淆是会增加延迟和损耗15%的速度(因为混淆需要时间，越复杂的混淆越不容易被墙发现，同时混淆时间越长)，所以如果你没有限速，或许用原版协议和混淆会更好。</p>
+<p>你可以理解为<strong>在原版协议的基础上加强了混淆功能</strong>，所以在部分地区只有使用ShadowsocksR的混淆功能才能达到最佳速度，当然不同地区也不一样，所以最好都试试！</p>
+<h3 id=shadowsocksr的混淆协议和插件有什么用>ShadowsocksR的混淆协议和插件有什么用？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>不说各混淆的特性，只说一下 混淆协议插件 整体意义。</p>
+<p><strong>Shadowsocks的开发目的是 穿透防火墙，也就是专门科学上网用的。</strong></p>
+<p><strong>Shadowsocks是被设计来 混淆数据，增加 墙 检查出流量特征所需的计算量，提高实时检测和匹配的成本。</strong></p>
+<p>但是 作者喝茶后，其他的Shadowsocks项目参与者都散了，已经无人维护Shadowsocks原版项目，再加上 墙 一直没有停下 针对Shadowsocks协议的 流量特征分析。</p>
+<p>所以，现在的<strong>Shadowsocks原版协议在一些地区已经被严重匹配流量特征</strong>了。</p>
+<p>早在2016年5月，我便已经发现了使用Shadowsocks原版被运营商限速，换成ShadowsocksR最新的协议和混淆后就恢复正常速度的例子了。</p>
+<p><strong>遇到这种情况会出现：</strong></p>
+<ol>
+<li>Shadowsocks间歇性无法连接。</li>
+<li>Shadowsocks速度一开始很快，然后很快就降速很低。</li>
+<li>Shadowsocks所有账号，全部无法超过XXX KB/S的速度。</li>
+<li>Shadowsocks单一端口使用一段时间或者一些流量后无法使用，换端口后正常。</li>
+<li>Shadowsocks使用一段时间后无法连接，但是重新拨号（换IP）或者换Shadowsocks服务器后正常。</li>
+</ol>
+<p>这是目前我已知的几种情况。</p>
+<p>而ShadowsocksR的主要特点就是 <strong>混淆协议和插件</strong>，目的就是为了弥补 <strong>目前Shadowsocks原版协议已经 部分地区封锁</strong>的情况。</p>
+<p>通过 <strong>改变流量特征</strong> 或者 <strong>伪装其他流量特征</strong> 来达到<strong>欺骗QOS</strong> 的目的。<br>
+但是，既然是欺骗，那就不可能一直骗下去，所以ShadowsocksR的混淆协议需要不停地更新，来对抗整个 墙的工作人员。</p>
+<p>一些地区Shadowsocks原版协议封锁严重，使用<strong>最新的 混淆协议和插件</strong>可以<strong>缓解或者暂时解决</strong>上面所说的情况（尽量不要使用旧的，基本已经匹配了）</p>
+<p>目前，各省份的运营商(墙)相对是独立的，并不是全网同步的，所以会遇到有些地区的运营商已经可以匹配Shadowsocks原版流量特征了，而有些没影响。</p>
+<p>需要说明的是，ShadowsocksR目前最新的协议和混淆是会增加延迟和损耗15%的速度(因为混淆需要时间，越复杂的混淆越不容易被墙发现，同时混淆时间越长)，所以如果你没有限速，或许用原版协议和混淆会更好。</p>
+<p>同样大部分地区还是 封锁较轻，这种地区根据当地的QOS策略不同，可能需要选择性的使用 混淆协议哈插件。</p>
+<blockquote>
+<p>比如我这里，在<strong>低峰期阶段</strong> 使用混淆协议后 速度和不使用差不多，而在<strong>高峰期阶段</strong>，原版协议速度明显被QOS限速，使用混淆协议后，可以缓解限速，虽然不一定达到的Shadowsocks的最高速度水准，但是也比限速要强很多的。</p>
+</blockquote>
+<p>从我的当地情况可以看出，混淆协议不仅<strong>分地区，而且分时间段</strong>，所以说来说去，总归一句话：<strong>多试试多观察 就知道需不需要使用ShadowsocksR的混淆协议和插件了！</strong></p>
+<blockquote>
+<p>简单的说，你的流量出墙的时候要经过<strong>两道关卡</strong>，第一个是运营商 <strong>检测Shadowsocks原版协议</strong>的，当特征匹配的话，就会阻断或者限速。</p>
+<p>然后第二个关卡才是 <strong>运营商对所有普通宽带用户的统一限速</strong>，也就是不管你是什么类型的流量，都全部限速。当然，<strong>有的地区有第一个关卡，有的则没有。</strong></p>
+<p>而混淆协议只能欺骗<strong>第一个关卡：针对Shadowsocks原版协议的QOS限速</strong>，但并<strong>不能突破 运营商的统一QOS限速。</strong></p>
+</blockquote>
+<p>注意：ShadowsocksR的混淆协议功能只能针对 <strong>当地运营商对Shadowsocks原版协议QOS限速</strong>的情况才会有效果，如果只是 <strong>当地运营商对国际宽带统一QOS限速</strong>，那基本就没用了。</p>
+<h3 id=如何知道自己是否需要使用shadowsocksr服务端和客户端>如何知道自己是否需要使用ShadowsocksR服务端和客户端？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>首先，你使用Shadowsocks原版的服务端和客户端时，遇到了以下几种情况：</p>
+<ol>
+<li>Shadowsocks间歇性无法连接。</li>
+<li>Shadowsocks速度一开始很快，然后很快就降速很低。</li>
+<li>Shadowsocks所有账号，全部无法超过XXX KB/S的速度。</li>
+<li>Shadowsocks单一端口使用一段时间或者一些流量后无法使用，换端口后正常。</li>
+<li>Shadowsocks使用一段时间后无法连接，但是重新拨号（换IP）或者换Shadowsocks服务器后正常。</li>
+</ol>
+<p>那就说明，你当地的运营商已经具备检测Shadowsocks原版协议/混淆的能力了，所以对其限速、丢包干扰等。</p>
+<p>这时候你就需要使用ShadowsocksR服务端和客户端了。</p>
+<p>当然，即使你没有遇到上面的情况，你也可以尝试使用ShadowsocksR服务端和客户端，说不定，你觉得没限速，实际现在正在被运营商限速呢。</p>
+<p>当然，是否需要使用ShadowsocksR客户端和服务端，你需要同一个VPS上面安装Shadowsocks服务端和ShadowsocksR服务端。</p>
+<p>然后分别用Shadowsocks客户端和ShadowsocksR客户端(使用最新混淆/协议)来测试速度。</p>
+<p><strong>如果速度一样</strong>，或者说ShadowsocksR的速度反而变慢了(因为协议和混淆会损失速度)，那么说明你的本地运营商并没有限速Shadowsocks，那么你用什么都行。</p>
+<p><strong>如果ShadowsocksR(使用最新混淆/协议)速度比Shadowsocks原版多很多</strong>，那么说明你本地运营商限速Shadowsocks原版了，那么你就需要使用ShadowsocksR了。</p>
+<p>需要说明的是，ShadowsocksR目前最新的协议和混淆是会增加延迟和损耗10%左右的速度(因为混淆需要时间，越复杂的混淆越不容易被墙发现，同时混淆时间越长)，所以如果你没有限速，或许用原版协议和混淆会更好。</p>
+<h3 id=shadowsocksr-最新服务端为什么不能兼容原版使用原版ss客户端有什么影响>ShadowsocksR 最新服务端为什么不能兼容原版（使用原版SS客户端），有什么影响？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<blockquote>
+<p><strong>ShadowsocksR news:</strong></p>
+<p>服务端所有auth系列协议，为了保证其安全性，一律不再支持compatible模式，唯一一个支持的协议是 verify_sha1_compatible ，但将来可能会移除</p>
+<p>混淆部分不变，也建议启用compatible</p>
+</blockquote>
+<p>首先引用作者原话，最近这几天，ShadowsocksR作者与Shadowsocks libev服务端的作者吵架，各种带节奏的，然后ShadowsocksR宣布不再更新，同时也取消了ShadowsocksR服务端的兼容原版模式。我来解释一下取消后导致的问题。</p>
+<p>大家都知道，在 ShadowsocksR服务端配置 协议和混淆的时候，在协议和混淆 比如协议： <code>auth_sha1_v4</code> 后面加上 <code>_compatible</code> 就可以实现：</p>
+<p>既ShadowsocksR客户端(选择对应的协议/混淆) 和 Shadowsocks原版(或者SSR客户端选择原版协议/混淆) 都能链接你的 ShadowsocksR服务端(账号)。</p>
+<p><strong>取消 协议 兼容原版后</strong>，当你的ShadowsocksR服务端配置了 <strong>协议</strong> 后，只能ShadowsocksR的客户端<strong>选择对应的协议才可以连接</strong>(SSR客户端选择原版协议也是无法连接)，而使用Shadowsocks原版客户端无法连接。</p>
+<p>只有你设置ShadowsocksR服务端的协议为 <strong>原版(origin)</strong>，那么才能ShadowsocksR客户端(选择原版协议)和Shadowsocks客户端都能链接你的ShadowsocksR服务端(账号)。</p>
+<p>目前ShadowsocksR服务端是，<strong>auth_aes128_*</strong> 及以后的协议 都不支持兼容原版了，之前的协议可以兼容原版，混淆也都可以兼容原版。</p>
+<p>当然了，这只针对 ShadowsocksR的协议，对于 混淆 参数是无所谓的，协议和混淆是可以分开的，你可以协议不设置兼容原版，而混淆设置兼容原版，或者不设置协议，而只设置混淆兼容原版，都可以，不存在协议开了，混淆也必须开的问题。</p>
+<h3 id=shadowsocks客户端打开后提示-端口被占用-怎么办>Shadowsocks客户端打开后提示 端口被占用 怎么办？</h3>
+<p>教程请看：<a href=z2a4lk3l-5.html>Shadowsocks 端口已被占用的错误解决办法</a></p>
+<h3 id=shadowsocks无法使用了怎么办>Shadowsocks无法使用了怎么办？</h3>
+<p>教程请看：<a href=hi10k-7p-2.html>Shadowsocks无法使用后的简单排除方法</a></p>
+<h3 id=shadowsocks客户端为什么分dotnet20dotnet40->Shadowsocks客户端为什么分dotnet2.0/dotnet4.0 ？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>两个版本的功能是完全一样的，不同之处是根据你系统安装的** .NET Framework 支持库版本**，这个支持库有v2.0/3.5/4.0/4.5版本，<strong>且每个版本都是独立的。</strong></p>
+<p>这里的** .NET Framework v2.0**就是对应的 <strong>DotNe t2.0</strong> Shadowsocks客户端，<strong>v4.0</strong>则是对应 <strong>DotNet 4.0</strong>的。</p>
+<p>Shadowsocks是C#语言写的，所以需要安装这个微软的支持库，Shadowsocks原版是更新到2.5.2后就取消支持v2.0了，但是ShadowsocksR依然支持。</p>
+<p>这支持库是一般来说<strong>XP是都没有安装的，Win7则是系统自带v2.0，win8以后是自带v4.0。</strong></p>
+<p><strong>所以自己看着 支持库的安装 情况选择版本就行了，功能无差别。</strong></p>
+<h3 id=shadowsocks的pac是什么意思>Shadowsocks的PAC是什么意思？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<blockquote>
+<p><strong>代理自动配置</strong>（英语：Proxy auto-config，简称PAC）是一种网页浏览器技术，用于定义浏览器该如何自动选择适当的代理服务器来访问一个网址。</p>
+<p>一个PAC文件包含一个<a href=https://zh.wikipedia.org/wiki/JavaScript>JavaScript</a>形式的函数“FindProxyForURL(url, host)”。这个函数返回一个包含一个或多个访问规则的字符串。用户代理根据这些规则适用一个特定的代理器或者直接访问。当一个代理服务器无法响应的时候，多个访问规则提供了其他的后备访问方法。浏览器在访问其他页面以前，首先访问这个PAC文件。PAC文件中的URL可能是手工配置的，也可能是是通过网页的<a href="https://zh.wikipedia.org/w/index.php?title=%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E8%87%AA%E5%8F%91%E7%8E%B0%E5%8D%8F%E8%AE%AE&action=edit&redlink=1">网络代理自发现协议</a>（WPAD）自动配置的。</p>
+<p>———— 截取自维基百科</p>
+</blockquote>
+<p><strong>PAC中文名叫做代理自动配置</strong>，PAC其实就是 <strong>HTTP/SOCKS等代理服务器 + 网址规则</strong>，只有在你浏览器访问 <strong>网址规则中包含的网站</strong> 时才会走PAC文件中包含指定的<strong>HTTP/SOCKS****代理服务器</strong>。</p>
+<p>因为Shadowsocks作者喝茶后，原本维护更新的PAC（GFWlist）文件也被删除，不过现在由ShadowsocksR作者接手维护了（<a href=https://github.com/breakwa11/gfw_whitelist>Github项目</a>），由网友不断的提交新的被墙的网址和IP。<strong>目前分为网址白名单、黑名单、黑白名单，同时也有ip的名单。</strong></p>
+<p>有时候访问一些网站，可能被墙或者打开很慢，于是想要让这个网站走Shadowsocks代理，但是又不想开全局模式，那么你就需要看下面这个文章了。</p>
+<ul>
+<li><a href=3we1qxzj-6.html>Shadowsocks手动 添加和编辑 PAC中的网址规则</a></li>
+</ul>
+<h3 id=shadowsocks的负载均衡模式是什么意思>Shadowsocks的负载均衡模式是什么意思？</h3>
+<p>Shadowsocks和ShadowsocksR都有个负载均衡功能，官方的解释是：</p>
+<blockquote>
+<p><strong>负载均衡功能</strong>，适用于网页浏览，<strong>不适用于看视频或下载等</strong>需要大流量的环境。如需下载请在连接统计窗口通过下载测速测试速度最快的服务器然后单独连接之。</p>
+</blockquote>
+<p>**简单的说就是，用用这个节点用用那个节点，不照着一个节点用，达成所有节点负载均衡的目的。**所以大流量的时候不要开这个。</p>
+<h3 id=shadowsocksr中的代理规则是什么>ShadowsocksR中的代理规则是什么？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>ShadowsocksR目前分两种规则方式，那就是 <strong>PAC规则（系统代理模式） 和 代理规则</strong> 。</p>
+<p><strong>PAC规则</strong> 是根据PAC文件中的黑白地址名单来判断那些网站走代理。也就是判断 流量是否进入客户端。</p>
+<p>当你要访问的网站满足 PAC里的设置，那么浏览器就会向代理服务器也就是客户端发送网站请求数据，这时候我们才进入了ShadowsocksR客户端，接下来我们就进入了代理规则判断环节。</p>
+<p><strong>代理规则</strong> 是根据IP判断，按设定的规则来判断进入 客户端的流量是直连还是走代理。</p>
+<p>当你访问 XXX 网站，然后是全局或者满足PAC条件从而访问 XXX网站的请求数据流量进入了客户端，然后客户端会根据 XXX网站的IP来判断，如下：</p>
+<ol>
+<li><strong>绕过局域网</strong>，当IP属于局域网内的，那么SSR客户端就会让流量直连，反之则会让流量走代理（发送到SSR服务端）。</li>
+<li><strong>绕过局域网和大陆</strong>，当IP属于大陆内或局域网的，那么SSR客户端就会让流量直连，反之则会让流量走代理（发送到SSR服务端）。</li>
+<li><strong>绕过局域网和非大陆</strong>，当IP属于大陆外(非大陆IP都算大陆外)或局域网的，那么SSR客户端就会让流量直连，反之则会让流量走代理（发送到SSR服务端）。</li>
+</ol>
+<p>这两种判断方式是相互配合使用的，先用系统代理模式来判断是否让数据进入SSR客户端，再用代理规则来判断进入SSR客户端的数据是直连还是走代理。</p>
+<blockquote>
+<p>举个栗子：假设系统代理模式为 <strong>PAC</strong>，那么访问 <strong><a href=http://www.google.com>www.google.com</a></strong> ，浏览器在PAC文件中匹配这个域名，并发现这个域名按PAC规则规则应走代理，所以 浏览器就会发送 访问网页数据到 PAC中的代理服务器(默认如127.0.0.1:1080)，于是SSR客户端就收到了 访问谷歌的数据，而这时候就该用 <strong>代理规则</strong> 判断了。</p>
+</blockquote>
+<p>首先<strong>代理规则为：绕过局域网</strong>，则判断 <a href=http://www.google.com>www.google.com</a> 域名的IP是否是局域网IP，然而不是局域网IP，<strong>于是走代理。</strong></p>
+<p><strong>代理规则为：绕过局域网和大陆</strong>，则判断 <a href=http://www.google.com>www.google.com</a> 域名的IP是否是局域网IP 或 大陆IP，然而不是局域网IP或大陆IP，<strong>于是走代理。</strong></p>
+<p><strong>代理规则为：绕过局域网和非大陆</strong>，则判断 <a href=http://www.google.com>www.google.com</a> 域名的IP是否是局域网IP 或 非大陆IP，然而是非大陆IP，于是不走代理，<strong>直连。</strong></p>
+<p><strong>代理规则为：全局</strong>，不判断 <a href=http://www.google.com>www.google.com</a> 域名的IP，<strong>直接走代理。</strong></p>
+<p>总归，如果你实在不理解，那么你就<strong>代理规则选择 全局，系统代理模式选择 PAC</strong> 即可，可以以后慢慢尝试和理解。</p>
+<h3 id=shadowsocksr中的代理规则---用户自定义是什么>ShadowsocksR中的[代理规则 - 用户自定义]是什么？</h3>
+<p>教程请看：<a href=3we1qxzj-7.html>ShadowsocksR PC客户端中的 [代理规则 – 用户自定义] 功能使用教程</a></p>
+<h3 id=shadowsocksr中的二级前置代理是什么>ShadowsocksR中的二级(前置)代理是什么？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>二级(前置)代理指的是：当你链接Shadowsocks服务器的时候，并不会直接连接Shadowsocks服务器，而是先链接 二级(前置)代理服务器，然后二级(前置)代理服务器再去链接Shadowsocks服务器，可以达到 <strong>隐藏自己的IP</strong> 或 <strong>通过国内中转(国内服务器搭建代理服务器)来加速Shadowsocks</strong>。</p>
+<p>同时上面提到的代理规则，就是给二级(前置)代理使用的，当你设置 <strong>代理规则 —— 全局</strong> 的时候，你访问国内的网站，你也是走代理服务器的，而你访问海外的网站也是先链接代理服务器然后再链接Shadowsocks服务器的，<strong>达到任何情况隐藏自己真实IP的目的</strong>，当然还有其他的作用就不一一说明了。</p>
+<p><strong>还有就是，二级(前置)代理，还有个主要使用情况是：</strong></p>
+<blockquote>
+<p>部分企业/学校 要链接互联网，必须要用 企业/学校 提供的HTTP代理服务器(一般都是为了防止你访问不该访问的网站)。</p>
+<p>这样你就先链接 企业/学习 提供的代理服务器，然后再链接ShadowsocksR，然后利用ShadowsocksR的混淆特性，可以突破 企业/学校 的代理服务器网站限制封锁。</p>
+</blockquote>
+<h3 id=shadowsocksr中的本地代理是什么>ShadowsocksR中的本地代理是什么？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>本地代理 主要是给自己的 本机软件 和 局域网内其他设备 用的。</p>
+<p>假设你设置的本地代理端口是默认的 <code>1080</code> ，然后你这个电脑在局域网内的 内网IP是 <code>192.168.0.5</code> 。</p>
+<p>本机软件，比如 IDM 想要经过ShadowsocksR下载墙外的内容，那么你可以IDM设置代理服务器 Socks5代理 <code>127.0.0.1:1080</code> ，然后 IDM 就会通过ShadowsocksR下载墙外的文件了。</p>
+<p>其他设备比如，你安卓手机想要不通过安卓客户端连接同局域网内的电脑上的ShadowsocksR，那么在安卓的设置中 设置代理服务器 <code>192.168.0.5:1080</code> 就可以连接到你电脑的 ShadowsocksR了，其他设备也是一样。</p>
+<p>同局域网内其他设备想要链接你这个电脑上面的ShadowsocksR，只要在他们的浏览器或系统代理设置 设置为 <code>192.168.0.5:1080</code> 就行了，不需要开ShadowsocksR客户端。</p>
+<h3 id=shadowsocksr的-不修改系统ie代理-和-不经过代理直连-有什么区别>ShadowsocksR的 不修改系统(IE)代理 和 不经过代理直连 有什么区别？</h3>
+<p><strong>不修改系统(IE)代理</strong> 很好理解，就是ShadowsocksR客户端不会去 <strong>修改系统(IE)代理设置</strong>。</p>
+<p><strong>不经过代理直连</strong>，用 <strong>取消系统(IE)代理设置</strong> 或 <strong>还原/初始化系统(IE)代理设置</strong> 更合适一些，就是清理 **PAC和全局模式 **的系统代理设置。</p>
+<h3 id=shadowsocks怎么代理其他软件玩游戏>Shadowsocks怎么代理其他软件/玩游戏？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<h3 id=shadowsocks玩游戏如何>Shadowsocks玩游戏如何？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>Shadowsocks可以通过上面那个问题的两个软件，使游戏走Shadowsocks代理。</p>
+<p>当然大部分游戏都是需要UDP的，所以Shadowsocks服务端需要开启UDP（ShadowsocksR服务端默认开启）</p>
+<p>不过玩游戏并不是说买个VPS搭建一个Shadowsocks，就能加速游戏的。大多数情况下都是减速的。</p>
+<blockquote>
+<p>Shadowsocks代理有限的 解析图：</p>
+<p>游戏服务器(服务端) &lt;==> VPS(SS服务端) &lt;==> Shadowsocks客户端 &lt;==> 游戏客户端</p>
+<p>你的<strong>游戏客户端</strong>连接<strong>Shadowsocks客户端</strong>，然后<strong>Shadowsocks客户端</strong>连接<strong>Shadowsocks服务端（VPS）</strong>，然后<strong>Shadowsocks服务端</strong>访问<strong>游戏服务器（服务端）</strong>，最后再依次传输回来到你的<strong>游戏客户端</strong>。</p>
+<p>这时候，你的Shadowsocks服务端就相当于一个中转服务器，你既要考虑，你链接VPS的延迟和丢包，也要考虑VPS链接游戏服务器的延迟和丢包，</p>
+</blockquote>
+<p><strong>去程：你</strong> 到 <strong>VPS</strong> 的延迟 <strong>+ VPS</strong> 到 <strong>服务器</strong> 的延迟</p>
+<p><strong>回程：游戏服务器</strong> 到 <strong>VPS</strong> 的延迟 <strong>+ VPS</strong> 到 <strong>你家</strong> 的延迟</p>
+<p>你的实际延迟就是：<strong>去程和回程哪个延迟高，就是那个</strong>。不说游戏服务器，就说VPS和你之间，来程和回程 都有可能<strong>不是直连</strong>或<strong>不是一样</strong> 的</p>
+<p>这还只是延迟，你还要考虑<strong>丢包和稳定性</strong>。</p>
+<p>所以一般情况下，随便买个VPS搭建Shadowsocks来游戏加速，反而会延迟更高或丢包更高。</p>
+<p><strong>去程路由测试工具：</strong></p>
+<p><strong>回程路由测试教程：</strong></p>
+<ul>
+<li><a href=2s2oynd4-2.html>Linux中使用 路由追踪 测试VPS回程路由（回程路由比去程更影响SS速度）</a></li>
+</ul>
+<p>个人感觉Shadowsocks加速游戏想要好的质量太麻烦，建议还是使用游戏加速器，一般专业的游戏加速器都会让你选择对应的游戏和地区，这样根据游戏的服务器所在地和你的地区 来合理配置加速的节点 以达到最好的效果，差的那种就是给你一堆节点，让你自己选自己试。</p>
+<blockquote>
+<p>**注意：**ShadowsocksR加速游戏请使用 <code>原版(plain)</code> 混淆插件，否则会增加延迟！</p>
+</blockquote>
+<h2 id=shadowsocks服务器服务端-相关问题>Shadowsocks服务器/服务端 相关问题</h2>
+<h3 id=为什么openvz的vps比xenkvm的vps便宜很多>为什么OpenVZ的VPS比Xen、KVM的VPS便宜很多？</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>具体的各虚拟化技术差别，百度谷歌都能搜到，我只说一些其他的。</p>
+<p>现在，经常会看到一些很便宜的VPS，年付十几美元甚至几美元，但是发现几乎都是OpneVZ的，很多人就不清楚为什么。</p>
+<p>首先我们经常看到的是OpenVZ和KVM，这两种虚拟化技术用的人比较多，主要是因为这两个是免费的，不需要购买官方授权，所以成本更低，IDC更喜欢用这两个。</p>
+<p>OpenVZ一开始和KVM、XEN的价格差别也没有现在那么大。</p>
+<p>但是OpenVZ的特点之一就是，对于商家来说很灵活，一个个OpenVZ的VPS在服务器上面就相当于一个个文件夹一样，对于商家来说，很容易操作超售。</p>
+<p>而KVM、XEN相对就会麻烦一些，超售程度也有限，当然超售多的也有，只是很少。</p>
+<p>因为OpenVZ灵活的特性，所以一些IDC就想到了其他增加利润的方法，<strong>那就是：超售降价，薄利多销。</strong></p>
+<p>当两个IDC的VPS配置一模一样，但是一个价格是其他IDC的一半，对于用户来说，很多用户都不清楚有什么具体区别，于是大量用户就会被低价吸引，而超售降价的IDC就成功抢占市场，增加利润。</p>
+<p>其他正常价格的IDC，看到这个情况，在利润的诱惑下，也都纷纷的通过超售降价，薄利多销的方式来抢占市场，于是你争我抢，价格越来越低，要维持利润，就需要更多的超售。</p>
+<blockquote>
+<p>我以前曾经买过很多便宜几美元/年的OpenVZ的VPS，很多VPS一开机就只剩下三分之一内存了，甚至超售严重的，你内存根本抢不到，超售到开机都开不开的我都遇见过两次，从此我就知道了：<strong>一分钱一分货！</strong></p>
+</blockquote>
+<p>本文章会根据平时见到多的常见的问题不停的补充完善，欢迎评论中留言提建议或者指出错误！</p>
+<p><strong>转载请超链接注明：</strong><a href=index.html>逗比根据地</a> » <a href=6r9z6_wi-2.html>关于Shadowsocks的小白常见问题 总结篇</a></p>
+<p>**责任声明：**本站一切资源仅用作交流学习，请勿用作商业或违法行为！如造成任何后果，本站概不负责！</p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

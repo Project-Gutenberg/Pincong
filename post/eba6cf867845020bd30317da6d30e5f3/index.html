@@ -1,0 +1,151 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>中共会不会强制所有中国境内的应用使用统一的单点登陆入口 ？</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 品葱用户 马格斯 提问于 1/4/2021 现在阿里大而不能倒的一个顾虑是 一旦阿里倒了 会导致几亿用户无法使用支付宝服务 虽然余额宝的钱 历史交易记录等重要信息 可以从绑定银行卡的银行那里恢复 而且大部分用户最后也会分流倒微信支付去 但是用惯了支付宝的用户一时间还是会无所适从 各种抱怨的 所以如果这个时候政府能提供支付宝替代品 允许用户使用原来的账号密码登陆的话 那么可以大大降低不稳定的风险 所以继而想到了 中国政府会不会提前控制所有大的应用 (微信 支付宝等)的账号信息呢 (顺便把用户信息一起获取了) 技术上来说 是通过安全法 强制所有国内使用且仅能使用统一的单点登陆入口 , 中国政府工信部或者安全部门成立事业公司 提供IDP 服务 （IDP: identity provider ） 直接对接身份证 还是类似okta.com 这种提供统一入口但是背后对接多种IDP 服务 那就看架构师怎么权衡拥有的资源了和要达到的目标了 。
+用户完成登陆后 阿里微信等SP可以使用SAML 或其他协议从中国政府提供的服务获取用户的认证信息
+当然了 技术难点是 如何应付海量的 认证请求了 以政府的效率要做出一个不影响用户体验 高可用的 能每秒百万次认证的服务 应该是几乎不可能的。。。
+anyway, 如果政府这么做了 就能掌握所有的用户登陆入口 也等于获取了 所有的用户信息 (虽然理论上 IDP 是可以不需要知道SP 用户的所有完整信息的 但是估计匪党不会这么做。。。) 可以降低大的互联网公司大而不能倒的风险 也可以掌握更多的用户信息 所以我觉得 以匪党的尿性应该肯定会往这个方向走的 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 中共会不会强制所有中国境内的应用使用统一的单点登陆入口 ？ ">
+<meta name=og:description content=" 品葱用户 马格斯 提问于 1/4/2021 现在阿里大而不能倒的一个顾虑是 一旦阿里倒了 会导致几亿用户无法使用支付宝服务 虽然余额宝的钱 历史交易记录等重要信息 可以从绑定银行卡的银行那里恢复 而且大部分用户最后也会分流倒微信支付去 但是用惯了支付宝的用户一时间还是会无所适从 各种抱怨的 所以如果这个时候政府能提供支付宝替代品 允许用户使用原来的账号密码登陆的话 那么可以大大降低不稳定的风险 所以继而想到了 中国政府会不会提前控制所有大的应用 (微信 支付宝等)的账号信息呢 (顺便把用户信息一起获取了) 技术上来说 是通过安全法 强制所有国内使用且仅能使用统一的单点登陆入口 , 中国政府工信部或者安全部门成立事业公司 提供IDP 服务 （IDP: identity provider ） 直接对接身份证 还是类似okta.com 这种提供统一入口但是背后对接多种IDP 服务 那就看架构师怎么权衡拥有的资源了和要达到的目标了 。
+用户完成登陆后 阿里微信等SP可以使用SAML 或其他协议从中国政府提供的服务获取用户的认证信息
+当然了 技术难点是 如何应付海量的 认证请求了 以政府的效率要做出一个不影响用户体验 高可用的 能每秒百万次认证的服务 应该是几乎不可能的。。。
+anyway, 如果政府这么做了 就能掌握所有的用户登陆入口 也等于获取了 所有的用户信息 (虽然理论上 IDP 是可以不需要知道SP 用户的所有完整信息的 但是估计匪党不会这么做。。。) 可以降低大的互联网公司大而不能倒的风险 也可以掌握更多的用户信息 所以我觉得 以匪党的尿性应该肯定会往这个方向走的 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/141.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>中共会不会强制所有中国境内的应用使用统一的单点登陆入口 ？</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e9%a9%ac%e6%a0%bc%e6%96%af>马格斯</a></span>,
+<span>at 04 January 2021</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%bf%a1%e6%81%af%e6%8e%a7%e5%88%b6>信息控制</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/eba6cf867845020bd30317da6d30e5f3.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/eba6cf867845020bd30317da6d30e5f3.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<h3 id=品葱用户-马格斯-提问于-142021>品葱用户 <strong>马格斯</strong> 提问于 1/4/2021</h3>
+<p>现在阿里大而不能倒的一个顾虑是 一旦阿里倒了 会导致几亿用户无法使用支付宝服务 虽然余额宝的钱 历史交易记录等重要信息 可以从绑定银行卡的银行那里恢复 而且大部分用户最后也会分流倒微信支付去 </p>
+<p>但是用惯了支付宝的用户一时间还是会无所适从 各种抱怨的 </p>
+<p>所以如果这个时候政府能提供支付宝替代品 允许用户使用原来的账号密码登陆的话 那么可以大大降低不稳定的风险 </p>
+<p>所以继而想到了 中国政府会不会提前控制所有大的应用 (微信 支付宝等)的账号信息呢 (顺便把用户信息一起获取了)  </p>
+<p>技术上来说 是通过安全法 强制所有国内使用且仅能使用统一的单点登陆入口 , 中国政府工信部或者安全部门成立事业公司 提供IDP 服务 （IDP: identity provider ） 直接对接身份证 还是类似okta.com 这种提供统一入口但是背后对接多种IDP 服务 那就看架构师怎么权衡拥有的资源了和要达到的目标了 。</p>
+<p>用户完成登陆后 阿里微信等SP可以使用SAML 或其他协议从中国政府提供的服务获取用户的认证信息</p>
+<p>当然了 技术难点是 如何应付海量的 认证请求了 以政府的效率要做出一个不影响用户体验 高可用的 能每秒百万次认证的服务 应该是几乎不可能的。。。</p>
+<p>anyway, 如果政府这么做了 就能掌握所有的用户登陆入口 也等于获取了 所有的用户信息 (虽然理论上 IDP 是可以不需要知道SP 用户的所有完整信息的 但是估计匪党不会这么做。。。)  可以降低大的互联网公司大而不能倒的风险 也可以掌握更多的用户信息 所以我觉得 以匪党的尿性应该肯定会往这个方向走的</p>
+<p>-&mdash;&mdash;&mdash; btw &mdash;&mdash;&mdash;&ndash;<br>
+脑补了下 如果不幸做了这个系统的架构师 上面是毛都不懂的红x 代 或者是乒乓球冠军做领导 下面一群冲着事业编制来混日子的摸鱼老手， 还要时不时的对接福报厂 鹅厂那些神经病。。。 估计能拿倒手的待遇也就是湾区最低收入的2倍 。。 这日子想想也酸爽</p>
+<h3 id=品葱用户-天下无贼-评论于-2021-01-04>品葱用户 <strong>天下无贼</strong> 评论于 2021-01-04</h3>
+<p>现在已经差不多了，绝大部分主流APP都可以通过微信、QQ或者微博账号登录。</p>
+<h3 id=品葱用户-errantking-评论于-2021-01-05>品葱用户 <strong>errantking</strong> 评论于 2021-01-05</h3>
+<p>如果你说的是金融支付渠道，那么就不用问了，早就已经完成了。在中国所有网络金融支付只有唯一的接口，就是银联。支付宝、微信，只要是拿到金融支付牌照的，必须走银联接口。所以只要是电子端口，每个人的金融信息都是掌握在老大哥手里的。</p>
+<h3 id=品葱用户-宵明-评论于-2021-01-04>品葱用户 <strong>宵明</strong> 评论于 2021-01-04</h3>
+<p>不可能 巨大的流量已经成为DDOS 会瘫痪任何系统 字数字数</p>
+<h3 id=品葱用户-华国锋-评论于-2021-01-05>品葱用户 <strong>华国锋</strong> 评论于 2021-01-05</h3>
+<p>以现在的技术，海量认证请求已经不是问题了。单从用户数量级上，腾讯和阿里的认证已经差不多涵盖全国了。好比用微信，每个微信应用每小时都要有个refresh token请求。如果所有认证方式整合，请求的数量不单不会变多，反而会变少。</p>
+<p>但是，这么大的事，没人会积极推行去做。大企业自己肯定不愿意，技术评估的话会扯上多几倍的困难，报价会比实际需要高出几倍。政府内部懂技术的人不会干这种吃力不讨好的事，不懂技术的人压根想不到这种方案，就算想到了也会被一帮专家堵回去。所以除非阿里腾讯先被收归国有，否则可能性很小。</p>
+<h3 id=品葱用户-inneed-评论于-2021-01-05>品葱用户 <strong>inneed</strong> 评论于 2021-01-05</h3>
+<p>现在不就是你说的这样么？<br>
+有实名认证的都是公安部的NCIIC的api</p>
+<h3 id=品葱用户-若名用户-评论于-2021-01-05>品葱用户 <strong>若名用户</strong> 评论于 2021-01-05</h3>
+<p>共产党最近搞的网证，了解一下。<br>
+现在的手机实名认证其实已经是了，手机都是垄断的，三个点和一个点也没差多少。<br>
+但是共产党还是嫌不够，还要控制的更精准、更彻底。</p>
+<blockquote>
+<p><a href=https://pincong.rocks/question/35235>点击品葱原文参与讨论</a></p>
+</blockquote>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

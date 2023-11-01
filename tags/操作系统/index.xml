@@ -1,0 +1,75 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>操作系统 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link><description>Recent content in 操作系统 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Fri, 18 Nov 2022 21:23:53 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>国内采购 5000 万台电脑，采用 100％ 国产芯和操作系统，意味着什么？</title><link>https://project-gutenberg.github.io/Pincong/post/ddf2ce345bee8a74fcc0b65077d4015a/</link><pubDate>Fri, 18 Nov 2022 21:23:53 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ddf2ce345bee8a74fcc0b65077d4015a/</guid><description>知乎用户 八重樱 发表 目前在用国产电脑，CPU 是飞腾 ftd2000/8，ARM 八核 2.3Ghz。
+显卡是景嘉微 JM7200，亮机卡。
+内存是紫光 2667，8+8，硬盘是 256G 的 nvme，应该也是国产的。
+系统是银河麒麟 V10 SP1，年初更新到了 SP2。
+办公体验还凑合，一台电脑带显示器和 WPS 企业版，采购价是五六千，软件生态勉勉强强。
+单位之前采购的同价格电脑一般是当代奔腾＋机械硬盘，得益于 Linux …</description></item><item><title>国内采购 5000 万台电脑，采用 100％ 国产芯和操作系统，意味着什么？</title><link>https://project-gutenberg.github.io/Pincong/post/017721889e5345018471b0b239a523ff/</link><pubDate>Mon, 19 Sep 2022 13:21:24 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/017721889e5345018471b0b239a523ff/</guid><description>知乎用户 Tango 发表 但愿别有人又 tmd 看见什么商机了
+这种东西，不是从消费者手里打下来的市场真就让人觉得一点都不踏实。
+广大消费者给你的钱是对你的认可，表示承认你真的达到市场竞争的水平了，那是有含金量的。
+采购。。。基本只能呵呵。
+千万别有人看见什么鬼商机觉得可以吃采购饭。。。
+有时候也真的觉得采购扶植这种事情，差不多奶一口免得饿死得了，千万别想着靠采购支持什么。。。实在要这么搞，咱真的多弄几个技术选型招标也好。。。
+五千万 …</description></item><item><title>如何评价 UOS 统一操作系统？</title><link>https://project-gutenberg.github.io/Pincong/post/b6c92f1a822694bc63c477c1039fb4ce/</link><pubDate>Sat, 18 Dec 2021 13:09:37 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b6c92f1a822694bc63c477c1039fb4ce/</guid><description>知乎用户 鸡先生 发表 统信软件（就是深度现在的母公司）适配中心的普通员工前来回答一发，生态建设正好是适配中心负责的范畴之一。
+首先赞赏
+@面向搜索引擎编程
+的理解，UOS 本身是一个普通的 Linux 发行版，当前产品正式名称是 统信 UOS，中文名统信操作系统，有三个版本：专业版、个人专业版和社区版，其中专业版主要面向政企用户，而非普通消费者，支持国产 6 个 CPU 平台；个人专业版主要面向中小企业和专业用户（指特定行业用户，而不 …</description></item><item><title>如何评价华为发布矿山鸿蒙操作系统「矿鸿」，HarmonyOS 在工业领域落地？</title><link>https://project-gutenberg.github.io/Pincong/post/476f18da2e1d92d4665423ce09a00930/</link><pubDate>Wed, 15 Sep 2021 07:51:39 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/476f18da2e1d92d4665423ce09a00930/</guid><description>知乎用户 徐方鑫​​ 发表 从通信的角度来看还是有不少东西待做或者可以发展的，矿山和隧道之类的信道场景和标准的通信场景有点不同，反射回波之类的挺严重的。目前看起来在鸿蒙里面的分布式总线里面 Wi-Fi 还是占据了一个比较大的比重，那么这个可做的东西还是挺多的，一方面要在 Wi-Fi 的框子下面优化性能，一方面还有针对场景做业务优化，另外可能还需要和别的通信技术互联通信。要实际落地还是有很多东西可做的。
+不过实际上也能感受到一些难度的。另 …</description></item><item><title>在Windows環境下，為了禁止有中共背景的程式訪問網路，有哪些好的軟體可以推薦？</title><link>https://project-gutenberg.github.io/Pincong/post/f91114e2f07bb4df244dc426961f39f6/</link><pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f91114e2f07bb4df244dc426961f39f6/</guid><description>品葱用户 決不再做奴隸 提问于 7/1/2021 在Windows 7/8/10/11環境下，可供安裝選用的程式（程序）非常之多。有些程式是不開源的，而且其背後的公司貌似有中共「黨企」或者中共國民企的背景。這樣不開源的程式，人們無法通過分析其源代碼，完全地瞭解到它到底在掃描硬碟裡面的何種內容，也不知道它在向公司的伺服器（服務器）地址上傳些什麼內容。
+尤其是中文的輸入法程式。如果其背後的公司被中共「藍金黃」，那麼一個更新的補丁可以追加功 …</description></item><item><title>如何看待三家银行宣布支持鸿蒙操作系统，具有怎样的实际意义？</title><link>https://project-gutenberg.github.io/Pincong/post/07fae9ad9e949db46e65fe41cb8144f9/</link><pubDate>Fri, 11 Jun 2021 07:16:27 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/07fae9ad9e949db46e65fe41cb8144f9/</guid><description>知乎用户 数码那些事儿 发表 今天早上，在去办公室的出租车上，司机正在听鸿蒙相关的信息。
+我问司机，您觉得鸿蒙怎么样？
+说实话，这是一个我觉得不太好回答的问题。
+司机说，我不懂啊。
+你看，是不是挺尴尬的。
+司机接着说，对我而言，什么系统都一样，反正就是用来导航和微信，休息的时候刷抖音。
+我接着问，那你会支持鸿蒙吗？
+司机笑着说，只要能用微信，能导航，能刷抖音，我就支持。刚刚广播里也说了，用的人多了，鸿蒙可能就会更强大。作为老百姓，用啥不 …</description></item><item><title>国产桌面操作系统已经存在了快20年了，为什么仍然没有大范围推广？</title><link>https://project-gutenberg.github.io/Pincong/post/e40836cba706657bd197a3cf5f37fc30/</link><pubDate>Fri, 06 Nov 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e40836cba706657bd197a3cf5f37fc30/</guid><description>品葱用户 vJS6uwQy 提问于 11/6/2020 国产定制的Linux系统一直不温不火。只对最常用的软件有支持。某些专用软件，如医院的挂号系统，开处方系统，都是运行在Windows平台下的，这就导致医院不可能换成国产Linux。
+以此类推，所有政府部门都会有一些专用软件，于是它们都无法换成国产Linux。
+那为什么一直都没有人去开发Linux版的相应应用，并且推广呢？
+还有就是Office办公软件的问题。各类免费开源的Office …</description></item><item><title>为何 Linus 一个人就能写出这么强的系统，中国却做不出来？</title><link>https://project-gutenberg.github.io/Pincong/post/dc44bfa27d953f242e66d3e544113a54/</link><pubDate>Sat, 10 Oct 2020 10:18:09 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/dc44bfa27d953f242e66d3e544113a54/</guid><description>知乎用户 默然 发表 你看 Linus 自传就完事了。
+Linus 研究生时期开始写操作系统（大约是 91 年），那时候个人电脑（PC）虽然兴起一些年了，但是还只是小部分程序员和狂热爱好者的玩具。硬件基本上都靠自己攒，软件也是用开源系统各种魔改。所以普通人根本没有折腾 PC 的动力和理由。
+Unix 已经霸占了许多生产力场景，唯一的缺点就是贵，而且很多发行版是闭源的。个人用户根本不要考虑。
+那时候 Linus 自己攒了一套 386，但是 …</description></item><item><title>如何看待华为的鸿蒙2.0 ？</title><link>https://project-gutenberg.github.io/Pincong/post/442cf3419a09973093e20e685d4f00bd/</link><pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/442cf3419a09973093e20e685d4f00bd/</guid><description>品葱用户 马格斯 提问于 9/10/2020 华为开发者大会 发布了鸿蒙 OS 2.0 系统， 这次也不完全是ppt 系统了 开源了部分系统 大家怎么看
+-&amp;mdash;&amp;mdash;- 作为码农 发现这个问题算是自己的专业范畴 所以先说一下自己的想法吧 &amp;mdash;-
+短短1年多 大量重用开源也好 各种骚操作改代码绕坑也好 能作出这套系统 华为还是有一群值得尊敬的超级能肝的程序员的。 虽然离真正成熟还有很远的路要走 软件开发一般刚开 …</description></item><item><title>为何 Linus 一个人就能写出这么强的系统，中国却做不出来？</title><link>https://project-gutenberg.github.io/Pincong/post/194ae14ce57cf0a52f22042392ca2bf5/</link><pubDate>Sat, 29 Aug 2020 12:35:11 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/194ae14ce57cf0a52f22042392ca2bf5/</guid><description>知乎用户 默然 发表 你看 Linus 自传就完事了。
+Linus 研究生时期开始写操作系统（大约是 91 年），那时候个人电脑（PC）虽然兴起一些年了，但是还只是小部分程序员和狂热爱好者的玩具。硬件基本上都靠自己攒，软件也是用开源系统各种魔改。所以普通人根本没有折腾 PC 的动力和理由。
+Unix 已经霸占了许多生产力场景，唯一的缺点就是贵，而且很多发行版是闭源的。个人用户根本不要考虑。
+那时候 Linus 自己攒了一套 386，但是 …</description></item><item><title>你对国产操作系统 “天赐” 有什么期待？</title><link>https://project-gutenberg.github.io/Pincong/post/9ac9cc61c5c52e4e08b1a2c70fb26f50/</link><pubDate>Thu, 30 Jul 2020 03:19:51 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/9ac9cc61c5c52e4e08b1a2c70fb26f50/</guid><description>知乎用户 匿名用户 发表 大家好，虽然我拥有软件工程方向的硕士学位和计算机方向的高级职称，是一个不折不扣的码农，但是，我其实和篮球圈走得很近。下面我谈谈 “天赐” 是如何助力篮球运动智能化的。
+对于国产操作系统 “天赐”，其实第一次听说的时候我是拒绝相信的，因为大家也都知道，你不能让我信，我就马上去信，第一我要试一下，因为我不愿意相信了以后再发现是假的，比如木兰编程语言，红芯浏览器，都说是自研，很强、很牛逼，但事实证明就是个开源套壳，根 …</description></item><item><title>大国隐痛：做一个操作系统有多难？</title><link>https://project-gutenberg.github.io/Pincong/post/ea72d9b8e9df5fd84b4967d3430fe1bc/</link><pubDate>Thu, 16 Jul 2020 15:07:08 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ea72d9b8e9df5fd84b4967d3430fe1bc/</guid><description>北京明十三陵龙虎山脚下，有一处地势隐蔽的地方，藏着一个叫做 “200号”的科研基地。
+在中国，这种只有一个数字代号的机构历来不简单。前有代号“542厂”的北京印钞厂，后有在青海的核弹研究机构“211基地”。这个“200号”由周总理亲自批示、用了人民大会堂剩余材料修建，可谓根正苗红。
+1969年12月，北京大学牵头开始在这里攻坚我国最早的操作系统“150机”。目的是改善石油勘探数据计算，提高打井出油率。参与研发的有北大数力、物理等系的学 …</description></item><item><title>“透明计算”获大奖引发诸多争议</title><link>https://project-gutenberg.github.io/Pincong/post/6cfb8c31f18a60b44fa986ea009c5b74/</link><pubDate>Sun, 21 Jun 2020 16:36:16 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/6cfb8c31f18a60b44fa986ea009c5b74/</guid><description>【按：该报道已从财新网删除。】
+“透明计算”获大奖引发诸多争议
+2015年01月17日财新网
+获国家自然科学奖一等奖的“透明计算”，究竟是“开启了计算机新时代”，还是“一个基本无法实现的好概念”，业内存有争议
+【财新网】（记者 于达维 实习记者 陈梦凡）1月9日，2014年度的国家自然科学一等奖被颁给了清华大学教授、中南大学校长张尧学团队的项目——“网络计算的模式和基础理论研究”。但这项研究是否原创，是否具备创新性以及是否具备产业化的前 …</description></item><item><title>【按：这些资料已从知乎删除】</title><link>https://project-gutenberg.github.io/Pincong/post/da9c25bce33108965b1aee443a56cdab/</link><pubDate>Sun, 21 Jun 2020 16:35:40 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/da9c25bce33108965b1aee443a56cdab/</guid><description>【按：这些资料已从知乎删除】
+知乎如何评价张尧学以及他的透明计算
+2015年1月12日
+【张尧学透明计算项目获国家自然科学奖一等奖】清华大学教授、中南大学校长张尧学院士率队完成的“网络计算的模式及基础理论研究”项目荣获2014年度国家自然科学奖一等奖。在国际上率先提出了透明计算概念，研制了超级操作系统Meta OS在内的网络资源，学术、产业前景广阔。
+N年空缺的国家自然科学奖一等奖给这么一个项目，怎么似乎从没人听过？
+先喷一段：真是落伍 …</description></item><item><title>【按：原文已被删除】</title><link>https://project-gutenberg.github.io/Pincong/post/ae0ea973932f38c2c12cc1287ad1842e/</link><pubDate>Sun, 21 Jun 2020 16:34:32 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ae0ea973932f38c2c12cc1287ad1842e/</guid><description>【按：原文已被删除】
+获自然科学奖一等奖的“透明计算”是什么，业内有不同看法
+澎湃新闻记者 罗昕 徐明徽　2015-01-15 17:07
+“透明计算”这个概念是什么意思？为何中南大学校长张尧学率领的团队能获得2014年度国家自然科学奖一等奖？要知道，此奖一直以宁缺毋滥著称，1999年到2013年的15年间有10年空缺。业内人士对此是怎么看的呢？
+1月9日，2014年国家自然科学奖揭晓，中南大学校长张尧学率领的团队凭借“网络计算的模式及 …</description></item><item><title>透明计算的前世今生——缘起</title><link>https://project-gutenberg.github.io/Pincong/post/e679c728213009335c1b3de9ce87a27f/</link><pubDate>Sun, 21 Jun 2020 16:33:36 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e679c728213009335c1b3de9ce87a27f/</guid><description>透明计算的前世今生——缘起
+作者：小兵张三
+起疑
+听说2014年度国家自然科学一等奖没有空缺，先是高兴，毕竟这是代表国家实力的奖项，可看完新闻，感觉完全不是那么回事了：“网络路由器之父”、“颠覆冯·诺依曼体系”、“透明计算”这些大词以前怎么从来没听说过？
+众所周知，路由器就是网络设备，不存在什么“网络路由器”，而路由器进入中国是以思科为代表的。查查维基百科【1】，多协议路由器首次出现于1981年的Stanford和MIT，发明人分别 …</description></item><item><title>谈谈张尧学的多操作系统启动</title><link>https://project-gutenberg.github.io/Pincong/post/291455b92eb1447c052a0122e7b209b2/</link><pubDate>Sun, 21 Jun 2020 16:31:08 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/291455b92eb1447c052a0122e7b209b2/</guid><description>谈谈张尧学的多操作系统启动
+作者：jhuang
+张尧学说无盘站有很多局限，“如只能识别一个操作系统”(中国作家协会的会员原话如此)，他做的扩展就是能够加载多个操作系统。这显然是胡说，完全无视众多Multi-OS boot manager。我们来看看他是怎么实现的，网上有这么一篇论文《一种基于透明计算的远程启动协议MRBP2》，敝人水平有限，这里面说的诸如“OSPM机制可定制主引导扇区”完全理解不了。在演示视频中，出现操作系统选择的画面， …</description></item><item><title>张尧学的“透明计算桌面系统”盗用开源软件</title><link>https://project-gutenberg.github.io/Pincong/post/5dc1b8dd163c7cc5e2a5bfdd9f6831e1/</link><pubDate>Sun, 21 Jun 2020 16:31:02 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/5dc1b8dd163c7cc5e2a5bfdd9f6831e1/</guid><description>张尧学的“透明计算桌面系统”盗用开源软件
+作者：羽矢
+张尧学院士打破“考虑到知识产权和商业机密”的沉默、接受科技日报独家专访时公布了其透明计算的成果，称：“我已经把我原型成果的视频公布在网上，大家可以观看（http://v.qq.com/page/h/v/q/h0145ebh1vq.html），也可以在我的主页上观看，技术人员可以通过这些视频去深入了解。”
+该视频第四和第五部分分别是“在WIFI和局域网环境下透明计算桌面系统”和“透明计 …</description></item><item><title>张尧学的“透明计算手机终端”用远程桌面应用程序假冒操作系统</title><link>https://project-gutenberg.github.io/Pincong/post/23b7761ef6bcde9ef8d5501ba8bac1ac/</link><pubDate>Sun, 21 Jun 2020 16:30:47 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/23b7761ef6bcde9ef8d5501ba8bac1ac/</guid><description>张尧学的“透明计算手机终端”用远程桌面应用程序假冒操作系统
+作者：羽矢
+针对“透明计算桌面系统”盗用开源软件质疑，张尧学及其团队回应称，他们按“GPL V2”协议使用开源代码是合法、合理的，不是“抄袭”，更非“盗用”。
+GPL V2协议序言指出，“为保护您的权利，我们要加以约束，禁止任何人否认您的权利……我们从两方面保护您的权利：(1)确保软件版权”（To protect your rights, we need to make …</description></item><item><title>一段关于国产芯片和操作系统的往事</title><link>https://project-gutenberg.github.io/Pincong/post/77b36184787ddaa2670a57ebfc70738a/</link><pubDate>Sun, 21 Jun 2020 12:45:21 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/77b36184787ddaa2670a57ebfc70738a/</guid><description>一段关于国产芯片和操作系统的往事
+作者：梁宁 来源：梁宁-闲花照水录
+中兴事件引发一片网络热议。什么“这次被美国卡住的芯，一万年也要搞出来”、“中国芯老炮：缺芯是因为缺钱”“国产操作系统，要靠BAT”……这种言论看得我胸痛。
+忍了几天，今天忍不住了。说说自己经历的一段往事。
+不知不觉写了一万字。分几个部分：
+辉煌开局、第一第二棒的困难、系统生态的困难与大溃败、复盘方舟和永中错在哪里、为什么我们做不出操作系统。
+2000年到2002年，3 …</description></item><item><title>我看鸿蒙操作系统</title><link>https://project-gutenberg.github.io/Pincong/post/f886eb08d4ba1e2d4e5ee1951c1f2dff/</link><pubDate>Mon, 15 Jun 2020 03:46:17 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f886eb08d4ba1e2d4e5ee1951c1f2dff/</guid><description>华为宣布推出鸿蒙操作系统。
+其实我觉得能理解，但也蛮无奈的，所谓不得已而为之，google 不提供后续版本授权，不提供新的支持，怎么办，硬着头皮也要上。
+有些自媒体说什么安卓慌了，google 吓坏了，我真的想骂人，一群王八蛋为了点击率什么都敢写。
+自建操作系统，对华为来说，或许技术上不是什么多难的事情，但比技术更难的是什么？
+1、知识产权 从青蒿素说一下专利与知识产权
+旧文提过，三星每年要给微软一大笔知识产权费用，那为什么呢？因为使用 …</description></item><item><title>在基础软件领域，你哪儿来的迷之自信？</title><link>https://project-gutenberg.github.io/Pincong/post/7bba9d48d114509387a2ac536b1aaa76/</link><pubDate>Sun, 24 May 2020 08:46:58 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/7bba9d48d114509387a2ac536b1aaa76/</guid><description>昨天在群里聊天，胡老师发了一个链接，是美国国家科学院院刊（PNAS）上刊发的一篇论文，题目叫“中国、印度、俄罗斯及美国学生在计算机科学领域的能力比较”。我没仔细阅读，但看这篇论文里边的一张张图表，就大概能够了解到：尽管我们中国人聪明、勤奋、努力、重视教育，但美国学生的计算机科学能力吊打中国、印度、俄罗斯，可以说美国独步天下，其他国家只能望其项背。这篇文章不翻墙也可以看到，所以我在文后给出了链接，有兴趣的同学可以去阅读一下。
+当然很多人会 …</description></item></channel></rss>

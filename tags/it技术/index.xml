@@ -1,0 +1,21 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IT技术 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/it%E6%8A%80%E6%9C%AF/</link><description>Recent content in IT技术 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/it%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>希望软件工程，程序员能看到这个问题，完全零基础想要开发应用，比如VPN应该学习哪些技术？</title><link>https://project-gutenberg.github.io/Pincong/post/64d863285ba422e9320ed8ba722a3543/</link><pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/64d863285ba422e9320ed8ba722a3543/</guid><description>品葱用户 说实话就被封号 提问于 9/9/2020 就是完全零基础，想报名培训班去学习，应该选择哪个方面？
+比如谷歌商店里的vpn都是用什么技术开发的？
+看了好多培训机构的课程，有python，java, go, linux运维，前端等等。
+该选择哪个？
+希望专业的程序员，软件工程师能解答，非常感谢。
+品葱用户 unchained_wen 评论于 2020-09-09 说实话，写个VPN还属于比较进阶的开发了。
+1，最大的头就是 计算机 …</description></item><item><title>为何台湾的芯片制造技术远远领先世界其他国家？</title><link>https://project-gutenberg.github.io/Pincong/post/889e1f3a0f46107429893b2983cc1001/</link><pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/889e1f3a0f46107429893b2983cc1001/</guid><description>品葱用户 elsaanna 提问于 8/9/2020 台湾的芯片制造技术远远领先世界其他国家，TSMC的技术比三星英特尔领先一年以上。但是台湾从人口角度看只是小国，科研方面没有本土的诺贝尔奖，工业基础不如美日英法德，人才对外流失很多，例如黄仁勋和苏丰姿都是台裔，而对外籍人才则没有太大吸引力。 无论是资金，人才，科研，工业基础都不突出的台湾，为何能克服重重障碍，成为世界芯片制造技术最领先的国家？
+品葱用户 Dk2s …</description></item><item><title>为什么小白学编程到赋值运算符就觉得好吃力？</title><link>https://project-gutenberg.github.io/Pincong/post/281a7684366f9e670d2a1cc9c1aa4a1f/</link><pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/281a7684366f9e670d2a1cc9c1aa4a1f/</guid><description>品葱用户 逃离东亚大陆洼地 提问于 6/24/2020 public class HelloWorld{
+public static void main(String[] args) {
+int one = 10 ;
+int two = 20 ;
+int three = 0 ;
+three = one + two;//three = 10 + 20;所以three的赋值变成30 …</description></item><item><title>为什么运算结果是这样，自学编程的小白特来求助品葱编程大佬？</title><link>https://project-gutenberg.github.io/Pincong/post/632d833e33ac259adfa1dcba9de4752a/</link><pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/632d833e33ac259adfa1dcba9de4752a/</guid><description>品葱用户 逃离东亚大陆洼地 提问于 6/23/2020 int a=5;
+int b=++a;//让a先执行自增，然后将值赋给变量b
+System.out.println(&amp;ldquo;a：&amp;rdquo; +a);
+System.out.println(&amp;ldquo;b：&amp;rdquo; +b);
+运行结果a:6 b:6
+自己的理解：让a先执行自增，a=5,自增就变成6，然后将值赋给变量b, b=6
+int a=5;
+int …</description></item><item><title>找到一份程序员的实习工作，不知道在哪里找学习资料？</title><link>https://project-gutenberg.github.io/Pincong/post/e0b86292250e2022e6e18894c762bc72/</link><pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e0b86292250e2022e6e18894c762bc72/</guid><description>品葱用户 逃离东亚大陆洼地 提问于 6/16/2020 找到一家不限学历，不限年龄，不限经验。前三个月为学习期，每个月2000元。每种语言都要学，第一个月每个星期都要参加考试，如果有一个星期考试没过，直接离职走人。有可能一个星期就打道回府。第一个月没通过是没有工资的，去了也是自学，自己通过百度谷歌，没人教。学到一定程序，难的复杂的才有人教。原来我说过我的学历，逻辑，数学都不好。
+品葱用户 习民 评论于 2020-06-16 不限学历， …</description></item></channel></rss>

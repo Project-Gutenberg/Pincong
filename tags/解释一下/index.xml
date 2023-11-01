@@ -1,0 +1,6 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>解释一下 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%8B/</link><description>Recent content in 解释一下 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sun, 21 Jun 2020 13:40:23 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>解释一下一个学过中学物理的人所指出的问题</title><link>https://project-gutenberg.github.io/Pincong/post/1e757e9a5db6ab130a5d8d7b1e30e0eb/</link><pubDate>Sun, 21 Jun 2020 13:40:23 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/1e757e9a5db6ab130a5d8d7b1e30e0eb/</guid><description>解释一下一个学过中学物理的人所指出的问题
+作者：麦
+按个人的理解想解释一下，计算引力势能出现负值的情况，个人认为这与积分方向有关，解释如下：
+首先确定r为一个正值，隐含着事先已经规定了一个距离从0到r为“正”的方向，计算引力势差的话，定积分方向考虑与受力方向一致，所以是从r积向距离小于r的点，所以积分值出现负值。
+实际上不能积分到0，距离趋于0时，就不能这么简单处理了，无穷大量只存在于数学里。
+之所以提一下无穷小，就是为了避 …</description></item></channel></rss>

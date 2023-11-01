@@ -1,0 +1,67 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>代码 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E4%BB%A3%E7%A0%81/</link><description>Recent content in 代码 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sun, 05 Mar 2023 16:28:02 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E4%BB%A3%E7%A0%81/index.xml" rel="self" type="application/rss+xml"/><item><title>「 深蓝洞察 」2022 年度最“不可赦”漏洞</title><link>https://project-gutenberg.github.io/Pincong/post/132188614713f3c23bc4af6d83a0fd47/</link><pubDate>Sun, 05 Mar 2023 16:28:02 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/132188614713f3c23bc4af6d83a0fd47/</guid><description>本篇为《深蓝洞察 | 2022 年度十大安全漏洞与利用》的第十篇。
+认可白帽黑客价值、走进安全社区，打造安全团队，借助黑客视角提升自身安全能力，这已经成为了行业最佳安全实践之一。
+但是，也有少数地下或隐蔽的公司通过招募黑客，用他们掌握的黑客技术寻找并利用漏洞，为自身牟取非法利益。
+2022 年，竟有巨头公司打破底线，将白帽黑客作为武器，指向了用户。
+2022 年，Google 的 Project Zero 发布了一个在野漏洞利用的分析， …</description></item><item><title>网传美女军人李聪娜 90 天写了 40 多万行代码，可信吗？世界上写代码最快的人是谁？</title><link>https://project-gutenberg.github.io/Pincong/post/330d042db13b34d22e8469381f6e4fe1/</link><pubDate>Tue, 01 Nov 2022 22:10:57 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/330d042db13b34d22e8469381f6e4fe1/</guid><description>知乎用户 五虎上将巧克力 发表 让我想起了一年 7 亿次盖章的那个，这两人要是放一起互扇耳光那得多壮观啊！
+知乎用户 Finch​ 发表 宣传什么不好，宣传这种傻逼漏洞百出的东西，全是行家看笑话
+知乎用户 小爝​​ 发表 当然可信了，她一定是用了 nodejs！
+知乎用户 zhangyuevil 发表 40 万行，90 天
+每天 4445 行，看起来不多嘛
+997，算工作时间 12 小时，每小时 370 行
+加上编辑工具的自动补全功能， …</description></item><item><title>如何看待程序员日均写 7 行代码被开除，公司随后被判违法解除劳动合同？</title><link>https://project-gutenberg.github.io/Pincong/post/37a6ec33dc4ba838f35fdf67e04c49b5/</link><pubDate>Sat, 03 Sep 2022 17:33:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/37a6ec33dc4ba838f35fdf67e04c49b5/</guid><description>知乎用户 2Avalon​​ 发表 在 HW，有个能查所有人代码上库量的系统。看了下，我入职 161 天，出勤 110 天，累计上库代码 11400+，日均 104 行。随便偷窥了下别人的，同一个 neo 培训的，没有一个超过我的，平均值大概是 32，也有一些女生（无性别歧视）日均确实只有 9，甚至 7。
+但是，可能别人在代码之外花了不少努力，比如输出了设计图和文档，与同事沟通协调工作比较积极，出了好的方案等等… 反正我和他们新员工转正 …</description></item><item><title>如何看待 5 月 18 日 Gitee 仓库开源须审核，已开源部分仓库暂时关闭，审核通过后再次公开？</title><link>https://project-gutenberg.github.io/Pincong/post/a3465cafd9f8140ce0ef590d046c53f0/</link><pubDate>Thu, 19 May 2022 16:48:52 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a3465cafd9f8140ce0ef590d046c53f0/</guid><description>知乎用户 崔庆才丨静觅​ 发表 GitHub 因为一些原因，访问速度过慢或者有时无法访问，国内的很多开发者就选择了 Gitee，在 Gitee 上也有不少优秀的开源项目。所以 Gitee 对国内开发者还是比较友好的。
+当然了 Gitee 相比 GitHub 的最大劣势就是整个代码库的体量比较小，GitHub 全世界的人都在网上放代码，想搜什么代码很大概率能搜到，Gitee 相比起来整个体量就小很多了，基本都是国人在用， …</description></item><item><title>因试用期遭劝退，一男子为发泄情绪删光自己在职期间所写系统代码被判刑十个月，如何看待这一审判结果?</title><link>https://project-gutenberg.github.io/Pincong/post/98cf21bc9da050e886136d79a135e275/</link><pubDate>Thu, 12 May 2022 13:33:09 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/98cf21bc9da050e886136d79a135e275/</guid><description>知乎用户 经济观察报​ 发表 通过删库来发泄情绪的程序员是最蠢的。
+聪明的程序员会写一堆只有自己看得懂的屎山，并且伴随着偶发且不可复现的重大 bug。
+一旦离职，屎山将变得不可维护。
+然后你不但不需要自己删库，老板还需要花额外的钱请其他程序员来删掉你的代码。
+屎山包括但不限于以下行为：
+使用大量 while 语句和条件判断，并在之间加塞大量自定义函数和实例化以及递归结构。并把函数暴露在其他人可以灵活修改的位置，只要一个参数变化就会导致函 …</description></item><item><title>墙外论坛 2047BBS 遭网络攻击一度下线，站长失联疑似被捕</title><link>https://project-gutenberg.github.io/Pincong/post/f6455810bc98b15b3c0484ef77eb2824/</link><pubDate>Mon, 24 Jan 2022 19:38:09 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f6455810bc98b15b3c0484ef77eb2824/</guid><description>近日，继承了由 “端点星案” 被捕者陈玫、蔡伟管理的 2049BBS 的墙外论坛 2047BBS 遭到据信由中共黑客主导的网络攻击，一度下线。尽管该论坛的部分老用户以 2047BBS(原域名为 2047.name)的旧数据库为基础更换域名为 2047.one 重新开站，但 2047.name 的站长 thphd 自 1 月 7 日网站下线后失联至今，据该站管理层研判很可能已遭中共当局抓捕。博闻社特约记者采访了 2047.one 管理团队 …</description></item><item><title>如何看待 faker.js 开源作者删除了所有的代码？</title><link>https://project-gutenberg.github.io/Pincong/post/b60a5d28eae1d05184399a040ddaddc4/</link><pubDate>Wed, 12 Jan 2022 22:12:24 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b60a5d28eae1d05184399a040ddaddc4/</guid><description>知乎用户 一直住顶楼​ 发表 写在最前面：开源软件是程序员的自媒体。 有些感慨，我记得这个哥们儿其实之前发过 twitter，他也就是想要一个 20 万美刀的 offer 而已，还是我记错了？这……
+按理说不至于啊，虽然老实说我不碰 js，我也不认为做了这个作品就代表什么特别特别牛的水平，但是按说仍然是应该随便找个公司混个程序员的位置不难吧。
+开源软件不是不能挣钱，但是这个东西就和你搞自媒体一样，真不是你做了 2 个爆款视频就应该能发财 …</description></item><item><title>Apache 存在 Log4j 远程代码执行漏洞，将给相关企业带来哪些影响？还有哪些信息值得关注？</title><link>https://project-gutenberg.github.io/Pincong/post/0ab4d2cd7d4c69c37526fdb3030715a7/</link><pubDate>Thu, 16 Dec 2021 16:51:24 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/0ab4d2cd7d4c69c37526fdb3030715a7/</guid><description>知乎用户 Serendipity​​ 发表 Apache Log4j 2 远程代码执行漏洞，和很多注入攻击一样，能够得以实施的两个关键条件在于：
+用户能够控制输入，或者说需要用户提供部分输入数据 用户提供的输入数据和原本程序要执行的代码进行了拼接，或被当作代码执行 对于 SQL 注入，就是用户提交的数据，被数据库系统编译而产生了服务提供者预料之外的非 “数据” 行为
+本次 Apache Log4j 2 存在的远程代码执行漏洞也一样， …</description></item><item><title>互联网大厂程序员梦醒时分</title><link>https://project-gutenberg.github.io/Pincong/post/fed855a2e844edd19b205b1d83a60790/</link><pubDate>Tue, 30 Nov 2021 23:57:41 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/fed855a2e844edd19b205b1d83a60790/</guid><description>梦醒之后，每个人对于这份职业的未来、互联网行业的未来，以及更重要的，自己的未来都有了更现实的判断。
+文 | 祝颖丽
+编辑 | 黄俊杰
+一个生于 1986 年的人，他所走过的前半生：
+从出生起，他就经常踩到最剧烈的技术与社会变迁的节点。2400 万中国人和他同岁，他赶上了这里的最后一次婴儿潮，去年的出生人口只有这一半。250 万户中国家庭装着电话，这个数字当时可是保密信息。
+等他 10 岁，中国大部分城市刚接入互联网。不过 “互联网” 对 …</description></item><item><title>国家何时整治程序员的高薪现象？</title><link>https://project-gutenberg.github.io/Pincong/post/f07d4c28a96f5005be07b029c82086c4/</link><pubDate>Mon, 09 Aug 2021 06:16:48 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f07d4c28a96f5005be07b029c82086c4/</guid><description>知乎用户 穷码农​​ 发表 不是说早就普及九年业务教育了么？
+哦，识字不代表懂道理呀？！
+那你继续。
+难度题主是教培类的嘛？
+不过，这波，还是请题主说出自己的故事吧。
+知乎用户 摸鱼的王同学​​ 发表 互联网的应用领域，是 “高度工业化” 的，是边际成本递减的。给 1 亿用户提供服务的成本是 A，给 10 亿用户提供服务的成本低于 10A。用户规模越大，均摊成本越低，毛利率越高。
+但是在 “写代码” 这个生产端，还是手工业化的，边际难度 …</description></item><item><title>华为 Linux 内核贡献者被质疑刷 KPI，真实情况是怎样的？有哪些信息值得关注？</title><link>https://project-gutenberg.github.io/Pincong/post/e0accb46de8b3e602f91e6cc921c90a3/</link><pubDate>Sun, 27 Jun 2021 06:57:37 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e0accb46de8b3e602f91e6cc921c90a3/</guid><description>知乎用户 醉卧沙场​​ 发表 （嫌字多的直接跳到总结部分就好）
+我简单浏览了一下这个开发者的 patch 提交记录，大概在 2017 年以及以前，这个人的 patch 虽然不多，但大部分还是有意义的 patch 的，2018 年好像是在围绕一个功能前前后后做了一些功能添加和修复的工作。2018 年底到 2020 年下半年几乎销声匿迹快两年，然后一年前突然又出现，出现后画风慢慢的就不太对了，像是找到了什么 “法门”，patch 数量渐渐多 …</description></item><item><title>如何看待华为称其对 Linux 贡献全球第一，Linux 内核审核员呼吁华为公司不要刷 KPI ?</title><link>https://project-gutenberg.github.io/Pincong/post/8903c442a49c3708253cc8e3776c5262/</link><pubDate>Sun, 27 Jun 2021 06:55:47 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/8903c442a49c3708253cc8e3776c5262/</guid><description>知乎用户 知乎小红旗 发表 一看就明白怎么回事。
+当年，我还是一个刚进华为的萌新。我所在四级部门被分为了七个 LM 团队。
+我所在的 LM 团队，开发任务非常紧。白天提交了代码以后，可能要晚上 9 点才有时间组织代码 review。另外，有一个 LM 团队开发任务就没那么紧了，有大量的时间空闲出来，然后就开始了骚操作，搞了一个活动 pk 谁提的代码检视意见多。
+奇葩的事情就来了。我白天提的 pr，晚上九点的时候会收到 40 + 以上的检 …</description></item><item><title>如何看待链家程序员删除财务数据获刑 7 年？</title><link>https://project-gutenberg.github.io/Pincong/post/5b6781e1329d0eea2b9836aa1623cb8f/</link><pubDate>Sun, 10 Jan 2021 11:17:39 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/5b6781e1329d0eea2b9836aa1623cb8f/</guid><description>知乎用户 诗与星空​ 发表 我比较感兴趣的是这句：
+链家公司为恢复数据及重新构建财务系统共计花费人民币 18 万元。
+从这句话看，公司财务数据库大概率没有异地备份。如果有备份的话，恢复系统只是小时级的体力活，不大可能需要 18 万。
+这么看来，这家公司的 IT 管理太可怕了&amp;hellip; &amp;hellip;
+PS，曾经误操作删过库的选手表示，麻蛋判刑也太狠了吧。。。感谢老领导不杀之恩。
+知乎用户 幻希 发表 本是个段子, 成了真的.
+你 …</description></item><item><title>如何看待 9 月 10 日华为发布的鸿蒙 OS 2.0 系统，应用前景如何？</title><link>https://project-gutenberg.github.io/Pincong/post/94abc6c08f305b225d65ec15840f6a85/</link><pubDate>Sun, 13 Sep 2020 14:43:46 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/94abc6c08f305b225d65ec15840f6a85/</guid><description>知乎用户 Wchchc 发表 感谢美国，把中国逼迫成无所不能的国家，把华为逼迫成无所不能的企业。
+取匿了，喷子们要喷就喷吧。
+=====
+专业人士来了，我从事安卓开发也有不少年头了，在那之前还参与开发了 pintos ，liteos 等知名系统 kernel，在 os 界摸爬滚打多年，给 pintos 系统贡献过不少代码，自认为对这行比较熟悉。这次鸿蒙真的是打了所有质疑人的脸了，因为这次华为真的发力了，先上图
+这是鸿蒙的 ide 界面， …</description></item><item><title>習近平小學（熊）維尼遨遊瘋狂宇宙陪你編碼 - VS Code Plugin 语音包</title><link>https://project-gutenberg.github.io/Pincong/post/64ea64d26e41ef200d5b9ecc17d570e2/</link><pubDate>Tue, 25 Aug 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/64ea64d26e41ef200d5b9ecc17d570e2/</guid><description>大家好，欢迎使用习近平小熊维尼VS Code语音包插件。
+他会在你编码的时候，发出**小学语音，让你代码的质量提高一万倍**。
+品葱用户 通音宽依 评论于 2020-08-25 加个rainbow-fart标签 (Topics) 就行了
+https:// github . com /topics/rainbow-fart
+品葱用户 **习语言开发 通音宽依** 评论于 2020-08-25
+[
+加个rainbow-fart标签就行 …</description></item><item><title>感觉中国程序员前景一片灰暗，是这样吗？</title><link>https://project-gutenberg.github.io/Pincong/post/a556a7ca5d926997fe88183e00c34c01/</link><pubDate>Sun, 26 Jul 2020 10:40:14 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a556a7ca5d926997fe88183e00c34c01/</guid><description>知乎用户 talktomyself 发表 嗯，是的。
+但是并不是因为技术更新快，涌入人员多。
+国外的软件行业这些问题都有，但是并没有内卷到这种程度。
+如果说是因为国外人少，我承认，有这个原因，但绝不是全部。
+我国互联网行业的管理其实是特别具有中国特色的，换句话说跟国际不接轨。越来越多海归的互联网从业人员可以证明的，早年建立当今这套管理体系的人，如果打着引进国外先进经验的旗号，那绝对是挂着羊头卖狗肉。
+首先，全体 KPI。国内的程序员羡慕 …</description></item><item><title>为什么美国程序员工作比中国程序员工作轻松、加班少？</title><link>https://project-gutenberg.github.io/Pincong/post/b730133da5d37bab80b6bff51bc9f940/</link><pubDate>Sat, 25 Jul 2020 19:21:08 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/b730133da5d37bab80b6bff51bc9f940/</guid><description>知乎用户 ze ran​ 发表 不是因为外国公司效率高，也不是因为他们开会多。同类的 app，不论是电商还是视频，国内的 app 远比国外的复杂，变化更快，功能更多。三天一小改，五天一大改，过个节都要出一套 ui，新功能层出不穷，做活动此起彼伏。
+国内程序员的工作量，就是比国外的同行多，同样多的功能，国外程序员做，照样加班。
+关键是，这些功能，真的有用吗？
+知乎可以提问，可以回答，因为它是个问答社区。但它还能直播，能视频，能充值，能交 …</description></item><item><title>远程办公，不是远程监控！</title><link>https://project-gutenberg.github.io/Pincong/post/51a52659caabb491b89fa395147ae6ac/</link><pubDate>Tue, 30 Jun 2020 16:21:17 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/51a52659caabb491b89fa395147ae6ac/</guid><description>北京。2020年1月7日
+受新冠疫情影响，很多公司开启了远程办公模式，而且什么时候才能回归办公室模式，是个未知数。
+于是，我们看到远程办公市场骤然热闹起来，各种远程办公工具花枝招展地走上前台。早请示、晚汇报、签到打卡、视频监控工作状态等等，不一而足。
+你确定没有跑偏吗？关注工作效果一定得使用这些监视盯梢手段吗？
+高效的远程协作，关键在于成员之间达成工作规则共识、任务流转清晰可追溯、信息及时同步。起码，对于程序员的远程工作状态评估，有更好 …</description></item><item><title>地球青年丨一个前留守儿童的财务自由之路</title><link>https://project-gutenberg.github.io/Pincong/post/64bdeb97fa08ca995f38699a7cedd8aa/</link><pubDate>Mon, 29 Jun 2020 04:24:47 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/64bdeb97fa08ca995f38699a7cedd8aa/</guid><description>12年前的夏天，深圳高级中学，上午考完最后一门科目，郭宇一个人回到寝室，把书打包好，送给宿管老师，说可以留给下一届学生。然后，他把所有的东西都塞进一个巨大的行李箱，没有跟任何人说拜拜，就走了，此后再也没有回来过。
+行李很重，郭宇拖着它走了一公里左右，到车公庙坐巴士，回家要两个半小时。他坐在车上想了很多事情，到家后，他睡了一天半才起床。
+在车上的那两个半小时，他一直在想，高考后的这个暑假要做什么，以后要做什么，能不能找到一条路，既符合自己 …</description></item></channel></rss>

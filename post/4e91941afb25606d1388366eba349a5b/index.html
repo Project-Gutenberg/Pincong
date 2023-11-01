@@ -1,0 +1,216 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>一篇简单的登月指南</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 五十年前的前几天，美国阿姆斯特朗和奥尔德林宇航员登月成功了，远在北京的胡学范为此而欢呼，而摇煤球的老赵死了他都没有哭过。今天我们就来看看怎么把人送到月球上去。
+简单地说，如果不考虑把人送回来，把人类送到月球上只需要三步，把人类送到地球低轨道LEO(Low earth orbit), 从地球轨道转移到月球轨道，让人类降落在月球上，如下图所示。
+因为人类不太行，到目前为止火箭依靠的原理依然是动量守恒，也就是火箭通过发动机混合燃料和氧化剂发生化学反应，向后喷出气体推进火箭向前运动（氧化剂非常重要，因为火箭运行的大多数情况下外界氧气含量很低不足以用于与燃料发生作用，这也是火箭和飞机引擎最大的区别，所以在坎巴拉太空计划里，如果你把火箭装个飞机引擎是飞不起来的）。这句话最终推导结果就是著名的齐奥尔科夫火箭公式。这个公式忽略了引力和空气阻力的参数。△V是制动产生的速度变化量，是一个火箭能跑多远的一个重要指标，是我们在宇宙旅行时的标尺，有多少△V决定了我们可以到多远的位置。
+具体的推导有点麻烦，不展开了，感兴趣的可以看这个链接 https://www.bilibili.com/read/cv1833545/ 。这里的△v就是速度毛增量，也可以理解不考虑为速度I重力和空气阻力的速度增量。sp是比冲（引擎），g0是引力大小，m0是火箭总质量，mf是没有推进剂的火箭干重，m0与mf的比值也就是一般所说的质量比。这个公式告诉我们，质量比越高的火箭，效率越高。这也是为什么几乎所有火箭都要分级的原因。举个例子，假如有一个一级火箭，总质量1000kg，干重200kg，那质量比为5，土星五号F1发动机的比冲大约为300，那最终速度的增加量只有4731m/s。但如果火箭分成3级，最后一级的干重为40kg，质量比为25，那速度根据该公式，速度的增加量就达到9463m/s，是原来△v的两倍。
+这个△v我们还可以用来求达到某一轨道所需速度增量,不考虑重力和空气阻力时，地球的最低环绕轨道速度为7.9km/s,也就是第一宇宙速度，也就说△v至少要达到7.9km/s才能实现环绕。而考虑空气阻力和重力阻力时，我们需要更大的△v去抵消。这两个参数的计算比较复杂，我们知道速度是加速度在△t内的积分，其中重力加速度的影响会随着高度衰减，那重力阻力对所需△v的增量就相当于从地表到预定轨道△t时间内重力加速度的积分。空气阻力与速度平方成正比，与空气密度也成正比，而空气密度随着海拔高度的增加近似成反比，因此可以认为空气阻力与海拔高度成反比，同时由空气阻力造成所需△v增量与滞留大气层时间也相关。总之，太难了我不会算，所以一般认为进入LEO(低轨地球轨道）所需的△V至少要有9,4km/s。
+因为任何物体都存在万有引力，火箭产生的推力减去重力和空气阻力再除以质量为实际加速度。或者认为加速度的积分△v需要拿出额外一部分来抵消引力影响。为因此衡量一个火箭性能的另外一个很重要的参数就是推重比，也就推力与起飞重量的比值。这和刚刚提到的Isp是两个概念，那个针对的是引擎，而且与重量无关。简单地说，推重比大就是更大力，但不一定持久，也不一定能提供更多的△v,而比冲高的不一定很大力，但可以提供更多的△v。火箭推重比必须大于1才能将火箭推离地面，可以想象一下，一个推重比为1的火箭，所产生的的△v将全部用来抵消重力，因此就飞不起来。这就是为什么火箭不仅要分级，很多也会用助推的原因。大部分助推会在40到100km的范围内分离。从起飞到低空范围内，重力影响很大，需要额外的推力用于加速。而在进入高空后，重力影响减小，我们也就不需要助推了。大家平时造火箭的时候也可以根据这个原理来选择引擎，一级火箭引擎最重要的参数是推力，比冲并不是很重要，因为一级火箭产生的推力要足够大才能抵消空气阻力和重力。但当火箭升空后，这两个参数减小，那我们更希望选择比冲大的引擎。以已经退役的航天飞机为例，起飞时主要推力来自两个固体推进器，进入50km低空后固体推进器分离，航天飞机上比冲更高的氢氧发动机可以提供更大的速度增量。
+火箭从发射到入轨一般会进行一种被称为重力转向机动的动作（Gravity turn maneuver），也就是我们平常发射火箭的时候看到的，最开始是垂直起飞，接着开始歪一个角度。这是一种轨迹优化的结果，因为我们最终的目的是进行稳定环绕，或者被称为parking orbit。而圆形环绕轨道是一个与地心同心的圆，速度的矢量方向于地球表面平行。因此火箭速度方向会经历一个从垂直于地表到平行于地表的机动过程，如下图所示。不考虑空气阻力，这条轨迹大约是个90度弧度的曲线，考虑空气阻力影响时所产生的空气阻力△v与v*s(位移）正相关，所以我们既希望在低空速度不要太快，也希望能尽快离开低空的稠密空气，那最好的办法就是垂直往天上发射。进入10km左右的高度时开始想东偏转，然后慢慢偏转角度增加。这也是因为我们希望尽可能减小空气阻力的影响，因为空气阻力与速度法向切面面积正相关，因此我们希望火箭始终头朝运动速度的方向（而不是加速度）的方向。这个具体的运动轨迹还需要参考每一阶段推进器的推重比和△v，空气密度变化函数，已经重力等。
+具体计算公式在下面，用excel设一下，挺好算的。
+https://mintoc.de/index.php/Gravity_Turn_Maneuver
+https://mintoc.de/index.php/Gravity_Turn_Maneuver
+https://mintoc.de/index.php/Gravity_Turn_Maneuver
+https://mintoc.de/index.php/Gravity_Turn_Maneuver
+于是，我们终于飞出了地球，到达了LEO。下面我们来看看怎么实现第二步，从地球轨道转移到月球环绕轨道去。在此之前需要解释一下什么叫轨道，轨道是除了万有引力之外不受其他外力影响的稳定轨迹。当我们讨论2体运动时，在太空中轨道必定是一条圆锥曲线，可以是圆，椭圆，或者抛物线，甚至双曲线。因为能量守恒，因此在轨道任何一点重力势能与动能之和相同，在低高度时拥有更大的线速度。不论是何种圆锥曲线，万有引力中心在其中的一个焦点上。
+可以近似认为月球与地表是一个以地心为中心的同心圆，但是月球环绕地球轨道和地球赤道轨道之间有一个为5.14度的夹角,我们首先需要需要在LEO轨道进行角度修正，使得新轨道夹角与月球环绕轨道夹角相同。
+进行这样的角度修正我们依然需要进行一次机动，计算所需△v的方法也很简单。
+因为两个轨道高度相同，因此线速度也相同，所以速度向量|OA|和|OA'|相同，所需△V就是AA'。
+这个公式我们可以看出角度变轨代价非常巨大，对于极轨变轨（与赤道轨道成90度）。所需△V是飞出地球△V的两倍（甚至超过了去火星所需的△V）。带入地球第一宇宙速度和夹角得△V为0.708km/s。
+下面就是离开低轨飞向月球轨道，月球环绕地球可以近似看似是与地心为中心的圆形。所以环绕地球轨道变轨到月球轨道可以近似看作是LEO的同心圆，对于这种情况，我们可以使用霍曼转移轨道。霍曼转移轨道是一个以低轨道焦点为近焦点，连接近轨道任意一点穿过焦点的直线与高轨道交点组成长半轴的椭圆轨道，图示如下。
+霍曼转移轨道是典型的椭圆轨道与低轨和高轨共享同一焦点。通过在近拱点一次加速形成。因为能量守恒，加速相当于增加了飞船重力势能与动能之和，在近拱点霍曼转移轨道线速度Vta要大于原低轨线速度Va。在远拱点再次加速，霍曼转移轨道B点速度Vtb小于高轨道线速度Vb。因此霍曼转移轨道的2次加速变轨所需△V就是△V=(Vta-Va)+(Vb-Vtb)
+因为从LEO出发，设Va就是第一宇宙速度7.9km/s, 月球轨道高度为385000km, 地球的万有引力约常数为4x10^14,因此Vb速度约为1km/s。 Vta=11,03, Vt2=1,16km/s,△V=3,29km/s。
+这个△V是从LEO轨道转移到月球轨道的所需的最低速度变化值。在太阳系内的△V地图如下图所示，进入月球环绕轨道是3,26km/s，为什么有这样的误差呢，因为实际上月球围绕地球轨道并不是一个正圆。
+上个礼拜西格在看火星救援时问了我一个非常有意思的问题，为什么马特达蒙说，即便地球现在知道他还活着，最早4年后才会有救援的飞船，因为从火星到地球最快只需要200多天，而让船长的飞船返航应该会更快一些。第一反应可能是电影的一个bug，后来想了想这个细节真的非常厉害。我们知道船长的飞船大概依然会采用霍曼转移轨道回地球。飞船在转移轨道上点I的速度为Vi,反向加速所需△V至少是2Vi,因为椭圆轨道远拱点速度最小，而火星轨道速度Vb为24Km/s,那2Vi+Vb-Vtb将是一个非常巨大的数字,所需的燃料相当于4,5倍以上从地球去火星的燃料。不考虑其他干扰因素，很可能船长的飞船也没有能力进行这样一个变轨机动。
+而从地球发射飞船呢？这就涉及到另外一个很有意思的问题了，就是窗口期。不论是进行登月还是火星探索，飞船发射都存在一个窗口期。因为轨道角速度不同，飞船从A点出发，沿着转移轨道与火星正好在B点相遇，这个起飞的时间点就是发射窗口。根据开普勒公式，霍曼转移轨道轨道周期为:
+不考虑地球和火星轨道存在夹角，地球到火星的霍曼转移轨道周期为226天，而火星轨道周期为687天，那霍曼转移轨道上的飞船K和火星每155262天才会完美相遇一次。当我们通过让飞船在转移轨道上二次机动来变更轨道，设toleranz为5天，那霍曼转移轨道上的飞船K每2年才有1天可以和火星相遇一次。解决在什么时间点进行变轨，所需能量和轨道时间的问题被称为Lambert&rsquo;s Problem,感兴趣的可以自己去搜一下。用来展示飞行时间，所需△V和窗口期的图表被称为Porkchop plot，大概长下面这样,从地球到火星每两年半有一次旅程时间为240天左右的发射窗口。而事发时是Day13,那意味即便地球得到马特达蒙信息后立刻准备发射火箭也需要3年才能到火星，再算上其他筹备时间等，大概就是4年。而根据lambert&rsquo;s Problem的推导，考虑到把人送上月球还要再短时间内送回来，每个月我们会有一天可以低△V把火箭送去月球的发射窗口。
+明天写窗口期计算和降落在月球上吧。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 一篇简单的登月指南 ">
+<meta name=og:description content=" 五十年前的前几天，美国阿姆斯特朗和奥尔德林宇航员登月成功了，远在北京的胡学范为此而欢呼，而摇煤球的老赵死了他都没有哭过。今天我们就来看看怎么把人送到月球上去。
+简单地说，如果不考虑把人送回来，把人类送到月球上只需要三步，把人类送到地球低轨道LEO(Low earth orbit), 从地球轨道转移到月球轨道，让人类降落在月球上，如下图所示。
+因为人类不太行，到目前为止火箭依靠的原理依然是动量守恒，也就是火箭通过发动机混合燃料和氧化剂发生化学反应，向后喷出气体推进火箭向前运动（氧化剂非常重要，因为火箭运行的大多数情况下外界氧气含量很低不足以用于与燃料发生作用，这也是火箭和飞机引擎最大的区别，所以在坎巴拉太空计划里，如果你把火箭装个飞机引擎是飞不起来的）。这句话最终推导结果就是著名的齐奥尔科夫火箭公式。这个公式忽略了引力和空气阻力的参数。△V是制动产生的速度变化量，是一个火箭能跑多远的一个重要指标，是我们在宇宙旅行时的标尺，有多少△V决定了我们可以到多远的位置。
+具体的推导有点麻烦，不展开了，感兴趣的可以看这个链接 https://www.bilibili.com/read/cv1833545/ 。这里的△v就是速度毛增量，也可以理解不考虑为速度I重力和空气阻力的速度增量。sp是比冲（引擎），g0是引力大小，m0是火箭总质量，mf是没有推进剂的火箭干重，m0与mf的比值也就是一般所说的质量比。这个公式告诉我们，质量比越高的火箭，效率越高。这也是为什么几乎所有火箭都要分级的原因。举个例子，假如有一个一级火箭，总质量1000kg，干重200kg，那质量比为5，土星五号F1发动机的比冲大约为300，那最终速度的增加量只有4731m/s。但如果火箭分成3级，最后一级的干重为40kg，质量比为25，那速度根据该公式，速度的增加量就达到9463m/s，是原来△v的两倍。
+这个△v我们还可以用来求达到某一轨道所需速度增量,不考虑重力和空气阻力时，地球的最低环绕轨道速度为7.9km/s,也就是第一宇宙速度，也就说△v至少要达到7.9km/s才能实现环绕。而考虑空气阻力和重力阻力时，我们需要更大的△v去抵消。这两个参数的计算比较复杂，我们知道速度是加速度在△t内的积分，其中重力加速度的影响会随着高度衰减，那重力阻力对所需△v的增量就相当于从地表到预定轨道△t时间内重力加速度的积分。空气阻力与速度平方成正比，与空气密度也成正比，而空气密度随着海拔高度的增加近似成反比，因此可以认为空气阻力与海拔高度成反比，同时由空气阻力造成所需△v增量与滞留大气层时间也相关。总之，太难了我不会算，所以一般认为进入LEO(低轨地球轨道）所需的△V至少要有9,4km/s。
+因为任何物体都存在万有引力，火箭产生的推力减去重力和空气阻力再除以质量为实际加速度。或者认为加速度的积分△v需要拿出额外一部分来抵消引力影响。为因此衡量一个火箭性能的另外一个很重要的参数就是推重比，也就推力与起飞重量的比值。这和刚刚提到的Isp是两个概念，那个针对的是引擎，而且与重量无关。简单地说，推重比大就是更大力，但不一定持久，也不一定能提供更多的△v,而比冲高的不一定很大力，但可以提供更多的△v。火箭推重比必须大于1才能将火箭推离地面，可以想象一下，一个推重比为1的火箭，所产生的的△v将全部用来抵消重力，因此就飞不起来。这就是为什么火箭不仅要分级，很多也会用助推的原因。大部分助推会在40到100km的范围内分离。从起飞到低空范围内，重力影响很大，需要额外的推力用于加速。而在进入高空后，重力影响减小，我们也就不需要助推了。大家平时造火箭的时候也可以根据这个原理来选择引擎，一级火箭引擎最重要的参数是推力，比冲并不是很重要，因为一级火箭产生的推力要足够大才能抵消空气阻力和重力。但当火箭升空后，这两个参数减小，那我们更希望选择比冲大的引擎。以已经退役的航天飞机为例，起飞时主要推力来自两个固体推进器，进入50km低空后固体推进器分离，航天飞机上比冲更高的氢氧发动机可以提供更大的速度增量。
+火箭从发射到入轨一般会进行一种被称为重力转向机动的动作（Gravity turn maneuver），也就是我们平常发射火箭的时候看到的，最开始是垂直起飞，接着开始歪一个角度。这是一种轨迹优化的结果，因为我们最终的目的是进行稳定环绕，或者被称为parking orbit。而圆形环绕轨道是一个与地心同心的圆，速度的矢量方向于地球表面平行。因此火箭速度方向会经历一个从垂直于地表到平行于地表的机动过程，如下图所示。不考虑空气阻力，这条轨迹大约是个90度弧度的曲线，考虑空气阻力影响时所产生的空气阻力△v与v*s(位移）正相关，所以我们既希望在低空速度不要太快，也希望能尽快离开低空的稠密空气，那最好的办法就是垂直往天上发射。进入10km左右的高度时开始想东偏转，然后慢慢偏转角度增加。这也是因为我们希望尽可能减小空气阻力的影响，因为空气阻力与速度法向切面面积正相关，因此我们希望火箭始终头朝运动速度的方向（而不是加速度）的方向。这个具体的运动轨迹还需要参考每一阶段推进器的推重比和△v，空气密度变化函数，已经重力等。
+具体计算公式在下面，用excel设一下，挺好算的。
+https://mintoc.de/index.php/Gravity_Turn_Maneuver
+https://mintoc.de/index.php/Gravity_Turn_Maneuver
+https://mintoc.de/index.php/Gravity_Turn_Maneuver
+https://mintoc.de/index.php/Gravity_Turn_Maneuver
+于是，我们终于飞出了地球，到达了LEO。下面我们来看看怎么实现第二步，从地球轨道转移到月球环绕轨道去。在此之前需要解释一下什么叫轨道，轨道是除了万有引力之外不受其他外力影响的稳定轨迹。当我们讨论2体运动时，在太空中轨道必定是一条圆锥曲线，可以是圆，椭圆，或者抛物线，甚至双曲线。因为能量守恒，因此在轨道任何一点重力势能与动能之和相同，在低高度时拥有更大的线速度。不论是何种圆锥曲线，万有引力中心在其中的一个焦点上。
+可以近似认为月球与地表是一个以地心为中心的同心圆，但是月球环绕地球轨道和地球赤道轨道之间有一个为5.14度的夹角,我们首先需要需要在LEO轨道进行角度修正，使得新轨道夹角与月球环绕轨道夹角相同。
+进行这样的角度修正我们依然需要进行一次机动，计算所需△v的方法也很简单。
+因为两个轨道高度相同，因此线速度也相同，所以速度向量|OA|和|OA'|相同，所需△V就是AA'。
+这个公式我们可以看出角度变轨代价非常巨大，对于极轨变轨（与赤道轨道成90度）。所需△V是飞出地球△V的两倍（甚至超过了去火星所需的△V）。带入地球第一宇宙速度和夹角得△V为0.708km/s。
+下面就是离开低轨飞向月球轨道，月球环绕地球可以近似看似是与地心为中心的圆形。所以环绕地球轨道变轨到月球轨道可以近似看作是LEO的同心圆，对于这种情况，我们可以使用霍曼转移轨道。霍曼转移轨道是一个以低轨道焦点为近焦点，连接近轨道任意一点穿过焦点的直线与高轨道交点组成长半轴的椭圆轨道，图示如下。
+霍曼转移轨道是典型的椭圆轨道与低轨和高轨共享同一焦点。通过在近拱点一次加速形成。因为能量守恒，加速相当于增加了飞船重力势能与动能之和，在近拱点霍曼转移轨道线速度Vta要大于原低轨线速度Va。在远拱点再次加速，霍曼转移轨道B点速度Vtb小于高轨道线速度Vb。因此霍曼转移轨道的2次加速变轨所需△V就是△V=(Vta-Va)+(Vb-Vtb)
+因为从LEO出发，设Va就是第一宇宙速度7.9km/s, 月球轨道高度为385000km, 地球的万有引力约常数为4x10^14,因此Vb速度约为1km/s。 Vta=11,03, Vt2=1,16km/s,△V=3,29km/s。
+这个△V是从LEO轨道转移到月球轨道的所需的最低速度变化值。在太阳系内的△V地图如下图所示，进入月球环绕轨道是3,26km/s，为什么有这样的误差呢，因为实际上月球围绕地球轨道并不是一个正圆。
+上个礼拜西格在看火星救援时问了我一个非常有意思的问题，为什么马特达蒙说，即便地球现在知道他还活着，最早4年后才会有救援的飞船，因为从火星到地球最快只需要200多天，而让船长的飞船返航应该会更快一些。第一反应可能是电影的一个bug，后来想了想这个细节真的非常厉害。我们知道船长的飞船大概依然会采用霍曼转移轨道回地球。飞船在转移轨道上点I的速度为Vi,反向加速所需△V至少是2Vi,因为椭圆轨道远拱点速度最小，而火星轨道速度Vb为24Km/s,那2Vi+Vb-Vtb将是一个非常巨大的数字,所需的燃料相当于4,5倍以上从地球去火星的燃料。不考虑其他干扰因素，很可能船长的飞船也没有能力进行这样一个变轨机动。
+而从地球发射飞船呢？这就涉及到另外一个很有意思的问题了，就是窗口期。不论是进行登月还是火星探索，飞船发射都存在一个窗口期。因为轨道角速度不同，飞船从A点出发，沿着转移轨道与火星正好在B点相遇，这个起飞的时间点就是发射窗口。根据开普勒公式，霍曼转移轨道轨道周期为:
+不考虑地球和火星轨道存在夹角，地球到火星的霍曼转移轨道周期为226天，而火星轨道周期为687天，那霍曼转移轨道上的飞船K和火星每155262天才会完美相遇一次。当我们通过让飞船在转移轨道上二次机动来变更轨道，设toleranz为5天，那霍曼转移轨道上的飞船K每2年才有1天可以和火星相遇一次。解决在什么时间点进行变轨，所需能量和轨道时间的问题被称为Lambert&rsquo;s Problem,感兴趣的可以自己去搜一下。用来展示飞行时间，所需△V和窗口期的图表被称为Porkchop plot，大概长下面这样,从地球到火星每两年半有一次旅程时间为240天左右的发射窗口。而事发时是Day13,那意味即便地球得到马特达蒙信息后立刻准备发射火箭也需要3年才能到火星，再算上其他筹备时间等，大概就是4年。而根据lambert&rsquo;s Problem的推导，考虑到把人送上月球还要再短时间内送回来，每个月我们会有一天可以低△V把火箭送去月球的发射窗口。
+明天写窗口期计算和降落在月球上吧。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/220.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>一篇简单的登月指南</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e4%b8%80%e5%8c%b9%e9%aa%8f%e9%a9%ac>一匹骏马</a></span>,
+<span>at 23 July 2019</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%bd%a8%e9%81%93>轨道</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%81%ab%e7%ae%ad>火箭</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%a9%ba%e6%b0%94%e9%98%bb%e5%8a%9b>空气阻力</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%9c%88%e7%90%83>月球</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e5%9c%b0%e7%90%83>地球</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/4e91941afb25606d1388366eba349a5b.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/4e91941afb25606d1388366eba349a5b.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>五十年前的前几天，美国阿姆斯特朗和奥尔德林宇航员登月成功了，远在北京的胡学范为此而欢呼，而摇煤球的老赵死了他都没有哭过。今天我们就来看看怎么把人送到月球上去。</p>
+<p>简单地说，如果不考虑把人送回来，把人类送到月球上只需要三步，把人类送到地球低轨道LEO(Low earth orbit), 从地球轨道转移到月球轨道，让人类降落在月球上，如下图所示。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img9.doubanio.com/view/note/l/public/p63326506.jpg" alt></p>
+<p>因为人类不太行，到目前为止火箭依靠的原理依然是动量守恒，也就是火箭通过发动机混合燃料和氧化剂发生化学反应，向后喷出气体推进火箭向前运动（氧化剂非常重要，因为火箭运行的大多数情况下外界氧气含量很低不足以用于与燃料发生作用，这也是火箭和飞机引擎最大的区别，所以在坎巴拉太空计划里，如果你把火箭装个飞机引擎是飞不起来的）。这句话最终推导结果就是著名的齐奥尔科夫火箭公式。这个公式忽略了引力和空气阻力的参数。△V是制动产生的速度变化量，是一个火箭能跑多远的一个重要指标，是我们在宇宙旅行时的标尺，有多少△V决定了我们可以到多远的位置。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img1.doubanio.com/view/note/l/public/p63326538.jpg" alt></p>
+<p>具体的推导有点麻烦，不展开了，感兴趣的可以看这个链接 <a href=https://www.bilibili.com/read/cv1833545/>https://www.bilibili.com/read/cv1833545/</a> 。这里的△v就是速度毛增量，也可以理解不考虑为速度I重力和空气阻力的速度增量。sp是比冲（引擎），g0是引力大小，m0是火箭总质量，mf是没有推进剂的火箭干重，m0与mf的比值也就是一般所说的质量比。这个公式告诉我们，质量比越高的火箭，效率越高。这也是为什么几乎所有火箭都要分级的原因。举个例子，假如有一个一级火箭，总质量1000kg，干重200kg，那质量比为5，土星五号F1发动机的比冲大约为300，那最终速度的增加量只有4731m/s。但如果火箭分成3级，最后一级的干重为40kg，质量比为25，那速度根据该公式，速度的增加量就达到9463m/s，是原来△v的两倍。</p>
+<p>这个△v我们还可以用来求达到某一轨道所需速度增量,不考虑重力和空气阻力时，地球的最低环绕轨道速度为7.9km/s,也就是第一宇宙速度，也就说△v至少要达到7.9km/s才能实现环绕。而考虑空气阻力和重力阻力时，我们需要更大的△v去抵消。这两个参数的计算比较复杂，我们知道速度是加速度在△t内的积分，其中重力加速度的影响会随着高度衰减，那重力阻力对所需△v的增量就相当于从地表到预定轨道△t时间内重力加速度的积分。空气阻力与速度平方成正比，与空气密度也成正比，而空气密度随着海拔高度的增加近似成反比，因此可以认为空气阻力与海拔高度成反比，同时由空气阻力造成所需△v增量与滞留大气层时间也相关。总之，太难了我不会算，所以一般认为进入LEO(低轨地球轨道）所需的△V至少要有9,4km/s。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img9.doubanio.com/view/note/l/public/p63326835.jpg" alt></p>
+<p>因为任何物体都存在万有引力，火箭产生的推力减去重力和空气阻力再除以质量为实际加速度。或者认为加速度的积分△v需要拿出额外一部分来抵消引力影响。为因此衡量一个火箭性能的另外一个很重要的参数就是推重比，也就推力与起飞重量的比值。这和刚刚提到的Isp是两个概念，那个针对的是引擎，而且与重量无关。简单地说，推重比大就是更大力，但不一定持久，也不一定能提供更多的△v,而比冲高的不一定很大力，但可以提供更多的△v。火箭推重比必须大于1才能将火箭推离地面，可以想象一下，一个推重比为1的火箭，所产生的的△v将全部用来抵消重力，因此就飞不起来。这就是为什么火箭不仅要分级，很多也会用助推的原因。大部分助推会在40到100km的范围内分离。从起飞到低空范围内，重力影响很大，需要额外的推力用于加速。而在进入高空后，重力影响减小，我们也就不需要助推了。大家平时造火箭的时候也可以根据这个原理来选择引擎，一级火箭引擎最重要的参数是推力，比冲并不是很重要，因为一级火箭产生的推力要足够大才能抵消空气阻力和重力。但当火箭升空后，这两个参数减小，那我们更希望选择比冲大的引擎。以已经退役的航天飞机为例，起飞时主要推力来自两个固体推进器，进入50km低空后固体推进器分离，航天飞机上比冲更高的氢氧发动机可以提供更大的速度增量。</p>
+<p>火箭从发射到入轨一般会进行一种被称为重力转向机动的动作（Gravity turn maneuver），也就是我们平常发射火箭的时候看到的，最开始是垂直起飞，接着开始歪一个角度。这是一种轨迹优化的结果，因为我们最终的目的是进行稳定环绕，或者被称为parking orbit。而圆形环绕轨道是一个与地心同心的圆，速度的矢量方向于地球表面平行。因此火箭速度方向会经历一个从垂直于地表到平行于地表的机动过程，如下图所示。不考虑空气阻力，这条轨迹大约是个90度弧度的曲线，考虑空气阻力影响时所产生的空气阻力△v与v*s(位移）正相关，所以我们既希望在低空速度不要太快，也希望能尽快离开低空的稠密空气，那最好的办法就是垂直往天上发射。进入10km左右的高度时开始想东偏转，然后慢慢偏转角度增加。这也是因为我们希望尽可能减小空气阻力的影响，因为空气阻力与速度法向切面面积正相关，因此我们希望火箭始终头朝运动速度的方向（而不是加速度）的方向。这个具体的运动轨迹还需要参考每一阶段推进器的推重比和△v，空气密度变化函数，已经重力等。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img1.doubanio.com/view/note/l/public/p63327289.jpg" alt></p>
+<p>具体计算公式在下面，用excel设一下，挺好算的。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img1.doubanio.com/view/note/l/public/p63327469.jpg" alt></p>
+<p><a href=https://mintoc.de/index.php/Gravity>https://mintoc.de/index.php/Gravity</a>_Turn_Maneuver</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img3.doubanio.com/view/note/l/public/p63327533.jpg" alt></p>
+<p><a href=https://mintoc.de/index.php/Gravity>https://mintoc.de/index.php/Gravity</a>_Turn_Maneuver</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img3.doubanio.com/view/note/l/public/p63327332.jpg" alt></p>
+<p><a href=https://mintoc.de/index.php/Gravity>https://mintoc.de/index.php/Gravity</a>_Turn_Maneuver</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img9.doubanio.com/view/note/l/public/p63327434.jpg" alt></p>
+<p><a href=https://mintoc.de/index.php/Gravity>https://mintoc.de/index.php/Gravity</a>_Turn_Maneuver</p>
+<p>于是，我们终于飞出了地球，到达了LEO。下面我们来看看怎么实现第二步，从地球轨道转移到月球环绕轨道去。在此之前需要解释一下什么叫轨道，轨道是除了万有引力之外不受其他外力影响的稳定轨迹。当我们讨论2体运动时，在太空中轨道必定是一条圆锥曲线，可以是圆，椭圆，或者抛物线，甚至双曲线。因为能量守恒，因此在轨道任何一点重力势能与动能之和相同，在低高度时拥有更大的线速度。不论是何种圆锥曲线，万有引力中心在其中的一个焦点上。</p>
+<p>可以近似认为月球与地表是一个以地心为中心的同心圆，但是月球环绕地球轨道和地球赤道轨道之间有一个为5.14度的夹角,我们首先需要需要在LEO轨道进行角度修正，使得新轨道夹角与月球环绕轨道夹角相同。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img1.doubanio.com/view/note/l/public/p63399807.jpg" alt></p>
+<p>进行这样的角度修正我们依然需要进行一次机动，计算所需△v的方法也很简单。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img1.doubanio.com/view/note/l/public/p63399867.jpg" alt></p>
+<p>因为两个轨道高度相同，因此线速度也相同，所以速度向量|OA|和|OA'|相同，所需△V就是AA'。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img3.doubanio.com/view/note/l/public/p63400243.jpg" alt></p>
+<p>这个公式我们可以看出角度变轨代价非常巨大，对于极轨变轨（与赤道轨道成90度）。所需△V是飞出地球△V的两倍（甚至超过了去火星所需的△V）。带入地球第一宇宙速度和夹角得△V为0.708km/s。</p>
+<p>下面就是离开低轨飞向月球轨道，月球环绕地球可以近似看似是与地心为中心的圆形。所以环绕地球轨道变轨到月球轨道可以近似看作是LEO的同心圆，对于这种情况，我们可以使用霍曼转移轨道。霍曼转移轨道是一个以低轨道焦点为近焦点，连接近轨道任意一点穿过焦点的直线与高轨道交点组成长半轴的椭圆轨道，图示如下。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img9.doubanio.com/view/note/l/public/p63400286.jpg" alt></p>
+<p>霍曼转移轨道是典型的椭圆轨道与低轨和高轨共享同一焦点。通过在近拱点一次加速形成。因为能量守恒，加速相当于增加了飞船重力势能与动能之和，在近拱点霍曼转移轨道线速度Vta要大于原低轨线速度Va。在远拱点再次加速，霍曼转移轨道B点速度Vtb小于高轨道线速度Vb。因此霍曼转移轨道的2次加速变轨所需△V就是△V=(Vta-Va)+(Vb-Vtb)</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img1.doubanio.com/view/note/l/public/p63400339.jpg" alt></p>
+<p>因为从LEO出发，设Va就是第一宇宙速度7.9km/s, 月球轨道高度为385000km, 地球的万有引力约常数为4x10^14,因此Vb速度约为1km/s。 Vta=11,03, Vt2=1,16km/s,△V=3,29km/s。</p>
+<p>这个△V是从LEO轨道转移到月球轨道的所需的最低速度变化值。在太阳系内的△V地图如下图所示，进入月球环绕轨道是3,26km/s，为什么有这样的误差呢，因为实际上月球围绕地球轨道并不是一个正圆。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img3.doubanio.com/view/note/l/public/p63400443.jpg" alt></p>
+<p>上个礼拜西格在看火星救援时问了我一个非常有意思的问题，为什么马特达蒙说，即便地球现在知道他还活着，最早4年后才会有救援的飞船，因为从火星到地球最快只需要200多天，而让船长的飞船返航应该会更快一些。第一反应可能是电影的一个bug，后来想了想这个细节真的非常厉害。我们知道船长的飞船大概依然会采用霍曼转移轨道回地球。飞船在转移轨道上点I的速度为Vi,反向加速所需△V至少是2Vi,因为椭圆轨道远拱点速度最小，而火星轨道速度Vb为24Km/s,那2Vi+Vb-Vtb将是一个非常巨大的数字,所需的燃料相当于4,5倍以上从地球去火星的燃料。不考虑其他干扰因素，很可能船长的飞船也没有能力进行这样一个变轨机动。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img3.doubanio.com/view/note/raw/public/p63400641.jpg" alt></p>
+<p>而从地球发射飞船呢？这就涉及到另外一个很有意思的问题了，就是窗口期。不论是进行登月还是火星探索，飞船发射都存在一个窗口期。因为轨道角速度不同，飞船从A点出发，沿着转移轨道与火星正好在B点相遇，这个起飞的时间点就是发射窗口。根据开普勒公式，霍曼转移轨道轨道周期为:</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img1.doubanio.com/view/note/l/public/p63400718.jpg" alt></p>
+<p>不考虑地球和火星轨道存在夹角，地球到火星的霍曼转移轨道周期为226天，而火星轨道周期为687天，那霍曼转移轨道上的飞船K和火星每155262天才会完美相遇一次。当我们通过让飞船在转移轨道上二次机动来变更轨道，设toleranz为5天，那霍曼转移轨道上的飞船K每2年才有1天可以和火星相遇一次。解决在什么时间点进行变轨，所需能量和轨道时间的问题被称为Lambert&rsquo;s Problem,感兴趣的可以自己去搜一下。用来展示飞行时间，所需△V和窗口期的图表被称为Porkchop plot，大概长下面这样,从地球到火星每两年半有一次旅程时间为240天左右的发射窗口。而事发时是Day13,那意味即便地球得到马特达蒙信息后立刻准备发射火箭也需要3年才能到火星，再算上其他筹备时间等，大概就是4年。而根据lambert&rsquo;s Problem的推导，考虑到把人送上月球还要再短时间内送回来，每个月我们会有一天可以低△V把火箭送去月球的发射窗口。</p>
+<p><img src="https://images.weserv.nl/?url=https%3A//img1.doubanio.com/view/note/l/public/p63400949.jpg" alt></p>
+<p>明天写窗口期计算和降落在月球上吧。</p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/06a31ccb9ba07e3bb9f1c0b4e4e1d49b/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25AF%2587%25E7%25AE%2580%25E5%258D%2595%25E7%259A%2584%25E7%2599%25BB%25E6%259C%2588%25E6%258C%2587%25E5%258D%2597">当叙事替代故事——春节三个烂片的根源</a>
+</h2>
+<p class=text-dark>2019年的春节档三大影片《疯狂的外星人》《飞驰人生》《流浪地球》都已经看完了，这三部电影仅有《流浪地球》可算合格，其他两部都令人尴尬。
+这里面尤其可怕的是，三部电影本身都有糟糕到令人发指的故事。
+《流浪地球》：影片塑造紧张的地球仅有30余 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

@@ -1,0 +1,7 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>流氓软件 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E6%B5%81%E6%B0%93%E8%BD%AF%E4%BB%B6/</link><description>Recent content in 流氓软件 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sat, 17 Apr 2021 23:33:44 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E6%B5%81%E6%B0%93%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml"/><item><title>如何禁止安装百度杀毒？</title><link>https://project-gutenberg.github.io/Pincong/post/e9ba6ce94eb6ec83c17e640ba94cb299/</link><pubDate>Sat, 17 Apr 2021 23:33:44 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e9ba6ce94eb6ec83c17e640ba94cb299/</guid><description>知乎用户 Left 发表 组策略中证书规则，阻止百度一系列软件安装（对已安装的百度系列软件有影响）
+1. 下载百度系列软件一个（提取数字证书）
+2. 鼠标右键 属性 数字签名，如下图
+此处命名随便，证书存储路径随便，只要你记得。。。。。
+保存后直接下一步，下一步，最终得到一个证书文件
+3.win+r 调出运行框，输入 gpedit.msc 回车，打开组策略
+如上图（呵呵，我限制了不少东西）， 依次 计算机配置 windows 设置 安全 …</description></item></channel></rss>

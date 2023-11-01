@@ -1,0 +1,308 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>Shadowsocks无法使用后的简单排除方法 | 逗比根据地</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 广告
+
+本文最后更新于 2018年11月7日 18:53 可能会因为没有更新而失效。如已失效或需要修正，请留言！
+每一个使用过Shadowsocks的人，几乎都会出现过Shadowsocks突然无法使用的情况，然而很多人并不知道怎么办，网上的问题解决方法都是一个个的，不利于新手解决问题，所以我就写一个Shadowsocks无法使用后的简单排除方法。
+本教程不一定能 100% 帮你解决Shadowsocks无法使用的问题，但是肯定会有帮助的。
+ 如果你看了本文章 还是无法使用，那么请 Telegram (TG使用教程) 联系我解决或者远程协助。
+注意远程协助的前提是：确定SSR账号在当前网络中能使用（同一网络其他设备链接正常）、确定SSR客户端中的SSR账号填写正确、而且仅限 Windows 系统远程。
+ 1、确认Shadowsocks账号可用 在开始阅读本教程之前，你的第一步就是先确认你的Shadowsocks账号是否可用****（这步很重要！），建议让其他人链接试试，或者其他设备链接试试。
+**如果别人能用，你却不能用。**那就很明显是 你本地电脑设置问题 或者 Shadowsocks客户端 问题。请看 2、本地问题
+**如果别人都不能使用。**那就说明是 Shadowsocks服务端 或者 VPS 问题。请看 3、服务器问题
+如果你的ShadowsocksR账号是自建的，同时没有其他设备或者不想让其他人使用，那么可以看这个文章：
+ 使用ShadowsocksR Python客户端 快速验证SSR账号是否可用 『原创』ShadowsocksR 批量 快速验证账号可用性 一键脚本  点击展开 查看更多
+还有，可以打开ShadowsocksR的服务器连接统计 窗口，然后查看当前服务器信息的 实下载/错误/超时/空连 等数据来简单判断问题大概在哪里。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" Shadowsocks无法使用后的简单排除方法 | 逗比根据地 ">
+<meta name=og:description content=" 广告
+
+本文最后更新于 2018年11月7日 18:53 可能会因为没有更新而失效。如已失效或需要修正，请留言！
+每一个使用过Shadowsocks的人，几乎都会出现过Shadowsocks突然无法使用的情况，然而很多人并不知道怎么办，网上的问题解决方法都是一个个的，不利于新手解决问题，所以我就写一个Shadowsocks无法使用后的简单排除方法。
+本教程不一定能 100% 帮你解决Shadowsocks无法使用的问题，但是肯定会有帮助的。
+ 如果你看了本文章 还是无法使用，那么请 Telegram (TG使用教程) 联系我解决或者远程协助。
+注意远程协助的前提是：确定SSR账号在当前网络中能使用（同一网络其他设备链接正常）、确定SSR客户端中的SSR账号填写正确、而且仅限 Windows 系统远程。
+ 1、确认Shadowsocks账号可用 在开始阅读本教程之前，你的第一步就是先确认你的Shadowsocks账号是否可用****（这步很重要！），建议让其他人链接试试，或者其他设备链接试试。
+**如果别人能用，你却不能用。**那就很明显是 你本地电脑设置问题 或者 Shadowsocks客户端 问题。请看 2、本地问题
+**如果别人都不能使用。**那就说明是 Shadowsocks服务端 或者 VPS 问题。请看 3、服务器问题
+如果你的ShadowsocksR账号是自建的，同时没有其他设备或者不想让其他人使用，那么可以看这个文章：
+ 使用ShadowsocksR Python客户端 快速验证SSR账号是否可用 『原创』ShadowsocksR 批量 快速验证账号可用性 一键脚本  点击展开 查看更多
+还有，可以打开ShadowsocksR的服务器连接统计 窗口，然后查看当前服务器信息的 实下载/错误/超时/空连 等数据来简单判断问题大概在哪里。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/22.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>Shadowsocks无法使用后的简单排除方法 | 逗比根据地</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<span>at 08 August 2016</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%b5%8f%e8%a7%88%e5%99%a8>浏览器</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e7%ab%af%e5%8f%a3>端口</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e4%bb%a3%e7%90%86>代理</a>
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e8%ae%be%e7%bd%ae>设置</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/f7b0523cf6dbc0e8a27e959abc9d5d59.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/f7b0523cf6dbc0e8a27e959abc9d5d59.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>广告</p>
+<p><a href=http://bwggo.com/topad2><img src="https://images.weserv.nl/?url=bwgss-h.png" alt></a></p>
+<p>本文最后更新于 <strong>2018年11月7日 18:53</strong> 可能会因为没有更新而失效。如已失效或需要修正，请留言！</p>
+<p>每一个使用过Shadowsocks的人，几乎都会出现过Shadowsocks突然无法使用的情况，然而很多人并不知道怎么办，网上的问题解决方法都是一个个的，不利于新手解决问题，所以我就写一个Shadowsocks无法使用后的简单排除方法。</p>
+<p>本教程不一定能 100% 帮你解决Shadowsocks无法使用的问题，但是肯定会有帮助的。</p>
+<blockquote>
+<p>如果你看了本文章 还是无法使用，那么请 <a href=https://t.me/justmysockscn>Telegram</a> (<a href=ma7f_p6p.html>TG使用教程</a>) 联系我解决或者远程协助。</p>
+<p>注意远程协助的前提是：<strong>确定SSR账号在当前网络中能使用（同一网络其他设备链接正常）、确定SSR客户端中的SSR账号填写正确、而且仅限 Windows 系统远程。</strong></p>
+</blockquote>
+<h2 id=1确认shadowsocks账号可用>1、确认Shadowsocks账号可用</h2>
+<p>在开始阅读本教程之前，你的第一步就是先<strong>确认你的Shadowsocks账号是否可用****（这步很重要！）</strong>，建议让其他人链接试试，或者其他设备链接试试。</p>
+<p>**如果别人能用，你却不能用。**那就很明显是 <strong>你本地电脑设置问题</strong> 或者 <strong>Shadowsocks客户端</strong> 问题。请看 <a href="https://doub.io/?p=1417#2%E3%80%81%E6%9C%AC%E5%9C%B0%E9%97%AE%E9%A2%98">2、本地问题</a></p>
+<p>**如果别人都不能使用。**那就说明是 <strong>Shadowsocks服务端</strong> 或者 <strong>VPS</strong> 问题。请看 <a href="https://doub.io/?p=1417#3%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%97%AE%E9%A2%98">3、服务器问题</a></p>
+<p><strong>如果你的ShadowsocksR账号是自建的，同时没有其他设备或者不想让其他人使用，那么可以看这个文章：</strong></p>
+<ul>
+<li><a href=a6551xds-3.html>使用ShadowsocksR Python客户端 快速验证SSR账号是否可用</a></li>
+<li><a href=e0926y-q-2.html>『原创』ShadowsocksR 批量 快速验证账号可用性 一键脚本</a></li>
+</ul>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>还有，可以打开ShadowsocksR的<strong>服务器连接统计</strong> 窗口，然后查看当前服务器信息的 <strong>实下载/错误/超时/空连</strong> 等数据来简单判断问题大概在哪里。</p>
+<p>- 如果当前SSR服务器<strong>配置了SSR协议（非原版origin）</strong>，有数据显示则表示配置是正确的，如果一直为零 0 ，则表示一定有错误。</p>
+<p>- **网络错误：**连接被拒绝，一般是当前（账号）服务器配置的 <strong>端口不正确、防火墙没有开放端口</strong> 等导致的。</p>
+<p>- **协议错误：**返回数据校检错误，当前（账号）服务器配置的 <strong>SSR协议/混淆插件 不正确</strong>导致的。</p>
+<ul>
+<li>**超时：**一般是当前（账号）<strong>服务器未开机、没有网络</strong>等导致链接服务器超时。</li>
+<li>**空连：**空连表示链接后无返回数据，一般是当前（账号）服务器配置的 <strong>密码或加密方式 不正确</strong>导致的。</li>
+</ul>
+<p>如果浏览器打开谷歌网站 什么数据都没显示，那说明浏览器根本就没有走代理。</p>
+<h2 id=2本地问题>2、本地问题</h2>
+<p>再确认别人可以使用你的Shadowsocks账号后，那问题就是 <strong>你本地电脑设置问题</strong> 或者 <strong>Shadowsocks客户端</strong> 问题。那么我们就一个个排除。</p>
+<h3 id=21shadowsocks客户端问题>2.1、Shadowsocks客户端问题</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>首先，请尽量使用<strong>最新</strong>的Shadowsocks客户端，鉴于目前 Shadowsocks v3.0原版 因为作者喝茶已经停止更新很长时间了，推荐使用 目前在持续更新的 <strong>ShadowsocksR 客户端</strong>（很多人换了ShadowsocksR后就可以使用了）。</p>
+<p><strong>下载地址：</strong><a href="https://yun.doubibackup.com/?dir=%e7%a7%91%e5%ad%a6%e4%b8%8a%e7%bd%91/PC/Shadowsocks">逗比 · 云</a></p>
+<p>对了，还有一点。<strong>Shadowsocks账号信息</strong> 记得检查一下，说不定<strong>多了个空格或者符号</strong>，这都会导致无法连接Shadowsocks。</p>
+<p>同时，ShadowsocksR 只做了很多 其他的辅助功能，这些功能如果你不需要的话，请不要修改。<strong>否则一些设置不正确也会导致无法连接。</strong></p>
+<blockquote>
+<p>如果你用的是 ShadowsocksR 客户端，那么记得检查下 SSR客户端服务器链接统计窗口中的 <strong>[开关列]</strong> 是不是<strong>红色</strong>的，<strong>红色代表禁用该账号</strong>，双击红色即可变成白色启用该账号。</p>
+</blockquote>
+<h3 id=22本地电脑设置问题>2.2、本地电脑设置问题</h3>
+<p>很多人，都不会去使用过时的 IE 浏览器。那么，先使用一下 <strong>IE 浏览器</strong> 访问 <a href=https://www.google.com/>Google.com</a> ，如果可以访问，那么就直接看 <a href=hi10k-7p-2.html#2.2.5%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E9%97%AE%E9%A2%98>2.2.5、浏览器问题</a></p>
+<h4 id=221shadowsocks-软件权限问题>2.2.1、Shadowsocks 软件权限问题</h4>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>Shadowsocks <strong>启动系统代理</strong>后，就会去<strong>修改注册表</strong>来设置 <strong>系统代理设置</strong>。</p>
+<p>而一些<strong>电脑系统或者非管理员用户</strong>（比如网吧），可能因为没有相应的权限 <strong>导致 Shadowsocks 启动系统代理 后无法修改注册表。</strong></p>
+<p>这时候就需要用 **管理员权限 **启动 Shadowsocks 客户端。</p>
+<p>如果是网吧的话，是限制不能修改注册表的，而且也没有相应的权限，所以建议使用 <strong>SSCap客户端</strong>：<a href="https://yun.doubibackup.com/?dir=%e7%a7%91%e5%ad%a6%e4%b8%8a%e7%bd%91/PC/Shadowsocks">逗比 · 云</a></p>
+<p>如果确定不是 软件权限问题导致的，那么请继续看下面。</p>
+<h4 id=222系统代理设置问题>2.2.2、系统代理设置问题</h4>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>2.2.1 说了，Shadowsocks <strong>启动系统代理</strong>后，就会去<strong>修改注册表</strong>来设置 <strong>系统代理设置</strong>。</p>
+<p>那么，在启动后，请打开 <strong>系统代理设置</strong> 看一下是否正确设置代理。</p>
+<p><strong>右键桌面上的网络 >=> 属性 >=> Internet 选项 >=> 连接 选项卡 >=> 选择你使用的拨号链接 >=> 设置</strong></p>
+<p><img src="https://images.weserv.nl/?url=_w2iet9x.png" alt></p>
+<p>然后你是 <strong>直接电脑连接 猫 拨号上网</strong>的用户，就如上图所示打开下图的窗口。</p>
+<p>如果你是 <strong>路由器连接 猫 上网</strong>的用户，就点击上图所示中 下面的 <strong>局域网设置</strong> 打开下图的窗口。</p>
+<p>下图中 <strong>上面 红框圈中</strong> 的选项是，Shadowsocks客户端的<strong>PAC模式</strong></p>
+<p>一般正确的格式是(xxxx为示例)：<strong>http://127.0.0.1:1080/pac?t=xxxx</strong></p>
+<p>下图中 <strong>下面 红框圈中</strong> 的选项是，Shadowsocks客户端的<strong>全局模式</strong></p>
+<p>一般正确的格式是：<strong>地址：127.0.0.1，端口：1080。</strong></p>
+<p>如果，你的下图设置是 空的或者是不正确的**（127.0.0.1 是不能变的，端口是可以变的）<strong>，请修改为正确的IP和端口，并检查Shadowsocks客户端的</strong>本地端口设置**。</p>
+<p>注意：这里的端口既是 Shadowsocks中的 <strong>本地端口</strong>，是可以改的，不过<strong>默认是 1080</strong>。</p>
+<p><img src="https://images.weserv.nl/?url=uxjniu_o.png" alt></p>
+<h4 id=223无法保存-pac全局-代理设置>2.2.3、无法保存 PAC/全局 代理设置</h4>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>当你在上个步骤中发现 设置完 PAC/全局 代理后，再打开设置就发现刚才设置的代理内容不见了(恐怖)，那么可能是因为 IE的站点保护模式问题。</p>
+<p>打开IE浏览器，在**顶部菜单栏 — 工具 — Internet 选项 — 安全选项卡 — 受信任的站点 ** 中 <strong>安全级别调至[低]</strong> 并 <strong>取消 启用保护模式的勾选</strong>，然后点击 <strong>[站点]</strong> 按钮，如下图所示添加 <strong>http://127.0.0.1</strong> 到受信任的站点列表中并点击 <strong>[关闭]</strong> 按钮。最后重启 IE浏览器返回上个步骤设置代理查看是否正常保存。</p>
+<p><img src="https://images.weserv.nl/?url=oingz7rq.png" alt></p>
+<h4 id=224internet-保护模式>2.2.4、Internet 保护模式</h4>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>当你系统代理设置正确(就是上个步骤)，但是使用IE浏览器依然无法链接SS，那么可能是因为 IE的保护模式问题。</p>
+<p>打开IE浏览器，在<strong>顶部菜单栏 — 工具 — Internet 选项 — 安全选项卡</strong> 中<strong>取消 启用保护模式的勾选</strong>，然后重启 IE浏览器尝试是否正常。</p>
+<p><img src="https://images.weserv.nl/?url=lnvjiuus.png" alt></p>
+<h4 id=225浏览器问题>2.2.5、浏览器问题</h4>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>如果上面的情况都解决了，依然无法使用Shadowsocks的话，估计是浏览器问题了。</p>
+<p>大多数浏览器都是<strong>默认使用系统代理</strong>的，比如：Chrome、Opera等浏览器。</p>
+<p>同样，也有一些浏览器是有<strong>单独的代理设置 选项</strong>，比如：Firefox和国内的几个浏览器。</p>
+<p>请自己检查浏览器的 <strong>代理设置</strong> 是否为 <strong>使用系统代理设置</strong>，如果不是就改为 <strong>使用系统代理设置</strong>。</p>
+<p>如果没有这个 代理设置选项 或者已经改好了，那么就检查 <strong>浏览器扩展</strong>。</p>
+<p>比较常见的以 Chromium为内核的浏览器，比如：Chrome、Opera、国内的一些所谓的双核/极速浏览器。</p>
+<p>都经常会使用以下两个插件来管理代理设置，<a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?utm_source=chrome-app-launcher-info-dialog">Proxy SwitchyOmega</a>、<a href="https://chrome.google.com/webstore/detail/proxy-switchysharp/dpplabbmogkhghncfbfdeeokoefdjegm?utm_source=chrome-app-launcher-info-dialog">Proxy SwitchySharp</a>，因为这两个插件会 <strong>接管 浏览器的代理设置</strong>，如果设置错误或者不会使用的话，也会导致 Shadowsocks 无法使用，所以可以<strong>暂时禁用这两种插件</strong>。</p>
+<p><img src="https://images.weserv.nl/?url=https://images.weserv.nl/?url=e-zoz72u.png" alt></p>
+<h3 id=23本地电脑时间与服务器差距太大>2.3、本地电脑时间与服务器差距太大</h3>
+<p>如果你使用的是ShadowsocksR账号，并且你本地电脑设备的时间错误，可能会导致无法连接账号，表现特征为：<strong>账号确定可用，但是ShadowsocksR客户端的服务器链接统计窗口[报错]列会显示数字，不会提示[超时]和[空连]。</strong></p>
+<p>这种情况只需要根据北京时间校准一下本地电脑设备的时间即可（不需要在意时区，只要客户端和服务端的系统时间都是<strong>各自时区的标准时间</strong>，那么就行了，因为<strong>各个时区的标准时间实际是都是同一时间</strong>，只是因为时区不同而显示的时间不一样，并不是美国活在我们的昨天），各个协议对时间的误差要求不一样，所以建议与北京时间（如果你不是国内那么请对照你的时区来修改为<strong>时区标准时间</strong>）一致。</p>
+<p>如果在确认Shadowsocks账号可用的情况下，以上的几种方法依然无法解决问题，请联系我 <a href=https://t.me/justmysockscn>Telegram</a>。</p>
+<h2 id=3服务器问题>3、服务器问题</h2>
+<p>服务器引起的问题就比较麻烦，通过教程很难说清，首先检查一下 <strong>VPS IP 是否被墙</strong>，接着查看 Shadowsocks服务端 <strong>日志是否出错</strong>，然后检查 Shadowsocks<strong>是否运行正常</strong>，同时看一下防火墙<strong>是否允许了 Shadowsocks的端口</strong>，最后还是不行就 <strong>重装Shadowsocks服务端</strong> 试试，条件允许情况下，最好直接重装VPS系统，避免是其他软件影响了Shadowsocks的运行。我们一条一条解决。</p>
+<h3 id=31检查-ip-是否被墙>3.1、检查 IP 是否被墙</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>检查 IP 是否被墙很简单，只要用一下 <a href=http://ping.chinaz.com/>站长工具-超级Ping</a> 功能检测一下，如果发现<strong>国内全部 Ping超时</strong> ，<strong>其他国家 Ping正常</strong>，那就<strong>说明 IP 被墙</strong>了，反之没有被墙。</p>
+<h3 id=32检查-shadowsocks服务端-日志>3.2、检查 Shadowsocks服务端 日志</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>各个 Shadowsocks服务端 版本的日志文件略有不同，如果你是使用我网站提供的 Shadowsocks 服务端安装教程，那请去对应的教程里查看 <strong>日志文件</strong> 位置。</p>
+<p>然后通过 对应的命令代码 打开Shadowsocks日志信息，然后查看是否有异常，比如 <strong>[Error]</strong> 开头的日志，因为这类问题 繁多并且复杂，出现问题请留言，当然我也只能解决常见的问题，复杂一些的建议去 <a href=https://github.com/breakwa11/shadowsocks/tree/manyuser>Github（ShadowsocksR）</a> 问Shadowsocks服务端作者。</p>
+<h3 id=33检查-shadowsocks服务端是否运行正常>3.3、检查 Shadowsocks服务端是否运行正常</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>通过你安装的Shadowsocks版本，在上面找到对应的 <strong>查看Shadowsocks服务 运行状态</strong>的命令。</p>
+<p>然后，通过<code>netstat -lntp</code> 查看端口使用情况，看一下 <strong>Shadowsocks的端口</strong>是否 <strong>正常被 Shadowsocks自身 占用</strong>。</p>
+<p>如果被其他程序占用，可以尝试<strong>修改 Shadowsocks 端口</strong> 或者 <strong>关闭占用 Shadowsocks端口的 程序</strong>。</p>
+<h3 id=34检查-vps-iptables-内部防火墙规则是否开放端口>3.4、检查 VPS iptables 内部防火墙规则是否开放端口</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>首先查看一下<strong>iptables防火墙规则</strong>，看看是不是把 <strong>Shadowsocks的端口堵住</strong>了，如果你的VPS并没有什么重要的防火墙规则，那就可以直接 **关闭防火墙 **或者 <strong>清空防火墙规则</strong>。</p>
+<p>当然，如果你的VPS上面放的有**网站（一般lnmp安装完都会把非必要端口外的端口全部封掉）**或者其他的程序，你就需要 <strong>添加开放端口规则</strong>。</p>
+<p># 查看iptables防火墙规则
+iptables -L</p>
+<h1 id=清空iptables防火墙规则注意一些vps使用后会导致无法连接vps>清空iptables防火墙规则，注意，一些VPS使用后会导致无法连接VPS！！</h1>
+<p>iptables -F</p>
+<h1 id=添加iptables防火墙开放-tcpudp-端口规则>添加iptables防火墙开放 TCP/UDP 端口规则</h1>
+<p>iptables -I INPUT -p tcp &ndash;dport 端口 -j ACCEPT
+iptables -I INPUT -p udp &ndash;dport 端口 -j ACCEPT</p>
+<h1 id=关闭防火墙>关闭防火墙</h1>
+<p>service iptables stop</p>
+<h1 id=以上四个命令不是按顺序执行而是根据需求执行>以上四个命令不是按顺序执行，而是根据需求执行！</h1>
+<h3 id=34检查-vps-外部防火墙规则是否开放端口>3.4、检查 VPS 外部防火墙规则是否开放端口</h3>
+<p>在一些IDC中，例如：阿里云、腾讯云、微软云、谷歌云、亚马逊云等都有外部防火墙（名字一般叫 安全组 规则组），也就是可以在他们的管理面板中有个独立于VPS内部防火墙的外部防火墙，你可能开放了VPS内部防火墙，但是没开放对应的外部防火墙，这也会导致无法连接Shadowsocks端口。</p>
+<h3 id=35看一看作者写的服务器常见问退排除>3.5、看一看作者写的服务器常见问退排除</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<h3 id=36重装shadowsocks服务端>3.6、重装Shadowsocks服务端</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>到这一步基本就是死马当活马医了，一些问题实在找不到，那就干脆重装 Shadowsocks服务端。</p>
+<p>条件允许情况下，最好直接重装VPS系统，避免是其他软件影响了Shadowsocks的运行。</p>
+<p><strong>如果以上方法都无法解决，那么更多的请查看Wiki：<a href=https://github.com/breakwa11/shadowsocks-rss/wiki/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5>https://github.com/breakwa11/shadowsocks-rss/wiki/服务端常见问题排查</a></strong></p>
+<h2 id=其他情况>其他情况</h2>
+<h3 id=shadowsocks启动代理后提示无法修改注册表>Shadowsocks启动代理后提示“无法修改注册表”</h3>
+<p><a href=#>点击展开 查看更多</a></p>
+<p>一些人会出现Shadowsocks启动代理后提示**“无法修改注册表”<strong>的问题，大多数情况下是发生在</strong>网吧等特殊环境下**，有一些软件限制了注册表修改功能。</p>
+<p>上面说了，Shadowsocks启动代理后，先是占用1080（默认）端口，然后把Shadowsocks流量映射到<strong>127.0.0.1:1080</strong>上面，然后在去设置 <strong>系统代理设置</strong>。而设置 <strong>系统代理设置</strong>需要修改注册表，所以就会出现上面这个问题。</p>
+<p>真个问题有两种解决办法，<strong>一种是</strong>找到限制注册表修改功能的软件并关掉；</p>
+<p><strong>一种是</strong> 避开这个问题，<strong>通过浏览器扩展去管理代理设置</strong>，我们这里就讲这个方法。</p>
+<p>当然你也可以试一试 <strong>SSCap客户端</strong>：<a href="https://yun.doubibackup.com/?dir=%e7%a7%91%e5%ad%a6%e4%b8%8a%e7%bd%91/PC/Shadowsocks">逗比 · 云</a> ，这个客户端启动不需要修改注册表来设置系统代理。</p>
+<p>比较常见的以 <strong>Chromium为内核</strong>的浏览器，<strong>比如：Chrome、Opera、国内的一些所谓的双核/极速浏览器。</strong></p>
+<p>都经常会使用以下两个插件来管理代理设置，<a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?utm_source=chrome-app-launcher-info-dialog">Proxy SwitchyOmega</a>、<a href="https://chrome.google.com/webstore/detail/proxy-switchysharp/dpplabbmogkhghncfbfdeeokoefdjegm?utm_source=chrome-app-launcher-info-dialog">Proxy SwitchySharp</a>。我推荐前面那个。</p>
+<p><img src="https://images.weserv.nl/?url=https://images.weserv.nl/?url=e-zoz72u.png" alt></p>
+<p>进入扩展的选项页面，然后点<strong>新建情景模式>=>输入情景模式名称>=>选择代理服务器>=>点击创建</strong>（这个是SS全局的，需要SS PAC模式的请选择PAC情景模式）</p>
+<p><img src="https://images.weserv.nl/?url=h5rldhyt.png" alt></p>
+<p>然后SS全局和SS PAC的设置如下：</p>
+<p>**全局：**代理服务器：<strong>127.0.0.1</strong>，端口：<strong>1080</strong></p>
+<p>**PAC：**PAC网址：<strong>http://127.0.0.1:1080/pac</strong></p>
+<p>当然，这里以默认的1080端口为例，如果不是就自己改。设置完点<strong>应用选项</strong>，就可以使用了。</p>
+<p><img src="https://images.weserv.nl/?url=lnvjiuus-2.png" alt></p>
+<p><img src="https://images.weserv.nl/?url=oingz7rq-2.png" alt></p>
+<p>在浏览器的右上角点击Proxy SwitchyOmega扩展图标，选择你需要的全局还是PAC**（这时候Shadowsocks客户端不需要去设置对应的全局/PAC）**，就可以正常使用了。</p>
+<p><img src="https://images.weserv.nl/?url=rcrpdinp.png" alt></p>
+<p>好了，大概我就想到这么多了，有什么建议或者需要补充的 请在下面评论里留言！</p>
+<p><strong>转载请超链接注明：</strong><a href=index.html>逗比根据地</a> » <a href=hi10k-7p-2.html>Shadowsocks无法使用后的简单排除方法</a></p>
+<p>**责任声明：**本站一切资源仅用作交流学习，请勿用作商业或违法行为！如造成任何后果，本站概不负责！</p>
+<hr>
+<h4 id=page-2>Page 2</h4>
+<hr>
+<h4 id=page-3>Page 3</h4>
+<p>广告</p>
+<p><a href=http://bwggo.com/topad><img src="https://images.weserv.nl/?url=5ny9g1s2.gif" alt></a></p>
+<p>♦ 最新资讯 ♦Vultr 限时优惠，**注册送100刀！**3.5美元/月，IP被墙免费换，支持微信、支付宝。<img src="https://images.weserv.nl/?url=aabmo546.gif" alt><a href="https://www.vultr.com/?ref=7684006">立刻注册</a></p>
+<p><a href=w9qs7z5o.html>逗比软件</a></p>
+<p><a href=b2pv8ugx.html><img src="https://images.weserv.nl/?url=en_scpt90986.png%3Fsrc%3Dhttps%3A//doub.io/wp-content/uploads/SwitchyOmega.png%26h%3D123%26w%3D200%26q%3D90%26zc%3D1%26ct%3D1" alt="一个轻松快捷管理和切换多个代理的浏览器扩展 SwitchyOmega 使用教程"></a></p>
+<p>本文最后更新于 2018年10月16日 12:54 可能会因为没有更新而失效。如已失效或需要修正，请留言！SwitchyOmega 是一个我用了好几年的代理管理浏览器扩展，平时使用它来管理各个代理的使用，可以方便的切换代理或者设定什么网址走代理，什么网址不走代理。 之所以写 Sw&mldr;</p>
+<p><a href=3x8ussyf.html>Toyo</a> 8个月前 (04-02) <a href=b2pv8ugx.html#comments>46评论</a> <a href>138 赞</a></p>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/51c498b9b2b4aeaea8e646fe6cd7ec9f/?utm_source=see_also&utm_medium=shadowsocks%25E6%2597%25A0%25E6%25B3%2595%25E4%25BD%25BF%25E7%2594%25A8%25E5%2590%258E%25E7%259A%2584%25E7%25AE%2580%25E5%258D%2595%25E6%258E%2592%25E9%2599%25A4%25E6%2596%25B9%25E6%25B3%2595-%25E9%2580%2597%25E6%25AF%2594%25E6%25A0%25B9%25E6%258D%25AE%25E5%259C%25B0">Shadowsocks指导篇（总结归类）——从无到有，境无止尽！ | 逗比根据地</a>
+</h2>
+<p class=text-dark>广告
+本文最后更新于 2018年11月7日 17:53 可能会因为没有更新而失效。如已失效或需要修正，请留言！
+最近通过大家的反馈，我发现网站了一个问题，就是教程太碎了。很多人并没有去全部翻一遍，然后就找不到自己想要的教程，然后去群里问我 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

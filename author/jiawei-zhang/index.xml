@@ -1,0 +1,6 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jiawei Zhang on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/author/jiawei-zhang/</link><description>Recent content in Jiawei Zhang on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Mon, 15 Jun 2020 11:40:50 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/author/jiawei-zhang/index.xml" rel="self" type="application/rss+xml"/><item><title>Nginx折腾－TCP代理和负载均衡</title><link>https://project-gutenberg.github.io/Pincong/post/184be1de93f650fd0412511e7b1ff25f/</link><pubDate>Mon, 15 Jun 2020 11:40:50 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/184be1de93f650fd0412511e7b1ff25f/</guid><description>@orangleliu 2016-09-22T04:29:55.000000Z 字数 3080 阅读 9206
+nginx
+Nginx1.9 版本以后增加 stream模块，可以对tcp，udp请求进行代理和负载均衡了，今天来感受一下。
+nginx streaming 文档地址
+nginx streaming ssl 配置
+Centos 6.7 openresty/1.9.15.1 (config …</description></item></channel></rss>

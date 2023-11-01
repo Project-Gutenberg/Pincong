@@ -1,0 +1,5 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>五子之歌 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/author/%E4%BA%94%E5%AD%90%E4%B9%8B%E6%AD%8C/</link><description>Recent content in 五子之歌 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Tue, 10 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/author/%E4%BA%94%E5%AD%90%E4%B9%8B%E6%AD%8C/index.xml" rel="self" type="application/rss+xml"/><item><title>想建一个高强度的网站，用什么方式比较好？</title><link>https://project-gutenberg.github.io/Pincong/post/e383c072aeabac0876e64be040f6e715/</link><pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e383c072aeabac0876e64be040f6e715/</guid><description>品葱用户 五子之歌 提问于 12/10/2019 看到品葱和连登被DDOS却依然屹立，很想弄个类似的网站，可以按类别分享文件，同时有论坛功能让人讨论，并且能抗住一定规模的DDOS，但不了解大致需要的软硬件知识。
+普通的VPS硬盘太小，无法上传大量文件分享，如果用VPS转发端口，把服务器做在国内，不知是否有风险。
+另外操作系统的选择，建站的方式，论坛的方式，都还没有考虑好。
+有这方面的技术达人指点一下吗？
+品葱用户 FortAble 评论 …</description></item></channel></rss>

@@ -1,0 +1,304 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>很多数学的逆计算比正计算要难很多，这是什么原理？</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 品葱用户 billzt 提问于 6/4/2021 比如
+减法是加法的逆运算，但减法比加法难很多
+除法是乘法的逆运算，但除法比乘法难很多
+开方是乘方的拟运算，但开方比乘方难很多
+积分是微分的逆运算，但积分比微分难很多
+这是不是反应了一种什么哲学原理？
+品葱用户 dogg0五入拖拉曼 评论于 好幾個回答都在玩文字遊戲
+品葱用户 blueWolf 评论于 2021-06-05 实际上，加法也是减法的逆运算，乘法也是除法的逆运算等等
+那么按你的说法，是不是微分要比积分难呢
+逆运算和正运算本是相互的，你只是先入为主认为某某是正运算
+因为你先学了某某运算
+而你先学习某某运算，往往就是因为它更简单。
+至于有的可能被定义为某某运算，而它的逆运算被定义为某某逆运算
+一般是这种运算先被发现
+我觉得是：简单的规律更有可能先被发现，复杂的规律建立在简单规律之上，
+这是人类认识世界的方式之一。
+当然也有反例，比如先有对数再有指数等等。
+-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+突然我想到了Fourier变换，明明和Fourier逆变换形式相近
+凭什么它是变换，而那个是逆变换，这样定义是不是对逆变换很不公平
+还有为什么男演员要叫actor，女演员要叫actress
+为什么要把电子的电荷定义为负的，每次计算都更不方便一丢丢
+为什么要把逆时针的路径定义为正方向
+太！不！公！平！了！
+品葱用户 Yankeeman 评论于 2021-06-05 怎么这么多人都没说出答案,其实是这样:
+你对一个运算定义为F(x)好了,
+当你说到词语逆运算时,你是怎么理解的?
+通常是将&#34;逆&#34;字当成一个新的无确定表达式的函数G(x),
+然后逆运算是G[F(x)].
+你只要理解F(x)就能进行F(x)的运算,
+但要进行逆运算,你不仅要理解F(x),
+还要找出正确的G(x),然后再在脑海中形成G[F(x)]的概念,
+所以永远有逆运算的工作比正运算工作庞大,
+只因你构建逆运算的思路是这样.
+品葱用户 Eteristress 评论于 2021-06-04 因为简单的总能先被发现，所以被定义成「正运算」。如果一个运算是可逆的，那何为正运算何为逆运算都是相对的，人们常常把简单的常用的那个定义为正运算。 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 很多数学的逆计算比正计算要难很多，这是什么原理？ ">
+<meta name=og:description content=" 品葱用户 billzt 提问于 6/4/2021 比如
+减法是加法的逆运算，但减法比加法难很多
+除法是乘法的逆运算，但除法比乘法难很多
+开方是乘方的拟运算，但开方比乘方难很多
+积分是微分的逆运算，但积分比微分难很多
+这是不是反应了一种什么哲学原理？
+品葱用户 dogg0五入拖拉曼 评论于 好幾個回答都在玩文字遊戲
+品葱用户 blueWolf 评论于 2021-06-05 实际上，加法也是减法的逆运算，乘法也是除法的逆运算等等
+那么按你的说法，是不是微分要比积分难呢
+逆运算和正运算本是相互的，你只是先入为主认为某某是正运算
+因为你先学了某某运算
+而你先学习某某运算，往往就是因为它更简单。
+至于有的可能被定义为某某运算，而它的逆运算被定义为某某逆运算
+一般是这种运算先被发现
+我觉得是：简单的规律更有可能先被发现，复杂的规律建立在简单规律之上，
+这是人类认识世界的方式之一。
+当然也有反例，比如先有对数再有指数等等。
+-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+突然我想到了Fourier变换，明明和Fourier逆变换形式相近
+凭什么它是变换，而那个是逆变换，这样定义是不是对逆变换很不公平
+还有为什么男演员要叫actor，女演员要叫actress
+为什么要把电子的电荷定义为负的，每次计算都更不方便一丢丢
+为什么要把逆时针的路径定义为正方向
+太！不！公！平！了！
+品葱用户 Yankeeman 评论于 2021-06-05 怎么这么多人都没说出答案,其实是这样:
+你对一个运算定义为F(x)好了,
+当你说到词语逆运算时,你是怎么理解的?
+通常是将&#34;逆&#34;字当成一个新的无确定表达式的函数G(x),
+然后逆运算是G[F(x)].
+你只要理解F(x)就能进行F(x)的运算,
+但要进行逆运算,你不仅要理解F(x),
+还要找出正确的G(x),然后再在脑海中形成G[F(x)]的概念,
+所以永远有逆运算的工作比正运算工作庞大,
+只因你构建逆运算的思路是这样.
+品葱用户 Eteristress 评论于 2021-06-04 因为简单的总能先被发现，所以被定义成「正运算」。如果一个运算是可逆的，那何为正运算何为逆运算都是相对的，人们常常把简单的常用的那个定义为正运算。 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/176.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>很多数学的逆计算比正计算要难很多，这是什么原理？</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/billzt>Billzt</a></span>,
+<span>at 04 June 2021</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e6%95%b0%e5%ad%a6>数学</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/11bfe3cba40579dae5761314bf11d3fa.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/11bfe3cba40579dae5761314bf11d3fa.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<h3 id=品葱用户-billzt-提问于-642021>品葱用户 <strong>billzt</strong> 提问于 6/4/2021</h3>
+<p>比如</p>
+<p>减法是加法的逆运算，但减法比加法难很多<br>
+除法是乘法的逆运算，但除法比乘法难很多<br>
+开方是乘方的拟运算，但开方比乘方难很多<br>
+积分是微分的逆运算，但积分比微分难很多</p>
+<p>这是不是反应了一种什么哲学原理？</p>
+<h3 id=品葱用户-dogg0五入拖拉曼-评论于>品葱用户 <strong>dogg0五入拖拉曼</strong> 评论于</h3>
+<p>好幾個回答都在玩文字遊戲</p>
+<h3 id=品葱用户-bluewolf-评论于-2021-06-05>品葱用户 <strong>blueWolf</strong> 评论于 2021-06-05</h3>
+<p>实际上，加法也是减法的逆运算，乘法也是除法的逆运算等等<br>
+那么按你的说法，是不是微分要比积分难呢<br>
+逆运算和正运算本是相互的，你只是先入为主认为某某是正运算<br>
+因为你先学了某某运算<br>
+而<strong>你先学习某某运算，往往就是因为它更简单</strong>。</p>
+<p>至于有的可能被定义为某某运算，而它的逆运算被定义为某某逆运算<br>
+一般是这种运算先被发现<br>
+我觉得是：<strong>简单的规律更有可能先被发现</strong>，复杂的规律建立在简单规律之上，<br>
+这是人类认识世界的方式之一。<br>
+当然也有反例，比如先有对数再有指数等等。<br>
+-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-<br>
+突然我想到了Fourier变换，明明和Fourier逆变换形式相近<br>
+凭什么它是变换，而那个是逆变换，<strong>这样定义是不是对逆变换很不公平</strong><br>
+还有为什么男演员要叫actor，女演员要叫actress<br>
+为什么要把电子的电荷定义为负的，每次计算都更不方便一丢丢<br>
+为什么要把逆时针的路径定义为正方向<br>
+太！不！公！平！了！</p>
+<h3 id=品葱用户-yankeeman-评论于-2021-06-05>品葱用户 <strong>Yankeeman</strong> 评论于 2021-06-05</h3>
+<p>怎么这么多人都没说出答案,其实是这样:<br>
+你对一个运算定义为F(x)好了,<br>
+当你说到词语逆运算时,你是怎么理解的?<br>
+通常是将"逆"字当成一个新的无确定表达式的函数G(x),<br>
+然后逆运算是G[F(x)].<br>
+你只要理解F(x)就能进行F(x)的运算,<br>
+但要进行逆运算,你不仅要理解F(x),<br>
+还要找出正确的G(x),然后再在脑海中形成G[F(x)]的概念,<br>
+所以永远有逆运算的工作比正运算工作庞大,<br>
+只因你构建逆运算的思路是这样.</p>
+<h3 id=品葱用户-eteristress-评论于-2021-06-04>品葱用户 <strong>Eteristress</strong> 评论于 2021-06-04</h3>
+<p>因为简单的总能先被发现，所以被定义成「正运算」。如果一个运算是可逆的，那何为正运算何为逆运算都是相对的，人们常常把简单的常用的那个定义为正运算。</p>
+<p>当然也有反例，像是拉普拉斯/傅立叶变换的正逆运算都是积分，计算难度一样，实际应用中都是要么查表要么数值化。</p>
+<h3 id=品葱用户-deeeeplearning-评论于-2021-06-04>品葱用户 <strong>Deeeeplearning</strong> 评论于 2021-06-04</h3>
+<p>这里面没什么哲学，学界有一类问题叫反问题。比如说给你一个函数，你去找其极小值是一个问题，反问题就是已知极小值，去把函数找出来，当然这个反问题很简单了。其实，您要是乐意，破案也是个作案的反问题。<br>
+        一般来说那些值得研究的反问题主要的困难是条件不够，找不到唯一解，所以要加很多人工条件，那就直接成艺术了。<br>
+        我个人觉得，反问题本身就是个标签，跟计算机科学里面那些无穷无尽的名词一样，本身并没有太大的内涵。并不存在一种常用的解决反问题的方法，也没有反问题理论。</p>
+<h3 id=品葱用户-hatredkiller-评论于-2021-06-04>品葱用户 <strong>HatredKiller</strong> 评论于 2021-06-04</h3>
+<p>根据熵增 世界的方向是有序变无序 由一个整体变得越来越多 越来越细化 就是正向（所有生物同源、道生万物……） 这种变化不可逆 被人类感知到就变成了时间<br>
+现实世界的熵减是不存在的 因为目前为止“时间是不可逆的” 变化是不可逆的</p>
+<p>所以世界万物都在熵增 所以当人发现一种新看待世界或者解决问题的方法时 这个方法表达的场景一定是顺着世界方向的也就是熵增 而它们出现的本身也是熵增 比如加法乘法微分 而减法除法积分则是相对于加法乘法积分之后才出现的 他们本质也属于熵增 但是他们作为逆向运算的过程属于在模拟熵减 当在模拟一件事的时候消耗的功就比直接来要更多 类似各种模拟器 都属于逆向工程<br>
+放到生活里 你做的任何一件事 对任何事物施加影响改变了其状态 甚至你活着本身 都属于做熵增做加法 想要逆着来本质上是不可实现的 就像泼出去的水收不回来 破镜不能重圆 人死不能复生 而作为熵减的模拟 这种数学运算已经是最基本的了</p>
+<h3 id=品葱用户-四邑漁農牧工商總會-评论于-2021-06-05>品葱用户 <strong>四邑漁農牧工商總會</strong> 评论于 2021-06-05</h3>
+<p>解壓縮比壓縮易，解密比加密難（無密碼暴力破解），解密比加密易（已知密碼）</p>
+<h3 id=品葱用户-水浅茶清-评论于-2021-06-04>品葱用户 <strong>水浅茶清</strong> 评论于 2021-06-04</h3>
+<p>墒是增加的。把一个破碎的杯子还原要比打碎杯子难的多。</p>
+<h3 id=品葱用户-acehow-评论于-2021-06-05>品葱用户 <strong>acehow</strong> 评论于 2021-06-05</h3>
+<p>逆向工程本来就比正向难。最典型的就是加密解密。用最常用的RSA加密来说，两个大质数相乘瞬间就能得到结果，但你想把这个结果反向表示为两个大质数就难的多了去了。</p>
+<h3 id=品葱用户-仁波切尿袋王-评论于-2021-06-05>品葱用户 <strong>仁波切尿袋王</strong> 评论于 2021-06-05</h3>
+<p><a href=https://en.wikipedia.org/wiki/P>https://en.wikipedia.org/wiki/P</a>_versus_NP_problem</p>
+<p>The <strong>P versus NP problem</strong> is a major <a href=%22https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_computer_science%22>unsolved problem in computer science</a>. It asks whether every problem whose solution can be quickly verified can also be solved quickly.</p>
+<p>It is one of the seven <a href=%22https://en.wikipedia.org/wiki/Millennium_Prize_Problems%22>Millennium Prize Problems</a> selected by the <a href=%22https://en.wikipedia.org/wiki/Clay_Mathematics_Institute%22>Clay Mathematics Institute</a>, each of which carries a US$1,000,000 prize for the first correct solution.</p>
+<h3 id=品葱用户-xitlervirus-评论于-2021-06-04>品葱用户 <strong>XitlerVirus</strong> 评论于 2021-06-04</h3>
+<p>因为逆运算本质是searching,虽然广意上和正运算都算computing, 但实际上,计算复杂度不一样,在微观层面正运算遵循既定规则按步骤来procejure fixed and bounded,而逆运算是在potentially infinite, known or unknown solution space searching the right match,搜索符合要求的结果,搜索过程长短取决于对应的解的空间大小.</p>
+<h3 id=品葱用户-han_noble-评论于-2021-06-04>品葱用户 <strong>han_noble</strong> 评论于 2021-06-04</h3>
+<p>你舉得例子不恰當。<br>
+確實存在這種現象，最常見典型的是應用廣泛的非對稱加密算法。<br>
+這個問題属於信息論范疇。<br>
+當輸入集大於結果集，稱為熵增。反之，稱為熵减。<br>
+熵增複雜度高於熵减。因為需要處理的信息量不一樣大。<br>
+在一個n元熵增函式中，若結果集是是輸入集的m倍。那麼，此熵增函式對應的熵减函式需要處理的信息量的倍率是m^n。</p>
+<h3 id=品葱用户-抹茶姬-评论于-2021-06-04>品葱用户 <strong>抹茶姬</strong> 评论于 2021-06-04</h3>
+<p>只是个定义的问题</p>
+<p>如果定义简单的那个方向是‘正’而另外一个方向是‘逆’ 就肯定会出现‘逆’比‘正’复杂的情况</p>
+<p>反过来 也可以说</p>
+<p>乘法是除法的逆运算 但乘法比除法简单</p>
+<p>哲学不知道 科学上来说确实和 水浅茶清 提到的墒增有类似之处</p>
+<h3 id=品葱用户-我也亲自车震-评论于-2021-06-04>品葱用户 <strong>我也亲自车震</strong> 评论于 2021-06-04</h3>
+<p>一个简单的回答：你拉屎容易还是吃屎容易？<br>
+字数字数字数字数字数字数</p>
+<h3 id=品葱用户-oho-评论于-2021-06-06>品葱用户 <strong>oHo</strong> 评论于 2021-06-06</h3>
+<p>正反运算互为对方的反正运算。所以你说的东西 并不成立 加法是减法的逆运算 减法也是加法的逆运算。 正反只是相对的概念 不是绝对的概念。</p>
+<h3 id=品葱用户-fucp-评论于-2021-06-06>品葱用户 <strong>fucp</strong> 评论于 2021-06-06</h3>
+<p>例子不恰当。加减乘除算法难度相同</p>
+<p>真正逆运算难的就是质因数分解，正向和逆向速度差着数量级。这也是现代加密的基本原理。</p>
+<blockquote>
+<p><a href=https://pincong.rocks/question/39249>点击品葱原文参与讨论</a></p>
+</blockquote>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/82370b0044ec79acbc402d52921d41f8/?utm_source=see_also&utm_medium=%25E5%25BE%2588%25E5%25A4%259A%25E6%2595%25B0%25E5%25AD%25A6%25E7%259A%2584%25E9%2580%2586%25E8%25AE%25A1%25E7%25AE%2597%25E6%25AF%2594%25E6%25AD%25A3%25E8%25AE%25A1%25E7%25AE%2597%25E8%25A6%2581%25E9%259A%25BE%25E5%25BE%2588%25E5%25A4%259A%25E8%25BF%2599%25E6%2598%25AF%25E4%25BB%2580%25E4%25B9%2588%25E5%258E%259F%25E7%2590%2586">求理科大佬们帮我出一道数学算式，越复杂越好，结果等于8964。</a>
+</h2>
+<p class=text-dark>用函数，微积分什么的都可以，越复杂越好，结果等于8964，或者1989，64，198964，19890604都行 。如果担心暴露，私信我也行。
+品葱用户 华国锋 评论于 2021-06-04 什么算数也比不上2012年上证指数
+品葱用户 暴 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/a0bd43b043f5ed9eabc15cdd30c7e60b/?utm_source=see_also&utm_medium=%25E5%25BE%2588%25E5%25A4%259A%25E6%2595%25B0%25E5%25AD%25A6%25E7%259A%2584%25E9%2580%2586%25E8%25AE%25A1%25E7%25AE%2597%25E6%25AF%2594%25E6%25AD%25A3%25E8%25AE%25A1%25E7%25AE%2597%25E8%25A6%2581%25E9%259A%25BE%25E5%25BE%2588%25E5%25A4%259A%25E8%25BF%2599%25E6%2598%25AF%25E4%25BB%2580%25E4%25B9%2588%25E5%258E%259F%25E7%2590%2586">中国国家反诈中心app，今天是第三集了，计算你被录音的概率</a>
+</h2>
+<p class=text-dark>中国国家反诈中心app，第三集，计算你被录音的概率，YouTube
+首先我们假设，为了有效防止诈骗犯罪行为，这个app 7天24小时开启，录音概率是100%。
+假设手机装机率是30%，这个数字已经是低估了。根据某用户的留言，深圳龙华区4月9 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/387f84a75f7581fbffb122e0e4e32e92/?utm_source=see_also&utm_medium=%25E5%25BE%2588%25E5%25A4%259A%25E6%2595%25B0%25E5%25AD%25A6%25E7%259A%2584%25E9%2580%2586%25E8%25AE%25A1%25E7%25AE%2597%25E6%25AF%2594%25E6%25AD%25A3%25E8%25AE%25A1%25E7%25AE%2597%25E8%25A6%2581%25E9%259A%25BE%25E5%25BE%2588%25E5%25A4%259A%25E8%25BF%2599%25E6%2598%25AF%25E4%25BB%2580%25E4%25B9%2588%25E5%258E%259F%25E7%2590%2586">读崔永元两篇反智文章</a>
+</h2>
+<p class=text-dark>读崔永元两篇反智文章
+作者：周宏
+终于如政协委员崔永元所愿，方舟子被邪恶的“正能量”摁到了。但这不是崔永远的胜利，而是强权大腿的一次不知羞耻的拙劣表演——放弃正常的走路，改为取代胳膊，驱动手专工吃饭、鼓掌、表决心……启发人爱科学、学科学的好 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/e7c76e08fb6a6200cad9d42e71b26b45/?utm_source=see_also&utm_medium=%25E5%25BE%2588%25E5%25A4%259A%25E6%2595%25B0%25E5%25AD%25A6%25E7%259A%2584%25E9%2580%2586%25E8%25AE%25A1%25E7%25AE%2597%25E6%25AF%2594%25E6%25AD%25A3%25E8%25AE%25A1%25E7%25AE%2597%25E8%25A6%2581%25E9%259A%25BE%25E5%25BE%2588%25E5%25A4%259A%25E8%25BF%2599%25E6%2598%25AF%25E4%25BB%2580%25E4%25B9%2588%25E5%258E%259F%25E7%2590%2586">说说院士选举年几位数学候选人</a>
+</h2>
+<p class=text-dark>说说院士选举年几位数学候选人
+作者：程刚
+又到院士选举年，热闹非凡。听说，今年仅数学候选人就有23位之多。尽管国内反腐高压看似不减，不少候选人和部分有投票权利的院士其实毫无顾忌。比如香港浸会大学研究生院院长汤涛、福州大学副校长范更华、北京计 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/fdb0abe47f857727dd432f273f52e8a7/?utm_source=see_also&utm_medium=%25E5%25BE%2588%25E5%25A4%259A%25E6%2595%25B0%25E5%25AD%25A6%25E7%259A%2584%25E9%2580%2586%25E8%25AE%25A1%25E7%25AE%2597%25E6%25AF%2594%25E6%25AD%25A3%25E8%25AE%25A1%25E7%25AE%2597%25E8%25A6%2581%25E9%259A%25BE%25E5%25BE%2588%25E5%25A4%259A%25E8%25BF%2599%25E6%2598%25AF%25E4%25BB%2580%25E4%25B9%2588%25E5%258E%259F%25E7%2590%2586">重谈哥德巴赫猜想</a>
+</h2>
+<p class=text-dark>重谈哥德巴赫猜想
+作者：Goodhelper
+三十多年前有一个叫徐迟的作者写了一遍报道文章介绍中国数学家陈景润专研数学难题“哥德巴赫猜想”所做的努力和成果。这篇报道文章配合中国的改革开放，提倡科学，恢复高考，对中国产生了很大的影响，也使陈景 …</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>

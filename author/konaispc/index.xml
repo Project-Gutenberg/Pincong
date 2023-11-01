@@ -1,0 +1,25 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>KonaisPC on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/author/konaispc/</link><description>Recent content in KonaisPC on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sat, 28 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/author/konaispc/index.xml" rel="self" type="application/rss+xml"/><item><title>【向Cloudflare致敬】免费安全可靠的Cloudflare WARP VPN</title><link>https://project-gutenberg.github.io/Pincong/post/8ab8470cbb69c276afc9dcacc4fa061c/</link><pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/8ab8470cbb69c276afc9dcacc4fa061c/</guid><description>Cloudflare近日正式推出了其基于wireguard的WARP VPN。
+请见loveyou521大神关于wireguard的讲解。
+目前我只是尝试了免费的WARP，虽然免费版的速度还是很慢，但感觉算是能用吧，可以作为备用翻墙手段存起来。不知道付费版的WARP+速度会不会好一点。
+有葱友们尝试过吗？
+PS: 一则伤心的故事，邮箱被赵弹塞满，已废。/(ㄒoㄒ)/
+☰
+Cloudflare’s free mobile VPN is …</description></item><item><title>【向Cloudflare致敬】免费安全可靠的Cloudflare WARP VPN</title><link>https://project-gutenberg.github.io/Pincong/post/f17106e84686662e5a5c4aa67ff9e9cd/</link><pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f17106e84686662e5a5c4aa67ff9e9cd/</guid><description>Cloudflare近日正式推出了其基于wireguard的WARP VPN。
+请见loveyou521大神关于wireguard的讲解。
+目前我只是尝试了免费的WARP，虽然免费版的速度还是很慢，但感觉算是能用吧，可以作为备用翻墙手段存起来。不知道付费版的WARP+速度会不会好一点。
+有葱友们尝试过吗？
+PS: 一则伤心的故事，邮箱被赵弹塞满，已废。/(ㄒoㄒ)/
+☰
+Cloudflare’s free mobile VPN is …</description></item><item><title>【更新服务器部署脚本】由近期GFW疯狂禁IP而催生的CDN翻墙方法</title><link>https://project-gutenberg.github.io/Pincong/post/8d0c0c9a31b2375c73240ad98f523a00/</link><pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/8d0c0c9a31b2375c73240ad98f523a00/</guid><description>由于近期GFW的大肆封锁IP,想必不少人想开始寻找下一代翻墙方法了吧。
+以我个人经历来说，6.1 使用shadowsocks的搬瓦工ip被墙，6.2更换新的ip，开始使用无防护版v2ray。结果没一天，新的ip又被墙。 无奈之下本人开始寻求下一代翻墙方法。
+6.4成功利用cloudflare的免费cdn服务,完成了翻墙升级，现把简略步骤发于品葱，自由必胜。
+前提条件:
+1.拥有境外vps
+2.拥有个人域名(免费或付费均可)
+3.注 …</description></item><item><title>【更新服务器部署脚本】由近期GFW疯狂禁IP而催生的CDN翻墙方法</title><link>https://project-gutenberg.github.io/Pincong/post/e9999b90d58428123ae84487b085afe6/</link><pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/e9999b90d58428123ae84487b085afe6/</guid><description>由于近期GFW的大肆封锁IP,想必不少人想开始寻找下一代翻墙方法了吧。
+以我个人经历来说，6.1 使用shadowsocks的搬瓦工ip被墙，6.2更换新的ip，开始使用无防护版v2ray。结果没一天，新的ip又被墙。 无奈之下本人开始寻求下一代翻墙方法。
+6.4成功利用cloudflare的免费cdn服务,完成了翻墙升级，现把简略步骤发于品葱，自由必胜。
+前提条件:
+1.拥有境外vps
+2.拥有个人域名(免费或付费均可)
+3.注 …</description></item></channel></rss>

@@ -1,0 +1,26 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>膜乎 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E8%86%9C%E4%B9%8E/</link><description>Recent content in 膜乎 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Tue, 10 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E8%86%9C%E4%B9%8E/index.xml" rel="self" type="application/rss+xml"/><item><title>【小技巧】解决品葱“编辑回复时空行回车数量突增一倍”的方法</title><link>https://project-gutenberg.github.io/Pincong/post/9c13576af72c1ce10ec9e13dfe7ed5c1/</link><pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/9c13576af72c1ce10ec9e13dfe7ed5c1/</guid><description>（开门见山，直接说解决方法）
+一、下载一个支持正则表达式的文本编辑器，如果你有就打开。(windows推荐notepad++， mac推荐textmate)
+二、把空行数量翻倍后的编辑内容复制进去，点击ctrl+f（打开“查找与替换”功能），勾上&amp;quot;正则表达式&amp;quot;(regular expression)。
+这里分为两种方法，取决于你的需要。
+如果你想要删除其中 1/2 的空行：
+在查找栏输入“^\R{2}”，替换栏留空， …</description></item><item><title>姨学支黑的逻辑大讲座，教你成为品葱的合格支黑</title><link>https://project-gutenberg.github.io/Pincong/post/c86d65dc80027df0a183baf823045c30/</link><pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/c86d65dc80027df0a183baf823045c30/</guid><description>一、姨学支黑思想的核心：信仰杀戮，只有分裂、核平、大洪水、张献忠大屠杀才是出路。
+报喜不报忧，只讲中国人跪舔强权，互害互杀之类的喜事；
+而对于中国人反抗游行之类的坏事，统统选择性否定。
+-中共都是有罪的。
+-中共是中国人组成的。
+-所以中国人是罪有应得的。
+1.对于移民跑路的，就鼓吹全球排华。
+2.对于发声的，就讽刺天真幼稚的民小还在做梦？
+3.对于中共体制内叛变的，就讽刺对中共有屁伤害，污名化叛变的是有罪论，千万不要相信。
+4.对于反 …</description></item><item><title>脑洞大开：如果明泽爱上瓜瓜，这剧情该怎样发展下去？</title><link>https://project-gutenberg.github.io/Pincong/post/ee49277cd079963d3fff63a6631c1412/</link><pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/ee49277cd079963d3fff63a6631c1412/</guid><description>品葱用户 cking 提问于 8/3/2020 继前段时间盛传彭麻麻和习200分居之后，最近又传出习明泽在美国申请庇护的传言，估计这些都是比较难核实的信息。
+突然脑洞大开，习瓜瓜和薄明泽都在哈佛上学，不知道有没有交集，从流传出来的照片来看，瓜瓜是一匹靓仔，明泽则相貌平平，如果薄明泽爱上习瓜瓜，这该咋整？
+再开大一点：假如明泽竞争不过陈元的女儿，成不了瓜瓜马子&amp;hellip;
+品葱用户 包子今天好吃吗 评论于 很简单啊，包子让女儿把瓜瓜骗 …</description></item><item><title>怎么膜乎独立了？</title><link>https://project-gutenberg.github.io/Pincong/post/9694f086f9b1a62b5a013506c18083da/</link><pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/9694f086f9b1a62b5a013506c18083da/</guid><description>品葱用户 fztest000 提问于 5/23/2020 品葱用户 老王之二 评论于 2020-05-23 在这里警告膜乎的一些极端分子，品葱人不想打，不愿打，但也不怕打一场统一之战。妄图制造两个品葱或者一品一膜是没有出路的。当下社会，品葱膜乎共同利益远远大于分歧，应当共同合作，一旦膜乎独立，恐怕失去世界乳包中心的地位，只有依靠品葱，膜乎才有未来
+品葱用户 阿斯妙特灵 评论于 2020-05-22 品葱人民共和国膜乎事务办公室就膜乎当局 …</description></item><item><title>咦，膜乎呢？</title><link>https://project-gutenberg.github.io/Pincong/post/72808cbd7f28cfce38ed3b72d613e15c/</link><pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/72808cbd7f28cfce38ed3b72d613e15c/</guid><description>膜乎区块从品韭主页移除了，直接走域名也进不去。
+发生了什么？站长还好吗？经过了端点星事件我有点神经质了
+如仅仅是维护暂时下线或者别的什么原因，请代为转水。
+品葱用户 江沢民 评论于 2020-05-20 一站一制了？
+品葱用户 Tashkent 评论于 2020-05-21 mohu.rocks (๑◔‿◔๑)
+品葱用户 江沢民 评论于 2020-05-20 草，被转移到了mohu.rocks
+这个域名还是我建议的
+我就是膜独的背后的反 …</description></item></channel></rss>

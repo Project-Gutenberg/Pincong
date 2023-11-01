@@ -1,0 +1,259 @@
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<title>【霏艺所思】什么是反应器（Reactor）和前摄器（Proactor）？</title>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=description content=" 我已经说了**，我不想继续讨论翻墙的事情。。。**
+# 什么是同步？什么是异步？
+这种基本概念，其实网上一堆。。。我再来一次吧！
+我给 XXX 打了一个电话，这个就是同步消息！
+我给 XXX 寄了一封邮件，这个就是异步消息！
+怎么理解呢？
+打电话，我和 XXX 的通信 是 “实时”的，我说的内容， XXX 可以即时收到，体现了“实时性”。
+发邮件，我和 XXX 的通信 不是 “实时”的！我寄完信，根本不知道 XXX 会不会去读，甚至无法知道他能不能收到！
+# 什么是CSP？什么是Actor？
+这种基本概念，其实网上一堆。。。我再来一次吧！
+继续用寄信给你们举例子！
+寄信，要信箱！这个能理解吧？
+Actor模型
+如果每个收信人，都有自己的独立信箱，这个就是actor模型。
+每个收信人都是一个Actor，他们有自己独立的信箱。
+其他Actor作为发信人，通过 向其他Actor的信箱寄信，完成消息传递。
+代码大概长这样
+```伪代码
+发信人 = new Actor()
+收信人 = new Actor()
+邮递员 = new ActorManager()
+发信人告诉邮递员自己的信箱地址 ">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
+<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
+<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
+<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
+<meta name=twitter:card content="summary_large_image">
+<meta name=og:title content=" 【霏艺所思】什么是反应器（Reactor）和前摄器（Proactor）？ ">
+<meta name=og:description content=" 我已经说了**，我不想继续讨论翻墙的事情。。。**
+# 什么是同步？什么是异步？
+这种基本概念，其实网上一堆。。。我再来一次吧！
+我给 XXX 打了一个电话，这个就是同步消息！
+我给 XXX 寄了一封邮件，这个就是异步消息！
+怎么理解呢？
+打电话，我和 XXX 的通信 是 “实时”的，我说的内容， XXX 可以即时收到，体现了“实时性”。
+发邮件，我和 XXX 的通信 不是 “实时”的！我寄完信，根本不知道 XXX 会不会去读，甚至无法知道他能不能收到！
+# 什么是CSP？什么是Actor？
+这种基本概念，其实网上一堆。。。我再来一次吧！
+继续用寄信给你们举例子！
+寄信，要信箱！这个能理解吧？
+Actor模型
+如果每个收信人，都有自己的独立信箱，这个就是actor模型。
+每个收信人都是一个Actor，他们有自己独立的信箱。
+其他Actor作为发信人，通过 向其他Actor的信箱寄信，完成消息传递。
+代码大概长这样
+```伪代码
+发信人 = new Actor()
+收信人 = new Actor()
+邮递员 = new ActorManager()
+发信人告诉邮递员自己的信箱地址 ">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/216.jpg">
+<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
+</head>
+<body>
+<header class="fixed-top navigation">
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
+<i class="ti-menu h3"></i>
+</button>
+<div class="collapse navbar-collapse text-center" id=navigation>
+<ul class="navbar-nav ml-auto">
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</header> <div class="py-5 d-none d-lg-block"></div>
+<section class=main-content>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 mx-auto block shadow mb-5">
+<h2>【霏艺所思】什么是反应器（Reactor）和前摄器（Proactor）？</h2>
+<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e9%9c%8f%e8%89%bafaye>霏艺 faye</a></span>,
+<span>at 02 June 2020</span>, tags :
+<a href=https://project-gutenberg.github.io/Pincong/tags/%e9%9c%8f%e8%89%ba%e6%89%80%e6%80%9d>霏艺所思</a>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/9f270627bf3a19eaa69c1574dcf517c1.md style=color:gray><strong><i>点击纠错</i></strong></a>
+<i> </i>
+<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/9f270627bf3a19eaa69c1574dcf517c1.md style=color:gray><strong><i>点击删除</i></strong></a>
+</div>
+<h5><a href="https://justmysocks.net/members/aff.php?aff=13681">使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
+<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
+<p></p>
+<p>我已经说了**，我不想继续讨论翻墙的事情。。。**</p>
+<p># 什么是同步？什么是异步？<br>
+这种基本概念，其实网上一堆。。。我再来一次吧！<br>
+我给 XXX 打了一个电话，这个就是同步消息！<br>
+我给 XXX 寄了一封邮件，这个就是异步消息！<br>
+怎么理解呢？<br>
+打电话，我和 XXX 的通信 是 “实时”的，我说的内容， XXX 可以即时收到，体现了“实时性”。<br>
+发邮件，我和 XXX 的通信 不是 “实时”的！我寄完信，根本不知道 XXX 会不会去读，甚至无法知道他能不能收到！</p>
+<p># 什么是CSP？什么是Actor？<br>
+这种基本概念，其实网上一堆。。。我再来一次吧！<br>
+继续用寄信给你们举例子！<br>
+寄信，要信箱！这个能理解吧？<br>
+<strong>Actor模型</strong><br>
+如果每个收信人，都有自己的独立信箱，这个就是actor模型。<br>
+每个收信人都是一个Actor，他们有自己独立的信箱。<br>
+其他Actor作为发信人，通过 向其他Actor的信箱寄信，完成消息传递。<br>
+代码大概长这样<br>
+```伪代码<br>
+发信人 = new Actor()<br>
+收信人 = new Actor()<br>
+邮递员 = new ActorManager()</p>
+<p>发信人告诉邮递员自己的信箱地址<br>
+收信人告诉邮递员自己的信箱地址<br>
+邮递员。派发信件（发信人，收信人，信件）<br>
+```<br>
+<strong>CSP模型</strong><br>
+<strong>不是按人来设置信箱，而是根据事情。</strong><br>
+比如，我投诉戴尔电脑某某问题，就给戴尔寄信，但是我不知道戴尔的哪个员工会收到。<br>
+再比如，我给微软提bug，我也不知道哪个人可以收到我的信。<br>
+<strong>也就是说某类人可以共用一个信箱</strong>！<br>
+```伪代码<br>
+微软的信箱 = new MailBox()</p>
+<p>戴尔的信箱 = new MailBox()<br>
+邮递员 = new ActorManager()</p>
+<p>邮递员。派发信件（我，微软的信箱，信件）<br>
+```<br>
+和Actor的区别<br>
+每个Actor都有自己的独立信箱！<br>
+CSP的话，n个Actor共用一个信箱。。。</p>
+<p># 什么是反应器？什么是前摄器？<br>
+这种基本概念，其实网上一堆。。。我再来一次吧！<br>
+先把线程分两类<br>
+1. 处理器 handler【你自己实现的业务代码逻辑实现】<br>
+2. 分离器 evloop 【调用select poll epoll iocp kqueue的线程】</p>
+<p>反应器模式<br>
+IO操作【读/写操作】，<br>
+如果在handler线程，就是反应器模式！<br>
+如果在evloop线程，就是前摄器模式！</p>
+<p>反应器模式举例：<br>
+eventMap = new Map&lt;event, func><br>
+evloop线程 通过 select/poll/epoll等判断有什么event<br>
+如果有发生event，<strong>就把对应的func 放到handler的信箱里</strong>！<br>
+handler不停访问自己的信箱，取出信箱里的func并调用【这个func都是IO操作，所以IO操作在handler线程】</p>
+<p>前摄器模式举例：<br>
+eventMap = new Map&lt;event, func><br>
+handler调用IO操作的时候，<strong>没有直接操作</strong>！<br>
+而是把对应的IO操作，<strong>放到evloop的信箱里</strong>！<br>
+evloop线程 通过 select/poll/epoll等判断有什么event<br>
+然后把对应的event取出来，去<strong>自己的信箱里找到对应的func并执行</strong>【IO操作在evloop线程】</p>
+<p>至于信箱是用CSP模型，还是Actor模型，是没有指定的。。。你们随意，喜欢就好~</p>
+<p>以上都是“单进程多线程模式”的讨论！<br>
+如果是多进程，甚至多服务器。其实道理是类似的。。。<br>
+你可以这么理解多进程/多服务器的CSP<br>
+CSP的信箱，可以是一个数据库【Oracle，MySQL】，也可以是一个消息队列【RabbitMQ，Kafka】</p>
+<p>==========================<br>
+我也不知道，你们听懂了没有。。。没听懂就留言吧<br>
+我会解答的</p>
+<h3 id=品葱用户-霏艺faye-评论于-2020-06-03>品葱用户 <strong>霏艺Faye</strong> 评论于 2020-06-03</h3>
+<p>小丑鱼架构模型：<br>
+简介：小丑鱼是一种<strong>可以改变性别</strong>的鱼。<br>
+正常情况下，一个小丑鱼的鱼群里有雄鱼和雌鱼。<br>
+如果这群鱼里，<strong>只有雄鱼</strong>！<strong>那么神奇的事情发生了</strong>！<br>
+雄鱼们会开始选举，<strong>选举它们中的一条鱼变成雌鱼</strong>！</p>
+<p>nginx的架构模型就是小丑鱼！<br>
+正常情况下，nginx有一个master进程和n个worker进程。<br>
+worker进程，都是具体干活的，死了一个也不会导致nginx服务出现中断，因为还有其他的worker进程继续工作。<strong>而且master进程，就像雌鱼，会生孩子</strong>！会自己重新fork一个worker进程。。。。</p>
+<p>如果挂掉的是master进程，那么就会在存活的worker进程里，选举一个成为master进程，然后就继续稳定提供服务，百分百完备的不会中断服务！</p>
+<p>总结：<br>
+1.如果是worker进程挂了，其他worker会分担它的工作，master进程会fork新的worker顶替它。<br>
+2.如果是master进程挂了，worker进程会选举一个成为新的master，然后新的master会fork一个新的worker。</p>
+<p>master就是 雌性的小丑鱼，可以生孩子。<br>
+worker就是 雄性的小丑鱼，雌鱼死了，会被选举成心的雌鱼！</p>
+<h3 id=品葱用户-霏艺faye-评论于-2020-06-02>品葱用户 <strong>霏艺Faye</strong> 评论于 2020-06-02</h3>
+<p>一句话总结：<br>
+反应器模式：evloop把“IO操作”放到handler的信箱。<br>
+前摄器模式：handler把“IO操作”放到evloop的信箱。<br>
+-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-<br>
+反应器模式，由于IO操作在handler线程，所以IO阻塞会导致业务代码无法运行<br>
+<strong>不是很建议在网络不好的环境下使用反应器模式</strong><br>
+-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-<br>
+另外，<strong>一个进程起多少线程问题</strong><br>
+我自己的建议是 <strong>看你cpu多少核吧</strong><br>
+假设是AMD那种 32核64线程的，<strong>就起64个线程</strong>！<br>
+如果没有超线程的CPU，比如老的i5，4核4线程，<strong>就老老实实4个线程</strong>。。。<br>
+也不绝对。。。<br>
+好多开源项目，<strong>我看高并发的时候都4000多线程了</strong>。。。。<br>
+-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-<br>
+windows下，建议“<strong>单进程多线程</strong>”，因为windows下进程上下文切换很慢，但是线程上下文切换很快！<br>
+linux下，建议“<strong>多进程单线程</strong>”，因为linux下进程和线程上下文切换<strong>开销差不多</strong>！但是一个线程挂了，整个进程就挂了！一个进程挂了不会影响其他进程！所以多进程有更好的稳定性！</p>
+<blockquote>
+<p><a href=https://pincong.rocks/article/id-19891__sort_key-agree_count__sort-DESC>点击品葱原文参与讨论</a></p>
+</blockquote>
+<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<div class="col-lg-8 mx-auto block shadow">
+<h3>See Also</h3>
+<div class=container>
+<div class=row>
+<div class="mx-auto px-0">
+<div class="bg-white shadow block">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
+<footer class="py-4 bg-light border-top">
+<div class=container>
+<div class="row justify-content-between align-items-center">
+<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
+</div>
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<ul class="list-inline mb-0">
+</ul>
+</div>
+<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+<ul class="list-inline social-icon mb-0">
+<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
+<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
+</ul>
+</div>
+<div class="col-12 text-center mt-4">
+<span></span>
+</div>
+</div>
+</div>
+</footer>
+<script src=../../plugins/jQuery/jquery.min.js></script>
+<script src=../../plugins/bootstrap/bootstrap.min.js></script>
+<script src=../../plugins/search/fuse.min.js></script>
+<script src=../../plugins/search/mark.js></script>
+<script src=../../plugins/search/search.js></script>
+<script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
+</html>
