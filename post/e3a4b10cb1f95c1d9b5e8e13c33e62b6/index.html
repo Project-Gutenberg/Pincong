@@ -32,7 +32,7 @@ niaucchi4协议，我没有细读，但是大概看过来是跑在KCP协议上�
 可能作者也发现KCP这条路走不通，所以改了下面的代码
 func dialBridge(host string, cookie \[\]byte) (net.Conn, error) { // return niaucchi4.DialKCP(host, cookie) conn, err := net.DialTimeout(&#34;tcp&#34;, host, time.Second\*5) if err != nil { return nil, err } conn.(\*net.TCPConn).SetKeepAlive(false) return cshirt2.Client(cookie, conn) } 把 niaucchi4.DialKCP(host, cookie) 给注释掉了，改成了tcp连接。。。
 第一部分总结：因为用了KCP协议，通过牺牲带宽来提升网速30%，所以很快。但是KCP的特征太明显，所以直接被识别，无条件封杀了。。。 ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/83.jpg">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/36.jpg">
 <script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
