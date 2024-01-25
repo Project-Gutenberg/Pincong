@@ -30,7 +30,7 @@
 另外值得一提的是，Java 9 中已经引入了一个新的轻量级日志接口 java.lang.System.Logger，没错，就在那个 System 类里，可以用 System.getLogger 取得新的 logger，默认会使用 java.logging 日志库。它的底层实现可以简单地替换，可以考虑作为 SLF4J 的轻量级替代使用。
 知乎用户 灵剑​​ 发表 草率引入已知有远程执行风险的 JNDI，默认启用并且长期没有人关注是问题之一，但我认为最根本的还是来自于不可信任来源的数据（用户输入）最终在没有任何监管的情况下被当作了必须被信任的数据（被解析 + 执行的命令）。在现代编程实践中，我们必须认识到，因为各类动态特性的引入，数据和代码并不能被严格区分，不可信任的数据应该像不可信任的代码一样被谨慎处理，而目前的编译系统并不能有效区分数据来源。区分数据来源和可信度对业务系统来说比区分数据类型重要得多，而现在的类型系统花时间区分 String 还是 int，却对源自于用户的 String 和源自于可信位置的 String 毫不区分，这是非常荒唐的事情。
 也许以后的类型系统可以增加一种 “染色” 的特性： ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/144.jpg">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/162.jpg">
 <script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
