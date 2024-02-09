@@ -84,7 +84,7 @@ GPG可以在不安全环境下通信。首先，用GPG创建一个密钥对（�
 目前所有的非对称加密算法都有可能被量子计算机解密，如果RSA密钥长度是N，那么量子计算机就需要2N个逻辑量子位才能解密RSA，解密4096bit的RSA密钥需要8192个逻辑量子位的计算机，现在量子计算机最多不过十几个logical qbit，离8192还差几百倍，在大清灭亡前不用担心非对称加密的安全性。
 开始创建密钥时GPG会要求你输入Passphase来保护私钥（很好的功能！），Passphase和password基本一样，但是Passphase里面可以使用空格，安全性比password好。**以后所有涉及到私钥的操作都需要输入Passphase。**创建好密钥对之后的GPG如下图。这里【指纹】和上篇中的SHA-512字符串是一个东西，用来保证公钥没有被篡改。如果别人伪造了一个公钥，那么这个公钥指纹就会发生变化。
 如果你不知道什么叫【吊销证书】，就不要把公钥上传到【公钥服务器】，不过公钥贴到品葱是安全的。这里直接点击【完成】就可以。 ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/209.jpg">
+<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/204.jpg">
 <script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
@@ -533,13 +533,6 @@ GDCA TrustAUTH R5 ROOT</p>
 <p class=text-dark>本篇是上篇「如何验证身份」的后续。上篇文章有不少留言提到，验证身份可以用GPG，GPG比起一次性的SHA-512哈希串要强大的多。只要你发布了自己的公钥，就可以无限次的验证身份。**而且，GPG是非常强大的密码学软件，除了用来验证身份，它还 …</p>
 </article>
 <article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/f984c8e44b6c94bb4c48fb28a07a3903/?utm_source=see_also&utm_medium=%25E5%25AE%2589%25E5%2585%25A8%25E4%25B8%258A%25E7%25BD%2591gpg%25E5%2585%25A5%25E9%2597%25A8%25E6%2595%2599%25E7%25A8%258B">【安全上网】用SHA-512生成身份字符串，在匿名环境下证明自己的身份</a>
-</h2>
-<p class=text-dark>Pincong, a Reddit-like forum for Chinese geeks.
- ——Washington Post
-考虑品葱并非人均程序员，本文主要面向不那么精通电脑的用户，因此写得比较详细。我只写了Windows上的操 …</p>
-</article>
-<article class=mb-5>
 <h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/5cd36e310e0c689f993886f66b25edf0/?utm_source=see_also&utm_medium=%25E5%25AE%2589%25E5%2585%25A8%25E4%25B8%258A%25E7%25BD%2591gpg%25E5%2585%25A5%25E9%2597%25A8%25E6%2595%2599%25E7%25A8%258B">【安全上网】用SHA-512生成身份字符串，在匿名环境下证明自己的身份</a>
 </h2>
 <p class=text-dark>Pincong, a Reddit-like forum for Chinese geeks.
@@ -547,7 +540,14 @@ GDCA TrustAUTH R5 ROOT</p>
 考虑品葱并非人均程序员，本文主要面向不那么精通电脑的用户，因此写得比较详细。我只写了Windows上的操 …</p>
 </article>
 <article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/2b822383de514d647a1e8c92767d248a/?utm_source=see_also&utm_medium=%25E5%25AE%2589%25E5%2585%25A8%25E4%25B8%258A%25E7%25BD%2591gpg%25E5%2585%25A5%25E9%2597%25A8%25E6%2595%2599%25E7%25A8%258B">【更新】小隐隐于野，大隐隐于市——如何防御党国对品葱的实时监控？</a>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/f984c8e44b6c94bb4c48fb28a07a3903/?utm_source=see_also&utm_medium=%25E5%25AE%2589%25E5%2585%25A8%25E4%25B8%258A%25E7%25BD%2591gpg%25E5%2585%25A5%25E9%2597%25A8%25E6%2595%2599%25E7%25A8%258B">【安全上网】用SHA-512生成身份字符串，在匿名环境下证明自己的身份</a>
+</h2>
+<p class=text-dark>Pincong, a Reddit-like forum for Chinese geeks.
+ ——Washington Post
+考虑品葱并非人均程序员，本文主要面向不那么精通电脑的用户，因此写得比较详细。我只写了Windows上的操 …</p>
+</article>
+<article class=mb-5>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/3bcdf47c5f1c9bad768a30aa0af641fc/?utm_source=see_also&utm_medium=%25E5%25AE%2589%25E5%2585%25A8%25E4%25B8%258A%25E7%25BD%2591gpg%25E5%2585%25A5%25E9%2597%25A8%25E6%2595%2599%25E7%25A8%258B">【更新】小隐隐于野，大隐隐于市——如何防御党国对品葱的实时监控？</a>
 </h2>
 <p class=text-dark>原问题在此：
 &ldquo;他们最近在实时监控品葱&rdquo;，有没有技术党能来展开解释一下注意事项？
@@ -555,7 +555,7 @@ GDCA TrustAUTH R5 ROOT</p>
 软件层面上，拒绝国产，别用IE，定期更新系统，用混淆 …</p>
 </article>
 <article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/3bcdf47c5f1c9bad768a30aa0af641fc/?utm_source=see_also&utm_medium=%25E5%25AE%2589%25E5%2585%25A8%25E4%25B8%258A%25E7%25BD%2591gpg%25E5%2585%25A5%25E9%2597%25A8%25E6%2595%2599%25E7%25A8%258B">【更新】小隐隐于野，大隐隐于市——如何防御党国对品葱的实时监控？</a>
+<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/2b822383de514d647a1e8c92767d248a/?utm_source=see_also&utm_medium=%25E5%25AE%2589%25E5%2585%25A8%25E4%25B8%258A%25E7%25BD%2591gpg%25E5%2585%25A5%25E9%2597%25A8%25E6%2595%2599%25E7%25A8%258B">【更新】小隐隐于野，大隐隐于市——如何防御党国对品葱的实时监控？</a>
 </h2>
 <p class=text-dark>原问题在此：
 &ldquo;他们最近在实时监控品葱&rdquo;，有没有技术党能来展开解释一下注意事项？
