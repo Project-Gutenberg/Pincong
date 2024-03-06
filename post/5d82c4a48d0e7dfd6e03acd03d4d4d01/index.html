@@ -1,221 +1,38 @@
-<!doctype html><html lang=zh-cn><head>
-<meta charset=utf-8>
-<title>芯片设计：后来者的革命时刻</title>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name=description content=" 曾经被英特尔、Arm 等垄断的芯片指令集，现在出现免费开源版本。将满十岁的 RISC-V，在全球掀起一场芯片设计革命，它能成功吗？
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>芯片设计：后来者的革命时刻</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 曾经被英特尔、Arm 等垄断的芯片指令集，现在出现免费开源版本。将满十岁的 RISC-V，在全球掀起一场芯片设计革命，它能成功吗？
 今年 3 月，发起设立于美国的 RISC-V 基金会宣布，已完成在瑞士注册，总部正式迁到瑞士。这家芯片架构合作组织再次展示了它坚持开源、不受国际政治干扰的初心。在科技战盛行的今天，此举备受各国芯片业瞩目。
 时间回到 2017 年 5 月 8 日，一场半导体行业会议在上海交通大学举行，超过 200 位中外嘉宾挤满了整个报告厅，会议主题是「芯片架构的未来是什么？」这是 RISC-V 架构诞生以来，在中国举办的首场研讨会。后来，参加那场会议的很多人，成了 RISC-V 阵营的领军人物。那一天，也被许多人视为「启蒙时刻」。
 彼时，全球芯片架构似乎格局已定：美国公司英特尔的 x86 架构称霸个人电脑和服务器两大市场，在企业级市场把 IBM 等竞争对手逼到死角；英国公司 Arm 的架构通行于智能手机和物联网市场，2016 年，在英特尔放弃为移动市场开发下一代处理器之后，几无敌手。
 曾任教于美国加州大学伯克利分校的克尔斯泰·阿桑诺维奇 (Krste Asanovic) 却在那场会议上提出了一个大胆假设：行业能不能打破一两家公司的垄断，一起推一种开源的芯片架构 RISC-V，让所有人免费取用？
 这改变了很多人对中央处理器 (CPU) 的看法。「以前认为，处理器技术已经成熟，很难有新的突破。突然提出处理器指令可以开源，这给大家眼睛一亮的感觉。」这是徐滔第一次系统地了解 RISC-V。2018 年，他成为上海赛昉科技的 CEO，专门向中国企业提供 RISC-V 产品和服务。
 芯片架构即指令集 (Instruction Set Architecture),是软件和硬件之间的接口，也是一套标准规范。所有软件指令需要根据这套规范，翻译成芯片能懂的语言，才能使 CPU 和各种硬件运作起来。因此，每套芯片指令集的背后，都有一个软件生态，与竞争对手的互不相容。过去几十年，英特尔与微软结盟，Arm 与苹果、谷歌结盟，成为各自市场的事实标准。
-诞生于 2010 年的 RISC-V 希望创造「新世界」。与开源软件 Linux 一样，RISC-V 指令集由一家非营利基金会所有，所有企业都可以加入基金会，免费使用 RISC-V 架构，并在其基础上进行改动。徐滔把这比作「人民战争」，由于 RISC-V 没有单一源头，即便一家企业失败了，点燃的星星之火也将燎原。 ">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
-<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
-<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
-<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<meta name=twitter:card content="summary_large_image">
-<meta name=og:title content=" 芯片设计：后来者的革命时刻 ">
-<meta name=og:description content=" 曾经被英特尔、Arm 等垄断的芯片指令集，现在出现免费开源版本。将满十岁的 RISC-V，在全球掀起一场芯片设计革命，它能成功吗？
+诞生于 2010 年的 RISC-V 希望创造「新世界」。与开源软件 Linux 一样，RISC-V 指令集由一家非营利基金会所有，所有企业都可以加入基金会，免费使用 RISC-V 架构，并在其基础上进行改动。徐滔把这比作「人民战争」，由于 RISC-V 没有单一源头，即便一家企业失败了，点燃的星星之火也将燎原。 "><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" 芯片设计：后来者的革命时刻 "><meta name=og:description content=" 曾经被英特尔、Arm 等垄断的芯片指令集，现在出现免费开源版本。将满十岁的 RISC-V，在全球掀起一场芯片设计革命，它能成功吗？
 今年 3 月，发起设立于美国的 RISC-V 基金会宣布，已完成在瑞士注册，总部正式迁到瑞士。这家芯片架构合作组织再次展示了它坚持开源、不受国际政治干扰的初心。在科技战盛行的今天，此举备受各国芯片业瞩目。
 时间回到 2017 年 5 月 8 日，一场半导体行业会议在上海交通大学举行，超过 200 位中外嘉宾挤满了整个报告厅，会议主题是「芯片架构的未来是什么？」这是 RISC-V 架构诞生以来，在中国举办的首场研讨会。后来，参加那场会议的很多人，成了 RISC-V 阵营的领军人物。那一天，也被许多人视为「启蒙时刻」。
 彼时，全球芯片架构似乎格局已定：美国公司英特尔的 x86 架构称霸个人电脑和服务器两大市场，在企业级市场把 IBM 等竞争对手逼到死角；英国公司 Arm 的架构通行于智能手机和物联网市场，2016 年，在英特尔放弃为移动市场开发下一代处理器之后，几无敌手。
 曾任教于美国加州大学伯克利分校的克尔斯泰·阿桑诺维奇 (Krste Asanovic) 却在那场会议上提出了一个大胆假设：行业能不能打破一两家公司的垄断，一起推一种开源的芯片架构 RISC-V，让所有人免费取用？
 这改变了很多人对中央处理器 (CPU) 的看法。「以前认为，处理器技术已经成熟，很难有新的突破。突然提出处理器指令可以开源，这给大家眼睛一亮的感觉。」这是徐滔第一次系统地了解 RISC-V。2018 年，他成为上海赛昉科技的 CEO，专门向中国企业提供 RISC-V 产品和服务。
 芯片架构即指令集 (Instruction Set Architecture),是软件和硬件之间的接口，也是一套标准规范。所有软件指令需要根据这套规范，翻译成芯片能懂的语言，才能使 CPU 和各种硬件运作起来。因此，每套芯片指令集的背后，都有一个软件生态，与竞争对手的互不相容。过去几十年，英特尔与微软结盟，Arm 与苹果、谷歌结盟，成为各自市场的事实标准。
-诞生于 2010 年的 RISC-V 希望创造「新世界」。与开源软件 Linux 一样，RISC-V 指令集由一家非营利基金会所有，所有企业都可以加入基金会，免费使用 RISC-V 架构，并在其基础上进行改动。徐滔把这比作「人民战争」，由于 RISC-V 没有单一源头，即便一家企业失败了，点燃的星星之火也将燎原。 ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/46.jpg">
-<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+诞生于 2010 年的 RISC-V 希望创造「新世界」。与开源软件 Linux 一样，RISC-V 指令集由一家非营利基金会所有，所有企业都可以加入基金会，免费使用 RISC-V 架构，并在其基础上进行改动。徐滔把这比作「人民战争」，由于 RISC-V 没有单一源头，即便一家企业失败了，点燃的星星之火也将燎原。 "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/155.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
-</head>
-<body>
-<header class="fixed-top navigation">
-<div class=container>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class="ti-menu h3"></i>
-</button>
-<div class="collapse navbar-collapse text-center" id=navigation>
-<ul class="navbar-nav ml-auto">
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</header> <div class="py-5 d-none d-lg-block"></div>
-<section class=main-content>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 mx-auto block shadow mb-5">
-<h2>芯片设计：后来者的革命时刻</h2>
-<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=main-content><div class=container><div class=row><div class="col-lg-8 mx-auto block shadow mb-5"><h2>芯片设计：后来者的革命时刻</h2><div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
 <span>at 19 April 2020</span>, tags :
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e8%8a%af%e7%89%87>芯片</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e6%9e%b6%e6%9e%84>架构</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e6%8c%87%e4%bb%a4%e9%9b%86>指令集</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e5%bc%80%e6%ba%90>开源</a>
 <a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/5d82c4a48d0e7dfd6e03acd03d4d4d01.md style=color:gray><strong><i>点击纠错</i></strong></a>
-<i> </i>
-<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/5d82c4a48d0e7dfd6e03acd03d4d4d01.md style=color:gray><strong><i>点击删除</i></strong></a>
-</div>
-<h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
-<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
-<p></p>
-<p>曾经被英特尔、Arm 等垄断的芯片指令集，现在出现免费开源版本。将满十岁的 RISC-V，在全球掀起一场芯片设计革命，它能成功吗？</p>
-<p>今年 3 月，发起设立于美国的 RISC-V 基金会宣布，已完成在瑞士注册，总部正式迁到瑞士。这家芯片架构合作组织再次展示了它坚持开源、不受国际政治干扰的初心。在科技战盛行的今天，此举备受各国芯片业瞩目。</p>
-<p>时间回到 2017 年 5 月 8 日，一场半导体行业会议在上海交通大学举行，超过 200 位中外嘉宾挤满了整个报告厅，会议主题是「芯片架构的未来是什么？」这是 RISC-V 架构诞生以来，在中国举办的首场研讨会。后来，参加那场会议的很多人，成了 RISC-V 阵营的领军人物。那一天，也被许多人视为「启蒙时刻」。</p>
-<p>彼时，全球芯片架构似乎格局已定：美国公司英特尔的 x86 架构称霸个人电脑和服务器两大市场，在企业级市场把 IBM 等竞争对手逼到死角；英国公司 Arm 的架构通行于智能手机和物联网市场，2016 年，在英特尔放弃为移动市场开发下一代处理器之后，几无敌手。</p>
-<p>曾任教于美国加州大学伯克利分校的克尔斯泰·阿桑诺维奇 (Krste Asanovic) 却在那场会议上提出了一个大胆假设：行业能不能打破一两家公司的垄断，一起推一种开源的芯片架构 RISC-V，让所有人免费取用？</p>
-<p>这改变了很多人对中央处理器 (CPU) 的看法。「以前认为，处理器技术已经成熟，很难有新的突破。突然提出处理器指令可以开源，这给大家眼睛一亮的感觉。」这是徐滔第一次系统地了解 RISC-V。2018 年，他成为上海赛昉科技的 CEO，专门向中国企业提供 RISC-V 产品和服务。</p>
-<p>芯片架构即指令集 (Instruction Set Architecture),是软件和硬件之间的接口，也是一套标准规范。所有软件指令需要根据这套规范，翻译成芯片能懂的语言，才能使 CPU 和各种硬件运作起来。因此，每套芯片指令集的背后，都有一个软件生态，与竞争对手的互不相容。过去几十年，英特尔与微软结盟，Arm 与苹果、谷歌结盟，成为各自市场的事实标准。</p>
-<p>诞生于 2010 年的 RISC-V 希望创造「新世界」。与开源软件 Linux 一样，RISC-V 指令集由一家非营利基金会所有，所有企业都可以加入基金会，免费使用 RISC-V 架构，并在其基础上进行改动。徐滔把这比作「人民战争」，由于 RISC-V 没有单一源头，即便一家企业失败了，点燃的星星之火也将燎原。</p>
-<p>很多企业对此感到兴奋。到 2019 年，RISC-V 已经吸引了谷歌、阿里巴巴、三星、华为、英伟达、西部数据等全球 500 多家企业参与研发，每年芯片的出货量达百万颗。不少企业认为，RISC-V 架构免费、精简、开放，尤其适合为智慧城市、工业互联网、智能家居等碎片化的物联网场景提供定制芯片。2019 年 12 月，中国工程院院士倪光南预测，在 CPU 领域，未来将形成英特尔 (x86)、Arm、RISC-V 三分天下的格局。</p>
-<p>RISC-V 开源的特点，还使其更能抵御地缘政治的冲击。作为一种公开的芯片行业标准，RISC-V 指令集不在美国出口管制的范围之内。2019 年 6 月，在华为被美国封杀一个月后，RISC-V 基金会决定将总部从美国搬到瑞士，以免基金会未来的运作受到美国出口管制政策的影响。这令 RISC-V 受多国政府重视。在印度，当地政府和科研机构担心被国外「卡脖子」，将大量资金投入 RISC-V 处理器的研究，使其成为事实上的「国家指令集」。</p>
-<p>目前，相较于发展了几十年的 x86、Arm 架构，将满十岁的 RISC-V 生态成熟需要时间。事实上，从芯片业的历史来看，SPARC、IBM 的 POWER 等一大批芯片架构都曾走上过开源之路，至今未结出硕果。</p>
-<p>Arm 曾经预测，2017 年至 2035 年，全球将增加约 1 万亿台物联网设备。Arm 不可能放弃万物互联的市场机会，势必不断回击，包括在 2019 年 10 月允许 Arm 客户免费定制部分指令，以防他们倒戈。夹缝之下，RISC-V 在全球掀起的这场芯片设计革命将走向何方？</p>
-<h2 id=risc-v-走到台前>RISC-V 走到台前</h2>
-<p>2010 年 5 月 17 日，RISC-V 诞生于崇尚创新的加州大学伯克利分校。当时，电气工程及计算机系教授阿桑诺维奇正准备启动一个新的科研项目，需要考虑采用什么芯片架构。</p>
-<p>摆在他面前的，是业内的两种主流架构：诞生于 1978 年的英特尔 x86 架构属于复杂指令集 (CISC)，光指令集手册就超过 2900 页，且不允许外界修改；1983 年开发的 Arm 架构，采用的是更先进的精简指令集 (RISC)，但由于价格高昂，指令集的权限只卖给几家大型科技企业，比如苹果公司。</p>
-<p>不愿接受各种限制的阿桑诺维奇决定，带领两位博士生开始一个为期三个月的暑期项目。为此，他们还专门邀请了 RISC 的发明者、图灵奖得主大卫·帕特森 (David Patterson) 参与指导。为纪念 1981 年至 1988 年间在伯克利诞生的前四款 RISC 处理器，他们将这一指令集命名为第五代 RISC，用罗马字母 V 来表示，即 RISC-V (读作 risk-five)。</p>
-<p>因为是用于科研，这个指令集最大的特点是简单，基础指令集的指令不到 50 条，其他功能全部采用扩展指令集，由用户根据需要来添加。英特尔和 Arm 的架构为了兼容此前的软件，都已发展出超过 1000 条指令。</p>
-<p>从 2010 年秋到 2014 年，RISC-V 一直被用于伯克利的日常教学。有时候，教授们为了给学生布置作业，会去修改指令集，要求研究改动所造成的影响。令阿桑诺维奇意外的是，每次他们这么做，就会收到来自印度等地的外部投诉，指责他们随意修改指令集。</p>
-<p>「我们最初的反应是：你是谁？为什么要来管伯克利校园里发生的事情？」阿桑诺维奇在 2016 年的一场公开演讲中表示。但随着时间的推移，他逐渐意识到，外界对一款开源芯片架构存在需求，于是在 2014 年冻结了 RISC-V 指令集。</p>
-<p>2015 年，RISC-V 基金会正式成立，由阿桑诺维奇担任董事会主席。同年，阿桑诺维奇与两位博士生 Andrew Waterman 和 Yunsup Lee 一起离开学术界，成立 SiFive 公司，帮助企业定制 RISC-V 芯片，开启了 RISC-V 的商业化之旅。</p>
-<p>「在 RISC-V 的整个发展过程中，2015 年是一个很重要的里程碑，是真正开始大规模推广的一年。」中国科学院计算所研究员包云岗向财新记者表示。</p>
-<p>彼时，RISC-V 并不是市场上仅有的开源指令集。2013 年，IBM 推出 OpenPOWER 项目，将自己小型机的 POWER 架构开源，并拉来谷歌、英伟达、三星、浪潮、中兴等全球 130 多家企业为其站台，曾经轰动一时。如今雷声大雨点小，不少成员转投 RISC-V。</p>
-<p>包云岗在 2015 年转向 RISC-V 研究之前，用的则是美国 SUN 公司开发的 SPARC 架构，有开源的版本 OpenSPARC。SPARC 架构最早是为几十年前的小型机而设计，开源版本的代码较为复杂，专业的工程师都需要至少半年才能把它搞懂，更不用说去改造它。这么高的入门门槛，使 SPARC 的开源社区几乎成为「一潭死水」。「2013 年，我们在 SPARC 社区上提了一个问题，到今天还没有人回答。」包云岗说。</p>
-<p>包云岗认为，RISC-V 的幸运在于赶上了好时候：其指令比 x86 和 Arm 都少，对新人来说，门槛更低；由于指令集是开源免费，各家企业可以自己开发 RISC-V 核，用其替代 Arm，可以省下百万甚至千万美元的知识产权 (IP) 授权费用，在商业上有吸引力；RISC-V 在冻结的基础指令集之外，以模块化的方式，提供了不少扩展指令集，使定制芯片变得更加容易，可以应对物联网碎片化的需求。</p>
-<p>在 2018 年的一场演讲中，SiFive CEO 纳文·施瓦尼 (Naveed Sherwani) 表示，过去的全球芯片行业，主要将精力放在研发少量「杀手级芯片」(Killer chips) 上，以满足 PC、手机等行业每年的更新换代需求。其商业模式是，通过大量出货几款芯片来均摊成本，以支持台积电等不断研发更昂贵的制造工艺。这个体系的目的是维持摩尔定律，让芯片性能每 18 至 24 个月翻一番。</p>
-<p>「但如果你让这些公司现在去设计 1000 款芯片，因为市场变得像物联网那样碎片化，他们就不知所措了。」施瓦尼表示。</p>
-<p>RISC-V 崛起的背后，还有由伯克利的团队于 2012 年推出的一种新的硬件描述语言——Chisel。包云岗解释，在芯片设计行业，很多人仍在使用上世纪 80 年代初发明的 Verilog 语言，就好比软件业以前用的汇编语言，开发效率很低。过去几十年，软件行业逐渐用上了 C、Java、Python 等高级语言，可以将含有几百万行、甚至上千万行代码的复杂程序分解成一个个模块，交给几千人协作开发。而 Chisel 等新语言则将模块化设计等概念引入硬件设计，使芯片设计可以使用已有的模块，减少重复劳动。</p>
-<p>「以前那种设计方法，做大型芯片时非常费劲，所以大家会觉得，做芯片好难，只有少数几家企业能做出来。」包云岗预测，随着新语言和方法论的普及，未来设计芯片有可能会像现在开发手机应用一样简单。</p>
-<h2 id=谁是革命推手>谁是革命推手？</h2>
-<p>RISC-V 全球推广，目前已有不少拥趸：一类为 SiFive、武汉芯来科技等初创企业，专注于 RISC-V 这一个赛道；一类为西部数据 (Western Digital)、英伟达等巨头，希望借 RISC-V 架构来打造部分芯片，降低公司成本。</p>
-<p>2017 年 11 月，美国存储企业西部数据宣布，将逐渐把每年使用的超过 10 亿颗芯片内核切换成 RISC-V 架构。他们还给自己用的内核取名为 SweRV，在 2019 年开源。有西部数据高管向财新记者表示，硬盘等存储设备的微控制器 (MCU)，不需要多少软件支持，尤其适合使用 RISC-V 架构。</p>
-<p>地处硅谷的 SiFive 进展同样迅猛。2019 年 6 月，SiFive 获得 6540 万美元的 D 轮融资，由成为资本、高通风投等领投。在此之前，SiFive 已经拿到西部数据、SK 海力士、英特尔资本、华米等的投资。</p>
-<p>通过这些投资，SiFive 为自己锁定了一个稳定的客户群。2019 年，华米科技在其智能手表中使用了 RISC-V 架构芯片黄山 1 号。华米 CEO 黄汪对外表示，这款芯片的成本小于 1 美元，比市面上的芯片要便宜一半左右。2019 年 12 月，三星也成为 SiFive 客户，将在毫米波射频芯片和 AI 图像感知芯片中采用 SiFive 开发的 RISC-VIP 核。</p>
-<p>SiFive 对庞大的中国市场有野心。由徐滔担任 CEO 的上海赛昉科技，是一家由 SiFive 入股、中国投资者和管理层持股的企业。徐滔告诉财新记者，他们除了在中国提供 SiFive 的产品，还要自研新的 IP 核、软件、中间件、开发件等，与 SiFive 是两家独立的公司。「我们将形成一个自己的 IP 核系列，掌握核心技术，走自主可控服务国内客户的道路。」他说。</p>
-<p>徐滔在 2019 年就接触了超过 400 家中国客户，赛昉的员工人数预计也将从今年的 100 多人增加至未来的 500–700 人。徐滔认为，目前国内企业对 RISC-V 兴趣浓厚。</p>
-<p>在中国 RISC-V 阵营中，最受关注的是阿里巴巴集团旗下的平头哥，由阿里云智能事业群总裁张建锋亲自掌舵。2018 年 9 月，阿里宣布，将内部的芯片业务与外部收购的中天微系统有限公司整合，成立一家全资控股的芯片公司，取名「平头哥半导体有限公司」。</p>
-<p>阿里早就想布局芯片产业。有熟悉 Arm 中国的人士告诉财新记者，Arm 准备在国内设立合资公司时，软银集团创始人孙正义曾考虑由阿里控股，最后因阿里竞争对手太多而 Arm 需要在行业中保持中立遂作罢。2018 年 4 月，Arm 在中国的合资公司正式成立，由厚朴等财务投资者持股 51%，Arm 持股 49%。当月，阿里收购了杭州中天微，双方未对外披露交易价格。中天微成立于 2001 年，最早用的是美国摩托罗拉的芯片指令集，后进行了十多年的自主研发。</p>
-<p>平头哥副总裁孟建熠向财新记者表示，平头哥重视 RISC-V，是因为这符合整个社会走向开放的大趋势，「一些特别大的基础设施，基本上是越来越开放，比如 5G，你要在全球移动，必然涉及到一个全球标准，而全球标准肯定是要开放的。」2015 年伯克利团队举办第一场 RISC-V 研讨会时，孟建熠就注意到了这个架构。2017 年上海交通大学那场布道大会，孟建熠也在现场。</p>
-<p>2018 年 9 月，中天微拿出首款 RISC-V 作品——CK902，定位为一款低功耗的物联网处理器；2019 年 7 月，平头哥发布了高性能 IP 核玄铁 910，在 RISC-V 架构的基础上，扩展了 50 余条指令，使其适用于 5G 基站、人工智能加速、自动驾驶等场景；2019 年 8 月，平头哥又发布了 SoC (System-on-a-Chip) 芯片平台「无剑」，其中包括了处理器、各类 IP、操作系统、软件驱动和开发工具等。</p>
-<p>孟建熠解释，如果以软件作比，玄铁处理器可以看作 Linux，而无剑像是在 Linux 基础上打造的安卓操作系统，可以与各个行业的企业合作，将其应用在不同场景中。他表示，目前有不少公司正在评估这些产品，预计 2020 年下半年将会有一些原型产品面世。</p>
-<p>Gartner 研究副总裁盛陵海向财新记者表示，RISC-V 作为一种新的架构，全球所有企业几乎处在同一起跑线上，新进入芯片行业的阿里或许希望借此尝试一下，看是否会有成果。相较 SiFive，中天微此前积累的客户主要在 MCU (微控制器) 领域，平头哥能否成功打入高性能计算等新领域，目前还不确定。「SiFive 毕竟在硅谷，背后有高通等企业的支持，相对来说会好一些。」盛陵海表示。</p>
-<p>平头哥的优势在于，背后有一艘「航空母舰」的支持，阿里内部就有很大的芯片需求。孟建熠表示，RISC-V 是平头哥评估的一个方向，公司尚未完全押注这条赛道，此前中天微开发的产品，也会继续支持。</p>
-<p>面对国内的 RISC-V 热潮，他希望整个行业能更加冷静地去看待，因为芯片的开源开放是一件全新的事情。「不要指望能快速在这里获得多少利益，应该是大家一起来把生态做得更好。」</p>
-<h2 id=arm-反击>Arm 反击</h2>
-<p>在 RISC-V 崛起的过程中，同样以物联网为目标市场的 Arm，始终面临着最大压力。</p>
-<p>Arm 此前已经公布，计划在 2023 年重新上市。这使其很难通过打价格战来排除 RISC-V 的威胁。双方交手之初，Arm 试图淡化 RISC-V 的影响，将它比作是学术项目，没有多少实际应用。到了 2018 年，Arm 上线了一个网站，列出 Arm 好于 RISC-V 的五个理由，包括 Arm 的设计更可靠、安全，生态更加完备。但很快，公司内外的质疑声迫使 Arm 下线了这个网站，并致歉称自己并非反对开源。</p>
-<p>2019 年下半年，面对 RISC-V 阵营的步步紧逼，Arm 终于作出了迄今为止最有力的回应。7 月，Arm 宣布，推出 Flexible Access 计划，企业只需支付一笔较小的费用，就能对 Arm 的大部分 IP 进行评估和实验，大部分授权费可以等到最后生产时再支付。此前，华为、高通等企业要想获得 Arm 的 IP，需要先签约付款。这一改变显然是为了迎合那些对 Arm 产品不熟悉的初创企业。10 月，Arm 又推出了定制化指令 (Custom Instruction)，在确保软件生态不碎片化的前提下，允许企业免费定制部分指令。在第一阶段，Arm 先拿出最新的 Cortex M33 的 CPU 进行试验，恩智浦和意法半导体等成为首批受益者。</p>
-<p>Cortex-M 主要针对嵌入式设备，包括微控制器，可用于智能手环、智能灯、温度感应器等。Arm 称，Cortex-M 处理器累计出货超过 500 亿颗，是 Arm 最成功的 CPU 之一。「从出货量看，Cortex M33 又是 M 系列中最受欢迎的 CPU，未来 Arm 发布的所有 M 系列产品都将允许客户进行定制。」Arm 市场营销副总裁伊恩·斯迈斯 (Ian Smythe) 向财新记者表示。</p>
-<p>关于突然允许定制化指令的原因，斯迈斯解释，在原先的模式下，Arm 设计指令时，仅能考虑客户最普遍的需求，对于那些个性化需求，需要用定制化指令来解决。他还表示，Arm 走出这一步经过深思熟虑，他们在设计中专门留出一部分空间用于定制指令，以避免出现软件不兼容导致的碎片化问题。</p>
-<p>「如果你看一下处理器的历史，就会发现，如果一个芯片架构允许定制和碎片化，而不去持续有效地进行管理，过一段时间，这些架构就会被边缘化，或者只能占领一些很小众的市场。」斯迈斯表示。</p>
-<p>他介绍，下一步，Cortex-R 系列的 CPU 也有可能允许添加一部分定制化指令，而 Cortex-A 系列则不太可能加入。Cortex-R 系列主要针对实时性要求高的应用，比如硬盘控制器、汽车安全气囊等，而 Cortex-A 系列主要针对智能手机和虚拟现实头显等高性能设备。</p>
-<p>Arm 方面否认推出定制化指令与 RISC-V 的挑战直接相关，但 Cortex-M 处理器的目标用户却与 RISC-V 的高度重合。</p>
-<p>盛陵海表示，微控制器 (MCU) 领域一直是一个百花齐放的市场，没有统一的软件生态，很多企业过去使用的是自己私有的芯片架构，随着他们产品的迭代，预计有些企业会选择 Arm，另外一些则会选择 RISC-V。</p>
-<p>「RISC-V 在 MCU 方面的出货量已经蛮大了，但相对于 Arm 的出货量，或者过去私有架构的出货量来说，它的比例还是比较小的。」盛陵海表示，Arm 还没有输掉这块市场。</p>
-<h2 id=碎片化挑战>碎片化挑战</h2>
-<p>在 MCU 之外的市场，Arm 用 30 年时间打造的软件生态，仍是最强的壁垒。有国内初创企业向财新记者表示，虽然用 RISC-V 替代 Arm 可以省下一笔授权费，但在开发周期等方面隐性成本太高，他们在评估后决定再等等，「RISC-V 生态还需要点时间」。</p>
-<p>「我个人认为，目前市场上已经没有多少空间，去留给一种新的芯片架构。」美国芯片设计软件企业 Synopsys (新思科技) 的全球 AI 领域负责人沙基卜·阿克鲁特 (Chekib Akrout) 向财新记者表示，大部分用户并不关心自己手机或电脑芯片用的是什么指令集，只要它能运行用户想要的软件。</p>
-<p>阿克鲁特认为，如果一种新的指令集可以做到「与世隔绝」、只用来运行新的应用，不会出现问题。一旦涉及已有应用，让那些过去的软件去适配一个新的指令集，需要耗费大量时间和精力，恐怕得不偿失。</p>
-<p>有 Arm 高管也向财新记者表示，他们内部评估，RISC-V 或许能在一些细分市场取得成功，但物联网中最有价值的自动驾驶汽车、增强现实设备等，由于需要大量软件配合，将依然由 Arm 主导。</p>
-<p>另一种声音则认为，万物互联时代，许多专有芯片配套的应用本身就需要重新开发，RISC-V 正好踩在了这个时点上，或许将成为物联网主流芯片架构。</p>
-<p>盛陵海认为，RISC-V 要想与 Arm、英特尔争夺市场份额，仍需要拿出几款性能好、成本低的明星级产品，而且得有华为、三星等大厂力推，才有可能逐步建立起生态。英特尔和 Arm 此前的成功，分别有赖于 IBM 个人电脑和苹果 iPhone 的大卖。如今，许多大厂的 RICS-V 芯片看起来仍是试水。</p>
-<p>不过，在他看来，RISC-V 当前最大的机遇，是中美科技战的大背景，许多企业担心未来无法使用英特尔和 Arm 的产品，会更愿意尝试开源架构。2019 年 5 月 16 日，华为被美国列入「实体清单」，购买使用美国技术的产品或服务受到限制。这引发不少国内外科技企业担忧，国产化替代呼声渐浓。RISC-V 作为开源的芯片行业标准，面向全球公开，且 RISC-V 基金会亦在竭力避免被政治化，风险相对要小很多。</p>
-<p>RISC-V 阵营内部亦有挑战。「RISC-V 的基础指令集虽然简单，但并不能满足很多商业应用的需求，各家企业都要在此基础上添加新的指令，来进行优化。而各家为了保护自己的知识产权，会形成自己的开发工具，如将软件代码转换成指令的编译器 (Compiler)，很多 RISC-V 企业的就不统一。」盛陵海认为，企业之间可能不会有太大的动力去打通这些工具，因为那会让客户很容易迁移。这种情况如果长期持续下去，最终 RISC-V 阵营可能只会有一两家能够生存下来。</p>
-<p>徐滔则称，不需要担心 RISC-V 生态的碎片化，如果 IP 供应商在 IP 中加上了不属于 RISC-V 的指令，在编译器等工具链中必须有所优化，就会和 RISC-V 主流生态不兼容。「许多大客户一定是反对这种现象的，因为不希望被一家 IP 供应商绑定，而且如果他们使用了几家公司的产品，各家软件生态不兼容，未来管理的成本会非常高。」他认为，这些大客户的意见最终会使各家都不敢将生态做得碎片化，因为谁离开了 RISC-V 统一的生态，就会对自己造成损伤。</p>
-<p>从长远来看，包云岗认为，要解决碎片化的问题，关键是要推动 RISC-V 阵营发展出一条主线。他以 Linux 为例表示，Linux 内核诞生之后，就在不断更新迭代，向前演进。他认为，RISC-V 的处理器核也要像 Linux 内核一样，不断增加新的功能，才能使 RISC-V 阵营更好更快地向前发展。</p>
-<p>但现状是，各家企业都在做自己的产品，在如何推动主线发展上缺乏共识。包云岗表示，中科院计算所作为科研机构对 RISC-V 的开源生态很重视，他们团队计划花大量时间和精力去发展这条主线。他相信，整个 RISC-V 阵营对于完善生态所需的时间是有心理预期的，将会以十年为尺度去衡量。</p>
-<p>「我们不能说，得有个人来组织管理一下，让所有的开源都往这个方向走，这是不现实的。」孟建熠则表示，「开源的生命力，在于它是一种开放的全球协同模式。它一定会经历由乱到相对比较稳的过程，我觉得，现在就在这个过程中。」 他认为，芯片最终还是需要跟应用相结合，如果有人把一个应用方向走通了，就会成为标准。</p>
-<p>Related</p>
-<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<h3>See Also</h3>
-<div class=container>
-<div class=row>
-<div class="mx-auto px-0">
-<div class="bg-white shadow block">
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/9bed974634a249b1f8b9dad3808d07f6/?utm_source=see_also&utm_medium=%25E8%258A%25AF%25E7%2589%2587%25E8%25AE%25BE%25E8%25AE%25A1%25E5%2590%258E%25E6%259D%25A5%25E8%2580%2585%25E7%259A%2584%25E9%259D%25A9%25E5%2591%25BD%25E6%2597%25B6%25E5%2588%25BB">【不是段子】如果中欧联合抗美</a>
-</h2>
-<p class=text-dark>【不是段子】中国和欧洲决定联合起来对抗咄咄逼人的美国，两边各派出谈判代表坐下来开始商谈对抗美国的具体策略。
+<i></i><a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/5d82c4a48d0e7dfd6e03acd03d4d4d01.md style=color:gray><strong><i>点击删除</i></strong></a></div><h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5><h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5><p></p><p>曾经被英特尔、Arm 等垄断的芯片指令集，现在出现免费开源版本。将满十岁的 RISC-V，在全球掀起一场芯片设计革命，它能成功吗？</p><p>今年 3 月，发起设立于美国的 RISC-V 基金会宣布，已完成在瑞士注册，总部正式迁到瑞士。这家芯片架构合作组织再次展示了它坚持开源、不受国际政治干扰的初心。在科技战盛行的今天，此举备受各国芯片业瞩目。</p><p>时间回到 2017 年 5 月 8 日，一场半导体行业会议在上海交通大学举行，超过 200 位中外嘉宾挤满了整个报告厅，会议主题是「芯片架构的未来是什么？」这是 RISC-V 架构诞生以来，在中国举办的首场研讨会。后来，参加那场会议的很多人，成了 RISC-V 阵营的领军人物。那一天，也被许多人视为「启蒙时刻」。</p><p>彼时，全球芯片架构似乎格局已定：美国公司英特尔的 x86 架构称霸个人电脑和服务器两大市场，在企业级市场把 IBM 等竞争对手逼到死角；英国公司 Arm 的架构通行于智能手机和物联网市场，2016 年，在英特尔放弃为移动市场开发下一代处理器之后，几无敌手。</p><p>曾任教于美国加州大学伯克利分校的克尔斯泰·阿桑诺维奇 (Krste Asanovic) 却在那场会议上提出了一个大胆假设：行业能不能打破一两家公司的垄断，一起推一种开源的芯片架构 RISC-V，让所有人免费取用？</p><p>这改变了很多人对中央处理器 (CPU) 的看法。「以前认为，处理器技术已经成熟，很难有新的突破。突然提出处理器指令可以开源，这给大家眼睛一亮的感觉。」这是徐滔第一次系统地了解 RISC-V。2018 年，他成为上海赛昉科技的 CEO，专门向中国企业提供 RISC-V 产品和服务。</p><p>芯片架构即指令集 (Instruction Set Architecture),是软件和硬件之间的接口，也是一套标准规范。所有软件指令需要根据这套规范，翻译成芯片能懂的语言，才能使 CPU 和各种硬件运作起来。因此，每套芯片指令集的背后，都有一个软件生态，与竞争对手的互不相容。过去几十年，英特尔与微软结盟，Arm 与苹果、谷歌结盟，成为各自市场的事实标准。</p><p>诞生于 2010 年的 RISC-V 希望创造「新世界」。与开源软件 Linux 一样，RISC-V 指令集由一家非营利基金会所有，所有企业都可以加入基金会，免费使用 RISC-V 架构，并在其基础上进行改动。徐滔把这比作「人民战争」，由于 RISC-V 没有单一源头，即便一家企业失败了，点燃的星星之火也将燎原。</p><p>很多企业对此感到兴奋。到 2019 年，RISC-V 已经吸引了谷歌、阿里巴巴、三星、华为、英伟达、西部数据等全球 500 多家企业参与研发，每年芯片的出货量达百万颗。不少企业认为，RISC-V 架构免费、精简、开放，尤其适合为智慧城市、工业互联网、智能家居等碎片化的物联网场景提供定制芯片。2019 年 12 月，中国工程院院士倪光南预测，在 CPU 领域，未来将形成英特尔 (x86)、Arm、RISC-V 三分天下的格局。</p><p>RISC-V 开源的特点，还使其更能抵御地缘政治的冲击。作为一种公开的芯片行业标准，RISC-V 指令集不在美国出口管制的范围之内。2019 年 6 月，在华为被美国封杀一个月后，RISC-V 基金会决定将总部从美国搬到瑞士，以免基金会未来的运作受到美国出口管制政策的影响。这令 RISC-V 受多国政府重视。在印度，当地政府和科研机构担心被国外「卡脖子」，将大量资金投入 RISC-V 处理器的研究，使其成为事实上的「国家指令集」。</p><p>目前，相较于发展了几十年的 x86、Arm 架构，将满十岁的 RISC-V 生态成熟需要时间。事实上，从芯片业的历史来看，SPARC、IBM 的 POWER 等一大批芯片架构都曾走上过开源之路，至今未结出硕果。</p><p>Arm 曾经预测，2017 年至 2035 年，全球将增加约 1 万亿台物联网设备。Arm 不可能放弃万物互联的市场机会，势必不断回击，包括在 2019 年 10 月允许 Arm 客户免费定制部分指令，以防他们倒戈。夹缝之下，RISC-V 在全球掀起的这场芯片设计革命将走向何方？</p><h2 id=risc-v-走到台前>RISC-V 走到台前</h2><p>2010 年 5 月 17 日，RISC-V 诞生于崇尚创新的加州大学伯克利分校。当时，电气工程及计算机系教授阿桑诺维奇正准备启动一个新的科研项目，需要考虑采用什么芯片架构。</p><p>摆在他面前的，是业内的两种主流架构：诞生于 1978 年的英特尔 x86 架构属于复杂指令集 (CISC)，光指令集手册就超过 2900 页，且不允许外界修改；1983 年开发的 Arm 架构，采用的是更先进的精简指令集 (RISC)，但由于价格高昂，指令集的权限只卖给几家大型科技企业，比如苹果公司。</p><p>不愿接受各种限制的阿桑诺维奇决定，带领两位博士生开始一个为期三个月的暑期项目。为此，他们还专门邀请了 RISC 的发明者、图灵奖得主大卫·帕特森 (David Patterson) 参与指导。为纪念 1981 年至 1988 年间在伯克利诞生的前四款 RISC 处理器，他们将这一指令集命名为第五代 RISC，用罗马字母 V 来表示，即 RISC-V (读作 risk-five)。</p><p>因为是用于科研，这个指令集最大的特点是简单，基础指令集的指令不到 50 条，其他功能全部采用扩展指令集，由用户根据需要来添加。英特尔和 Arm 的架构为了兼容此前的软件，都已发展出超过 1000 条指令。</p><p>从 2010 年秋到 2014 年，RISC-V 一直被用于伯克利的日常教学。有时候，教授们为了给学生布置作业，会去修改指令集，要求研究改动所造成的影响。令阿桑诺维奇意外的是，每次他们这么做，就会收到来自印度等地的外部投诉，指责他们随意修改指令集。</p><p>「我们最初的反应是：你是谁？为什么要来管伯克利校园里发生的事情？」阿桑诺维奇在 2016 年的一场公开演讲中表示。但随着时间的推移，他逐渐意识到，外界对一款开源芯片架构存在需求，于是在 2014 年冻结了 RISC-V 指令集。</p><p>2015 年，RISC-V 基金会正式成立，由阿桑诺维奇担任董事会主席。同年，阿桑诺维奇与两位博士生 Andrew Waterman 和 Yunsup Lee 一起离开学术界，成立 SiFive 公司，帮助企业定制 RISC-V 芯片，开启了 RISC-V 的商业化之旅。</p><p>「在 RISC-V 的整个发展过程中，2015 年是一个很重要的里程碑，是真正开始大规模推广的一年。」中国科学院计算所研究员包云岗向财新记者表示。</p><p>彼时，RISC-V 并不是市场上仅有的开源指令集。2013 年，IBM 推出 OpenPOWER 项目，将自己小型机的 POWER 架构开源，并拉来谷歌、英伟达、三星、浪潮、中兴等全球 130 多家企业为其站台，曾经轰动一时。如今雷声大雨点小，不少成员转投 RISC-V。</p><p>包云岗在 2015 年转向 RISC-V 研究之前，用的则是美国 SUN 公司开发的 SPARC 架构，有开源的版本 OpenSPARC。SPARC 架构最早是为几十年前的小型机而设计，开源版本的代码较为复杂，专业的工程师都需要至少半年才能把它搞懂，更不用说去改造它。这么高的入门门槛，使 SPARC 的开源社区几乎成为「一潭死水」。「2013 年，我们在 SPARC 社区上提了一个问题，到今天还没有人回答。」包云岗说。</p><p>包云岗认为，RISC-V 的幸运在于赶上了好时候：其指令比 x86 和 Arm 都少，对新人来说，门槛更低；由于指令集是开源免费，各家企业可以自己开发 RISC-V 核，用其替代 Arm，可以省下百万甚至千万美元的知识产权 (IP) 授权费用，在商业上有吸引力；RISC-V 在冻结的基础指令集之外，以模块化的方式，提供了不少扩展指令集，使定制芯片变得更加容易，可以应对物联网碎片化的需求。</p><p>在 2018 年的一场演讲中，SiFive CEO 纳文·施瓦尼 (Naveed Sherwani) 表示，过去的全球芯片行业，主要将精力放在研发少量「杀手级芯片」(Killer chips) 上，以满足 PC、手机等行业每年的更新换代需求。其商业模式是，通过大量出货几款芯片来均摊成本，以支持台积电等不断研发更昂贵的制造工艺。这个体系的目的是维持摩尔定律，让芯片性能每 18 至 24 个月翻一番。</p><p>「但如果你让这些公司现在去设计 1000 款芯片，因为市场变得像物联网那样碎片化，他们就不知所措了。」施瓦尼表示。</p><p>RISC-V 崛起的背后，还有由伯克利的团队于 2012 年推出的一种新的硬件描述语言——Chisel。包云岗解释，在芯片设计行业，很多人仍在使用上世纪 80 年代初发明的 Verilog 语言，就好比软件业以前用的汇编语言，开发效率很低。过去几十年，软件行业逐渐用上了 C、Java、Python 等高级语言，可以将含有几百万行、甚至上千万行代码的复杂程序分解成一个个模块，交给几千人协作开发。而 Chisel 等新语言则将模块化设计等概念引入硬件设计，使芯片设计可以使用已有的模块，减少重复劳动。</p><p>「以前那种设计方法，做大型芯片时非常费劲，所以大家会觉得，做芯片好难，只有少数几家企业能做出来。」包云岗预测，随着新语言和方法论的普及，未来设计芯片有可能会像现在开发手机应用一样简单。</p><h2 id=谁是革命推手>谁是革命推手？</h2><p>RISC-V 全球推广，目前已有不少拥趸：一类为 SiFive、武汉芯来科技等初创企业，专注于 RISC-V 这一个赛道；一类为西部数据 (Western Digital)、英伟达等巨头，希望借 RISC-V 架构来打造部分芯片，降低公司成本。</p><p>2017 年 11 月，美国存储企业西部数据宣布，将逐渐把每年使用的超过 10 亿颗芯片内核切换成 RISC-V 架构。他们还给自己用的内核取名为 SweRV，在 2019 年开源。有西部数据高管向财新记者表示，硬盘等存储设备的微控制器 (MCU)，不需要多少软件支持，尤其适合使用 RISC-V 架构。</p><p>地处硅谷的 SiFive 进展同样迅猛。2019 年 6 月，SiFive 获得 6540 万美元的 D 轮融资，由成为资本、高通风投等领投。在此之前，SiFive 已经拿到西部数据、SK 海力士、英特尔资本、华米等的投资。</p><p>通过这些投资，SiFive 为自己锁定了一个稳定的客户群。2019 年，华米科技在其智能手表中使用了 RISC-V 架构芯片黄山 1 号。华米 CEO 黄汪对外表示，这款芯片的成本小于 1 美元，比市面上的芯片要便宜一半左右。2019 年 12 月，三星也成为 SiFive 客户，将在毫米波射频芯片和 AI 图像感知芯片中采用 SiFive 开发的 RISC-VIP 核。</p><p>SiFive 对庞大的中国市场有野心。由徐滔担任 CEO 的上海赛昉科技，是一家由 SiFive 入股、中国投资者和管理层持股的企业。徐滔告诉财新记者，他们除了在中国提供 SiFive 的产品，还要自研新的 IP 核、软件、中间件、开发件等，与 SiFive 是两家独立的公司。「我们将形成一个自己的 IP 核系列，掌握核心技术，走自主可控服务国内客户的道路。」他说。</p><p>徐滔在 2019 年就接触了超过 400 家中国客户，赛昉的员工人数预计也将从今年的 100 多人增加至未来的 500–700 人。徐滔认为，目前国内企业对 RISC-V 兴趣浓厚。</p><p>在中国 RISC-V 阵营中，最受关注的是阿里巴巴集团旗下的平头哥，由阿里云智能事业群总裁张建锋亲自掌舵。2018 年 9 月，阿里宣布，将内部的芯片业务与外部收购的中天微系统有限公司整合，成立一家全资控股的芯片公司，取名「平头哥半导体有限公司」。</p><p>阿里早就想布局芯片产业。有熟悉 Arm 中国的人士告诉财新记者，Arm 准备在国内设立合资公司时，软银集团创始人孙正义曾考虑由阿里控股，最后因阿里竞争对手太多而 Arm 需要在行业中保持中立遂作罢。2018 年 4 月，Arm 在中国的合资公司正式成立，由厚朴等财务投资者持股 51%，Arm 持股 49%。当月，阿里收购了杭州中天微，双方未对外披露交易价格。中天微成立于 2001 年，最早用的是美国摩托罗拉的芯片指令集，后进行了十多年的自主研发。</p><p>平头哥副总裁孟建熠向财新记者表示，平头哥重视 RISC-V，是因为这符合整个社会走向开放的大趋势，「一些特别大的基础设施，基本上是越来越开放，比如 5G，你要在全球移动，必然涉及到一个全球标准，而全球标准肯定是要开放的。」2015 年伯克利团队举办第一场 RISC-V 研讨会时，孟建熠就注意到了这个架构。2017 年上海交通大学那场布道大会，孟建熠也在现场。</p><p>2018 年 9 月，中天微拿出首款 RISC-V 作品——CK902，定位为一款低功耗的物联网处理器；2019 年 7 月，平头哥发布了高性能 IP 核玄铁 910，在 RISC-V 架构的基础上，扩展了 50 余条指令，使其适用于 5G 基站、人工智能加速、自动驾驶等场景；2019 年 8 月，平头哥又发布了 SoC (System-on-a-Chip) 芯片平台「无剑」，其中包括了处理器、各类 IP、操作系统、软件驱动和开发工具等。</p><p>孟建熠解释，如果以软件作比，玄铁处理器可以看作 Linux，而无剑像是在 Linux 基础上打造的安卓操作系统，可以与各个行业的企业合作，将其应用在不同场景中。他表示，目前有不少公司正在评估这些产品，预计 2020 年下半年将会有一些原型产品面世。</p><p>Gartner 研究副总裁盛陵海向财新记者表示，RISC-V 作为一种新的架构，全球所有企业几乎处在同一起跑线上，新进入芯片行业的阿里或许希望借此尝试一下，看是否会有成果。相较 SiFive，中天微此前积累的客户主要在 MCU (微控制器) 领域，平头哥能否成功打入高性能计算等新领域，目前还不确定。「SiFive 毕竟在硅谷，背后有高通等企业的支持，相对来说会好一些。」盛陵海表示。</p><p>平头哥的优势在于，背后有一艘「航空母舰」的支持，阿里内部就有很大的芯片需求。孟建熠表示，RISC-V 是平头哥评估的一个方向，公司尚未完全押注这条赛道，此前中天微开发的产品，也会继续支持。</p><p>面对国内的 RISC-V 热潮，他希望整个行业能更加冷静地去看待，因为芯片的开源开放是一件全新的事情。「不要指望能快速在这里获得多少利益，应该是大家一起来把生态做得更好。」</p><h2 id=arm-反击>Arm 反击</h2><p>在 RISC-V 崛起的过程中，同样以物联网为目标市场的 Arm，始终面临着最大压力。</p><p>Arm 此前已经公布，计划在 2023 年重新上市。这使其很难通过打价格战来排除 RISC-V 的威胁。双方交手之初，Arm 试图淡化 RISC-V 的影响，将它比作是学术项目，没有多少实际应用。到了 2018 年，Arm 上线了一个网站，列出 Arm 好于 RISC-V 的五个理由，包括 Arm 的设计更可靠、安全，生态更加完备。但很快，公司内外的质疑声迫使 Arm 下线了这个网站，并致歉称自己并非反对开源。</p><p>2019 年下半年，面对 RISC-V 阵营的步步紧逼，Arm 终于作出了迄今为止最有力的回应。7 月，Arm 宣布，推出 Flexible Access 计划，企业只需支付一笔较小的费用，就能对 Arm 的大部分 IP 进行评估和实验，大部分授权费可以等到最后生产时再支付。此前，华为、高通等企业要想获得 Arm 的 IP，需要先签约付款。这一改变显然是为了迎合那些对 Arm 产品不熟悉的初创企业。10 月，Arm 又推出了定制化指令 (Custom Instruction)，在确保软件生态不碎片化的前提下，允许企业免费定制部分指令。在第一阶段，Arm 先拿出最新的 Cortex M33 的 CPU 进行试验，恩智浦和意法半导体等成为首批受益者。</p><p>Cortex-M 主要针对嵌入式设备，包括微控制器，可用于智能手环、智能灯、温度感应器等。Arm 称，Cortex-M 处理器累计出货超过 500 亿颗，是 Arm 最成功的 CPU 之一。「从出货量看，Cortex M33 又是 M 系列中最受欢迎的 CPU，未来 Arm 发布的所有 M 系列产品都将允许客户进行定制。」Arm 市场营销副总裁伊恩·斯迈斯 (Ian Smythe) 向财新记者表示。</p><p>关于突然允许定制化指令的原因，斯迈斯解释，在原先的模式下，Arm 设计指令时，仅能考虑客户最普遍的需求，对于那些个性化需求，需要用定制化指令来解决。他还表示，Arm 走出这一步经过深思熟虑，他们在设计中专门留出一部分空间用于定制指令，以避免出现软件不兼容导致的碎片化问题。</p><p>「如果你看一下处理器的历史，就会发现，如果一个芯片架构允许定制和碎片化，而不去持续有效地进行管理，过一段时间，这些架构就会被边缘化，或者只能占领一些很小众的市场。」斯迈斯表示。</p><p>他介绍，下一步，Cortex-R 系列的 CPU 也有可能允许添加一部分定制化指令，而 Cortex-A 系列则不太可能加入。Cortex-R 系列主要针对实时性要求高的应用，比如硬盘控制器、汽车安全气囊等，而 Cortex-A 系列主要针对智能手机和虚拟现实头显等高性能设备。</p><p>Arm 方面否认推出定制化指令与 RISC-V 的挑战直接相关，但 Cortex-M 处理器的目标用户却与 RISC-V 的高度重合。</p><p>盛陵海表示，微控制器 (MCU) 领域一直是一个百花齐放的市场，没有统一的软件生态，很多企业过去使用的是自己私有的芯片架构，随着他们产品的迭代，预计有些企业会选择 Arm，另外一些则会选择 RISC-V。</p><p>「RISC-V 在 MCU 方面的出货量已经蛮大了，但相对于 Arm 的出货量，或者过去私有架构的出货量来说，它的比例还是比较小的。」盛陵海表示，Arm 还没有输掉这块市场。</p><h2 id=碎片化挑战>碎片化挑战</h2><p>在 MCU 之外的市场，Arm 用 30 年时间打造的软件生态，仍是最强的壁垒。有国内初创企业向财新记者表示，虽然用 RISC-V 替代 Arm 可以省下一笔授权费，但在开发周期等方面隐性成本太高，他们在评估后决定再等等，「RISC-V 生态还需要点时间」。</p><p>「我个人认为，目前市场上已经没有多少空间，去留给一种新的芯片架构。」美国芯片设计软件企业 Synopsys (新思科技) 的全球 AI 领域负责人沙基卜·阿克鲁特 (Chekib Akrout) 向财新记者表示，大部分用户并不关心自己手机或电脑芯片用的是什么指令集，只要它能运行用户想要的软件。</p><p>阿克鲁特认为，如果一种新的指令集可以做到「与世隔绝」、只用来运行新的应用，不会出现问题。一旦涉及已有应用，让那些过去的软件去适配一个新的指令集，需要耗费大量时间和精力，恐怕得不偿失。</p><p>有 Arm 高管也向财新记者表示，他们内部评估，RISC-V 或许能在一些细分市场取得成功，但物联网中最有价值的自动驾驶汽车、增强现实设备等，由于需要大量软件配合，将依然由 Arm 主导。</p><p>另一种声音则认为，万物互联时代，许多专有芯片配套的应用本身就需要重新开发，RISC-V 正好踩在了这个时点上，或许将成为物联网主流芯片架构。</p><p>盛陵海认为，RISC-V 要想与 Arm、英特尔争夺市场份额，仍需要拿出几款性能好、成本低的明星级产品，而且得有华为、三星等大厂力推，才有可能逐步建立起生态。英特尔和 Arm 此前的成功，分别有赖于 IBM 个人电脑和苹果 iPhone 的大卖。如今，许多大厂的 RICS-V 芯片看起来仍是试水。</p><p>不过，在他看来，RISC-V 当前最大的机遇，是中美科技战的大背景，许多企业担心未来无法使用英特尔和 Arm 的产品，会更愿意尝试开源架构。2019 年 5 月 16 日，华为被美国列入「实体清单」，购买使用美国技术的产品或服务受到限制。这引发不少国内外科技企业担忧，国产化替代呼声渐浓。RISC-V 作为开源的芯片行业标准，面向全球公开，且 RISC-V 基金会亦在竭力避免被政治化，风险相对要小很多。</p><p>RISC-V 阵营内部亦有挑战。「RISC-V 的基础指令集虽然简单，但并不能满足很多商业应用的需求，各家企业都要在此基础上添加新的指令，来进行优化。而各家为了保护自己的知识产权，会形成自己的开发工具，如将软件代码转换成指令的编译器 (Compiler)，很多 RISC-V 企业的就不统一。」盛陵海认为，企业之间可能不会有太大的动力去打通这些工具，因为那会让客户很容易迁移。这种情况如果长期持续下去，最终 RISC-V 阵营可能只会有一两家能够生存下来。</p><p>徐滔则称，不需要担心 RISC-V 生态的碎片化，如果 IP 供应商在 IP 中加上了不属于 RISC-V 的指令，在编译器等工具链中必须有所优化，就会和 RISC-V 主流生态不兼容。「许多大客户一定是反对这种现象的，因为不希望被一家 IP 供应商绑定，而且如果他们使用了几家公司的产品，各家软件生态不兼容，未来管理的成本会非常高。」他认为，这些大客户的意见最终会使各家都不敢将生态做得碎片化，因为谁离开了 RISC-V 统一的生态，就会对自己造成损伤。</p><p>从长远来看，包云岗认为，要解决碎片化的问题，关键是要推动 RISC-V 阵营发展出一条主线。他以 Linux 为例表示，Linux 内核诞生之后，就在不断更新迭代，向前演进。他认为，RISC-V 的处理器核也要像 Linux 内核一样，不断增加新的功能，才能使 RISC-V 阵营更好更快地向前发展。</p><p>但现状是，各家企业都在做自己的产品，在如何推动主线发展上缺乏共识。包云岗表示，中科院计算所作为科研机构对 RISC-V 的开源生态很重视，他们团队计划花大量时间和精力去发展这条主线。他相信，整个 RISC-V 阵营对于完善生态所需的时间是有心理预期的，将会以十年为尺度去衡量。</p><p>「我们不能说，得有个人来组织管理一下，让所有的开源都往这个方向走，这是不现实的。」孟建熠则表示，「开源的生命力，在于它是一种开放的全球协同模式。它一定会经历由乱到相对比较稳的过程，我觉得，现在就在这个过程中。」 他认为，芯片最终还是需要跟应用相结合，如果有人把一个应用方向走通了，就会成为标准。</p><p>Related</p><h5><a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5></div><div class="col-lg-8 mx-auto block shadow"><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var t=document,e=t.createElement('script');e.async=!0,e.src='//pin-cong-jing-xuan.disqus.com/embed.js',e.setAttribute('data-timestamp',+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div class="col-lg-8 mx-auto block shadow"><h3>See Also</h3><div class=container><div class=row><div class="mx-auto px-0"><div class="bg-white shadow block"><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/9bed974634a249b1f8b9dad3808d07f6/?utm_source=see_also&utm_medium=%25E8%258A%25AF%25E7%2589%2587%25E8%25AE%25BE%25E8%25AE%25A1%25E5%2590%258E%25E6%259D%25A5%25E8%2580%2585%25E7%259A%2584%25E9%259D%25A9%25E5%2591%25BD%25E6%2597%25B6%25E5%2588%25BB">【不是段子】如果中欧联合抗美</a></h2><p class=text-dark>【不是段子】中国和欧洲决定联合起来对抗咄咄逼人的美国，两边各派出谈判代表坐下来开始商谈对抗美国的具体策略。
 中方：为表诚意我建议贵方先收购我方堆积如山的衣服和玩具。
 欧方：我方可以用我们卖不掉的汽车来换。
-中方：我国国内汽车销量已经连续萎缩 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/4e265a7357fbb60a608794f9cae67bfe/?utm_source=see_also&utm_medium=%25E8%258A%25AF%25E7%2589%2587%25E8%25AE%25BE%25E8%25AE%25A1%25E5%2590%258E%25E6%259D%25A5%25E8%2580%2585%25E7%259A%2584%25E9%259D%25A9%25E5%2591%25BD%25E6%2597%25B6%25E5%2588%25BB">996 惹怒程序员之后，他们的抗议引发了全球关注</a>
-</h2>
-<p class=text-dark>原文来自「好奇心日报」：996 惹怒程序员之后，他们的抗议引发了全球关注
+中方：我国国内汽车销量已经连续萎缩 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/4e265a7357fbb60a608794f9cae67bfe/?utm_source=see_also&utm_medium=%25E8%258A%25AF%25E7%2589%2587%25E8%25AE%25BE%25E8%25AE%25A1%25E5%2590%258E%25E6%259D%25A5%25E8%2580%2585%25E7%259A%2584%25E9%259D%25A9%25E5%2591%25BD%25E6%2597%25B6%25E5%2588%25BB">996 惹怒程序员之后，他们的抗议引发了全球关注</a></h2><p class=text-dark>原文来自「好奇心日报」：996 惹怒程序员之后，他们的抗议引发了全球关注
 作者：唐云路 罗骢
 最初是一个人的抱怨，但现在已经是一个 16 万人社区的事，以开源软件开发的方式协作。
-一场关于劳工权益的抗议在过去一周里爆发，让中国互联网公司 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/0427ffff1394b18feeec1cb104c25b70/?utm_source=see_also&utm_medium=%25E8%258A%25AF%25E7%2589%2587%25E8%25AE%25BE%25E8%25AE%25A1%25E5%2590%258E%25E6%259D%25A5%25E8%2580%2585%25E7%259A%2584%25E9%259D%25A9%25E5%2591%25BD%25E6%2597%25B6%25E5%2588%25BB">核高基十字路口耗时 7 年仍处于价值链中低端</a>
-</h2>
-<p class=text-dark>尽管不像大飞机、核电、载人航天等项目那样如雷贯耳，很多人甚至不知道 核高基 究竟是什么，但这个国家科技重大专项却恰恰涉及人们最熟悉的产品：电脑、手机、电视、数码产品、家电，等等。从 2011 年起，这个低调的重大专项已逐渐确立目标，即满足国 …</p>
-</article>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
-<footer class="py-4 bg-light border-top">
-<div class=container>
-<div class="row justify-content-between align-items-center">
-<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
-</div>
-<div class="col-lg-4 text-center mb-4 mb-lg-0">
-<ul class="list-inline mb-0">
-</ul>
-</div>
-<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
-<ul class="list-inline social-icon mb-0">
-<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
-<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
-</ul>
-</div>
-<div class="col-12 text-center mt-4">
-<span></span>
-</div>
-</div>
-</div>
-</footer>
-<script src=../../plugins/jQuery/jquery.min.js></script>
+一场关于劳工权益的抗议在过去一周里爆发，让中国互联网公司习惯 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/0427ffff1394b18feeec1cb104c25b70/?utm_source=see_also&utm_medium=%25E8%258A%25AF%25E7%2589%2587%25E8%25AE%25BE%25E8%25AE%25A1%25E5%2590%258E%25E6%259D%25A5%25E8%2580%2585%25E7%259A%2584%25E9%259D%25A9%25E5%2591%25BD%25E6%2597%25B6%25E5%2588%25BB">核高基十字路口耗时 7 年仍处于价值链中低端</a></h2><p class=text-dark>尽管不像大飞机、核电、载人航天等项目那样如雷贯耳，很多人甚至不知道 核高基 究竟是什么，但这个国家科技重大专项却恰恰涉及人们最熟悉的产品：电脑、手机、电视、数码产品、家电，等等。从 2011 年起，这个低调的重大专项已逐渐确立目标，即满足国 …</p></article></div></div></div></div></div></div></div></div></section><script>var i,images=document.getElementsByTagName("img");for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../plugins/jQuery/jquery.min.js></script>
 <script src=../../plugins/bootstrap/bootstrap.min.js></script>
 <script src=../../plugins/search/fuse.min.js></script>
 <script src=../../plugins/search/mark.js></script>
 <script src=../../plugins/search/search.js></script>
 <script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
-</html>
+<script>(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body></html>

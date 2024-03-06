@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh-cn><head>
-<meta charset=utf-8>
-<title>一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》_版图</title>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name=description content=" 原标题：一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》_版图</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 原标题：一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》
 来源：真视界
 先回答个很常见的问题：没有了美国的EDA，我们是不是芯片都不能做了？这也是促成我写这篇文章的因素之一吧。
 我的简要回答是：180nm/350nm以上的部分老工艺线是可以用破解版或国产替代版继续做的，但深亚微米级130nm/90nm开始就很难离得开正版授权了,越往下越难，到了22nm以下，就完全不可能了。
@@ -29,18 +25,12 @@ EDA，Electronic design automation，中文叫电子设计自动化。
 做了张脑图，大家先看下芯片的大致流程：
 当然实际设计中会更为复杂，并随着制程的变小，会进一步加剧流程各环节的复杂度以及增加环节内部的新的验证项目，但大体还是以下步骤：前端设计和仿真——后端设计及验证——后仿真——signoff检查——数据交付代工厂(以gds的形式）
 稍微解释一下几个重要概念：
-  Signoff, 中文翻译叫签核，比较抽象，简单说就是按厂家的默认设置要求做最后一次的规则验证，通常我们在设计的时候，会将厂家要求的标准提高一些来做。
-  后端设计：可以理解为将电路从器件符号形式转为几何图形形式，以指导掩膜版的设计。
-  然后，我把设计流程里各个环节能用且好用的软件列一下（可以看到基本都是Cadence, Synopsys, Mentor三家的产品）： ">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
-<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
-<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
-<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<meta name=twitter:card content="summary_large_image">
-<meta name=og:title content=" 一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》_版图 ">
-<meta name=og:description content=" 原标题：一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》
+Signoff, 中文翻译叫签核，比较抽象，简单说就是按厂家的默认设置要求做最后一次的规则验证，通常我们在设计的时候，会将厂家要求的标准提高一些来做。
+后端设计：可以理解为将电路从器件符号形式转为几何图形形式，以指导掩膜版的设计。
+然后，我把设计流程里各个环节能用且好用的软件列一下（可以看到基本都是Cadence, Synopsys, Mentor三家的产品）：
+模拟及混合信号类（包括模拟前端设计及仿真，模拟后端设计及验证，芯片后仿真）：
+电路及版图设计工具：Virtuoso (Cadence)， 0.18um,0.35um等老工艺可以用L-edit.(这个不受限）
+版图物理验证工具： Calibre(Mentor)，老工艺还能用 Assura(Cadence)， dracura（Cadence,更老,十几年前刚毕业那会儿用过） "><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" 一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》_版图 "><meta name=og:description content=" 原标题：一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》
 来源：真视界
 先回答个很常见的问题：没有了美国的EDA，我们是不是芯片都不能做了？这也是促成我写这篇文章的因素之一吧。
 我的简要回答是：180nm/350nm以上的部分老工艺线是可以用破解版或国产替代版继续做的，但深亚微米级130nm/90nm开始就很难离得开正版授权了,越往下越难，到了22nm以下，就完全不可能了。
@@ -67,247 +57,37 @@ EDA，Electronic design automation，中文叫电子设计自动化。
 做了张脑图，大家先看下芯片的大致流程：
 当然实际设计中会更为复杂，并随着制程的变小，会进一步加剧流程各环节的复杂度以及增加环节内部的新的验证项目，但大体还是以下步骤：前端设计和仿真——后端设计及验证——后仿真——signoff检查——数据交付代工厂(以gds的形式）
 稍微解释一下几个重要概念：
-  Signoff, 中文翻译叫签核，比较抽象，简单说就是按厂家的默认设置要求做最后一次的规则验证，通常我们在设计的时候，会将厂家要求的标准提高一些来做。
-  后端设计：可以理解为将电路从器件符号形式转为几何图形形式，以指导掩膜版的设计。
-  然后，我把设计流程里各个环节能用且好用的软件列一下（可以看到基本都是Cadence, Synopsys, Mentor三家的产品）： ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/24.jpg">
-<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+Signoff, 中文翻译叫签核，比较抽象，简单说就是按厂家的默认设置要求做最后一次的规则验证，通常我们在设计的时候，会将厂家要求的标准提高一些来做。
+后端设计：可以理解为将电路从器件符号形式转为几何图形形式，以指导掩膜版的设计。
+然后，我把设计流程里各个环节能用且好用的软件列一下（可以看到基本都是Cadence, Synopsys, Mentor三家的产品）：
+模拟及混合信号类（包括模拟前端设计及仿真，模拟后端设计及验证，芯片后仿真）：
+电路及版图设计工具：Virtuoso (Cadence)， 0.18um,0.35um等老工艺可以用L-edit.(这个不受限）
+版图物理验证工具： Calibre(Mentor)，老工艺还能用 Assura(Cadence)， dracura（Cadence,更老,十几年前刚毕业那会儿用过） "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/198.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
-</head>
-<body>
-<header class="fixed-top navigation">
-<div class=container>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class="ti-menu h3"></i>
-</button>
-<div class="collapse navbar-collapse text-center" id=navigation>
-<ul class="navbar-nav ml-auto">
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</header> <div class="py-5 d-none d-lg-block"></div>
-<section class=main-content>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 mx-auto block shadow mb-5">
-<h2>一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》_版图</h2>
-<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e5%b5%8c%e5%85%a5%e5%bc%8f%e8%b5%84%e8%ae%af%e7%b2%be%e9%80%89>嵌入式资讯精选</a></span>,
+<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=main-content><div class=container><div class=row><div class="col-lg-8 mx-auto block shadow mb-5"><h2>一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》_版图</h2><div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e5%b5%8c%e5%85%a5%e5%bc%8f%e8%b5%84%e8%ae%af%e7%b2%be%e9%80%89>嵌入式资讯精选</a></span>,
 <span>at 24 May 2020</span>, tags :
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e8%ae%be%e8%ae%a1>设计</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e9%aa%8c%e8%af%81>验证</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e8%8a%af%e7%89%87>芯片</a>
 <a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/2e47d08fb1d6aba4cabeee75d1a6fcc0.md style=color:gray><strong><i>点击纠错</i></strong></a>
-<i> </i>
-<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/2e47d08fb1d6aba4cabeee75d1a6fcc0.md style=color:gray><strong><i>点击删除</i></strong></a>
-</div>
-<h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
-<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
-<p></p>
-<p>原标题：一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》</p>
-<p><img src="https://images.weserv.nl/?url=http%3A//p0.itc.cn/images03/20200524/0892fe01f44f443f8fbba34be5d22568.jpeg" alt></p>
-<p><strong>来源：真视界</strong></p>
-<p>先回答个很常见的问题：没有了美国的EDA，我们是不是芯片都不能做了？这也是促成我写这篇文章的因素之一吧。</p>
-<p>我的简要回答是：180nm/350nm以上的部分老工艺线是可以用破解版或国产替代版继续做的，但深亚微米级130nm/90nm开始就很难离得开正版授权了,越往下越难，到了22nm以下，就完全不可能了。</p>
-<p>和大家熟知的office, autocad等工具类软件不一样，这种软件很纯粹，脱机都可以用，完了打印出来就可以；芯片EDA工具软件的最大特点是它与芯片代工厂具有高度的绑定关系，因为我们设计时，是需要代工厂提供数据包的,称之为PDK，包含了诸如晶体管，MOS管，电阻电容等基础器件或反向器，与非门，或非门，锁存器，寄存器等逻辑单元的基本特征信息，这个数据包会不断优化，更新频繁，同时对EDA软件有绑定及校验的作用，一般只支持当前最新版的工具。</p>
-<p>没软件，哥用手画不一样吗? 当年原子弹氢弹就是手算的呀。。</p>
-<p>好的，首先我必须要讲明白为啥必须要使用自动化设计软件(EDA)，否则我后面都是白说, 这部分懂的同学请直接往后拉，从第二部分开始看。文章有点长，受不了的请直接看第四段。</p>
-<p><strong>文章分五个部分：</strong></p>
-<p><strong>一.为什么要用EDA;</strong></p>
-<p><strong>二.EDA圈子的那些事；</strong></p>
-<p><strong>三 .不得不提的IP</strong></p>
-<p><strong>四.破局</strong></p>
-<p><strong>一. 为什么要用EDA？</strong></p>
-<p>EDA，Electronic design automation，中文叫电子设计自动化。</p>
-<p>最早的集成电路是用手工做的，因为就几个管子，前端可以手工完成其功能的计算，后端版图就根据电路图，将管子，连线用笔转移为几何图形，画出胶带（算是掩膜的老祖宗），因为管子少，线也简单，所以不容易出错。这是60年代——70年代中期的事情。（国内有些公司十年前都还在用，不知道现在如何。）</p>
-<p>但是，到了几十个，几百个器件或单元的时候就不行了，肉眼非常容易出错。</p>
-<p>比如这种：整个模块也就五百多个管子吧，截了大概5%的区域出来，这个人手工怎么做呢，做完怎么保证百分百不会错呢，如果用自动布局布线工具，大概也就几秒就运行出来了，而且不会错。</p>
-<p><img src="https://images.weserv.nl/?url=http%3A//p4.itc.cn/images03/20200524/fd5560e2869047ef89ce18d0321c3111.jpeg" alt></p>
-<p>数字网表导出来的电路图</p>
-<p>这个自动布局布线出来的版图，用了7层金属，上千条毫无规律的线，试问怎么去画？怎么去查？</p>
-<p><img src="https://images.weserv.nl/?url=http%3A//p9.itc.cn/images03/20200524/fd1aa84fd18a4d35ac91854d0a91cdbe.jpeg" alt></p>
-<p>数字版图</p>
-<p>这是目前比较典型的一个SOC（system on chip）芯片（CPU就是SOC的一种）的图，里边包含了数字电路也包含了模拟电路IP，上面这个数字版图的截图，可能只是下面这个完整版图的千分之一，甚至更少，你要知道最古老的SOC里的晶体管都是千万级以上，现在的个数更是动辄就是几亿，甚至上十亿：</p>
-<p><img src="https://images.weserv.nl/?url=http%3A//p6.itc.cn/images03/20200524/743bbe7f8b9143a8a1081cc56525931f.jpeg" alt></p>
-<p>典型的SOC示意图</p>
-<p>一条线连错了，可能整个产品的功能就变了，也就是你花几千万，只能得到一堆人都砸不了的板砖。之前所有投入全部打水漂。一般来说制程越先进，制造和研发费用愈来愈昂贵，哪怕是很老的0.5um, 0.35um的工艺，虽说只要几十万，几百万，但那也是钱哪，更别说到了28nm下制程动辄都是千万级美元的费用，10nm，7nm更是亿级美元了，流几次片没成功直接倒闭的公司数不胜数。所以必须使用计算机来辅助设计！</p>
-<p><strong>二. EDA圈子的那些事</strong></p>
-<p>做了张脑图，大家先看下芯片的大致流程：</p>
-<p><img src="https://images.weserv.nl/?url=http%3A//p6.itc.cn/images03/20200524/4dd3a73602f74b44856a002da3a9fe4f.jpeg" alt></p>
-<p>当然实际设计中会更为复杂，并随着制程的变小，会进一步加剧流程各环节的复杂度以及增加环节内部的新的验证项目，但大体还是以下步骤：前端设计和仿真——后端设计及验证——后仿真——signoff检查——数据交付代工厂(以gds的形式）</p>
-<p>稍微解释一下几个重要概念：</p>
-<ul>
-<li>
-<p>Signoff, 中文翻译叫签核，比较抽象，简单说就是按厂家的默认设置要求做最后一次的规则验证，通常我们在设计的时候，会将厂家要求的标准提高一些来做。</p>
-</li>
-<li>
-<p>后端设计：可以理解为将电路从器件符号形式转为几何图形形式，以指导掩膜版的设计。</p>
-</li>
-</ul>
-<p>然后，我把设计流程里各个环节能用且好用的软件列一下（可以看到基本都是Cadence, Synopsys, Mentor三家的产品）：</p>
-<p><strong>模拟及混合信号类（包括模拟前端设计及仿真，模拟后端设计及验证，芯片后仿真）：</strong></p>
-<p>电路及版图设计工具：Virtuoso (Cadence)， 0.18um,0.35um等老工艺可以用L-edit.(这个不受限）</p>
-<p>版图物理验证工具： <strong>Calibre(Mentor)</strong>，老工艺还能用 <strong>Assura(Cadence)</strong>， <strong>dracura（Cadence,更老,十几年前刚毕业那会儿用过）</strong></p>
-<p>版图参数提取工具： <strong>Star-RC(synopsys), Calibre XRC(Mentor),QRC（Cadence）</strong></p>
-<p>电路仿真工具： <strong>Hspice(Synopsys) ，Spectre(Cadence)， ALPS(华大九天，中国）</strong></p>
-<p><strong>数字及SOC类（数字前端，数字后端，验证，仿真）：</strong></p>
-<p>RTL综合工具 ： <strong>DC(Design compiler，Synopsys)</strong></p>
-<p>仿真验证工具： <strong>VCS(Synopsys), ModelSim(Mentor),Incisive,Indago, MDV,VIP(Cadence)</strong></p>
-<p>数字后端设计工具： <strong>ICC(Synopsys)，Innovus/Encounter(Cadence) 还有180nm制程可用的老掉牙的Astro( synopsys).</strong></p>
-<p>DFT工具： <strong>DFT Compiler (Synopsys)</strong></p>
-<p>物理验证工具 <strong>：ICV（Synopsys）PVS(Cadence), Calibre(Mentor)</strong></p>
-<p>signoff 时序/噪声/功耗分析工具： **Prime time, PT(synopsys),PrimeRail(Synopsys) ,redhawk Fusion(Synopsys,**这套flow产品的核心redhawk是ansys的产品，ansys为s家战略合作）， <strong>Totem(Ansys, 美国）</strong></p>
-<p><strong>PCB:</strong></p>
-<p>**Allegro(Cadence) ：**这个还好，不更新也没太大个问题。</p>
-<p>这里再简单说下国内的EDA情况，反向提图抄袭软件其实是走在世界前列的，芯X景（据说还要上市圈钱），客户除了早就被拉黑的外，都不敢说用了他家产品，怕吃官司，这种不值得提倡，因为他们干的事早已超出了他们所宣称的只用于合理学习的底线；</p>
-<p>正向设计里目前真正得到认可的只有 <strong>华大九天（我为他们点个赞）</strong>，但主要是模拟产品上，具体的说是模拟电路的仿真工具（ALPS），再细化下是电源类产品的仿真上，有他们的独到及NB之处，他们也有对标 virtuoso的兼容性产品Aether，但是得在成熟工艺下用。国内的EDA依然处于一个辅助角色状态，还有很长很长的路要走。</p>
-<p>可以这么说，世界上所有的芯片设计公司，不管你是5nm还是350nm吧，无论你多NB，多逆天，肯定采用了这三家的至少一种软件，哪怕是盗版 。</p>
-<p>Synopsys和Cadence一贯的发展战略是平台性发展，也就是说并不是某个环节的设计软件强，而是从前端设计-前仿真/验证-后端设计-后端验证仿真直到流片的整套产品都很强，并形成设计的闭环，比如synopsys的Milkway， Cadence的OA(OpenAccess)。。粗略的说，模拟/数模混合芯片设计用cadence平台，数字芯片设计采用synopsys平台，当然实际并非如此绝对，有一定的交叉使用情况。。对于客户来讲，他们自然会倾向于平台化的EDA的采购，而不是分门别类的买，因为省事就意味着省钱啊，除非你的某项产品极其NB，比如Mentor的功能或物理验证产品,Ansys家的功耗分析软件，那确实厉害,尤其是物理验证C,S两家真干不过，已经是全球所有代工厂公认的金标准，也迫于垄断压力收不了，那只能战略合作。</p>
-<p>然后呢，EDA的垄断还体现在于工艺厂的捆绑上，工艺厂早期要进行工艺研发，势必也要进行器件，简单功能芯片的设计，要设计就得基于eda设计平台支持，这时候Synopsys, Cadence等EDA公司就来送温暖了，他们甚至会免费直接帮你设计多种基础IP, 各种规模的功能IP以扩充你的IP库，IP库越大越全，对客户的吸引力也就越大，win-win；在功能验证，物理验证环节，则有Mentor的一席之地，物理验证会贯穿并频繁往返于后端设计的全流程，对于软件的效率和可视化要求很高，这点calibre做得非常好。另外EDA供应商还会给学校客户优惠价甚至免费，其目的也很明显，培养用户习惯，除非学校也是光荣的上了美帝黑名单。</p>
-<p>也就是：EDA 工具+IP授权的捆绑。</p>
-<p>这样一整，进入投产阶段后，工艺厂发给客户的PDK设计包自然也只能支持 Synopsys, Cadence，Mentor的了，其他的EDA替代品，多在兼容性上做功，并且无法提供平台化产品，加上兼容和原生，在时效及使用上都有很大的差异。。一旦做强了还面临着Cadence,Synopsys的收购/绞杀威胁。还是那句话，人家提供的是平台，除非你能像Mentor那样提供整套验证平台也可。</p>
-<p>三. 不得不提的 IP</p>
-<p>EDA说完了，再说说IP，IP对于今天SOC设计的重要性不用赘述了， Synopsys, Cadence的另一个杀手锏级的垄断产品：接口类IP，这是每一颗SOC必不可少的东西，比如：高速SerDes, ethernet以太网，PCIE, CPRI, SATA，USB,Type-C，MIPI, HDMI,DP&mldr;还有DDR; 如下图所示，Synopsys 的IP业务在总营收里占第二。</p>
-<p><img src="https://images.weserv.nl/?url=http%3A//p9.itc.cn/images03/20200524/2d13846f79f64045b5a63f6afcb095d7.jpeg" alt></p>
-<p>Synopsys 2013~2018的产品及服务的营收占比</p>
-<p>貌似从65nm开始吧，每一代工艺出来的早期基本只有Synopsys和Cadence两家可选，因为这两家是先进工艺研发的唯二工艺-产品的设计及验证平台，他们老早就进去了，至少是从设计PDK（芯片设计工具包）开始，产线开放后，陆续才会有其他IP供应商或自主研发的接口产品可用， 但到了14nm开始，除S,C两家外，很长时间基本只有rambus, aphawave，esilicon等公司的IP可用，rambus，esilicon是美国公司，alphawave是加拿大公司，加拿大你懂的，不过华为是他们的T1客户。。。但是7nm,5nm下，能做到所有类型的接口IP都提供的，还是只有Synopsys或Cadence。就在前天，Cadence发了款TSMC 7nm的超高速112G/56G 长距离SerDes,用于云数据中心和光网络芯片，5G基础设施的核心IP。SMIC14nm的10G多协议PHY IP也是他们独家的，5月14日发布的。</p>
-<p>然后我来一张2019年半导体IP厂商TOP10榜单：</p>
-<p><img src="https://images.weserv.nl/?url=http%3A//p1.itc.cn/images03/20200524/ca6b19c85a434c0e88335e7ac91e4ea0.jpeg" alt></p>
-<p>榜单中前三个就不说了：</p>
-<p>SST：得益于NVM接口的流行，直接从十名开外， 冲到了第三。（总部美国加州）</p>
-<p>imagination(一家被中资背景的美国私募控制的英国公司。。？？） ，其主要产品是GPU IP，国有化了，但这两年垮得很厉害；</p>
-<p>Ceva（以色列） 主要是DSP；</p>
-<p><strong>Verisilicon</strong>（芯原，重点提一下，这家主要研发力量在中国，外面名气不大，但业内名气很大，很NB，作为研发力量主要在中国的公司，海外营收竟然占了70%+ ，不乏谷歌，Facebook、博世、亚马逊、英特尔、恩智浦，高通，华为这样的巨头客户。 **全球IP供应商排名里排第7，**国家大基金和小米这两年都投了他们，昨天科创板上市已经过会了，是家 <strong>中国公司</strong>。他们虽然技术储备不错，但体量偏小而且研发投入占比极大，所以财报不太好看，后面看资本注入后，有进一步扩张并做大的机会，看好他们厚积薄发。他们的重要布局是Globalfoudry, Samsung 22nm FDSOI产线的低功耗产品，是三星和GF的IP联盟中的战略合作伙伴。</p>
-<p>Achronix(美国）, 主要是FPGA；</p>
-<p>eMemory，看名字就知道memory。</p>
-<p>四. 破局</p>
-<p>**下策：**用盗版EDA。国内有公司这么干，省钱是一方面，主要还是因为上了黑名单，人家给钱也不卖，用盗版软件设计好，然后交给第三方代理公司处理，投片，然后交给厂家代工，但是这基本只能在0.18um甚至更高的制程的产品，65nm以下的产品基本上很难。（现在这种代理公司越来越少了，黑名单都快拉满了。）</p>
-<p>我就不说这玩意儿不能破解了，我相信这世界上没有绝对无懈可击的防御体系，哪怕这几家的物理license manager体系设计几乎已经做到了世界最好。</p>
-<p>主要原因还是我刚刚说的工艺厂和EDA利益绑定的问题，工艺厂的设计数据包（PDK），尤其是验证文件的更新非常频繁，尤其是新工艺，因为随着各种测试片，量产版的测试反馈，会不断的调整器件模型，设计规则，不断迭代，让良率达到最高，一个月一更的都见过，甚至是1.x版本直接升到2.x版，都不是0.0x这么微小迭代。这种幅度的更新让设计重来的都有。</p>
-<p>几个顶级代工厂的工具基本都是用最新版本，所以放出来的更新PDK也是用最新版工具校验, 你老的工具很可能就得跟着更新，盗版根本来不及，也没什么人愿意干这种费力不讨好的事，所以能找到盗版的几乎都是老点的版本。除非是老工艺，比如台积电的0.18um，貌似七八年没更新了，因为已经完美了，就不存在过期这种问题。</p>
-<p>比如说之前做28nm以下模拟设计，最早还能用virtuoso的ic6.16, 6.17，到后来成了ICADV122,直到现在只能用ICADV123, 验证就更快了，一年一代.比如这个Mentor 的Calibre，一年一个大更新，里边还有小更新，17年的是打不开19年的工具校验过的数据的，一个版本对应一批License（按个数卖）：</p>
-<p><img src="https://images.weserv.nl/?url=http%3A//p5.itc.cn/images03/20200524/5d5d9631335b4887a70232d250cbae6e.jpeg" alt></p>
-<p>Mentor Calibre版本示意</p>
-<p>这也是为啥license一般都是买短期的,也可以称之为租赁，终身买断的那是家里有钻石矿的。</p>
-<p>**如果对你停止了技术支持，那么也就意味着更新停止，License没停你老的可以接着用。**当年中兴被封杀时，网上泄露出的Cadence群发邮件也提到过，但是实际上，我了解到的华为被制裁的没中兴那么惨，中兴当时是直接一刀下去的。而华为不是，因为美国想拿这事作为重要的谈判筹码，而不是直接毁掉筹码，终止谈判。</p>
-<p>最后，你盗版设计好的数据，为什么得拿给第三方润一下（润笔费可不菲。），也是因为数据在制版前，工艺厂还会校验，因为license是与公司物理名称及专用license服务器网卡地址全部绑定的，数据来源不明的不会给你流片的。</p>
-<p>有人说，那我们自己的工艺线呢，悄悄的不行嘛？芯片产业是个发展了几十年的全球化的链条，所谓的3+2结构，一家做不完全部环节。各种背景的人凑一堆玩一个游戏，最讲究的就是一个游戏规则，哪怕这个规则有问题，但是绝大多数的人愿意相信就没问题，比如常见的就是不能把客户数据偷去自己生产自己卖，或卖给其他公司；维护IP及工具联盟的利益，不接来历不明的单；一旦有人破坏规则，就会被全联盟抵制甚至出局。（就好比大家在玩中国象棋，你非得说悔棋可以或要用国际象棋的规则来玩。）</p>
-<p><img src="https://images.weserv.nl/?url=http%3A//p1.itc.cn/images03/20200524/f1219b4f06f54e989ad82d1bf64a8cc8.jpeg" alt></p>
-<p>芯片3+2结构</p>
-<p>**中策上策：**先打局部战争，不要一来就想整个大的，建立一个独有的体系，逆全球化是逆势而为，是特没谱才干的事。某国越封闭，咱们就越开放，让自己在全球体系有自己的位置，哪怕一开始微不足道。</p>
-<p>扶持本土EDA的发展，但需要很长的路要走，技术壁垒，专利壁垒这种东西并不是砸钱就可以破掉的，华人工程师在美国本土被防得很死，尤其是在核心技术上；而且EDA这个行业很烧钱，未来回报远远比不上互联网行业，其总的市场规模也就100亿美元，这个只能靠扶持。另外，我再说一次，反向抄袭软件不在讨论之列，这种流氓盗版公司请让他死掉，他们是导致芯片行业恶性及下作竞争的推手（这些年因被抄袭而死掉的不少是国内的有技术有创新的初创公司），这是我的一贯观点。</p>
-<p>但是，我们没必要一来就以彻底取代为目的，可以从局部突破，把某一类工具做到极致，比如现在华大九天的模拟产品仿真工具就是一个很好的突破口，想Ansys那样，成为工艺厂的金标准，人家想踢你都踢不掉，客户不答应啊。</p>
-<p>EDA-IP-工艺厂需要协同发展，各司其职，让专业的人做自己最擅长的事，避免恶性竞争，才是效率最高的策略。在EDA还没起步的时候，就先为现有的能在世界上排上号的IP公司和代工厂，促成IP联盟，然后再带动EDA的发展。</p>
-<p>有人说讲这些有啥用，是让我们认命，认怂，知难而退的意思吗？当然不是。</p>
-<p>如何去应对危机？1.认清自己的优势和底线，去坚持它；2.认清自己的劣势与不足，去弥补它去纠正它或者暂时去绕过它。这才是面对危机时正确的处理方式，而不是一味的头脑发热要打要杀以及直接认输下跪，那都是莽夫和懦夫的行为。</p>
-<p>分析形势有利于认清形势，认清了形势可以帮助勇者更好的迎难而上，寻求到务实而有效的突围方法，而不是盲目的如大炼钢铁般的劳民伤财，胡搅蛮干。相信无论革命先烈的长征胜利，还是两弹一星重大突破，乃至改革开放的巨大成就，这都不是脱离现实，只靠空喊口号，一腔热血得到的。掩耳盗铃才是最可耻的认输。</p>
-<p>最后，感谢之前预告贴里的评论，我根据里边的不少问题，重组并补充了这篇文章的内容，不知道你们的疑问是否现在都得到了解答。感谢你们的关注和理解。有问题和BUG请直接提出，我以作修改。</p>
-<p>如果没看到自己想看到的观点，张口就喷粪的请积点德，码字不易，敢说实话的不多。<a href="https://www.sohu.com/?strategyid=00001">返回搜狐，查看更多</a></p>
-<p>责任编辑：</p>
-<p>声明：该文观点仅代表作者本人，搜狐号系信息发布平台，搜狐仅提供信息存储空间服务。</p>
-<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<h3>See Also</h3>
-<div class=container>
-<div class=row>
-<div class="mx-auto px-0">
-<div class="bg-white shadow block">
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/80d9de1f8a098ed08b22c512be7318f2/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25BA%25BF%25E5%25B7%25A5%25E7%25A8%258B%25E5%25B8%2588%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E6%25B2%25A1%25E4%25BA%2586%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584eda%25E8%25BD%25AF%25E4%25BB%25B6%25E6%2588%2591%25E4%25BB%25AC%25E5%25B0%25B1%25E4%25B8%258D%25E8%2583%25BD%25E5%2581%259A%25E8%258A%25AF%25E7%2589%2587%25E4%25BA%2586_%25E7%2589%2588%25E5%259B%25BE">国产芯片制造有多烂？十年饮冰，热血难凉</a>
-</h2>
-<p class=text-dark>华为的事情，还是闹大了。
+<i></i><a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/2e47d08fb1d6aba4cabeee75d1a6fcc0.md style=color:gray><strong><i>点击删除</i></strong></a></div><h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5><h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5><p></p><p>原标题：一线工程师如何看待《没了美国的EDA软件，我们就不能做芯片了》</p><p><img src="https://images.weserv.nl/?url=http%3A//p0.itc.cn/images03/20200524/0892fe01f44f443f8fbba34be5d22568.jpeg" alt></p><p><strong>来源：真视界</strong></p><p>先回答个很常见的问题：没有了美国的EDA，我们是不是芯片都不能做了？这也是促成我写这篇文章的因素之一吧。</p><p>我的简要回答是：180nm/350nm以上的部分老工艺线是可以用破解版或国产替代版继续做的，但深亚微米级130nm/90nm开始就很难离得开正版授权了,越往下越难，到了22nm以下，就完全不可能了。</p><p>和大家熟知的office, autocad等工具类软件不一样，这种软件很纯粹，脱机都可以用，完了打印出来就可以；芯片EDA工具软件的最大特点是它与芯片代工厂具有高度的绑定关系，因为我们设计时，是需要代工厂提供数据包的,称之为PDK，包含了诸如晶体管，MOS管，电阻电容等基础器件或反向器，与非门，或非门，锁存器，寄存器等逻辑单元的基本特征信息，这个数据包会不断优化，更新频繁，同时对EDA软件有绑定及校验的作用，一般只支持当前最新版的工具。</p><p>没软件，哥用手画不一样吗? 当年原子弹氢弹就是手算的呀。。</p><p>好的，首先我必须要讲明白为啥必须要使用自动化设计软件(EDA)，否则我后面都是白说, 这部分懂的同学请直接往后拉，从第二部分开始看。文章有点长，受不了的请直接看第四段。</p><p><strong>文章分五个部分：</strong></p><p><strong>一.为什么要用EDA;</strong></p><p><strong>二.EDA圈子的那些事；</strong></p><p><strong>三 .不得不提的IP</strong></p><p><strong>四.破局</strong></p><p><strong>一. 为什么要用EDA？</strong></p><p>EDA，Electronic design automation，中文叫电子设计自动化。</p><p>最早的集成电路是用手工做的，因为就几个管子，前端可以手工完成其功能的计算，后端版图就根据电路图，将管子，连线用笔转移为几何图形，画出胶带（算是掩膜的老祖宗），因为管子少，线也简单，所以不容易出错。这是60年代——70年代中期的事情。（国内有些公司十年前都还在用，不知道现在如何。）</p><p>但是，到了几十个，几百个器件或单元的时候就不行了，肉眼非常容易出错。</p><p>比如这种：整个模块也就五百多个管子吧，截了大概5%的区域出来，这个人手工怎么做呢，做完怎么保证百分百不会错呢，如果用自动布局布线工具，大概也就几秒就运行出来了，而且不会错。</p><p><img src="https://images.weserv.nl/?url=http%3A//p4.itc.cn/images03/20200524/fd5560e2869047ef89ce18d0321c3111.jpeg" alt></p><p>数字网表导出来的电路图</p><p>这个自动布局布线出来的版图，用了7层金属，上千条毫无规律的线，试问怎么去画？怎么去查？</p><p><img src="https://images.weserv.nl/?url=http%3A//p9.itc.cn/images03/20200524/fd1aa84fd18a4d35ac91854d0a91cdbe.jpeg" alt></p><p>数字版图</p><p>这是目前比较典型的一个SOC（system on chip）芯片（CPU就是SOC的一种）的图，里边包含了数字电路也包含了模拟电路IP，上面这个数字版图的截图，可能只是下面这个完整版图的千分之一，甚至更少，你要知道最古老的SOC里的晶体管都是千万级以上，现在的个数更是动辄就是几亿，甚至上十亿：</p><p><img src="https://images.weserv.nl/?url=http%3A//p6.itc.cn/images03/20200524/743bbe7f8b9143a8a1081cc56525931f.jpeg" alt></p><p>典型的SOC示意图</p><p>一条线连错了，可能整个产品的功能就变了，也就是你花几千万，只能得到一堆人都砸不了的板砖。之前所有投入全部打水漂。一般来说制程越先进，制造和研发费用愈来愈昂贵，哪怕是很老的0.5um, 0.35um的工艺，虽说只要几十万，几百万，但那也是钱哪，更别说到了28nm下制程动辄都是千万级美元的费用，10nm，7nm更是亿级美元了，流几次片没成功直接倒闭的公司数不胜数。所以必须使用计算机来辅助设计！</p><p><strong>二. EDA圈子的那些事</strong></p><p>做了张脑图，大家先看下芯片的大致流程：</p><p><img src="https://images.weserv.nl/?url=http%3A//p6.itc.cn/images03/20200524/4dd3a73602f74b44856a002da3a9fe4f.jpeg" alt></p><p>当然实际设计中会更为复杂，并随着制程的变小，会进一步加剧流程各环节的复杂度以及增加环节内部的新的验证项目，但大体还是以下步骤：前端设计和仿真——后端设计及验证——后仿真——signoff检查——数据交付代工厂(以gds的形式）</p><p>稍微解释一下几个重要概念：</p><ul><li><p>Signoff, 中文翻译叫签核，比较抽象，简单说就是按厂家的默认设置要求做最后一次的规则验证，通常我们在设计的时候，会将厂家要求的标准提高一些来做。</p></li><li><p>后端设计：可以理解为将电路从器件符号形式转为几何图形形式，以指导掩膜版的设计。</p></li></ul><p>然后，我把设计流程里各个环节能用且好用的软件列一下（可以看到基本都是Cadence, Synopsys, Mentor三家的产品）：</p><p><strong>模拟及混合信号类（包括模拟前端设计及仿真，模拟后端设计及验证，芯片后仿真）：</strong></p><p>电路及版图设计工具：Virtuoso (Cadence)， 0.18um,0.35um等老工艺可以用L-edit.(这个不受限）</p><p>版图物理验证工具： <strong>Calibre(Mentor)</strong>，老工艺还能用 <strong>Assura(Cadence)</strong>， <strong>dracura（Cadence,更老,十几年前刚毕业那会儿用过）</strong></p><p>版图参数提取工具： <strong>Star-RC(synopsys), Calibre XRC(Mentor),QRC（Cadence）</strong></p><p>电路仿真工具： <strong>Hspice(Synopsys) ，Spectre(Cadence)， ALPS(华大九天，中国）</strong></p><p><strong>数字及SOC类（数字前端，数字后端，验证，仿真）：</strong></p><p>RTL综合工具 ： <strong>DC(Design compiler，Synopsys)</strong></p><p>仿真验证工具： <strong>VCS(Synopsys), ModelSim(Mentor),Incisive,Indago, MDV,VIP(Cadence)</strong></p><p>数字后端设计工具： <strong>ICC(Synopsys)，Innovus/Encounter(Cadence) 还有180nm制程可用的老掉牙的Astro( synopsys).</strong></p><p>DFT工具： <strong>DFT Compiler (Synopsys)</strong></p><p>物理验证工具 <strong>：ICV（Synopsys）PVS(Cadence), Calibre(Mentor)</strong></p><p>signoff 时序/噪声/功耗分析工具： **Prime time, PT(synopsys),PrimeRail(Synopsys) ,redhawk Fusion(Synopsys,**这套flow产品的核心redhawk是ansys的产品，ansys为s家战略合作）， <strong>Totem(Ansys, 美国）</strong></p><p><strong>PCB:</strong></p><p>**Allegro(Cadence) ：**这个还好，不更新也没太大个问题。</p><p>这里再简单说下国内的EDA情况，反向提图抄袭软件其实是走在世界前列的，芯X景（据说还要上市圈钱），客户除了早就被拉黑的外，都不敢说用了他家产品，怕吃官司，这种不值得提倡，因为他们干的事早已超出了他们所宣称的只用于合理学习的底线；</p><p>正向设计里目前真正得到认可的只有 <strong>华大九天（我为他们点个赞）</strong>，但主要是模拟产品上，具体的说是模拟电路的仿真工具（ALPS），再细化下是电源类产品的仿真上，有他们的独到及NB之处，他们也有对标 virtuoso的兼容性产品Aether，但是得在成熟工艺下用。国内的EDA依然处于一个辅助角色状态，还有很长很长的路要走。</p><p>可以这么说，世界上所有的芯片设计公司，不管你是5nm还是350nm吧，无论你多NB，多逆天，肯定采用了这三家的至少一种软件，哪怕是盗版 。</p><p>Synopsys和Cadence一贯的发展战略是平台性发展，也就是说并不是某个环节的设计软件强，而是从前端设计-前仿真/验证-后端设计-后端验证仿真直到流片的整套产品都很强，并形成设计的闭环，比如synopsys的Milkway， Cadence的OA(OpenAccess)。。粗略的说，模拟/数模混合芯片设计用cadence平台，数字芯片设计采用synopsys平台，当然实际并非如此绝对，有一定的交叉使用情况。。对于客户来讲，他们自然会倾向于平台化的EDA的采购，而不是分门别类的买，因为省事就意味着省钱啊，除非你的某项产品极其NB，比如Mentor的功能或物理验证产品,Ansys家的功耗分析软件，那确实厉害,尤其是物理验证C,S两家真干不过，已经是全球所有代工厂公认的金标准，也迫于垄断压力收不了，那只能战略合作。</p><p>然后呢，EDA的垄断还体现在于工艺厂的捆绑上，工艺厂早期要进行工艺研发，势必也要进行器件，简单功能芯片的设计，要设计就得基于eda设计平台支持，这时候Synopsys, Cadence等EDA公司就来送温暖了，他们甚至会免费直接帮你设计多种基础IP, 各种规模的功能IP以扩充你的IP库，IP库越大越全，对客户的吸引力也就越大，win-win；在功能验证，物理验证环节，则有Mentor的一席之地，物理验证会贯穿并频繁往返于后端设计的全流程，对于软件的效率和可视化要求很高，这点calibre做得非常好。另外EDA供应商还会给学校客户优惠价甚至免费，其目的也很明显，培养用户习惯，除非学校也是光荣的上了美帝黑名单。</p><p>也就是：EDA 工具+IP授权的捆绑。</p><p>这样一整，进入投产阶段后，工艺厂发给客户的PDK设计包自然也只能支持 Synopsys, Cadence，Mentor的了，其他的EDA替代品，多在兼容性上做功，并且无法提供平台化产品，加上兼容和原生，在时效及使用上都有很大的差异。。一旦做强了还面临着Cadence,Synopsys的收购/绞杀威胁。还是那句话，人家提供的是平台，除非你能像Mentor那样提供整套验证平台也可。</p><p>三. 不得不提的 IP</p><p>EDA说完了，再说说IP，IP对于今天SOC设计的重要性不用赘述了， Synopsys, Cadence的另一个杀手锏级的垄断产品：接口类IP，这是每一颗SOC必不可少的东西，比如：高速SerDes, ethernet以太网，PCIE, CPRI, SATA，USB,Type-C，MIPI, HDMI,DP&mldr;还有DDR; 如下图所示，Synopsys 的IP业务在总营收里占第二。</p><p><img src="https://images.weserv.nl/?url=http%3A//p9.itc.cn/images03/20200524/2d13846f79f64045b5a63f6afcb095d7.jpeg" alt></p><p>Synopsys 2013~2018的产品及服务的营收占比</p><p>貌似从65nm开始吧，每一代工艺出来的早期基本只有Synopsys和Cadence两家可选，因为这两家是先进工艺研发的唯二工艺-产品的设计及验证平台，他们老早就进去了，至少是从设计PDK（芯片设计工具包）开始，产线开放后，陆续才会有其他IP供应商或自主研发的接口产品可用， 但到了14nm开始，除S,C两家外，很长时间基本只有rambus, aphawave，esilicon等公司的IP可用，rambus，esilicon是美国公司，alphawave是加拿大公司，加拿大你懂的，不过华为是他们的T1客户。。。但是7nm,5nm下，能做到所有类型的接口IP都提供的，还是只有Synopsys或Cadence。就在前天，Cadence发了款TSMC 7nm的超高速112G/56G 长距离SerDes,用于云数据中心和光网络芯片，5G基础设施的核心IP。SMIC14nm的10G多协议PHY IP也是他们独家的，5月14日发布的。</p><p>然后我来一张2019年半导体IP厂商TOP10榜单：</p><p><img src="https://images.weserv.nl/?url=http%3A//p1.itc.cn/images03/20200524/ca6b19c85a434c0e88335e7ac91e4ea0.jpeg" alt></p><p>榜单中前三个就不说了：</p><p>SST：得益于NVM接口的流行，直接从十名开外， 冲到了第三。（总部美国加州）</p><p>imagination(一家被中资背景的美国私募控制的英国公司。。？？） ，其主要产品是GPU IP，国有化了，但这两年垮得很厉害；</p><p>Ceva（以色列） 主要是DSP；</p><p><strong>Verisilicon</strong>（芯原，重点提一下，这家主要研发力量在中国，外面名气不大，但业内名气很大，很NB，作为研发力量主要在中国的公司，海外营收竟然占了70%+ ，不乏谷歌，Facebook、博世、亚马逊、英特尔、恩智浦，高通，华为这样的巨头客户。 **全球IP供应商排名里排第7，**国家大基金和小米这两年都投了他们，昨天科创板上市已经过会了，是家 <strong>中国公司</strong>。他们虽然技术储备不错，但体量偏小而且研发投入占比极大，所以财报不太好看，后面看资本注入后，有进一步扩张并做大的机会，看好他们厚积薄发。他们的重要布局是Globalfoudry, Samsung 22nm FDSOI产线的低功耗产品，是三星和GF的IP联盟中的战略合作伙伴。</p><p>Achronix(美国）, 主要是FPGA；</p><p>eMemory，看名字就知道memory。</p><p>四. 破局</p><p>**下策：**用盗版EDA。国内有公司这么干，省钱是一方面，主要还是因为上了黑名单，人家给钱也不卖，用盗版软件设计好，然后交给第三方代理公司处理，投片，然后交给厂家代工，但是这基本只能在0.18um甚至更高的制程的产品，65nm以下的产品基本上很难。（现在这种代理公司越来越少了，黑名单都快拉满了。）</p><p>我就不说这玩意儿不能破解了，我相信这世界上没有绝对无懈可击的防御体系，哪怕这几家的物理license manager体系设计几乎已经做到了世界最好。</p><p>主要原因还是我刚刚说的工艺厂和EDA利益绑定的问题，工艺厂的设计数据包（PDK），尤其是验证文件的更新非常频繁，尤其是新工艺，因为随着各种测试片，量产版的测试反馈，会不断的调整器件模型，设计规则，不断迭代，让良率达到最高，一个月一更的都见过，甚至是1.x版本直接升到2.x版，都不是0.0x这么微小迭代。这种幅度的更新让设计重来的都有。</p><p>几个顶级代工厂的工具基本都是用最新版本，所以放出来的更新PDK也是用最新版工具校验, 你老的工具很可能就得跟着更新，盗版根本来不及，也没什么人愿意干这种费力不讨好的事，所以能找到盗版的几乎都是老点的版本。除非是老工艺，比如台积电的0.18um，貌似七八年没更新了，因为已经完美了，就不存在过期这种问题。</p><p>比如说之前做28nm以下模拟设计，最早还能用virtuoso的ic6.16, 6.17，到后来成了ICADV122,直到现在只能用ICADV123, 验证就更快了，一年一代.比如这个Mentor 的Calibre，一年一个大更新，里边还有小更新，17年的是打不开19年的工具校验过的数据的，一个版本对应一批License（按个数卖）：</p><p><img src="https://images.weserv.nl/?url=http%3A//p5.itc.cn/images03/20200524/5d5d9631335b4887a70232d250cbae6e.jpeg" alt></p><p>Mentor Calibre版本示意</p><p>这也是为啥license一般都是买短期的,也可以称之为租赁，终身买断的那是家里有钻石矿的。</p><p>**如果对你停止了技术支持，那么也就意味着更新停止，License没停你老的可以接着用。**当年中兴被封杀时，网上泄露出的Cadence群发邮件也提到过，但是实际上，我了解到的华为被制裁的没中兴那么惨，中兴当时是直接一刀下去的。而华为不是，因为美国想拿这事作为重要的谈判筹码，而不是直接毁掉筹码，终止谈判。</p><p>最后，你盗版设计好的数据，为什么得拿给第三方润一下（润笔费可不菲。），也是因为数据在制版前，工艺厂还会校验，因为license是与公司物理名称及专用license服务器网卡地址全部绑定的，数据来源不明的不会给你流片的。</p><p>有人说，那我们自己的工艺线呢，悄悄的不行嘛？芯片产业是个发展了几十年的全球化的链条，所谓的3+2结构，一家做不完全部环节。各种背景的人凑一堆玩一个游戏，最讲究的就是一个游戏规则，哪怕这个规则有问题，但是绝大多数的人愿意相信就没问题，比如常见的就是不能把客户数据偷去自己生产自己卖，或卖给其他公司；维护IP及工具联盟的利益，不接来历不明的单；一旦有人破坏规则，就会被全联盟抵制甚至出局。（就好比大家在玩中国象棋，你非得说悔棋可以或要用国际象棋的规则来玩。）</p><p><img src="https://images.weserv.nl/?url=http%3A//p1.itc.cn/images03/20200524/f1219b4f06f54e989ad82d1bf64a8cc8.jpeg" alt></p><p>芯片3+2结构</p><p>**中策上策：**先打局部战争，不要一来就想整个大的，建立一个独有的体系，逆全球化是逆势而为，是特没谱才干的事。某国越封闭，咱们就越开放，让自己在全球体系有自己的位置，哪怕一开始微不足道。</p><p>扶持本土EDA的发展，但需要很长的路要走，技术壁垒，专利壁垒这种东西并不是砸钱就可以破掉的，华人工程师在美国本土被防得很死，尤其是在核心技术上；而且EDA这个行业很烧钱，未来回报远远比不上互联网行业，其总的市场规模也就100亿美元，这个只能靠扶持。另外，我再说一次，反向抄袭软件不在讨论之列，这种流氓盗版公司请让他死掉，他们是导致芯片行业恶性及下作竞争的推手（这些年因被抄袭而死掉的不少是国内的有技术有创新的初创公司），这是我的一贯观点。</p><p>但是，我们没必要一来就以彻底取代为目的，可以从局部突破，把某一类工具做到极致，比如现在华大九天的模拟产品仿真工具就是一个很好的突破口，想Ansys那样，成为工艺厂的金标准，人家想踢你都踢不掉，客户不答应啊。</p><p>EDA-IP-工艺厂需要协同发展，各司其职，让专业的人做自己最擅长的事，避免恶性竞争，才是效率最高的策略。在EDA还没起步的时候，就先为现有的能在世界上排上号的IP公司和代工厂，促成IP联盟，然后再带动EDA的发展。</p><p>有人说讲这些有啥用，是让我们认命，认怂，知难而退的意思吗？当然不是。</p><p>如何去应对危机？1.认清自己的优势和底线，去坚持它；2.认清自己的劣势与不足，去弥补它去纠正它或者暂时去绕过它。这才是面对危机时正确的处理方式，而不是一味的头脑发热要打要杀以及直接认输下跪，那都是莽夫和懦夫的行为。</p><p>分析形势有利于认清形势，认清了形势可以帮助勇者更好的迎难而上，寻求到务实而有效的突围方法，而不是盲目的如大炼钢铁般的劳民伤财，胡搅蛮干。相信无论革命先烈的长征胜利，还是两弹一星重大突破，乃至改革开放的巨大成就，这都不是脱离现实，只靠空喊口号，一腔热血得到的。掩耳盗铃才是最可耻的认输。</p><p>最后，感谢之前预告贴里的评论，我根据里边的不少问题，重组并补充了这篇文章的内容，不知道你们的疑问是否现在都得到了解答。感谢你们的关注和理解。有问题和BUG请直接提出，我以作修改。</p><p>如果没看到自己想看到的观点，张口就喷粪的请积点德，码字不易，敢说实话的不多。<a href="https://www.sohu.com/?strategyid=00001">返回搜狐，查看更多</a></p><p>责任编辑：</p><p>声明：该文观点仅代表作者本人，搜狐号系信息发布平台，搜狐仅提供信息存储空间服务。</p><h5><a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5></div><div class="col-lg-8 mx-auto block shadow"><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var t=document,e=t.createElement('script');e.async=!0,e.src='//pin-cong-jing-xuan.disqus.com/embed.js',e.setAttribute('data-timestamp',+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div class="col-lg-8 mx-auto block shadow"><h3>See Also</h3><div class=container><div class=row><div class="mx-auto px-0"><div class="bg-white shadow block"><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/80d9de1f8a098ed08b22c512be7318f2/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25BA%25BF%25E5%25B7%25A5%25E7%25A8%258B%25E5%25B8%2588%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E6%25B2%25A1%25E4%25BA%2586%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584eda%25E8%25BD%25AF%25E4%25BB%25B6%25E6%2588%2591%25E4%25BB%25AC%25E5%25B0%25B1%25E4%25B8%258D%25E8%2583%25BD%25E5%2581%259A%25E8%258A%25AF%25E7%2589%2587%25E4%25BA%2586_%25E7%2589%2588%25E5%259B%25BE">国产芯片制造有多烂？十年饮冰，热血难凉</a></h2><p class=text-dark>华为的事情，还是闹大了。
 临到了，老太太还问了一个终极命题，“我们内地自己的芯片******，到底行不行**”。
 记者：目前为止我们钢铁产能情况怎么样？
-马科长：钢铁我们的历史发展比较长，产业工人比较丰富。 记者：那到目前为止我们钢铁产能 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/cbec98a6ff000ca8a1de90b52b54c2bc/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25BA%25BF%25E5%25B7%25A5%25E7%25A8%258B%25E5%25B8%2588%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E6%25B2%25A1%25E4%25BA%2586%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584eda%25E8%25BD%25AF%25E4%25BB%25B6%25E6%2588%2591%25E4%25BB%25AC%25E5%25B0%25B1%25E4%25B8%258D%25E8%2583%25BD%25E5%2581%259A%25E8%258A%25AF%25E7%2589%2587%25E4%25BA%2586_%25E7%2589%2588%25E5%259B%25BE">华为是典型的装逼遭雷劈，现在连亲兄弟中芯国际都不能供货</a>
-</h2>
-<p class=text-dark>中芯国际机构交流会：如果严格按照法令申请许可，整个华为的渠道都会被管控；
+马科长：钢铁我们的历史发展比较长，产业工人比较丰富。 记者：那到目前为止我们钢铁产能情 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/cbec98a6ff000ca8a1de90b52b54c2bc/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25BA%25BF%25E5%25B7%25A5%25E7%25A8%258B%25E5%25B8%2588%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E6%25B2%25A1%25E4%25BA%2586%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584eda%25E8%25BD%25AF%25E4%25BB%25B6%25E6%2588%2591%25E4%25BB%25AC%25E5%25B0%25B1%25E4%25B8%258D%25E8%2583%25BD%25E5%2581%259A%25E8%258A%25AF%25E7%2589%2587%25E4%25BA%2586_%25E7%2589%2588%25E5%259B%25BE">华为是典型的装逼遭雷劈，现在连亲兄弟中芯国际都不能供货</a></h2><p class=text-dark>中芯国际机构交流会：如果严格按照法令申请许可，整个华为的渠道都会被管控；
 新订单理论上已经不能接了。
 为什么华为 被芯片卡住？国产芯片呢？2003年，台积电 在美国加州状告中芯国际 侵犯专利及窃取商业机密。胜诉。
-2009 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b9df59f55c3ac50e8d162eb68e9bb715/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25BA%25BF%25E5%25B7%25A5%25E7%25A8%258B%25E5%25B8%2588%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E6%25B2%25A1%25E4%25BA%2586%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584eda%25E8%25BD%25AF%25E4%25BB%25B6%25E6%2588%2591%25E4%25BB%25AC%25E5%25B0%25B1%25E4%25B8%258D%25E8%2583%25BD%25E5%2581%259A%25E8%258A%25AF%25E7%2589%2587%25E4%25BA%2586_%25E7%2589%2588%25E5%259B%25BE">NOME们别碰瓷瑞典了，要点脸吧</a>
-</h2>
-<p class=text-dark>抄无止境的山寨家居，正在毁掉中国设计的原创能力。/NOME官网
+2009 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b9df59f55c3ac50e8d162eb68e9bb715/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25BA%25BF%25E5%25B7%25A5%25E7%25A8%258B%25E5%25B8%2588%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E6%25B2%25A1%25E4%25BA%2586%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584eda%25E8%25BD%25AF%25E4%25BB%25B6%25E6%2588%2591%25E4%25BB%25AC%25E5%25B0%25B1%25E4%25B8%258D%25E8%2583%25BD%25E5%2581%259A%25E8%258A%25AF%25E7%2589%2587%25E4%25BA%2586_%25E7%2589%2588%25E5%259B%25BE">NOME们别碰瓷瑞典了，要点脸吧</a></h2><p class=text-dark>抄无止境的山寨家居，正在毁掉中国设计的原创能力。/NOME官网
 玩概念是企业家的事，在消费者眼里，“10元店”就是“10元店”，无论是否“超级”，吸引大家去逛的，永远是能够用廉价购买高级的快感。
-用一句话形容眼下的家居零售行业，大概是：“我 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/20ca829dfb00dce72afce1785a970e07/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25BA%25BF%25E5%25B7%25A5%25E7%25A8%258B%25E5%25B8%2588%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E6%25B2%25A1%25E4%25BA%2586%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584eda%25E8%25BD%25AF%25E4%25BB%25B6%25E6%2588%2591%25E4%25BB%25AC%25E5%25B0%25B1%25E4%25B8%258D%25E8%2583%25BD%25E5%2581%259A%25E8%258A%25AF%25E7%2589%2587%25E4%25BA%2586_%25E7%2589%2588%25E5%259B%25BE">【墙内全网已删】【芯片相关】中芯国际-泰康一对一交流纪要</a>
-</h2>
-<p class=text-dark>来源 ：https://www.lizenghai.com/archives/92755.html
+用一句话形容眼下的家居零售行业，大概是：“我 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/20ca829dfb00dce72afce1785a970e07/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25BA%25BF%25E5%25B7%25A5%25E7%25A8%258B%25E5%25B8%2588%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E6%25B2%25A1%25E4%25BA%2586%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584eda%25E8%25BD%25AF%25E4%25BB%25B6%25E6%2588%2591%25E4%25BB%25AC%25E5%25B0%25B1%25E4%25B8%258D%25E8%2583%25BD%25E5%2581%259A%25E8%258A%25AF%25E7%2589%2587%25E4%25BA%2586_%25E7%2589%2588%25E5%259B%25BE">【墙内全网已删】【芯片相关】中芯国际-泰康一对一交流纪要</a></h2><p class=text-dark>来源 ：https://www.lizenghai.com/archives/92755.html
 2020年5月21日，此文一出，中芯国际港股大跌7.5%，目前墙内全网已经删除，只能看见辟谣新闻。
-墙内民众一脸懵逼，我连谣言都没看见呢，你 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/5b13d8bff7627655f4a26a255f634b92/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25BA%25BF%25E5%25B7%25A5%25E7%25A8%258B%25E5%25B8%2588%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E6%25B2%25A1%25E4%25BA%2586%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584eda%25E8%25BD%25AF%25E4%25BB%25B6%25E6%2588%2591%25E4%25BB%25AC%25E5%25B0%25B1%25E4%25B8%258D%25E8%2583%25BD%25E5%2581%259A%25E8%258A%25AF%25E7%2589%2587%25E4%25BA%2586_%25E7%2589%2588%25E5%259B%25BE">谁来帮助华为：三大赛道的崛起与困境</a>
-</h2>
-<p class=text-dark>作者：陈帅（远川科技组高级分析师）
+墙内民众一脸懵逼，我连谣言都没看见呢，你 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/5b13d8bff7627655f4a26a255f634b92/?utm_source=see_also&utm_medium=%25E4%25B8%2580%25E7%25BA%25BF%25E5%25B7%25A5%25E7%25A8%258B%25E5%25B8%2588%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E6%25B2%25A1%25E4%25BA%2586%25E7%25BE%258E%25E5%259B%25BD%25E7%259A%2584eda%25E8%25BD%25AF%25E4%25BB%25B6%25E6%2588%2591%25E4%25BB%25AC%25E5%25B0%25B1%25E4%25B8%258D%25E8%2583%25BD%25E5%2581%259A%25E8%258A%25AF%25E7%2589%2587%25E4%25BA%2586_%25E7%2589%2588%25E5%259B%25BE">谁来帮助华为：三大赛道的崛起与困境</a></h2><p class=text-dark>作者：陈帅（远川科技组高级分析师）
 支持：郑震湘（国盛证券首席电子分析师）
-5月15日，就在华为遭遇禁令一周年之际，“懂王”在大洋彼岸再次作妖：更改了出口规则，要求只要采用美国技术、设备的公司，要想和华为做生意都要向美国申请。长臂管辖之广， …</p>
-</article>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
-<footer class="py-4 bg-light border-top">
-<div class=container>
-<div class="row justify-content-between align-items-center">
-<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
-</div>
-<div class="col-lg-4 text-center mb-4 mb-lg-0">
-<ul class="list-inline mb-0">
-</ul>
-</div>
-<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
-<ul class="list-inline social-icon mb-0">
-<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
-<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
-</ul>
-</div>
-<div class="col-12 text-center mt-4">
-<span></span>
-</div>
-</div>
-</div>
-</footer>
-<script src=../../plugins/jQuery/jquery.min.js></script>
+5月15日，就在华为遭遇禁令一周年之际，“懂王”在大洋彼岸再次作妖：更改了出口规则，要求只要采用美国技术、设备的公司，要想和华为做生意都要向美国申请。长臂管辖之广， …</p></article></div></div></div></div></div></div></div></div></section><script>var i,images=document.getElementsByTagName("img");for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../plugins/jQuery/jquery.min.js></script>
 <script src=../../plugins/bootstrap/bootstrap.min.js></script>
 <script src=../../plugins/search/fuse.min.js></script>
 <script src=../../plugins/search/mark.js></script>
 <script src=../../plugins/search/search.js></script>
 <script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
-</html>
+<script>(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body></html>

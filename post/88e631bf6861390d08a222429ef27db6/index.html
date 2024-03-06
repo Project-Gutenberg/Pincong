@@ -1,16 +1,12 @@
-<!doctype html><html lang=zh-cn><head>
-<meta charset=utf-8>
-<title>Nginx中转Shadowsocks与负载均衡</title>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name=description content=" 由于TCP/IP网络模型的瘦腰结构，最终所有流量都会通过IP协议传送。因此防火墙的终极大杀器，就是封禁IP。一旦IP被封杀，此服务器便废了。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>Nginx中转Shadowsocks与负载均衡</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 由于TCP/IP网络模型的瘦腰结构，最终所有流量都会通过IP协议传送。因此防火墙的终极大杀器，就是封禁IP。一旦IP被封杀，此服务器便废了。
 现在能正常上网的同学不要高兴太早。因为现在的防火墙采用的是黑名单方式，等到哪天逼急了采用白名单方式，那所以翻墙方法都会失效。因此闷声发大财，这是最好的。
 另一个瓶颈在于DNS协议。并且现在的DNS污染已经上升到新的高度，即使设置自定义DNS也不能避免。因为除非使用VPN，否则系统的DNS请求全部通过53/UDP端口发送。 DNS请求是未加密的。因此各级网关可以对53/UDP的请求进行针对性的拦截。
 运营商对53/UDP端口的拦截已经是公开的秘密了，只不过大多数时候用户是无法感知的。在ping Google.com时，发现竟然能ping通，并且延时只有几毫秒，不是GFW罢工了，也不是网络信号可以超光速了，只是你的DNS被劫持了而已 :)
 有两种解决方案：
- 挂VPN或者使用类似软件，将DNS请求也经由代理发送。 手工配置Hosts  国内转发的重要性 一个常规的数据包流向：
-用户网络环境 ----> 国外VPS ----> 目标国外网站  其中，第二段链路往往是比较流畅的（如果你不是又回过头来访问国内网站的话）， 而第一段链路波动就比较大，尤其不同运营商会有不同表现。可能联通宽带可以很快访问，换移动宽带就很慢，甚至换了手机4G就完全访问不了。 这种速度、可靠性不稳定的访问体验是非常差的。
+挂VPN或者使用类似软件，将DNS请求也经由代理发送。 手工配置Hosts 国内转发的重要性 一个常规的数据包流向：
+用户网络环境 ----> 国外VPS ----> 目标国外网站 其中，第二段链路往往是比较流畅的（如果你不是又回过头来访问国内网站的话）， 而第一段链路波动就比较大，尤其不同运营商会有不同表现。可能联通宽带可以很快访问，换移动宽带就很慢，甚至换了手机4G就完全访问不了。 这种速度、可靠性不稳定的访问体验是非常差的。
 一个比较好的方案是使用一台国内机器作为中转。
-用户网络环境 ----> 国内VPS ----> 国外VPS ----> 国外目标网站  首先，完全不要担心多了一步中转是否会影响速度（延时），因为本来IP数据包就会经过多次路由转发，添加一台机器中转相当于手动优化了路由规则。 绝大多数情况下，经过中转会降低大大降低数据包从用户端到国外目标网站的传输时间。
+用户网络环境 ----> 国内VPS ----> 国外VPS ----> 国外目标网站 首先，完全不要担心多了一步中转是否会影响速度（延时），因为本来IP数据包就会经过多次路由转发，添加一台机器中转相当于手动优化了路由规则。 绝大多数情况下，经过中转会降低大大降低数据包从用户端到国外目标网站的传输时间。
 像阿里云腾讯云这样的大厂，他们的机房都在主干网上，并且针对国内各个运营商的线路都做了优化。 因此可以保证在新的数据流动路径上，第一段链路在绝大多数情况下都是快速稳定的。
 至于第二段链路，国内VPS到国外VPS。由于阿里云等厂商基本都是BGP机房，出国线路也比较快速和稳定。 此外，由于是两个机房之间的通信，并且都有公网IP，没有NAT问题。
 这三段链路中，第二段和第三段链路的带宽都不是瓶颈，因为阿里云可以选择按流量计费然后带宽选择100Mb，国外流量更加便宜大碗，VPS基本上都是1Gb带宽。 所以整条链路带宽瓶颈就是用户的宽带带宽。
@@ -19,24 +15,16 @@
 对于自建的VPS，闷声发大财，往往没有这个问题。而对于和人共用飞机场的，则很容易被封。
 一个比较好的解决方法是在国内的VPS上挂载负载均衡器，后端挂着多台国外VPS，一个IP被封杀则自动切换到下一个。
 并且多线程下载时也有加速效果。
-中转工具 常用的、也是网上最常搜到的中转方案，是使用iptables和HaProxy 两个工具都有致命缺点： ">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
-<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
-<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
-<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<meta name=twitter:card content="summary_large_image">
-<meta name=og:title content=" Nginx中转Shadowsocks与负载均衡 ">
-<meta name=og:description content=" 由于TCP/IP网络模型的瘦腰结构，最终所有流量都会通过IP协议传送。因此防火墙的终极大杀器，就是封禁IP。一旦IP被封杀，此服务器便废了。
+中转工具 常用的、也是网上最常搜到的中转方案，是使用iptables和HaProxy 两个工具都有致命缺点：
+iptables只是简单转发，没有负载均衡功能，并且配置相对不友好。 HaProxy是专门的负载均衡器，可惜只支持TCP。虽说大多数时候够用，但很多时候我们确实需要UDP，譬如查询DNS或者玩游戏。 所以这篇文章主要介绍用Nginx来进行流量转发和负载均衡，它支持UDP这一点弥补了HaProxy的不足。 并且Nginx支持插件扩展，可以实现更丰富的负载均衡功能。 "><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" Nginx中转Shadowsocks与负载均衡 "><meta name=og:description content=" 由于TCP/IP网络模型的瘦腰结构，最终所有流量都会通过IP协议传送。因此防火墙的终极大杀器，就是封禁IP。一旦IP被封杀，此服务器便废了。
 现在能正常上网的同学不要高兴太早。因为现在的防火墙采用的是黑名单方式，等到哪天逼急了采用白名单方式，那所以翻墙方法都会失效。因此闷声发大财，这是最好的。
 另一个瓶颈在于DNS协议。并且现在的DNS污染已经上升到新的高度，即使设置自定义DNS也不能避免。因为除非使用VPN，否则系统的DNS请求全部通过53/UDP端口发送。 DNS请求是未加密的。因此各级网关可以对53/UDP的请求进行针对性的拦截。
 运营商对53/UDP端口的拦截已经是公开的秘密了，只不过大多数时候用户是无法感知的。在ping Google.com时，发现竟然能ping通，并且延时只有几毫秒，不是GFW罢工了，也不是网络信号可以超光速了，只是你的DNS被劫持了而已 :)
 有两种解决方案：
- 挂VPN或者使用类似软件，将DNS请求也经由代理发送。 手工配置Hosts  国内转发的重要性 一个常规的数据包流向：
-用户网络环境 ----> 国外VPS ----> 目标国外网站  其中，第二段链路往往是比较流畅的（如果你不是又回过头来访问国内网站的话）， 而第一段链路波动就比较大，尤其不同运营商会有不同表现。可能联通宽带可以很快访问，换移动宽带就很慢，甚至换了手机4G就完全访问不了。 这种速度、可靠性不稳定的访问体验是非常差的。
+挂VPN或者使用类似软件，将DNS请求也经由代理发送。 手工配置Hosts 国内转发的重要性 一个常规的数据包流向：
+用户网络环境 ----> 国外VPS ----> 目标国外网站 其中，第二段链路往往是比较流畅的（如果你不是又回过头来访问国内网站的话）， 而第一段链路波动就比较大，尤其不同运营商会有不同表现。可能联通宽带可以很快访问，换移动宽带就很慢，甚至换了手机4G就完全访问不了。 这种速度、可靠性不稳定的访问体验是非常差的。
 一个比较好的方案是使用一台国内机器作为中转。
-用户网络环境 ----> 国内VPS ----> 国外VPS ----> 国外目标网站  首先，完全不要担心多了一步中转是否会影响速度（延时），因为本来IP数据包就会经过多次路由转发，添加一台机器中转相当于手动优化了路由规则。 绝大多数情况下，经过中转会降低大大降低数据包从用户端到国外目标网站的传输时间。
+用户网络环境 ----> 国内VPS ----> 国外VPS ----> 国外目标网站 首先，完全不要担心多了一步中转是否会影响速度（延时），因为本来IP数据包就会经过多次路由转发，添加一台机器中转相当于手动优化了路由规则。 绝大多数情况下，经过中转会降低大大降低数据包从用户端到国外目标网站的传输时间。
 像阿里云腾讯云这样的大厂，他们的机房都在主干网上，并且针对国内各个运营商的线路都做了优化。 因此可以保证在新的数据流动路径上，第一段链路在绝大多数情况下都是快速稳定的。
 至于第二段链路，国内VPS到国外VPS。由于阿里云等厂商基本都是BGP机房，出国线路也比较快速和稳定。 此外，由于是两个机房之间的通信，并且都有公网IP，没有NAT问题。
 这三段链路中，第二段和第三段链路的带宽都不是瓶颈，因为阿里云可以选择按流量计费然后带宽选择100Mb，国外流量更加便宜大碗，VPS基本上都是1Gb带宽。 所以整条链路带宽瓶颈就是用户的宽带带宽。
@@ -45,91 +33,18 @@
 对于自建的VPS，闷声发大财，往往没有这个问题。而对于和人共用飞机场的，则很容易被封。
 一个比较好的解决方法是在国内的VPS上挂载负载均衡器，后端挂着多台国外VPS，一个IP被封杀则自动切换到下一个。
 并且多线程下载时也有加速效果。
-中转工具 常用的、也是网上最常搜到的中转方案，是使用iptables和HaProxy 两个工具都有致命缺点： ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/94.jpg">
-<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+中转工具 常用的、也是网上最常搜到的中转方案，是使用iptables和HaProxy 两个工具都有致命缺点：
+iptables只是简单转发，没有负载均衡功能，并且配置相对不友好。 HaProxy是专门的负载均衡器，可惜只支持TCP。虽说大多数时候够用，但很多时候我们确实需要UDP，譬如查询DNS或者玩游戏。 所以这篇文章主要介绍用Nginx来进行流量转发和负载均衡，它支持UDP这一点弥补了HaProxy的不足。 并且Nginx支持插件扩展，可以实现更丰富的负载均衡功能。 "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/102.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
-</head>
-<body>
-<header class="fixed-top navigation">
-<div class=container>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class="ti-menu h3"></i>
-</button>
-<div class="collapse navbar-collapse text-center" id=navigation>
-<ul class="navbar-nav ml-auto">
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</header> <div class="py-5 d-none d-lg-block"></div>
-<section class=main-content>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 mx-auto block shadow mb-5">
-<h2>Nginx中转Shadowsocks与负载均衡</h2>
-<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=main-content><div class=container><div class=row><div class="col-lg-8 mx-auto block shadow mb-5"><h2>Nginx中转Shadowsocks与负载均衡</h2><div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
 <span>at 15 June 2020</span>, tags :
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e9%93%be%e8%b7%af>链路</a>
 <a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/88e631bf6861390d08a222429ef27db6.md style=color:gray><strong><i>点击纠错</i></strong></a>
-<i> </i>
-<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/88e631bf6861390d08a222429ef27db6.md style=color:gray><strong><i>点击删除</i></strong></a>
-</div>
-<h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
-<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
-<p></p>
-<p>由于TCP/IP网络模型的瘦腰结构，最终所有流量都会通过IP协议传送。因此防火墙的终极大杀器，就是封禁IP。一旦IP被封杀，此服务器便废了。</p>
-<p>现在能正常上网的同学不要高兴太早。因为现在的防火墙采用的是黑名单方式，等到哪天逼急了采用白名单方式，那所以翻墙方法都会失效。因此闷声发大财，这是最好的。</p>
-<p>另一个瓶颈在于DNS协议。并且现在的DNS污染已经上升到新的高度，即使设置自定义DNS也不能避免。因为除非使用VPN，否则系统的DNS请求全部通过53/UDP端口发送。 DNS请求是未加密的。因此各级网关可以对53/UDP的请求进行针对性的拦截。</p>
-<p>运营商对53/UDP端口的拦截已经是公开的秘密了，只不过大多数时候用户是无法感知的。在ping Google.com时，发现竟然能ping通，并且延时只有几毫秒，不是GFW罢工了，也不是网络信号可以超光速了，只是你的DNS被劫持了而已 :)</p>
-<p>有两种解决方案：</p>
-<ul>
-<li>挂VPN或者使用类似软件，将DNS请求也经由代理发送。</li>
-<li>手工配置Hosts</li>
-</ul>
-<h2 id=国内转发的重要性>国内转发的重要性</h2>
-<p>一个常规的数据包流向：</p>
-<pre><code>用户网络环境 ----&gt; 国外VPS ----&gt; 目标国外网站
-</code></pre>
-<p>其中，第二段链路往往是比较流畅的（如果你不是又回过头来访问国内网站的话）， 而第一段链路波动就比较大，尤其不同运营商会有不同表现。可能联通宽带可以很快访问，换移动宽带就很慢，甚至换了手机4G就完全访问不了。 这种速度、可靠性不稳定的访问体验是非常差的。</p>
-<p>一个比较好的方案是使用一台国内机器作为中转。</p>
-<pre><code>用户网络环境 ----&gt; 国内VPS ----&gt; 国外VPS ----&gt; 国外目标网站
-</code></pre>
-<p>首先，完全不要担心多了一步中转是否会影响速度（延时），因为本来IP数据包就会经过多次路由转发，添加一台机器中转相当于手动优化了路由规则。 绝大多数情况下，经过中转会降低大大降低数据包从用户端到国外目标网站的传输时间。</p>
-<p>像阿里云腾讯云这样的大厂，他们的机房都在主干网上，并且针对国内各个运营商的线路都做了优化。 因此可以保证在新的数据流动路径上，第一段链路在绝大多数情况下都是快速稳定的。</p>
-<p>至于第二段链路，国内VPS到国外VPS。由于阿里云等厂商基本都是BGP机房，出国线路也比较快速和稳定。 此外，由于是两个机房之间的通信，并且都有公网IP，没有NAT问题。</p>
-<p>这三段链路中，第二段和第三段链路的带宽都不是瓶颈，因为阿里云可以选择按流量计费然后带宽选择100Mb，国外流量更加便宜大碗，VPS基本上都是1Gb带宽。 所以整条链路带宽瓶颈就是用户的宽带带宽。</p>
-<p>可以看到，经过国内中转，访问国外网站的瓶颈得到了消除，和访问国内网站无异，看YouTube比看Youku流畅完全是意料之中的事情（或许因为优酷实在是太烂了。。）</p>
-<h2 id=负载均衡>负载均衡</h2>
-<p>不过这样也有一个问题，你会发现整条链路是单链的，其中最脆弱的一环依然在国内到国外这一段，因为GFW只建在国境线上。 一旦IP暴露，被GFW封锁，则这台机器就废了，必须换一台。</p>
-<p>对于自建的VPS，闷声发大财，往往没有这个问题。而对于和人共用飞机场的，则很容易被封。</p>
-<p>一个比较好的解决方法是在国内的VPS上挂载负载均衡器，后端挂着多台国外VPS，一个IP被封杀则自动切换到下一个。</p>
-<p>并且多线程下载时也有加速效果。</p>
-<h3 id=中转工具>中转工具</h3>
-<p>常用的、也是网上最常搜到的中转方案，是使用iptables和HaProxy 两个工具都有致命缺点：</p>
-<ul>
-<li>iptables只是简单转发，没有负载均衡功能，并且配置相对不友好。</li>
-<li>HaProxy是专门的负载均衡器，可惜只支持TCP。虽说大多数时候够用，但很多时候我们确实需要UDP，譬如查询DNS或者玩游戏。</li>
-</ul>
-<p>所以这篇文章主要介绍用Nginx来进行流量转发和负载均衡，它支持UDP这一点弥补了HaProxy的不足。 并且Nginx支持插件扩展，可以实现更丰富的负载均衡功能。</p>
-<p>建议使用docker来部署Nginx，优点是快捷方便，且适合有洁癖的同学。 不过缺点是不方便自定义Nginx模块。</p>
-<p>配置文件如下：</p>
-<pre><code>user nginx;
+<i></i><a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/88e631bf6861390d08a222429ef27db6.md style=color:gray><strong><i>点击删除</i></strong></a></div><h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5><h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5><p></p><p>由于TCP/IP网络模型的瘦腰结构，最终所有流量都会通过IP协议传送。因此防火墙的终极大杀器，就是封禁IP。一旦IP被封杀，此服务器便废了。</p><p>现在能正常上网的同学不要高兴太早。因为现在的防火墙采用的是黑名单方式，等到哪天逼急了采用白名单方式，那所以翻墙方法都会失效。因此闷声发大财，这是最好的。</p><p>另一个瓶颈在于DNS协议。并且现在的DNS污染已经上升到新的高度，即使设置自定义DNS也不能避免。因为除非使用VPN，否则系统的DNS请求全部通过53/UDP端口发送。 DNS请求是未加密的。因此各级网关可以对53/UDP的请求进行针对性的拦截。</p><p>运营商对53/UDP端口的拦截已经是公开的秘密了，只不过大多数时候用户是无法感知的。在ping Google.com时，发现竟然能ping通，并且延时只有几毫秒，不是GFW罢工了，也不是网络信号可以超光速了，只是你的DNS被劫持了而已 :)</p><p>有两种解决方案：</p><ul><li>挂VPN或者使用类似软件，将DNS请求也经由代理发送。</li><li>手工配置Hosts</li></ul><h2 id=国内转发的重要性>国内转发的重要性</h2><p>一个常规的数据包流向：</p><pre><code>用户网络环境 ----&gt; 国外VPS ----&gt; 目标国外网站
+</code></pre><p>其中，第二段链路往往是比较流畅的（如果你不是又回过头来访问国内网站的话）， 而第一段链路波动就比较大，尤其不同运营商会有不同表现。可能联通宽带可以很快访问，换移动宽带就很慢，甚至换了手机4G就完全访问不了。 这种速度、可靠性不稳定的访问体验是非常差的。</p><p>一个比较好的方案是使用一台国内机器作为中转。</p><pre><code>用户网络环境 ----&gt; 国内VPS ----&gt; 国外VPS ----&gt; 国外目标网站
+</code></pre><p>首先，完全不要担心多了一步中转是否会影响速度（延时），因为本来IP数据包就会经过多次路由转发，添加一台机器中转相当于手动优化了路由规则。 绝大多数情况下，经过中转会降低大大降低数据包从用户端到国外目标网站的传输时间。</p><p>像阿里云腾讯云这样的大厂，他们的机房都在主干网上，并且针对国内各个运营商的线路都做了优化。 因此可以保证在新的数据流动路径上，第一段链路在绝大多数情况下都是快速稳定的。</p><p>至于第二段链路，国内VPS到国外VPS。由于阿里云等厂商基本都是BGP机房，出国线路也比较快速和稳定。 此外，由于是两个机房之间的通信，并且都有公网IP，没有NAT问题。</p><p>这三段链路中，第二段和第三段链路的带宽都不是瓶颈，因为阿里云可以选择按流量计费然后带宽选择100Mb，国外流量更加便宜大碗，VPS基本上都是1Gb带宽。 所以整条链路带宽瓶颈就是用户的宽带带宽。</p><p>可以看到，经过国内中转，访问国外网站的瓶颈得到了消除，和访问国内网站无异，看YouTube比看Youku流畅完全是意料之中的事情（或许因为优酷实在是太烂了。。）</p><h2 id=负载均衡>负载均衡</h2><p>不过这样也有一个问题，你会发现整条链路是单链的，其中最脆弱的一环依然在国内到国外这一段，因为GFW只建在国境线上。 一旦IP暴露，被GFW封锁，则这台机器就废了，必须换一台。</p><p>对于自建的VPS，闷声发大财，往往没有这个问题。而对于和人共用飞机场的，则很容易被封。</p><p>一个比较好的解决方法是在国内的VPS上挂载负载均衡器，后端挂着多台国外VPS，一个IP被封杀则自动切换到下一个。</p><p>并且多线程下载时也有加速效果。</p><h3 id=中转工具>中转工具</h3><p>常用的、也是网上最常搜到的中转方案，是使用iptables和HaProxy 两个工具都有致命缺点：</p><ul><li>iptables只是简单转发，没有负载均衡功能，并且配置相对不友好。</li><li>HaProxy是专门的负载均衡器，可惜只支持TCP。虽说大多数时候够用，但很多时候我们确实需要UDP，譬如查询DNS或者玩游戏。</li></ul><p>所以这篇文章主要介绍用Nginx来进行流量转发和负载均衡，它支持UDP这一点弥补了HaProxy的不足。 并且Nginx支持插件扩展，可以实现更丰富的负载均衡功能。</p><p>建议使用docker来部署Nginx，优点是快捷方便，且适合有洁癖的同学。 不过缺点是不方便自定义Nginx模块。</p><p>配置文件如下：</p><pre><code>user nginx;
 worker_processes 1; events { worker_connections 1024;
 } stream { upstream group1 { hash $remote_addr consistent; server xxx.xxx.xxx.xxx:xxx; # ip:port
  server xxx.xxx.xxx.xxx:xxx; # ip:port
@@ -139,74 +54,12 @@ worker_processes 1; events { worker_connections 1024;
     }
 
 }
-</code></pre>
-<p>没必要做过多解释了，会Nginx的同学自然会配置。“拿来主义者”（非贬义）对Nginx配置参数也没兴趣，能直接用就行。</p>
-<p>把自己的服务器地址填在对应位置，然后运行Nginx即可。</p>
-<p>建议使用<code>docker</code> + <code>docker-compose</code>部署：</p>
-<p>新建<code>docker-compose.yml</code>文件：</p>
-<pre><code>version: '2'
+</code></pre><p>没必要做过多解释了，会Nginx的同学自然会配置。“拿来主义者”（非贬义）对Nginx配置参数也没兴趣，能直接用就行。</p><p>把自己的服务器地址填在对应位置，然后运行Nginx即可。</p><p>建议使用<code>docker</code> + <code>docker-compose</code>部署：</p><p>新建<code>docker-compose.yml</code>文件：</p><pre><code>version: '2'
 services: nginx_lb: image: nginx:alpine ports: - &quot;443-444:443-444&quot; - &quot;443-444:443-444/udp&quot; volumes: - ./nginx.conf:/etc/nginx/nginx.conf
-</code></pre>
-<p>执行<code>docker-compose up -d</code>即可。</p>
-<p>以及别忘了在ECS控制台配置安全组规则，打开Nginx监听的端口（此处为443-444, udp+tcp端口）。</p>
-<p>Nginx还有很多有趣的负载均衡策略，可以自己去配置。</p>
-<p>不过这里我推荐使用ip_hash的方式，即根据客户端ip来选择转发机器。 这样的好处是同一个用户始终使用同一个代理，不会导致出口地址跳跃继而触发一些网站的风控。</p>
-<p>顺便说一句，因为同时支持tcp+udp，因此也可以用来中转VPN流量。</p>
-<ul>
-<li>上一篇 <a href=../../posts/qsort-comparator.html>qsort的比较函数</a></li>
-<li>下一篇 <a href=../../posts/mac-remove-chrome-force-installed-extensions.html>Mac 下卸载 Chrome 按照企业政策安装的插件</a></li>
-</ul>
-<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<h3>See Also</h3>
-<div class=container>
-<div class=row>
-<div class="mx-auto px-0">
-<div class="bg-white shadow block">
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
-<footer class="py-4 bg-light border-top">
-<div class=container>
-<div class="row justify-content-between align-items-center">
-<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
-</div>
-<div class="col-lg-4 text-center mb-4 mb-lg-0">
-<ul class="list-inline mb-0">
-</ul>
-</div>
-<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
-<ul class="list-inline social-icon mb-0">
-<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
-<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
-</ul>
-</div>
-<div class="col-12 text-center mt-4">
-<span></span>
-</div>
-</div>
-</div>
-</footer>
-<script src=../../plugins/jQuery/jquery.min.js></script>
+</code></pre><p>执行<code>docker-compose up -d</code>即可。</p><p>以及别忘了在ECS控制台配置安全组规则，打开Nginx监听的端口（此处为443-444, udp+tcp端口）。</p><p>Nginx还有很多有趣的负载均衡策略，可以自己去配置。</p><p>不过这里我推荐使用ip_hash的方式，即根据客户端ip来选择转发机器。 这样的好处是同一个用户始终使用同一个代理，不会导致出口地址跳跃继而触发一些网站的风控。</p><p>顺便说一句，因为同时支持tcp+udp，因此也可以用来中转VPN流量。</p><ul><li>上一篇 <a href=../../posts/qsort-comparator.html>qsort的比较函数</a></li><li>下一篇 <a href=../../posts/mac-remove-chrome-force-installed-extensions.html>Mac 下卸载 Chrome 按照企业政策安装的插件</a></li></ul><h5><a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5></div><div class="col-lg-8 mx-auto block shadow"><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var t=document,e=t.createElement('script');e.async=!0,e.src='//pin-cong-jing-xuan.disqus.com/embed.js',e.setAttribute('data-timestamp',+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div class="col-lg-8 mx-auto block shadow"><h3>See Also</h3><div class=container><div class=row><div class="mx-auto px-0"><div class="bg-white shadow block"></div></div></div></div></div></div></div></div></section><script>var i,images=document.getElementsByTagName("img");for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../plugins/jQuery/jquery.min.js></script>
 <script src=../../plugins/bootstrap/bootstrap.min.js></script>
 <script src=../../plugins/search/fuse.min.js></script>
 <script src=../../plugins/search/mark.js></script>
 <script src=../../plugins/search/search.js></script>
 <script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
-</html>
+<script>(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body></html>

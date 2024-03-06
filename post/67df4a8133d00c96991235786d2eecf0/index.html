@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh-cn><head>
-<meta charset=utf-8>
-<title>利用美国大选提前投票数据进行场景分析</title>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name=description content=" 美国大选提前投票选民的登记信息可查，在https://targetearly.targetsmart.com/可以查到提前投票信息。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>利用美国大选提前投票数据进行场景分析</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 美国大选提前投票选民的登记信息可查，在https://targetearly.targetsmart.com/可以查到提前投票信息。
 利用他们提供的建模选民数据（和登记选民相差不大，判断了小部分unaffaired的党派）：
 对于有党派选民，假设共和党全部投川普，民主党全部投拜登。
 对于无党派选民，可以假设他们会投川普的比例为：
@@ -14,28 +10,24 @@
 那么对上述5*3种场景，模拟出川普的最终选举人票数如下：
 刚做出来，有点小错，已经更正了。
 品葱用户 weerqop 评论于 2020-11-02 我今天刚看了下油管大康有话说，把迄今为止所有的开票都统计了一下，基本上川普稳赢，没什么悬念，现在只剩三个州还没开票，这三个州还都是红州，大康已经给拜登多算了好多张选举人票，两人依然差距几十张，后面两天还有一波红潮，现在看不仅是赢的问题，搞不好还是大赢啊，不过想想也是啊，都说天道酬勤，拜登这完全的躺货还能赢了简直没天理了，川普这么大年纪了还这么拼，我相信正常的美国人不是瞎子，连谁认真谁不认真都看不出来
-品葱用户 本精印来宣教了 评论于 2020-11-02  关键在于无党派人士和未提前投票选民支持谁。
+品葱用户 本精印来宣教了 评论于 2020-11-02 关键在于无党派人士和未提前投票选民支持谁。
 下图的
 每列是未提前投票选民支持川普的比例
 每行是无党派人士支持川普的比例
 在假设比例为0 0.05 0.1 &mldr; 0.95 1.0 的情况下
 大家可以看到川普最终的得票
- 比如第一行第一列指，若无党派人士100%投川普，未提前投票100%投川普，那么川普能拿520票。
- 超过269票就能获胜。
- 第9行第10列指，若无党派60%投川普，未提前投票55%投川普，那么川普能拿337票。
- 红色的部分表示川普胜，蓝色部分表示拜登胜。
+比如第一行第一列指，若无党派人士100%投川普，未提前投票100%投川普，那么川普能拿520票。
+超过269票就能获胜。
+第9行第10列指，若无党派60%投川普，未提前投票55%投川普，那么川普能拿337票。
+红色的部分表示川普胜，蓝色部分表示拜登胜。
 由于拜登缺乏个人魅力且极度可疑，无党派投票者支持川普的可能性更大。
 而民主党呼吁提前投票，其选民团体不大可能选择现场投票。
-那么11/2，11/3两日的选票应该有更大的比例，或许是极大的比例，属于川普。 ">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
-<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
-<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
-<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<meta name=twitter:card content="summary_large_image">
-<meta name=og:title content=" 利用美国大选提前投票数据进行场景分析 ">
-<meta name=og:description content=" 美国大选提前投票选民的登记信息可查，在https://targetearly.targetsmart.com/可以查到提前投票信息。
+那么11/2，11/3两日的选票应该有更大的比例，或许是极大的比例，属于川普。
+那么表格的右侧数值小于0.5的区域就没有参考价值了，除掉右半边，绝大部分区域都是川普胜。
+留着右半边~只是为幻想拜登支持者现场投票一个安慰罢了~，实际绝无可能。
+只要剩下的现场投票选民50%以上支持川普，基本就赢了
+然后个人认为只有0.5~1.0，0.5~1.0这部分有参考意义，所以不妨武断地取出这部分模拟结果。
+自己做一个对川普得票的概率估计： "><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" 利用美国大选提前投票数据进行场景分析 "><meta name=og:description content=" 美国大选提前投票选民的登记信息可查，在https://targetearly.targetsmart.com/可以查到提前投票信息。
 利用他们提供的建模选民数据（和登记选民相差不大，判断了小部分unaffaired的党派）：
 对于有党派选民，假设共和党全部投川普，民主党全部投拜登。
 对于无党派选民，可以假设他们会投川普的比例为：
@@ -47,281 +39,44 @@
 那么对上述5*3种场景，模拟出川普的最终选举人票数如下：
 刚做出来，有点小错，已经更正了。
 品葱用户 weerqop 评论于 2020-11-02 我今天刚看了下油管大康有话说，把迄今为止所有的开票都统计了一下，基本上川普稳赢，没什么悬念，现在只剩三个州还没开票，这三个州还都是红州，大康已经给拜登多算了好多张选举人票，两人依然差距几十张，后面两天还有一波红潮，现在看不仅是赢的问题，搞不好还是大赢啊，不过想想也是啊，都说天道酬勤，拜登这完全的躺货还能赢了简直没天理了，川普这么大年纪了还这么拼，我相信正常的美国人不是瞎子，连谁认真谁不认真都看不出来
-品葱用户 本精印来宣教了 评论于 2020-11-02  关键在于无党派人士和未提前投票选民支持谁。
+品葱用户 本精印来宣教了 评论于 2020-11-02 关键在于无党派人士和未提前投票选民支持谁。
 下图的
 每列是未提前投票选民支持川普的比例
 每行是无党派人士支持川普的比例
 在假设比例为0 0.05 0.1 &mldr; 0.95 1.0 的情况下
 大家可以看到川普最终的得票
- 比如第一行第一列指，若无党派人士100%投川普，未提前投票100%投川普，那么川普能拿520票。
- 超过269票就能获胜。
- 第9行第10列指，若无党派60%投川普，未提前投票55%投川普，那么川普能拿337票。
- 红色的部分表示川普胜，蓝色部分表示拜登胜。
+比如第一行第一列指，若无党派人士100%投川普，未提前投票100%投川普，那么川普能拿520票。
+超过269票就能获胜。
+第9行第10列指，若无党派60%投川普，未提前投票55%投川普，那么川普能拿337票。
+红色的部分表示川普胜，蓝色部分表示拜登胜。
 由于拜登缺乏个人魅力且极度可疑，无党派投票者支持川普的可能性更大。
 而民主党呼吁提前投票，其选民团体不大可能选择现场投票。
-那么11/2，11/3两日的选票应该有更大的比例，或许是极大的比例，属于川普。 ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/42.jpg">
-<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+那么11/2，11/3两日的选票应该有更大的比例，或许是极大的比例，属于川普。
+那么表格的右侧数值小于0.5的区域就没有参考价值了，除掉右半边，绝大部分区域都是川普胜。
+留着右半边~只是为幻想拜登支持者现场投票一个安慰罢了~，实际绝无可能。
+只要剩下的现场投票选民50%以上支持川普，基本就赢了
+然后个人认为只有0.5~1.0，0.5~1.0这部分有参考意义，所以不妨武断地取出这部分模拟结果。
+自己做一个对川普得票的概率估计： "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/190.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
-</head>
-<body>
-<header class="fixed-top navigation">
-<div class=container>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class="ti-menu h3"></i>
-</button>
-<div class="collapse navbar-collapse text-center" id=navigation>
-<ul class="navbar-nav ml-auto">
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</header> <div class="py-5 d-none d-lg-block"></div>
-<section class=main-content>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 mx-auto block shadow mb-5">
-<h2>利用美国大选提前投票数据进行场景分析</h2>
-<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e6%9c%ac%e7%b2%be%e5%8d%b0%e6%9d%a5%e5%ae%a3%e6%95%99%e4%ba%86>本精印来宣教了</a></span>,
+<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=main-content><div class=container><div class=row><div class="col-lg-8 mx-auto block shadow mb-5"><h2>利用美国大选提前投票数据进行场景分析</h2><div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e6%9c%ac%e7%b2%be%e5%8d%b0%e6%9d%a5%e5%ae%a3%e6%95%99%e4%ba%86>本精印来宣教了</a></span>,
 <span>at 01 November 2020</span>, tags :
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e7%be%8e%e5%9b%bd%e5%a4%a7%e9%80%89>美国大选</a>
 <a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/67df4a8133d00c96991235786d2eecf0.md style=color:gray><strong><i>点击纠错</i></strong></a>
-<i> </i>
-<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/67df4a8133d00c96991235786d2eecf0.md style=color:gray><strong><i>点击删除</i></strong></a>
-</div>
-<h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
-<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
-<p></p>
-<p>美国大选提前投票选民的登记信息可查，在https://targetearly.targetsmart.com/可以查到提前投票信息。<br>
-利用他们提供的建模选民数据（和登记选民相差不大，判断了小部分unaffaired的党派）：<br>
-<img src="https://images.weserv.nl/?url=https%3A%2F%2Fi.imgur.com%2FJAQ9jkw.png" alt="https://images.weserv.nl/?url=https://i.imgur.com/JAQ9jkw.png"><br>
-对于有党派选民，假设共和党全部投川普，民主党全部投拜登。<br>
-对于无党派选民，可以假设他们会投川普的比例为：<br>
-80% 65% 50% 35% 20%<br>
-对于未提前投票选民，由于两党目前提倡的生活方式差异，可以假定至少50%不是民主党选民。<br>
-可以假设他们投川普的比例为：80% 65% 50%<br>
-由于本次大选的预计投票人数可能超过2016，但缺乏各州预计投票数据（有来源可以下方回复），那么就粗略地假设本次各州票数等于2016，减去提前投票，就是未提前投票选民数。<br>
-另外，由于MA,MO,AL,SC,MS,ND,DC缺乏提前投票数据，好在这些州要么铁红要么铁蓝，假定MA、DC归拜登(+14)，其它归川普(+37)。<br>
-那么对上述5*3种场景，模拟出川普的最终选举人票数如下：<br>
-<img src="https://images.weserv.nl/?url=https%3A%2F%2Fi.imgur.com%2FVIQbUlv.png" alt="https://images.weserv.nl/?url=https://i.imgur.com/VIQbUlv.png"><br>
-刚做出来，有点小错，已经更正了。</p>
-<h3 id=品葱用户-weerqop-评论于-2020-11-02>品葱用户 <strong>weerqop</strong> 评论于 2020-11-02</h3>
-<p>我今天刚看了下油管大康有话说，把迄今为止所有的开票都统计了一下，基本上川普稳赢，没什么悬念，现在只剩三个州还没开票，这三个州还都是红州，大康已经给拜登多算了好多张选举人票，两人依然差距几十张，后面两天还有一波红潮，现在看不仅是赢的问题，搞不好还是大赢啊，不过想想也是啊，都说天道酬勤，拜登这完全的躺货还能赢了简直没天理了，川普这么大年纪了还这么拼，我相信正常的美国人不是瞎子，连谁认真谁不认真都看不出来</p>
-<h3 id=品葱用户-本精印来宣教了-评论于-2020-11-02>品葱用户 <strong>本精印来宣教了</strong> 评论于 2020-11-02</h3>
-<p> 关键在于无党派人士和未提前投票选民支持谁。<br>
-下图的<br>
-每列是<strong>未提前投票选民</strong>支持川普的比例<br>
-每行是<strong>无党派人士</strong>支持川普的比例<br>
-在假设比例为0 0.05 0.1 &mldr; 0.95 1.0 的情况下<br>
-大家可以看到川普最终的得票</p>
-<blockquote>
-<p>比如第一行第一列指，若无党派人士100%投川普，未提前投票100%投川普，那么川普能拿520票。</p>
-</blockquote>
-<p>超过269票就能获胜。</p>
-<blockquote>
-<p>第9行第10列指，若无党派60%投川普，未提前投票55%投川普，那么川普能拿337票。</p>
-</blockquote>
-<p><strong>红色的部分表示川普胜，蓝色部分表示拜登胜。</strong></p>
-<p>由于拜登缺乏个人魅力且极度可疑，<strong>无党派投票者支持川普的可能性更大</strong>。<br>
-而民主党呼吁提前投票，其选民团体不大可能选择现场投票。<br>
-那么11/2，11/3两日的选票应该有更大的比例，或许是极大的比例，属于川普。<br>
-那么表格的右侧数值小于0.5的区域就没有参考价值了，<strong>除掉右半边，绝大部分区域都是川普胜</strong>。<br>
-留着右半边~只是为幻想拜登支持者现场投票一个安慰罢了~，实际绝无可能。<br>
-只要剩下的现场投票选民50%以上支持川普，基本就赢了<br>
-<img src="https://images.weserv.nl/?url=https%3A%2F%2Fi.imgur.com%2F8hPw5dS.png" alt="https://images.weserv.nl/?url=https://i.imgur.com/8hPw5dS.png"><br>
-然后个人认为只有0.5~1.0，0.5~1.0这部分有参考意义，所以不妨武断地取出这部分模拟结果。<br>
-自己做一个对川普得票的概率估计：<br>
-蓝线部分表示拜登赢，红线部分表示川普赢，橙线表示分割线。<br>
-<img src="https://images.weserv.nl/?url=https%3A%2F%2Fi.imgur.com%2FHA43duP.png" alt="https://images.weserv.nl/?url=https://i.imgur.com/HA43duP.png"><br>
-主观看法是最终大可能落在400~450贴近400几率更大，也有可能失败（费拉话）。<br>
-留在这里，万一中了呢</p>
-<h3 id=品葱用户-北美carl-评论于-2020-11-02>品葱用户 <strong>北美carl</strong> 评论于 2020-11-02</h3>
-<p>辛苦了</p>
-<h3 id=品葱用户-本精印来宣教了>品葱用户 **本精印来宣教了</h3>
-<p>北美carl** 评论于 2020-11-02</p>
-<blockquote>
-<p><a href=%22/article/item_id-529779#%22>>></a>辛苦了</p>
-</blockquote>
-<p>感谢支持</p>
-<h3 id=品葱用户-本精印来宣教了-1>品葱用户 **本精印来宣教了</h3>
-<p>weerqop** 评论于 2020-11-02</p>
-<blockquote>
-<p><a href=%22/article/item_id-529771#%22>>></a>我今天刚看了下油管大康有话说，把迄今为止所有的开票都统计了一下，基本上川普稳赢，没什么悬念，现在只剩&mldr;</p>
-</blockquote>
-<p>德州的数据那么明显了，票都快投完了，民主党差十几个点，主流媒体居然还有脸说德州是摇摆州。</p>
-<h3 id=品葱用户-emmanuelss>品葱用户 **emmanuelss</h3>
-<p>北美carl** 评论于 2020-11-02</p>
-<p>[quote]<a href=%22/article/item_id-529779#%22>>></a>辛苦了 [/quote<br>
-你投了谁？</p>
-<h3 id=品葱用户-台灣no1-评论于-2020-11-02>品葱用户 <strong>台灣no1</strong> 评论于 2020-11-02</h3>
-<p>那原po 大大預測有那個州有可能意外翻盤阿</p>
-<h3 id=品葱用户-shaun>品葱用户 **Shaun</h3>
-<p>weerqop** 评论于 2020-11-02</p>
-<blockquote>
-<p><a href=%22/article/item_id-529771#%22>>></a>我今天刚看了下油管大康有话说，把迄今为止所有的开票都统计了一下，基本上川普稳赢，没什么悬念，现在只剩&mldr;</p>
-</blockquote>
-<p>立贴存证啊</p>
-<h3 id=品葱用户-dune98-评论于-2020-11-02>品葱用户 <strong>Dune98</strong> 评论于 2020-11-02</h3>
-<p><a href=%22https://www.epochtimes.com/b5/20/11/1/n12517902.htm%22>来源</a><br>
-（大紀元記者林南綜合報導）來自剛剛結束的6個<a href=%22https://www.epochtimes.com/b5/tag/%e5%b7%9d%e6%99%ae.html%22>川普</a>競選<a href=%22https://www.epochtimes.com/b5/tag/%e9%9b%86%e6%9c%83.html%22>集會</a>上的統計數字已經出爐。這些數字顯示：集會中有20%至54%的參與者不是<a href=%22https://www.epochtimes.com/b5/tag/%e5%85%b1%e5%92%8c%e9%bb%a8.html%22>共和黨</a>人。</p>
-<p><a href=%22https://www.epochtimes.com/b5/tag/%e5%85%b1%e5%92%8c%e9%bb%a8.html%22>共和黨</a>全國委員會（Republican National Committee，RNC）主席<a href=%22https://www.epochtimes.com/b5/tag/%e7%be%85%e5%a8%9c%c2%b7%e9%ba%a5%e5%85%8b%e4%b8%b9%e5%b0%bc%e7%88%be.html%22>羅娜·麥克丹尼爾</a>（Ronna McDaniel）10月28-31日在推特上相繼貼出<a href=%22https://www.epochtimes.com/b5/tag/%e9%9b%86%e6%9c%83.html%22>集會</a>統計數據。這些數據顯示，在<a href=%22https://www.epochtimes.com/b5/tag/%e5%b7%9d%e6%99%ae.html%22>川普</a>6個集會中，在明尼蘇達州和威斯康星州的與會者有一半以上不是共和黨選民。密歇根州是49%，佛羅里達州19.3%，亞利桑那州固特異（Goodyear）和布爾黑德市（Bullhead City），分別是19.5%和24%。</p>
-<p>麥克丹尼爾在推文中說，「我們看到民主黨人和中間派人士成群結隊地參加川普集會。」「這些選民將在星期二大有作為！」</p>
-<blockquote>
-<p>We are seeing DEMOCRATS and INDEPENDENTS turn out in droves for <a href="%22https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw%22">realDonaldTrump</a>’s rallies:</p>
-<p>In Rochester, MN:</p>
-<p>✅ 53.6% NOT Republican</p>
-<p>In Green Bay, WI:</p>
-<p>✅ 52.6% NOT Republican</p>
-<p>These voters are going to make a huge difference on Tuesday!</p>
-<p>— Ronna McDaniel (GOPChairwoman) <a href="%22https://twitter.com/GOPChairwoman/status/1322334803199512578?ref_src=twsrc%5Etfw%22">October 31, 2020</a></p>
-</blockquote>
-<blockquote>
-<p>Great to have <a href="%22https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw%22">realDonaldTrump</a> back in Michigan!</p>
-<p>✅ 13,733 signups</p>
-<p>✅ 49.0% (!) NOT Republican</p>
-<p>✅ 30.5% didn’t vote in 2016</p>
-<p>Thank you, Waterford Township!</p>
-<p>— Ronna McDaniel (GOPChairwoman) <a href="%22https://twitter.com/GOPChairwoman/status/1322266526360182784?ref_src=twsrc%5Etfw%22">October 30, 2020</a></p>
-</blockquote>
-<blockquote>
-<p>Fantastic data out of <a href="%22https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw%22">realDonaldTrump</a>’s rally in Tampa!</p>
-<p>✅ 17,420 signups</p>
-<p>✅ 19.3% NOT Republican</p>
-<p>✅ 25.2% did not vote in 2016</p>
-<p>Thank you, FLORIDA!</p>
-<p>— Ronna McDaniel (GOPChairwoman) <a href="%22https://twitter.com/GOPChairwoman/status/1321902848804868097?ref_src=twsrc%5Etfw%22">October 29, 2020</a></p>
-</blockquote>
-<blockquote>
-<p>Another huge turnout for <a href="%22https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw%22">realDonaldTrump</a>!</p>
-<p>✅ 17,251 signups for Goodyear rally</p>
-<p>✅ 19.5% NOT Republican</p>
-<p>✅ 35.7% (!) did not vote in 2016</p>
-<p>Thank you to everyone helping keep ARIZONA red in 2020!</p>
-<p>— Ronna McDaniel (GOPChairwoman) <a href="%22https://twitter.com/GOPChairwoman/status/1321595321403793410?ref_src=twsrc%5Etfw%22">October 28, 2020</a></p>
-</blockquote>
-<blockquote>
-<p>ARIZONA is fired up and ready to re-elect for <a href="%22https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw%22">realDonaldTrump</a>!</p>
-<p>✅ 23,591 signups for Bullhead City rally</p>
-<p>✅ 24.0% NOT Republican</p>
-<p>✅ 45.3% (!) did not vote in 2016</p>
-<p>Thank you to the thousands of supporters who turned out!</p>
-<p>— Ronna McDaniel (GOPChairwoman) <a href="%22https://twitter.com/GOPChairwoman/status/1321543961069133828?ref_src=twsrc%5Etfw%22">October 28, 2020</a></p>
-</blockquote>
-<h3 id=品葱用户-十六号码头-评论于-2020-11-02>品葱用户 <strong>十六号码头</strong> 评论于 2020-11-02</h3>
-<p>有的意思。</p>
-<p>给个建议：假设总投票人数与2016年一样太不现实。</p>
-<p>至少要假设总投票人数与总人口同步增长。</p>
-<p>可以假设几种情景：<br>
-1 总投票人数比2016年增加5%（大致相当于与人口同步增长）<br>
-2 增加10%（大致相当于投票参与率增加5%）<br>
-3 增加15%（大致相当于投票参与率增加10%)</p>
-<p>然后你前面的各种情景相交叉，可能会更有意思。</p>
-<h3 id=品葱用户-北美carl>品葱用户 **北美carl</h3>
-<p>emmanuelss** 评论于 2020-11-01</p>
-<p>~已删除~</p>
-<blockquote>
-<p><a href=https://pincong.rocks/article/25754>点击品葱原文参与讨论</a></p>
-</blockquote>
-<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<h3>See Also</h3>
-<div class=container>
-<div class=row>
-<div class="mx-auto px-0">
-<div class="bg-white shadow block">
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/769e664c0a054a7a3e8a3343ab717d63/?utm_source=see_also&utm_medium=%25E5%2588%25A9%25E7%2594%25A8%25E7%25BE%258E%25E5%259B%25BD%25E5%25A4%25A7%25E9%2580%2589%25E6%258F%2590%25E5%2589%258D%25E6%258A%2595%25E7%25A5%25A8%25E6%2595%25B0%25E6%258D%25AE%25E8%25BF%259B%25E8%25A1%258C%25E5%259C%25BA%25E6%2599%25AF%25E5%2588%2586%25E6%259E%2590">写一写关于穆斯林，中共，以及西方世界的未来</a>
-</h2>
-<p class=text-dark>长久以来西方对中共人权问题就一直盯的很紧，克林顿在对中共加入WTO的问题上就强调过人权的改善，更别说欧洲国家对这方面的审视。这也导致中共不敢对国内的少数民族有更多的动作，特别是国际上最敏感的穆斯林群体。
- 这时候有两个非常重要的机遇期，中共 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/0310d80c4bff87aa7f776806600909f8/?utm_source=see_also&utm_medium=%25E5%2588%25A9%25E7%2594%25A8%25E7%25BE%258E%25E5%259B%25BD%25E5%25A4%25A7%25E9%2580%2589%25E6%258F%2590%25E5%2589%258D%25E6%258A%2595%25E7%25A5%25A8%25E6%2595%25B0%25E6%258D%25AE%25E8%25BF%259B%25E8%25A1%258C%25E5%259C%25BA%25E6%2599%25AF%25E5%2588%2586%25E6%259E%2590">加州比佛利山庄 24日支持川普连任游行</a>
-</h2>
-<p class=text-dark>LOVE&PEACE
+<i></i><a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/67df4a8133d00c96991235786d2eecf0.md style=color:gray><strong><i>点击删除</i></strong></a></div><h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5><h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5><p></p><p>美国大选提前投票选民的登记信息可查，在https://targetearly.targetsmart.com/可以查到提前投票信息。<br>利用他们提供的建模选民数据（和登记选民相差不大，判断了小部分unaffaired的党派）：<br><img src="https://images.weserv.nl/?url=https%3A%2F%2Fi.imgur.com%2FJAQ9jkw.png" alt="https://images.weserv.nl/?url=https://i.imgur.com/JAQ9jkw.png"><br>对于有党派选民，假设共和党全部投川普，民主党全部投拜登。<br>对于无党派选民，可以假设他们会投川普的比例为：<br>80% 65% 50% 35% 20%<br>对于未提前投票选民，由于两党目前提倡的生活方式差异，可以假定至少50%不是民主党选民。<br>可以假设他们投川普的比例为：80% 65% 50%<br>由于本次大选的预计投票人数可能超过2016，但缺乏各州预计投票数据（有来源可以下方回复），那么就粗略地假设本次各州票数等于2016，减去提前投票，就是未提前投票选民数。<br>另外，由于MA,MO,AL,SC,MS,ND,DC缺乏提前投票数据，好在这些州要么铁红要么铁蓝，假定MA、DC归拜登(+14)，其它归川普(+37)。<br>那么对上述5*3种场景，模拟出川普的最终选举人票数如下：<br><img src="https://images.weserv.nl/?url=https%3A%2F%2Fi.imgur.com%2FVIQbUlv.png" alt="https://images.weserv.nl/?url=https://i.imgur.com/VIQbUlv.png"><br>刚做出来，有点小错，已经更正了。</p><h3 id=品葱用户-weerqop-评论于-2020-11-02>品葱用户 <strong>weerqop</strong> 评论于 2020-11-02</h3><p>我今天刚看了下油管大康有话说，把迄今为止所有的开票都统计了一下，基本上川普稳赢，没什么悬念，现在只剩三个州还没开票，这三个州还都是红州，大康已经给拜登多算了好多张选举人票，两人依然差距几十张，后面两天还有一波红潮，现在看不仅是赢的问题，搞不好还是大赢啊，不过想想也是啊，都说天道酬勤，拜登这完全的躺货还能赢了简直没天理了，川普这么大年纪了还这么拼，我相信正常的美国人不是瞎子，连谁认真谁不认真都看不出来</p><h3 id=品葱用户-本精印来宣教了-评论于-2020-11-02>品葱用户 <strong>本精印来宣教了</strong> 评论于 2020-11-02</h3><p> 关键在于无党派人士和未提前投票选民支持谁。<br>下图的<br>每列是<strong>未提前投票选民</strong>支持川普的比例<br>每行是<strong>无党派人士</strong>支持川普的比例<br>在假设比例为0 0.05 0.1 &mldr; 0.95 1.0 的情况下<br>大家可以看到川普最终的得票</p><blockquote><p>比如第一行第一列指，若无党派人士100%投川普，未提前投票100%投川普，那么川普能拿520票。</p></blockquote><p>超过269票就能获胜。</p><blockquote><p>第9行第10列指，若无党派60%投川普，未提前投票55%投川普，那么川普能拿337票。</p></blockquote><p><strong>红色的部分表示川普胜，蓝色部分表示拜登胜。</strong></p><p>由于拜登缺乏个人魅力且极度可疑，<strong>无党派投票者支持川普的可能性更大</strong>。<br>而民主党呼吁提前投票，其选民团体不大可能选择现场投票。<br>那么11/2，11/3两日的选票应该有更大的比例，或许是极大的比例，属于川普。<br>那么表格的右侧数值小于0.5的区域就没有参考价值了，<strong>除掉右半边，绝大部分区域都是川普胜</strong>。<br>留着右半边~只是为幻想拜登支持者现场投票一个安慰罢了~，实际绝无可能。<br>只要剩下的现场投票选民50%以上支持川普，基本就赢了<br><img src="https://images.weserv.nl/?url=https%3A%2F%2Fi.imgur.com%2F8hPw5dS.png" alt="https://images.weserv.nl/?url=https://i.imgur.com/8hPw5dS.png"><br>然后个人认为只有0.5~1.0，0.5~1.0这部分有参考意义，所以不妨武断地取出这部分模拟结果。<br>自己做一个对川普得票的概率估计：<br>蓝线部分表示拜登赢，红线部分表示川普赢，橙线表示分割线。<br><img src="https://images.weserv.nl/?url=https%3A%2F%2Fi.imgur.com%2FHA43duP.png" alt="https://images.weserv.nl/?url=https://i.imgur.com/HA43duP.png"><br>主观看法是最终大可能落在400~450贴近400几率更大，也有可能失败（费拉话）。<br>留在这里，万一中了呢</p><h3 id=品葱用户-北美carl-评论于-2020-11-02>品葱用户 <strong>北美carl</strong> 评论于 2020-11-02</h3><p>辛苦了</p><h3 id=品葱用户-本精印来宣教了>品葱用户 **本精印来宣教了</h3><p>北美carl** 评论于 2020-11-02</p><blockquote><p><a href=%22/article/item_id-529779#%22>>></a>辛苦了</p></blockquote><p>感谢支持</p><h3 id=品葱用户-本精印来宣教了-1>品葱用户 **本精印来宣教了</h3><p>weerqop** 评论于 2020-11-02</p><blockquote><p><a href=%22/article/item_id-529771#%22>>></a>我今天刚看了下油管大康有话说，把迄今为止所有的开票都统计了一下，基本上川普稳赢，没什么悬念，现在只剩&mldr;</p></blockquote><p>德州的数据那么明显了，票都快投完了，民主党差十几个点，主流媒体居然还有脸说德州是摇摆州。</p><h3 id=品葱用户-emmanuelss>品葱用户 **emmanuelss</h3><p>北美carl** 评论于 2020-11-02</p><p>[quote]<a href=%22/article/item_id-529779#%22>>></a>辛苦了 [/quote<br>你投了谁？</p><h3 id=品葱用户-台灣no1-评论于-2020-11-02>品葱用户 <strong>台灣no1</strong> 评论于 2020-11-02</h3><p>那原po 大大預測有那個州有可能意外翻盤阿</p><h3 id=品葱用户-shaun>品葱用户 **Shaun</h3><p>weerqop** 评论于 2020-11-02</p><blockquote><p><a href=%22/article/item_id-529771#%22>>></a>我今天刚看了下油管大康有话说，把迄今为止所有的开票都统计了一下，基本上川普稳赢，没什么悬念，现在只剩&mldr;</p></blockquote><p>立贴存证啊</p><h3 id=品葱用户-dune98-评论于-2020-11-02>品葱用户 <strong>Dune98</strong> 评论于 2020-11-02</h3><p><a href=%22https://www.epochtimes.com/b5/20/11/1/n12517902.htm%22>来源</a><br>（大紀元記者林南綜合報導）來自剛剛結束的6個<a href=%22https://www.epochtimes.com/b5/tag/%e5%b7%9d%e6%99%ae.html%22>川普</a>競選<a href=%22https://www.epochtimes.com/b5/tag/%e9%9b%86%e6%9c%83.html%22>集會</a>上的統計數字已經出爐。這些數字顯示：集會中有20%至54%的參與者不是<a href=%22https://www.epochtimes.com/b5/tag/%e5%85%b1%e5%92%8c%e9%bb%a8.html%22>共和黨</a>人。</p><p><a href=%22https://www.epochtimes.com/b5/tag/%e5%85%b1%e5%92%8c%e9%bb%a8.html%22>共和黨</a>全國委員會（Republican National Committee，RNC）主席<a href=%22https://www.epochtimes.com/b5/tag/%e7%be%85%e5%a8%9c%c2%b7%e9%ba%a5%e5%85%8b%e4%b8%b9%e5%b0%bc%e7%88%be.html%22>羅娜·麥克丹尼爾</a>（Ronna McDaniel）10月28-31日在推特上相繼貼出<a href=%22https://www.epochtimes.com/b5/tag/%e9%9b%86%e6%9c%83.html%22>集會</a>統計數據。這些數據顯示，在<a href=%22https://www.epochtimes.com/b5/tag/%e5%b7%9d%e6%99%ae.html%22>川普</a>6個集會中，在明尼蘇達州和威斯康星州的與會者有一半以上不是共和黨選民。密歇根州是49%，佛羅里達州19.3%，亞利桑那州固特異（Goodyear）和布爾黑德市（Bullhead City），分別是19.5%和24%。</p><p>麥克丹尼爾在推文中說，「我們看到民主黨人和中間派人士成群結隊地參加川普集會。」「這些選民將在星期二大有作為！」</p><blockquote><p>We are seeing DEMOCRATS and INDEPENDENTS turn out in droves for <a href="%22https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw%22">realDonaldTrump</a>’s rallies:</p><p>In Rochester, MN:</p><p>✅ 53.6% NOT Republican</p><p>In Green Bay, WI:</p><p>✅ 52.6% NOT Republican</p><p>These voters are going to make a huge difference on Tuesday!</p><p>— Ronna McDaniel (GOPChairwoman) <a href="%22https://twitter.com/GOPChairwoman/status/1322334803199512578?ref_src=twsrc%5Etfw%22">October 31, 2020</a></p></blockquote><blockquote><p>Great to have <a href="%22https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw%22">realDonaldTrump</a> back in Michigan!</p><p>✅ 13,733 signups</p><p>✅ 49.0% (!) NOT Republican</p><p>✅ 30.5% didn’t vote in 2016</p><p>Thank you, Waterford Township!</p><p>— Ronna McDaniel (GOPChairwoman) <a href="%22https://twitter.com/GOPChairwoman/status/1322266526360182784?ref_src=twsrc%5Etfw%22">October 30, 2020</a></p></blockquote><blockquote><p>Fantastic data out of <a href="%22https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw%22">realDonaldTrump</a>’s rally in Tampa!</p><p>✅ 17,420 signups</p><p>✅ 19.3% NOT Republican</p><p>✅ 25.2% did not vote in 2016</p><p>Thank you, FLORIDA!</p><p>— Ronna McDaniel (GOPChairwoman) <a href="%22https://twitter.com/GOPChairwoman/status/1321902848804868097?ref_src=twsrc%5Etfw%22">October 29, 2020</a></p></blockquote><blockquote><p>Another huge turnout for <a href="%22https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw%22">realDonaldTrump</a>!</p><p>✅ 17,251 signups for Goodyear rally</p><p>✅ 19.5% NOT Republican</p><p>✅ 35.7% (!) did not vote in 2016</p><p>Thank you to everyone helping keep ARIZONA red in 2020!</p><p>— Ronna McDaniel (GOPChairwoman) <a href="%22https://twitter.com/GOPChairwoman/status/1321595321403793410?ref_src=twsrc%5Etfw%22">October 28, 2020</a></p></blockquote><blockquote><p>ARIZONA is fired up and ready to re-elect for <a href="%22https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw%22">realDonaldTrump</a>!</p><p>✅ 23,591 signups for Bullhead City rally</p><p>✅ 24.0% NOT Republican</p><p>✅ 45.3% (!) did not vote in 2016</p><p>Thank you to the thousands of supporters who turned out!</p><p>— Ronna McDaniel (GOPChairwoman) <a href="%22https://twitter.com/GOPChairwoman/status/1321543961069133828?ref_src=twsrc%5Etfw%22">October 28, 2020</a></p></blockquote><h3 id=品葱用户-十六号码头-评论于-2020-11-02>品葱用户 <strong>十六号码头</strong> 评论于 2020-11-02</h3><p>有的意思。</p><p>给个建议：假设总投票人数与2016年一样太不现实。</p><p>至少要假设总投票人数与总人口同步增长。</p><p>可以假设几种情景：<br>1 总投票人数比2016年增加5%（大致相当于与人口同步增长）<br>2 增加10%（大致相当于投票参与率增加5%）<br>3 增加15%（大致相当于投票参与率增加10%)</p><p>然后你前面的各种情景相交叉，可能会更有意思。</p><h3 id=品葱用户-北美carl>品葱用户 **北美carl</h3><p>emmanuelss** 评论于 2020-11-01</p><p>~已删除~</p><blockquote><p><a href=https://pincong.rocks/article/25754>点击品葱原文参与讨论</a></p></blockquote><h5><a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5></div><div class="col-lg-8 mx-auto block shadow"><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var t=document,e=t.createElement('script');e.async=!0,e.src='//pin-cong-jing-xuan.disqus.com/embed.js',e.setAttribute('data-timestamp',+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div class="col-lg-8 mx-auto block shadow"><h3>See Also</h3><div class=container><div class=row><div class="mx-auto px-0"><div class="bg-white shadow block"><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/769e664c0a054a7a3e8a3343ab717d63/?utm_source=see_also&utm_medium=%25E5%2588%25A9%25E7%2594%25A8%25E7%25BE%258E%25E5%259B%25BD%25E5%25A4%25A7%25E9%2580%2589%25E6%258F%2590%25E5%2589%258D%25E6%258A%2595%25E7%25A5%25A8%25E6%2595%25B0%25E6%258D%25AE%25E8%25BF%259B%25E8%25A1%258C%25E5%259C%25BA%25E6%2599%25AF%25E5%2588%2586%25E6%259E%2590">写一写关于穆斯林，中共，以及西方世界的未来</a></h2><p class=text-dark>长久以来西方对中共人权问题就一直盯的很紧，克林顿在对中共加入WTO的问题上就强调过人权的改善，更别说欧洲国家对这方面的审视。这也导致中共不敢对国内的少数民族有更多的动作，特别是国际上最敏感的穆斯林群体。
+这时候有两个非常重要的机遇期，中共都 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/0310d80c4bff87aa7f776806600909f8/?utm_source=see_also&utm_medium=%25E5%2588%25A9%25E7%2594%25A8%25E7%25BE%258E%25E5%259B%25BD%25E5%25A4%25A7%25E9%2580%2589%25E6%258F%2590%25E5%2589%258D%25E6%258A%2595%25E7%25A5%25A8%25E6%2595%25B0%25E6%258D%25AE%25E8%25BF%259B%25E8%25A1%258C%25E5%259C%25BA%25E6%2599%25AF%25E5%2588%2586%25E6%259E%2590">加州比佛利山庄 24日支持川普连任游行</a></h2><p class=text-dark>LOVE&PEACE
 品葱用户 北美carl 评论于 2020-10-31 感觉整体氛围不错 偶尔还能看到亚裔面孔 至少比那些上来就打人骂人比中指的歧视者强多了
-品葱用户 啦啦啦你 评论于 2020-11-01 这种地方存在GOP和 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/32f28947ec2e64154751237584fb95c9/?utm_source=see_also&utm_medium=%25E5%2588%25A9%25E7%2594%25A8%25E7%25BE%258E%25E5%259B%25BD%25E5%25A4%25A7%25E9%2580%2589%25E6%258F%2590%25E5%2589%258D%25E6%258A%2595%25E7%25A5%25A8%25E6%2595%25B0%25E6%258D%25AE%25E8%25BF%259B%25E8%25A1%258C%25E5%259C%25BA%25E6%2599%25AF%25E5%2588%2586%25E6%259E%2590">知乎居然把预测大选结果的问题删掉了……至于这么鸵鸟吗？</a>
-</h2>
-<p class=text-dark>品葱用户 猫魔人 提问于 11/1/2020 就是那个“2020年的美国总统大选，你预测川普会成功连任吗？还是拜登会赢？”
-这几天都通过美华评论了解最新投票情况，有几个民主党粉丝疯狂吹嘘拜登怎么赢但被持续打脸。没想到墙内这点刺激都受不了 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/bbc70f7b08484773a0dd39022683a126/?utm_source=see_also&utm_medium=%25E5%2588%25A9%25E7%2594%25A8%25E7%25BE%258E%25E5%259B%25BD%25E5%25A4%25A7%25E9%2580%2589%25E6%258F%2590%25E5%2589%258D%25E6%258A%2595%25E7%25A5%25A8%25E6%2595%25B0%25E6%258D%25AE%25E8%25BF%259B%25E8%25A1%258C%25E5%259C%25BA%25E6%2599%25AF%25E5%2588%2586%25E6%259E%2590">美国大选投票直播——今天刚投票回来，说说整个投票的过程</a>
-</h2>
-<p class=text-dark>今天11月1日，外面下着雨，天气有些冷，大概10度左右，上午起床吃完饭，就去投票站。
-在不久前，我收到了投票指南，里面有一本指南，一张卡片，指南上写着离你家最近的投票点，你可以在什么时候开始去投票，如果你不想排队，你可以从选举日前多少天，就 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/ba5d65e45f05aed9769e50fa81c23f5d/?utm_source=see_also&utm_medium=%25E5%2588%25A9%25E7%2594%25A8%25E7%25BE%258E%25E5%259B%25BD%25E5%25A4%25A7%25E9%2580%2589%25E6%258F%2590%25E5%2589%258D%25E6%258A%2595%25E7%25A5%25A8%25E6%2595%25B0%25E6%258D%25AE%25E8%25BF%259B%25E8%25A1%258C%25E5%259C%25BA%25E6%2599%25AF%25E5%2588%2586%25E6%259E%2590">大家如何理解佩洛西议长的这段话？</a>
-</h2>
-<p class=text-dark>以及石涛的看法
+品葱用户 啦啦啦你 评论于 2020-11-01 这种地方存在GOP和 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/32f28947ec2e64154751237584fb95c9/?utm_source=see_also&utm_medium=%25E5%2588%25A9%25E7%2594%25A8%25E7%25BE%258E%25E5%259B%25BD%25E5%25A4%25A7%25E9%2580%2589%25E6%258F%2590%25E5%2589%258D%25E6%258A%2595%25E7%25A5%25A8%25E6%2595%25B0%25E6%258D%25AE%25E8%25BF%259B%25E8%25A1%258C%25E5%259C%25BA%25E6%2599%25AF%25E5%2588%2586%25E6%259E%2590">知乎居然把预测大选结果的问题删掉了……至于这么鸵鸟吗？</a></h2><p class=text-dark>品葱用户 猫魔人 提问于 11/1/2020 就是那个“2020年的美国总统大选，你预测川普会成功连任吗？还是拜登会赢？”
+这几天都通过美华评论了解最新投票情况，有几个民主党粉丝疯狂吹嘘拜登怎么赢但被持续打脸。没想到墙内这点刺激都受不了 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/bbc70f7b08484773a0dd39022683a126/?utm_source=see_also&utm_medium=%25E5%2588%25A9%25E7%2594%25A8%25E7%25BE%258E%25E5%259B%25BD%25E5%25A4%25A7%25E9%2580%2589%25E6%258F%2590%25E5%2589%258D%25E6%258A%2595%25E7%25A5%25A8%25E6%2595%25B0%25E6%258D%25AE%25E8%25BF%259B%25E8%25A1%258C%25E5%259C%25BA%25E6%2599%25AF%25E5%2588%2586%25E6%259E%2590">美国大选投票直播——今天刚投票回来，说说整个投票的过程</a></h2><p class=text-dark>今天11月1日，外面下着雨，天气有些冷，大概10度左右，上午起床吃完饭，就去投票站。
+在不久前，我收到了投票指南，里面有一本指南，一张卡片，指南上写着离你家最近的投票点，你可以在什么时候开始去投票，如果你不想排队，你可以从选举日前多少天，就 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/ba5d65e45f05aed9769e50fa81c23f5d/?utm_source=see_also&utm_medium=%25E5%2588%25A9%25E7%2594%25A8%25E7%25BE%258E%25E5%259B%25BD%25E5%25A4%25A7%25E9%2580%2589%25E6%258F%2590%25E5%2589%258D%25E6%258A%2595%25E7%25A5%25A8%25E6%2595%25B0%25E6%258D%25AE%25E8%25BF%259B%25E8%25A1%258C%25E5%259C%25BA%25E6%2599%25AF%25E5%2588%2586%25E6%259E%2590">大家如何理解佩洛西议长的这段话？</a></h2><p class=text-dark>以及石涛的看法
 https://m.youtube.com/watch?v=b2_g8tSrR2A
 不代表个人立场
 品葱用户 吳樂天 评论于 2020-10-31 講個笑話 如果拜登沒當選 這一票信誓旦旦的 到時候要
-怎麼改口 總不能扯選舉 …</p>
-</article>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
-<footer class="py-4 bg-light border-top">
-<div class=container>
-<div class="row justify-content-between align-items-center">
-<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
-</div>
-<div class="col-lg-4 text-center mb-4 mb-lg-0">
-<ul class="list-inline mb-0">
-</ul>
-</div>
-<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
-<ul class="list-inline social-icon mb-0">
-<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
-<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
-</ul>
-</div>
-<div class="col-12 text-center mt-4">
-<span></span>
-</div>
-</div>
-</div>
-</footer>
-<script src=../../plugins/jQuery/jquery.min.js></script>
+怎麼改口 總不能扯選舉 …</p></article></div></div></div></div></div></div></div></div></section><script>var i,images=document.getElementsByTagName("img");for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../plugins/jQuery/jquery.min.js></script>
 <script src=../../plugins/bootstrap/bootstrap.min.js></script>
 <script src=../../plugins/search/fuse.min.js></script>
 <script src=../../plugins/search/mark.js></script>
 <script src=../../plugins/search/search.js></script>
 <script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
-</html>
+<script>(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body></html>

@@ -1,109 +1,39 @@
-<!doctype html><html lang=zh-cn><head>
-<meta charset=utf-8>
-<title>shadowsocks借助nginx实现负载均衡，自动切换“零”宕机</title>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name=description content=" 现在服务器（vps）的入门配置一般内存在512M，甚至有更小的256M、128M，小到“发指”，被戏称为“小鸡”。随着vps的价格一路狂跌，再遇上打折促销，加上季付年付等优惠手段，你完全能在1、2美元左右淘到一个512M内存的vps。当我们手上的vps越来越多，就可以将他们通过负载均衡统一起来，实现自动切换0宕机的ss/ssr“系统”。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>shadowsocks借助nginx实现负载均衡，自动切换“零”宕机</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 现在服务器（vps）的入门配置一般内存在512M，甚至有更小的256M、128M，小到“发指”，被戏称为“小鸡”。随着vps的价格一路狂跌，再遇上打折促销，加上季付年付等优惠手段，你完全能在1、2美元左右淘到一个512M内存的vps。当我们手上的vps越来越多，就可以将他们通过负载均衡统一起来，实现自动切换0宕机的ss/ssr“系统”。
 一、准备工作 首先你手里需要2个或以上小鸡装了ss/ssr。这里演示我们有4个装有ss/ssr的小鸡，取名为小鸡A、B、C、D，搭建在各自上面的ss/ssr的ip和端口分别为：1.1.1.1:10000、2.2.2.2:20000、3.3.3.3:30000、4.4.4.4:40000；再准备一个服务器搭建nginx做负载均衡用，取名为小鸡E，这台服务器最好是国内的，可以感知小鸡A、B、C、D是否被墙。特别注意：需要负载均衡的小鸡之间（同一组，下面有讲），ss/ssr的账号密码协议加密混淆什么的都得一样。ssr可以兼容ss，如果使用ss软件，小鸡的ss和ssr可以混用；如果使用ssr软件，小鸡都必须是ssr，且除ip和端口外，所有设置必须相同。
 二、安装nginx 在小鸡E上安装nginx，推荐使用Ubuntu/Debian系统，Centos当然也可以，但是Centos默认yum源里面没有nginx。下面演示的Centos系统为7版本。
 Ubuntu/Debian
-apt-get update apt-get install nginx -y service nginx start  Centos7
-yum update sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm yum install nginx -y service nginx start  安装完毕后，在浏览器中输入小鸡E的ip地址，能打开网站即为成功。否则检查nginx是否启动，阿里腾讯等服务商需要额外检查防火墙是否开放80端口。
-
+apt-get update apt-get install nginx -y service nginx start Centos7
+yum update sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm yum install nginx -y service nginx start 安装完毕后，在浏览器中输入小鸡E的ip地址，能打开网站即为成功。否则检查nginx是否启动，阿里腾讯等服务商需要额外检查防火墙是否开放80端口。
 三、配置负载均衡 创建并打开一个自定义的配置文件
-mkdir -p /etc/nginx/tcpconf.d vi /etc/nginx/tcpconf.d/ssrproxy.conf  写入如下配置：
-stream { upstream group1 { server 1.1.1.1:10000; server 2. ">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
-<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
-<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
-<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<meta name=twitter:card content="summary_large_image">
-<meta name=og:title content=" shadowsocks借助nginx实现负载均衡，自动切换“零”宕机 ">
-<meta name=og:description content=" 现在服务器（vps）的入门配置一般内存在512M，甚至有更小的256M、128M，小到“发指”，被戏称为“小鸡”。随着vps的价格一路狂跌，再遇上打折促销，加上季付年付等优惠手段，你完全能在1、2美元左右淘到一个512M内存的vps。当我们手上的vps越来越多，就可以将他们通过负载均衡统一起来，实现自动切换0宕机的ss/ssr“系统”。
+mkdir -p /etc/nginx/tcpconf.d vi /etc/nginx/tcpconf.d/ssrproxy.conf 写入如下配置：
+stream { upstream group1 { server 1.1.1.1:10000; server 2.2.2.2:20000; } server { listen 10000; listen 10000 udp; proxy_pass group1; } upstream group2 { server 3. "><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" shadowsocks借助nginx实现负载均衡，自动切换“零”宕机 "><meta name=og:description content=" 现在服务器（vps）的入门配置一般内存在512M，甚至有更小的256M、128M，小到“发指”，被戏称为“小鸡”。随着vps的价格一路狂跌，再遇上打折促销，加上季付年付等优惠手段，你完全能在1、2美元左右淘到一个512M内存的vps。当我们手上的vps越来越多，就可以将他们通过负载均衡统一起来，实现自动切换0宕机的ss/ssr“系统”。
 一、准备工作 首先你手里需要2个或以上小鸡装了ss/ssr。这里演示我们有4个装有ss/ssr的小鸡，取名为小鸡A、B、C、D，搭建在各自上面的ss/ssr的ip和端口分别为：1.1.1.1:10000、2.2.2.2:20000、3.3.3.3:30000、4.4.4.4:40000；再准备一个服务器搭建nginx做负载均衡用，取名为小鸡E，这台服务器最好是国内的，可以感知小鸡A、B、C、D是否被墙。特别注意：需要负载均衡的小鸡之间（同一组，下面有讲），ss/ssr的账号密码协议加密混淆什么的都得一样。ssr可以兼容ss，如果使用ss软件，小鸡的ss和ssr可以混用；如果使用ssr软件，小鸡都必须是ssr，且除ip和端口外，所有设置必须相同。
 二、安装nginx 在小鸡E上安装nginx，推荐使用Ubuntu/Debian系统，Centos当然也可以，但是Centos默认yum源里面没有nginx。下面演示的Centos系统为7版本。
 Ubuntu/Debian
-apt-get update apt-get install nginx -y service nginx start  Centos7
-yum update sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm yum install nginx -y service nginx start  安装完毕后，在浏览器中输入小鸡E的ip地址，能打开网站即为成功。否则检查nginx是否启动，阿里腾讯等服务商需要额外检查防火墙是否开放80端口。
-
+apt-get update apt-get install nginx -y service nginx start Centos7
+yum update sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm yum install nginx -y service nginx start 安装完毕后，在浏览器中输入小鸡E的ip地址，能打开网站即为成功。否则检查nginx是否启动，阿里腾讯等服务商需要额外检查防火墙是否开放80端口。
 三、配置负载均衡 创建并打开一个自定义的配置文件
-mkdir -p /etc/nginx/tcpconf.d vi /etc/nginx/tcpconf.d/ssrproxy.conf  写入如下配置：
-stream { upstream group1 { server 1.1.1.1:10000; server 2. ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/45.jpg">
-<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+mkdir -p /etc/nginx/tcpconf.d vi /etc/nginx/tcpconf.d/ssrproxy.conf 写入如下配置：
+stream { upstream group1 { server 1.1.1.1:10000; server 2.2.2.2:20000; } server { listen 10000; listen 10000 udp; proxy_pass group1; } upstream group2 { server 3. "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/198.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
-</head>
-<body>
-<header class="fixed-top navigation">
-<div class=container>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class="ti-menu h3"></i>
-</button>
-<div class="collapse navbar-collapse text-center" id=navigation>
-<ul class="navbar-nav ml-auto">
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</header> <div class="py-5 d-none d-lg-block"></div>
-<section class=main-content>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 mx-auto block shadow mb-5">
-<h2>shadowsocks借助nginx实现负载均衡，自动切换“零”宕机</h2>
-<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/homeagain>Homeagain</a></span>,
+<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=main-content><div class=container><div class=row><div class="col-lg-8 mx-auto block shadow mb-5"><h2>shadowsocks借助nginx实现负载均衡，自动切换“零”宕机</h2><div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/homeagain>Homeagain</a></span>,
 <span>at 04 November 2019</span>, tags :
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e4%b8%ad%e8%bd%ac>中转</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e6%9c%8d%e5%8a%a1%e5%99%a8>服务器</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e7%ab%af%e5%8f%a3>端口</a>
 <a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/16c147e99745aee701fe6e9fee34e466.md style=color:gray><strong><i>点击纠错</i></strong></a>
-<i> </i>
-<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/16c147e99745aee701fe6e9fee34e466.md style=color:gray><strong><i>点击删除</i></strong></a>
-</div>
-<h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
-<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
-<p></p>
-<p>现在服务器（vps）的入门配置一般内存在512M，甚至有更小的256M、128M，小到“发指”，被戏称为“小鸡”。随着vps的价格一路狂跌，再遇上打折促销，加上季付年付等优惠手段，你完全能在1、2美元左右淘到一个512M内存的vps。当我们手上的vps越来越多，就可以将他们通过负载均衡统一起来，实现自动切换0宕机的ss/ssr“系统”。</p>
-<h2 id=一准备工作>一、准备工作</h2>
-<p>首先你手里需要2个或以上小鸡装了ss/ssr。这里演示我们有4个装有ss/ssr的小鸡，取名为小鸡A、B、C、D，搭建在各自上面的ss/ssr的ip和端口分别为：1.1.1.1:10000、2.2.2.2:20000、3.3.3.3:30000、4.4.4.4:40000；再准备一个服务器搭建nginx做负载均衡用，取名为小鸡E，这台服务器最好是国内的，可以感知小鸡A、B、C、D是否被墙。特别注意：需要负载均衡的小鸡之间（同一组，下面有讲），ss/ssr的账号密码协议加密混淆什么的都得一样。ssr可以兼容ss，如果使用ss软件，小鸡的ss和ssr可以混用；如果使用ssr软件，小鸡都必须是ssr，且除ip和端口外，所有设置必须相同。</p>
-<h2 id=二安装nginx>二、安装nginx</h2>
-<p>在小鸡E上安装nginx，推荐使用Ubuntu/Debian系统，Centos当然也可以，但是Centos默认yum源里面没有nginx。下面演示的Centos系统为7版本。</p>
-<p><strong>Ubuntu/Debian</strong></p>
-<pre><code>apt-get update
+<i></i><a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/16c147e99745aee701fe6e9fee34e466.md style=color:gray><strong><i>点击删除</i></strong></a></div><h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5><h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5><p></p><p>现在服务器（vps）的入门配置一般内存在512M，甚至有更小的256M、128M，小到“发指”，被戏称为“小鸡”。随着vps的价格一路狂跌，再遇上打折促销，加上季付年付等优惠手段，你完全能在1、2美元左右淘到一个512M内存的vps。当我们手上的vps越来越多，就可以将他们通过负载均衡统一起来，实现自动切换0宕机的ss/ssr“系统”。</p><h2 id=一准备工作>一、准备工作</h2><p>首先你手里需要2个或以上小鸡装了ss/ssr。这里演示我们有4个装有ss/ssr的小鸡，取名为小鸡A、B、C、D，搭建在各自上面的ss/ssr的ip和端口分别为：1.1.1.1:10000、2.2.2.2:20000、3.3.3.3:30000、4.4.4.4:40000；再准备一个服务器搭建nginx做负载均衡用，取名为小鸡E，这台服务器最好是国内的，可以感知小鸡A、B、C、D是否被墙。特别注意：需要负载均衡的小鸡之间（同一组，下面有讲），ss/ssr的账号密码协议加密混淆什么的都得一样。ssr可以兼容ss，如果使用ss软件，小鸡的ss和ssr可以混用；如果使用ssr软件，小鸡都必须是ssr，且除ip和端口外，所有设置必须相同。</p><h2 id=二安装nginx>二、安装nginx</h2><p>在小鸡E上安装nginx，推荐使用Ubuntu/Debian系统，Centos当然也可以，但是Centos默认yum源里面没有nginx。下面演示的Centos系统为7版本。</p><p><strong>Ubuntu/Debian</strong></p><pre><code>apt-get update
 apt-get install nginx -y
 service nginx start
-</code></pre>
-<p><strong>Centos7</strong></p>
-<pre><code>yum update
+</code></pre><p><strong>Centos7</strong></p><pre><code>yum update
 sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 yum install nginx -y
 service nginx start
-</code></pre>
-<p>安装完毕后，在浏览器中输入小鸡E的ip地址，能打开网站即为成功。否则检查nginx是否启动，阿里腾讯等服务商需要额外检查防火墙是否开放80端口。</p>
-<p><a href="https://images.weserv.nl/?url=https%3A//www.mebi.me/wp-content/uploads/2019/11/2019110513290397.png"><img src="https://images.weserv.nl/?url=https%3A//www.mebi.me/wp-content/uploads/2019/11/2019110513290397.png" alt=shadowsocks借助nginx实现负载均衡，自动切换“零”宕机-懵比小站></a></p>
-<h2 id=三配置负载均衡>三、配置负载均衡</h2>
-<p>创建并打开一个自定义的配置文件</p>
-<pre><code>mkdir -p /etc/nginx/tcpconf.d
+</code></pre><p>安装完毕后，在浏览器中输入小鸡E的ip地址，能打开网站即为成功。否则检查nginx是否启动，阿里腾讯等服务商需要额外检查防火墙是否开放80端口。</p><p><a href="https://images.weserv.nl/?url=https%3A//www.mebi.me/wp-content/uploads/2019/11/2019110513290397.png"><img src="https://images.weserv.nl/?url=https%3A//www.mebi.me/wp-content/uploads/2019/11/2019110513290397.png" alt=shadowsocks借助nginx实现负载均衡，自动切换“零”宕机-懵比小站></a></p><h2 id=三配置负载均衡>三、配置负载均衡</h2><p>创建并打开一个自定义的配置文件</p><pre><code>mkdir -p /etc/nginx/tcpconf.d
 vi /etc/nginx/tcpconf.d/ssrproxy.conf
-</code></pre>
-<p>写入如下配置：</p>
-<pre><code>stream {
+</code></pre><p>写入如下配置：</p><pre><code>stream {
     upstream group1 {
         server 1.1.1.1:10000;
         server 2.2.2.2:20000;
@@ -123,90 +53,15 @@ vi /etc/nginx/tcpconf.d/ssrproxy.conf
         proxy_pass group2;
     }
 }
-</code></pre>
-<p>**解释：**这里一共有两组：group1和group2，使用小鸡E的10000端口来转发流量到小鸡A（1.1.1.1）或小鸡B（2.2.2.2），使用小鸡E的20000端口转发流量到小鸡C（3.3.3.3）或小鸡D（4.4.4.4）。形如1.1.1.1:10000这样的，就是你的小鸡A、B、C、D们上的ss/ssr的ip地址和端口了，不能错了。每个组都有一个或多个流量转发的对象，比如group1里有1.1.1.1和2.2.2.2，不是说流量同时转发到这两个服务器，而是通过nginx的负载均衡，自动轮询并转发流量到合适的服务器。</p>
-<p>之后我们找到nginx的主配置文件，将上面自定义配置加载进nginx里。主配置文件一般在<code>/etc/nginx/nginx.conf</code>或者<code>/etc/nginx/conf/nginx.conf</code>里。</p>
-<pre><code>echo &quot;include /etc/nginx/tcpconf.d/*.conf;&quot; &gt;&gt; /etc/nginx/nginx.conf
-</code></pre>
-<p>重启一下nginx使配置生效</p>
-<pre><code>service nginx restart
-</code></pre>
-<h2 id=四如何使用>四、如何使用</h2>
-<p>在ss/ssr客户端填写配置中，ip地址就是小鸡E的ip地址，端口就是小鸡E用来转发流量的端口，其他配置不变。借助负载均衡，你无需手动切换客户端的服务器，就能实现自动切换到可用的服务器了。</p>
-<p>例如：假设小鸡E（负责负载均衡的服务器）的ip为5.5.5.5，填写的ip就是5.5.5.5。端口如果填写10000，相当于使用小鸡A和小鸡B；端口如果填写20000，相当于使用小鸡C和小鸡D。如果你想要所有的小鸡都在一个自动切换里，就把所有小鸡的ip和地址填写在同一组里。</p>
-<h2 id=五一些说明>五、一些说明</h2>
-<ul>
-<li>小鸡E选用国内服务器，一个好处是ss/ssr服务器如果被wall，国内服务器可以感知到。如果是在国外就做不到这点。</li>
-<li>小鸡E选用国内服务器另一个好处是：中转。如果你出国网速慢，很可能是因为你的出口线路不好；vps服务商的机房一般处于骨干网络，将小鸡E作为中转节点可以利用骨干网络的优势；完全不用担心中转就多出了一个路由节点，因为你不走中转，网络也会走其他节点，使用中转相当于你规划了路由。很多人觉得负载均衡后速度快了的原因就在这里。</li>
-<li>中转的方法有很多，开源软件haproxy可以中转，iptables可以中转，ss/ssr同样也可以中转，使用redirect字段就可以。但是nginx相对来说是完美的，nginx除了中转还能负载均衡，haproxy也可以负载均衡但是无法中转udp。</li>
-</ul>
-<p>如果单纯用来中转，可以看看本站这篇文章：</p>
-<p><a href=https://www.mebi.me/1062>通过iptables端口转发来实现ss/ssr的中转</a></p>
-<p>本文系作者 @<a href=https://www.mebi.me/author/homeagain>homeagain</a> 原创发布在 懵比小站。未经许可，禁止转载。</p>
-<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<h3>See Also</h3>
-<div class=container>
-<div class=row>
-<div class="mx-auto px-0">
-<div class="bg-white shadow block">
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/3dc222d3c342eed659d19f0e954f390e/?utm_source=see_also&utm_medium=shadowsocks%25E5%2580%259F%25E5%258A%25A9nginx%25E5%25AE%259E%25E7%258E%25B0%25E8%25B4%259F%25E8%25BD%25BD%25E5%259D%2587%25E8%25A1%25A1%25E8%2587%25AA%25E5%258A%25A8%25E5%2588%2587%25E6%258D%25A2%25E9%259B%25B6%25E5%25AE%2595%25E6%259C%25BA">翻墙软件与中国VPN推荐，2020年5月最新 - 墙妈妈</a>
-</h2>
-<p class=text-dark>最后修改于： 2020年6月6日
-翻墙软件现状 市场上的翻墙软件多如牛毛，如果你有幸访问国外苹果/安卓应用商店，搜一下”VPN”，能找到几十上百款APP，其中大部分我都试过，没几个能用的。我原本想做一次地毯式测试，但后来失去了耐心，实在太 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/f7b0523cf6dbc0e8a27e959abc9d5d59/?utm_source=see_also&utm_medium=shadowsocks%25E5%2580%259F%25E5%258A%25A9nginx%25E5%25AE%259E%25E7%258E%25B0%25E8%25B4%259F%25E8%25BD%25BD%25E5%259D%2587%25E8%25A1%25A1%25E8%2587%25AA%25E5%258A%25A8%25E5%2588%2587%25E6%258D%25A2%25E9%259B%25B6%25E5%25AE%2595%25E6%259C%25BA">Shadowsocks无法使用后的简单排除方法 | 逗比根据地</a>
-</h2>
-<p class=text-dark>广告
+</code></pre><p>**解释：**这里一共有两组：group1和group2，使用小鸡E的10000端口来转发流量到小鸡A（1.1.1.1）或小鸡B（2.2.2.2），使用小鸡E的20000端口转发流量到小鸡C（3.3.3.3）或小鸡D（4.4.4.4）。形如1.1.1.1:10000这样的，就是你的小鸡A、B、C、D们上的ss/ssr的ip地址和端口了，不能错了。每个组都有一个或多个流量转发的对象，比如group1里有1.1.1.1和2.2.2.2，不是说流量同时转发到这两个服务器，而是通过nginx的负载均衡，自动轮询并转发流量到合适的服务器。</p><p>之后我们找到nginx的主配置文件，将上面自定义配置加载进nginx里。主配置文件一般在<code>/etc/nginx/nginx.conf</code>或者<code>/etc/nginx/conf/nginx.conf</code>里。</p><pre><code>echo &quot;include /etc/nginx/tcpconf.d/*.conf;&quot; &gt;&gt; /etc/nginx/nginx.conf
+</code></pre><p>重启一下nginx使配置生效</p><pre><code>service nginx restart
+</code></pre><h2 id=四如何使用>四、如何使用</h2><p>在ss/ssr客户端填写配置中，ip地址就是小鸡E的ip地址，端口就是小鸡E用来转发流量的端口，其他配置不变。借助负载均衡，你无需手动切换客户端的服务器，就能实现自动切换到可用的服务器了。</p><p>例如：假设小鸡E（负责负载均衡的服务器）的ip为5.5.5.5，填写的ip就是5.5.5.5。端口如果填写10000，相当于使用小鸡A和小鸡B；端口如果填写20000，相当于使用小鸡C和小鸡D。如果你想要所有的小鸡都在一个自动切换里，就把所有小鸡的ip和地址填写在同一组里。</p><h2 id=五一些说明>五、一些说明</h2><ul><li>小鸡E选用国内服务器，一个好处是ss/ssr服务器如果被wall，国内服务器可以感知到。如果是在国外就做不到这点。</li><li>小鸡E选用国内服务器另一个好处是：中转。如果你出国网速慢，很可能是因为你的出口线路不好；vps服务商的机房一般处于骨干网络，将小鸡E作为中转节点可以利用骨干网络的优势；完全不用担心中转就多出了一个路由节点，因为你不走中转，网络也会走其他节点，使用中转相当于你规划了路由。很多人觉得负载均衡后速度快了的原因就在这里。</li><li>中转的方法有很多，开源软件haproxy可以中转，iptables可以中转，ss/ssr同样也可以中转，使用redirect字段就可以。但是nginx相对来说是完美的，nginx除了中转还能负载均衡，haproxy也可以负载均衡但是无法中转udp。</li></ul><p>如果单纯用来中转，可以看看本站这篇文章：</p><p><a href=https://www.mebi.me/1062>通过iptables端口转发来实现ss/ssr的中转</a></p><p>本文系作者 @<a href=https://www.mebi.me/author/homeagain>homeagain</a> 原创发布在 懵比小站。未经许可，禁止转载。</p><h5><a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5></div><div class="col-lg-8 mx-auto block shadow"><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var t=document,e=t.createElement('script');e.async=!0,e.src='//pin-cong-jing-xuan.disqus.com/embed.js',e.setAttribute('data-timestamp',+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div class="col-lg-8 mx-auto block shadow"><h3>See Also</h3><div class=container><div class=row><div class="mx-auto px-0"><div class="bg-white shadow block"><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/3dc222d3c342eed659d19f0e954f390e/?utm_source=see_also&utm_medium=shadowsocks%25E5%2580%259F%25E5%258A%25A9nginx%25E5%25AE%259E%25E7%258E%25B0%25E8%25B4%259F%25E8%25BD%25BD%25E5%259D%2587%25E8%25A1%25A1%25E8%2587%25AA%25E5%258A%25A8%25E5%2588%2587%25E6%258D%25A2%25E9%259B%25B6%25E5%25AE%2595%25E6%259C%25BA">翻墙软件与中国VPN推荐，2020年5月最新 - 墙妈妈</a></h2><p class=text-dark>最后修改于： 2020年6月6日
+翻墙软件现状 市场上的翻墙软件多如牛毛，如果你有幸访问国外苹果/安卓应用商店，搜一下”VPN”，能找到几十上百款APP，其中大部分我都试过，没几个能用的。我原本想做一次地毯式测试，但后来失去了耐心，实在太 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/f7b0523cf6dbc0e8a27e959abc9d5d59/?utm_source=see_also&utm_medium=shadowsocks%25E5%2580%259F%25E5%258A%25A9nginx%25E5%25AE%259E%25E7%258E%25B0%25E8%25B4%259F%25E8%25BD%25BD%25E5%259D%2587%25E8%25A1%25A1%25E8%2587%25AA%25E5%258A%25A8%25E5%2588%2587%25E6%258D%25A2%25E9%259B%25B6%25E5%25AE%2595%25E6%259C%25BA">Shadowsocks无法使用后的简单排除方法 | 逗比根据地</a></h2><p class=text-dark>广告
 本文最后更新于 2018年11月7日 18:53 可能会因为没有更新而失效。如已失效或需要修正，请留言！
-每一个使用过Shadowsocks的人，几乎都会出现过Shadowsocks突然无法使用的情况，然而很多人并不知道怎么办，网上 …</p>
-</article>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
-<footer class="py-4 bg-light border-top">
-<div class=container>
-<div class="row justify-content-between align-items-center">
-<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
-</div>
-<div class="col-lg-4 text-center mb-4 mb-lg-0">
-<ul class="list-inline mb-0">
-</ul>
-</div>
-<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
-<ul class="list-inline social-icon mb-0">
-<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
-<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
-</ul>
-</div>
-<div class="col-12 text-center mt-4">
-<span></span>
-</div>
-</div>
-</div>
-</footer>
-<script src=../../plugins/jQuery/jquery.min.js></script>
+每一个使用过Shadowsocks的人，几乎都会出现过Shadowsocks突然无法使用的情况，然而很多人并不知道怎么办，网上的 …</p></article></div></div></div></div></div></div></div></div></section><script>var i,images=document.getElementsByTagName("img");for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../plugins/jQuery/jquery.min.js></script>
 <script src=../../plugins/bootstrap/bootstrap.min.js></script>
 <script src=../../plugins/search/fuse.min.js></script>
 <script src=../../plugins/search/mark.js></script>
 <script src=../../plugins/search/search.js></script>
 <script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
-</html>
+<script>(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body></html>

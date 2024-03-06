@@ -1,331 +1,73 @@
-<!doctype html><html lang=zh-cn><head>
-<meta charset=utf-8>
-<title>【加速橄榄】屑站up主艾木魁为黑屁品葱和esu，盗号勒索比特币</title>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name=description content=" 红警皇帝崔哲元@艾木魁是一个爱党up猪，曾经多次黑屁品葱和esu，并声称esu大手子只有初中生文化，完全不敌他这个留洋（俄罗斯）文学博士，实属大脑降级之举，，，
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>【加速橄榄】屑站up主艾木魁为黑屁品葱和esu，盗号勒索比特币</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 红警皇帝崔哲元@艾木魁是一个爱党up猪，曾经多次黑屁品葱和esu，并声称esu大手子只有初中生文化，完全不敌他这个留洋（俄罗斯）文学博士，实属大脑降级之举，，，
 近日来，艾木魁在屑站到处发表比特币勒索声明，四处宣传品葱和恶俗百科，迫使大量屑站up主脱粪退站（实际上是个大好事）
 以下是esu壬的调查报告（已发布在恶俗百科崔哲元条目下）
 事件概览
 最近轰动一时的比特币勒索事件，详见严正声明（2020.8.17），疑似为红警皇帝崔哲元及其党羽所为，全文如下：
 如果你不在30日之内乖乖把1.00比特币汇入×××××的比特币钱包：×××××，我们会在恶俗维基开示你全家的护照、驾照、身份证、户籍、户口本、QQ、微信、银行卡信息、密码、手机号，让你体验电话被打爆、坐不了火车飞机、老赖、生不如死、众叛亲离的感觉，后果严重性详见杨柳升级人卖惨视频：BV1e4411B75m、BV1Y4411q7t1、BV174411y7To
 其中×××××曾被写入：
- 东方project 陈修辕（即屑站up主咩2016） 咩2016 恶俗百科 恶俗维基  笔者联合多名技术圈人士对这次比特币勒索事件进行了调查和分析，发现每次有高雅人士和艾木魁进行互动，就会有人大肆出场勒索比特币，其时间吻合程度惊为天人，且红警皇帝崔哲元在其黑屁文章中曾写过类似抹黑造谣方法，故由此开始怀疑其为比特币勒索幕后黑手。
+东方project 陈修辕（即屑站up主咩2016） 咩2016 恶俗百科 恶俗维基 笔者联合多名技术圈人士对这次比特币勒索事件进行了调查和分析，发现每次有高雅人士和艾木魁进行互动，就会有人大肆出场勒索比特币，其时间吻合程度惊为天人，且红警皇帝崔哲元在其黑屁文章中曾写过类似抹黑造谣方法，故由此开始怀疑其为比特币勒索幕后黑手。
 调查如下：
 崔大佐第一次勒索
 最早期比特币勒索时的比特币钱包为：
- a1c20cd3d91db6a1c86758aabbc767535d2c257a612f2509afc6c9a4ee9a6eec 和 7504acdd58504e79267e7e52612e832a87c1ca8a8dae4b1c06fdb7467f0a740d  红警皇帝崔哲元给10个乃至9个屑站up主发送了极道威胁，并自以为可以以此败坏本站名声，让10个乃至9个艾黑不要相信本站
+a1c20cd3d91db6a1c86758aabbc767535d2c257a612f2509afc6c9a4ee9a6eec 和 7504acdd58504e79267e7e52612e832a87c1ca8a8dae4b1c06fdb7467f0a740d 红警皇帝崔哲元给10个乃至9个屑站up主发送了极道威胁，并自以为可以以此败坏本站名声，让10个乃至9个艾黑不要相信本站
 然而这疑似为胡乱生成的sha256值，稍有比特币常识的人一眼看就知道这地址纯属黑屁，红警皇帝崔哲元知道后大惊失色，立刻撤掉了一部分比特币威胁
 崔大佐第二次勒索
 之后在高雅人士的提醒下，红警皇帝崔哲元发现势头不对，于是只好硬着头皮稍稍学习了一些比特币常识，意识到比特币地址需要使用base58压缩，于是其新版比特币勒索钱包地址如下：
- 39H1bAjRinsavmKURJaXkhJk3N5oshTfv5 和 1JpxwmMBMREopKet23rPdv3MGcS35yQ6EC  但是崔大佐万万没想到，比特币钱包地址不是胡乱生成的：
+39H1bAjRinsavmKURJaXkhJk3N5oshTfv5 和 1JpxwmMBMREopKet23rPdv3MGcS35yQ6EC 但是崔大佐万万没想到，比特币钱包地址不是胡乱生成的：
 比特币地址产生方法
- 首先：伪随机数产生的256bit私钥 第一步：拿私钥产生256bit私钥经secp256k1椭圆曲线推出的公钥 第二步：计算公钥的 SHA-256 哈希值 第三步：取上一步结果，计算 RIPEMD-160 哈希值 第四步：取上一步结果，前面加入地址版本号 第五步：取上一步结果，计算两次 SHA-256 哈希值 第六步：取上一步结果的前4个字节 第七步：把这4个字节加在第4步的结果后面，作为校验 第八步：用base58编码变换一下地址  文学博士崔大佐看得一头雾水，完全不能深究其密码学原理，于是投机取巧，干脆直接跳过了第一步到第七步，从伪随机数一步跨越到base58编码，生成驴唇不对马嘴的黑屁地址2. ">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
-<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
-<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
-<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<meta name=twitter:card content="summary_large_image">
-<meta name=og:title content=" 【加速橄榄】屑站up主艾木魁为黑屁品葱和esu，盗号勒索比特币 ">
-<meta name=og:description content=" 红警皇帝崔哲元@艾木魁是一个爱党up猪，曾经多次黑屁品葱和esu，并声称esu大手子只有初中生文化，完全不敌他这个留洋（俄罗斯）文学博士，实属大脑降级之举，，，
+首先：伪随机数产生的256bit私钥 第一步：拿私钥产生256bit私钥经secp256k1椭圆曲线推出的公钥 第二步：计算公钥的 SHA-256 哈希值 第三步：取上一步结果，计算 RIPEMD-160 哈希值 第四步：取上一步结果，前面加入地址版本号 第五步：取上一步结果，计算两次 SHA-256 哈希值 第六步：取上一步结果的前4个字节 第七步：把这4个字节加在第4步的结果后面，作为校验 第八步：用base58编码变换一下地址 文学博士崔大佐看得一头雾水，完全不能深究其密码学原理，于是投机取巧，干脆直接跳过了第一步到第七步，从伪随机数一步跨越到base58编码，生成驴唇不对马嘴的黑屁地址2.0，完成了第一代大脑升级
+之后崔大佐沾沾自喜，使用朋友的小号或盗来的账号（疑似）给10个乃至9个从咩2016电子讨论群里挖掘来的电子圈up主发去威胁私信，并扬言要出道这些人全家户籍，以此来为自己挡道，并试图证明本站为敲诈勒索网站
+然而由于其比特币地址是胡乱生成的，所以前面的部分和后面的哈希值完全对不上，稍加计算就知道这地址是假的
+崔大佐第三次勒索
+笔者不知崔大佐是如何发现其驴唇不对马嘴的黑屁地址2.0是错误的，也许有人真的给他汇了1.00比特币以避免自身出道，却发现交易被驳回。于是崔大佐开启了第二代大脑升级历程：
+崔大佐掂量了一下自身文学博士的称号，发现自己完全不敌比特币钱包的深奥密码学原理，于是开始请教搜索引擎，笔者猜测其大致搜索方法如下：
+比特币钱包实例 比特币钱包什么样子？ 什么是比特币钱包？ 如何注册比特币钱包？ 经过一番学习之后，文学博士崔大佐终于成功注册了一个比特币钱包，之后使用自己的钱包大肆敲诈勒索，使用其小号发送给100个乃至90个up主索取钱财 "><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" 【加速橄榄】屑站up主艾木魁为黑屁品葱和esu，盗号勒索比特币 "><meta name=og:description content=" 红警皇帝崔哲元@艾木魁是一个爱党up猪，曾经多次黑屁品葱和esu，并声称esu大手子只有初中生文化，完全不敌他这个留洋（俄罗斯）文学博士，实属大脑降级之举，，，
 近日来，艾木魁在屑站到处发表比特币勒索声明，四处宣传品葱和恶俗百科，迫使大量屑站up主脱粪退站（实际上是个大好事）
 以下是esu壬的调查报告（已发布在恶俗百科崔哲元条目下）
 事件概览
 最近轰动一时的比特币勒索事件，详见严正声明（2020.8.17），疑似为红警皇帝崔哲元及其党羽所为，全文如下：
 如果你不在30日之内乖乖把1.00比特币汇入×××××的比特币钱包：×××××，我们会在恶俗维基开示你全家的护照、驾照、身份证、户籍、户口本、QQ、微信、银行卡信息、密码、手机号，让你体验电话被打爆、坐不了火车飞机、老赖、生不如死、众叛亲离的感觉，后果严重性详见杨柳升级人卖惨视频：BV1e4411B75m、BV1Y4411q7t1、BV174411y7To
 其中×××××曾被写入：
- 东方project 陈修辕（即屑站up主咩2016） 咩2016 恶俗百科 恶俗维基  笔者联合多名技术圈人士对这次比特币勒索事件进行了调查和分析，发现每次有高雅人士和艾木魁进行互动，就会有人大肆出场勒索比特币，其时间吻合程度惊为天人，且红警皇帝崔哲元在其黑屁文章中曾写过类似抹黑造谣方法，故由此开始怀疑其为比特币勒索幕后黑手。
+东方project 陈修辕（即屑站up主咩2016） 咩2016 恶俗百科 恶俗维基 笔者联合多名技术圈人士对这次比特币勒索事件进行了调查和分析，发现每次有高雅人士和艾木魁进行互动，就会有人大肆出场勒索比特币，其时间吻合程度惊为天人，且红警皇帝崔哲元在其黑屁文章中曾写过类似抹黑造谣方法，故由此开始怀疑其为比特币勒索幕后黑手。
 调查如下：
 崔大佐第一次勒索
 最早期比特币勒索时的比特币钱包为：
- a1c20cd3d91db6a1c86758aabbc767535d2c257a612f2509afc6c9a4ee9a6eec 和 7504acdd58504e79267e7e52612e832a87c1ca8a8dae4b1c06fdb7467f0a740d  红警皇帝崔哲元给10个乃至9个屑站up主发送了极道威胁，并自以为可以以此败坏本站名声，让10个乃至9个艾黑不要相信本站
+a1c20cd3d91db6a1c86758aabbc767535d2c257a612f2509afc6c9a4ee9a6eec 和 7504acdd58504e79267e7e52612e832a87c1ca8a8dae4b1c06fdb7467f0a740d 红警皇帝崔哲元给10个乃至9个屑站up主发送了极道威胁，并自以为可以以此败坏本站名声，让10个乃至9个艾黑不要相信本站
 然而这疑似为胡乱生成的sha256值，稍有比特币常识的人一眼看就知道这地址纯属黑屁，红警皇帝崔哲元知道后大惊失色，立刻撤掉了一部分比特币威胁
 崔大佐第二次勒索
 之后在高雅人士的提醒下，红警皇帝崔哲元发现势头不对，于是只好硬着头皮稍稍学习了一些比特币常识，意识到比特币地址需要使用base58压缩，于是其新版比特币勒索钱包地址如下：
- 39H1bAjRinsavmKURJaXkhJk3N5oshTfv5 和 1JpxwmMBMREopKet23rPdv3MGcS35yQ6EC  但是崔大佐万万没想到，比特币钱包地址不是胡乱生成的：
+39H1bAjRinsavmKURJaXkhJk3N5oshTfv5 和 1JpxwmMBMREopKet23rPdv3MGcS35yQ6EC 但是崔大佐万万没想到，比特币钱包地址不是胡乱生成的：
 比特币地址产生方法
- 首先：伪随机数产生的256bit私钥 第一步：拿私钥产生256bit私钥经secp256k1椭圆曲线推出的公钥 第二步：计算公钥的 SHA-256 哈希值 第三步：取上一步结果，计算 RIPEMD-160 哈希值 第四步：取上一步结果，前面加入地址版本号 第五步：取上一步结果，计算两次 SHA-256 哈希值 第六步：取上一步结果的前4个字节 第七步：把这4个字节加在第4步的结果后面，作为校验 第八步：用base58编码变换一下地址  文学博士崔大佐看得一头雾水，完全不能深究其密码学原理，于是投机取巧，干脆直接跳过了第一步到第七步，从伪随机数一步跨越到base58编码，生成驴唇不对马嘴的黑屁地址2. ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/148.jpg">
-<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+首先：伪随机数产生的256bit私钥 第一步：拿私钥产生256bit私钥经secp256k1椭圆曲线推出的公钥 第二步：计算公钥的 SHA-256 哈希值 第三步：取上一步结果，计算 RIPEMD-160 哈希值 第四步：取上一步结果，前面加入地址版本号 第五步：取上一步结果，计算两次 SHA-256 哈希值 第六步：取上一步结果的前4个字节 第七步：把这4个字节加在第4步的结果后面，作为校验 第八步：用base58编码变换一下地址 文学博士崔大佐看得一头雾水，完全不能深究其密码学原理，于是投机取巧，干脆直接跳过了第一步到第七步，从伪随机数一步跨越到base58编码，生成驴唇不对马嘴的黑屁地址2.0，完成了第一代大脑升级
+之后崔大佐沾沾自喜，使用朋友的小号或盗来的账号（疑似）给10个乃至9个从咩2016电子讨论群里挖掘来的电子圈up主发去威胁私信，并扬言要出道这些人全家户籍，以此来为自己挡道，并试图证明本站为敲诈勒索网站
+然而由于其比特币地址是胡乱生成的，所以前面的部分和后面的哈希值完全对不上，稍加计算就知道这地址是假的
+崔大佐第三次勒索
+笔者不知崔大佐是如何发现其驴唇不对马嘴的黑屁地址2.0是错误的，也许有人真的给他汇了1.00比特币以避免自身出道，却发现交易被驳回。于是崔大佐开启了第二代大脑升级历程：
+崔大佐掂量了一下自身文学博士的称号，发现自己完全不敌比特币钱包的深奥密码学原理，于是开始请教搜索引擎，笔者猜测其大致搜索方法如下：
+比特币钱包实例 比特币钱包什么样子？ 什么是比特币钱包？ 如何注册比特币钱包？ 经过一番学习之后，文学博士崔大佐终于成功注册了一个比特币钱包，之后使用自己的钱包大肆敲诈勒索，使用其小号发送给100个乃至90个up主索取钱财 "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/226.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
-</head>
-<body>
-<header class="fixed-top navigation">
-<div class=container>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class="ti-menu h3"></i>
-</button>
-<div class="collapse navbar-collapse text-center" id=navigation>
-<ul class="navbar-nav ml-auto">
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</header> <div class="py-5 d-none d-lg-block"></div>
-<section class=main-content>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 mx-auto block shadow mb-5">
-<h2>【加速橄榄】屑站up主艾木魁为黑屁品葱和esu，盗号勒索比特币</h2>
-<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e5%8f%b6%e5%a4%a7%e5%b8%ab>叶大師</a></span>,
+<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=main-content><div class=container><div class=row><div class="col-lg-8 mx-auto block shadow mb-5"><h2>【加速橄榄】屑站up主艾木魁为黑屁品葱和esu，盗号勒索比特币</h2><div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e5%8f%b6%e5%a4%a7%e5%b8%ab>叶大師</a></span>,
 <span>at 27 August 2020</span>, tags :
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e6%89%b9%e7%ab%99>批站</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e6%81%b6%e4%bf%97%e7%bb%b4%e5%9f%ba>恶俗维基</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e7%9a%87%e5%b8%9d>皇帝</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e6%81%b6%e4%bf%97>恶俗</a>
 <a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/d4472919292e4b40bf6c01411f09c33c.md style=color:gray><strong><i>点击纠错</i></strong></a>
-<i> </i>
-<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/d4472919292e4b40bf6c01411f09c33c.md style=color:gray><strong><i>点击删除</i></strong></a>
-</div>
-<h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
-<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
-<p></p>
-<p>红警皇帝崔哲元@艾木魁是一个爱党up猪，曾经多次黑屁品葱和esu，并声称esu大手子只有初中生文化，完全不敌他这个留洋（俄罗斯）文学博士，实属大脑降级之举，，，</p>
-<p>近日来，艾木魁在屑站到处发表比特币勒索声明，四处宣传品葱和恶俗百科，迫使大量屑站up主脱粪退站（实际上是个大好事）<br>
-以下是esu壬的调查报告（已发布在恶俗百科崔哲元条目下）</p>
-<p>事件概览<br>
-最近轰动一时的比特币勒索事件，详见<a href=%22https://esu.miraheze.org/wiki/%E4%B8%A5%E6%AD%A3%E5%A3%B0%E6%98%8E%EF%BC%882020.8.17%EF%BC%89%22>严正声明（2020.8.17）</a>，疑似为红警皇帝崔哲元及其党羽所为，全文如下：<br>
-如果你不在30日之内乖乖把1.00比特币汇入×××××的比特币钱包：×××××，我们会在恶俗维基开示你全家的护照、驾照、身份证、户籍、户口本、QQ、微信、银行卡信息、密码、手机号，让你体验电话被打爆、坐不了火车飞机、老赖、生不如死、众叛亲离的感觉，后果严重性详见杨柳升级人卖惨视频：BV1e4411B75m、BV1Y4411q7t1、BV174411y7To<br>
-其中×××××曾被写入：</p>
-<ul>
-<li>东方project</li>
-<li>陈修辕（即屑站up主咩2016）</li>
-<li>咩2016</li>
-<li>恶俗百科</li>
-<li>恶俗维基</li>
-</ul>
-<p>笔者联合多名技术圈人士对这次比特币勒索事件进行了调查和分析，发现每次有高雅人士和艾木魁进行互动，就会有人大肆出场勒索比特币，其时间吻合程度惊为天人，且红警皇帝崔哲元在其黑屁文章中曾写过类似抹黑造谣方法，故由此开始怀疑其为比特币勒索幕后黑手。<br>
-调查如下：</p>
-<p>崔大佐第一次勒索<br>
-最早期比特币勒索时的比特币钱包为：</p>
-<ul>
-<li>a1c20cd3d91db6a1c86758aabbc767535d2c257a612f2509afc6c9a4ee9a6eec 和</li>
-<li>7504acdd58504e79267e7e52612e832a87c1ca8a8dae4b1c06fdb7467f0a740d</li>
-</ul>
-<p>红警皇帝崔哲元给10个乃至9个屑站up主发送了极道威胁，并自以为可以以此败坏本站名声，让10个乃至9个艾黑不要相信本站<br>
-然而这疑似为胡乱生成的sha256值，稍有比特币常识的人一眼看就知道这地址纯属黑屁，红警皇帝崔哲元知道后大惊失色，立刻撤掉了一部分比特币威胁</p>
-<p>崔大佐第二次勒索<br>
-之后在高雅人士的提醒下，红警皇帝崔哲元发现势头不对，于是只好硬着头皮稍稍学习了一些比特币常识，意识到比特币地址需要使用base58压缩，于是其新版比特币勒索钱包地址如下：</p>
-<ul>
-<li>39H1bAjRinsavmKURJaXkhJk3N5oshTfv5 和</li>
-<li>1JpxwmMBMREopKet23rPdv3MGcS35yQ6EC</li>
-</ul>
-<p>但是崔大佐万万没想到，比特币钱包地址不是胡乱生成的：<br>
-比特币地址产生方法</p>
-<ul>
-<li>首先：伪随机数产生的256bit私钥</li>
-<li>第一步：拿私钥产生256bit私钥经secp256k1椭圆曲线推出的公钥</li>
-<li>第二步：计算公钥的 SHA-256 哈希值</li>
-<li>第三步：取上一步结果，计算 RIPEMD-160 哈希值</li>
-<li>第四步：取上一步结果，前面加入地址版本号</li>
-<li>第五步：取上一步结果，计算两次 SHA-256 哈希值</li>
-<li>第六步：取上一步结果的前4个字节</li>
-<li>第七步：把这4个字节加在第4步的结果后面，作为校验</li>
-<li>第八步：用base58编码变换一下地址</li>
-</ul>
-<p>文学博士崔大佐看得一头雾水，完全不能深究其密码学原理，于是投机取巧，干脆直接跳过了第一步到第七步，从伪随机数一步跨越到base58编码，生成驴唇不对马嘴的黑屁地址2.0，完成了第一代大脑升级<br>
-之后崔大佐沾沾自喜，使用朋友的小号或盗来的账号（疑似）给10个乃至9个从咩2016电子讨论群里挖掘来的电子圈up主发去威胁私信，并扬言要出道这些人全家户籍，以此来为自己挡道，并试图证明本站为敲诈勒索网站<br>
-然而由于其比特币地址是胡乱生成的，所以前面的部分和后面的哈希值完全对不上，稍加计算就知道这地址是假的</p>
-<p>崔大佐第三次勒索<br>
-笔者不知崔大佐是如何发现其驴唇不对马嘴的黑屁地址2.0是错误的，也许有人真的给他汇了1.00比特币以避免自身出道，却发现交易被驳回。于是崔大佐开启了第二代大脑升级历程：<br>
-崔大佐掂量了一下自身文学博士的称号，发现自己完全不敌比特币钱包的深奥密码学原理，于是开始请教搜索引擎，笔者猜测其大致搜索方法如下：</p>
-<ul>
-<li>比特币钱包实例</li>
-<li>比特币钱包什么样子？</li>
-<li>什么是比特币钱包？</li>
-<li>如何注册比特币钱包？</li>
-</ul>
-<p>经过一番学习之后，文学博士崔大佐终于成功注册了一个比特币钱包，之后使用自己的钱包大肆敲诈勒索，使用其小号发送给100个乃至90个up主索取钱财<br>
-其比特币钱包地址如下：1L5id9vP9ecQuyJjWCXjmfX9LVkvasmJGf<br>
-笔者知道这是文学博士崔大佐自己的钱包的原因如下：</p>
-<ul>
-<li>这个账户确实存在</li>
-<li>这个账户的地址和哈希值可以匹配，所以这个账户不是驴唇不对马嘴的黑屁地址3.0</li>
-<li>查询全节点，未发现这个账户进行过任何交易</li>
-</ul>
-<p>然而，多数人并没有选择搭理这条信息，甚至有些人选择了报警处理，文学博士崔大佐也意识到使用自己的比特币钱包不妥，于是出现了崔大佐的第四次勒索</p>
-<p>崔大佐第四次勒索<br>
-崔大佐估计在上一次没有搜索比特币钱包的安全性，也完全不懂为什么比特币钱包能查到真人，所以使用自己的比特币钱包进行敲诈勒索，然而事实证明，在有人报警后，崔大佐意识到自己可能被卷入勒索事件，于是崔大佐开启了第三代大脑升级历程<br>
-在本节中，崔大佐使用别人的比特币钱包进行敲诈勒索，可以概括总结为：“你敲诈，你勒索，我完完全全的好人” 其登录比特币官网，<a href=%22https://www.blockchain.com/explorer%22>https://www.blockchain.com/explorer</a> 专找交易量大的比特币钱包下手，其挑选出三个比特币账户作为其敲诈勒索的比特币钱包，之后开始大肆敲诈勒索：</p>
-<ul>
-<li>3PXFzHiZhAa7aYgZi9h9VgBnWvPVpEaEGL 和</li>
-<li>3GvomSmgLhWmKR9LfEpgp7aicpsZPCeu4q 和</li>
-<li>1A5PFH8NdhLy1raKXKxFoqUgMAPUaqivqp</li>
-</ul>
-<p>从全节点我们可以查出这些账号最近都进行了超过100比特币的资金流水，故文学博士崔大佐觉得可以掩人耳目，避免众人怀疑<br>
-在崔大佐完成了第三代大脑升级历程后，其注册了超过20个小号，向大量无辜up主发送敲诈勒索信息，并觉得可以以此挡刀，其恶劣行径甚至包括用不同小号向同一个up主发送两次敲诈勒索信息，以此来耀武扬威自己的三次大脑升级历程。<br>
-在此，被敲诈勒索的up们组成一个联盟，一起讨伐红警皇帝崔哲元。</p>
-<p>确凿性分析</p>
-<ul>
-<li>崔大佐每一次与高雅人士互动后都会有人发起比特币敲诈勒索</li>
-<li>从比特币账号可以推断出上述四个过程</li>
-<li>崔大佐甚至向自己发送敲诈勒索信息并动态截图卖惨</li>
-<li>崔大佐矢口否认发出敲诈勒索信息</li>
-<li>最早的敲诈勒索信息可以追溯到崔大佐第一次与高雅人士互动</li>
-<li>最晚的敲诈勒索信息截止到崔大佐户籍出道，之后短暂销声匿迹（大概是去报警了），可之后又开始活跃起来</li>
-<li>最近与本站有联系的只有红警皇帝崔大佐和羊力大仙陈大佐，可是陈大佐被出道户籍后一瞬车软，之后迫真退站，虽然时不时诈尸几次，但想必已经彻底怂掉，所以不太可能是陈大佐所为</li>
-<li>事件发展时间线与崔大佐完全吻合</li>
-<li>陈大佐虽然是电脑中级高手，但比特币是怎么回事其大概还是清楚的，不会犯大脑降级这样的低级错误</li>
-<li>崔大佐吃了陈大佐的人血馒头，之后陈大佐试图用崔大佐引流的时候，崔大佐又一把踹开：“羊力大仙爬。别想蹭我的文章。”进一步坐实了其借用陈大佐之名档刀本质</li>
-<li>所以崔大佐是本次事件的主谋，请大家多多报警，以正义橄榄这个敲诈勒索的盈利抹黑废物</li>
-</ul>
-<p>在这里隔空喊话文学博士崔大佐，你的所作所为已经构成重刑事犯罪，最高至死刑（敲诈勒索了超过500比特币，折合美元5,649,600，人民币39,052,843），立刻乖乖伏法，不然让你吃不了兜着走。<br>
-也在这里警告试图多次档刀的崔大佐，你不懂技术，却偏偏要来招惹技术圈，用小号跑到陈大佐群里非法获取电子圈up主资料，之后进行高强度敲诈勒索还试图把这些罪名转移到陈大佐身上，陈大佐是人间之屑，那么你是什么？屑间之屑？<br>
-感谢向我提供勒索比特币账户的up们，在此为b站电子圈up主正名，我们与陈大佐没有任何关系，崔大佐的死妈行为会被我们继续挖掘和提交给检察机关以帮其入狱。</p>
-<h3 id=品葱用户-asahiiori-评论于-2020-08-26>品葱用户 <strong>Asahiiori</strong> 评论于 2020-08-26</h3>
-<p>陈大佐是谁(｡ŏ_ŏ)？</p>
-<h3 id=品葱用户-小狗包帝-评论于-2020-08-27>品葱用户 <strong>小狗包帝</strong> 评论于 2020-08-27</h3>
-<p>哈哈哈。整的挺好</p>
-<h3 id=品葱用户-鸥鹭茫茫-评论于-2020-08-26>品葱用户 <strong>鸥鹭茫茫</strong> 评论于 2020-08-26</h3>
-<p>这是楼主自己写的吗。<br>
-语言指纹很独特。如果你坚持这一写作习惯，别人很容易就侦察到你是谁了。</p>
-<h3 id=品葱用户-d6bb3e7a295>品葱用户 **d6bb3e7a295</h3>
-<p>鸥鹭茫茫** 评论于 2020-08-26</p>
-<p>[</p>
-<blockquote>
-<p>这是楼主自己写的吗。语言指纹很独特。如果你坚持这一写作习惯，别人很容易就侦察到你是谁了。</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-481649#")<br>
-惡俗圈都是這個指紋</p>
-<h3 id=品葱用户-鸥鹭茫茫>品葱用户 **鸥鹭茫茫</h3>
-<p>d6bb3e7a295** 评论于 2020-08-27</p>
-<p>[</p>
-<blockquote>
-<p>惡俗圈都是這個指紋</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-481650#")<br>
-但还要注意帐号关联 www</p>
-<h3 id=品葱用户-沉默的火安静地烧>品葱用户 **沉默的火安静地烧</h3>
-<p>鸥鹭茫茫** 评论于 2020-08-26</p>
-<p>[</p>
-<blockquote>
-<p>这是楼主自己写的吗。语言指纹很独特。如果你坚持这一写作习惯，别人很容易就侦察到你是谁了。</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-481649#")<br>
-楼主直接在pincong自爆过自己的QQ<br>
-其实都不用侦察（</p>
-<h3 id=品葱用户-北美carl>品葱用户 **北美carl</h3>
-<p>鸥鹭茫茫** 评论于 2020-08-26</p>
-<p>[</p>
-<blockquote>
-<p>这是楼主自己写的吗。语言指纹很独特。如果你坚持这一写作习惯，别人很容易就侦察到你是谁了。</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-481649#")<br>
-十分佩服</p>
-<h3 id=品葱用户-observerie-评论于-2020-08-27>品葱用户 <strong>observerIE</strong> 评论于 2020-08-27</h3>
-<p>人中之粪，和崔大佐比起来114514都显得气味清淡了。<br>
-希望早日联络好真人快打的事情。如果能把这个家伙睾丸活摘了就更好了。</p>
-<h3 id=品葱用户-test_404>品葱用户 **test_404</h3>
-<p>沉默的火安静地烧** 评论于 2020-08-26</p>
-<blockquote>
-<p><a href=%22/article/item_id-481730#%22>>></a>楼主直接在pincong自爆过自己的QQ其实都不用侦察（</p>
-</blockquote>
-<p>应该是挡刀身份之类的吧<br>
-不过一般人也不会想查证就是了</p>
-<blockquote>
-<p><a href=https://pincong.rocks/article/23440>点击品葱原文参与讨论</a></p>
-</blockquote>
-<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<h3>See Also</h3>
-<div class=container>
-<div class=row>
-<div class="mx-auto px-0">
-<div class="bg-white shadow block">
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/fabf7d06edccdca38470cab894169a29/?utm_source=see_also&utm_medium=%25E5%258A%25A0%25E9%2580%259F%25E6%25A9%2584%25E6%25A6%2584%25E5%25B1%2591%25E7%25AB%2599up%25E4%25B8%25BB%25E8%2589%25BE%25E6%259C%25A8%25E9%25AD%2581%25E4%25B8%25BA%25E9%25BB%2591%25E5%25B1%2581%25E5%2593%2581%25E8%2591%25B1%25E5%2592%258Cesu%25E7%259B%2597%25E5%258F%25B7%25E5%258B%2592%25E7%25B4%25A2%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581">【esu维基恢复！】我宣布，我是新esu维基站长！</a>
-</h2>
-<p class=text-dark>https://esu.miraheze.org/wiki/首页
+<i></i><a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/d4472919292e4b40bf6c01411f09c33c.md style=color:gray><strong><i>点击删除</i></strong></a></div><h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5><h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5><p></p><p>红警皇帝崔哲元@艾木魁是一个爱党up猪，曾经多次黑屁品葱和esu，并声称esu大手子只有初中生文化，完全不敌他这个留洋（俄罗斯）文学博士，实属大脑降级之举，，，</p><p>近日来，艾木魁在屑站到处发表比特币勒索声明，四处宣传品葱和恶俗百科，迫使大量屑站up主脱粪退站（实际上是个大好事）<br>以下是esu壬的调查报告（已发布在恶俗百科崔哲元条目下）</p><p>事件概览<br>最近轰动一时的比特币勒索事件，详见<a href=%22https://esu.miraheze.org/wiki/%E4%B8%A5%E6%AD%A3%E5%A3%B0%E6%98%8E%EF%BC%882020.8.17%EF%BC%89%22>严正声明（2020.8.17）</a>，疑似为红警皇帝崔哲元及其党羽所为，全文如下：<br>如果你不在30日之内乖乖把1.00比特币汇入×××××的比特币钱包：×××××，我们会在恶俗维基开示你全家的护照、驾照、身份证、户籍、户口本、QQ、微信、银行卡信息、密码、手机号，让你体验电话被打爆、坐不了火车飞机、老赖、生不如死、众叛亲离的感觉，后果严重性详见杨柳升级人卖惨视频：BV1e4411B75m、BV1Y4411q7t1、BV174411y7To<br>其中×××××曾被写入：</p><ul><li>东方project</li><li>陈修辕（即屑站up主咩2016）</li><li>咩2016</li><li>恶俗百科</li><li>恶俗维基</li></ul><p>笔者联合多名技术圈人士对这次比特币勒索事件进行了调查和分析，发现每次有高雅人士和艾木魁进行互动，就会有人大肆出场勒索比特币，其时间吻合程度惊为天人，且红警皇帝崔哲元在其黑屁文章中曾写过类似抹黑造谣方法，故由此开始怀疑其为比特币勒索幕后黑手。<br>调查如下：</p><p>崔大佐第一次勒索<br>最早期比特币勒索时的比特币钱包为：</p><ul><li>a1c20cd3d91db6a1c86758aabbc767535d2c257a612f2509afc6c9a4ee9a6eec 和</li><li>7504acdd58504e79267e7e52612e832a87c1ca8a8dae4b1c06fdb7467f0a740d</li></ul><p>红警皇帝崔哲元给10个乃至9个屑站up主发送了极道威胁，并自以为可以以此败坏本站名声，让10个乃至9个艾黑不要相信本站<br>然而这疑似为胡乱生成的sha256值，稍有比特币常识的人一眼看就知道这地址纯属黑屁，红警皇帝崔哲元知道后大惊失色，立刻撤掉了一部分比特币威胁</p><p>崔大佐第二次勒索<br>之后在高雅人士的提醒下，红警皇帝崔哲元发现势头不对，于是只好硬着头皮稍稍学习了一些比特币常识，意识到比特币地址需要使用base58压缩，于是其新版比特币勒索钱包地址如下：</p><ul><li>39H1bAjRinsavmKURJaXkhJk3N5oshTfv5 和</li><li>1JpxwmMBMREopKet23rPdv3MGcS35yQ6EC</li></ul><p>但是崔大佐万万没想到，比特币钱包地址不是胡乱生成的：<br>比特币地址产生方法</p><ul><li>首先：伪随机数产生的256bit私钥</li><li>第一步：拿私钥产生256bit私钥经secp256k1椭圆曲线推出的公钥</li><li>第二步：计算公钥的 SHA-256 哈希值</li><li>第三步：取上一步结果，计算 RIPEMD-160 哈希值</li><li>第四步：取上一步结果，前面加入地址版本号</li><li>第五步：取上一步结果，计算两次 SHA-256 哈希值</li><li>第六步：取上一步结果的前4个字节</li><li>第七步：把这4个字节加在第4步的结果后面，作为校验</li><li>第八步：用base58编码变换一下地址</li></ul><p>文学博士崔大佐看得一头雾水，完全不能深究其密码学原理，于是投机取巧，干脆直接跳过了第一步到第七步，从伪随机数一步跨越到base58编码，生成驴唇不对马嘴的黑屁地址2.0，完成了第一代大脑升级<br>之后崔大佐沾沾自喜，使用朋友的小号或盗来的账号（疑似）给10个乃至9个从咩2016电子讨论群里挖掘来的电子圈up主发去威胁私信，并扬言要出道这些人全家户籍，以此来为自己挡道，并试图证明本站为敲诈勒索网站<br>然而由于其比特币地址是胡乱生成的，所以前面的部分和后面的哈希值完全对不上，稍加计算就知道这地址是假的</p><p>崔大佐第三次勒索<br>笔者不知崔大佐是如何发现其驴唇不对马嘴的黑屁地址2.0是错误的，也许有人真的给他汇了1.00比特币以避免自身出道，却发现交易被驳回。于是崔大佐开启了第二代大脑升级历程：<br>崔大佐掂量了一下自身文学博士的称号，发现自己完全不敌比特币钱包的深奥密码学原理，于是开始请教搜索引擎，笔者猜测其大致搜索方法如下：</p><ul><li>比特币钱包实例</li><li>比特币钱包什么样子？</li><li>什么是比特币钱包？</li><li>如何注册比特币钱包？</li></ul><p>经过一番学习之后，文学博士崔大佐终于成功注册了一个比特币钱包，之后使用自己的钱包大肆敲诈勒索，使用其小号发送给100个乃至90个up主索取钱财<br>其比特币钱包地址如下：1L5id9vP9ecQuyJjWCXjmfX9LVkvasmJGf<br>笔者知道这是文学博士崔大佐自己的钱包的原因如下：</p><ul><li>这个账户确实存在</li><li>这个账户的地址和哈希值可以匹配，所以这个账户不是驴唇不对马嘴的黑屁地址3.0</li><li>查询全节点，未发现这个账户进行过任何交易</li></ul><p>然而，多数人并没有选择搭理这条信息，甚至有些人选择了报警处理，文学博士崔大佐也意识到使用自己的比特币钱包不妥，于是出现了崔大佐的第四次勒索</p><p>崔大佐第四次勒索<br>崔大佐估计在上一次没有搜索比特币钱包的安全性，也完全不懂为什么比特币钱包能查到真人，所以使用自己的比特币钱包进行敲诈勒索，然而事实证明，在有人报警后，崔大佐意识到自己可能被卷入勒索事件，于是崔大佐开启了第三代大脑升级历程<br>在本节中，崔大佐使用别人的比特币钱包进行敲诈勒索，可以概括总结为：“你敲诈，你勒索，我完完全全的好人” 其登录比特币官网，<a href=%22https://www.blockchain.com/explorer%22>https://www.blockchain.com/explorer</a> 专找交易量大的比特币钱包下手，其挑选出三个比特币账户作为其敲诈勒索的比特币钱包，之后开始大肆敲诈勒索：</p><ul><li>3PXFzHiZhAa7aYgZi9h9VgBnWvPVpEaEGL 和</li><li>3GvomSmgLhWmKR9LfEpgp7aicpsZPCeu4q 和</li><li>1A5PFH8NdhLy1raKXKxFoqUgMAPUaqivqp</li></ul><p>从全节点我们可以查出这些账号最近都进行了超过100比特币的资金流水，故文学博士崔大佐觉得可以掩人耳目，避免众人怀疑<br>在崔大佐完成了第三代大脑升级历程后，其注册了超过20个小号，向大量无辜up主发送敲诈勒索信息，并觉得可以以此挡刀，其恶劣行径甚至包括用不同小号向同一个up主发送两次敲诈勒索信息，以此来耀武扬威自己的三次大脑升级历程。<br>在此，被敲诈勒索的up们组成一个联盟，一起讨伐红警皇帝崔哲元。</p><p>确凿性分析</p><ul><li>崔大佐每一次与高雅人士互动后都会有人发起比特币敲诈勒索</li><li>从比特币账号可以推断出上述四个过程</li><li>崔大佐甚至向自己发送敲诈勒索信息并动态截图卖惨</li><li>崔大佐矢口否认发出敲诈勒索信息</li><li>最早的敲诈勒索信息可以追溯到崔大佐第一次与高雅人士互动</li><li>最晚的敲诈勒索信息截止到崔大佐户籍出道，之后短暂销声匿迹（大概是去报警了），可之后又开始活跃起来</li><li>最近与本站有联系的只有红警皇帝崔大佐和羊力大仙陈大佐，可是陈大佐被出道户籍后一瞬车软，之后迫真退站，虽然时不时诈尸几次，但想必已经彻底怂掉，所以不太可能是陈大佐所为</li><li>事件发展时间线与崔大佐完全吻合</li><li>陈大佐虽然是电脑中级高手，但比特币是怎么回事其大概还是清楚的，不会犯大脑降级这样的低级错误</li><li>崔大佐吃了陈大佐的人血馒头，之后陈大佐试图用崔大佐引流的时候，崔大佐又一把踹开：“羊力大仙爬。别想蹭我的文章。”进一步坐实了其借用陈大佐之名档刀本质</li><li>所以崔大佐是本次事件的主谋，请大家多多报警，以正义橄榄这个敲诈勒索的盈利抹黑废物</li></ul><p>在这里隔空喊话文学博士崔大佐，你的所作所为已经构成重刑事犯罪，最高至死刑（敲诈勒索了超过500比特币，折合美元5,649,600，人民币39,052,843），立刻乖乖伏法，不然让你吃不了兜着走。<br>也在这里警告试图多次档刀的崔大佐，你不懂技术，却偏偏要来招惹技术圈，用小号跑到陈大佐群里非法获取电子圈up主资料，之后进行高强度敲诈勒索还试图把这些罪名转移到陈大佐身上，陈大佐是人间之屑，那么你是什么？屑间之屑？<br>感谢向我提供勒索比特币账户的up们，在此为b站电子圈up主正名，我们与陈大佐没有任何关系，崔大佐的死妈行为会被我们继续挖掘和提交给检察机关以帮其入狱。</p><h3 id=品葱用户-asahiiori-评论于-2020-08-26>品葱用户 <strong>Asahiiori</strong> 评论于 2020-08-26</h3><p>陈大佐是谁(｡ŏ_ŏ)？</p><h3 id=品葱用户-小狗包帝-评论于-2020-08-27>品葱用户 <strong>小狗包帝</strong> 评论于 2020-08-27</h3><p>哈哈哈。整的挺好</p><h3 id=品葱用户-鸥鹭茫茫-评论于-2020-08-26>品葱用户 <strong>鸥鹭茫茫</strong> 评论于 2020-08-26</h3><p>这是楼主自己写的吗。<br>语言指纹很独特。如果你坚持这一写作习惯，别人很容易就侦察到你是谁了。</p><h3 id=品葱用户-d6bb3e7a295>品葱用户 **d6bb3e7a295</h3><p>鸥鹭茫茫** 评论于 2020-08-26</p><p>[</p><blockquote><p>这是楼主自己写的吗。语言指纹很独特。如果你坚持这一写作习惯，别人很容易就侦察到你是谁了。</p></blockquote><p>]( &ldquo;/article/item_id-481649#&rdquo;)<br>惡俗圈都是這個指紋</p><h3 id=品葱用户-鸥鹭茫茫>品葱用户 **鸥鹭茫茫</h3><p>d6bb3e7a295** 评论于 2020-08-27</p><p>[</p><blockquote><p>惡俗圈都是這個指紋</p></blockquote><p>]( &ldquo;/article/item_id-481650#&rdquo;)<br>但还要注意帐号关联 www</p><h3 id=品葱用户-沉默的火安静地烧>品葱用户 **沉默的火安静地烧</h3><p>鸥鹭茫茫** 评论于 2020-08-26</p><p>[</p><blockquote><p>这是楼主自己写的吗。语言指纹很独特。如果你坚持这一写作习惯，别人很容易就侦察到你是谁了。</p></blockquote><p>]( &ldquo;/article/item_id-481649#&rdquo;)<br>楼主直接在pincong自爆过自己的QQ<br>其实都不用侦察（</p><h3 id=品葱用户-北美carl>品葱用户 **北美carl</h3><p>鸥鹭茫茫** 评论于 2020-08-26</p><p>[</p><blockquote><p>这是楼主自己写的吗。语言指纹很独特。如果你坚持这一写作习惯，别人很容易就侦察到你是谁了。</p></blockquote><p>]( &ldquo;/article/item_id-481649#&rdquo;)<br>十分佩服</p><h3 id=品葱用户-observerie-评论于-2020-08-27>品葱用户 <strong>observerIE</strong> 评论于 2020-08-27</h3><p>人中之粪，和崔大佐比起来114514都显得气味清淡了。<br>希望早日联络好真人快打的事情。如果能把这个家伙睾丸活摘了就更好了。</p><h3 id=品葱用户-test_404>品葱用户 **test_404</h3><p>沉默的火安静地烧** 评论于 2020-08-26</p><blockquote><p><a href=%22/article/item_id-481730#%22>>></a>楼主直接在pincong自爆过自己的QQ其实都不用侦察（</p></blockquote><p>应该是挡刀身份之类的吧<br>不过一般人也不会想查证就是了</p><blockquote><p><a href=https://pincong.rocks/article/23440>点击品葱原文参与讨论</a></p></blockquote><h5><a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5></div><div class="col-lg-8 mx-auto block shadow"><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var t=document,e=t.createElement('script');e.async=!0,e.src='//pin-cong-jing-xuan.disqus.com/embed.js',e.setAttribute('data-timestamp',+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div class="col-lg-8 mx-auto block shadow"><h3>See Also</h3><div class=container><div class=row><div class="mx-auto px-0"><div class="bg-white shadow block"><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/fabf7d06edccdca38470cab894169a29/?utm_source=see_also&utm_medium=%25E5%258A%25A0%25E9%2580%259F%25E6%25A9%2584%25E6%25A6%2584%25E5%25B1%2591%25E7%25AB%2599up%25E4%25B8%25BB%25E8%2589%25BE%25E6%259C%25A8%25E9%25AD%2581%25E4%25B8%25BA%25E9%25BB%2591%25E5%25B1%2581%25E5%2593%2581%25E8%2591%25B1%25E5%2592%258Cesu%25E7%259B%2597%25E5%258F%25B7%25E5%258B%2592%25E7%25B4%25A2%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581">【esu维基恢复！】我宣布，我是新esu维基站长！</a></h2><p class=text-dark>https://esu.miraheze.org/wiki/首页
 恶俗百科已经成功运行一个月
-详见亚食人出道（我叶大師亲自开示亲自部署张大佐全家信息）https://esu.miraheze.org/wiki/ …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/8c838a6ef54af2c2eb969f35507340f8/?utm_source=see_also&utm_medium=%25E5%258A%25A0%25E9%2580%259F%25E6%25A9%2584%25E6%25A6%2584%25E5%25B1%2591%25E7%25AB%2599up%25E4%25B8%25BB%25E8%2589%25BE%25E6%259C%25A8%25E9%25AD%2581%25E4%25B8%25BA%25E9%25BB%2591%25E5%25B1%2581%25E5%2593%2581%25E8%2591%25B1%25E5%2592%258Cesu%25E7%259B%2597%25E5%258F%25B7%25E5%258B%2592%25E7%25B4%25A2%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581">【遗言】昨天死妈废物国安国保来找我了，我就算死也绝不认罪</a>
-</h2>
-<p class=text-dark>妈的，我用vpn+洋葱路由器国安还能找到我？之前粉蛆知道了我叫于昕卉，只可惜这只是我得挡刀皮囊，这帮根蛆永远想不到老娘真名叫什么，总有一天把这些傻逼国安国保全都正义出道了，全放到新的支纳维基和红岸基金会上面，让他们不得好死，脑瘫于志英警官， …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b8679c540b02f393147f4fdfb57824b0/?utm_source=see_also&utm_medium=%25E5%258A%25A0%25E9%2580%259F%25E6%25A9%2584%25E6%25A6%2584%25E5%25B1%2591%25E7%25AB%2599up%25E4%25B8%25BB%25E8%2589%25BE%25E6%259C%25A8%25E9%25AD%2581%25E4%25B8%25BA%25E9%25BB%2591%25E5%25B1%2581%25E5%2593%2581%25E8%2591%25B1%25E5%2592%258Cesu%25E7%259B%2597%25E5%258F%25B7%25E5%258B%2592%25E7%25B4%25A2%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581">【大快人心】批站up主艾木魁黑屁品葱，正义人士已光速出道（请加大宣传力度）</a>
-</h2>
-<p class=text-dark>出道页（此网址安全）
+详见亚食人出道（我叶大師亲自开示亲自部署张大佐全家信息）https://esu.miraheze.org/wiki/ …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/8c838a6ef54af2c2eb969f35507340f8/?utm_source=see_also&utm_medium=%25E5%258A%25A0%25E9%2580%259F%25E6%25A9%2584%25E6%25A6%2584%25E5%25B1%2591%25E7%25AB%2599up%25E4%25B8%25BB%25E8%2589%25BE%25E6%259C%25A8%25E9%25AD%2581%25E4%25B8%25BA%25E9%25BB%2591%25E5%25B1%2581%25E5%2593%2581%25E8%2591%25B1%25E5%2592%258Cesu%25E7%259B%2597%25E5%258F%25B7%25E5%258B%2592%25E7%25B4%25A2%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581">【遗言】昨天死妈废物国安国保来找我了，我就算死也绝不认罪</a></h2><p class=text-dark>妈的，我用vpn+洋葱路由器国安还能找到我？之前粉蛆知道了我叫于昕卉，只可惜这只是我得挡刀皮囊，这帮根蛆永远想不到老娘真名叫什么，总有一天把这些傻逼国安国保全都正义出道了，全放到新的支纳维基和红岸基金会上面，让他们不得好死，脑瘫于志英警官， …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b8679c540b02f393147f4fdfb57824b0/?utm_source=see_also&utm_medium=%25E5%258A%25A0%25E9%2580%259F%25E6%25A9%2584%25E6%25A6%2584%25E5%25B1%2591%25E7%25AB%2599up%25E4%25B8%25BB%25E8%2589%25BE%25E6%259C%25A8%25E9%25AD%2581%25E4%25B8%25BA%25E9%25BB%2591%25E5%25B1%2581%25E5%2593%2581%25E8%2591%25B1%25E5%2592%258Cesu%25E7%259B%2597%25E5%258F%25B7%25E5%258B%2592%25E7%25B4%25A2%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581">【大快人心】批站up主艾木魁黑屁品葱，正义人士已光速出道（请加大宣传力度）</a></h2><p class=text-dark>出道页（此网址安全）
 https://touhoujuan.miraheze.org/wiki/崔哲元
 批站黑屁（批站，tor访问）
-https://t.bilibili.com/427152132731065965 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/341c0795b65067dfcfc3565138267c4a/?utm_source=see_also&utm_medium=%25E5%258A%25A0%25E9%2580%259F%25E6%25A9%2584%25E6%25A6%2584%25E5%25B1%2591%25E7%25AB%2599up%25E4%25B8%25BB%25E8%2589%25BE%25E6%259C%25A8%25E9%25AD%2581%25E4%25B8%25BA%25E9%25BB%2591%25E5%25B1%2581%25E5%2593%2581%25E8%2591%25B1%25E5%2592%258Cesu%25E7%259B%2597%25E5%258F%25B7%25E5%258B%2592%25E7%25B4%25A2%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581">乾隆为什么要大兴文字狱</a>
-</h2>
-<p class=text-dark>乾隆朝的这些文字狱乍一看来实在无法理解。乾隆的处理方式,似乎只能用“丧心病狂”四个字来形容。阅读这些文字狱档案,让人不禁怀疑疯了的到底是乾隆还是“案犯”。
-对乾隆稍有了解的人都知道,这个人本身并不荒唐。他性格理智坚毅,处事精明细致,智商情商 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/41809a91eb3f10d2666637761e86f714/?utm_source=see_also&utm_medium=%25E5%258A%25A0%25E9%2580%259F%25E6%25A9%2584%25E6%25A6%2584%25E5%25B1%2591%25E7%25AB%2599up%25E4%25B8%25BB%25E8%2589%25BE%25E6%259C%25A8%25E9%25AD%2581%25E4%25B8%25BA%25E9%25BB%2591%25E5%25B1%2581%25E5%2593%2581%25E8%2591%25B1%25E5%2592%258Cesu%25E7%259B%2597%25E5%258F%25B7%25E5%258B%2592%25E7%25B4%25A2%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581">【ESU可以改变批站】小粉红治疗方案：杀鸡儆猴</a>
-</h2>
-<p class=text-dark>https://esu.miraheze.org/wiki/%E5%BC%A0%E4%BC%9F
+https://t.bilibili.com/427152132731065965 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/341c0795b65067dfcfc3565138267c4a/?utm_source=see_also&utm_medium=%25E5%258A%25A0%25E9%2580%259F%25E6%25A9%2584%25E6%25A6%2584%25E5%25B1%2591%25E7%25AB%2599up%25E4%25B8%25BB%25E8%2589%25BE%25E6%259C%25A8%25E9%25AD%2581%25E4%25B8%25BA%25E9%25BB%2591%25E5%25B1%2581%25E5%2593%2581%25E8%2591%25B1%25E5%2592%258Cesu%25E7%259B%2597%25E5%258F%25B7%25E5%258B%2592%25E7%25B4%25A2%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581">乾隆为什么要大兴文字狱</a></h2><p class=text-dark>乾隆朝的这些文字狱乍一看来实在无法理解。乾隆的处理方式,似乎只能用“丧心病狂”四个字来形容。阅读这些文字狱档案,让人不禁怀疑疯了的到底是乾隆还是“案犯”。
+对乾隆稍有了解的人都知道,这个人本身并不荒唐。他性格理智坚毅,处事精明细致,智商情商 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/41809a91eb3f10d2666637761e86f714/?utm_source=see_also&utm_medium=%25E5%258A%25A0%25E9%2580%259F%25E6%25A9%2584%25E6%25A6%2584%25E5%25B1%2591%25E7%25AB%2599up%25E4%25B8%25BB%25E8%2589%25BE%25E6%259C%25A8%25E9%25AD%2581%25E4%25B8%25BA%25E9%25BB%2591%25E5%25B1%2581%25E5%2593%2581%25E8%2591%25B1%25E5%2592%258Cesu%25E7%259B%2597%25E5%258F%25B7%25E5%258B%2592%25E7%25B4%25A2%25E6%25AF%2594%25E7%2589%25B9%25E5%25B8%2581">【ESU可以改变批站】小粉红治疗方案：杀鸡儆猴</a></h2><p class=text-dark>https://esu.miraheze.org/wiki/%E5%BC%A0%E4%BC%9F
 https://esu.miraheze.org/wiki/魏家夫
 也许我们能改变批站up猪的舔共风气！
-第一个是舔狗共防火墙的（高雅言论：墙 …</p>
-</article>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
-<footer class="py-4 bg-light border-top">
-<div class=container>
-<div class="row justify-content-between align-items-center">
-<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
-</div>
-<div class="col-lg-4 text-center mb-4 mb-lg-0">
-<ul class="list-inline mb-0">
-</ul>
-</div>
-<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
-<ul class="list-inline social-icon mb-0">
-<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
-<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
-</ul>
-</div>
-<div class="col-12 text-center mt-4">
-<span></span>
-</div>
-</div>
-</div>
-</footer>
-<script src=../../plugins/jQuery/jquery.min.js></script>
+第一个是舔狗共防火墙的（高雅言论：墙 …</p></article></div></div></div></div></div></div></div></div></section><script>var i,images=document.getElementsByTagName("img");for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../plugins/jQuery/jquery.min.js></script>
 <script src=../../plugins/bootstrap/bootstrap.min.js></script>
 <script src=../../plugins/search/fuse.min.js></script>
 <script src=../../plugins/search/mark.js></script>
 <script src=../../plugins/search/search.js></script>
 <script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
-</html>
+<script>(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body></html>

@@ -1,665 +1,130 @@
-<!doctype html><html lang=zh-cn><head>
-<meta charset=utf-8>
-<title>[iyouport] 报告：中国的防火长城已经封锁加密服务器名称指示（ESNI）</title>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name=description content=" 我们于2020年7月30日报告 (存档)中国封锁了带有ESNI扩展的TLS连接。初次封锁见于2020年7月29日。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>[iyouport] 报告：中国的防火长城已经封锁加密服务器名称指示（ESNI）</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 我们于2020年7月30日报告 (存档)中国封锁了带有ESNI扩展的TLS连接。初次封锁见于2020年7月29日。
 我们确认中国的防火长城（GFW）已经开始封锁ESNI这一TLS1.3和HTTPS的基础特性。我们在本文中实证性地展示如何触发审查，并研究”残余审查”的延续时长。 我们还将展示7种用Geneva发现的基于客户端或服务端的绕过审查策略。
 什么是加密服务器名称指示（ESNI）？
 TLS是网络通讯的安全基础（HTTPS）。TLS提供的认证加密使得用户可以确定他们在与谁通讯， 并确保通讯信息不被中间人看到或篡改。 虽然TLS可以隐藏用户通讯的_内容_，但其并不能总是隐藏与用户通讯的_对象_。 比如TLS握手可以携带一个叫做加密服务器名称指示（SNI）的扩展, 这个扩展帮助客户端告诉服务器其想要访问的网站的域名。 包括中国在内的审查者利用这一扩展来检查并阻止用户访问特定的网站。
 TLS1.3引入了加密SNI（ESNI）。 简而言之就是用加密了的SNI阻止中间人查看客户端要访问的特定网站。 （更多ESNI的益处请见Cloudflare的介绍文章）。 ESNI有让审查HTTPS流量变得更加困难的潜能; 因为不知道用户使用ESNI访问的网站，审查者要么不封锁任何ESNI连接，要么封锁所有的ESNI连接。 我们现在确认中国的审查者选择了后者。
 主要结论
-  GFW通过丢弃从客户端到服务器的数据包来阻止ESNI连接。
-  封锁可以从GFW内外双向触发。
-  0xffce 扩展标识是触发封堵的必要条件。
-  封锁可以发生在1到65535的所有端口上。
-  一旦GFW阻断了一个连接，残留的审查就会继续阻断与（原IP，目标IP，目标端口）三元组相关的所有TCP流量，持续120或180秒。
-  我们已经发现了6种可以部署于客户端和4种可以部署于服务端的规避策略。
-  我们是怎么知道的？
+GFW通过丢弃从客户端到服务器的数据包来阻止ESNI连接。
+封锁可以从GFW内外双向触发。
+0xffce 扩展标识是触发封堵的必要条件。
+封锁可以发生在1到65535的所有端口上。
+一旦GFW阻断了一个连接，残留的审查就会继续阻断与（原IP，目标IP，目标端口）三元组相关的所有TCP流量，持续120或180秒。
+我们已经发现了6种可以部署于客户端和4种可以部署于服务端的规避策略。
+我们是怎么知道的？
 我们写了一个简单的Python程序，它可以：
- 完成与指定服务器的TCP握手； 然后发送一个带有ESNI扩展名的TLS ClientHello消息；ClientHello的指纹和Firefox 79.0所发送的一样正常。  我们让程序发送带有ESNI的ClientHello消息。我们既尝试了从墙内向墙外发送，也尝试了从墙外向墙内发送。我们同时采集客户端和服务端两边的流量进行分析，我们确保发送ClientHello的服务器会完成TCP握手，但不会向客户端发送任何数据包，也不会首先关闭连接。所有的实验都在7月30日到8月6日之间进行。
+完成与指定服务器的TCP握手； 然后发送一个带有ESNI扩展名的TLS ClientHello消息；ClientHello的指纹和Firefox 79.0所发送的一样正常。 我们让程序发送带有ESNI的ClientHello消息。我们既尝试了从墙内向墙外发送，也尝试了从墙外向墙内发送。我们同时采集客户端和服务端两边的流量进行分析，我们确保发送ClientHello的服务器会完成TCP握手，但不会向客户端发送任何数据包，也不会首先关闭连接。所有的实验都在7月30日到8月6日之间进行。
 关于封锁的细节
-通过丢弃数据包来阻止，而不是注入RST ">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
-<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
-<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
-<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<meta name=twitter:card content="summary_large_image">
-<meta name=og:title content=" [iyouport] 报告：中国的防火长城已经封锁加密服务器名称指示（ESNI） ">
-<meta name=og:description content=" 我们于2020年7月30日报告 (存档)中国封锁了带有ESNI扩展的TLS连接。初次封锁见于2020年7月29日。
+通过丢弃数据包来阻止，而不是注入RST
+对比两端捕获的流量，我们发现GFW通过丢弃从客户端到服务器的数据包来阻止ESNI连接。
+这与GFW对其他常用协议的阻断方式有两点不同。 首先，GFW审查SNI和HTTP的方式是向服务器和客户端注入伪造的TCP RST。但是我们没有观察到GFW注入任何数据包来阻断ESNI流量。其次，GFW通过丢弃_服务器到客户端_的流量封锁Tor和Shadowsocks服务器的端口和IP；然而，GFW会丢弃_客户端到服务器_的ESNI流量。
+我们还注意到，GFW在丢弃TCP包时，并不区分TCP包的标志。（这与伊朗的一些审查系统不同，后者不丢弃带有RST或FIN标志的数据包。）
+封堵可以双向触发
+我们发现封堵是可以双向触发的。 换句话说，从防火墙外向防火墙内发送一个ESNI握手，和从防火墙内向外发送一样，都可以触发审查。
+得益于这种双向性，人们可以在不控制任何位于中国的服务器的情况下，从GFW外部远程测试这种基于ESNI的审查。 我们指出，除了ESNI审查外，GFW对DNS、HTTP、SNI、FTP、SMTP和Shadowsocks的审查也可以从墙外进行测量。
+GFW对ESNI进行审查，但不封锁没有SNI扩展的ClientHello
+我们确认没有ESNI和SNI扩展的TLS ClientHello不能触发封锁。 换句话说，
+encrypted\_server\_name 扩展的 "><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" [iyouport] 报告：中国的防火长城已经封锁加密服务器名称指示（ESNI） "><meta name=og:description content=" 我们于2020年7月30日报告 (存档)中国封锁了带有ESNI扩展的TLS连接。初次封锁见于2020年7月29日。
 我们确认中国的防火长城（GFW）已经开始封锁ESNI这一TLS1.3和HTTPS的基础特性。我们在本文中实证性地展示如何触发审查，并研究”残余审查”的延续时长。 我们还将展示7种用Geneva发现的基于客户端或服务端的绕过审查策略。
 什么是加密服务器名称指示（ESNI）？
 TLS是网络通讯的安全基础（HTTPS）。TLS提供的认证加密使得用户可以确定他们在与谁通讯， 并确保通讯信息不被中间人看到或篡改。 虽然TLS可以隐藏用户通讯的_内容_，但其并不能总是隐藏与用户通讯的_对象_。 比如TLS握手可以携带一个叫做加密服务器名称指示（SNI）的扩展, 这个扩展帮助客户端告诉服务器其想要访问的网站的域名。 包括中国在内的审查者利用这一扩展来检查并阻止用户访问特定的网站。
 TLS1.3引入了加密SNI（ESNI）。 简而言之就是用加密了的SNI阻止中间人查看客户端要访问的特定网站。 （更多ESNI的益处请见Cloudflare的介绍文章）。 ESNI有让审查HTTPS流量变得更加困难的潜能; 因为不知道用户使用ESNI访问的网站，审查者要么不封锁任何ESNI连接，要么封锁所有的ESNI连接。 我们现在确认中国的审查者选择了后者。
 主要结论
-  GFW通过丢弃从客户端到服务器的数据包来阻止ESNI连接。
-  封锁可以从GFW内外双向触发。
-  0xffce 扩展标识是触发封堵的必要条件。
-  封锁可以发生在1到65535的所有端口上。
-  一旦GFW阻断了一个连接，残留的审查就会继续阻断与（原IP，目标IP，目标端口）三元组相关的所有TCP流量，持续120或180秒。
-  我们已经发现了6种可以部署于客户端和4种可以部署于服务端的规避策略。
-  我们是怎么知道的？
+GFW通过丢弃从客户端到服务器的数据包来阻止ESNI连接。
+封锁可以从GFW内外双向触发。
+0xffce 扩展标识是触发封堵的必要条件。
+封锁可以发生在1到65535的所有端口上。
+一旦GFW阻断了一个连接，残留的审查就会继续阻断与（原IP，目标IP，目标端口）三元组相关的所有TCP流量，持续120或180秒。
+我们已经发现了6种可以部署于客户端和4种可以部署于服务端的规避策略。
+我们是怎么知道的？
 我们写了一个简单的Python程序，它可以：
- 完成与指定服务器的TCP握手； 然后发送一个带有ESNI扩展名的TLS ClientHello消息；ClientHello的指纹和Firefox 79.0所发送的一样正常。  我们让程序发送带有ESNI的ClientHello消息。我们既尝试了从墙内向墙外发送，也尝试了从墙外向墙内发送。我们同时采集客户端和服务端两边的流量进行分析，我们确保发送ClientHello的服务器会完成TCP握手，但不会向客户端发送任何数据包，也不会首先关闭连接。所有的实验都在7月30日到8月6日之间进行。
+完成与指定服务器的TCP握手； 然后发送一个带有ESNI扩展名的TLS ClientHello消息；ClientHello的指纹和Firefox 79.0所发送的一样正常。 我们让程序发送带有ESNI的ClientHello消息。我们既尝试了从墙内向墙外发送，也尝试了从墙外向墙内发送。我们同时采集客户端和服务端两边的流量进行分析，我们确保发送ClientHello的服务器会完成TCP握手，但不会向客户端发送任何数据包，也不会首先关闭连接。所有的实验都在7月30日到8月6日之间进行。
 关于封锁的细节
-通过丢弃数据包来阻止，而不是注入RST ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/196.jpg">
-<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+通过丢弃数据包来阻止，而不是注入RST
+对比两端捕获的流量，我们发现GFW通过丢弃从客户端到服务器的数据包来阻止ESNI连接。
+这与GFW对其他常用协议的阻断方式有两点不同。 首先，GFW审查SNI和HTTP的方式是向服务器和客户端注入伪造的TCP RST。但是我们没有观察到GFW注入任何数据包来阻断ESNI流量。其次，GFW通过丢弃_服务器到客户端_的流量封锁Tor和Shadowsocks服务器的端口和IP；然而，GFW会丢弃_客户端到服务器_的ESNI流量。
+我们还注意到，GFW在丢弃TCP包时，并不区分TCP包的标志。（这与伊朗的一些审查系统不同，后者不丢弃带有RST或FIN标志的数据包。）
+封堵可以双向触发
+我们发现封堵是可以双向触发的。 换句话说，从防火墙外向防火墙内发送一个ESNI握手，和从防火墙内向外发送一样，都可以触发审查。
+得益于这种双向性，人们可以在不控制任何位于中国的服务器的情况下，从GFW外部远程测试这种基于ESNI的审查。 我们指出，除了ESNI审查外，GFW对DNS、HTTP、SNI、FTP、SMTP和Shadowsocks的审查也可以从墙外进行测量。
+GFW对ESNI进行审查，但不封锁没有SNI扩展的ClientHello
+我们确认没有ESNI和SNI扩展的TLS ClientHello不能触发封锁。 换句话说，
+encrypted\_server\_name 扩展的 "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/47.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
-</head>
-<body>
-<header class="fixed-top navigation">
-<div class=container>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class="ti-menu h3"></i>
-</button>
-<div class="collapse navbar-collapse text-center" id=navigation>
-<ul class="navbar-nav ml-auto">
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</header> <div class="py-5 d-none d-lg-block"></div>
-<section class=main-content>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 mx-auto block shadow mb-5">
-<h2>[iyouport] 报告：中国的防火长城已经封锁加密服务器名称指示（ESNI）</h2>
-<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/solids>Solids</a></span>,
+<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=main-content><div class=container><div class=row><div class="col-lg-8 mx-auto block shadow mb-5"><h2>[iyouport] 报告：中国的防火长城已经封锁加密服务器名称指示（ESNI）</h2><div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/solids>Solids</a></span>,
 <span>at 08 August 2020</span>, tags :
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e5%b1%8f%e8%94%bd>屏蔽</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e5%ae%a1%e6%9f%a5>审查</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e4%ba%92%e8%81%94%e7%bd%91>互联网</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/gfw%e9%98%b2%e7%81%ab%e5%a2%99>Gfw防火墙</a>
 <a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/38b26b4c5f4cad9eb924c9e1140e1da3.md style=color:gray><strong><i>点击纠错</i></strong></a>
-<i> </i>
-<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/38b26b4c5f4cad9eb924c9e1140e1da3.md style=color:gray><strong><i>点击删除</i></strong></a>
-</div>
-<h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
-<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
-<p></p>
-<p>我们于2020年7月30日<a href=%22https://mailarchive.ietf.org/arch/msg/tls/YzT5LjLJ_6WWhdnU2wVsKNKR6_I/%22>报告</a> (<a href=%22https://web.archive.org/web/20200801221253/https://mailarchive.ietf.org/arch/msg/tls/YzT5LjLJ_6WWhdnU2wVsKNKR6_I/%22>存档</a>)中国封锁了带有ESNI扩展的TLS连接。初次封锁见于2020年7月29日。</p>
-<p>我们确认中国的防火长城（GFW）已经开始封锁ESNI这一TLS1.3和HTTPS的基础特性。我们在本文中实证性地展示如何触发审查，并研究”残余审查”的延续时长。 我们还将展示7种用<a href=%22https://geneva.cs.umd.edu%22>Geneva</a>发现的基于客户端或服务端的绕过审查策略。</p>
-<p>什么是加密服务器名称指示（ESNI）？<br>
-TLS是网络通讯的安全基础（HTTPS）。TLS提供的认证加密使得用户可以确定他们在与谁通讯， 并确保通讯信息不被中间人看到或篡改。 虽然TLS可以隐藏用户通讯的_内容_，但其并不能总是隐藏与用户通讯的_对象_。 比如TLS握手可以携带一个叫做加密服务器名称指示（SNI）的扩展, 这个扩展帮助客户端告诉服务器其想要访问的网站的域名。 包括中国在内的审查者利用这一扩展来检查并阻止用户访问特定的网站。</p>
-<p>TLS1.3引入了加密SNI（ESNI）。 简而言之就是用加密了的SNI阻止中间人查看客户端要访问的特定网站。 （更多ESNI的益处请见<a href=%22https://blog.cloudflare.com/encrypted-sni/%22>Cloudflare的介绍文章</a>）。 ESNI<a href=%22https://www.usenix.org/system/files/foci19-paper_chai_update.pdf%22>有让审查HTTPS流量变得更加困难的潜能</a>; 因为不知道用户使用ESNI访问的网站，审查者要么不封锁任何ESNI连接，要么封锁所有的ESNI连接。 我们现在确认中国的审查者选择了后者。</p>
-<p>主要结论</p>
-<ul>
-<li>
-<p>GFW通过丢弃从客户端到服务器的数据包来阻止ESNI连接。</p>
-</li>
-<li>
-<p>封锁可以从GFW内外双向触发。</p>
-</li>
-<li>
-<pre tabindex=0><code>0xffce
-</code></pre><p>扩展标识是触发封堵的必要条件。</p>
-</li>
-<li>
-<p>封锁可以发生在1到65535的所有端口上。</p>
-</li>
-<li>
-<p>一旦GFW阻断了一个连接，残留的审查就会继续阻断与（原IP，目标IP，目标端口）三元组相关的所有TCP流量，持续120或180秒。</p>
-</li>
-<li>
-<p>我们已经发现了6种可以部署于客户端和4种可以部署于服务端的规避策略。</p>
-</li>
-</ul>
-<p>我们是怎么知道的？<br>
-我们写了一个简单的Python程序，它可以：</p>
-<ol>
-<li>完成与指定服务器的TCP握手；</li>
-<li>然后发送一个带有ESNI扩展名的TLS ClientHello消息；ClientHello的指纹和Firefox 79.0所发送的一样正常。</li>
-</ol>
-<p>我们让程序发送带有ESNI的ClientHello消息。我们既尝试了从墙内向墙外发送，也尝试了从墙外向墙内发送。我们同时采集客户端和服务端两边的流量进行分析，我们确保发送ClientHello的服务器会完成TCP握手，但不会向客户端发送任何数据包，也不会首先关闭连接。所有的实验都在7月30日到8月6日之间进行。</p>
-<p>关于封锁的细节</p>
-<p>通过丢弃数据包来阻止，而不是注入RST<br>
-对比两端捕获的流量，我们发现GFW通过丢弃从客户端到服务器的数据包来阻止ESNI连接。</p>
-<p>这与GFW对其他常用协议的阻断方式有两点不同。 首先，GFW审查SNI和HTTP的方式是向服务器和客户端注入伪造的TCP RST。但是我们没有观察到GFW注入任何数据包来阻断ESNI流量。其次，GFW通过丢弃_服务器到客户端_的流量封锁Tor和<a href=%22https://gfw.report/blog/gfw_shadowsocks%22>Shadowsocks</a>服务器的端口和IP；然而，GFW会丢弃_客户端到服务器_的ESNI流量。</p>
-<p>我们还注意到，GFW在丢弃TCP包时，并不区分TCP包的标志。（这与伊朗的一些审查系统不同，后者不丢弃带有RST或FIN标志的数据包。）</p>
-<p>封堵可以双向触发<br>
-我们发现封堵是可以双向触发的。 换句话说，从防火墙外向防火墙内发送一个ESNI握手，和从防火墙内向外发送一样，都可以触发审查。</p>
-<p>得益于这种双向性，人们可以在不控制任何位于中国的服务器的情况下，从GFW外部远程测试这种基于ESNI的审查。 我们指出，除了ESNI审查外，GFW对DNS、HTTP、SNI、FTP、SMTP和Shadowsocks的审查也可以从墙外进行测量。</p>
-<p>GFW对ESNI进行审查，但不封锁没有SNI扩展的ClientHello<br>
-我们确认没有ESNI和SNI扩展的TLS ClientHello不能触发封锁。 换句话说，</p>
-<pre tabindex=0><code>encrypted\_server\_name 
-</code></pre><p>扩展的</p>
-<pre tabindex=0><code>0xffce 
-</code></pre><p>扩展标识是触发封堵的必要条件。</p>
-<p>我们将ClientHello中的</p>
-<pre tabindex=0><code>0xffce
-</code></pre><p>替换为</p>
-<pre tabindex=0><code>0x7777
-</code></pre><p>然后进行测试。替换后，发送这样的ClientHello就不能再触发封锁了。</p>
-<p>这个确认是很重要的，因为有人观察到其他审查者可能会屏蔽<a href=%22https://github.com/net4people/bbs/issues/10#issuecomment-532035677%22>任何没有SNI扩展的ClientHello消息</a>，这将导致ESNI和<a href=%22https://tlsfingerprint.io/static/frolov2019.pdf%22>无SNI</a>都会被屏蔽。</p>
-<p>新的扩展值还未被封锁<br>
-<a href=%22https://pad.riseup.net/p/xCRfphD5CoxmbFcpc1s2%22>riseup pad</a>上的匿名人士指出， 现有的ESNI使用</p>
-<pre tabindex=0><code>0xffce
-</code></pre><p>作为扩展值（详见 <a href=%22https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-01%22>Section 8.1</a>）。 但时新的ECH使用</p>
-<pre tabindex=0><code>0xff02
-</code></pre><p>，</p>
-<pre tabindex=0><code>0xff03
-</code></pre><p>和</p>
-<pre tabindex=0><code>0xff04
-</code></pre><p>作为扩展值（<a href=%22https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-07%22>Section 11.1</a>). 我们确认这些新的扩展值还未被封锁。</p>
-<p>具体而言， 我们把一个能够触发审查的ClientHello的</p>
-<pre tabindex=0><code>0xffce
-</code></pre><p>替换为了</p>
-<pre tabindex=0><code>0xff02
-</code></pre><p>，</p>
-<pre tabindex=0><code>0xff03
-</code></pre><p>和</p>
-<pre tabindex=0><code>0xff04
-</code></pre><p>。 发送修改后的ClientHello不能触发审查。</p>
-<p>GFW需要看到一个完整的TCP握手以触发ESNI封锁<br>
-我们发现GFW需要看到一个完整的TCP握手以触发ESNI封锁。</p>
-<p>我们从外部对中国的服务器进行了两次实验。在第一个实验中，在没有发送任何SYN包的情况下，我们的客户端每2秒发送一个带ESNI扩展的ClientHello消息。在第二个实验中，我们的客户端每2秒发送一个SYN数据包和一个带ESNI扩展的ClientHello消息；但服务器不会响应任何数据包（也不会发送SYN+ACK来完成握手）。</p>
-<p>在每次实验中，我们都发送了10条ClientHello消息。结果发现没有触发过任何审查或残余审查。所有的ClientHello消息实际上都到达了服务器。这个结果表明，在触发基于ESNI的审查之前，TCP握手是必要条件。 这也表明，与GFW基于SNI的审查机类似，ESNI的审查机也是有状态的。</p>
-<p>封锁发生在所有端口上<br>
-我们发现ESNI封锁不仅会发生在443端口，也会发生在1到65535的所有端口。</p>
-<p>具体来说，我们从外部向中国服务器的1-65535的每个端口连续发送了两次ESNI握手。 对于每个端口，我们先发送一次ESNI握手；然后在连接超时后（20秒后），我们再尝试与服务器完成一次TCP握手。如果第二次没有收到服务器发来的SYN+ACK，我们就认为该端口被封锁了。 结果是，在1到65535的所有端口上都观察到了对ESNI的封锁。这个特性可以让我们高效地测试ESNI封锁，因为我们可以对同一IP地址的多个端口进行同时测试。</p>
-<p>审查残留<br>
-我们发现在阻断ESNI握手后，GFW会继续阻断与（源IP，目标IP，目标端口)3元组相关的任何连接一段时间。确切的审查残留时间可能会有所不同。我们观察到它有时持续120秒，有时持续180秒。我们注意到，在残留审查时间内发送额外的ESNI握手不会重置审查持续的定时器。这与之前观察到的基于SNI的拦截GFW的残余审查类似；而且它与伊朗的残余审查不同，在伊朗，<a href=%22https://geneva.cs.umd.edu/posts/iran-whitelister/%22>定时器将被重置</a>。</p>
-<p>这些发现部分基于以下实验。从外部，我们每秒向中国服务器的443端口发送一条ClientHello消息。 第一秒，第二秒和第121秒的TCP握手被接受。其他所有的握手尝试都不成功，因为由于残留的审查，</p>
-<pre tabindex=0><code>SYN
-</code></pre><p>包甚至没有到达服务器。</p>
-<p>这个结果表明，与之前发现的GFW对SNI的残留审查类似，GFW也对ESNI也采用了残留审查。此外，第二秒的握手可以完成，意味着GFW至少需要1秒的时间来反应并启用拦截规则。</p>
-<p>如何规避封锁？<br>
-**Geneva(_Gen_etic _Eva_sion)**是我们中位于马里兰大学的研究人员开发的一种遗传算法，它在进化过程中自动发现新的审查规避策略。 它在不影响原始连接的前提下，通过注入、替换、分割或丢弃数据包流来迷惑审查者。 与大多数反审查系统不同的是，它不需要在连接的两端都进行部署：它只在一方（客户端或服务器）运行。</p>
-<p>Geneva利用审查机器来实时地训练自己的遗传算法。 截至今日，其已经找到了许多可以规避不同国家审查的策略。 Geneva的审查规避策略描述了应该如何修改流量。 由于Geneva将不断发展这些策略，因此它们用领域特定语言(domain-specific language)来表达，这些语言构成了每个策略的 “DNA”。(关于Geneva的完整代码及文档，请参见<a href=%22https://github.com/kkevsterrr/geneva%22>我们的Github页面</a>)。</p>
-<p>要了解更多关于Geneva（或Geneva策略引擎）工作原理的信息，请参阅我们的<a href=%22https://geneva.cs.umd.edu/papers%22>论文</a>或<a href=%22https://geneva.cs.umd.edu/about%22>关于</a>页面。</p>
-<p>为了让Geneva能够直接利用GFW对ESNI审查进行训练，我们写了一个自定义的插件来执行以下步骤。</p>
-<ol>
-<li>
-<p>Geneva在位于墙外的TCP服务器上随机开放一个端口。随机开放端口是为了避免此前审查的残留。</p>
-</li>
-<li>
-<p>Geneva驱动一个位于中国境内的TCP客户端连接到服务器。</p>
-</li>
-<li>
-<p>客户端发送一个带有加密SNI（ESNI）扩展的TLS 1.3 ClientHello。</p>
-</li>
-<li>
-<p>客户端休眠2秒，等待GFW审查机制启动。</p>
-</li>
-<li>
-<p>客户端发送一个简短的测试消息</p>
-<pre tabindex=0><code>&quot;test&quot;
-</code></pre><p>来测试是否已经被审查。</p>
-</li>
-<li>
-<p>重复步骤4和5。</p>
-</li>
-<li>
-<p>服务器确认是否收到了客户端发送的完整的TLS ClientHello以及测试消息。如果收到了，该策略就会得到正向的适合度奖励；如果没有收到（或者客户端在发送测试消息时超时了），该策略就会受到惩罚。</p>
-</li>
-</ol>
-<p>利用这个适合度函数，Geneva可以直接针对ESNI审查制度测试和训练策略。 在_短短几个小时内_，它就发现了多个绕过审查的策略。在本节中，我们将详细描述它们。</p>
-<p>Geneva策略引擎在<a href=%22https://github.com/kkevsterrr/geneva%22>我们的Github</a>上是开源的，所以所有这些策略都可以被任何人部署和使用。由于它们在 TCP 层运行，因此可以应用于任何需要使用 ESNI 的应用程序：随着 Geneva 的运行，即使是未经修改的网络浏览器也可以成为一个简单的审查规避工具。</p>
-<p>请注意，Geneva_不是_通用的翻墙软件，也不提供任何额外的加密、隐私或保护。它是一个测试版的研究原型，而且它并没有针对速度进行优化。使用这些策略，风险自担。</p>
-<p>策略<br>
-我们在48小时的时间里，从客户端和服务器端对Geneva进行了训练。我们总共发现了6种策略来打败对ESNI的封锁机制。其中有4个可以在服务器端使用，所有6个都可以在客户端使用。</p>
-<p>以下是TCP层的策略，只需部署在客户端，即可击败针对ESNI的封锁。</p>
-<p><strong>策略 1: 三重</strong></p>
-<pre tabindex=0><code>SYN
-</code></pre><p>第一种客户端策略的工作原理是用_三个_</p>
-<pre tabindex=0><code>SYN
-</code></pre><p>数据包启动TCP的三次握手，这样第三个</p>
-<pre tabindex=0><code>SYN
-</code></pre><p>的序列号就是错误的。</p>
-<p>在Geneva的语法中，这个策略是这样的：</p>
-<pre tabindex=0><code>\[TCP:flags:S\]-duplicate(duplicate,tamper{TCP:seq:corrupt})-| \\/
-</code></pre><p>这种策略是对于GFW的跳出同步攻击（synchronization attack）。GFW会转而追踪这个新的错误序列号，而错过ESNI请求。</p>
-<p>这个策略也可以部署在服务端：</p>
-<pre tabindex=0><code>\[TCP:flags:SA\]-tamper{TCP:flags:replace:S}(duplicate(duplicate,tamper{TCP:seq:corrupt}),)-| \\/
-</code></pre><p>虽然这种策略使得服务器永远不会发送</p>
-<pre tabindex=0><code>SYN+ACK
-</code></pre><p>数据包，但这并不会破坏三次握手。在三次握手过程中，服务器没有像往常一样发送一个</p>
-<pre tabindex=0><code>SYN+ACK
-</code></pre><p>数据包，而是发送三个</p>
-<pre tabindex=0><code>SYN
-</code></pre><p>数据包（第三个数据包的校验和是错误的）。</p>
-<p>第一个</p>
-<pre tabindex=0><code>SYN
-</code></pre><p>数据包的作用是启动TCP的同步打开（Simultaneous Open），这是所有主流操作系统都支持的一个古老的TCP功能，用于处理两个TCP栈同时发送</p>
-<pre tabindex=0><code>SYN
-</code></pre><p>数据包的情况。当客户端收到服务器发送的</p>
-<pre tabindex=0><code>SYN
-</code></pre><p>时，客户端发送一个</p>
-<pre tabindex=0><code>SYN+ACK 
-</code></pre><p>数据包，服务器响应一个</p>
-<pre tabindex=0><code>ACK 
-</code></pre><p>来完成握手。这样就有效地将传统的三次握手改为四次握手。带有损坏序列号的</p>
-<pre tabindex=0><code>SYN
-</code></pre><p>使GFW跳出同步（但被客户端忽略），成功地击败了封锁机制的同时并不伤害到原有连接。</p>
-<p><strong>策略2：四字节分割</strong></p>
-<p>我们发现的下一个策略也可以从客户端或服务器使用。在这个策略中，客户端将ESNI请求分为两段TCP发送，第一段TCP的长度小于或等于4个字节。</p>
-<p>客户端策略的Geneva语法是这样的：</p>
-<pre tabindex=0><code>\[TCP:flags:PA\]-fragment{tcp:4:True}-| \\/
-</code></pre><p>这已经不是Geneva第一次发现分段策略，但令人惊讶的是，这种策略在中国竟然有效。毕竟防火长城拥有著名的TCP重建能力已经有近十年了（见<a href=%22https://github.com/NullHypothesis/brdgrd%22>brdgrd</a>）。TLS头是5个字节长，所以我们推测，像这样将TLS头分割到多个数据包中，打破了GFW将包含ESNI的数据包识别为TLS的能力。这对GFW如何通过指纹识别连接有有趣的影响：它表明GFW中负责识别的组件并不能从TCP层面中重组所有的上层协议。这一理论得到了Geneva过去所发现的其他基于分段的策略的支持（详见<a href=%22https://geneva.cs.umd.edu/papers/come-as-you-are.pdf%22>这篇论文</a>）。</p>
-<p>这个策略也可以从服务器端触发。通过在三次握手期间减少TCP窗口大小，服务器可以强制客户端分割请求。在Geneva的语法中，可以通过以下方式实现：</p>
-<pre tabindex=0><code>\[TCP:flags:SA\]-tamper{TCP:window:replace:4}-| \\/
-</code></pre><p><strong>策略3：TCB Teardown</strong></p>
-<p>下一个策略是经典的TCB（TCP Control Block）Teardown：客户端向连接中注入一个带有错误的校验和的</p>
-<pre tabindex=0><code>RST
-</code></pre><p>数据包。这将欺骗GFW，使其认为连接已被中断。</p>
-<p>在Geneva的语法中，这个策略看起来是这样的：</p>
-<pre tabindex=0><code>\[TCP:flags:A\]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{TCP:chksum:corrupt},))-| \\/
-</code></pre><p>TCB Teardowns并不是什么新鲜事：<a href=%22https://www.usenix.org/conference/foci13/workshop-program/presentation/khattak%22>Khattak et al.</a>在几乎十年前就已经演示过了，Geneva过去也多次发现了针对GFW的<a href=%22https://geneva.cs.umd.edu/papers/geneva_ccs19.pdf%22>Teardown攻击</a>。</p>
-<p>令人惊讶的是，这种策略也可以从服务器端诱导。 在三次握手过程中，服务器可以发送一个带有错误ACK的</p>
-<pre tabindex=0><code>SYN+ACK
-</code></pre><p>数据包，从而诱导客户端发送</p>
-<pre tabindex=0><code>RST
-</code></pre><p>。这将导致</p>
-<pre tabindex=0><code>RST
-</code></pre><p>的序列号不正确（ACK为0，但仍足以引起TCB Teardown）。</p>
-<p><strong>策略4：</strong></p>
-<pre tabindex=0><code>FIN+SYN
-</code></pre><p>下一个策略似乎是另一种角度的跳出同步攻击。在这一策略中，客户端（或服务器）发送一个数据包，在三次握手过程中同时设置</p>
-<pre tabindex=0><code>FIN 
-</code></pre><p>和</p>
-<pre tabindex=0><code>SYN
-</code></pre><p>。 客户端的Geneva语法是</p>
-<pre tabindex=0><code>\[TCP:flags:A\]-duplicate(tamper{TCP:flags:replace:FS},)-| \\/
-</code></pre><p>服务端的Geneva语法是</p>
-<pre tabindex=0><code>\[TCP:flags:SA\]-duplicate(tamper{TCP:flags:replace:FS},)-| \\/
-</code></pre><p>在过去，我们发现GFW在对其他协议进行审查时，对</p>
-<pre tabindex=0><code>FIN
-</code></pre><p>数据包有特殊的处理。 似乎</p>
-<pre tabindex=0><code>FIN
-</code></pre><p>的出现会使GFW立即同步到对当前连接的跟踪，但</p>
-<pre tabindex=0><code>SYN
-</code></pre><p>的出现会使它认为实际的序列号与实际值相差</p>
-<pre tabindex=0><code>+1
-</code></pre><p>，使GFW与实际连接偏离1。</p>
-<p>我们对以上假设进行了测试：在这个策略运行的时候，将客户端实际请求的序列号增加1后，连接被阻断了。</p>
-<p>在服务端，这个策略不需要</p>
-<pre tabindex=0><code>FIN
-</code></pre><p>就可以运行。</p>
-<p><strong>策略5：TCB Turnaround</strong></p>
-<p>TCB Turnaround策略很简单：在客户端发起三次握手之前，首先向服务器发送一个</p>
-<pre tabindex=0><code>SYN+ACK
-</code></pre><p>数据包。</p>
-<pre tabindex=0><code>SYN+ACK
-</code></pre><p>使让GFW混淆了客户机和服务器的角色，从而使客户端能够不受阻碍地进行通信。TCB Turnaround攻击在哈萨克斯坦仍然有效，但在GFW上，TCB Turnaround攻击对其他协议不起作用。</p>
-<p>在Geneva的语法中：</p>
-<pre tabindex=0><code>\[TCP:flags:S\]-duplicate(tamper{TCP:flags:replace:SA},)-| \\/
-</code></pre><p>该策略只适用于客户端，因为当</p>
-<pre tabindex=0><code>SYN
-</code></pre><p>数据包到达服务器时，GFW已经知道哪一方是客户端了。</p>
-<p><strong>策略6：TCB 跳出同步</strong></p>
-<p>最后，Geneva发现了简单的基于载荷的TCB跳出攻击。从客户端，注入一个带有载荷和错误的校验和的数据包就足以使GFW跳出对当前连接的同步。 Geneva在研究GFW对其他协议的审查时，已经发现过这一策略了。</p>
-<p>Geneva的语法是这样的</p>
-<pre tabindex=0><code>\[TCP:flags:A\]-duplicate(tamper{TCP:load:replace:AAAAAAAAAA}(tamper{TCP:chksum:corrupt},),)-|
-</code></pre><p>这个策略不能在服务器端使用。</p>
-<p>对审查规避策略的总结<br>
-我们已经找到6种可以部署在客户端，和4种可以部署在服务端的审查规避策略。 每一种都有近乎100%的可靠性，并可以用于规避针对ESNI的审查。 遗憾的是，这些策略并非是一劳永逸的：就像猫捉老鼠一般，防火长城也会继续提升其审查能力。</p>
-<p>未解决的问题<br>
-我们仍不清楚为和会观察到不同的残余审查时长。 与所有类似研究一样，在与我们所用节点不同的中国地区，可能存在着不同于我们所观察到的审查的方式。 如果你观察到了不同与上述的审查方式，或者我们的审查规避策略对你并不奏效， 尽请联系我们。</p>
-<p>鸣谢<br>
-我们想在此感谢所有在<a href=%22https://pad.riseup.net/p/xCRfphD5CoxmbFcpc1s2%22>riseup留言板</a>上提问，反馈和建议的匿名人士。 这些评论帮助我们给予社区所最关心的问题更高的优先级，并从而加速了我们的研究。</p>
-<p>我们还感谢OONI和OTF社区所有人的支持。</p>
-<p>联系我们<br>
-Geneva团队:</p>
-<ul>
-<li>Kevin Bock (<a href=%22https://geneva.cs.umd.edu/keys/kevin_pgp.asc%22>PGP key</a>)</li>
-<li><a href=%22https://www.cs.umd.edu/~dml%22>Dave Levin</a> (<a href=%22https://geneva.cs.umd.edu/keys/dave_pgp.asc%22>PGP key</a>)</li>
-</ul>
-<p><a href=%22https://gfw.report%22>GFW Report</a>:</p>
-<ul>
-<li>Anonymous (<a href=%22https://gfw.report/gfw_report.asc%22>PGP key</a>)</li>
-<li><a href=%22https://people.cs.umass.edu/~amir%22>Amir Houmansadr</a> (PGP key)</li>
-</ul>
-<p><a href=%22https://www.iyouport.org%22>iYouPort</a>:</p>
-<ul>
-<li>onoketa (<a href="%22http://keys.gnupg.net/pks/lookupop=get&search=0xF93249C1AFD15196%22">PGP key</a>)</li>
-</ul>
-<p>我们在censorship.ai，iyouport.org，gfw.report，net4people和ntc.party上同步更新了这篇报告。</p>
-<p>原文: <a href=%22https://www.iyouport.org/%e6%8a%a5%e5%91%8a%ef%bc%9a%e4%b8%ad%e5%9b%bd%e7%9a%84%e9%98%b2%e7%81%ab%e9%95%bf%e5%9f%8e%e5%b7%b2%e7%bb%8f%e5%b0%81%e9%94%81%e5%8a%a0%e5%af%86%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%90%8d%e7%a7%b0%e6%8c%87/%22>https://www.iyouport.org/报告：中国的防火长城已经封锁加密服务器名称指/</a></p>
-<h3 id=品葱用户-rts-评论于-2020-08-09>品葱用户 <strong>rts</strong> 评论于 2020-08-09</h3>
-<p>和很多其他技术一样，ESNI防得了黑客但防不了GFW，不过既然GFW已经部署了ESNI阻断，那暂时应该是不会对CloudFlare的IP下手了。</p>
-<h3 id=品葱用户-筱田君>品葱用户 **筱田君</h3>
-<p>jhg78** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>美国技术建立的防火墙,  你应该感谢你的美国爸爸开战吧,  怂逼.  快来炸岛, 快来开战 !丢掉幻&mldr;</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-463959#")<br>
-这个人的坟已经挖好，就等赵老爷丢进去了。</p>
-<h3 id=品葱用户-通音宽依-评论于-2020-08-09>品葱用户 <strong>通音宽依</strong> 评论于 2020-08-09</h3>
-<p>在这里我只想说一句：<a href=https://pincong.rocks/article/6919 title=https://pincong.rocks/article/6919>万恶的GFW，你把多少人的生活都毁了！</a></p>
-<h3 id=品葱用户-procks-评论于-2020-08-09>品葱用户 <strong>procks</strong> 评论于 2020-08-09</h3>
-<p>tls1.3发布是为了网络安全，也该让世界看看，中共为了网络纳粹主义，逆世界安全潮流，逆互联网发展的所作所为，中共应该从这个世界上消失</p>
-<h3 id=品葱用户-peacefulwaters>品葱用户 **peacefulwaters</h3>
-<p>procks** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>tls1.3发布是为了网络安全，也该让世界看看，中共为了网络纳粹主义，逆世界安全潮流，逆互联网发展的&mldr;</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464118#")<br>
-不是黑客黑了腾讯的私人数据库，发现根本就没加密<br>
-所有人的聊天记录都是明码裸奔<br>
-可能中国和加密不相容吧</p>
-<h3 id=品葱用户-procks>品葱用户 **procks</h3>
-<p>peacefulwaters** 评论于 2020-08-08</p>
-<p>[</p>
-<blockquote>
-<p>不是黑客黑了腾讯的私人数据库，发现根本就没加密所有人的聊天记录都是明码裸奔可能中国和加密不相容吧</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464159#")<br>
-那是腾讯发给国安的数据库，里面当然不加密，这样才方便搜索查询微信上的信息，腾讯内部数据本身应该是比较安全的</p>
-<h3 id=品葱用户-peacefulwaters-1>品葱用户 **peacefulwaters</h3>
-<p>procks** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>那是腾讯发给国安的数据库，里面当然不加密，这样才方便搜索查询微信上的信息，腾讯内部数据本身应该是比较&mldr;</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464176#")<br>
-国安不加密不是很不应该么？<br>
-国安可以把公钥发给腾讯加密啊。</p>
-<h3 id=品葱用户-oeirjsd-评论于-2020-08-09>品葱用户 <strong>oeirjsd</strong> 评论于 2020-08-09</h3>
-<p>技术小白想问一下，这代表着什么？是不是以后翻墙会变得越来越难？V2ray是不是也会受到影响？</p>
-<h3 id=品葱用户-chauchat>品葱用户 **Chauchat</h3>
-<p>oeirjsd** 评论于 2020-08-08</p>
-<p>[</p>
-<blockquote>
-<p>技术小白想问一下，这代表着什么？是不是以后翻墙会变得越来越难？V2ray是不是也会受到影响？</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464215#")<br>
-和v2ray没有直接关系，目前的影响是火狐的doh+esni来无代理翻墙方法失效。那就开梯子呗</p>
-<h3 id=品葱用户-beatccp-评论于-2020-08-09>品葱用户 <strong>beatCCP</strong> 评论于 2020-08-09</h3>
-<p>很专业的报告，感觉还是有很多人在为推倒防火长城做不懈的努力。我听一些人说，防火长城里思科和微软出了很大的力，如果这是真的话，美国政府是不是可以出台命令使得这些公司不能继续作恶，从而打击防火长城？</p>
-<h3 id=品葱用户-pintest>品葱用户 **PinTest</h3>
-<p>peacefulwaters** 评论于 2020-08-08</p>
-<p>[</p>
-<blockquote>
-<p>国安不加密不是很不应该么？国安可以把公钥发给腾讯加密啊。</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464210#")<br>
-密码法规定，加密必须使用自主研发软硬件，开源的加密方式是中共不信任的。</p>
-<h3 id=品葱用户-n2o小熊-评论于-2020-08-09>品葱用户 <strong>N2o小熊</strong> 评论于 2020-08-09</h3>
-<p>设计协议的人太善良，总是留下特征</p>
-<h3 id=品葱用户-procks-1>品葱用户 **procks</h3>
-<p>peacefulwaters** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>国安不加密不是很不应该么？国安可以把公钥发给腾讯加密啊。</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464210#")<br>
-那是mongo喔，每条信息数据记录都加密搜索起来不会慢么</p>
-<h3 id=品葱用户-lonelydot-评论于-2020-08-09>品葱用户 <strong>lonelydot</strong> 评论于 2020-08-09</h3>
-<p>这个对翻墙没什么影响，因为esni的目的是伪装用户所要访问的网站，大家一般是通过上网代理翻墙出去，gfw只能知道你所要连接的服务器的ip，不会知道你要通过服务器访问什么网站，这个要说有用的话应该是在直连的情况下有用，能够保护隐私。</p>
-<h3 id=品葱用户-zagy_lam-评论于-2020-08-08>品葱用户 <strong>zagy_lam</strong> 评论于 2020-08-08</h3>
-<p>都2020年了，还把十几亿人关在一个网络囚笼里面，让绝大部分人每天暴露于同一口径的垃圾信息里面，某程度上这与二战时期的纳粹集中营无异。<br>
-川普禁tiktok、微信的这一杀着真的狡猾，但同时也很有效。原因当然不仅仅是软件后台把用户数据秘密共享给CCP，更多的是因为这两款软件是CCP发动网络舆论攻势的杀器，当这些软件越受欢迎就越危险，因为你的网络话语权随时会被fake news给夺走。</p>
-<h3 id=品葱用户-包子今天好吃吗-评论于-2020-08-09>品葱用户 <strong>包子今天好吃吗</strong> 评论于 2020-08-09</h3>
-<p>额，努力看了一下，还是不懂，有大佬深入浅出的讲一下，这个到底在说啥吗。。。。瑟瑟发抖</p>
-<h3 id=品葱用户-peacefulwaters-2>品葱用户 **peacefulwaters</h3>
-<p>lonelydot** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>这个对翻墙没什么影响，因为esni的目的是伪装用户所要访问的网站，大家一般是通过上网代理翻墙出去，g&mldr;</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464509#")<br>
-esni能用就不用翻墙了<br>
-反正你流量全加密，再加上访问目标加密，GFW直接作废了</p>
-<h3 id=品葱用户-peacefulwaters-3>品葱用户 **peacefulwaters</h3>
-<p>procks** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>那是mongo喔，每条信息数据记录都加密搜索起来不会慢么</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464461#")<br>
-美国NSA搞得棱镜计划，会有这么傻逼吗？</p>
-<h3 id=品葱用户-peacefulwaters-4>品葱用户 **peacefulwaters</h3>
-<p>N2o小熊** 评论于 2020-08-08</p>
-<p>[</p>
-<blockquote>
-<p>设计协议的人太善良，总是留下特征</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464348#")<br>
-不是善良，就算是混淆的也有蛛丝马迹，用信息学术语说，就是低熵值</p>
-<h3 id=品葱用户-peacefulwaters-5>品葱用户 **peacefulwaters</h3>
-<p>beatCCP** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>很专业的报告，感觉还是有很多人在为推倒防火长城做不懈的努力。我听一些人说，防火长城里思科和微软出了很&mldr;</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464286#")<br>
-晚了，思科的防火墙已经被华为山寨了</p>
-<h3 id=品葱用户-procks-2>品葱用户 **procks</h3>
-<p>N2o小熊** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>设计协议的人太善良，总是留下特征</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464348#")<br>
-看有没有升级喽，升级把特征去除</p>
-<h3 id=品葱用户-procks-3>品葱用户 **procks</h3>
-<p>peacefulwaters** 评论于 2020-08-08</p>
-<p>[</p>
-<blockquote>
-<p>美国NSA搞得棱镜计划，会有这么傻逼吗？</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464625#")<br>
-那个不清楚，反正国安用的数据库是mongo，而且被人发现也不知道</p>
-<h3 id=品葱用户-peacefulwaters-6>品葱用户 **peacefulwaters</h3>
-<p>procks** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>看有没有升级喽，升级把特征去除</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464639#")<br>
-不是有人工智能学习的方法来掌握流量特征提高墙的精确度？<br>
-墙也有AI啊</p>
-<h3 id=品葱用户-peacefulwaters-7>品葱用户 **peacefulwaters</h3>
-<p>PinTest** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>密码法规定，加密必须使用自主研发软硬件，开源的加密方式是中共不信任的。</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464294#")<br>
-中共的加密技术说瓦房店都抬举它了</p>
-<h3 id=品葱用户-霏艺faye-评论于-2020-08-08>品葱用户 <strong>霏艺Faye</strong> 评论于 2020-08-08</h3>
-<p>这些策略都是修改在TCP协议栈<br>
-对普通用户不友好</p>
-<p>只能Linux系统的用户，自己修改tcp协议栈代码来实现了</p>
-<p>目前只能通过前置域名的方式来代替ESNI了。。。</p>
-<h3 id=品葱用户-procks-4>品葱用户 **procks</h3>
-<p>peacefulwaters** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>不是有人工智能学习的方法来掌握流量特征提高墙的精确度？墙也有AI啊</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464653#")<br>
-实验而已，不知道是不是真的有效，就是真的那也得用得起再说，协议有源码可以看，流量特征？莫非有些工具在建立连接的时候流量有特点？</p>
-<h3 id=品葱用户-singesu-评论于-2020-08-09>品葱用户 <strong>singesu</strong> 评论于 2020-08-09</h3>
-<p>人在牆外不熟行</p>
-<p>有沒有人方便簡介一下啥狀況（）</p>
-<h3 id=品葱用户-peacefulwaters-8>品葱用户 **peacefulwaters</h3>
-<p>procks** 评论于 2020-08-08</p>
-<p>[</p>
-<blockquote>
-<p>实验而已，不知道是不是真的有效，就是真的那也得用得起再说，协议有源码可以看，流量特征？莫非有些工具在&mldr;</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464672#")<br>
-简单的说，给了开源协议，本身并不等于墙的开发者就可以有效屏蔽这个协议，就像开源的加密软件，看了代码并不会解密。<br>
-墙的开发者的可行方案就是学习，装一系列翻墙软件，让翻墙软件走墙的分析工具，分析工具不断学习进化，最后有效地识别翻墙软件，减少漏报和误报</p>
-<h3 id=品葱用户-procks-5>品葱用户 **procks</h3>
-<p>peacefulwaters** 评论于 2020-08-08</p>
-<p>[</p>
-<blockquote>
-<p>简单的说，给了开源协议，本身并不等于墙的开发者就可以有效屏蔽这个协议，就像开源的加密软件，看了代码并&mldr;</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464750#")<br>
-都是从协议本身的漏洞出发，那种什么分析工具的，不断变化的加密报文基本没有啥可以分析的</p>
-<h3 id=品葱用户-范松忠-评论于-2020-08-09>品葱用户 <strong>范松忠</strong> 评论于 2020-08-09</h3>
-<p>主要结论：量子通讯，依靠量子纠缠，能超光速传输，具体不明白的请自己查看维基百科。</p>
-<p>只有量子通讯，截取，篡改，都是不可能的。</p>
-<h3 id=品葱用户-peacefulwaters-9>品葱用户 **peacefulwaters</h3>
-<p>范松忠** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>主要结论：量子通讯，依靠量子纠缠，能超光速传输，具体不明白的请自己查看维基百科。只有量子通讯，截取，&mldr;</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464772#")<br>
-第一，量子纠缠确实比光速快，但是量子纠缠本身并不能传输信息。传输量子纠缠态的速度仍不能超过光速<br>
-第二，量子通讯不是不能截取篡改，而是截取或者篡改之后通讯方会发现中间有人破坏。</p>
-<h3 id=品葱用户-若名用户-评论于-2020-08-09>品葱用户 <strong>若名用户</strong> 评论于 2020-08-09</h3>
-<p>封锁所有ESNI，ESNI是TLS1.3的基础特性，基本等于是白名单了吧？<br>
-现在网站基本都是HTTPS，所有升级到TLS1.3的网站都不能用，等到协议全面升级后就只有老网站能上了。<br>
-不过按现在的形势完全断网也不算奇怪</p>
-<h3 id=品葱用户-范松忠>品葱用户 **范松忠</h3>
-<p>peacefulwaters** 评论于 2020-08-08</p>
-<p>[</p>
-<blockquote>
-<p>第一，量子纠缠确实比光速快，但是量子纠缠本身并不能传输信息。传输量子纠缠态的速度仍不能超过光速第二，&mldr;</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464815#")<br>
-第一：传输量子纠缠态的速度仍不能超过光速：<br>
-能，瞬间反应，两个纠缠在一起的量子，一个在银河系另一端，都能瞬间反应，只是如何做成有序的，能传输信息的，这个还没有答案，要是有的话，连网线、卫星发射器等设备都不需要了，就像两个对讲机，但即时传输的。</p>
-<p>第二：是么？好像两个量子自己连接，别的地方完全无法得知他们在“纠缠”吧？</p>
-<h3 id=品葱用户-币圈奇葩8964>品葱用户 **币圈奇葩8964</h3>
-<p>oeirjsd** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>技术小白想问一下，这代表着什么？是不是以后翻墙会变得越来越难？V2ray是不是也会受到影响？</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464215#")<br>
-这种事什么也不能代表，翻墙本来就越来越难，，，<br>
-这只是GFW墙加高的一个步骤罢了，，，</p>
-<h3 id=品葱用户-币圈奇葩8964-1>品葱用户 **币圈奇葩8964</h3>
-<p>若名用户** 评论于 2020-08-08</p>
-<p>[</p>
-<blockquote>
-<p>封锁所有ESNI，ESNI是TLS1.3的基础特性，基本等于是白名单了吧？现在网站基本都是HTTPS&mldr;</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464827#")<br>
-ESNI是TLS1.3的<strong>可选</strong>特性，也就是说要使用ESNI必须上TLS1.3，但是上TLS1.3不一定用ESNI，，，</p>
-<h3 id=品葱用户-币圈奇葩8964-评论于-2020-08-08>品葱用户 <strong>币圈奇葩8964</strong> 评论于 2020-08-08</h3>
-<p>GFW封ESNI基本上在我币圈人意料之中，毕竟不是必需项，用的人也太少，不会有多大影响，，，</p>
-<h3 id=品葱用户-peacefulwaters-10>品葱用户 **peacefulwaters</h3>
-<p>范松忠** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>第一：传输量子纠缠态的速度仍不能超过光速：能，瞬间反应，两个纠缠在一起的量子，一个在银河系另一端，都&mldr;</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464828#")<br>
-量子纠缠本身并不传输信息，不错，你这头动了它，它另一头立刻反应，超光速，但是你不能用这个反应来传递信息，因为你没法把信息编码到到“动”这个过程中。纠缠本身是携带信息的，但是这个信息就只能在光速以下传播了</p>
-<h3 id=品葱用户-范松忠-1>品葱用户 **范松忠</h3>
-<p>peacefulwaters** 评论于 2020-08-09</p>
-<p>[</p>
-<blockquote>
-<p>量子纠缠本身并不传输信息，不错，你这头动了它，它另一头立刻反应，超光速，但是你不能用这个反应来传递信&mldr;</p>
-</blockquote>
-<p>]( &ldquo;/article/item_id-464939#")<br>
-那也是，也有这种说法，但也有说可以用来通信的，还有说法是传输是随机的，无法传输有效信息。唉。</p>
-<blockquote>
-<p><a href=https://pincong.rocks/article/22661>点击品葱原文参与讨论</a></p>
-</blockquote>
-<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<h3>See Also</h3>
-<div class=container>
-<div class=row>
-<div class="mx-auto px-0">
-<div class="bg-white shadow block">
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/1a33ba4f220ac5ace5165a0cd8467d0f/?utm_source=see_also&utm_medium=iyouport-%25E6%258A%25A5%25E5%2591%258A%25E4%25B8%25AD%25E5%259B%25BD%25E7%259A%2584%25E9%2598%25B2%25E7%2581%25AB%25E9%2595%25BF%25E5%259F%258E%25E5%25B7%25B2%25E7%25BB%258F%25E5%25B0%2581%25E9%2594%2581%25E5%258A%25A0%25E5%25AF%2586%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%2590%258D%25E7%25A7%25B0%25E6%258C%2587%25E7%25A4%25BAesni">中国互联网审查官鲁炜落马</a>
-</h2>
-<p class=text-dark>中国互联网审查官鲁炜落马
+<i></i><a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/38b26b4c5f4cad9eb924c9e1140e1da3.md style=color:gray><strong><i>点击删除</i></strong></a></div><h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5><h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5><p></p><p>我们于2020年7月30日<a href=%22https://mailarchive.ietf.org/arch/msg/tls/YzT5LjLJ_6WWhdnU2wVsKNKR6_I/%22>报告</a> (<a href=%22https://web.archive.org/web/20200801221253/https://mailarchive.ietf.org/arch/msg/tls/YzT5LjLJ_6WWhdnU2wVsKNKR6_I/%22>存档</a>)中国封锁了带有ESNI扩展的TLS连接。初次封锁见于2020年7月29日。</p><p>我们确认中国的防火长城（GFW）已经开始封锁ESNI这一TLS1.3和HTTPS的基础特性。我们在本文中实证性地展示如何触发审查，并研究”残余审查”的延续时长。 我们还将展示7种用<a href=%22https://geneva.cs.umd.edu%22>Geneva</a>发现的基于客户端或服务端的绕过审查策略。</p><p>什么是加密服务器名称指示（ESNI）？<br>TLS是网络通讯的安全基础（HTTPS）。TLS提供的认证加密使得用户可以确定他们在与谁通讯， 并确保通讯信息不被中间人看到或篡改。 虽然TLS可以隐藏用户通讯的_内容_，但其并不能总是隐藏与用户通讯的_对象_。 比如TLS握手可以携带一个叫做加密服务器名称指示（SNI）的扩展, 这个扩展帮助客户端告诉服务器其想要访问的网站的域名。 包括中国在内的审查者利用这一扩展来检查并阻止用户访问特定的网站。</p><p>TLS1.3引入了加密SNI（ESNI）。 简而言之就是用加密了的SNI阻止中间人查看客户端要访问的特定网站。 （更多ESNI的益处请见<a href=%22https://blog.cloudflare.com/encrypted-sni/%22>Cloudflare的介绍文章</a>）。 ESNI<a href=%22https://www.usenix.org/system/files/foci19-paper_chai_update.pdf%22>有让审查HTTPS流量变得更加困难的潜能</a>; 因为不知道用户使用ESNI访问的网站，审查者要么不封锁任何ESNI连接，要么封锁所有的ESNI连接。 我们现在确认中国的审查者选择了后者。</p><p>主要结论</p><ul><li><p>GFW通过丢弃从客户端到服务器的数据包来阻止ESNI连接。</p></li><li><p>封锁可以从GFW内外双向触发。</p></li><li><pre tabindex=0><code>0xffce
+</code></pre><p>扩展标识是触发封堵的必要条件。</p></li><li><p>封锁可以发生在1到65535的所有端口上。</p></li><li><p>一旦GFW阻断了一个连接，残留的审查就会继续阻断与（原IP，目标IP，目标端口）三元组相关的所有TCP流量，持续120或180秒。</p></li><li><p>我们已经发现了6种可以部署于客户端和4种可以部署于服务端的规避策略。</p></li></ul><p>我们是怎么知道的？<br>我们写了一个简单的Python程序，它可以：</p><ol><li>完成与指定服务器的TCP握手；</li><li>然后发送一个带有ESNI扩展名的TLS ClientHello消息；ClientHello的指纹和Firefox 79.0所发送的一样正常。</li></ol><p>我们让程序发送带有ESNI的ClientHello消息。我们既尝试了从墙内向墙外发送，也尝试了从墙外向墙内发送。我们同时采集客户端和服务端两边的流量进行分析，我们确保发送ClientHello的服务器会完成TCP握手，但不会向客户端发送任何数据包，也不会首先关闭连接。所有的实验都在7月30日到8月6日之间进行。</p><p>关于封锁的细节</p><p>通过丢弃数据包来阻止，而不是注入RST<br>对比两端捕获的流量，我们发现GFW通过丢弃从客户端到服务器的数据包来阻止ESNI连接。</p><p>这与GFW对其他常用协议的阻断方式有两点不同。 首先，GFW审查SNI和HTTP的方式是向服务器和客户端注入伪造的TCP RST。但是我们没有观察到GFW注入任何数据包来阻断ESNI流量。其次，GFW通过丢弃_服务器到客户端_的流量封锁Tor和<a href=%22https://gfw.report/blog/gfw_shadowsocks%22>Shadowsocks</a>服务器的端口和IP；然而，GFW会丢弃_客户端到服务器_的ESNI流量。</p><p>我们还注意到，GFW在丢弃TCP包时，并不区分TCP包的标志。（这与伊朗的一些审查系统不同，后者不丢弃带有RST或FIN标志的数据包。）</p><p>封堵可以双向触发<br>我们发现封堵是可以双向触发的。 换句话说，从防火墙外向防火墙内发送一个ESNI握手，和从防火墙内向外发送一样，都可以触发审查。</p><p>得益于这种双向性，人们可以在不控制任何位于中国的服务器的情况下，从GFW外部远程测试这种基于ESNI的审查。 我们指出，除了ESNI审查外，GFW对DNS、HTTP、SNI、FTP、SMTP和Shadowsocks的审查也可以从墙外进行测量。</p><p>GFW对ESNI进行审查，但不封锁没有SNI扩展的ClientHello<br>我们确认没有ESNI和SNI扩展的TLS ClientHello不能触发封锁。 换句话说，</p><pre tabindex=0><code>encrypted\_server\_name 
+</code></pre><p>扩展的</p><pre tabindex=0><code>0xffce 
+</code></pre><p>扩展标识是触发封堵的必要条件。</p><p>我们将ClientHello中的</p><pre tabindex=0><code>0xffce
+</code></pre><p>替换为</p><pre tabindex=0><code>0x7777
+</code></pre><p>然后进行测试。替换后，发送这样的ClientHello就不能再触发封锁了。</p><p>这个确认是很重要的，因为有人观察到其他审查者可能会屏蔽<a href=%22https://github.com/net4people/bbs/issues/10#issuecomment-532035677%22>任何没有SNI扩展的ClientHello消息</a>，这将导致ESNI和<a href=%22https://tlsfingerprint.io/static/frolov2019.pdf%22>无SNI</a>都会被屏蔽。</p><p>新的扩展值还未被封锁<br><a href=%22https://pad.riseup.net/p/xCRfphD5CoxmbFcpc1s2%22>riseup pad</a>上的匿名人士指出， 现有的ESNI使用</p><pre tabindex=0><code>0xffce
+</code></pre><p>作为扩展值（详见 <a href=%22https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-01%22>Section 8.1</a>）。 但时新的ECH使用</p><pre tabindex=0><code>0xff02
+</code></pre><p>，</p><pre tabindex=0><code>0xff03
+</code></pre><p>和</p><pre tabindex=0><code>0xff04
+</code></pre><p>作为扩展值（<a href=%22https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-07%22>Section 11.1</a>). 我们确认这些新的扩展值还未被封锁。</p><p>具体而言， 我们把一个能够触发审查的ClientHello的</p><pre tabindex=0><code>0xffce
+</code></pre><p>替换为了</p><pre tabindex=0><code>0xff02
+</code></pre><p>，</p><pre tabindex=0><code>0xff03
+</code></pre><p>和</p><pre tabindex=0><code>0xff04
+</code></pre><p>。 发送修改后的ClientHello不能触发审查。</p><p>GFW需要看到一个完整的TCP握手以触发ESNI封锁<br>我们发现GFW需要看到一个完整的TCP握手以触发ESNI封锁。</p><p>我们从外部对中国的服务器进行了两次实验。在第一个实验中，在没有发送任何SYN包的情况下，我们的客户端每2秒发送一个带ESNI扩展的ClientHello消息。在第二个实验中，我们的客户端每2秒发送一个SYN数据包和一个带ESNI扩展的ClientHello消息；但服务器不会响应任何数据包（也不会发送SYN+ACK来完成握手）。</p><p>在每次实验中，我们都发送了10条ClientHello消息。结果发现没有触发过任何审查或残余审查。所有的ClientHello消息实际上都到达了服务器。这个结果表明，在触发基于ESNI的审查之前，TCP握手是必要条件。 这也表明，与GFW基于SNI的审查机类似，ESNI的审查机也是有状态的。</p><p>封锁发生在所有端口上<br>我们发现ESNI封锁不仅会发生在443端口，也会发生在1到65535的所有端口。</p><p>具体来说，我们从外部向中国服务器的1-65535的每个端口连续发送了两次ESNI握手。 对于每个端口，我们先发送一次ESNI握手；然后在连接超时后（20秒后），我们再尝试与服务器完成一次TCP握手。如果第二次没有收到服务器发来的SYN+ACK，我们就认为该端口被封锁了。 结果是，在1到65535的所有端口上都观察到了对ESNI的封锁。这个特性可以让我们高效地测试ESNI封锁，因为我们可以对同一IP地址的多个端口进行同时测试。</p><p>审查残留<br>我们发现在阻断ESNI握手后，GFW会继续阻断与（源IP，目标IP，目标端口)3元组相关的任何连接一段时间。确切的审查残留时间可能会有所不同。我们观察到它有时持续120秒，有时持续180秒。我们注意到，在残留审查时间内发送额外的ESNI握手不会重置审查持续的定时器。这与之前观察到的基于SNI的拦截GFW的残余审查类似；而且它与伊朗的残余审查不同，在伊朗，<a href=%22https://geneva.cs.umd.edu/posts/iran-whitelister/%22>定时器将被重置</a>。</p><p>这些发现部分基于以下实验。从外部，我们每秒向中国服务器的443端口发送一条ClientHello消息。 第一秒，第二秒和第121秒的TCP握手被接受。其他所有的握手尝试都不成功，因为由于残留的审查，</p><pre tabindex=0><code>SYN
+</code></pre><p>包甚至没有到达服务器。</p><p>这个结果表明，与之前发现的GFW对SNI的残留审查类似，GFW也对ESNI也采用了残留审查。此外，第二秒的握手可以完成，意味着GFW至少需要1秒的时间来反应并启用拦截规则。</p><p>如何规避封锁？<br>**Geneva(_Gen_etic _Eva_sion)**是我们中位于马里兰大学的研究人员开发的一种遗传算法，它在进化过程中自动发现新的审查规避策略。 它在不影响原始连接的前提下，通过注入、替换、分割或丢弃数据包流来迷惑审查者。 与大多数反审查系统不同的是，它不需要在连接的两端都进行部署：它只在一方（客户端或服务器）运行。</p><p>Geneva利用审查机器来实时地训练自己的遗传算法。 截至今日，其已经找到了许多可以规避不同国家审查的策略。 Geneva的审查规避策略描述了应该如何修改流量。 由于Geneva将不断发展这些策略，因此它们用领域特定语言(domain-specific language)来表达，这些语言构成了每个策略的 “DNA”。(关于Geneva的完整代码及文档，请参见<a href=%22https://github.com/kkevsterrr/geneva%22>我们的Github页面</a>)。</p><p>要了解更多关于Geneva（或Geneva策略引擎）工作原理的信息，请参阅我们的<a href=%22https://geneva.cs.umd.edu/papers%22>论文</a>或<a href=%22https://geneva.cs.umd.edu/about%22>关于</a>页面。</p><p>为了让Geneva能够直接利用GFW对ESNI审查进行训练，我们写了一个自定义的插件来执行以下步骤。</p><ol><li><p>Geneva在位于墙外的TCP服务器上随机开放一个端口。随机开放端口是为了避免此前审查的残留。</p></li><li><p>Geneva驱动一个位于中国境内的TCP客户端连接到服务器。</p></li><li><p>客户端发送一个带有加密SNI（ESNI）扩展的TLS 1.3 ClientHello。</p></li><li><p>客户端休眠2秒，等待GFW审查机制启动。</p></li><li><p>客户端发送一个简短的测试消息</p><pre tabindex=0><code>&#34;test&#34;
+</code></pre><p>来测试是否已经被审查。</p></li><li><p>重复步骤4和5。</p></li><li><p>服务器确认是否收到了客户端发送的完整的TLS ClientHello以及测试消息。如果收到了，该策略就会得到正向的适合度奖励；如果没有收到（或者客户端在发送测试消息时超时了），该策略就会受到惩罚。</p></li></ol><p>利用这个适合度函数，Geneva可以直接针对ESNI审查制度测试和训练策略。 在_短短几个小时内_，它就发现了多个绕过审查的策略。在本节中，我们将详细描述它们。</p><p>Geneva策略引擎在<a href=%22https://github.com/kkevsterrr/geneva%22>我们的Github</a>上是开源的，所以所有这些策略都可以被任何人部署和使用。由于它们在 TCP 层运行，因此可以应用于任何需要使用 ESNI 的应用程序：随着 Geneva 的运行，即使是未经修改的网络浏览器也可以成为一个简单的审查规避工具。</p><p>请注意，Geneva_不是_通用的翻墙软件，也不提供任何额外的加密、隐私或保护。它是一个测试版的研究原型，而且它并没有针对速度进行优化。使用这些策略，风险自担。</p><p>策略<br>我们在48小时的时间里，从客户端和服务器端对Geneva进行了训练。我们总共发现了6种策略来打败对ESNI的封锁机制。其中有4个可以在服务器端使用，所有6个都可以在客户端使用。</p><p>以下是TCP层的策略，只需部署在客户端，即可击败针对ESNI的封锁。</p><p><strong>策略 1: 三重</strong></p><pre tabindex=0><code>SYN
+</code></pre><p>第一种客户端策略的工作原理是用_三个_</p><pre tabindex=0><code>SYN
+</code></pre><p>数据包启动TCP的三次握手，这样第三个</p><pre tabindex=0><code>SYN
+</code></pre><p>的序列号就是错误的。</p><p>在Geneva的语法中，这个策略是这样的：</p><pre tabindex=0><code>\[TCP:flags:S\]-duplicate(duplicate,tamper{TCP:seq:corrupt})-| \\/
+</code></pre><p>这种策略是对于GFW的跳出同步攻击（synchronization attack）。GFW会转而追踪这个新的错误序列号，而错过ESNI请求。</p><p>这个策略也可以部署在服务端：</p><pre tabindex=0><code>\[TCP:flags:SA\]-tamper{TCP:flags:replace:S}(duplicate(duplicate,tamper{TCP:seq:corrupt}),)-| \\/
+</code></pre><p>虽然这种策略使得服务器永远不会发送</p><pre tabindex=0><code>SYN+ACK
+</code></pre><p>数据包，但这并不会破坏三次握手。在三次握手过程中，服务器没有像往常一样发送一个</p><pre tabindex=0><code>SYN+ACK
+</code></pre><p>数据包，而是发送三个</p><pre tabindex=0><code>SYN
+</code></pre><p>数据包（第三个数据包的校验和是错误的）。</p><p>第一个</p><pre tabindex=0><code>SYN
+</code></pre><p>数据包的作用是启动TCP的同步打开（Simultaneous Open），这是所有主流操作系统都支持的一个古老的TCP功能，用于处理两个TCP栈同时发送</p><pre tabindex=0><code>SYN
+</code></pre><p>数据包的情况。当客户端收到服务器发送的</p><pre tabindex=0><code>SYN
+</code></pre><p>时，客户端发送一个</p><pre tabindex=0><code>SYN+ACK 
+</code></pre><p>数据包，服务器响应一个</p><pre tabindex=0><code>ACK 
+</code></pre><p>来完成握手。这样就有效地将传统的三次握手改为四次握手。带有损坏序列号的</p><pre tabindex=0><code>SYN
+</code></pre><p>使GFW跳出同步（但被客户端忽略），成功地击败了封锁机制的同时并不伤害到原有连接。</p><p><strong>策略2：四字节分割</strong></p><p>我们发现的下一个策略也可以从客户端或服务器使用。在这个策略中，客户端将ESNI请求分为两段TCP发送，第一段TCP的长度小于或等于4个字节。</p><p>客户端策略的Geneva语法是这样的：</p><pre tabindex=0><code>\[TCP:flags:PA\]-fragment{tcp:4:True}-| \\/
+</code></pre><p>这已经不是Geneva第一次发现分段策略，但令人惊讶的是，这种策略在中国竟然有效。毕竟防火长城拥有著名的TCP重建能力已经有近十年了（见<a href=%22https://github.com/NullHypothesis/brdgrd%22>brdgrd</a>）。TLS头是5个字节长，所以我们推测，像这样将TLS头分割到多个数据包中，打破了GFW将包含ESNI的数据包识别为TLS的能力。这对GFW如何通过指纹识别连接有有趣的影响：它表明GFW中负责识别的组件并不能从TCP层面中重组所有的上层协议。这一理论得到了Geneva过去所发现的其他基于分段的策略的支持（详见<a href=%22https://geneva.cs.umd.edu/papers/come-as-you-are.pdf%22>这篇论文</a>）。</p><p>这个策略也可以从服务器端触发。通过在三次握手期间减少TCP窗口大小，服务器可以强制客户端分割请求。在Geneva的语法中，可以通过以下方式实现：</p><pre tabindex=0><code>\[TCP:flags:SA\]-tamper{TCP:window:replace:4}-| \\/
+</code></pre><p><strong>策略3：TCB Teardown</strong></p><p>下一个策略是经典的TCB（TCP Control Block）Teardown：客户端向连接中注入一个带有错误的校验和的</p><pre tabindex=0><code>RST
+</code></pre><p>数据包。这将欺骗GFW，使其认为连接已被中断。</p><p>在Geneva的语法中，这个策略看起来是这样的：</p><pre tabindex=0><code>\[TCP:flags:A\]-duplicate(,tamper{TCP:flags:replace:RA}(tamper{TCP:chksum:corrupt},))-| \\/
+</code></pre><p>TCB Teardowns并不是什么新鲜事：<a href=%22https://www.usenix.org/conference/foci13/workshop-program/presentation/khattak%22>Khattak et al.</a>在几乎十年前就已经演示过了，Geneva过去也多次发现了针对GFW的<a href=%22https://geneva.cs.umd.edu/papers/geneva_ccs19.pdf%22>Teardown攻击</a>。</p><p>令人惊讶的是，这种策略也可以从服务器端诱导。 在三次握手过程中，服务器可以发送一个带有错误ACK的</p><pre tabindex=0><code>SYN+ACK
+</code></pre><p>数据包，从而诱导客户端发送</p><pre tabindex=0><code>RST
+</code></pre><p>。这将导致</p><pre tabindex=0><code>RST
+</code></pre><p>的序列号不正确（ACK为0，但仍足以引起TCB Teardown）。</p><p><strong>策略4：</strong></p><pre tabindex=0><code>FIN+SYN
+</code></pre><p>下一个策略似乎是另一种角度的跳出同步攻击。在这一策略中，客户端（或服务器）发送一个数据包，在三次握手过程中同时设置</p><pre tabindex=0><code>FIN 
+</code></pre><p>和</p><pre tabindex=0><code>SYN
+</code></pre><p>。 客户端的Geneva语法是</p><pre tabindex=0><code>\[TCP:flags:A\]-duplicate(tamper{TCP:flags:replace:FS},)-| \\/
+</code></pre><p>服务端的Geneva语法是</p><pre tabindex=0><code>\[TCP:flags:SA\]-duplicate(tamper{TCP:flags:replace:FS},)-| \\/
+</code></pre><p>在过去，我们发现GFW在对其他协议进行审查时，对</p><pre tabindex=0><code>FIN
+</code></pre><p>数据包有特殊的处理。 似乎</p><pre tabindex=0><code>FIN
+</code></pre><p>的出现会使GFW立即同步到对当前连接的跟踪，但</p><pre tabindex=0><code>SYN
+</code></pre><p>的出现会使它认为实际的序列号与实际值相差</p><pre tabindex=0><code>+1
+</code></pre><p>，使GFW与实际连接偏离1。</p><p>我们对以上假设进行了测试：在这个策略运行的时候，将客户端实际请求的序列号增加1后，连接被阻断了。</p><p>在服务端，这个策略不需要</p><pre tabindex=0><code>FIN
+</code></pre><p>就可以运行。</p><p><strong>策略5：TCB Turnaround</strong></p><p>TCB Turnaround策略很简单：在客户端发起三次握手之前，首先向服务器发送一个</p><pre tabindex=0><code>SYN+ACK
+</code></pre><p>数据包。</p><pre tabindex=0><code>SYN+ACK
+</code></pre><p>使让GFW混淆了客户机和服务器的角色，从而使客户端能够不受阻碍地进行通信。TCB Turnaround攻击在哈萨克斯坦仍然有效，但在GFW上，TCB Turnaround攻击对其他协议不起作用。</p><p>在Geneva的语法中：</p><pre tabindex=0><code>\[TCP:flags:S\]-duplicate(tamper{TCP:flags:replace:SA},)-| \\/
+</code></pre><p>该策略只适用于客户端，因为当</p><pre tabindex=0><code>SYN
+</code></pre><p>数据包到达服务器时，GFW已经知道哪一方是客户端了。</p><p><strong>策略6：TCB 跳出同步</strong></p><p>最后，Geneva发现了简单的基于载荷的TCB跳出攻击。从客户端，注入一个带有载荷和错误的校验和的数据包就足以使GFW跳出对当前连接的同步。 Geneva在研究GFW对其他协议的审查时，已经发现过这一策略了。</p><p>Geneva的语法是这样的</p><pre tabindex=0><code>\[TCP:flags:A\]-duplicate(tamper{TCP:load:replace:AAAAAAAAAA}(tamper{TCP:chksum:corrupt},),)-|
+</code></pre><p>这个策略不能在服务器端使用。</p><p>对审查规避策略的总结<br>我们已经找到6种可以部署在客户端，和4种可以部署在服务端的审查规避策略。 每一种都有近乎100%的可靠性，并可以用于规避针对ESNI的审查。 遗憾的是，这些策略并非是一劳永逸的：就像猫捉老鼠一般，防火长城也会继续提升其审查能力。</p><p>未解决的问题<br>我们仍不清楚为和会观察到不同的残余审查时长。 与所有类似研究一样，在与我们所用节点不同的中国地区，可能存在着不同于我们所观察到的审查的方式。 如果你观察到了不同与上述的审查方式，或者我们的审查规避策略对你并不奏效， 尽请联系我们。</p><p>鸣谢<br>我们想在此感谢所有在<a href=%22https://pad.riseup.net/p/xCRfphD5CoxmbFcpc1s2%22>riseup留言板</a>上提问，反馈和建议的匿名人士。 这些评论帮助我们给予社区所最关心的问题更高的优先级，并从而加速了我们的研究。</p><p>我们还感谢OONI和OTF社区所有人的支持。</p><p>联系我们<br>Geneva团队:</p><ul><li>Kevin Bock (<a href=%22https://geneva.cs.umd.edu/keys/kevin_pgp.asc%22>PGP key</a>)</li><li><a href=%22https://www.cs.umd.edu/~dml%22>Dave Levin</a> (<a href=%22https://geneva.cs.umd.edu/keys/dave_pgp.asc%22>PGP key</a>)</li></ul><p><a href=%22https://gfw.report%22>GFW Report</a>:</p><ul><li>Anonymous (<a href=%22https://gfw.report/gfw_report.asc%22>PGP key</a>)</li><li><a href=%22https://people.cs.umass.edu/~amir%22>Amir Houmansadr</a> (PGP key)</li></ul><p><a href=%22https://www.iyouport.org%22>iYouPort</a>:</p><ul><li>onoketa (<a href="%22http://keys.gnupg.net/pks/lookupop=get&search=0xF93249C1AFD15196%22">PGP key</a>)</li></ul><p>我们在censorship.ai，iyouport.org，gfw.report，net4people和ntc.party上同步更新了这篇报告。</p><p>原文: <a href=%22https://www.iyouport.org/%e6%8a%a5%e5%91%8a%ef%bc%9a%e4%b8%ad%e5%9b%bd%e7%9a%84%e9%98%b2%e7%81%ab%e9%95%bf%e5%9f%8e%e5%b7%b2%e7%bb%8f%e5%b0%81%e9%94%81%e5%8a%a0%e5%af%86%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%90%8d%e7%a7%b0%e6%8c%87/%22>https://www.iyouport.org/报告：中国的防火长城已经封锁加密服务器名称指/</a></p><h3 id=品葱用户-rts-评论于-2020-08-09>品葱用户 <strong>rts</strong> 评论于 2020-08-09</h3><p>和很多其他技术一样，ESNI防得了黑客但防不了GFW，不过既然GFW已经部署了ESNI阻断，那暂时应该是不会对CloudFlare的IP下手了。</p><h3 id=品葱用户-筱田君>品葱用户 **筱田君</h3><p>jhg78** 评论于 2020-08-09</p><p>[</p><blockquote><p>美国技术建立的防火墙,  你应该感谢你的美国爸爸开战吧,  怂逼.  快来炸岛, 快来开战 !丢掉幻&mldr;</p></blockquote><p>]( &ldquo;/article/item_id-463959#&rdquo;)<br>这个人的坟已经挖好，就等赵老爷丢进去了。</p><h3 id=品葱用户-通音宽依-评论于-2020-08-09>品葱用户 <strong>通音宽依</strong> 评论于 2020-08-09</h3><p>在这里我只想说一句：<a href=https://pincong.rocks/article/6919 title=https://pincong.rocks/article/6919>万恶的GFW，你把多少人的生活都毁了！</a></p><h3 id=品葱用户-procks-评论于-2020-08-09>品葱用户 <strong>procks</strong> 评论于 2020-08-09</h3><p>tls1.3发布是为了网络安全，也该让世界看看，中共为了网络纳粹主义，逆世界安全潮流，逆互联网发展的所作所为，中共应该从这个世界上消失</p><h3 id=品葱用户-peacefulwaters>品葱用户 **peacefulwaters</h3><p>procks** 评论于 2020-08-09</p><p>[</p><blockquote><p>tls1.3发布是为了网络安全，也该让世界看看，中共为了网络纳粹主义，逆世界安全潮流，逆互联网发展的&mldr;</p></blockquote><p>]( &ldquo;/article/item_id-464118#&rdquo;)<br>不是黑客黑了腾讯的私人数据库，发现根本就没加密<br>所有人的聊天记录都是明码裸奔<br>可能中国和加密不相容吧</p><h3 id=品葱用户-procks>品葱用户 **procks</h3><p>peacefulwaters** 评论于 2020-08-08</p><p>[</p><blockquote><p>不是黑客黑了腾讯的私人数据库，发现根本就没加密所有人的聊天记录都是明码裸奔可能中国和加密不相容吧</p></blockquote><p>]( &ldquo;/article/item_id-464159#&rdquo;)<br>那是腾讯发给国安的数据库，里面当然不加密，这样才方便搜索查询微信上的信息，腾讯内部数据本身应该是比较安全的</p><h3 id=品葱用户-peacefulwaters-1>品葱用户 **peacefulwaters</h3><p>procks** 评论于 2020-08-09</p><p>[</p><blockquote><p>那是腾讯发给国安的数据库，里面当然不加密，这样才方便搜索查询微信上的信息，腾讯内部数据本身应该是比较&mldr;</p></blockquote><p>]( &ldquo;/article/item_id-464176#&rdquo;)<br>国安不加密不是很不应该么？<br>国安可以把公钥发给腾讯加密啊。</p><h3 id=品葱用户-oeirjsd-评论于-2020-08-09>品葱用户 <strong>oeirjsd</strong> 评论于 2020-08-09</h3><p>技术小白想问一下，这代表着什么？是不是以后翻墙会变得越来越难？V2ray是不是也会受到影响？</p><h3 id=品葱用户-chauchat>品葱用户 **Chauchat</h3><p>oeirjsd** 评论于 2020-08-08</p><p>[</p><blockquote><p>技术小白想问一下，这代表着什么？是不是以后翻墙会变得越来越难？V2ray是不是也会受到影响？</p></blockquote><p>]( &ldquo;/article/item_id-464215#&rdquo;)<br>和v2ray没有直接关系，目前的影响是火狐的doh+esni来无代理翻墙方法失效。那就开梯子呗</p><h3 id=品葱用户-beatccp-评论于-2020-08-09>品葱用户 <strong>beatCCP</strong> 评论于 2020-08-09</h3><p>很专业的报告，感觉还是有很多人在为推倒防火长城做不懈的努力。我听一些人说，防火长城里思科和微软出了很大的力，如果这是真的话，美国政府是不是可以出台命令使得这些公司不能继续作恶，从而打击防火长城？</p><h3 id=品葱用户-pintest>品葱用户 **PinTest</h3><p>peacefulwaters** 评论于 2020-08-08</p><p>[</p><blockquote><p>国安不加密不是很不应该么？国安可以把公钥发给腾讯加密啊。</p></blockquote><p>]( &ldquo;/article/item_id-464210#&rdquo;)<br>密码法规定，加密必须使用自主研发软硬件，开源的加密方式是中共不信任的。</p><h3 id=品葱用户-n2o小熊-评论于-2020-08-09>品葱用户 <strong>N2o小熊</strong> 评论于 2020-08-09</h3><p>设计协议的人太善良，总是留下特征</p><h3 id=品葱用户-procks-1>品葱用户 **procks</h3><p>peacefulwaters** 评论于 2020-08-09</p><p>[</p><blockquote><p>国安不加密不是很不应该么？国安可以把公钥发给腾讯加密啊。</p></blockquote><p>]( &ldquo;/article/item_id-464210#&rdquo;)<br>那是mongo喔，每条信息数据记录都加密搜索起来不会慢么</p><h3 id=品葱用户-lonelydot-评论于-2020-08-09>品葱用户 <strong>lonelydot</strong> 评论于 2020-08-09</h3><p>这个对翻墙没什么影响，因为esni的目的是伪装用户所要访问的网站，大家一般是通过上网代理翻墙出去，gfw只能知道你所要连接的服务器的ip，不会知道你要通过服务器访问什么网站，这个要说有用的话应该是在直连的情况下有用，能够保护隐私。</p><h3 id=品葱用户-zagy_lam-评论于-2020-08-08>品葱用户 <strong>zagy_lam</strong> 评论于 2020-08-08</h3><p>都2020年了，还把十几亿人关在一个网络囚笼里面，让绝大部分人每天暴露于同一口径的垃圾信息里面，某程度上这与二战时期的纳粹集中营无异。<br>川普禁tiktok、微信的这一杀着真的狡猾，但同时也很有效。原因当然不仅仅是软件后台把用户数据秘密共享给CCP，更多的是因为这两款软件是CCP发动网络舆论攻势的杀器，当这些软件越受欢迎就越危险，因为你的网络话语权随时会被fake news给夺走。</p><h3 id=品葱用户-包子今天好吃吗-评论于-2020-08-09>品葱用户 <strong>包子今天好吃吗</strong> 评论于 2020-08-09</h3><p>额，努力看了一下，还是不懂，有大佬深入浅出的讲一下，这个到底在说啥吗。。。。瑟瑟发抖</p><h3 id=品葱用户-peacefulwaters-2>品葱用户 **peacefulwaters</h3><p>lonelydot** 评论于 2020-08-09</p><p>[</p><blockquote><p>这个对翻墙没什么影响，因为esni的目的是伪装用户所要访问的网站，大家一般是通过上网代理翻墙出去，g&mldr;</p></blockquote><p>]( &ldquo;/article/item_id-464509#&rdquo;)<br>esni能用就不用翻墙了<br>反正你流量全加密，再加上访问目标加密，GFW直接作废了</p><h3 id=品葱用户-peacefulwaters-3>品葱用户 **peacefulwaters</h3><p>procks** 评论于 2020-08-09</p><p>[</p><blockquote><p>那是mongo喔，每条信息数据记录都加密搜索起来不会慢么</p></blockquote><p>]( &ldquo;/article/item_id-464461#&rdquo;)<br>美国NSA搞得棱镜计划，会有这么傻逼吗？</p><h3 id=品葱用户-peacefulwaters-4>品葱用户 **peacefulwaters</h3><p>N2o小熊** 评论于 2020-08-08</p><p>[</p><blockquote><p>设计协议的人太善良，总是留下特征</p></blockquote><p>]( &ldquo;/article/item_id-464348#&rdquo;)<br>不是善良，就算是混淆的也有蛛丝马迹，用信息学术语说，就是低熵值</p><h3 id=品葱用户-peacefulwaters-5>品葱用户 **peacefulwaters</h3><p>beatCCP** 评论于 2020-08-09</p><p>[</p><blockquote><p>很专业的报告，感觉还是有很多人在为推倒防火长城做不懈的努力。我听一些人说，防火长城里思科和微软出了很&mldr;</p></blockquote><p>]( &ldquo;/article/item_id-464286#&rdquo;)<br>晚了，思科的防火墙已经被华为山寨了</p><h3 id=品葱用户-procks-2>品葱用户 **procks</h3><p>N2o小熊** 评论于 2020-08-09</p><p>[</p><blockquote><p>设计协议的人太善良，总是留下特征</p></blockquote><p>]( &ldquo;/article/item_id-464348#&rdquo;)<br>看有没有升级喽，升级把特征去除</p><h3 id=品葱用户-procks-3>品葱用户 **procks</h3><p>peacefulwaters** 评论于 2020-08-08</p><p>[</p><blockquote><p>美国NSA搞得棱镜计划，会有这么傻逼吗？</p></blockquote><p>]( &ldquo;/article/item_id-464625#&rdquo;)<br>那个不清楚，反正国安用的数据库是mongo，而且被人发现也不知道</p><h3 id=品葱用户-peacefulwaters-6>品葱用户 **peacefulwaters</h3><p>procks** 评论于 2020-08-09</p><p>[</p><blockquote><p>看有没有升级喽，升级把特征去除</p></blockquote><p>]( &ldquo;/article/item_id-464639#&rdquo;)<br>不是有人工智能学习的方法来掌握流量特征提高墙的精确度？<br>墙也有AI啊</p><h3 id=品葱用户-peacefulwaters-7>品葱用户 **peacefulwaters</h3><p>PinTest** 评论于 2020-08-09</p><p>[</p><blockquote><p>密码法规定，加密必须使用自主研发软硬件，开源的加密方式是中共不信任的。</p></blockquote><p>]( &ldquo;/article/item_id-464294#&rdquo;)<br>中共的加密技术说瓦房店都抬举它了</p><h3 id=品葱用户-霏艺faye-评论于-2020-08-08>品葱用户 <strong>霏艺Faye</strong> 评论于 2020-08-08</h3><p>这些策略都是修改在TCP协议栈<br>对普通用户不友好</p><p>只能Linux系统的用户，自己修改tcp协议栈代码来实现了</p><p>目前只能通过前置域名的方式来代替ESNI了。。。</p><h3 id=品葱用户-procks-4>品葱用户 **procks</h3><p>peacefulwaters** 评论于 2020-08-09</p><p>[</p><blockquote><p>不是有人工智能学习的方法来掌握流量特征提高墙的精确度？墙也有AI啊</p></blockquote><p>]( &ldquo;/article/item_id-464653#&rdquo;)<br>实验而已，不知道是不是真的有效，就是真的那也得用得起再说，协议有源码可以看，流量特征？莫非有些工具在建立连接的时候流量有特点？</p><h3 id=品葱用户-singesu-评论于-2020-08-09>品葱用户 <strong>singesu</strong> 评论于 2020-08-09</h3><p>人在牆外不熟行</p><p>有沒有人方便簡介一下啥狀況（）</p><h3 id=品葱用户-peacefulwaters-8>品葱用户 **peacefulwaters</h3><p>procks** 评论于 2020-08-08</p><p>[</p><blockquote><p>实验而已，不知道是不是真的有效，就是真的那也得用得起再说，协议有源码可以看，流量特征？莫非有些工具在&mldr;</p></blockquote><p>]( &ldquo;/article/item_id-464672#&rdquo;)<br>简单的说，给了开源协议，本身并不等于墙的开发者就可以有效屏蔽这个协议，就像开源的加密软件，看了代码并不会解密。<br>墙的开发者的可行方案就是学习，装一系列翻墙软件，让翻墙软件走墙的分析工具，分析工具不断学习进化，最后有效地识别翻墙软件，减少漏报和误报</p><h3 id=品葱用户-procks-5>品葱用户 **procks</h3><p>peacefulwaters** 评论于 2020-08-08</p><p>[</p><blockquote><p>简单的说，给了开源协议，本身并不等于墙的开发者就可以有效屏蔽这个协议，就像开源的加密软件，看了代码并&mldr;</p></blockquote><p>]( &ldquo;/article/item_id-464750#&rdquo;)<br>都是从协议本身的漏洞出发，那种什么分析工具的，不断变化的加密报文基本没有啥可以分析的</p><h3 id=品葱用户-范松忠-评论于-2020-08-09>品葱用户 <strong>范松忠</strong> 评论于 2020-08-09</h3><p>主要结论：量子通讯，依靠量子纠缠，能超光速传输，具体不明白的请自己查看维基百科。</p><p>只有量子通讯，截取，篡改，都是不可能的。</p><h3 id=品葱用户-peacefulwaters-9>品葱用户 **peacefulwaters</h3><p>范松忠** 评论于 2020-08-09</p><p>[</p><blockquote><p>主要结论：量子通讯，依靠量子纠缠，能超光速传输，具体不明白的请自己查看维基百科。只有量子通讯，截取，&mldr;</p></blockquote><p>]( &ldquo;/article/item_id-464772#&rdquo;)<br>第一，量子纠缠确实比光速快，但是量子纠缠本身并不能传输信息。传输量子纠缠态的速度仍不能超过光速<br>第二，量子通讯不是不能截取篡改，而是截取或者篡改之后通讯方会发现中间有人破坏。</p><h3 id=品葱用户-若名用户-评论于-2020-08-09>品葱用户 <strong>若名用户</strong> 评论于 2020-08-09</h3><p>封锁所有ESNI，ESNI是TLS1.3的基础特性，基本等于是白名单了吧？<br>现在网站基本都是HTTPS，所有升级到TLS1.3的网站都不能用，等到协议全面升级后就只有老网站能上了。<br>不过按现在的形势完全断网也不算奇怪</p><h3 id=品葱用户-范松忠>品葱用户 **范松忠</h3><p>peacefulwaters** 评论于 2020-08-08</p><p>[</p><blockquote><p>第一，量子纠缠确实比光速快，但是量子纠缠本身并不能传输信息。传输量子纠缠态的速度仍不能超过光速第二，&mldr;</p></blockquote><p>]( &ldquo;/article/item_id-464815#&rdquo;)<br>第一：传输量子纠缠态的速度仍不能超过光速：<br>能，瞬间反应，两个纠缠在一起的量子，一个在银河系另一端，都能瞬间反应，只是如何做成有序的，能传输信息的，这个还没有答案，要是有的话，连网线、卫星发射器等设备都不需要了，就像两个对讲机，但即时传输的。</p><p>第二：是么？好像两个量子自己连接，别的地方完全无法得知他们在“纠缠”吧？</p><h3 id=品葱用户-币圈奇葩8964>品葱用户 **币圈奇葩8964</h3><p>oeirjsd** 评论于 2020-08-09</p><p>[</p><blockquote><p>技术小白想问一下，这代表着什么？是不是以后翻墙会变得越来越难？V2ray是不是也会受到影响？</p></blockquote><p>]( &ldquo;/article/item_id-464215#&rdquo;)<br>这种事什么也不能代表，翻墙本来就越来越难，，，<br>这只是GFW墙加高的一个步骤罢了，，，</p><h3 id=品葱用户-币圈奇葩8964-1>品葱用户 **币圈奇葩8964</h3><p>若名用户** 评论于 2020-08-08</p><p>[</p><blockquote><p>封锁所有ESNI，ESNI是TLS1.3的基础特性，基本等于是白名单了吧？现在网站基本都是HTTPS&mldr;</p></blockquote><p>]( &ldquo;/article/item_id-464827#&rdquo;)<br>ESNI是TLS1.3的<strong>可选</strong>特性，也就是说要使用ESNI必须上TLS1.3，但是上TLS1.3不一定用ESNI，，，</p><h3 id=品葱用户-币圈奇葩8964-评论于-2020-08-08>品葱用户 <strong>币圈奇葩8964</strong> 评论于 2020-08-08</h3><p>GFW封ESNI基本上在我币圈人意料之中，毕竟不是必需项，用的人也太少，不会有多大影响，，，</p><h3 id=品葱用户-peacefulwaters-10>品葱用户 **peacefulwaters</h3><p>范松忠** 评论于 2020-08-09</p><p>[</p><blockquote><p>第一：传输量子纠缠态的速度仍不能超过光速：能，瞬间反应，两个纠缠在一起的量子，一个在银河系另一端，都&mldr;</p></blockquote><p>]( &ldquo;/article/item_id-464828#&rdquo;)<br>量子纠缠本身并不传输信息，不错，你这头动了它，它另一头立刻反应，超光速，但是你不能用这个反应来传递信息，因为你没法把信息编码到到“动”这个过程中。纠缠本身是携带信息的，但是这个信息就只能在光速以下传播了</p><h3 id=品葱用户-范松忠-1>品葱用户 **范松忠</h3><p>peacefulwaters** 评论于 2020-08-09</p><p>[</p><blockquote><p>量子纠缠本身并不传输信息，不错，你这头动了它，它另一头立刻反应，超光速，但是你不能用这个反应来传递信&mldr;</p></blockquote><p>]( &ldquo;/article/item_id-464939#&rdquo;)<br>那也是，也有这种说法，但也有说可以用来通信的，还有说法是传输是随机的，无法传输有效信息。唉。</p><blockquote><p><a href=https://pincong.rocks/article/22661>点击品葱原文参与讨论</a></p></blockquote><h5><a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5></div><div class="col-lg-8 mx-auto block shadow"><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var t=document,e=t.createElement('script');e.async=!0,e.src='//pin-cong-jing-xuan.disqus.com/embed.js',e.setAttribute('data-timestamp',+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div class="col-lg-8 mx-auto block shadow"><h3>See Also</h3><div class=container><div class=row><div class="mx-auto px-0"><div class="bg-white shadow block"><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/1a33ba4f220ac5ace5165a0cd8467d0f/?utm_source=see_also&utm_medium=iyouport-%25E6%258A%25A5%25E5%2591%258A%25E4%25B8%25AD%25E5%259B%25BD%25E7%259A%2584%25E9%2598%25B2%25E7%2581%25AB%25E9%2595%25BF%25E5%259F%258E%25E5%25B7%25B2%25E7%25BB%258F%25E5%25B0%2581%25E9%2594%2581%25E5%258A%25A0%25E5%25AF%2586%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%2590%258D%25E7%25A7%25B0%25E6%258C%2587%25E7%25A4%25BAesni">中国互联网审查官鲁炜落马</a></h2><p class=text-dark>中国互联网审查官鲁炜落马
 储百亮, 孟宝勒　2017年11月22日纽约时报
-中国官方媒体周二报道，负责互联网审查，与Facebook、苹果(Apple)和亚马逊(Amazon)的高管过从甚密并断然否认其所在政府实行审查的前官员，正在接受共产 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/81321f4775785fbac2ce1199e81162c5/?utm_source=see_also&utm_medium=iyouport-%25E6%258A%25A5%25E5%2591%258A%25E4%25B8%25AD%25E5%259B%25BD%25E7%259A%2584%25E9%2598%25B2%25E7%2581%25AB%25E9%2595%25BF%25E5%259F%258E%25E5%25B7%25B2%25E7%25BB%258F%25E5%25B0%2581%25E9%2594%2581%25E5%258A%25A0%25E5%25AF%2586%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%2590%258D%25E7%25A7%25B0%25E6%258C%2587%25E7%25A4%25BAesni">好好说话</a>
-</h2>
-<p class=text-dark>不好意思，又用回原题图，让读者们失望了。
+中国官方媒体周二报道，负责互联网审查，与Facebook、苹果(Apple)和亚马逊(Amazon)的高管过从甚密并断然否认其所在政府实行审查的前官员，正在接受共产 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/81321f4775785fbac2ce1199e81162c5/?utm_source=see_also&utm_medium=iyouport-%25E6%258A%25A5%25E5%2591%258A%25E4%25B8%25AD%25E5%259B%25BD%25E7%259A%2584%25E9%2598%25B2%25E7%2581%25AB%25E9%2595%25BF%25E5%259F%258E%25E5%25B7%25B2%25E7%25BB%258F%25E5%25B0%2581%25E9%2594%2581%25E5%258A%25A0%25E5%25AF%2586%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%2590%258D%25E7%25A7%25B0%25E6%258C%2587%25E7%25A4%25BAesni">好好说话</a></h2><p class=text-dark>不好意思，又用回原题图，让读者们失望了。
 有不少读者觉得我用这个图，动机不良，阴阳怪气。
 好吧，其实他们说的对哦。
 有人就会说，你就好好说话，好好配图，好好写你的东西，不可以么。
 是呀，我也想好好说话啊，要不，您教教我？
-互联网这几年确实风 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/baff422957232d6a8abc57de35c80b75/?utm_source=see_also&utm_medium=iyouport-%25E6%258A%25A5%25E5%2591%258A%25E4%25B8%25AD%25E5%259B%25BD%25E7%259A%2584%25E9%2598%25B2%25E7%2581%25AB%25E9%2595%25BF%25E5%259F%258E%25E5%25B7%25B2%25E7%25BB%258F%25E5%25B0%2581%25E9%2594%2581%25E5%258A%25A0%25E5%25AF%2586%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%2590%258D%25E7%25A7%25B0%25E6%258C%2587%25E7%25A4%25BAesni">关于美国推倒防火墙，现在有新消息吗？中共将如何应对？</a>
-</h2>
-<p class=text-dark>品葱用户 AlexXiao 提问于 8/8/2020 5月时，班农说美国政府目前打算推倒中共的防火墙，当时还是个很轰动的新闻。但现在关于推墙，好像也没什么消息了，我也很好奇目前进度如何。
-不过，就算墙真被推了，中国人可以自由上网，中共也不可 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/24975d02741ba81fd1132949f3e4cc19/?utm_source=see_also&utm_medium=iyouport-%25E6%258A%25A5%25E5%2591%258A%25E4%25B8%25AD%25E5%259B%25BD%25E7%259A%2584%25E9%2598%25B2%25E7%2581%25AB%25E9%2595%25BF%25E5%259F%258E%25E5%25B7%25B2%25E7%25BB%258F%25E5%25B0%2581%25E9%2594%2581%25E5%258A%25A0%25E5%25AF%2586%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%2590%258D%25E7%25A7%25B0%25E6%258C%2587%25E7%25A4%25BAesni">转&lt;“好莱坞制作，北京审查”：北京如何掐住好莱坞命门> 中共控制的资本市场如何渗透左右美国各界?</a>
-</h2>
-<p class=text-dark>品葱用户 procks 提问于 8/7/2020 转发原文:https://www.voachinese.com/a/made-in-hollywood-censored-by-beijing/5534201.html
-&lt;“好莱坞制 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/e357e32edc51420f07ab9c38e02d3e3b/?utm_source=see_also&utm_medium=iyouport-%25E6%258A%25A5%25E5%2591%258A%25E4%25B8%25AD%25E5%259B%25BD%25E7%259A%2584%25E9%2598%25B2%25E7%2581%25AB%25E9%2595%25BF%25E5%259F%258E%25E5%25B7%25B2%25E7%25BB%258F%25E5%25B0%2581%25E9%2594%2581%25E5%258A%25A0%25E5%25AF%2586%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%2590%258D%25E7%25A7%25B0%25E6%258C%2587%25E7%25A4%25BAesni">「长文」谈谈墙内的左人是多么的意淫＋嘴炮</a>
-</h2>
-<p class=text-dark>观前提示:请品葱的社自，社民们不要对号入座，这里的左人具体指精神康米，就是支持马列毛主义，反对中共统治与改革开放等的群体。
+互联网这几年确实风 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/baff422957232d6a8abc57de35c80b75/?utm_source=see_also&utm_medium=iyouport-%25E6%258A%25A5%25E5%2591%258A%25E4%25B8%25AD%25E5%259B%25BD%25E7%259A%2584%25E9%2598%25B2%25E7%2581%25AB%25E9%2595%25BF%25E5%259F%258E%25E5%25B7%25B2%25E7%25BB%258F%25E5%25B0%2581%25E9%2594%2581%25E5%258A%25A0%25E5%25AF%2586%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%2590%258D%25E7%25A7%25B0%25E6%258C%2587%25E7%25A4%25BAesni">关于美国推倒防火墙，现在有新消息吗？中共将如何应对？</a></h2><p class=text-dark>品葱用户 AlexXiao 提问于 8/8/2020 5月时，班农说美国政府目前打算推倒中共的防火墙，当时还是个很轰动的新闻。但现在关于推墙，好像也没什么消息了，我也很好奇目前进度如何。
+不过，就算墙真被推了，中国人可以自由上网，中共也不可 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/24975d02741ba81fd1132949f3e4cc19/?utm_source=see_also&utm_medium=iyouport-%25E6%258A%25A5%25E5%2591%258A%25E4%25B8%25AD%25E5%259B%25BD%25E7%259A%2584%25E9%2598%25B2%25E7%2581%25AB%25E9%2595%25BF%25E5%259F%258E%25E5%25B7%25B2%25E7%25BB%258F%25E5%25B0%2581%25E9%2594%2581%25E5%258A%25A0%25E5%25AF%2586%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%2590%258D%25E7%25A7%25B0%25E6%258C%2587%25E7%25A4%25BAesni">转&lt;“好莱坞制作，北京审查”：北京如何掐住好莱坞命门> 中共控制的资本市场如何渗透左右美国各界?</a></h2><p class=text-dark>品葱用户 procks 提问于 8/7/2020 转发原文:https://www.voachinese.com/a/made-in-hollywood-censored-by-beijing/5534201.html
+&lt;“好莱坞制 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/e357e32edc51420f07ab9c38e02d3e3b/?utm_source=see_also&utm_medium=iyouport-%25E6%258A%25A5%25E5%2591%258A%25E4%25B8%25AD%25E5%259B%25BD%25E7%259A%2584%25E9%2598%25B2%25E7%2581%25AB%25E9%2595%25BF%25E5%259F%258E%25E5%25B7%25B2%25E7%25BB%258F%25E5%25B0%2581%25E9%2594%2581%25E5%258A%25A0%25E5%25AF%2586%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E5%2590%258D%25E7%25A7%25B0%25E6%258C%2587%25E7%25A4%25BAesni">「长文」谈谈墙内的左人是多么的意淫＋嘴炮</a></h2><p class=text-dark>观前提示:请品葱的社自，社民们不要对号入座，这里的左人具体指精神康米，就是支持马列毛主义，反对中共统治与改革开放等的群体。
 虽然我提的案例只是孤例，但可以窥见墙内左人的特性：就是意淫＋嘴炮。
-某吧(具体就不点名是哪个贴吧)是个左人聚集的键政 …</p>
-</article>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
-<footer class="py-4 bg-light border-top">
-<div class=container>
-<div class="row justify-content-between align-items-center">
-<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
-</div>
-<div class="col-lg-4 text-center mb-4 mb-lg-0">
-<ul class="list-inline mb-0">
-</ul>
-</div>
-<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
-<ul class="list-inline social-icon mb-0">
-<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
-<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
-</ul>
-</div>
-<div class="col-12 text-center mt-4">
-<span></span>
-</div>
-</div>
-</div>
-</footer>
-<script src=../../plugins/jQuery/jquery.min.js></script>
+某吧(具体就不点名是哪个贴吧)是个左人聚集的键政 …</p></article></div></div></div></div></div></div></div></div></section><script>var i,images=document.getElementsByTagName("img");for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../plugins/jQuery/jquery.min.js></script>
 <script src=../../plugins/bootstrap/bootstrap.min.js></script>
 <script src=../../plugins/search/fuse.min.js></script>
 <script src=../../plugins/search/mark.js></script>
 <script src=../../plugins/search/search.js></script>
 <script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
-</html>
+<script>(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body></html>

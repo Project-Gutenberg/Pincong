@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh-cn><head>
-<meta charset=utf-8>
-<title>我来从实践层面解释一...</title>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name=description content=" 我来从实践层面解释一下，河南村镇银行的虚假系统的实现难度，纯技术层面的解释，我尽量解释得通俗易懂。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>我来从实践层面解释一...</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 我来从实践层面解释一下，河南村镇银行的虚假系统的实现难度，纯技术层面的解释，我尽量解释得通俗易懂。
 首先，储户要从他自己的大行账户，转一笔钱，到他新开的村镇银行账户。他的转账指令是发给大行的，比如是从工商银行郑州分行转到上蔡惠民村镇银行，他的转账指令是发给工行的。工行接到这个指令，进行转账动作，它首先就要在央行系统里核实收款账户的真实性！收款账户必须真实存在，且在央行系统内可查，可结算，无瑕疵，工行才能执行转账动作，把钱转过去。无法理解这一点的同学，想想有时候你转账的时候，把对方的名字写错了一个字或者账号打错一个数字，就转不了账，就能理解了。大行不可能向一个虚构的账户成功转账！绝无可能！
 那么，在大行完成转账之后，事情并没有结束，因为成功转账只是金融监管的第一步，接下来工行郑州分行这边会出当日账本，记录自己从什么账户转出了一笔钱，转去了哪里，并相应调减自己的总存款规模和资产规模。而在接受行上蔡惠民村镇银行这边，同样要在当日账本里计入自己从哪里收入了一笔钱，存进了那个账户，并相应调增自己的总存款规模和资产规模。
 也就是说，按现在四百亿的涉案存款余额来说，四家涉案村镇银行，平均每家一百亿，这些钱都是从大行转账过来的。所以这四家村镇银行必须在自己的账目上，明确记录自己的存款规模达到了一百亿，并每日上报央行一次，这才符合央行的严格规定。
@@ -15,16 +11,7 @@ OK，因此，这四家村镇银行，按照规则的话，每家必须上报存
 更不要说，在此过程中，无数客户还能从他们的小村行账号里，向自己的大行账号转账，并且能成功实现转账。你们必须记住，这是一次相反的监管过程，大行那边要记录整个转账过程，小村行的转出账号也必须是真实的，你使用一个虚构账号向大行转账，大行是不会收的。整个过程也必须形成两套账，相互严格对应并上报央行。
 虚假系统可以做到这些？？？？
 我所有的金融常识都碎了一地了。
-假设，我是说假设啊，这套功能如此强大的虚假系统，它最合适就是拿来洗钱，而不是侵占储户的存款。洗钱的成本，现在少说也是百分之四十。这套系统不光不要钱，还承诺给 4% 的利息，这都没法说了这个。 ">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
-<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
-<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
-<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<meta name=twitter:card content="summary_large_image">
-<meta name=og:title content=" 我来从实践层面解释一... ">
-<meta name=og:description content=" 我来从实践层面解释一下，河南村镇银行的虚假系统的实现难度，纯技术层面的解释，我尽量解释得通俗易懂。
+假设，我是说假设啊，这套功能如此强大的虚假系统，它最合适就是拿来洗钱，而不是侵占储户的存款。洗钱的成本，现在少说也是百分之四十。这套系统不光不要钱，还承诺给 4% 的利息，这都没法说了这个。 "><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" 我来从实践层面解释一... "><meta name=og:description content=" 我来从实践层面解释一下，河南村镇银行的虚假系统的实现难度，纯技术层面的解释，我尽量解释得通俗易懂。
 首先，储户要从他自己的大行账户，转一笔钱，到他新开的村镇银行账户。他的转账指令是发给大行的，比如是从工商银行郑州分行转到上蔡惠民村镇银行，他的转账指令是发给工行的。工行接到这个指令，进行转账动作，它首先就要在央行系统里核实收款账户的真实性！收款账户必须真实存在，且在央行系统内可查，可结算，无瑕疵，工行才能执行转账动作，把钱转过去。无法理解这一点的同学，想想有时候你转账的时候，把对方的名字写错了一个字或者账号打错一个数字，就转不了账，就能理解了。大行不可能向一个虚构的账户成功转账！绝无可能！
 那么，在大行完成转账之后，事情并没有结束，因为成功转账只是金融监管的第一步，接下来工行郑州分行这边会出当日账本，记录自己从什么账户转出了一笔钱，转去了哪里，并相应调减自己的总存款规模和资产规模。而在接受行上蔡惠民村镇银行这边，同样要在当日账本里计入自己从哪里收入了一笔钱，存进了那个账户，并相应调增自己的总存款规模和资产规模。
 也就是说，按现在四百亿的涉案存款余额来说，四家涉案村镇银行，平均每家一百亿，这些钱都是从大行转账过来的。所以这四家村镇银行必须在自己的账目上，明确记录自己的存款规模达到了一百亿，并每日上报央行一次，这才符合央行的严格规定。
@@ -37,155 +24,29 @@ OK，因此，这四家村镇银行，按照规则的话，每家必须上报存
 更不要说，在此过程中，无数客户还能从他们的小村行账号里，向自己的大行账号转账，并且能成功实现转账。你们必须记住，这是一次相反的监管过程，大行那边要记录整个转账过程，小村行的转出账号也必须是真实的，你使用一个虚构账号向大行转账，大行是不会收的。整个过程也必须形成两套账，相互严格对应并上报央行。
 虚假系统可以做到这些？？？？
 我所有的金融常识都碎了一地了。
-假设，我是说假设啊，这套功能如此强大的虚假系统，它最合适就是拿来洗钱，而不是侵占储户的存款。洗钱的成本，现在少说也是百分之四十。这套系统不光不要钱，还承诺给 4% 的利息，这都没法说了这个。 ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/218.jpg">
-<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+假设，我是说假设啊，这套功能如此强大的虚假系统，它最合适就是拿来洗钱，而不是侵占储户的存款。洗钱的成本，现在少说也是百分之四十。这套系统不光不要钱，还承诺给 4% 的利息，这都没法说了这个。 "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/1.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
-</head>
-<body>
-<header class="fixed-top navigation">
-<div class=container>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class="ti-menu h3"></i>
-</button>
-<div class="collapse navbar-collapse text-center" id=navigation>
-<ul class="navbar-nav ml-auto">
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</header> <div class="py-5 d-none d-lg-block"></div>
-<section class=main-content>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 mx-auto block shadow mb-5">
-<h2>我来从实践层面解释一&mldr;</h2>
-<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=main-content><div class=container><div class=row><div class="col-lg-8 mx-auto block shadow mb-5"><h2>我来从实践层面解释一&mldr;</h2><div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
 <span>at 19 June 2022</span>, tags :
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e8%bd%ac%e8%b4%a6>转账</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e6%9d%91%e9%95%87>村镇</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e5%a4%a7%e8%a1%8c>大行</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e8%a7%84%e6%a8%a1>规模</a>
 <a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/f732a0caf6f1517f45d28235bafe045b.md style=color:gray><strong><i>点击纠错</i></strong></a>
-<i> </i>
-<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/f732a0caf6f1517f45d28235bafe045b.md style=color:gray><strong><i>点击删除</i></strong></a>
-</div>
-<h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
-<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
-<p></p>
-<p>我来从实践层面解释一下，河南村镇银行的虚假系统的实现难度，纯技术层面的解释，我尽量解释得通俗易懂。</p>
-<p>首先，储户要从他自己的大行账户，转一笔钱，到他新开的村镇银行账户。他的转账指令是发给大行的，比如是从工商银行郑州分行转到上蔡惠民村镇银行，他的转账指令是发给工行的。工行接到这个指令，进行转账动作，它首先就要在央行系统里核实收款账户的真实性！收款账户必须真实存在，且在央行系统内可查，可结算，无瑕疵，工行才能执行转账动作，把钱转过去。无法理解这一点的同学，想想有时候你转账的时候，把对方的名字写错了一个字或者账号打错一个数字，就转不了账，就能理解了。大行不可能向一个虚构的账户成功转账！绝无可能！</p>
-<p>那么，在大行完成转账之后，事情并没有结束，因为成功转账只是金融监管的第一步，接下来工行郑州分行这边会出当日账本，记录自己从什么账户转出了一笔钱，转去了哪里，并相应调减自己的总存款规模和资产规模。而在接受行上蔡惠民村镇银行这边，同样要在当日账本里计入自己从哪里收入了一笔钱，存进了那个账户，并相应调增自己的总存款规模和资产规模。</p>
-<p>也就是说，按现在四百亿的涉案存款余额来说，四家涉案村镇银行，平均每家一百亿，这些钱都是从大行转账过来的。所以这四家村镇银行必须在自己的账目上，明确记录自己的存款规模达到了一百亿，并每日上报央行一次，这才符合央行的严格规定。</p>
-<p>上面这套流程是绝对绕不过去的。绝对绝对绕不过去！</p>
-<p>四家村镇银行吸纳的每一笔转账都必须使用真实账户并上报央行，你不报，转出行那边也会报，你这边没有对应报表的话，第二天央行的督察就上门了！</p>
-<p>OK，因此，这四家村镇银行，按照规则的话，每家必须上报存款一百亿。注意，这里的规则真的规避不过去，没有任何办法规避。在那样的小县城，总存款资金规模不到三百亿的小县城，一家存款规模一百亿的村镇银行意味着什么？？意味着这就是当地的第一大银行！并且一定会在当地的宏观经济统计数据里体现出来！由于吸纳了数以百亿计的外地存款，当地的存款规模会畸形的高，远远超出当地的经济实力。</p>
-<p>然而并没有。这些村镇银行的公开的存款规模都不大，三家 10-20 亿，一家不到 30 亿。这四个小地方公报的存款规模也正常，没有什么畸形之处。</p>
-<p>所以，问题来了：这到底是怎么做到的？大行向这四家小村行转账四百亿，是怎么绕过绝对不可能绕过去的央行监管体系的？数以十万计的，分布在全国各地的储户，向自己的大行账户下指令，转账到自己的小村行账户，这个指令在全国各地的无数大行的分行，到底是怎么执行的？为啥四百亿不翼而飞，没有进入报表体系之中？？？</p>
-<p>我对此真的是百思不得其解。</p>
-<p>更不要说，在此过程中，无数客户还能从他们的小村行账号里，向自己的大行账号转账，并且能成功实现转账。你们必须记住，这是一次相反的监管过程，大行那边要记录整个转账过程，小村行的转出账号也必须是真实的，你使用一个虚构账号向大行转账，大行是不会收的。整个过程也必须形成两套账，相互严格对应并上报央行。</p>
-<p>虚假系统可以做到这些？？？？</p>
-<p>我所有的金融常识都碎了一地了。</p>
-<p>假设，我是说假设啊，这套功能如此强大的虚假系统，它最合适就是拿来洗钱，而不是侵占储户的存款。洗钱的成本，现在少说也是百分之四十。这套系统不光不要钱，还承诺给 4% 的利息，这都没法说了这个。</p>
-<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<h3>See Also</h3>
-<div class=container>
-<div class=row>
-<div class="mx-auto px-0">
-<div class="bg-white shadow block">
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/49cd3e84d7faf1df63bad723597c19ab/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E6%259D%25A5%25E4%25BB%258E%25E5%25AE%259E%25E8%25B7%25B5%25E5%25B1%2582%25E9%259D%25A2%25E8%25A7%25A3%25E9%2587%258A%25E4%25B8%2580...">6 月 18 日河南新财富集团犯罪事实已初步查明，涉事人员都将面临哪些处罚？还有哪些信息值得关注？</a>
-</h2>
-<p class=text-dark>知乎用户 陈律说法​​ 发表 求求你们了，办案归办案，追赃归追赃，处罚归处罚，储户的钱能不能先还给他们？
+<i></i><a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/f732a0caf6f1517f45d28235bafe045b.md style=color:gray><strong><i>点击删除</i></strong></a></div><h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5><h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5><p></p><p>我来从实践层面解释一下，河南村镇银行的虚假系统的实现难度，纯技术层面的解释，我尽量解释得通俗易懂。</p><p>首先，储户要从他自己的大行账户，转一笔钱，到他新开的村镇银行账户。他的转账指令是发给大行的，比如是从工商银行郑州分行转到上蔡惠民村镇银行，他的转账指令是发给工行的。工行接到这个指令，进行转账动作，它首先就要在央行系统里核实收款账户的真实性！收款账户必须真实存在，且在央行系统内可查，可结算，无瑕疵，工行才能执行转账动作，把钱转过去。无法理解这一点的同学，想想有时候你转账的时候，把对方的名字写错了一个字或者账号打错一个数字，就转不了账，就能理解了。大行不可能向一个虚构的账户成功转账！绝无可能！</p><p>那么，在大行完成转账之后，事情并没有结束，因为成功转账只是金融监管的第一步，接下来工行郑州分行这边会出当日账本，记录自己从什么账户转出了一笔钱，转去了哪里，并相应调减自己的总存款规模和资产规模。而在接受行上蔡惠民村镇银行这边，同样要在当日账本里计入自己从哪里收入了一笔钱，存进了那个账户，并相应调增自己的总存款规模和资产规模。</p><p>也就是说，按现在四百亿的涉案存款余额来说，四家涉案村镇银行，平均每家一百亿，这些钱都是从大行转账过来的。所以这四家村镇银行必须在自己的账目上，明确记录自己的存款规模达到了一百亿，并每日上报央行一次，这才符合央行的严格规定。</p><p>上面这套流程是绝对绕不过去的。绝对绝对绕不过去！</p><p>四家村镇银行吸纳的每一笔转账都必须使用真实账户并上报央行，你不报，转出行那边也会报，你这边没有对应报表的话，第二天央行的督察就上门了！</p><p>OK，因此，这四家村镇银行，按照规则的话，每家必须上报存款一百亿。注意，这里的规则真的规避不过去，没有任何办法规避。在那样的小县城，总存款资金规模不到三百亿的小县城，一家存款规模一百亿的村镇银行意味着什么？？意味着这就是当地的第一大银行！并且一定会在当地的宏观经济统计数据里体现出来！由于吸纳了数以百亿计的外地存款，当地的存款规模会畸形的高，远远超出当地的经济实力。</p><p>然而并没有。这些村镇银行的公开的存款规模都不大，三家 10-20 亿，一家不到 30 亿。这四个小地方公报的存款规模也正常，没有什么畸形之处。</p><p>所以，问题来了：这到底是怎么做到的？大行向这四家小村行转账四百亿，是怎么绕过绝对不可能绕过去的央行监管体系的？数以十万计的，分布在全国各地的储户，向自己的大行账户下指令，转账到自己的小村行账户，这个指令在全国各地的无数大行的分行，到底是怎么执行的？为啥四百亿不翼而飞，没有进入报表体系之中？？？</p><p>我对此真的是百思不得其解。</p><p>更不要说，在此过程中，无数客户还能从他们的小村行账号里，向自己的大行账号转账，并且能成功实现转账。你们必须记住，这是一次相反的监管过程，大行那边要记录整个转账过程，小村行的转出账号也必须是真实的，你使用一个虚构账号向大行转账，大行是不会收的。整个过程也必须形成两套账，相互严格对应并上报央行。</p><p>虚假系统可以做到这些？？？？</p><p>我所有的金融常识都碎了一地了。</p><p>假设，我是说假设啊，这套功能如此强大的虚假系统，它最合适就是拿来洗钱，而不是侵占储户的存款。洗钱的成本，现在少说也是百分之四十。这套系统不光不要钱，还承诺给 4% 的利息，这都没法说了这个。</p><h5><a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5></div><div class="col-lg-8 mx-auto block shadow"><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var t=document,e=t.createElement('script');e.async=!0,e.src='//pin-cong-jing-xuan.disqus.com/embed.js',e.setAttribute('data-timestamp',+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div class="col-lg-8 mx-auto block shadow"><h3>See Also</h3><div class=container><div class=row><div class="mx-auto px-0"><div class="bg-white shadow block"><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/49cd3e84d7faf1df63bad723597c19ab/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E6%259D%25A5%25E4%25BB%258E%25E5%25AE%259E%25E8%25B7%25B5%25E5%25B1%2582%25E9%259D%25A2%25E8%25A7%25A3%25E9%2587%258A%25E4%25B8%2580...">6 月 18 日河南新财富集团犯罪事实已初步查明，涉事人员都将面临哪些处罚？还有哪些信息值得关注？</a></h2><p class=text-dark>知乎用户 陈律说法​​ 发表 求求你们了，办案归办案，追赃归追赃，处罚归处罚，储户的钱能不能先还给他们？
 对于截流储户存款的行为，侵害的是银行的财产权利（应收款），实践中有判例认为应按贪污罪（职务侵占罪）处理。
-储户并非被害人，有权利按正常 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/8879d66728dab6e8823b7d63b0992833/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E6%259D%25A5%25E4%25BB%258E%25E5%25AE%259E%25E8%25B7%25B5%25E5%25B1%2582%25E9%259D%25A2%25E8%25A7%25A3%25E9%2587%258A%25E4%25B8%2580...">如何看待河南银保监局、河南省地方金融监管局就个别村镇银行有关问题作出的回应？还有哪些细节值得关注？</a>
-</h2>
-<p class=text-dark>知乎用户 搜狐新闻​ 发表 关键细节就是定性受害者为 “金融消费者” 而不是储户。如果愿意叫受害者“储户”，肯定直接说了。
-有些人说如果这次如果不赔的话，国内其他的 1000 多家小银行会被挤兑倒闭，我觉得你们真的想多了。**你们猜为什么这 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/207c72a3cb76fac053778717af5075dd/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E6%259D%25A5%25E4%25BB%258E%25E5%25AE%259E%25E8%25B7%25B5%25E5%25B1%2582%25E9%259D%25A2%25E8%25A7%25A3%25E9%2587%258A%25E4%25B8%2580...">取不出钱的河南村镇银行，背后还有多少秘密？</a>
-</h2>
-<p class=text-dark>知乎用户 一般般 发表 就最后结果而言，我认为不大可能把钱追回来。
-现在涉及的储户多达 40 余万人，金额四百亿，其中重点不是金额，而是人数。四十多万人啊，如果要查清楚每个人，或者每个群体的资金流向，这会是多大的工作量，根本不可能完成。而且 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/a4401d73a3ac87e14b1f38d4273a3c44/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E6%259D%25A5%25E4%25BB%258E%25E5%25AE%259E%25E8%25B7%25B5%25E5%25B1%2582%25E9%259D%25A2%25E8%25A7%25A3%25E9%2587%258A%25E4%25B8%2580...">取不出钱的60天：有人失明、有人痛哭、有人放弃了病危的母亲</a>
-</h2>
-<p class=text-dark>5月中旬，张星星的左眼突然看不见了——她以前是1.5的视力，现在左眼只有0.25。
+储户并非被害人，有权利按正常 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/8879d66728dab6e8823b7d63b0992833/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E6%259D%25A5%25E4%25BB%258E%25E5%25AE%259E%25E8%25B7%25B5%25E5%25B1%2582%25E9%259D%25A2%25E8%25A7%25A3%25E9%2587%258A%25E4%25B8%2580...">如何看待河南银保监局、河南省地方金融监管局就个别村镇银行有关问题作出的回应？还有哪些细节值得关注？</a></h2><p class=text-dark>知乎用户 搜狐新闻​ 发表 关键细节就是定性受害者为 “金融消费者” 而不是储户。如果愿意叫受害者“储户”，肯定直接说了。
+有些人说如果这次如果不赔的话，国内其他的 1000 多家小银行会被挤兑倒闭，我觉得你们真的想多了。**你们猜为什么这 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/207c72a3cb76fac053778717af5075dd/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E6%259D%25A5%25E4%25BB%258E%25E5%25AE%259E%25E8%25B7%25B5%25E5%25B1%2582%25E9%259D%25A2%25E8%25A7%25A3%25E9%2587%258A%25E4%25B8%2580...">取不出钱的河南村镇银行，背后还有多少秘密？</a></h2><p class=text-dark>知乎用户 一般般 发表 就最后结果而言，我认为不大可能把钱追回来。
+现在涉及的储户多达 40 余万人，金额四百亿，其中重点不是金额，而是人数。四十多万人啊，如果要查清楚每个人，或者每个群体的资金流向，这会是多大的工作量，根本不可能完成。而且 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/a4401d73a3ac87e14b1f38d4273a3c44/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E6%259D%25A5%25E4%25BB%258E%25E5%25AE%259E%25E8%25B7%25B5%25E5%25B1%2582%25E9%259D%25A2%25E8%25A7%25A3%25E9%2587%258A%25E4%25B8%2580...">取不出钱的60天：有人失明、有人痛哭、有人放弃了病危的母亲</a></h2><p class=text-dark>5月中旬，张星星的左眼突然看不见了——她以前是1.5的视力，现在左眼只有0.25。
 医院检查，是眼底静脉血栓出血造成的继发型的黄斑水肿。出血的诱因是高血压，“医生说，我是有了着急的事了，一下子急火攻心，发生了小血管梗阻。”
-这个“着急的 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b1a12e193e2f1a1d0e33a7d671e10684/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E6%259D%25A5%25E4%25BB%258E%25E5%25AE%259E%25E8%25B7%25B5%25E5%25B1%2582%25E9%259D%25A2%25E8%25A7%25A3%25E9%2587%258A%25E4%25B8%2580...">河南村镇银行线上存款爆雷近两个月，看到一个新词存款返贫，你觉得未来会有更多人因为存款进银行而返贫么？</a>
-</h2>
-<p class=text-dark>知乎用户 hardy​ 发表 我奉劝所有的人，注意，是所有的人，把自己在乡镇银行的存款取出来存到四大行。
+这个“着急的 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b1a12e193e2f1a1d0e33a7d671e10684/?utm_source=see_also&utm_medium=%25E6%2588%2591%25E6%259D%25A5%25E4%25BB%258E%25E5%25AE%259E%25E8%25B7%25B5%25E5%25B1%2582%25E9%259D%25A2%25E8%25A7%25A3%25E9%2587%258A%25E4%25B8%2580...">河南村镇银行线上存款爆雷近两个月，看到一个新词存款返贫，你觉得未来会有更多人因为存款进银行而返贫么？</a></h2><p class=text-dark>知乎用户 hardy​ 发表 我奉劝所有的人，注意，是所有的人，把自己在乡镇银行的存款取出来存到四大行。
 我觉得有点莫名其妙的感觉，可能兜不住了。
-很多乡镇银行，原意上是方便居民储蓄，但又是相对独立的金融机关。这次河南的事情，就暴露出来了这 …</p>
-</article>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
-<footer class="py-4 bg-light border-top">
-<div class=container>
-<div class="row justify-content-between align-items-center">
-<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
-</div>
-<div class="col-lg-4 text-center mb-4 mb-lg-0">
-<ul class="list-inline mb-0">
-</ul>
-</div>
-<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
-<ul class="list-inline social-icon mb-0">
-<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
-<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
-</ul>
-</div>
-<div class="col-12 text-center mt-4">
-<span></span>
-</div>
-</div>
-</div>
-</footer>
-<script src=../../plugins/jQuery/jquery.min.js></script>
+很多乡镇银行，原意上是方便居民储蓄，但又是相对独立的金融机关。这次河南的事情，就暴露出来了这 …</p></article></div></div></div></div></div></div></div></div></section><script>var i,images=document.getElementsByTagName("img");for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../plugins/jQuery/jquery.min.js></script>
 <script src=../../plugins/bootstrap/bootstrap.min.js></script>
 <script src=../../plugins/search/fuse.min.js></script>
 <script src=../../plugins/search/mark.js></script>
 <script src=../../plugins/search/search.js></script>
 <script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
-</html>
+<script>(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body></html>

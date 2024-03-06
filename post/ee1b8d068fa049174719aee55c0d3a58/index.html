@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh-cn><head>
-<meta charset=utf-8>
-<title>如何看待官方解释北京健康宝从未采集个人位置信息，而是进行多源数据比对分析，这种实现方式可能吗？可靠吗？</title>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name=description content=" 知乎用户 木头龙​​ 发表 可能，但这是在玩文字游戏。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>如何看待官方解释北京健康宝从未采集个人位置信息，而是进行多源数据比对分析，这种实现方式可能吗？可靠吗？</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 知乎用户 木头龙​​ 发表 可能，但这是在玩文字游戏。
 按照我的理解，所谓的 “采集个人位置信息”，是特指手机的 GPS 定位数据。
 而多部门后台联动，则是你手机连接的基站信息，可能还有来自银行的刷卡信息、电商 / 外卖的送货信息、公共交通工具的搭乘记录、甚至某些监控摄像数据等交叉比对。这些数据足以勾勒出一个人大致的运行轨迹。
 这个时候，可以说个人的隐私，起码是活动位置这方面的，几乎是暴露无遗了，是否收集了手机的 GPS 定位数据有什么区别呢？
@@ -24,16 +20,7 @@
 知乎用户 Cerulean​ 发表 首先对于原问题，一些关键谓语的内涵和外延是需要更加严谨地定义出来的，比如采集个人位置信息的 “采集”。
 客户端请求系统的定位服务获取原始位置信息（经纬度、海拔、速度），然后通过定位服务解码获得衍生位置信息（国家、城市、街道），这个算采集个人位置信息吗？
 服务端结合用户上传原始位置信息和衍生位置信息，分析一段时间持久化的位置信息序列，分析一个号码归属地变动，流量出口 IP 变动（运营商提供），这个算采集个人位置信息吗？
-以 iOS 为例，系统提供的定位服务 Core Location 有 3 种定位模式，基站、WIFI、GPS，但是，不管是通过基站的唯一标识符、还是 WIFI 的 MAC 地址、还是直接请求 GPS，开发者和用户都不知道到底是用了哪种定位获取了位置信息，开发者只能决定使用定位的精度偏好和请求定位频率罢了，而这些位置信息请求的 API 都是需要当前的 iOS 设备接入互联网的，为了速度考虑，部分响应这些请求的服务器也是在国内的，所以&mldr; ">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
-<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
-<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
-<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<meta name=twitter:card content="summary_large_image">
-<meta name=og:title content=" 如何看待官方解释北京健康宝从未采集个人位置信息，而是进行多源数据比对分析，这种实现方式可能吗？可靠吗？ ">
-<meta name=og:description content=" 知乎用户 木头龙​​ 发表 可能，但这是在玩文字游戏。
+以 iOS 为例，系统提供的定位服务 Core Location 有 3 种定位模式，基站、WIFI、GPS，但是，不管是通过基站的唯一标识符、还是 WIFI 的 MAC 地址、还是直接请求 GPS，开发者和用户都不知道到底是用了哪种定位获取了位置信息，开发者只能决定使用定位的精度偏好和请求定位频率罢了，而这些位置信息请求的 API 都是需要当前的 iOS 设备接入互联网的，为了速度考虑，部分响应这些请求的服务器也是在国内的，所以&mldr; "><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" 如何看待官方解释北京健康宝从未采集个人位置信息，而是进行多源数据比对分析，这种实现方式可能吗？可靠吗？ "><meta name=og:description content=" 知乎用户 木头龙​​ 发表 可能，但这是在玩文字游戏。
 按照我的理解，所谓的 “采集个人位置信息”，是特指手机的 GPS 定位数据。
 而多部门后台联动，则是你手机连接的基站信息，可能还有来自银行的刷卡信息、电商 / 外卖的送货信息、公共交通工具的搭乘记录、甚至某些监控摄像数据等交叉比对。这些数据足以勾勒出一个人大致的运行轨迹。
 这个时候，可以说个人的隐私，起码是活动位置这方面的，几乎是暴露无遗了，是否收集了手机的 GPS 定位数据有什么区别呢？
@@ -55,45 +42,11 @@
 知乎用户 Cerulean​ 发表 首先对于原问题，一些关键谓语的内涵和外延是需要更加严谨地定义出来的，比如采集个人位置信息的 “采集”。
 客户端请求系统的定位服务获取原始位置信息（经纬度、海拔、速度），然后通过定位服务解码获得衍生位置信息（国家、城市、街道），这个算采集个人位置信息吗？
 服务端结合用户上传原始位置信息和衍生位置信息，分析一段时间持久化的位置信息序列，分析一个号码归属地变动，流量出口 IP 变动（运营商提供），这个算采集个人位置信息吗？
-以 iOS 为例，系统提供的定位服务 Core Location 有 3 种定位模式，基站、WIFI、GPS，但是，不管是通过基站的唯一标识符、还是 WIFI 的 MAC 地址、还是直接请求 GPS，开发者和用户都不知道到底是用了哪种定位获取了位置信息，开发者只能决定使用定位的精度偏好和请求定位频率罢了，而这些位置信息请求的 API 都是需要当前的 iOS 设备接入互联网的，为了速度考虑，部分响应这些请求的服务器也是在国内的，所以&mldr; ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/219.jpg">
-<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+以 iOS 为例，系统提供的定位服务 Core Location 有 3 种定位模式，基站、WIFI、GPS，但是，不管是通过基站的唯一标识符、还是 WIFI 的 MAC 地址、还是直接请求 GPS，开发者和用户都不知道到底是用了哪种定位获取了位置信息，开发者只能决定使用定位的精度偏好和请求定位频率罢了，而这些位置信息请求的 API 都是需要当前的 iOS 设备接入互联网的，为了速度考虑，部分响应这些请求的服务器也是在国内的，所以&mldr; "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/158.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
-</head>
-<body>
-<header class="fixed-top navigation">
-<div class=container>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class="ti-menu h3"></i>
-</button>
-<div class="collapse navbar-collapse text-center" id=navigation>
-<ul class="navbar-nav ml-auto">
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</header> <div class="py-5 d-none d-lg-block"></div>
-<section class=main-content>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 mx-auto block shadow mb-5">
-<h2>如何看待官方解释北京健康宝从未采集个人位置信息，而是进行多源数据比对分析，这种实现方式可能吗？可靠吗？</h2>
-<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=main-content><div class=container><div class=row><div class="col-lg-8 mx-auto block shadow mb-5"><h2>如何看待官方解释北京健康宝从未采集个人位置信息，而是进行多源数据比对分析，这种实现方式可能吗？可靠吗？</h2><div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
 <span>at 10 December 2021</span>, tags :
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e4%bf%a1%e6%81%af>信息</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e5%ae%9a%e4%bd%8d>定位</a>
@@ -105,249 +58,17 @@
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e8%93%9d%e7%89%99>蓝牙</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e6%89%8b%e6%9c%ba>手机</a>
 <a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/ee1b8d068fa049174719aee55c0d3a58.md style=color:gray><strong><i>点击纠错</i></strong></a>
-<i> </i>
-<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/ee1b8d068fa049174719aee55c0d3a58.md style=color:gray><strong><i>点击删除</i></strong></a>
-</div>
-<h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
-<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
-<p></p>
-<h3 id=知乎用户-木头龙-发表>知乎用户 木头龙​​ 发表</h3>
-<p>可能，但这是在玩文字游戏。</p>
-<p>按照我的理解，所谓的 “采集个人位置信息”，是特指手机的 GPS 定位数据。</p>
-<p>而多部门后台联动，则是你手机连接的基站信息，可能还有来自银行的刷卡信息、电商 / 外卖的送货信息、公共交通工具的搭乘记录、甚至某些监控摄像数据等交叉比对。这些数据足以勾勒出一个人大致的运行轨迹。</p>
-<p>这个时候，可以说个人的隐私，起码是活动位置这方面的，几乎是暴露无遗了，是否收集了手机的 GPS 定位数据有什么区别呢？</p>
-<p>当然，特殊时期，政府采用这样的行为我认为可以理解，但更重要的是：</p>
-<h2 id=如何保障这些数据不外泄被商业机构甚至不法分子利用>如何保障这些数据不外泄，被商业机构甚至不法分子利用？</h2>
-<h3 id=知乎用户-刘海光-发表>知乎用户 刘海光 发表</h3>
-<h2 id=主要是基站定位httpswwwzhihucomsearchqe59fbae7ab99e5ae9ae4bd8dsearch_sourceentityhybrid_search_sourceentityhybrid_search_extra7b22sourcetype223a22answer222c22sourceid223a13065509077d>主要是<a href="https://www.zhihu.com/search?q=%E5%9F%BA%E7%AB%99%E5%AE%9A%E4%BD%8D&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1306550907%7D">基站定位</a>。</h2>
-<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-22f5b17763a511a93249bb5b6cd4cf82_r.jpg%3Fsource%3D1940ef5c" alt></p>
-<p>基站定位是一种比较可靠的模糊数据。是指基站的范围是一定的，比如通过基站可以知道你在某个小区。</p>
-<p>通过这个可以知道你是否到过某地。</p>
-<p>当然了，通过技术手段可以实现比较准确的定位，但在健康宝里没有必要。</p>
-<h2 id=消费记录>消费记录</h2>
-<p>比如实体店的手机付款，可以知道你在什么地方停留过。</p>
-<p>你是否去过某个海鲜市场有比较准确的数据。因为基站定位的话，很可能你只是路过。</p>
-<p>但是目前来看，健康宝对<strong>路过</strong>也是不放过的。</p>
-<h2 id=聚集记录>聚集记录</h2>
-<p>比如确认某个发病人的轨迹后，沿途停留的基站范围内的所有手机用户，都可以是筛查人群。</p>
-<p>基本上来说，这种隐私数据比较模糊，针对个人来说，存在行为轨迹的隐私问题。比如可以获取到疫情期间，你去了洗头房。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-969fb551795a190d6ea8069729e6105b_r.jpg%3Fsource%3D1940ef5c" alt></p>
-<p>目前来看，健康宝获取的数据存在时效性，所以很可能数据在超过一定期限（但肯定大于 14 天）后删除。</p>
-<p>另外就是健康宝需要拍照验证，这个数据不排除被人利用做<a href="https://www.zhihu.com/search?q=%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1306550907%7D">人脸识别</a>的数据库。</p>
-<p>总体来说，健康宝的机制和规范性上，比很多 app 还有基层单位处理的更好。</p>
-<p><strong>毕竟，你开车用的导航更精准。</strong></p>
-<p><strong>可参考文献：</strong></p>
-<p><a href="https://link.zhihu.com/?target=https%3A//xueshu.baidu.com/usercenter/paper/show%3Fpaperid%3D4a7b910fb531b1fbcad679a019942162">基于大规模手机定位数据的城市内部登革热防控模拟研究_百度学术</a><a href="https://link.zhihu.com/?target=https%3A//xueshu.baidu.com/usercenter/paper/show%3Fpaperid%3D140c00s0pu3s00d0je360at04j256799">基于移动定位的行为数据采集技术应用_百度学术</a></p>
-<h3 id=知乎用户--cerulean-发表>知乎用户 Cerulean​ 发表</h3>
-<p>首先对于原问题，一些关键谓语的内涵和外延是需要更加严谨地定义出来的，比如采集个人位置信息的 “<strong>采集</strong>”。</p>
-<p><strong>客户端</strong>请求系统的<strong>定位服务</strong>获取<strong>原始位置信息</strong>（经纬度、海拔、速度），然后通过<strong>定位服务</strong>解码获得<strong>衍生位置信息</strong>（国家、城市、街道），这个算采集个人位置信息吗？</p>
-<p><strong>服务端</strong>结合用户上传<strong>原始位置信息</strong>和<strong>衍生位置信息</strong>，分析一段时间<strong>持久化的位置信息序列，<strong>分析一个号码</strong>归属地变动</strong>，<strong>流量出口 IP</strong> 变动（运营商提供），这个算采集个人位置信息吗？</p>
-<p>以 iOS 为例，系统提供的定位服务 Core Location 有 3 种定位模式，基站、WIFI、GPS，但是，不管是通过基站的唯一标识符、还是 WIFI 的 MAC 地址、还是直接请求 GPS，<strong>开发者和用户都不知道到底是用了哪种定位获取了位置信息</strong>，开发者只能决定使用定位的<strong>精度偏好</strong>和请求<strong>定位频率</strong>罢了，而这些位置信息请求的 API 都是需要当前的 iOS 设备接入互联网的，为了速度考虑，部分响应这些请求的服务器也是在国内的，所以&mldr;</p>
-<p>而用户只要授权了 App 的位置服务权限，都可以在顶部的状态栏和位置服务列表查看到正在使用位置信息的 App，所以其实纠结到底有 “有没有采集个人信息” 真的意义不大。</p>
-<p>所以题目后续的是否可行和可靠其实都没有展开讨论的必要了，因为 “<strong>采集</strong>” 这个概念的定义是不精准的。</p>
-<p>虽然我大概知道题主是担忧位置信息的隐私泄露，但是这和目前已知的一些有类似风险且已经大规模实装的技术方案相比，实在是太小巫见大巫了，题主你知道 Cookie、ReID、和不可说吗？我们每天都授权 QQ、微信、淘宝、京东、头条、滴滴位置信息使用权限，麦克风和视频使用权限，Cookie 使用权限，有些应用还有生物识别权限（刷脸），完全没法和这个比。</p>
-<p>如果说健康宝起码出发点是为了公共防疫，那上面的那些&mldr;</p>
-<p>对吧？</p>
-<h3 id=知乎用户-1000-米恐惧症-发表>知乎用户 1000 米恐惧症​ 发表</h3>
-<p>“不调用 gps 就不算采集位置信息”，这应该是官方的理由。</p>
-<p>和 “不给钱就不算卖。” 有异曲同工之妙。</p>
-<p>我有个北京的同事，没去过新发地。但有一次周末坐公交路过新发地，然后被请去检测核酸了。</p>
-<p>gps 只是定位的功能之一，不用 gps 也能做到。</p>
-<p>例如根据手机连接的基站也能实现不太精准的定位，虽然不太精准，但判断出一个人有没有在某个地方出现过还是可以做到的。</p>
-<p>wifi 也有类似的能力，手机地图定位不好的时候，打开 wifi 有时候能增强定位。</p>
-<p>蓝牙有时候也能做到，蓝牙作用距离有限，可以准确判断你有没有和感染者近距离接触过。</p>
-<p>“多源数据对比” 这个说法应该就来源于这些。</p>
-<p>其实我感觉调用 gps 并不是最方便的，直接用手机卡连接基站的数据一刀切就够了。</p>
-<p>现在手机卡都是实名的，只要去过那里谁都都跑不了。</p>
-<h3 id=知乎用户-匿名用户-发表>知乎用户 匿名用户 发表</h3>
-<p>这又不是反间谍任务，有基站定位足够了。</p>
-<p>没必要从手机采集精确位置。</p>
-<h3 id=知乎用户-沙包妖梦-发表>知乎用户 沙包妖梦 发表</h3>
-<p>健康宝本来就没有用手机终端的<strong>任何</strong>数据。。。一个 root 过的安卓手机就可以看得出来。。换句话说你拿着黑白屏诺基亚去新发地走一圈回来，健康宝照样有数据。。</p>
-<p>他们的数据是直接从三大运营商那拿的，同时还有铁路、医疗之类各种部门的数据，肯定还包括扫码付钱的数据。这不就是 “多数据源” 吗。</p>
-<p>所谓 “对比分析” 也没啥技术含量。。。最终就是分辨一下你到底去没去过高风险区域而已。。。</p>
-<p>也许实际情况并没有我想象的简单，不过毕竟是大事，一旦官方认真起来都是小菜一碟</p>
-<p>所以当然可能，而且可靠。</p>
-<h3 id=知乎用户-观测者-std-发表>知乎用户 观测者 STD 发表</h3>
-<p>苹果和谷歌的方案好像是用蓝牙来跟踪你最近接触过哪些人，因为蓝牙只有离得很近才有信号。</p>
-<p>至于保护位置隐私，这种基本上只能看信息收集者的道德修养了，间接破解位置信息的 side channel 多如牛毛，比较夸张的甚至可以从手机的电量分析出机主一天的行动轨迹。技术上除非什么信息都别收集，不然想保证位置隐私太难了。</p>
-<h3 id=知乎用户-朱涵俊-发表>知乎用户 朱涵俊 发表</h3>
-<p>一种方式是把北京的所有人定位信息找出来，然后再把去过新发地的找出来。</p>
-<p>一种方式是只找出去过新发地的人，没去过去的没法知道他去过哪里。</p>
-<p>这个主要是给下面工作人员用的，意思是工作人员只能知道你去没去过新发地，如果你没去过，他不知道你去过哪里。</p>
-<p>另外一种就是工作人员知道你去过什么地方，比如海淀区，工作人员一看你一直在海淀区，认定你没去过新发地。</p>
-<p>本地最近发的家电消费券，为了防止套现，要领券本人去商城刷才行。这就用到了定位。但是工作人员只需要知道你的定位跟商家的定位是否相符就行，你去消费了，他可以知道你去过商家那里。如果你没消费，定位信息也是有的，但是下面的工作人员看不到。</p>
-<p>这个就像十几年前本地流行的查开房记录服务，一个身份证号，就可以查出所有开房记录，很多放债的，婚姻纠纷的去查。就是因为下面工作人员的权限太大，可能一个民警输入身份证就能查。而普通民警显然没必要知道一个公民的所有开房记录。以致后来就发展成产业链，提供查房服务了。</p>
-<p>就像北京健康宝来说，工作人员只需要知道你是绿是黄还是红，没必要知道为啥红。</p>
-<h3 id=知乎用户-利顿红茶-发表>知乎用户 利顿红茶 发表</h3>
-<p>其实大家把健康宝想得太牛了，实际上这东西远没有那么精细。</p>
-<p>健康宝的主要数据应该是来自于医疗系统，你去看过发热门诊是最大的一个来源。然后就是你所住小区是否有确诊，最后是你有没有到过几个重点地区，对于北京来说这个重点地区就是指的新发地。这个也不是采集你的定位信息，而是用的移动基站的数据，所以才会出现有的人只是开车经过那里，也会收到疾控中心电话，如果是收集了定位信息，这样的人是不会被判定为危险人群的。</p>
-<h3 id=知乎用户-verofess-发表>知乎用户 VeroFess 发表</h3>
-<p>谢邀，涉密，不能说。</p>
-<h3 id=知乎用户-夹卡夹卡酱酱夹卡酱-发表>知乎用户 夹卡夹卡酱酱夹卡酱 发表</h3>
-<p>坐标广州，这里采集不需要定位，而是很多公共场合，有个二维码让你扫，扫了简单登记一下信息，如是进来还是出去，确定了工作人员才放行，那个二维码应该是每个地方都固定一个不一样的，这样只要你有扫过这个地方，才会被记录，不存在路过被记录的情况</p>
-<h3 id=知乎用户-巨蜥拉卡-发表>知乎用户 巨蜥拉卡 发表</h3>
-<p>本来就不需要精确知道你的位置，要的是你的主要活动轨迹。哪怕只是把你最近移动支付的流水全部都拿出来，点的外卖订单拿出来，买的车票记录拿出来，你的活动轨迹都大概清楚了。</p>
-<p>健康码无非是个粗筛，是个警告，不是石锤，红码也不会有 jc 叔叔和护士阿姨上门抓你。就算什么信息都不收集，只按你自己上报的结果和医院、社区上报的结果，按小区改颜色都可以，操作起来还简单。医院检查一个阳性是哪个小区的，然后就把社区之前普查出来的、数据库里是那个小区的全部改成红色，ok，小区名字比较特殊的话搞不好一行 like 就行了。</p>
-<p>对外那必须是大数据啦，云啦，AI 啦，智慧啦，blahblah。为什么可以拍着胸脯说保障你的隐私？<em>因为搞不好压根就没取过关于你的啥隐私数据（滑稽）</em></p>
-<p><strong>真正需要严格的场合，会让你直接去核酸检测，有什么码都不行的。</strong></p>
-<p>不要先入为主去思考定位怎么做，很多时候，当程序员就是不愿告诉你具体实现方式，非得往 algorithm 上面扯的时候，往往要么是因为代码是借鉴的他也不懂，要么是因为实现方式说出来丢人。</p>
-<h3 id=知乎用户-cnfan-发表>知乎用户 cnfan 发表</h3>
-<p>这都小问题，阿里这边直接让你授权位置，简单粗暴。</p>
-<h3 id=知乎用户-孙召忠-发表>知乎用户 孙召忠 发表</h3>
-<p>听上去不太靠谱，不知道具体代表什么意思，推测只是话术，目的是安抚公众关于个人隐私担忧。</p>
-<p>其实这事没必要搞得这么躲躲闪闪的，就大大方方的说就行了。最终的结果反正是获取到用户<a href="https://www.zhihu.com/search?q=%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">位置信息</a>了，至于是采集的还是通过其他数据推算出来的，一点也不重要。</p>
-<p>作为一个社会人，必须让渡出一部分权力。比如：<a href="https://www.zhihu.com/search?q=%E8%82%96%E5%83%8F&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">肖像</a>，我们每天经过天眼的摄像头，面部都会被拍摄并且入库分析，这就是为什么逃犯只要一在公共场所出现，立即就会被锁定的原因。</p>
-<p>再比如：<a href="https://www.zhihu.com/search?q=%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">个人隐私</a>，现在个人隐私保护有越来越泛化的趋势，比如 cookie，这玩意用来表示用户身份，在一些人看来，这也算个人隐私，“保护个人隐私” 是西方引入的一种政治正确，在访问一些外国网站的时候常常会提示：本站使用了 <a href="https://www.zhihu.com/search?q=cookie%E6%8A%80%E6%9C%AF&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">cookie 技术</a>，是否允许？之类的。这是一种可笑的自欺欺人，不使用 cookie（或者替代的类似技术）无法进行身份识别，如果不用怎么知道你是 VIP 还是管理员？怎么知道你的账户余额？怎么知道你的好友？？</p>
-<p>说这么多难道我反对保护个人隐私？我的个人隐私不怕别人知道吗？<strong>我当然赞成保护个人隐私</strong>，也不想让别人知道我的隐私。</p>
-<p>但是，接下来说到重点了，<strong>个人隐私是对人保密，而不是针对<a href="https://www.zhihu.com/search?q=%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">计算机系统</a>保密，对计算机系统保密是不可能做到的</strong>。我们保护个人隐私是不让张三知道李四的信息，而计算机系统是知道李四的这些信息的，而且肯定会知道。哪个系统说他完全不知道用户隐私就是骗子无疑。</p>
-<p>比如：某脱口秀演员的银行卡流水，绝对是隐私，我们需要严格禁止的是工作人员在未经授权就调出这些隐私给第三方，而不是让银行的数据库也不知道用户的流水，怎么可能不知道？</p>
-<p>任何成熟的系统都会采集用户位置信息（或者其他可用于间接推测位置的信息），只要这些信息不被第三方滥用就可以了。什么是滥用呢？比如：前些年爆出的新闻，追债公司可以通过相关部门的 “内线” 实时定位某人的准确位置，这就是个人信息的滥用。</p>
-<p>关于隐私保护话题有一个被黑的很惨的人是绕不过去的，那就是<a href="https://www.zhihu.com/search?q=%E6%9D%8E%E5%BD%A6%E5%AE%8F&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">李彦宏</a>。当年他在 “中国发展高层论坛” 中的一句话被断章取义黑了两年多。</p>
-<p>他说：“中国用户愿用隐私换效率。”</p>
-<p>但这真的是他的原话吗？不是！</p>
-<p>李彦宏的原话是：“<strong>中国的消费者在隐私保护的前提下</strong>，很多时候是<strong>愿意以一定的个人数据授权使用</strong>，去换取更加便捷的服务的。”</p>
-<p><a href="https://www.zhihu.com/search?q=%E7%96%AB%E6%83%85&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">疫情</a>在中国的高峰已经过去，时隔两年多再回头完整的看李彦宏的这句话，没有值得吐槽的地方，历史会给这句话一个公正的评价。</p>
-<p>一个负面的例子是英国，英国为了跟踪疫情传播耗资 1100 万英镑开发了一个联系人跟踪 APP：NHS <a href="https://www.zhihu.com/search?q=covid-19&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">covid-19</a></p>
-<p>最初宏伟的愿景是：既能应对疫情，又保护用户隐私。政府也没有强制推广这个 APP，完全靠用户自愿，最后的现实很骨感：因为装机量少，未授予权限等原因导致接触者的<a href="https://www.zhihu.com/search?q=%E6%A3%80%E5%87%BA%E7%8E%87&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">检出率</a>极低，没有任何实际意义。</p>
-<p>最终英国政府决定放弃这一项目，转而与<a href="https://www.zhihu.com/search?q=%E8%B0%B7%E6%AD%8C&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">谷歌</a>、苹果展开合作（与备受西方诟病的中国的做法一样）。</p>
-<h3 id=知乎用户-在定处-发表>知乎用户 在定处 发表</h3>
-<p>没回应还好，这下做实了。</p>
-<p>实际国际上也有很多非常重视个人隐私的国家也推出了这类二维码。但他们的作用并不是到处出示，而是为了流调溯源。即便上是采用蓝牙技术，利用蓝牙短距离通讯的特性，不记录用户任何活动轨迹，及完全保护的用户的隐私，有能实现溯源的功能。</p>
-<p>我们现在用的这个，从名字上就有非常大的问题，所谓：“健康宝”根本没办法反应真实的健康情况。如果过不采用个人位置信息，又不是使用蓝牙，那基本上就不可能实现任何实际功能。希望能有人把这个 “信息最小化采集” 解释清楚，不然真的太可怕了。</p>
-<p>不然，石景山万达的一幕只会增多。</p>
-<h3 id=知乎用户-别沉默我-发表>知乎用户 别沉默我 发表</h3>
-<p>我想了想，还是有可能的</p>
-<p>毕竟在北京出门</p>
-<p>要不坐地铁，要不打车，要不坐公交</p>
-<p>最不济也得共享单车吧</p>
-<p>这些多少都会留有信息的</p>
-<p>我感觉最有可能的是，手机的运营商（电信，联通，移动）有你的位置信息</p>
-<p>你的手机只要接发了信号，运营商那可能就有你的位置信息留存了</p>
-<p>坐火车，你刚进一个省，那个省的运营商不就给你发短信了吗。</p>
-<p>过完年，刚回北京办出入证的时候，不也要给运营商发短信证明你 14 天没出过北京吗。</p>
-<h3 id=知乎用户-波澜不惊-发表>知乎用户 波澜不惊 发表</h3>
-<p>就是告诉你健康宝没收集你的位置信息，所以以前对行踪追溯困难，以后要扫码登记了，就天然不用获取位置也知道你去哪了。</p>
-<p>至于大数据筛查去过新发地的，这意思就是这是移动联通给的数据，不是健康宝牵头搞的。</p>
-<h3 id=知乎用户-武林猫咪-发表>知乎用户 武林猫咪 发表</h3>
-<p>可行啊，要定位信息干嘛。</p>
-<p>通过查询绑定的手机号对应的基站状态不就行了。</p>
-<h3 id=知乎用户-路人卿-发表>知乎用户 路人卿 发表</h3>
-<p>可能，不是很可靠。</p>
-<p>要么真花钱了，要么骗你的。</p>
-<h3 id=知乎用户-jdkjskkvsjkabzgh-发表>知乎用户 jdkjskkVsjkabzgh 发表</h3>
-<p>隐私？我底裤没了 我可以说你们每个人的裸照 骚话 任何事情 都在政府眼里 国产 app 权限不给就死给你看 一给你就底裤都不剩 国产 android 定制系统更是从系统层面直接给权限 问都不问的 这个健康宝就是通过基站定位方式获得定位信息的 根本也不需要任何权限 我之前给电信投诉说知乎登陆用了天翼认证 也就是说我只要用天翼宽带或者蜂窝网 知乎能直接通过天翼于他们合作的 api 获得我的手机号码 等信息 结果铁证如山被电信高级客服恶狠狠的说我们不会与任何第三方合作 我反问那么迅雷快鸟的提速服务难道不是和你们合作？bilibili 的免流量不是和你们合作？对方直接威胁说你有本事去报警啊 然后就挂电话了！</p>
-<h3 id=知乎用户-hr157-发表>知乎用户 hr157 发表</h3>
-<p>GPS 全球定位系统已成泛指名词　代指所有的卫星定位系统，包括但不限于 USA 的 GPS、北斗、格洛纳斯、伽利略；另外目前用的较多还是 LBS，因为成熟准确方便；</p>
-<p>回应标题：可实现且可靠（非绝对化）</p>
-<h3 id=知乎用户-莫莫-发表>知乎用户 莫莫 发表</h3>
-<p>退一万步来说，即使是文字游戏又如何，为国为民，又不是滥用，不必较真。</p>
-<p>仔细想想，这话可能也不是对我们说的。大部分国人真的重视隐私吗？或许早就默认了。况且这也是为了应对新冠疫情，所以对国人解不解释有这必要吗。</p>
-<h3 id=知乎用户-匿名用户-发表-1>知乎用户 匿名用户 发表</h3>
-<p>我是很同意这种说法的。在网络上，搞过数据采集人都知道采集是一个很麻烦的事情，首先是数据量很大，再就是数据需要清洗整理，归档分析。</p>
-<p>真正使用数据的人，直接去找源头要不就行了。打个比方，我现在要采集新浪微博的数据，那就要用到多个爬虫运用各种技术手段跟新浪微博进行对抗，然后采集下来一小部分数据。这些数据当中我还要进行处理才能使用。但是如果我直接找新浪微博调用这些数据了，他会整整齐齐非常规范的放在服务器上面一条都不漏。</p>
-<p>现在请问聪明的你，如果政府需要你的数据，是很辛苦的采集每个人的信息，还是直接找各个公司去调用已经存在的规范信息。</p>
-<p>你的微信记录、你的消费记录、你的扫码记录、你的快递记录全部都是规范的信息。用这个信息不香吗？</p>
-<p>采集你的个人信息？想多了！</p>
-<h3 id=知乎用户-知乎用户-ey8kcp-发表>知乎用户 知乎用户 EY8KcP 发表</h3>
-<p>哈哈哈，微信 / 支付宝早就定位了，所以健康宝借用微信的数据也不算采集个人位置信息啊~</p>
-<h3 id=知乎用户--匿名用户-发表>知乎用户 匿名用户 发表</h3>
-<p>背景：5 月 30 日后，曾使用高德地图多次路过相邻新发地的京开。</p>
-<p>其中有带爱人一起，有走过京开辅路，也走过京开主路。</p>
-<p>最后，大数据只采集到我一次，是我自己走京开主路，并且在收费站扫码付费的情况。其他几次还是我自己主动和社区交代的。</p>
-<h3 id=知乎用户-chris-发表>知乎用户 Chris 发表</h3>
-<p>没毛病，官方是说健康宝 app 本体无通过终端采集位置信息</p>
-<h3 id=知乎用户-匿名用户-发表-2>知乎用户 匿名用户 发表</h3>
-<p>也没说多源数据不包含或采集个人位置信息啊</p>
-<h3 id=知乎用户-匿名用户-发表-3>知乎用户 匿名用户 发表</h3>
-<p>可靠的。</p>
-<p>GPS 是美国的，应该问一下美国有没有采集个人位置信息。</p>
-<p>我们国家对个人信息安全是极度负责任的。</p>
-<p>请不要把西方国家的惯用伎俩放到我们国家。</p>
-<p>谢谢！</p>
-<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<h3>See Also</h3>
-<div class=container>
-<div class=row>
-<div class="mx-auto px-0">
-<div class="bg-white shadow block">
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/0263451c97c4d65ab7edf399be63fe3f/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E5%25AE%2598%25E6%2596%25B9%25E8%25A7%25A3%25E9%2587%258A%25E5%258C%2597%25E4%25BA%25AC%25E5%2581%25A5%25E5%25BA%25B7%25E5%25AE%259D%25E4%25BB%258E%25E6%259C%25AA%25E9%2587%2587%25E9%259B%2586%25E4%25B8%25AA%25E4%25BA%25BA%25E4%25BD%258D%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF%25E8%2580%258C%25E6%2598%25AF%25E8%25BF%259B%25E8%25A1%258C%25E5%25A4%259A%25E6%25BA%2590%25E6%2595%25B0%25E6%258D%25AE%25E6%25AF%2594%25E5%25AF%25B9%25E5%2588%2586%25E6%259E%2590%25E8%25BF%2599%25E7%25A7%258D%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F%25E5%258F%25AF%25E8%2583%25BD%25E5%2590%2597%25E5%258F%25AF%25E9%259D%25A0%25E5%2590%2597">如何看待大牛助手 APP 因能修改手机位置被海淀检察院告，最终张某获刑 5 年 6 个月?</a>
-</h2>
-<p class=text-dark>知乎用户 发表 一打卡作弊软件 CEO 被判 5 年 6 个月，22 人团队，已赚四五百万元：因破坏了钉钉系统获取用户真实地理位置的功能
+<i></i><a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/ee1b8d068fa049174719aee55c0d3a58.md style=color:gray><strong><i>点击删除</i></strong></a></div><h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5><h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5><p></p><h3 id=知乎用户-木头龙-发表>知乎用户 木头龙​​ 发表</h3><p>可能，但这是在玩文字游戏。</p><p>按照我的理解，所谓的 “采集个人位置信息”，是特指手机的 GPS 定位数据。</p><p>而多部门后台联动，则是你手机连接的基站信息，可能还有来自银行的刷卡信息、电商 / 外卖的送货信息、公共交通工具的搭乘记录、甚至某些监控摄像数据等交叉比对。这些数据足以勾勒出一个人大致的运行轨迹。</p><p>这个时候，可以说个人的隐私，起码是活动位置这方面的，几乎是暴露无遗了，是否收集了手机的 GPS 定位数据有什么区别呢？</p><p>当然，特殊时期，政府采用这样的行为我认为可以理解，但更重要的是：</p><h2 id=如何保障这些数据不外泄被商业机构甚至不法分子利用>如何保障这些数据不外泄，被商业机构甚至不法分子利用？</h2><h3 id=知乎用户-刘海光-发表>知乎用户 刘海光 发表</h3><h2 id=主要是基站定位httpswwwzhihucomsearchqe59fbae7ab99e5ae9ae4bd8dsearch_sourceentityhybrid_search_sourceentityhybrid_search_extra7b22sourcetype223a22answer222c22sourceid223a13065509077d>主要是<a href="https://www.zhihu.com/search?q=%E5%9F%BA%E7%AB%99%E5%AE%9A%E4%BD%8D&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1306550907%7D">基站定位</a>。</h2><p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/v2-22f5b17763a511a93249bb5b6cd4cf82_r.jpg%3Fsource%3D1940ef5c" alt></p><p>基站定位是一种比较可靠的模糊数据。是指基站的范围是一定的，比如通过基站可以知道你在某个小区。</p><p>通过这个可以知道你是否到过某地。</p><p>当然了，通过技术手段可以实现比较准确的定位，但在健康宝里没有必要。</p><h2 id=消费记录>消费记录</h2><p>比如实体店的手机付款，可以知道你在什么地方停留过。</p><p>你是否去过某个海鲜市场有比较准确的数据。因为基站定位的话，很可能你只是路过。</p><p>但是目前来看，健康宝对<strong>路过</strong>也是不放过的。</p><h2 id=聚集记录>聚集记录</h2><p>比如确认某个发病人的轨迹后，沿途停留的基站范围内的所有手机用户，都可以是筛查人群。</p><p>基本上来说，这种隐私数据比较模糊，针对个人来说，存在行为轨迹的隐私问题。比如可以获取到疫情期间，你去了洗头房。</p><p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/v2-969fb551795a190d6ea8069729e6105b_r.jpg%3Fsource%3D1940ef5c" alt></p><p>目前来看，健康宝获取的数据存在时效性，所以很可能数据在超过一定期限（但肯定大于 14 天）后删除。</p><p>另外就是健康宝需要拍照验证，这个数据不排除被人利用做<a href="https://www.zhihu.com/search?q=%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1306550907%7D">人脸识别</a>的数据库。</p><p>总体来说，健康宝的机制和规范性上，比很多 app 还有基层单位处理的更好。</p><p><strong>毕竟，你开车用的导航更精准。</strong></p><p><strong>可参考文献：</strong></p><p><a href="https://link.zhihu.com/?target=https%3A//xueshu.baidu.com/usercenter/paper/show%3Fpaperid%3D4a7b910fb531b1fbcad679a019942162">基于大规模手机定位数据的城市内部登革热防控模拟研究_百度学术</a><a href="https://link.zhihu.com/?target=https%3A//xueshu.baidu.com/usercenter/paper/show%3Fpaperid%3D140c00s0pu3s00d0je360at04j256799">基于移动定位的行为数据采集技术应用_百度学术</a></p><h3 id=知乎用户--cerulean-发表>知乎用户 Cerulean​ 发表</h3><p>首先对于原问题，一些关键谓语的内涵和外延是需要更加严谨地定义出来的，比如采集个人位置信息的 “<strong>采集</strong>”。</p><p><strong>客户端</strong>请求系统的<strong>定位服务</strong>获取<strong>原始位置信息</strong>（经纬度、海拔、速度），然后通过<strong>定位服务</strong>解码获得<strong>衍生位置信息</strong>（国家、城市、街道），这个算采集个人位置信息吗？</p><p><strong>服务端</strong>结合用户上传<strong>原始位置信息</strong>和<strong>衍生位置信息</strong>，分析一段时间<strong>持久化的位置信息序列，<strong>分析一个号码</strong>归属地变动</strong>，<strong>流量出口 IP</strong> 变动（运营商提供），这个算采集个人位置信息吗？</p><p>以 iOS 为例，系统提供的定位服务 Core Location 有 3 种定位模式，基站、WIFI、GPS，但是，不管是通过基站的唯一标识符、还是 WIFI 的 MAC 地址、还是直接请求 GPS，<strong>开发者和用户都不知道到底是用了哪种定位获取了位置信息</strong>，开发者只能决定使用定位的<strong>精度偏好</strong>和请求<strong>定位频率</strong>罢了，而这些位置信息请求的 API 都是需要当前的 iOS 设备接入互联网的，为了速度考虑，部分响应这些请求的服务器也是在国内的，所以&mldr;</p><p>而用户只要授权了 App 的位置服务权限，都可以在顶部的状态栏和位置服务列表查看到正在使用位置信息的 App，所以其实纠结到底有 “有没有采集个人信息” 真的意义不大。</p><p>所以题目后续的是否可行和可靠其实都没有展开讨论的必要了，因为 “<strong>采集</strong>” 这个概念的定义是不精准的。</p><p>虽然我大概知道题主是担忧位置信息的隐私泄露，但是这和目前已知的一些有类似风险且已经大规模实装的技术方案相比，实在是太小巫见大巫了，题主你知道 Cookie、ReID、和不可说吗？我们每天都授权 QQ、微信、淘宝、京东、头条、滴滴位置信息使用权限，麦克风和视频使用权限，Cookie 使用权限，有些应用还有生物识别权限（刷脸），完全没法和这个比。</p><p>如果说健康宝起码出发点是为了公共防疫，那上面的那些&mldr;</p><p>对吧？</p><h3 id=知乎用户-1000-米恐惧症-发表>知乎用户 1000 米恐惧症​ 发表</h3><p>“不调用 gps 就不算采集位置信息”，这应该是官方的理由。</p><p>和 “不给钱就不算卖。” 有异曲同工之妙。</p><p>我有个北京的同事，没去过新发地。但有一次周末坐公交路过新发地，然后被请去检测核酸了。</p><p>gps 只是定位的功能之一，不用 gps 也能做到。</p><p>例如根据手机连接的基站也能实现不太精准的定位，虽然不太精准，但判断出一个人有没有在某个地方出现过还是可以做到的。</p><p>wifi 也有类似的能力，手机地图定位不好的时候，打开 wifi 有时候能增强定位。</p><p>蓝牙有时候也能做到，蓝牙作用距离有限，可以准确判断你有没有和感染者近距离接触过。</p><p>“多源数据对比” 这个说法应该就来源于这些。</p><p>其实我感觉调用 gps 并不是最方便的，直接用手机卡连接基站的数据一刀切就够了。</p><p>现在手机卡都是实名的，只要去过那里谁都都跑不了。</p><h3 id=知乎用户-匿名用户-发表>知乎用户 匿名用户 发表</h3><p>这又不是反间谍任务，有基站定位足够了。</p><p>没必要从手机采集精确位置。</p><h3 id=知乎用户-沙包妖梦-发表>知乎用户 沙包妖梦 发表</h3><p>健康宝本来就没有用手机终端的<strong>任何</strong>数据。。。一个 root 过的安卓手机就可以看得出来。。换句话说你拿着黑白屏诺基亚去新发地走一圈回来，健康宝照样有数据。。</p><p>他们的数据是直接从三大运营商那拿的，同时还有铁路、医疗之类各种部门的数据，肯定还包括扫码付钱的数据。这不就是 “多数据源” 吗。</p><p>所谓 “对比分析” 也没啥技术含量。。。最终就是分辨一下你到底去没去过高风险区域而已。。。</p><p>也许实际情况并没有我想象的简单，不过毕竟是大事，一旦官方认真起来都是小菜一碟</p><p>所以当然可能，而且可靠。</p><h3 id=知乎用户-观测者-std-发表>知乎用户 观测者 STD 发表</h3><p>苹果和谷歌的方案好像是用蓝牙来跟踪你最近接触过哪些人，因为蓝牙只有离得很近才有信号。</p><p>至于保护位置隐私，这种基本上只能看信息收集者的道德修养了，间接破解位置信息的 side channel 多如牛毛，比较夸张的甚至可以从手机的电量分析出机主一天的行动轨迹。技术上除非什么信息都别收集，不然想保证位置隐私太难了。</p><h3 id=知乎用户-朱涵俊-发表>知乎用户 朱涵俊 发表</h3><p>一种方式是把北京的所有人定位信息找出来，然后再把去过新发地的找出来。</p><p>一种方式是只找出去过新发地的人，没去过去的没法知道他去过哪里。</p><p>这个主要是给下面工作人员用的，意思是工作人员只能知道你去没去过新发地，如果你没去过，他不知道你去过哪里。</p><p>另外一种就是工作人员知道你去过什么地方，比如海淀区，工作人员一看你一直在海淀区，认定你没去过新发地。</p><p>本地最近发的家电消费券，为了防止套现，要领券本人去商城刷才行。这就用到了定位。但是工作人员只需要知道你的定位跟商家的定位是否相符就行，你去消费了，他可以知道你去过商家那里。如果你没消费，定位信息也是有的，但是下面的工作人员看不到。</p><p>这个就像十几年前本地流行的查开房记录服务，一个身份证号，就可以查出所有开房记录，很多放债的，婚姻纠纷的去查。就是因为下面工作人员的权限太大，可能一个民警输入身份证就能查。而普通民警显然没必要知道一个公民的所有开房记录。以致后来就发展成产业链，提供查房服务了。</p><p>就像北京健康宝来说，工作人员只需要知道你是绿是黄还是红，没必要知道为啥红。</p><h3 id=知乎用户-利顿红茶-发表>知乎用户 利顿红茶 发表</h3><p>其实大家把健康宝想得太牛了，实际上这东西远没有那么精细。</p><p>健康宝的主要数据应该是来自于医疗系统，你去看过发热门诊是最大的一个来源。然后就是你所住小区是否有确诊，最后是你有没有到过几个重点地区，对于北京来说这个重点地区就是指的新发地。这个也不是采集你的定位信息，而是用的移动基站的数据，所以才会出现有的人只是开车经过那里，也会收到疾控中心电话，如果是收集了定位信息，这样的人是不会被判定为危险人群的。</p><h3 id=知乎用户-verofess-发表>知乎用户 VeroFess 发表</h3><p>谢邀，涉密，不能说。</p><h3 id=知乎用户-夹卡夹卡酱酱夹卡酱-发表>知乎用户 夹卡夹卡酱酱夹卡酱 发表</h3><p>坐标广州，这里采集不需要定位，而是很多公共场合，有个二维码让你扫，扫了简单登记一下信息，如是进来还是出去，确定了工作人员才放行，那个二维码应该是每个地方都固定一个不一样的，这样只要你有扫过这个地方，才会被记录，不存在路过被记录的情况</p><h3 id=知乎用户-巨蜥拉卡-发表>知乎用户 巨蜥拉卡 发表</h3><p>本来就不需要精确知道你的位置，要的是你的主要活动轨迹。哪怕只是把你最近移动支付的流水全部都拿出来，点的外卖订单拿出来，买的车票记录拿出来，你的活动轨迹都大概清楚了。</p><p>健康码无非是个粗筛，是个警告，不是石锤，红码也不会有 jc 叔叔和护士阿姨上门抓你。就算什么信息都不收集，只按你自己上报的结果和医院、社区上报的结果，按小区改颜色都可以，操作起来还简单。医院检查一个阳性是哪个小区的，然后就把社区之前普查出来的、数据库里是那个小区的全部改成红色，ok，小区名字比较特殊的话搞不好一行 like 就行了。</p><p>对外那必须是大数据啦，云啦，AI 啦，智慧啦，blahblah。为什么可以拍着胸脯说保障你的隐私？<em>因为搞不好压根就没取过关于你的啥隐私数据（滑稽）</em></p><p><strong>真正需要严格的场合，会让你直接去核酸检测，有什么码都不行的。</strong></p><p>不要先入为主去思考定位怎么做，很多时候，当程序员就是不愿告诉你具体实现方式，非得往 algorithm 上面扯的时候，往往要么是因为代码是借鉴的他也不懂，要么是因为实现方式说出来丢人。</p><h3 id=知乎用户-cnfan-发表>知乎用户 cnfan 发表</h3><p>这都小问题，阿里这边直接让你授权位置，简单粗暴。</p><h3 id=知乎用户-孙召忠-发表>知乎用户 孙召忠 发表</h3><p>听上去不太靠谱，不知道具体代表什么意思，推测只是话术，目的是安抚公众关于个人隐私担忧。</p><p>其实这事没必要搞得这么躲躲闪闪的，就大大方方的说就行了。最终的结果反正是获取到用户<a href="https://www.zhihu.com/search?q=%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">位置信息</a>了，至于是采集的还是通过其他数据推算出来的，一点也不重要。</p><p>作为一个社会人，必须让渡出一部分权力。比如：<a href="https://www.zhihu.com/search?q=%E8%82%96%E5%83%8F&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">肖像</a>，我们每天经过天眼的摄像头，面部都会被拍摄并且入库分析，这就是为什么逃犯只要一在公共场所出现，立即就会被锁定的原因。</p><p>再比如：<a href="https://www.zhihu.com/search?q=%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">个人隐私</a>，现在个人隐私保护有越来越泛化的趋势，比如 cookie，这玩意用来表示用户身份，在一些人看来，这也算个人隐私，“保护个人隐私” 是西方引入的一种政治正确，在访问一些外国网站的时候常常会提示：本站使用了 <a href="https://www.zhihu.com/search?q=cookie%E6%8A%80%E6%9C%AF&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">cookie 技术</a>，是否允许？之类的。这是一种可笑的自欺欺人，不使用 cookie（或者替代的类似技术）无法进行身份识别，如果不用怎么知道你是 VIP 还是管理员？怎么知道你的账户余额？怎么知道你的好友？？</p><p>说这么多难道我反对保护个人隐私？我的个人隐私不怕别人知道吗？<strong>我当然赞成保护个人隐私</strong>，也不想让别人知道我的隐私。</p><p>但是，接下来说到重点了，<strong>个人隐私是对人保密，而不是针对<a href="https://www.zhihu.com/search?q=%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">计算机系统</a>保密，对计算机系统保密是不可能做到的</strong>。我们保护个人隐私是不让张三知道李四的信息，而计算机系统是知道李四的这些信息的，而且肯定会知道。哪个系统说他完全不知道用户隐私就是骗子无疑。</p><p>比如：某脱口秀演员的银行卡流水，绝对是隐私，我们需要严格禁止的是工作人员在未经授权就调出这些隐私给第三方，而不是让银行的数据库也不知道用户的流水，怎么可能不知道？</p><p>任何成熟的系统都会采集用户位置信息（或者其他可用于间接推测位置的信息），只要这些信息不被第三方滥用就可以了。什么是滥用呢？比如：前些年爆出的新闻，追债公司可以通过相关部门的 “内线” 实时定位某人的准确位置，这就是个人信息的滥用。</p><p>关于隐私保护话题有一个被黑的很惨的人是绕不过去的，那就是<a href="https://www.zhihu.com/search?q=%E6%9D%8E%E5%BD%A6%E5%AE%8F&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">李彦宏</a>。当年他在 “中国发展高层论坛” 中的一句话被断章取义黑了两年多。</p><p>他说：“中国用户愿用隐私换效率。”</p><p>但这真的是他的原话吗？不是！</p><p>李彦宏的原话是：“<strong>中国的消费者在隐私保护的前提下</strong>，很多时候是<strong>愿意以一定的个人数据授权使用</strong>，去换取更加便捷的服务的。”</p><p><a href="https://www.zhihu.com/search?q=%E7%96%AB%E6%83%85&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">疫情</a>在中国的高峰已经过去，时隔两年多再回头完整的看李彦宏的这句话，没有值得吐槽的地方，历史会给这句话一个公正的评价。</p><p>一个负面的例子是英国，英国为了跟踪疫情传播耗资 1100 万英镑开发了一个联系人跟踪 APP：NHS <a href="https://www.zhihu.com/search?q=covid-19&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">covid-19</a></p><p>最初宏伟的愿景是：既能应对疫情，又保护用户隐私。政府也没有强制推广这个 APP，完全靠用户自愿，最后的现实很骨感：因为装机量少，未授予权限等原因导致接触者的<a href="https://www.zhihu.com/search?q=%E6%A3%80%E5%87%BA%E7%8E%87&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">检出率</a>极低，没有任何实际意义。</p><p>最终英国政府决定放弃这一项目，转而与<a href="https://www.zhihu.com/search?q=%E8%B0%B7%E6%AD%8C&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A1303355128%7D">谷歌</a>、苹果展开合作（与备受西方诟病的中国的做法一样）。</p><h3 id=知乎用户-在定处-发表>知乎用户 在定处 发表</h3><p>没回应还好，这下做实了。</p><p>实际国际上也有很多非常重视个人隐私的国家也推出了这类二维码。但他们的作用并不是到处出示，而是为了流调溯源。即便上是采用蓝牙技术，利用蓝牙短距离通讯的特性，不记录用户任何活动轨迹，及完全保护的用户的隐私，有能实现溯源的功能。</p><p>我们现在用的这个，从名字上就有非常大的问题，所谓：“健康宝”根本没办法反应真实的健康情况。如果过不采用个人位置信息，又不是使用蓝牙，那基本上就不可能实现任何实际功能。希望能有人把这个 “信息最小化采集” 解释清楚，不然真的太可怕了。</p><p>不然，石景山万达的一幕只会增多。</p><h3 id=知乎用户-别沉默我-发表>知乎用户 别沉默我 发表</h3><p>我想了想，还是有可能的</p><p>毕竟在北京出门</p><p>要不坐地铁，要不打车，要不坐公交</p><p>最不济也得共享单车吧</p><p>这些多少都会留有信息的</p><p>我感觉最有可能的是，手机的运营商（电信，联通，移动）有你的位置信息</p><p>你的手机只要接发了信号，运营商那可能就有你的位置信息留存了</p><p>坐火车，你刚进一个省，那个省的运营商不就给你发短信了吗。</p><p>过完年，刚回北京办出入证的时候，不也要给运营商发短信证明你 14 天没出过北京吗。</p><h3 id=知乎用户-波澜不惊-发表>知乎用户 波澜不惊 发表</h3><p>就是告诉你健康宝没收集你的位置信息，所以以前对行踪追溯困难，以后要扫码登记了，就天然不用获取位置也知道你去哪了。</p><p>至于大数据筛查去过新发地的，这意思就是这是移动联通给的数据，不是健康宝牵头搞的。</p><h3 id=知乎用户-武林猫咪-发表>知乎用户 武林猫咪 发表</h3><p>可行啊，要定位信息干嘛。</p><p>通过查询绑定的手机号对应的基站状态不就行了。</p><h3 id=知乎用户-路人卿-发表>知乎用户 路人卿 发表</h3><p>可能，不是很可靠。</p><p>要么真花钱了，要么骗你的。</p><h3 id=知乎用户-jdkjskkvsjkabzgh-发表>知乎用户 jdkjskkVsjkabzgh 发表</h3><p>隐私？我底裤没了 我可以说你们每个人的裸照 骚话 任何事情 都在政府眼里 国产 app 权限不给就死给你看 一给你就底裤都不剩 国产 android 定制系统更是从系统层面直接给权限 问都不问的 这个健康宝就是通过基站定位方式获得定位信息的 根本也不需要任何权限 我之前给电信投诉说知乎登陆用了天翼认证 也就是说我只要用天翼宽带或者蜂窝网 知乎能直接通过天翼于他们合作的 api 获得我的手机号码 等信息 结果铁证如山被电信高级客服恶狠狠的说我们不会与任何第三方合作 我反问那么迅雷快鸟的提速服务难道不是和你们合作？bilibili 的免流量不是和你们合作？对方直接威胁说你有本事去报警啊 然后就挂电话了！</p><h3 id=知乎用户-hr157-发表>知乎用户 hr157 发表</h3><p>GPS 全球定位系统已成泛指名词　代指所有的卫星定位系统，包括但不限于 USA 的 GPS、北斗、格洛纳斯、伽利略；另外目前用的较多还是 LBS，因为成熟准确方便；</p><p>回应标题：可实现且可靠（非绝对化）</p><h3 id=知乎用户-莫莫-发表>知乎用户 莫莫 发表</h3><p>退一万步来说，即使是文字游戏又如何，为国为民，又不是滥用，不必较真。</p><p>仔细想想，这话可能也不是对我们说的。大部分国人真的重视隐私吗？或许早就默认了。况且这也是为了应对新冠疫情，所以对国人解不解释有这必要吗。</p><h3 id=知乎用户-匿名用户-发表-1>知乎用户 匿名用户 发表</h3><p>我是很同意这种说法的。在网络上，搞过数据采集人都知道采集是一个很麻烦的事情，首先是数据量很大，再就是数据需要清洗整理，归档分析。</p><p>真正使用数据的人，直接去找源头要不就行了。打个比方，我现在要采集新浪微博的数据，那就要用到多个爬虫运用各种技术手段跟新浪微博进行对抗，然后采集下来一小部分数据。这些数据当中我还要进行处理才能使用。但是如果我直接找新浪微博调用这些数据了，他会整整齐齐非常规范的放在服务器上面一条都不漏。</p><p>现在请问聪明的你，如果政府需要你的数据，是很辛苦的采集每个人的信息，还是直接找各个公司去调用已经存在的规范信息。</p><p>你的微信记录、你的消费记录、你的扫码记录、你的快递记录全部都是规范的信息。用这个信息不香吗？</p><p>采集你的个人信息？想多了！</p><h3 id=知乎用户-知乎用户-ey8kcp-发表>知乎用户 知乎用户 EY8KcP 发表</h3><p>哈哈哈，微信 / 支付宝早就定位了，所以健康宝借用微信的数据也不算采集个人位置信息啊~</p><h3 id=知乎用户--匿名用户-发表>知乎用户 匿名用户 发表</h3><p>背景：5 月 30 日后，曾使用高德地图多次路过相邻新发地的京开。</p><p>其中有带爱人一起，有走过京开辅路，也走过京开主路。</p><p>最后，大数据只采集到我一次，是我自己走京开主路，并且在收费站扫码付费的情况。其他几次还是我自己主动和社区交代的。</p><h3 id=知乎用户-chris-发表>知乎用户 Chris 发表</h3><p>没毛病，官方是说健康宝 app 本体无通过终端采集位置信息</p><h3 id=知乎用户-匿名用户-发表-2>知乎用户 匿名用户 发表</h3><p>也没说多源数据不包含或采集个人位置信息啊</p><h3 id=知乎用户-匿名用户-发表-3>知乎用户 匿名用户 发表</h3><p>可靠的。</p><p>GPS 是美国的，应该问一下美国有没有采集个人位置信息。</p><p>我们国家对个人信息安全是极度负责任的。</p><p>请不要把西方国家的惯用伎俩放到我们国家。</p><p>谢谢！</p><h5><a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5></div><div class="col-lg-8 mx-auto block shadow"><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var t=document,e=t.createElement('script');e.async=!0,e.src='//pin-cong-jing-xuan.disqus.com/embed.js',e.setAttribute('data-timestamp',+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div class="col-lg-8 mx-auto block shadow"><h3>See Also</h3><div class=container><div class=row><div class="mx-auto px-0"><div class="bg-white shadow block"><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/0263451c97c4d65ab7edf399be63fe3f/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E5%25AE%2598%25E6%2596%25B9%25E8%25A7%25A3%25E9%2587%258A%25E5%258C%2597%25E4%25BA%25AC%25E5%2581%25A5%25E5%25BA%25B7%25E5%25AE%259D%25E4%25BB%258E%25E6%259C%25AA%25E9%2587%2587%25E9%259B%2586%25E4%25B8%25AA%25E4%25BA%25BA%25E4%25BD%258D%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF%25E8%2580%258C%25E6%2598%25AF%25E8%25BF%259B%25E8%25A1%258C%25E5%25A4%259A%25E6%25BA%2590%25E6%2595%25B0%25E6%258D%25AE%25E6%25AF%2594%25E5%25AF%25B9%25E5%2588%2586%25E6%259E%2590%25E8%25BF%2599%25E7%25A7%258D%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F%25E5%258F%25AF%25E8%2583%25BD%25E5%2590%2597%25E5%258F%25AF%25E9%259D%25A0%25E5%2590%2597">如何看待大牛助手 APP 因能修改手机位置被海淀检察院告，最终张某获刑 5 年 6 个月?</a></h2><p class=text-dark>知乎用户 发表 一打卡作弊软件 CEO 被判 5 年 6 个月，22 人团队，已赚四五百万元：因破坏了钉钉系统获取用户真实地理位置的功能
 如题
 知乎用户 逆情至深 发表 我不得不强答一回了。
-大牛助手是通过修改系统环境来达到欺骗钉钉的目的， …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/0e10fc3431011e9d7e261945947904b9/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E5%25AE%2598%25E6%2596%25B9%25E8%25A7%25A3%25E9%2587%258A%25E5%258C%2597%25E4%25BA%25AC%25E5%2581%25A5%25E5%25BA%25B7%25E5%25AE%259D%25E4%25BB%258E%25E6%259C%25AA%25E9%2587%2587%25E9%259B%2586%25E4%25B8%25AA%25E4%25BA%25BA%25E4%25BD%258D%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF%25E8%2580%258C%25E6%2598%25AF%25E8%25BF%259B%25E8%25A1%258C%25E5%25A4%259A%25E6%25BA%2590%25E6%2595%25B0%25E6%258D%25AE%25E6%25AF%2594%25E5%25AF%25B9%25E5%2588%2586%25E6%259E%2590%25E8%25BF%2599%25E7%25A7%258D%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F%25E5%258F%25AF%25E8%2583%25BD%25E5%2590%2597%25E5%258F%25AF%25E9%259D%25A0%25E5%2590%2597">iOS 是不是能比安卓更能保护隐私？</a>
-</h2>
-<p class=text-dark>知乎用户 Coa​​ 发表 老王早上搜索一下耐克鞋，很快便发现不管是抖音、知乎还是微信朋友圈，铺天盖地的都出现了运动鞋的广告。小刘发现自己的洗发水快用完了，正打算买洗发水，就发现京东的洗发水广告已经推送到了手机上。
-为什么广告商总能对广告进 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/12ac89d14d82d43b65ee23a865c1aaa7/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E5%25AE%2598%25E6%2596%25B9%25E8%25A7%25A3%25E9%2587%258A%25E5%258C%2597%25E4%25BA%25AC%25E5%2581%25A5%25E5%25BA%25B7%25E5%25AE%259D%25E4%25BB%258E%25E6%259C%25AA%25E9%2587%2587%25E9%259B%2586%25E4%25B8%25AA%25E4%25BA%25BA%25E4%25BD%258D%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF%25E8%2580%258C%25E6%2598%25AF%25E8%25BF%259B%25E8%25A1%258C%25E5%25A4%259A%25E6%25BA%2590%25E6%2595%25B0%25E6%258D%25AE%25E6%25AF%2594%25E5%25AF%25B9%25E5%2588%2586%25E6%259E%2590%25E8%25BF%2599%25E7%25A7%258D%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F%25E5%258F%25AF%25E8%2583%25BD%25E5%2590%2597%25E5%258F%25AF%25E9%259D%25A0%25E5%2590%2597">为什么闲鱼把网页版取消了？</a>
-</h2>
-<p class=text-dark>知乎用户 匿名用户 发表 同高赞，说穿了，那么多 APP 非得出手机应用，同时拒绝出甚至降低 PC、web 端体验还不是因为手机上收集用户信息难度低得多，精度大得多，量大还难以伪造。
-试想 PC 端动辄虚拟机沙箱运行，web …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/26bdd9cb8860a01f474b3e770e26a945/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E5%25AE%2598%25E6%2596%25B9%25E8%25A7%25A3%25E9%2587%258A%25E5%258C%2597%25E4%25BA%25AC%25E5%2581%25A5%25E5%25BA%25B7%25E5%25AE%259D%25E4%25BB%258E%25E6%259C%25AA%25E9%2587%2587%25E9%259B%2586%25E4%25B8%25AA%25E4%25BA%25BA%25E4%25BD%258D%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF%25E8%2580%258C%25E6%2598%25AF%25E8%25BF%259B%25E8%25A1%258C%25E5%25A4%259A%25E6%25BA%2590%25E6%2595%25B0%25E6%258D%25AE%25E6%25AF%2594%25E5%25AF%25B9%25E5%2588%2586%25E6%259E%2590%25E8%25BF%2599%25E7%25A7%258D%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F%25E5%258F%25AF%25E8%2583%25BD%25E5%2590%2597%25E5%258F%25AF%25E9%259D%25A0%25E5%2590%2597">急到跳楼也防不住！无需你参与，我就能转空你的银行卡！</a>
-</h2>
-<p class=text-dark>说来也讽刺，昨天刚刚说完现在智能手机对老人太不友好，今天就是出这个事情。大家别不信！夸张？离谱？绝对不可能发生？
-抱歉，这个是真的，真的不需要你任何操作，你银行卡里的钱就是我的了。不多解释，央视报道，千真万确，很多技术细节还是犯罪嫌疑人自己 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/c5db36e0b46e6f477e42b4422282c25d/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E5%25AE%2598%25E6%2596%25B9%25E8%25A7%25A3%25E9%2587%258A%25E5%258C%2597%25E4%25BA%25AC%25E5%2581%25A5%25E5%25BA%25B7%25E5%25AE%259D%25E4%25BB%258E%25E6%259C%25AA%25E9%2587%2587%25E9%259B%2586%25E4%25B8%25AA%25E4%25BA%25BA%25E4%25BD%258D%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF%25E8%2580%258C%25E6%2598%25AF%25E8%25BF%259B%25E8%25A1%258C%25E5%25A4%259A%25E6%25BA%2590%25E6%2595%25B0%25E6%258D%25AE%25E6%25AF%2594%25E5%25AF%25B9%25E5%2588%2586%25E6%259E%2590%25E8%25BF%2599%25E7%25A7%258D%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F%25E5%258F%25AF%25E8%2583%25BD%25E5%2590%2597%25E5%258F%25AF%25E9%259D%25A0%25E5%2590%2597">网传腾讯旗下 App 不得新上架或版本更新，腾讯回应正配合监管部门进行合规检测，还有哪些信息值得关注？</a>
-</h2>
-<p class=text-dark>知乎用户 罗超 发表 1、这个事情，不是针对腾讯的。而是《个人信息保护法》以及相关规定出台后对 App 的新审核要求。
-2、但是为什么腾讯会触发这个 “先审再更新”？据说因其今年被通报四次有关系。年初工信部的行风纠风指导意见提过要求，同一个 …</p>
-</article>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
-<footer class="py-4 bg-light border-top">
-<div class=container>
-<div class="row justify-content-between align-items-center">
-<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
-</div>
-<div class="col-lg-4 text-center mb-4 mb-lg-0">
-<ul class="list-inline mb-0">
-</ul>
-</div>
-<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
-<ul class="list-inline social-icon mb-0">
-<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
-<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
-</ul>
-</div>
-<div class="col-12 text-center mt-4">
-<span></span>
-</div>
-</div>
-</div>
-</footer>
-<script src=../../plugins/jQuery/jquery.min.js></script>
+大牛助手是通过修改系统环境来达到欺骗钉钉的目的， …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/0e10fc3431011e9d7e261945947904b9/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E5%25AE%2598%25E6%2596%25B9%25E8%25A7%25A3%25E9%2587%258A%25E5%258C%2597%25E4%25BA%25AC%25E5%2581%25A5%25E5%25BA%25B7%25E5%25AE%259D%25E4%25BB%258E%25E6%259C%25AA%25E9%2587%2587%25E9%259B%2586%25E4%25B8%25AA%25E4%25BA%25BA%25E4%25BD%258D%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF%25E8%2580%258C%25E6%2598%25AF%25E8%25BF%259B%25E8%25A1%258C%25E5%25A4%259A%25E6%25BA%2590%25E6%2595%25B0%25E6%258D%25AE%25E6%25AF%2594%25E5%25AF%25B9%25E5%2588%2586%25E6%259E%2590%25E8%25BF%2599%25E7%25A7%258D%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F%25E5%258F%25AF%25E8%2583%25BD%25E5%2590%2597%25E5%258F%25AF%25E9%259D%25A0%25E5%2590%2597">iOS 是不是能比安卓更能保护隐私？</a></h2><p class=text-dark>知乎用户 Coa​​ 发表 老王早上搜索一下耐克鞋，很快便发现不管是抖音、知乎还是微信朋友圈，铺天盖地的都出现了运动鞋的广告。小刘发现自己的洗发水快用完了，正打算买洗发水，就发现京东的洗发水广告已经推送到了手机上。
+为什么广告商总能对广告进 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/12ac89d14d82d43b65ee23a865c1aaa7/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E5%25AE%2598%25E6%2596%25B9%25E8%25A7%25A3%25E9%2587%258A%25E5%258C%2597%25E4%25BA%25AC%25E5%2581%25A5%25E5%25BA%25B7%25E5%25AE%259D%25E4%25BB%258E%25E6%259C%25AA%25E9%2587%2587%25E9%259B%2586%25E4%25B8%25AA%25E4%25BA%25BA%25E4%25BD%258D%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF%25E8%2580%258C%25E6%2598%25AF%25E8%25BF%259B%25E8%25A1%258C%25E5%25A4%259A%25E6%25BA%2590%25E6%2595%25B0%25E6%258D%25AE%25E6%25AF%2594%25E5%25AF%25B9%25E5%2588%2586%25E6%259E%2590%25E8%25BF%2599%25E7%25A7%258D%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F%25E5%258F%25AF%25E8%2583%25BD%25E5%2590%2597%25E5%258F%25AF%25E9%259D%25A0%25E5%2590%2597">为什么闲鱼把网页版取消了？</a></h2><p class=text-dark>知乎用户 匿名用户 发表 同高赞，说穿了，那么多 APP 非得出手机应用，同时拒绝出甚至降低 PC、web 端体验还不是因为手机上收集用户信息难度低得多，精度大得多，量大还难以伪造。
+试想 PC 端动辄虚拟机沙箱运行，web …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/26bdd9cb8860a01f474b3e770e26a945/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E5%25AE%2598%25E6%2596%25B9%25E8%25A7%25A3%25E9%2587%258A%25E5%258C%2597%25E4%25BA%25AC%25E5%2581%25A5%25E5%25BA%25B7%25E5%25AE%259D%25E4%25BB%258E%25E6%259C%25AA%25E9%2587%2587%25E9%259B%2586%25E4%25B8%25AA%25E4%25BA%25BA%25E4%25BD%258D%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF%25E8%2580%258C%25E6%2598%25AF%25E8%25BF%259B%25E8%25A1%258C%25E5%25A4%259A%25E6%25BA%2590%25E6%2595%25B0%25E6%258D%25AE%25E6%25AF%2594%25E5%25AF%25B9%25E5%2588%2586%25E6%259E%2590%25E8%25BF%2599%25E7%25A7%258D%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F%25E5%258F%25AF%25E8%2583%25BD%25E5%2590%2597%25E5%258F%25AF%25E9%259D%25A0%25E5%2590%2597">急到跳楼也防不住！无需你参与，我就能转空你的银行卡！</a></h2><p class=text-dark>说来也讽刺，昨天刚刚说完现在智能手机对老人太不友好，今天就是出这个事情。大家别不信！夸张？离谱？绝对不可能发生？
+抱歉，这个是真的，真的不需要你任何操作，你银行卡里的钱就是我的了。不多解释，央视报道，千真万确，很多技术细节还是犯罪嫌疑人自己 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/c5db36e0b46e6f477e42b4422282c25d/?utm_source=see_also&utm_medium=%25E5%25A6%2582%25E4%25BD%2595%25E7%259C%258B%25E5%25BE%2585%25E5%25AE%2598%25E6%2596%25B9%25E8%25A7%25A3%25E9%2587%258A%25E5%258C%2597%25E4%25BA%25AC%25E5%2581%25A5%25E5%25BA%25B7%25E5%25AE%259D%25E4%25BB%258E%25E6%259C%25AA%25E9%2587%2587%25E9%259B%2586%25E4%25B8%25AA%25E4%25BA%25BA%25E4%25BD%258D%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF%25E8%2580%258C%25E6%2598%25AF%25E8%25BF%259B%25E8%25A1%258C%25E5%25A4%259A%25E6%25BA%2590%25E6%2595%25B0%25E6%258D%25AE%25E6%25AF%2594%25E5%25AF%25B9%25E5%2588%2586%25E6%259E%2590%25E8%25BF%2599%25E7%25A7%258D%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F%25E5%258F%25AF%25E8%2583%25BD%25E5%2590%2597%25E5%258F%25AF%25E9%259D%25A0%25E5%2590%2597">网传腾讯旗下 App 不得新上架或版本更新，腾讯回应正配合监管部门进行合规检测，还有哪些信息值得关注？</a></h2><p class=text-dark>知乎用户 罗超 发表 1、这个事情，不是针对腾讯的。而是《个人信息保护法》以及相关规定出台后对 App 的新审核要求。
+2、但是为什么腾讯会触发这个 “先审再更新”？据说因其今年被通报四次有关系。年初工信部的行风纠风指导意见提过要求，同一个 …</p></article></div></div></div></div></div></div></div></div></section><script>var i,images=document.getElementsByTagName("img");for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../plugins/jQuery/jquery.min.js></script>
 <script src=../../plugins/bootstrap/bootstrap.min.js></script>
 <script src=../../plugins/search/fuse.min.js></script>
 <script src=../../plugins/search/mark.js></script>
 <script src=../../plugins/search/search.js></script>
 <script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
-</html>
+<script>(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body></html>

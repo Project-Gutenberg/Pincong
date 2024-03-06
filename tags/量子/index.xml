@@ -58,7 +58,7 @@
 作者：八里土人
 随着量子通信卫星“墨子”发射成功，近來量子通信成了热点。很多新闻中把量子通信说成绝对安全，把基于数学原理的现代密码学贬得一文不值。这里对量子通信的安全性做一个初步分析，澄清一些大众大误解。
 一般分析系统安全性，以CIA为维度。CIA并不是美国中央情报局，而是“机密性”，“完整性”，“可用性”作为评估维度。
-加解密与密钥基础 加解密算法粗分2种，对称密钥和非对称密钥。对称密钥是加解密密钥相同，加解密 …</description></item><item><title>墨子号就是个“亩产万斤”的卫星</title><link>https://project-gutenberg.github.io/Pincong/post/f6ef6b4a02e96e2292a796fa17378482/</link><pubDate>Sun, 21 Jun 2020 14:20:21 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f6ef6b4a02e96e2292a796fa17378482/</guid><description>墨子号就是个“亩产万斤”的卫星
+加解密与密钥基础 加解密算法粗分2种，对称密钥和非对称密钥。对称密钥是加解密密钥相同，加解密用一 …</description></item><item><title>墨子号就是个“亩产万斤”的卫星</title><link>https://project-gutenberg.github.io/Pincong/post/f6ef6b4a02e96e2292a796fa17378482/</link><pubDate>Sun, 21 Jun 2020 14:20:21 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/f6ef6b4a02e96e2292a796fa17378482/</guid><description>墨子号就是个“亩产万斤”的卫星
 作者：viBravo
 姑且不谈以激光偏振态编码是否真正意义上的量子密钥.
 从通信工程角度看，量子通信卫星至少违反了二条通信工程的戒律.

@@ -19,7 +19,7 @@
 按理说不至于啊，虽然老实说我不碰 js，我也不认为做了这个作品就代表什么特别特别牛的水平，但是按说仍然是应该随便找个公司混个程序员的位置不难吧。
 开源软件不是不能挣钱，但是这个东西就和你搞自媒体一样，真不是你做了 2 个爆款视频就应该能发财 …</description></item><item><title>Apache 存在 Log4j 远程代码执行漏洞，将给相关企业带来哪些影响？还有哪些信息值得关注？</title><link>https://project-gutenberg.github.io/Pincong/post/0ab4d2cd7d4c69c37526fdb3030715a7/</link><pubDate>Thu, 16 Dec 2021 16:51:24 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/0ab4d2cd7d4c69c37526fdb3030715a7/</guid><description>知乎用户 Serendipity​​ 发表 Apache Log4j 2 远程代码执行漏洞，和很多注入攻击一样，能够得以实施的两个关键条件在于：
 用户能够控制输入，或者说需要用户提供部分输入数据 用户提供的输入数据和原本程序要执行的代码进行了拼接，或被当作代码执行 对于 SQL 注入，就是用户提交的数据，被数据库系统编译而产生了服务提供者预料之外的非 “数据” 行为
-本次 Apache Log4j 2 存在的远程代码执行漏洞也一样， …</description></item><item><title>互联网大厂程序员梦醒时分</title><link>https://project-gutenberg.github.io/Pincong/post/fed855a2e844edd19b205b1d83a60790/</link><pubDate>Tue, 30 Nov 2021 23:57:41 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/fed855a2e844edd19b205b1d83a60790/</guid><description>梦醒之后，每个人对于这份职业的未来、互联网行业的未来，以及更重要的，自己的未来都有了更现实的判断。
+本次 Apache Log4j 2 存在的远程代码执行漏洞也一样，未经 …</description></item><item><title>互联网大厂程序员梦醒时分</title><link>https://project-gutenberg.github.io/Pincong/post/fed855a2e844edd19b205b1d83a60790/</link><pubDate>Tue, 30 Nov 2021 23:57:41 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/fed855a2e844edd19b205b1d83a60790/</guid><description>梦醒之后，每个人对于这份职业的未来、互联网行业的未来，以及更重要的，自己的未来都有了更现实的判断。
 文 | 祝颖丽
 编辑 | 黄俊杰
 一个生于 1986 年的人，他所走过的前半生：

@@ -1,17 +1,13 @@
-<!doctype html><html lang=zh-cn><head>
-<meta charset=utf-8>
-<title>微信、支付宝均已升级，二维码扫码框正在消失</title>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name=description content=" 我们几乎每天都要扫码，登录网站、登记信息、消费支付、添加好友……只要打开扫一扫，能省去不少繁琐步骤。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>微信、支付宝均已升级，二维码扫码框正在消失</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 我们几乎每天都要扫码，登录网站、登记信息、消费支付、添加好友……只要打开扫一扫，能省去不少繁琐步骤。
 而当每次打开工具扫码时，这些工具通常都会给出 1:1 的扫码框，将框对准二维码，手机就能马上识别码内的信息。
 然而，不知你有没有发现，即使这些工具会将「扫描区」框出来，有时候其实不需要对准框就能完成扫描，只要二维码在相机取景范围内，系统就能马上将内容识别出来。
 那这个框有何用处？
 其实这跟每款 app 对扫描功能的用途有很大关系。纵观我们目前日常最常用的 10 款 app，二维码扫描页的设计可以分为几类：
-  固定区域扫描
-  全屏扫描
-  固定区域但实际是全屏扫描
-  全屏设计但实际是固定扫描
-  固定区域扫描是我们目前接触最多的扫码模式，用户需要将手机对准二维码扫描才能让手机完成识别，若是目标二维码不在框内，app 就无法识别内容。
+固定区域扫描
+全屏扫描
+固定区域但实际是全屏扫描
+全屏设计但实际是固定扫描
+固定区域扫描是我们目前接触最多的扫码模式，用户需要将手机对准二维码扫描才能让手机完成识别，若是目标二维码不在框内，app 就无法识别内容。
 而在一些我们较为常用的 app，比如微信、支付宝，则是从过去的「固定框扫描」变成「全屏扫描」，即整个手机屏幕都是扫描框。
 手机无需正对着二维码也能完成识别，识别速度也比有框扫描快很多，相机还没对上焦，系统就能马上识别出信息。
 ▲
@@ -24,25 +20,21 @@
 于用户个人而言，扫码区所提供的是一个扫码识别的提示，它的任务是告诉用户相机已经准备好扫描，只要对准即可读取信息。
 而对于设备本身，相机能否快速识别二维码，这跟相机的对焦性能、处理器的解码运算能力不无关系。
 二维码的历史最早可以追溯到上世纪八十年代，但直到过去十年才开始普及到我们的日常生活中。
-但早期智能手机的对焦反应、速度都相对较慢，而且也容易受环境光和镜头清晰度的影响，因而在开发 app 扫描页时，开发者需要通过调整相机取景范围，让相机向特定区域对焦，而不是广域对焦。 ">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
-<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
-<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
-<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<meta name=twitter:card content="summary_large_image">
-<meta name=og:title content=" 微信、支付宝均已升级，二维码扫码框正在消失 ">
-<meta name=og:description content=" 我们几乎每天都要扫码，登录网站、登记信息、消费支付、添加好友……只要打开扫一扫，能省去不少繁琐步骤。
+但早期智能手机的对焦反应、速度都相对较慢，而且也容易受环境光和镜头清晰度的影响，因而在开发 app 扫描页时，开发者需要通过调整相机取景范围，让相机向特定区域对焦，而不是广域对焦。
+▲
+旧手机的扫码速度要比新手机慢一些（留意对焦拉风箱，使用魅族 MX5 测试）
+简单来说，将扫码区域独立出来，实际上也是为了照顾早期对焦速度相对较慢的设备。原理类似于相机的定点对焦区域，相机只对方框内区域测量、对焦，从而减少目标二维码周边的其他因素干扰，以此提升相机对焦速度和扫码成功率。
+换个角度看，扫码方框除了是告诉用户扫描功能开启外，也是一种提高识别准确率的方法。只要方框内二维码关键元素符合要求，识别准确率约等于百分之百。
+为了让用户能在不同环境和条件下扫码，开发者在使用如 zxing 等扫码开发库时，会集成如调用闪光灯、远距离自动变焦等等等等，其目的都是为了让手机能看清方框内的二维码信息，方便用户在任何使用场合扫描。 "><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" 微信、支付宝均已升级，二维码扫码框正在消失 "><meta name=og:description content=" 我们几乎每天都要扫码，登录网站、登记信息、消费支付、添加好友……只要打开扫一扫，能省去不少繁琐步骤。
 而当每次打开工具扫码时，这些工具通常都会给出 1:1 的扫码框，将框对准二维码，手机就能马上识别码内的信息。
 然而，不知你有没有发现，即使这些工具会将「扫描区」框出来，有时候其实不需要对准框就能完成扫描，只要二维码在相机取景范围内，系统就能马上将内容识别出来。
 那这个框有何用处？
 其实这跟每款 app 对扫描功能的用途有很大关系。纵观我们目前日常最常用的 10 款 app，二维码扫描页的设计可以分为几类：
-  固定区域扫描
-  全屏扫描
-  固定区域但实际是全屏扫描
-  全屏设计但实际是固定扫描
-  固定区域扫描是我们目前接触最多的扫码模式，用户需要将手机对准二维码扫描才能让手机完成识别，若是目标二维码不在框内，app 就无法识别内容。
+固定区域扫描
+全屏扫描
+固定区域但实际是全屏扫描
+全屏设计但实际是固定扫描
+固定区域扫描是我们目前接触最多的扫码模式，用户需要将手机对准二维码扫描才能让手机完成识别，若是目标二维码不在框内，app 就无法识别内容。
 而在一些我们较为常用的 app，比如微信、支付宝，则是从过去的「固定框扫描」变成「全屏扫描」，即整个手机屏幕都是扫描框。
 手机无需正对着二维码也能完成识别，识别速度也比有框扫描快很多，相机还没对上焦，系统就能马上识别出信息。
 ▲
@@ -55,45 +47,16 @@
 于用户个人而言，扫码区所提供的是一个扫码识别的提示，它的任务是告诉用户相机已经准备好扫描，只要对准即可读取信息。
 而对于设备本身，相机能否快速识别二维码，这跟相机的对焦性能、处理器的解码运算能力不无关系。
 二维码的历史最早可以追溯到上世纪八十年代，但直到过去十年才开始普及到我们的日常生活中。
-但早期智能手机的对焦反应、速度都相对较慢，而且也容易受环境光和镜头清晰度的影响，因而在开发 app 扫描页时，开发者需要通过调整相机取景范围，让相机向特定区域对焦，而不是广域对焦。 ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/172.jpg">
-<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+但早期智能手机的对焦反应、速度都相对较慢，而且也容易受环境光和镜头清晰度的影响，因而在开发 app 扫描页时，开发者需要通过调整相机取景范围，让相机向特定区域对焦，而不是广域对焦。
+▲
+旧手机的扫码速度要比新手机慢一些（留意对焦拉风箱，使用魅族 MX5 测试）
+简单来说，将扫码区域独立出来，实际上也是为了照顾早期对焦速度相对较慢的设备。原理类似于相机的定点对焦区域，相机只对方框内区域测量、对焦，从而减少目标二维码周边的其他因素干扰，以此提升相机对焦速度和扫码成功率。
+换个角度看，扫码方框除了是告诉用户扫描功能开启外，也是一种提高识别准确率的方法。只要方框内二维码关键元素符合要求，识别准确率约等于百分之百。
+为了让用户能在不同环境和条件下扫码，开发者在使用如 zxing 等扫码开发库时，会集成如调用闪光灯、远距离自动变焦等等等等，其目的都是为了让手机能看清方框内的二维码信息，方便用户在任何使用场合扫描。 "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/211.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
-</head>
-<body>
-<header class="fixed-top navigation">
-<div class=container>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class="ti-menu h3"></i>
-</button>
-<div class="collapse navbar-collapse text-center" id=navigation>
-<ul class="navbar-nav ml-auto">
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</header> <div class="py-5 d-none d-lg-block"></div>
-<section class=main-content>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 mx-auto block shadow mb-5">
-<h2>微信、支付宝均已升级，二维码扫码框正在消失</h2>
-<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e9%99%88%e6%96%87%e4%bf%8a>陈文俊</a></span>,
+<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=main-content><div class=container><div class=row><div class="col-lg-8 mx-auto block shadow mb-5"><h2>微信、支付宝均已升级，二维码扫码框正在消失</h2><div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/%e9%99%88%e6%96%87%e4%bf%8a>陈文俊</a></span>,
 <span>at 15 May 2020</span>, tags :
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e6%89%ab%e7%a0%81>扫码</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e4%ba%8c%e7%bb%b4%e7%a0%81>二维码</a>
@@ -101,219 +64,14 @@
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e8%af%86%e5%88%ab>识别</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e5%be%ae%e4%bf%a1>微信</a>
 <a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/48d994d7147b7240146d056aa6ba694c.md style=color:gray><strong><i>点击纠错</i></strong></a>
-<i> </i>
-<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/48d994d7147b7240146d056aa6ba694c.md style=color:gray><strong><i>点击删除</i></strong></a>
-</div>
-<h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
-<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
-<p></p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWNJ428lhrveurahHmVjI1FMDG4Z0NJ4Oqhkg9VmcLicoPPdrE2BicV5IFd1vWeroAS3tKsy5amTXYBw/640%3Fwx_fmt%3Dgif" alt></p>
-<p>我们几乎每天都要扫码，登录网站、登记信息、消费支付、添加好友……只要打开扫一扫，能省去不少繁琐步骤。</p>
-<p>而当每次打开工具扫码时，这些工具通常都会给出 1:1 的扫码框，将框对准二维码，手机就能马上识别码内的信息。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNutpwofBWFEOySbYk21c60oSxiaAfuraXWwkwGnz8poMryzZG6wGeBqQQ/640%3Fwx_fmt%3Djpeg" alt></p>
-<p>然而，不知你有没有发现，即使这些工具会将「扫描区」框出来，有时候其实不需要对准框就能完成扫描，只要二维码在相机取景范围内，系统就能马上将内容识别出来。</p>
-<p>那这个框有何用处？</p>
-<p>其实这跟每款 app 对扫描功能的用途有很大关系。纵观我们目前日常最常用的 10 款 app，二维码扫描页的设计可以分为几类：</p>
-<ul>
-<li>
-<p>固定区域扫描</p>
-</li>
-<li>
-<p>全屏扫描</p>
-</li>
-<li>
-<p>固定区域但实际是全屏扫描</p>
-</li>
-<li>
-<p>全屏设计但实际是固定扫描</p>
-</li>
-</ul>
-<p>固定区域扫描是我们目前接触最多的扫码模式，用户需要将手机对准二维码扫描才能让手机完成识别，若是目标二维码不在框内，app 就无法识别内容。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNugeCtHPHhCKOXFRWzIut724DC0TRUDCXV2fj0dtlfNZxoU0k7rGtmSQ/640%3Fwx_fmt%3Djpeg" alt></p>
-<p>而在一些我们较为常用的 app，比如微信、支付宝，则是从过去的「固定框扫描」变成「全屏扫描」，即整个手机屏幕都是扫描框。</p>
-<p>手机无需正对着二维码也能完成识别，识别速度也比有框扫描快很多，相机还没对上焦，系统就能马上识别出信息。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNufIwCtOVnS0hBGvetFlBe6jprqBxnSYrYoDRibsHevfHBqkE21uHMp8A/640%3Fwx_fmt%3Dgif" alt></p>
-<p>▲</p>
-<p>二维码不在框内也能完成识别（实际速度比 GIF 更快）</p>
-<p>当然在此其中也有特别个例。当我打开微博扫码时，页面是个有固定扫码区的设计，但 app 的扫描机制本质上其实是全屏扫描。所以每当我准备扫描时，二维码还没进框，信息就已经被读取出来了。</p>
-<p>莫非是设计师偷懒了？也不一定。</p>
-<p>要扒开扫描页的细节，单从表面看显然是不够的，还需要从多方面考虑，比如扫码用的硬件，还有软件层面上的解码能力。</p>
-<p>实际上要将扫码页做成全屏并不难，但专门腾出一个方框作为扫描区也并非多此一举。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuiaibt1JaaO6pvp73SOmInOtdZW8uUO1GEC2JvImBct2xAGWXvY5XWW7g/640%3Fwx_fmt%3Djpeg" alt></p>
-<p>究其原因，在二维码刚进入我们的生活时，无论是 app 本身或是扫码设备，都没有做专门的优化，扫码成功率往往和二维码所处环境光线、距离和清晰度有关。</p>
-<p>于用户个人而言，扫码区所提供的是一个扫码识别的提示，它的任务是告诉用户相机已经准备好扫描，只要对准即可读取信息。</p>
-<p>而对于设备本身，相机能否快速识别二维码，这跟相机的对焦性能、处理器的解码运算能力不无关系。</p>
-<p>二维码的历史最早可以追溯到上世纪八十年代，但直到过去十年才开始普及到我们的日常生活中。</p>
-<p>但早期智能手机的对焦反应、速度都相对较慢，而且也容易受环境光和镜头清晰度的影响，因而在开发 app 扫描页时，开发者需要通过调整相机取景范围，让相机向特定区域对焦，而不是广域对焦。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuLB1twu5Pic4exRroBCBHG1d2ibeY08wicLViaowCasvroeJLUqqGT6BWpQ/640%3Fwx_fmt%3Dgif" alt></p>
-<p>▲</p>
-<p>旧手机的扫码速度要比新手机慢一些（留意对焦拉风箱，使用魅族 MX5 测试）</p>
-<p>简单来说，将扫码区域独立出来，实际上也是为了照顾早期对焦速度相对较慢的设备。原理类似于相机的定点对焦区域，相机只对方框内区域测量、对焦，从而减少目标二维码周边的其他因素干扰，以此提升相机对焦速度和扫码成功率。</p>
-<p>换个角度看，扫码方框除了是告诉用户扫描功能开启外，也是一种提高识别准确率的方法。只要方框内二维码关键元素符合要求，识别准确率约等于百分之百。</p>
-<p>为了让用户能在不同环境和条件下扫码，开发者在使用如 zxing 等扫码开发库时，会集成如调用闪光灯、远距离自动变焦等等等等，其目的都是为了让手机能看清方框内的二维码信息，方便用户在任何使用场合扫描。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNu9RTyMgsnwv1aRVYyShUY8osBqzJLvGdliaff1NE6PuY2uZMS9uoNPaQ/640%3Fwx_fmt%3Djpeg" alt></p>
-<p>不过，近几年智能手机的相机对焦速度提升很快，核心处理器对图像处理的能力也逐步提升，因此现代手机扫码也不需要长时间的对焦，即便需要，也只是在不到一秒内就能完成。</p>
-<p>与此同时，随着二维码的应用渐成主流，app 开发商也通过自创扫码引擎的方式，提高扫码的速度和成功率，而不仅只依靠硬件层面来完成识别过程——微信便是其中一家。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuBN3KU4cDQoBeNicO6swe2icRqSeyrRHJBicBYsCJ6gfH4cUQdlGUJVjTw/640%3Fwx_fmt%3Djpeg" alt></p>
-<p>微信虽然不是最早使用二维码的 app，但不得不承认它是应用二维码和扫码最频密的一款 app，这除了让用户一旦提起「扫码」就想到微信以外，也间接推动了微信对扫码技术的开发。</p>
-<p>在 QBar 问世前，扫码引擎主要为 zxing 和 zbar 两种，而这两种引擎有不同的优势，但都有各自的缺点，同时这两种引擎对条形码识别的限制也相对比二维码更多。</p>
-<p>2016 年，由微信技术团队通过公众号「微信派」发布的一则推文中，他们曾介绍过 QBar 扫码引擎的工作原理。</p>
-<p>相比于传统的扫码方式，QBar 会在扫码页工作时通过预判算法筛出有条形码 / 二维码内容，通过扫描页快速识别出画面前的图形码信息，随后通过 QBar 引擎对图像解码，输出最终结果。</p>
-<p>换言之，当用户打开扫码页时，只要框内有条形码或二维码图像，系统就已经开始预判用户的扫码目标，并开始进行分类和识别。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNurdocjDhoWa5uZZfDUDhsaYURbs2IG7NgFCmA0eaVnich5NUYpzDETDg/640%3Fwx_fmt%3Dgif" alt></p>
-<p>▲</p>
-<p>只有一角都能识别 GIF（使用微信扫一扫功能）</p>
-<p>而且由于二维码本身也有容错机制（原本是为了让二维码在破损下也能正常使用），相机其实并不需要对照完整的二维码，只需在容错范围内找到二维码关键点就能识别。再结合 QBar 引擎特性，扫码相机能通过预判和筛选出二维码及其关键信息，在一秒内完成识别和解码工作。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuAibAVg0sj0xdvA4WHQQ9cFoHMRoNAfGFXfYseBmWdKaMqicod27aqsTg/640%3Fwx_fmt%3Djpeg" alt></p>
-<p>▲</p>
-<p>微信扫码预判模块流程图，图片来自：微信派</p>
-<p>「微信派」所公布的识别原理看似复杂，但在现代智能手机中，这些都只是几毫秒就能完成的任务。根据「微信派」的参考数据，iOS 客户端微信完成解码时间为 5 毫秒，Android 客户端则是 12 毫秒。</p>
-<p>至于为什么 iOS 设备的扫码速度会比 Android 更快，这可能是跟当时 iOS 与 Android 设备之间的解码性能有关系。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuLfc2icuO8ftde3UA3RxIEHviaz7jvxof2unPxGyN2PkXJt5ZiboRIoQIw/640%3Fwx_fmt%3Dgif" alt></p>
-<p>▲</p>
-<p>iPhone 11 Pro Max 使用微信扫码速度（GIF 帧数原因，有轻微加速）</p>
-<p>在日光环境下的测试中，使用 A13 处理器的 iPhone 确实做到还没对上焦就已经完成识别，即便是 2016 年的 iPhone 7 也能做到的「一举即扫」的反应；而使用骁龙 865 的 Android 旗舰反应也非常迅速，但相比于 iOS 也有着微小的速度差距。</p>
-<p>如果说 iPhone 扫码是「还没看清就完成识别」，那么 Android 则是「看清楚就马上完成识别」。</p>
-<p>两者之差，仅在毫秒。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuZxc5bzNDiaJ4PXXwpERuec3PI7K7G1bvSaTKdQfHGIyCcQqlHm9b1rA/640%3Fwx_fmt%3Dgif" alt></p>
-<p>▲</p>
-<p>一加 8 使用微信扫码速度（GIF 帧数原因，有轻微加速）</p>
-<p>不过尽管 Android 的扫码速度稍逊 iOS，但相比于五年前两个阵营之间的速度差，Android 的提升已经非常明显，和 iOS 的识别速度相差无几，若是不留心几乎看不出两者的区别。</p>
-<p>所以过去 5/12 毫秒的识别时间也不是绝对值，它们会随手机硬件和软算法的迭代而变化。</p>
-<p>值得一提的是，在使用 Android 设备同时扫描多个二维码时，会将画面内的 多个二维码一同识别，随后提供入口让用户自行选择对象；而 iOS 虽然识别速度更快，但在面对多个二维码时，则是由系统随缘多选一了。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuZrJyv5EObJJF2uT2tIKKKZwBW6nhhMRLtovZicdoibe53mLlUSP9Pe3g/640%3Fwx_fmt%3Dgif" alt></p>
-<p>▲</p>
-<p>没有固定扫描框的微信扫一扫可同时识别多个二维码（注：目前该功能仅在部分 Android 客户端中灰度测试）</p>
-<p>除微信以外，支付宝也采用了和微信类似的全屏幕扫描，其识别速度虽然比微信稍慢，但也能做到抬手即识别的水准。</p>
-<p>根据 CSDN 网友分享的技术文档，支付宝的扫码功能由 libqrencode 库集成，虽然不是微信的 Qbar，但是其深度优化下的识别速度也能做到以毫秒计算。</p>
-<p>有了更完善的算法引擎和硬件解码能力，手机对二维码的识别也变得「敏感」了起来，它们在无需高清图像的条件下，也都能快速识别出码里的内容。</p>
-<p>如此一来，过去用于固定焦点的方框，自然会被全屏扫描所取代。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuYAAHSMfiaDAQEic4rvLs3vPKRnHrYib5tZK2nQquOsfuIcOBCNV5JpgGQ/640%3Fwx_fmt%3Dgif" alt></p>
-<p>▲</p>
-<p>支付宝的识别速度也很快（iPhone 11 Pro Max 测试）</p>
-<p>扫码形式上的变化，在微信、支付宝、微博这些用户扫码行为较多的 app 中体验升级尤其明显。</p>
-<p>用户在微信、支付宝可以快速完成扫码交易；微博则能让用户快速完成扫码二步验证。</p>
-<p>扫码速度、准确率的变化有赖于几家头部企业对扫码引擎和算法的改良，但从侧面看，这其实也得益于手机硬实力不断升级，只有分辨率更高的相机、运算性能更强的处理器，才能承载更复杂的解码引擎和算法，实现毫秒级的扫码识别能力。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNu5JHCDJpDDoPn9yUVwMdunreamxs9ibW6uuPEIrBLjJ9ZJrHkgLhLUxw/640%3Fwx_fmt%3Djpeg" alt></p>
-<p>▲</p>
-<p>iPhone 7 与旧版微信扫描框</p>
-<p>从扫码页面的进化，可见手机扫码效率正在不断提升，常用 app 在扫码时都无需对准码，即能完成扫描。那我们回头来看，最为原始的扫码方框还有存在的意义吗？</p>
-<p>其实还是有的。</p>
-<p>首先一方面是当前旧设备的留存率较高，智能手机的使用寿命普遍都在 2-3 年，甚至长达 4-5 年，旧手机的对焦和识别能力都不如现在的新手机。</p>
-<p>扫描方框的作用，正如在前文所述，便于旧手机快速找到焦点，提升二维码的扫描速度和准确率，而且它也能直观引导用户将手机对准扫码，这其实也间接提升了旧手机在每次扫码时的识别效率。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuDsOdL2o89Nmmuyumtf4aAQ9EaJ7kxSZoD3CMeSNLnOSbNfkMPzLTmw/640%3Fwx_fmt%3Djpeg" alt></p>
-<p>▲</p>
-<p>京东、淘宝扫码虽是全屏但仍需要对准框内扫描</p>
-<p>此外，尽管微信有自己的扫码引擎，但并非所有 app 开发商都具备开发引擎或专门优化引擎的能力。</p>
-<p>对于扫码需求不大的 app 来说，扫描功能主要也是扫描二维码，扫描成功率比速度更重要，因此在没有对识别引擎进行特定优化的前提下，使用原始的框内扫描，可以保障新旧设备扫码都有较高的识别成功率。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuCAy9E6pgxxjDdag9BRw0a0XfVGBZB25FMUu2xaVJ1NicY3FMjpiba7UA/640%3Fwx_fmt%3Djpeg" alt></p>
-<p>二维码的普及极大简化了我们在查询、支付、登记时的操作，而用于扫描它的手机，也在随着软件和硬件的解码能力升级，变得高效且多样化。</p>
-<p>如今的扫码页所能扫描的已经不止二维码，它还能结合神经网络进行识物。根据微信最新功能文档介绍，基于中国科学院昆明植物研究所提供的 85 万份植物图像数据，目前扫一扫功能能对 3.6 万多种植物进行识别，基本涵盖了我们日常所见的花草树木数据。</p>
-<p>可见，扫码页正随着更多元的算法，承载着更多功能。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNu5RKsZ6cmqjBicdzibn4gaaLHk0ibPql4WoghxPLpJXwYS1WXD4JKeu84A/640%3Fwx_fmt%3Djpeg" alt></p>
-<p>正因如此，过去用于引导用户、提高设备对焦速度的扫码框也随算法升级、硬件迭代、扫码页支持更多扫描目标而渐渐退出舞台。然而它并没有真正离开我们，只是从过去的 1:1 演变成和手机屏幕比例一致而已。</p>
-<p>注：微信视频号仍在内测，部分用户暂未开放</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWPECxPxPL1Lw7qZaXKCia7jiaQrzJZ6pXJW7iauWxrTuOveDcHLFH0booflJZhAgK2WuXAPz6rCXujbA/640%3Fwx_fmt%3Dgif" alt></p>
-<p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/ePTzepwoNWNKwJjZAjxpoG8Eral4pK159zHumKraDdRSib8X98OeZQcWpvl1wFBglD3FeoF8dg5mKaOjcrON10Q/640%3Fwx_fmt%3Dpng" alt></p>
-<p>[</p>
-<p>无刘海 iPhone？今年请停止幻想</p>
-<p>点击查看</p>
-<p>](<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538035&idx=1&sn=78c37158e89e652cfc78dfec579f5054&chksm=bea4329489d3bb82b8007713e772a786fa58fa918634f6dcab61affa3f10cf50b34e4d8f03f2&token=1794776936&lang=zh_CN&scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538035&idx=1&sn=78c37158e89e652cfc78dfec579f5054&chksm=bea4329489d3bb82b8007713e772a786fa58fa918634f6dcab61affa3f10cf50b34e4d8f03f2&token=1794776936&lang=zh_CN&scene=21#wechat_redirect</a>)</p>
-<p>[</p>
-<p>](<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538035&idx=1&sn=78c37158e89e652cfc78dfec579f5054&chksm=bea4329489d3bb82b8007713e772a786fa58fa918634f6dcab61affa3f10cf50b34e4d8f03f2&token=1794776936&lang=zh_CN&scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538035&idx=1&sn=78c37158e89e652cfc78dfec579f5054&chksm=bea4329489d3bb82b8007713e772a786fa58fa918634f6dcab61affa3f10cf50b34e4d8f03f2&token=1794776936&lang=zh_CN&scene=21#wechat_redirect</a>)</p>
-<p>[</p>
-<p>单摄为什么也能拍人像？新 iPhone SE 的虚化是这么做到的</p>
-<p>点击查看</p>
-<p>](<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650537913&idx=1&sn=2bbc14d111da6d3e512898bc78c76e9b&chksm=bea3cd1e89d444081f00bb5c2a5b6501f80263fbaaca00a6f2fdcb164dd2a7563f046ed1bcd0&token=1794776936&lang=zh_CN&scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650537913&idx=1&sn=2bbc14d111da6d3e512898bc78c76e9b&chksm=bea3cd1e89d444081f00bb5c2a5b6501f80263fbaaca00a6f2fdcb164dd2a7563f046ed1bcd0&token=1794776936&lang=zh_CN&scene=21#wechat_redirect</a>)</p>
-<p>[</p>
-<p>](<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650537913&idx=1&sn=2bbc14d111da6d3e512898bc78c76e9b&chksm=bea3cd1e89d444081f00bb5c2a5b6501f80263fbaaca00a6f2fdcb164dd2a7563f046ed1bcd0&token=1794776936&lang=zh_CN&scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650537913&idx=1&sn=2bbc14d111da6d3e512898bc78c76e9b&chksm=bea3cd1e89d444081f00bb5c2a5b6501f80263fbaaca00a6f2fdcb164dd2a7563f046ed1bcd0&token=1794776936&lang=zh_CN&scene=21#wechat_redirect</a>)</p>
-<p>[</p>
-<p>Windows 和 macOS 之外，那 1% 的 PC 操作系统背后的故事</p>
-<p>点击查看</p>
-<p>](<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538001&idx=1&sn=bbd810c4f0f91552d03a9024a6900e2f&chksm=bea432b689d3bba05b8b1db3476976d88aaf19e67e883658601f55a5feefd848c015c343f153&token=1794776936&lang=zh_CN&scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538001&idx=1&sn=bbd810c4f0f91552d03a9024a6900e2f&chksm=bea432b689d3bba05b8b1db3476976d88aaf19e67e883658601f55a5feefd848c015c343f153&token=1794776936&lang=zh_CN&scene=21#wechat_redirect</a>)</p>
-<p>[</p>
-<p>](<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538001&idx=1&sn=bbd810c4f0f91552d03a9024a6900e2f&chksm=bea432b689d3bba05b8b1db3476976d88aaf19e67e883658601f55a5feefd848c015c343f153&token=1794776936&lang=zh_CN&scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538001&idx=1&sn=bbd810c4f0f91552d03a9024a6900e2f&chksm=bea432b689d3bba05b8b1db3476976d88aaf19e67e883658601f55a5feefd848c015c343f153&token=1794776936&lang=zh_CN&scene=21#wechat_redirect</a>)</p>
-<p>喜欢你就点个<img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWNJ428lhrveurahHmVjI1FMaJWWibXT6P7CdibSkQsh3p5Q27bFjh8V25x6iaApj8Bzz3DibFkNSOnYzA/640%3Fwx_fmt%3Dgif" alt></p>
-<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<h3>See Also</h3>
-<div class=container>
-<div class=row>
-<div class="mx-auto px-0">
-<div class="bg-white shadow block">
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/3337af24b22b6142f18a83817c87dc60/?utm_source=see_also&utm_medium=%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2594%25AF%25E4%25BB%2598%25E5%25AE%259D%25E5%259D%2587%25E5%25B7%25B2%25E5%258D%2587%25E7%25BA%25A7%25E4%25BA%258C%25E7%25BB%25B4%25E7%25A0%2581%25E6%2589%25AB%25E7%25A0%2581%25E6%25A1%2586%25E6%25AD%25A3%25E5%259C%25A8%25E6%25B6%2588%25E5%25A4%25B1">三天可见</a>
-</h2>
-<p class=text-dark>2016年的朋友圈——
-「我已经忘了大部分小学同学的姓名与模样，因为那个时候没有网络，一旦音书杳绝，际遇不逢，他们在我人生中存在过的痕迹就慢慢被时间抹掉了，这件事情几千年来都是如此。但现在不一样了，即使我们并没有什么很深的交情，在接下来共同 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/4a6efc11f3d013bcb7bd07fb5b5313d5/?utm_source=see_also&utm_medium=%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2594%25AF%25E4%25BB%2598%25E5%25AE%259D%25E5%259D%2587%25E5%25B7%25B2%25E5%258D%2587%25E7%25BA%25A7%25E4%25BA%258C%25E7%25BB%25B4%25E7%25A0%2581%25E6%2589%25AB%25E7%25A0%2581%25E6%25A1%2586%25E6%25AD%25A3%25E5%259C%25A8%25E6%25B6%2588%25E5%25A4%25B1">黑幕实报</a>
-</h2>
-<p class=text-dark>长按二维码向我转账
-受苹果公司新规定影响，微信 iOS 版的赞赏功能被关闭，可通过二维码转账支持公众号。</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/883c47c95f641efe0069671016dd548f/?utm_source=see_also&utm_medium=%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2594%25AF%25E4%25BB%2598%25E5%25AE%259D%25E5%259D%2587%25E5%25B7%25B2%25E5%258D%2587%25E7%25BA%25A7%25E4%25BA%258C%25E7%25BB%25B4%25E7%25A0%2581%25E6%2589%25AB%25E7%25A0%2581%25E6%25A1%2586%25E6%25AD%25A3%25E5%259C%25A8%25E6%25B6%2588%25E5%25A4%25B1">我国挣外汇的能力下降得更快了</a>
-</h2>
-<p class=text-dark>两张数据图，今年 1-2 月份的全口径外汇净收入，以及截至 2018 年底的外汇净储备数据。整体来说，我大中国去年挣外汇的能力就几乎消失，也就是靠最后一个季度的抢出口和大量发行外债补了一点回来，但是依然比不上外资撤离的速度。今年以来抢出口因 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/1179ebd00cc0c3af275cab90d36845c9/?utm_source=see_also&utm_medium=%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2594%25AF%25E4%25BB%2598%25E5%25AE%259D%25E5%259D%2587%25E5%25B7%25B2%25E5%258D%2587%25E7%25BA%25A7%25E4%25BA%258C%25E7%25BB%25B4%25E7%25A0%2581%25E6%2589%25AB%25E7%25A0%2581%25E6%25A1%2586%25E6%25AD%25A3%25E5%259C%25A8%25E6%25B6%2588%25E5%25A4%25B1">中文互联网上严肃讨论的消失：不同用户眼中的过去与未来</a>
-</h2>
-<p class=text-dark>一系列关于消逝的 BBS/论坛时代的问答。问答内容并非逐字引用，有加工、重构和虚构。感谢五位不愿意具名的朋友的贡献。
-这几年来，许多朋友都感到在中文互联网上，严肃讨论正变得越来越稀缺1。一方面，再难有过去的论坛/BBS 那样的有人气的可以进 …</p>
-</article>
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b1d77fb0451636da971591bc24521ee4/?utm_source=see_also&utm_medium=%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2594%25AF%25E4%25BB%2598%25E5%25AE%259D%25E5%259D%2587%25E5%25B7%25B2%25E5%258D%2587%25E7%25BA%25A7%25E4%25BA%258C%25E7%25BB%25B4%25E7%25A0%2581%25E6%2589%25AB%25E7%25A0%2581%25E6%25A1%2586%25E6%25AD%25A3%25E5%259C%25A8%25E6%25B6%2588%25E5%25A4%25B1">评论大公司的姿势</a>
-</h2>
-<p class=text-dark>朋友圈隔三差五会出来一篇写大公司的文章，指点江山激扬文字那种类型的，还都又臭又长，基本上我看个开头就会关掉，如果只看个标题就评价，或是完全不看，则无从置喙。
-自媒体写大公司的文章，只要标题足够唬人，内容足够长（注意这是必要条件），就几乎一定 …</p>
-</article>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
-<footer class="py-4 bg-light border-top">
-<div class=container>
-<div class="row justify-content-between align-items-center">
-<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
-</div>
-<div class="col-lg-4 text-center mb-4 mb-lg-0">
-<ul class="list-inline mb-0">
-</ul>
-</div>
-<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
-<ul class="list-inline social-icon mb-0">
-<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
-<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
-</ul>
-</div>
-<div class="col-12 text-center mt-4">
-<span></span>
-</div>
-</div>
-</div>
-</footer>
-<script src=../../plugins/jQuery/jquery.min.js></script>
+<i></i><a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/48d994d7147b7240146d056aa6ba694c.md style=color:gray><strong><i>点击删除</i></strong></a></div><h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5><h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5><p></p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWNJ428lhrveurahHmVjI1FMDG4Z0NJ4Oqhkg9VmcLicoPPdrE2BicV5IFd1vWeroAS3tKsy5amTXYBw/640%3Fwx_fmt%3Dgif" alt></p><p>我们几乎每天都要扫码，登录网站、登记信息、消费支付、添加好友……只要打开扫一扫，能省去不少繁琐步骤。</p><p>而当每次打开工具扫码时，这些工具通常都会给出 1:1 的扫码框，将框对准二维码，手机就能马上识别码内的信息。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNutpwofBWFEOySbYk21c60oSxiaAfuraXWwkwGnz8poMryzZG6wGeBqQQ/640%3Fwx_fmt%3Djpeg" alt></p><p>然而，不知你有没有发现，即使这些工具会将「扫描区」框出来，有时候其实不需要对准框就能完成扫描，只要二维码在相机取景范围内，系统就能马上将内容识别出来。</p><p>那这个框有何用处？</p><p>其实这跟每款 app 对扫描功能的用途有很大关系。纵观我们目前日常最常用的 10 款 app，二维码扫描页的设计可以分为几类：</p><ul><li><p>固定区域扫描</p></li><li><p>全屏扫描</p></li><li><p>固定区域但实际是全屏扫描</p></li><li><p>全屏设计但实际是固定扫描</p></li></ul><p>固定区域扫描是我们目前接触最多的扫码模式，用户需要将手机对准二维码扫描才能让手机完成识别，若是目标二维码不在框内，app 就无法识别内容。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNugeCtHPHhCKOXFRWzIut724DC0TRUDCXV2fj0dtlfNZxoU0k7rGtmSQ/640%3Fwx_fmt%3Djpeg" alt></p><p>而在一些我们较为常用的 app，比如微信、支付宝，则是从过去的「固定框扫描」变成「全屏扫描」，即整个手机屏幕都是扫描框。</p><p>手机无需正对着二维码也能完成识别，识别速度也比有框扫描快很多，相机还没对上焦，系统就能马上识别出信息。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNufIwCtOVnS0hBGvetFlBe6jprqBxnSYrYoDRibsHevfHBqkE21uHMp8A/640%3Fwx_fmt%3Dgif" alt></p><p>▲</p><p>二维码不在框内也能完成识别（实际速度比 GIF 更快）</p><p>当然在此其中也有特别个例。当我打开微博扫码时，页面是个有固定扫码区的设计，但 app 的扫描机制本质上其实是全屏扫描。所以每当我准备扫描时，二维码还没进框，信息就已经被读取出来了。</p><p>莫非是设计师偷懒了？也不一定。</p><p>要扒开扫描页的细节，单从表面看显然是不够的，还需要从多方面考虑，比如扫码用的硬件，还有软件层面上的解码能力。</p><p>实际上要将扫码页做成全屏并不难，但专门腾出一个方框作为扫描区也并非多此一举。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuiaibt1JaaO6pvp73SOmInOtdZW8uUO1GEC2JvImBct2xAGWXvY5XWW7g/640%3Fwx_fmt%3Djpeg" alt></p><p>究其原因，在二维码刚进入我们的生活时，无论是 app 本身或是扫码设备，都没有做专门的优化，扫码成功率往往和二维码所处环境光线、距离和清晰度有关。</p><p>于用户个人而言，扫码区所提供的是一个扫码识别的提示，它的任务是告诉用户相机已经准备好扫描，只要对准即可读取信息。</p><p>而对于设备本身，相机能否快速识别二维码，这跟相机的对焦性能、处理器的解码运算能力不无关系。</p><p>二维码的历史最早可以追溯到上世纪八十年代，但直到过去十年才开始普及到我们的日常生活中。</p><p>但早期智能手机的对焦反应、速度都相对较慢，而且也容易受环境光和镜头清晰度的影响，因而在开发 app 扫描页时，开发者需要通过调整相机取景范围，让相机向特定区域对焦，而不是广域对焦。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuLB1twu5Pic4exRroBCBHG1d2ibeY08wicLViaowCasvroeJLUqqGT6BWpQ/640%3Fwx_fmt%3Dgif" alt></p><p>▲</p><p>旧手机的扫码速度要比新手机慢一些（留意对焦拉风箱，使用魅族 MX5 测试）</p><p>简单来说，将扫码区域独立出来，实际上也是为了照顾早期对焦速度相对较慢的设备。原理类似于相机的定点对焦区域，相机只对方框内区域测量、对焦，从而减少目标二维码周边的其他因素干扰，以此提升相机对焦速度和扫码成功率。</p><p>换个角度看，扫码方框除了是告诉用户扫描功能开启外，也是一种提高识别准确率的方法。只要方框内二维码关键元素符合要求，识别准确率约等于百分之百。</p><p>为了让用户能在不同环境和条件下扫码，开发者在使用如 zxing 等扫码开发库时，会集成如调用闪光灯、远距离自动变焦等等等等，其目的都是为了让手机能看清方框内的二维码信息，方便用户在任何使用场合扫描。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNu9RTyMgsnwv1aRVYyShUY8osBqzJLvGdliaff1NE6PuY2uZMS9uoNPaQ/640%3Fwx_fmt%3Djpeg" alt></p><p>不过，近几年智能手机的相机对焦速度提升很快，核心处理器对图像处理的能力也逐步提升，因此现代手机扫码也不需要长时间的对焦，即便需要，也只是在不到一秒内就能完成。</p><p>与此同时，随着二维码的应用渐成主流，app 开发商也通过自创扫码引擎的方式，提高扫码的速度和成功率，而不仅只依靠硬件层面来完成识别过程——微信便是其中一家。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuBN3KU4cDQoBeNicO6swe2icRqSeyrRHJBicBYsCJ6gfH4cUQdlGUJVjTw/640%3Fwx_fmt%3Djpeg" alt></p><p>微信虽然不是最早使用二维码的 app，但不得不承认它是应用二维码和扫码最频密的一款 app，这除了让用户一旦提起「扫码」就想到微信以外，也间接推动了微信对扫码技术的开发。</p><p>在 QBar 问世前，扫码引擎主要为 zxing 和 zbar 两种，而这两种引擎有不同的优势，但都有各自的缺点，同时这两种引擎对条形码识别的限制也相对比二维码更多。</p><p>2016 年，由微信技术团队通过公众号「微信派」发布的一则推文中，他们曾介绍过 QBar 扫码引擎的工作原理。</p><p>相比于传统的扫码方式，QBar 会在扫码页工作时通过预判算法筛出有条形码 / 二维码内容，通过扫描页快速识别出画面前的图形码信息，随后通过 QBar 引擎对图像解码，输出最终结果。</p><p>换言之，当用户打开扫码页时，只要框内有条形码或二维码图像，系统就已经开始预判用户的扫码目标，并开始进行分类和识别。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNurdocjDhoWa5uZZfDUDhsaYURbs2IG7NgFCmA0eaVnich5NUYpzDETDg/640%3Fwx_fmt%3Dgif" alt></p><p>▲</p><p>只有一角都能识别 GIF（使用微信扫一扫功能）</p><p>而且由于二维码本身也有容错机制（原本是为了让二维码在破损下也能正常使用），相机其实并不需要对照完整的二维码，只需在容错范围内找到二维码关键点就能识别。再结合 QBar 引擎特性，扫码相机能通过预判和筛选出二维码及其关键信息，在一秒内完成识别和解码工作。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuAibAVg0sj0xdvA4WHQQ9cFoHMRoNAfGFXfYseBmWdKaMqicod27aqsTg/640%3Fwx_fmt%3Djpeg" alt></p><p>▲</p><p>微信扫码预判模块流程图，图片来自：微信派</p><p>「微信派」所公布的识别原理看似复杂，但在现代智能手机中，这些都只是几毫秒就能完成的任务。根据「微信派」的参考数据，iOS 客户端微信完成解码时间为 5 毫秒，Android 客户端则是 12 毫秒。</p><p>至于为什么 iOS 设备的扫码速度会比 Android 更快，这可能是跟当时 iOS 与 Android 设备之间的解码性能有关系。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuLfc2icuO8ftde3UA3RxIEHviaz7jvxof2unPxGyN2PkXJt5ZiboRIoQIw/640%3Fwx_fmt%3Dgif" alt></p><p>▲</p><p>iPhone 11 Pro Max 使用微信扫码速度（GIF 帧数原因，有轻微加速）</p><p>在日光环境下的测试中，使用 A13 处理器的 iPhone 确实做到还没对上焦就已经完成识别，即便是 2016 年的 iPhone 7 也能做到的「一举即扫」的反应；而使用骁龙 865 的 Android 旗舰反应也非常迅速，但相比于 iOS 也有着微小的速度差距。</p><p>如果说 iPhone 扫码是「还没看清就完成识别」，那么 Android 则是「看清楚就马上完成识别」。</p><p>两者之差，仅在毫秒。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuZxc5bzNDiaJ4PXXwpERuec3PI7K7G1bvSaTKdQfHGIyCcQqlHm9b1rA/640%3Fwx_fmt%3Dgif" alt></p><p>▲</p><p>一加 8 使用微信扫码速度（GIF 帧数原因，有轻微加速）</p><p>不过尽管 Android 的扫码速度稍逊 iOS，但相比于五年前两个阵营之间的速度差，Android 的提升已经非常明显，和 iOS 的识别速度相差无几，若是不留心几乎看不出两者的区别。</p><p>所以过去 5/12 毫秒的识别时间也不是绝对值，它们会随手机硬件和软算法的迭代而变化。</p><p>值得一提的是，在使用 Android 设备同时扫描多个二维码时，会将画面内的 多个二维码一同识别，随后提供入口让用户自行选择对象；而 iOS 虽然识别速度更快，但在面对多个二维码时，则是由系统随缘多选一了。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuZrJyv5EObJJF2uT2tIKKKZwBW6nhhMRLtovZicdoibe53mLlUSP9Pe3g/640%3Fwx_fmt%3Dgif" alt></p><p>▲</p><p>没有固定扫描框的微信扫一扫可同时识别多个二维码（注：目前该功能仅在部分 Android 客户端中灰度测试）</p><p>除微信以外，支付宝也采用了和微信类似的全屏幕扫描，其识别速度虽然比微信稍慢，但也能做到抬手即识别的水准。</p><p>根据 CSDN 网友分享的技术文档，支付宝的扫码功能由 libqrencode 库集成，虽然不是微信的 Qbar，但是其深度优化下的识别速度也能做到以毫秒计算。</p><p>有了更完善的算法引擎和硬件解码能力，手机对二维码的识别也变得「敏感」了起来，它们在无需高清图像的条件下，也都能快速识别出码里的内容。</p><p>如此一来，过去用于固定焦点的方框，自然会被全屏扫描所取代。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuYAAHSMfiaDAQEic4rvLs3vPKRnHrYib5tZK2nQquOsfuIcOBCNV5JpgGQ/640%3Fwx_fmt%3Dgif" alt></p><p>▲</p><p>支付宝的识别速度也很快（iPhone 11 Pro Max 测试）</p><p>扫码形式上的变化，在微信、支付宝、微博这些用户扫码行为较多的 app 中体验升级尤其明显。</p><p>用户在微信、支付宝可以快速完成扫码交易；微博则能让用户快速完成扫码二步验证。</p><p>扫码速度、准确率的变化有赖于几家头部企业对扫码引擎和算法的改良，但从侧面看，这其实也得益于手机硬实力不断升级，只有分辨率更高的相机、运算性能更强的处理器，才能承载更复杂的解码引擎和算法，实现毫秒级的扫码识别能力。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNu5JHCDJpDDoPn9yUVwMdunreamxs9ibW6uuPEIrBLjJ9ZJrHkgLhLUxw/640%3Fwx_fmt%3Djpeg" alt></p><p>▲</p><p>iPhone 7 与旧版微信扫描框</p><p>从扫码页面的进化，可见手机扫码效率正在不断提升，常用 app 在扫码时都无需对准码，即能完成扫描。那我们回头来看，最为原始的扫码方框还有存在的意义吗？</p><p>其实还是有的。</p><p>首先一方面是当前旧设备的留存率较高，智能手机的使用寿命普遍都在 2-3 年，甚至长达 4-5 年，旧手机的对焦和识别能力都不如现在的新手机。</p><p>扫描方框的作用，正如在前文所述，便于旧手机快速找到焦点，提升二维码的扫描速度和准确率，而且它也能直观引导用户将手机对准扫码，这其实也间接提升了旧手机在每次扫码时的识别效率。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuDsOdL2o89Nmmuyumtf4aAQ9EaJ7kxSZoD3CMeSNLnOSbNfkMPzLTmw/640%3Fwx_fmt%3Djpeg" alt></p><p>▲</p><p>京东、淘宝扫码虽是全屏但仍需要对准框内扫描</p><p>此外，尽管微信有自己的扫码引擎，但并非所有 app 开发商都具备开发引擎或专门优化引擎的能力。</p><p>对于扫码需求不大的 app 来说，扫描功能主要也是扫描二维码，扫描成功率比速度更重要，因此在没有对识别引擎进行特定优化的前提下，使用原始的框内扫描，可以保障新旧设备扫码都有较高的识别成功率。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNuCAy9E6pgxxjDdag9BRw0a0XfVGBZB25FMUu2xaVJ1NicY3FMjpiba7UA/640%3Fwx_fmt%3Djpeg" alt></p><p>二维码的普及极大简化了我们在查询、支付、登记时的操作，而用于扫描它的手机，也在随着软件和硬件的解码能力升级，变得高效且多样化。</p><p>如今的扫码页所能扫描的已经不止二维码，它还能结合神经网络进行识物。根据微信最新功能文档介绍，基于中国科学院昆明植物研究所提供的 85 万份植物图像数据，目前扫一扫功能能对 3.6 万多种植物进行识别，基本涵盖了我们日常所见的花草树木数据。</p><p>可见，扫码页正随着更多元的算法，承载着更多功能。</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_jpg/ePTzepwoNWOUhA0DN9Krib7CibibXPunbNu5RKsZ6cmqjBicdzibn4gaaLHk0ibPql4WoghxPLpJXwYS1WXD4JKeu84A/640%3Fwx_fmt%3Djpeg" alt></p><p>正因如此，过去用于引导用户、提高设备对焦速度的扫码框也随算法升级、硬件迭代、扫码页支持更多扫描目标而渐渐退出舞台。然而它并没有真正离开我们，只是从过去的 1:1 演变成和手机屏幕比例一致而已。</p><p>注：微信视频号仍在内测，部分用户暂未开放</p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWPECxPxPL1Lw7qZaXKCia7jiaQrzJZ6pXJW7iauWxrTuOveDcHLFH0booflJZhAgK2WuXAPz6rCXujbA/640%3Fwx_fmt%3Dgif" alt></p><p><img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_png/ePTzepwoNWNKwJjZAjxpoG8Eral4pK159zHumKraDdRSib8X98OeZQcWpvl1wFBglD3FeoF8dg5mKaOjcrON10Q/640%3Fwx_fmt%3Dpng" alt></p><p>[</p><p>无刘海 iPhone？今年请停止幻想</p><p>点击查看</p><p>](<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538035&idx=1&sn=78c37158e89e652cfc78dfec579f5054&chksm=bea4329489d3bb82b8007713e772a786fa58fa918634f6dcab61affa3f10cf50b34e4d8f03f2&token=1794776936&lang=zh_CN&scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538035&idx=1&sn=78c37158e89e652cfc78dfec579f5054&chksm=bea4329489d3bb82b8007713e772a786fa58fa918634f6dcab61affa3f10cf50b34e4d8f03f2&token=1794776936&lang=zh_CN&scene=21#wechat_redirect</a>)</p><p>[</p><p>](<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538035&idx=1&sn=78c37158e89e652cfc78dfec579f5054&chksm=bea4329489d3bb82b8007713e772a786fa58fa918634f6dcab61affa3f10cf50b34e4d8f03f2&token=1794776936&lang=zh_CN&scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538035&idx=1&sn=78c37158e89e652cfc78dfec579f5054&chksm=bea4329489d3bb82b8007713e772a786fa58fa918634f6dcab61affa3f10cf50b34e4d8f03f2&token=1794776936&lang=zh_CN&scene=21#wechat_redirect</a>)</p><p>[</p><p>单摄为什么也能拍人像？新 iPhone SE 的虚化是这么做到的</p><p>点击查看</p><p>](<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650537913&idx=1&sn=2bbc14d111da6d3e512898bc78c76e9b&chksm=bea3cd1e89d444081f00bb5c2a5b6501f80263fbaaca00a6f2fdcb164dd2a7563f046ed1bcd0&token=1794776936&lang=zh_CN&scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650537913&idx=1&sn=2bbc14d111da6d3e512898bc78c76e9b&chksm=bea3cd1e89d444081f00bb5c2a5b6501f80263fbaaca00a6f2fdcb164dd2a7563f046ed1bcd0&token=1794776936&lang=zh_CN&scene=21#wechat_redirect</a>)</p><p>[</p><p>](<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650537913&idx=1&sn=2bbc14d111da6d3e512898bc78c76e9b&chksm=bea3cd1e89d444081f00bb5c2a5b6501f80263fbaaca00a6f2fdcb164dd2a7563f046ed1bcd0&token=1794776936&lang=zh_CN&scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650537913&idx=1&sn=2bbc14d111da6d3e512898bc78c76e9b&chksm=bea3cd1e89d444081f00bb5c2a5b6501f80263fbaaca00a6f2fdcb164dd2a7563f046ed1bcd0&token=1794776936&lang=zh_CN&scene=21#wechat_redirect</a>)</p><p>[</p><p>Windows 和 macOS 之外，那 1% 的 PC 操作系统背后的故事</p><p>点击查看</p><p>](<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538001&idx=1&sn=bbd810c4f0f91552d03a9024a6900e2f&chksm=bea432b689d3bba05b8b1db3476976d88aaf19e67e883658601f55a5feefd848c015c343f153&token=1794776936&lang=zh_CN&scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538001&idx=1&sn=bbd810c4f0f91552d03a9024a6900e2f&chksm=bea432b689d3bba05b8b1db3476976d88aaf19e67e883658601f55a5feefd848c015c343f153&token=1794776936&lang=zh_CN&scene=21#wechat_redirect</a>)</p><p>[</p><p>](<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538001&idx=1&sn=bbd810c4f0f91552d03a9024a6900e2f&chksm=bea432b689d3bba05b8b1db3476976d88aaf19e67e883658601f55a5feefd848c015c343f153&token=1794776936&lang=zh_CN&scene=21#wechat_redirect">http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2650538001&idx=1&sn=bbd810c4f0f91552d03a9024a6900e2f&chksm=bea432b689d3bba05b8b1db3476976d88aaf19e67e883658601f55a5feefd848c015c343f153&token=1794776936&lang=zh_CN&scene=21#wechat_redirect</a>)</p><p>喜欢你就点个<img src="https://images.weserv.nl/?url=https%3A//mmbiz.qpic.cn/mmbiz_gif/ePTzepwoNWNJ428lhrveurahHmVjI1FMaJWWibXT6P7CdibSkQsh3p5Q27bFjh8V25x6iaApj8Bzz3DibFkNSOnYzA/640%3Fwx_fmt%3Dgif" alt></p><h5><a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5></div><div class="col-lg-8 mx-auto block shadow"><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var t=document,e=t.createElement('script');e.async=!0,e.src='//pin-cong-jing-xuan.disqus.com/embed.js',e.setAttribute('data-timestamp',+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div class="col-lg-8 mx-auto block shadow"><h3>See Also</h3><div class=container><div class=row><div class="mx-auto px-0"><div class="bg-white shadow block"><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/3337af24b22b6142f18a83817c87dc60/?utm_source=see_also&utm_medium=%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2594%25AF%25E4%25BB%2598%25E5%25AE%259D%25E5%259D%2587%25E5%25B7%25B2%25E5%258D%2587%25E7%25BA%25A7%25E4%25BA%258C%25E7%25BB%25B4%25E7%25A0%2581%25E6%2589%25AB%25E7%25A0%2581%25E6%25A1%2586%25E6%25AD%25A3%25E5%259C%25A8%25E6%25B6%2588%25E5%25A4%25B1">三天可见</a></h2><p class=text-dark>2016年的朋友圈——
+「我已经忘了大部分小学同学的姓名与模样，因为那个时候没有网络，一旦音书杳绝，际遇不逢，他们在我人生中存在过的痕迹就慢慢被时间抹掉了，这件事情几千年来都是如此。但现在不一样了，即使我们并没有什么很深的交情，在接下来共同 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/4a6efc11f3d013bcb7bd07fb5b5313d5/?utm_source=see_also&utm_medium=%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2594%25AF%25E4%25BB%2598%25E5%25AE%259D%25E5%259D%2587%25E5%25B7%25B2%25E5%258D%2587%25E7%25BA%25A7%25E4%25BA%258C%25E7%25BB%25B4%25E7%25A0%2581%25E6%2589%25AB%25E7%25A0%2581%25E6%25A1%2586%25E6%25AD%25A3%25E5%259C%25A8%25E6%25B6%2588%25E5%25A4%25B1">黑幕实报</a></h2><p class=text-dark>长按二维码向我转账
+受苹果公司新规定影响，微信 iOS 版的赞赏功能被关闭，可通过二维码转账支持公众号。</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/883c47c95f641efe0069671016dd548f/?utm_source=see_also&utm_medium=%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2594%25AF%25E4%25BB%2598%25E5%25AE%259D%25E5%259D%2587%25E5%25B7%25B2%25E5%258D%2587%25E7%25BA%25A7%25E4%25BA%258C%25E7%25BB%25B4%25E7%25A0%2581%25E6%2589%25AB%25E7%25A0%2581%25E6%25A1%2586%25E6%25AD%25A3%25E5%259C%25A8%25E6%25B6%2588%25E5%25A4%25B1">我国挣外汇的能力下降得更快了</a></h2><p class=text-dark>两张数据图，今年 1-2 月份的全口径外汇净收入，以及截至 2018 年底的外汇净储备数据。整体来说，我大中国去年挣外汇的能力就几乎消失，也就是靠最后一个季度的抢出口和大量发行外债补了一点回来，但是依然比不上外资撤离的速度。今年以来抢出口因 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/1179ebd00cc0c3af275cab90d36845c9/?utm_source=see_also&utm_medium=%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2594%25AF%25E4%25BB%2598%25E5%25AE%259D%25E5%259D%2587%25E5%25B7%25B2%25E5%258D%2587%25E7%25BA%25A7%25E4%25BA%258C%25E7%25BB%25B4%25E7%25A0%2581%25E6%2589%25AB%25E7%25A0%2581%25E6%25A1%2586%25E6%25AD%25A3%25E5%259C%25A8%25E6%25B6%2588%25E5%25A4%25B1">中文互联网上严肃讨论的消失：不同用户眼中的过去与未来</a></h2><p class=text-dark>一系列关于消逝的 BBS/论坛时代的问答。问答内容并非逐字引用，有加工、重构和虚构。感谢五位不愿意具名的朋友的贡献。
+这几年来，许多朋友都感到在中文互联网上，严肃讨论正变得越来越稀缺1。一方面，再难有过去的论坛/BBS 那样的有人气的可以进 …</p></article><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/b1d77fb0451636da971591bc24521ee4/?utm_source=see_also&utm_medium=%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2594%25AF%25E4%25BB%2598%25E5%25AE%259D%25E5%259D%2587%25E5%25B7%25B2%25E5%258D%2587%25E7%25BA%25A7%25E4%25BA%258C%25E7%25BB%25B4%25E7%25A0%2581%25E6%2589%25AB%25E7%25A0%2581%25E6%25A1%2586%25E6%25AD%25A3%25E5%259C%25A8%25E6%25B6%2588%25E5%25A4%25B1">评论大公司的姿势</a></h2><p class=text-dark>朋友圈隔三差五会出来一篇写大公司的文章，指点江山激扬文字那种类型的，还都又臭又长，基本上我看个开头就会关掉，如果只看个标题就评价，或是完全不看，则无从置喙。
+自媒体写大公司的文章，只要标题足够唬人，内容足够长（注意这是必要条件），就几乎一定 …</p></article></div></div></div></div></div></div></div></div></section><script>var i,images=document.getElementsByTagName("img");for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../plugins/jQuery/jquery.min.js></script>
 <script src=../../plugins/bootstrap/bootstrap.min.js></script>
 <script src=../../plugins/search/fuse.min.js></script>
 <script src=../../plugins/search/mark.js></script>
 <script src=../../plugins/search/search.js></script>
 <script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
-</html>
+<script>(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body></html>

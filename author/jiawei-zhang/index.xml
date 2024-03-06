@@ -3,4 +3,4 @@ nginx
 Nginx1.9 版本以后增加 stream模块，可以对tcp，udp请求进行代理和负载均衡了，今天来感受一下。
 nginx streaming 文档地址
 nginx streaming ssl 配置
-Centos 6.7 openresty/1.9.15.1 (config …</description></item></channel></rss>
+Centos 6.7 openresty/1.9.15.1 (config时候增加选项 --with-stream …</description></item></channel></rss>

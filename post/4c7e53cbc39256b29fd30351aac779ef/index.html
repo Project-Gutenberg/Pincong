@@ -1,14 +1,10 @@
-<!doctype html><html lang=zh-cn><head>
-<meta charset=utf-8>
-<title>数字被修改了吗？</title>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name=description content=" 从7.23动车事故开始，死亡35人便成为了一部分网民经久不衰的话题。他们认为，当事故死亡人数超过35人时，省市官员就必须为此负责，因此官员将有动机将死亡人数实际超过35人的事故压低到死亡35人以内。那么，我们如何判断这种现象是否存在？数字到底有没有被修改？
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>数字被修改了吗？</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 从7.23动车事故开始，死亡35人便成为了一部分网民经久不衰的话题。他们认为，当事故死亡人数超过35人时，省市官员就必须为此负责，因此官员将有动机将死亡人数实际超过35人的事故压低到死亡35人以内。那么，我们如何判断这种现象是否存在？数字到底有没有被修改？
 由于随机数字的出现会满足一系列规律，因此，当一系列数字实际出现的规律与其应当出现的规律有显著不同时，这一系列数字就可能被人为更改了。先看几个简单的例子：
 一，大量产生的随机数字汇总后往往会具有平滑的性质，印度人口普查的年龄是一个很好的反例。一般来说，如果没有很强烈的年份偏好或者战争和饥荒，那么一个国家的分年龄人口应当是平滑的。在一个较小的区间内，我们不应当看到波动很大的年龄结构。因此，印度人口普查显示的图形，就显得非常不正常——2011年，约有50%的人口错报了自己的年龄，他们以尾数为0或者5的数字来替代自己的真实年龄。
 二，随机序列也有可能看起来不太随机。将一个硬币扔100次，得到一个序列，h为正面t为反面，下面哪个序列是真实的抛硬币结果，哪个是脑补出来的？
 序列1：
-tthhhhhtthhhhtthhthhhtthhhhttththhhtthhhhhhtthhhhh htthhthhhthhhhthhththtttththtthhtthhhhhttthhththtt  序列2：
-hthtthhtthtthhhthtthtttththhthhththhhhthhtthtththh hthhhthtththhhthttththhthhhthththhhhthhthttththhth  答案是序列1。在一个完全随机的抛硬币过程中，100次抛掷得到至少一个连续6次相同结果的序列的概率大于80%，得到至少一个连续5次相同结果的序列的概率大于90%。而在序列2里，最长的一串连续序列的长度仅有4。一列伪造的硬币随机数为了让自己看起来更随机，可能会频繁变化正反，但正是这一点反而出卖了它的伪随机本质。
+tthhhhhtthhhhtthhthhhtthhhhttththhhtthhhhhhtthhhhh htthhthhhthhhhthhththtttththtthhtthhhhhttthhththtt 序列2：
+hthtthhtthtthhhthtthtttththhthhththhhhthhtthtththh hthhhthtththhhthttththhthhhthththhhhthhthttththhth 答案是序列1。在一个完全随机的抛硬币过程中，100次抛掷得到至少一个连续6次相同结果的序列的概率大于80%，得到至少一个连续5次相同结果的序列的概率大于90%。而在序列2里，最长的一串连续序列的长度仅有4。一列伪造的硬币随机数为了让自己看起来更随机，可能会频繁变化正反，但正是这一点反而出卖了它的伪随机本质。
 三，真实的数字序列会满足Benford法则。在真实产生的十进制数字中，不同数码的出现次数会满足Benford法则，见下表：
 上表（来自http://www.prres.net/Papers/Geyer_Cheating_Behavior_And_The_Benford%E2%80%99s_Law.pdf）的第一列表示随机数字的第一位数中各数码可能出现的概率，即首位数为1的概率为30.1%，首位数为2的概率为17.6%……首位数字为9的概率仅有4.6%。同样我们也能计算第二位数字的出现概率。当一系列数字大幅度偏离Benford法则时，他就很有可能经过人为调整。
 ANZ银行的研究人员就用该法则对中国的GDP增长数据进行了研究（&lsquo;Benford&rsquo;s Law&rsquo; Questions Integrity of Chinese Economic Data），他们发现，中国从1952年开始的年度GDP增长率中，首位数为1的次数为24次，高于Benford法则预测的18次；从1991年开始的季度GDP增长率中，第二位数为0的比例高达21次，而预测值仅有10次。该研究人员认为，这样的偏差说明了中国的GDP数据可能存在相当的「进位」现象，即将较大的数码进位到10，才导致了第一位数的数码1出现次数偏高且第二位数的数码0的出现次数偏高。
@@ -25,26 +21,17 @@ ANZ银行的研究人员就用该法则对中国的GDP增长数据进行了研�
 上图显示，如果只把车祸拿出来，那么28、29人死亡事故的发生次数就显著下降了，几乎所有点落在了99%置信区间内。换句话说，28人死亡事故的高频率，是由生产事故频率上升导致的。对于死亡人数更不容易被修改的交通事故，28人死亡的事故频率相对于其他死亡人数的事故频率并没有上升。
 是什么导致了这种现象呢？
 以下为无关引用，仅供参考。
- 国务院《生产安全事故报告和调查处理条例》(2007年6月1日施行)第三条规定：“根据生产安全事故造成的人员伤亡或者直接经济损失，事故一般分为以下等级：特别重大事故、重大事故、较大事故和一般事故。
+国务院《生产安全事故报告和调查处理条例》(2007年6月1日施行)第三条规定：“根据生产安全事故造成的人员伤亡或者直接经济损失，事故一般分为以下等级：特别重大事故、重大事故、较大事故和一般事故。
 **特别重大事故，是指造成30人（包括30人）以上死亡。
 **
- 注：该答案的主要组成部分已经出现在了上海外滩跨年夜发生踩踏事故，致35死者。这里的35有没有特别的意义？ - chenqin 的回答，但该问题在我回答完6个小时之后就被关闭了。
-我往原本的内容里再加一些别的东西，写成了这篇专栏。这样，大家也可以多讨论一些死亡人数被修改以外的问题，以防该专栏遭到和那个问题相同的命运。 ">
-<meta name=generator content="Hugo 0.91.2">
-<link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css>
-<link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css>
-<link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen>
-<link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon>
-<meta name=twitter:card content="summary_large_image">
-<meta name=og:title content=" 数字被修改了吗？ ">
-<meta name=og:description content=" 从7.23动车事故开始，死亡35人便成为了一部分网民经久不衰的话题。他们认为，当事故死亡人数超过35人时，省市官员就必须为此负责，因此官员将有动机将死亡人数实际超过35人的事故压低到死亡35人以内。那么，我们如何判断这种现象是否存在？数字到底有没有被修改？
+注：该答案的主要组成部分已经出现在了上海外滩跨年夜发生踩踏事故，致35死者。这里的35有没有特别的意义？ - chenqin 的回答，但该问题在我回答完6个小时之后就被关闭了。
+我往原本的内容里再加一些别的东西，写成了这篇专栏。这样，大家也可以多讨论一些死亡人数被修改以外的问题，以防该专栏遭到和那个问题相同的命运。 "><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" 数字被修改了吗？ "><meta name=og:description content=" 从7.23动车事故开始，死亡35人便成为了一部分网民经久不衰的话题。他们认为，当事故死亡人数超过35人时，省市官员就必须为此负责，因此官员将有动机将死亡人数实际超过35人的事故压低到死亡35人以内。那么，我们如何判断这种现象是否存在？数字到底有没有被修改？
 由于随机数字的出现会满足一系列规律，因此，当一系列数字实际出现的规律与其应当出现的规律有显著不同时，这一系列数字就可能被人为更改了。先看几个简单的例子：
 一，大量产生的随机数字汇总后往往会具有平滑的性质，印度人口普查的年龄是一个很好的反例。一般来说，如果没有很强烈的年份偏好或者战争和饥荒，那么一个国家的分年龄人口应当是平滑的。在一个较小的区间内，我们不应当看到波动很大的年龄结构。因此，印度人口普查显示的图形，就显得非常不正常——2011年，约有50%的人口错报了自己的年龄，他们以尾数为0或者5的数字来替代自己的真实年龄。
 二，随机序列也有可能看起来不太随机。将一个硬币扔100次，得到一个序列，h为正面t为反面，下面哪个序列是真实的抛硬币结果，哪个是脑补出来的？
 序列1：
-tthhhhhtthhhhtthhthhhtthhhhttththhhtthhhhhhtthhhhh htthhthhhthhhhthhththtttththtthhtthhhhhttthhththtt  序列2：
-hthtthhtthtthhhthtthtttththhthhththhhhthhtthtththh hthhhthtththhhthttththhthhhthththhhhthhthttththhth  答案是序列1。在一个完全随机的抛硬币过程中，100次抛掷得到至少一个连续6次相同结果的序列的概率大于80%，得到至少一个连续5次相同结果的序列的概率大于90%。而在序列2里，最长的一串连续序列的长度仅有4。一列伪造的硬币随机数为了让自己看起来更随机，可能会频繁变化正反，但正是这一点反而出卖了它的伪随机本质。
+tthhhhhtthhhhtthhthhhtthhhhttththhhtthhhhhhtthhhhh htthhthhhthhhhthhththtttththtthhtthhhhhttthhththtt 序列2：
+hthtthhtthtthhhthtthtttththhthhththhhhthhtthtththh hthhhthtththhhthttththhthhhthththhhhthhthttththhth 答案是序列1。在一个完全随机的抛硬币过程中，100次抛掷得到至少一个连续6次相同结果的序列的概率大于80%，得到至少一个连续5次相同结果的序列的概率大于90%。而在序列2里，最长的一串连续序列的长度仅有4。一列伪造的硬币随机数为了让自己看起来更随机，可能会频繁变化正反，但正是这一点反而出卖了它的伪随机本质。
 三，真实的数字序列会满足Benford法则。在真实产生的十进制数字中，不同数码的出现次数会满足Benford法则，见下表：
 上表（来自http://www.prres.net/Papers/Geyer_Cheating_Behavior_And_The_Benford%E2%80%99s_Law.pdf）的第一列表示随机数字的第一位数中各数码可能出现的概率，即首位数为1的概率为30.1%，首位数为2的概率为17.6%……首位数字为9的概率仅有4.6%。同样我们也能计算第二位数字的出现概率。当一系列数字大幅度偏离Benford法则时，他就很有可能经过人为调整。
 ANZ银行的研究人员就用该法则对中国的GDP增长数据进行了研究（&lsquo;Benford&rsquo;s Law&rsquo; Questions Integrity of Chinese Economic Data），他们发现，中国从1952年开始的年度GDP增长率中，首位数为1的次数为24次，高于Benford法则预测的18次；从1991年开始的季度GDP增长率中，第二位数为0的比例高达21次，而预测值仅有10次。该研究人员认为，这样的偏差说明了中国的GDP数据可能存在相当的「进位」现象，即将较大的数码进位到10，才导致了第一位数的数码1出现次数偏高且第二位数的数码0的出现次数偏高。
@@ -61,49 +48,15 @@ ANZ银行的研究人员就用该法则对中国的GDP增长数据进行了研�
 上图显示，如果只把车祸拿出来，那么28、29人死亡事故的发生次数就显著下降了，几乎所有点落在了99%置信区间内。换句话说，28人死亡事故的高频率，是由生产事故频率上升导致的。对于死亡人数更不容易被修改的交通事故，28人死亡的事故频率相对于其他死亡人数的事故频率并没有上升。
 是什么导致了这种现象呢？
 以下为无关引用，仅供参考。
- 国务院《生产安全事故报告和调查处理条例》(2007年6月1日施行)第三条规定：“根据生产安全事故造成的人员伤亡或者直接经济损失，事故一般分为以下等级：特别重大事故、重大事故、较大事故和一般事故。
+国务院《生产安全事故报告和调查处理条例》(2007年6月1日施行)第三条规定：“根据生产安全事故造成的人员伤亡或者直接经济损失，事故一般分为以下等级：特别重大事故、重大事故、较大事故和一般事故。
 **特别重大事故，是指造成30人（包括30人）以上死亡。
 **
- 注：该答案的主要组成部分已经出现在了上海外滩跨年夜发生踩踏事故，致35死者。这里的35有没有特别的意义？ - chenqin 的回答，但该问题在我回答完6个小时之后就被关闭了。
-我往原本的内容里再加一些别的东西，写成了这篇专栏。这样，大家也可以多讨论一些死亡人数被修改以外的问题，以防该专栏遭到和那个问题相同的命运。 ">
-<meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/80.jpg">
-<script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+注：该答案的主要组成部分已经出现在了上海外滩跨年夜发生踩踏事故，致35死者。这里的35有没有特别的意义？ - chenqin 的回答，但该问题在我回答完6个小时之后就被关闭了。
+我往原本的内容里再加一些别的东西，写成了这篇专栏。这样，大家也可以多讨论一些死亡人数被修改以外的问题，以防该专栏遭到和那个问题相同的命运。 "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/209.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script>
-</head>
-<body>
-<header class="fixed-top navigation">
-<div class=container>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-<a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class="ti-menu h3"></i>
-</button>
-<div class="collapse navbar-collapse text-center" id=navigation>
-<ul class="navbar-nav ml-auto">
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/> Home </a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=https://twitter.com/speechfree3>Twitter</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</header> <div class="py-5 d-none d-lg-block"></div>
-<section class=main-content>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 mx-auto block shadow mb-5">
-<h2>数字被修改了吗？</h2>
-<div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
+<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=main-content><div class=container><div class=row><div class="col-lg-8 mx-auto block shadow mb-5"><h2>数字被修改了吗？</h2><div class=mb-3><span>by <a href=https://project-gutenberg.github.io/Pincong/author/></a></span>,
 <span>at 04 January 2015</span>, tags :
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e6%ad%bb%e4%ba%a1>死亡</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e5%ba%8f%e5%88%97>序列</a>
@@ -111,113 +64,15 @@ ANZ银行的研究人员就用该法则对中国的GDP增长数据进行了研�
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e6%b3%95%e5%88%99>法则</a>
 <a href=https://project-gutenberg.github.io/Pincong/tags/%e6%95%b0%e7%a0%81>数码</a>
 <a href=https://github.com/Project-Gutenberg/Pincong-data/edit/master/site/content/post/4c7e53cbc39256b29fd30351aac779ef.md style=color:gray><strong><i>点击纠错</i></strong></a>
-<i> </i>
-<a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/4c7e53cbc39256b29fd30351aac779ef.md style=color:gray><strong><i>点击删除</i></strong></a>
-</div>
-<h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5>
-<h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5>
-<p></p>
-<p>从7.23动车事故开始，死亡35人便成为了一部分网民经久不衰的话题。他们认为，当事故死亡人数超过35人时，省市官员就必须为此负责，因此官员将有动机将死亡人数实际超过35人的事故压低到死亡35人以内。那么，我们如何判断这种现象是否存在？数字到底有没有被修改？</p>
-<p>由于随机数字的出现会满足一系列规律，因此，当一系列数字实际出现的规律与其应当出现的规律有显著不同时，这一系列数字就可能被人为更改了。先看几个简单的例子：</p>
-<p>一，大量产生的随机数字汇总后往往会具有<strong>平滑</strong>的性质，<a href=http://www.zhihu.com/question/24929287/answer/29574198>印度人口普查的年龄</a>是一个很好的反例。一般来说，如果没有很强烈的年份偏好或者战争和饥荒，那么一个国家的分年龄人口应当是平滑的。在一个较小的区间内，我们不应当看到波动很大的年龄结构。因此，印度人口普查显示的图形，就显得非常不正常——2011年，约有<strong>50%的人口错报了自己的年龄</strong>，他们以尾数为0或者5的数字来替代自己的真实年龄。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/8178f7d1f7ff62af6d147832d375d3a0_b.jpg" alt></p>
-<p>二，随机序列也有可能看起来<strong>不太随机</strong>。将一个硬币扔100次，得到一个序列，h为正面t为反面，下面哪个序列是真实的抛硬币结果，哪个是脑补出来的？</p>
-<p>序列1：</p>
-<pre><code>tthhhhhtthhhhtthhthhhtthhhhttththhhtthhhhhhtthhhhh
+<i></i><a href=https://github.com/Project-Gutenberg/Pincong-data/delete/master/site/content/post/4c7e53cbc39256b29fd30351aac779ef.md style=color:gray><strong><i>点击删除</i></strong></a></div><h5><a href=https://bit.ly/justmysock>使用CN2/CN2GIA顶级线路，支持Shadowsocks/V2ray科学上网，支持支付宝付款，每月仅需 5 美元</a></h5><h5><a href=https://bit.ly/2HrxEi0>## 加入品葱精选 Telegram Channel ##</a></h5><p></p><p>从7.23动车事故开始，死亡35人便成为了一部分网民经久不衰的话题。他们认为，当事故死亡人数超过35人时，省市官员就必须为此负责，因此官员将有动机将死亡人数实际超过35人的事故压低到死亡35人以内。那么，我们如何判断这种现象是否存在？数字到底有没有被修改？</p><p>由于随机数字的出现会满足一系列规律，因此，当一系列数字实际出现的规律与其应当出现的规律有显著不同时，这一系列数字就可能被人为更改了。先看几个简单的例子：</p><p>一，大量产生的随机数字汇总后往往会具有<strong>平滑</strong>的性质，<a href=http://www.zhihu.com/question/24929287/answer/29574198>印度人口普查的年龄</a>是一个很好的反例。一般来说，如果没有很强烈的年份偏好或者战争和饥荒，那么一个国家的分年龄人口应当是平滑的。在一个较小的区间内，我们不应当看到波动很大的年龄结构。因此，印度人口普查显示的图形，就显得非常不正常——2011年，约有<strong>50%的人口错报了自己的年龄</strong>，他们以尾数为0或者5的数字来替代自己的真实年龄。</p><p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/8178f7d1f7ff62af6d147832d375d3a0_b.jpg" alt></p><p>二，随机序列也有可能看起来<strong>不太随机</strong>。将一个硬币扔100次，得到一个序列，h为正面t为反面，下面哪个序列是真实的抛硬币结果，哪个是脑补出来的？</p><p>序列1：</p><pre><code>tthhhhhtthhhhtthhthhhtthhhhttththhhtthhhhhhtthhhhh
 htthhthhhthhhhthhththtttththtthhtthhhhhttthhththtt
-</code></pre>
-<p>序列2：</p>
-<pre><code>hthtthhtthtthhhthtthtttththhthhththhhhthhtthtththh
+</code></pre><p>序列2：</p><pre><code>hthtthhtthtthhhthtthtttththhthhththhhhthhtthtththh
 hthhhthtththhhthttththhthhhthththhhhthhthttththhth
-</code></pre>
-<p>答案是序列1。在一个完全随机的抛硬币过程中，100次抛掷得到至少一个连续6次相同结果的序列的概率大于80%，得到至少一个连续5次相同结果的序列的概率大于90%。而在序列2里，最长的一串连续序列的长度仅有4。一列伪造的硬币随机数为了让自己看起来更随机，可能会频繁变化正反，但正是这一点反而出卖了它的伪随机本质。</p>
-<p>三，真实的数字序列会满足<strong>Benford法则</strong>。在真实产生的十进制数字中，不同数码的出现次数会满足Benford法则，见下表：</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/a2f2185f5d0bb85bf501d5c8428f2b75_b.jpg" alt></p>
-<p>上表（来自<a href="https://link.zhihu.com/?target=http%3A//www.prres.net/Papers/Geyer_Cheating_Behavior_And_The_Benford%25E2%2580%2599s_Law.pdf">http://www.prres.net/Papers/Geyer_Cheating_Behavior_And_The_Benford%E2%80%99s_Law.pdf</a>）的第一列表示随机数字的第一位数中各数码可能出现的概率，即首位数为1的概率为30.1%，首位数为2的概率为17.6%……首位数字为9的概率仅有4.6%。同样我们也能计算第二位数字的出现概率。当一系列数字大幅度偏离Benford法则时，他就很有可能经过人为调整。</p>
-<p>ANZ银行的研究人员就用该法则对中国的GDP增长数据进行了研究（<a href="https://link.zhihu.com/?target=http%3A//www.cfoinnovation.com/story/6054/benfords-law-questions-integrity-chinese-economic-data">&lsquo;Benford&rsquo;s Law&rsquo; Questions Integrity of Chinese Economic Data</a>），他们发现，中国从1952年开始的年度GDP增长率中，首位数为1的次数为24次，高于Benford法则预测的18次；从1991年开始的季度GDP增长率中，第二位数为0的比例高达21次，而预测值仅有10次。该研究人员认为，这样的偏差说明了中国的GDP数据可能存在相当的「进位」现象，即将较大的数码进位到10，才导致了第一位数的数码1出现次数偏高且第二位数的数码0的出现次数偏高。</p>
-<p>在这份报告里，首位数的Benford法则讨论其实是值得商榷的，假设一列随机数以正态分布取自均值为10的区间内，那么其首位数为1的概率将会高达50%，但这并不能说明这列随机数字是人为调整过的。但第二位数字就不会出现首位数字碰到的问题，其分布则较为均匀，可以进行比较好的比较。</p>
-<p>我们可以将中国和美国的季度GDP增长率的<strong>第二位数字</strong>的出现概率放在一起进行比较，得到下图：</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//picb.zhimg.com/e844e6c2c2050707da4a0ef63941332a_b.jpg" alt></p>
-<p>可以看到，中国在第二位数等于0的概率确实要远大于预测值12%，较大数码的出现概率则要小于Benford法则预测值。美国的第二位数字与Benford法也有差距，体现在数码0到3的出现概率提高上。但总体上来说，美国的统计数字距离Benford法则预测的差距要比中国统计数字的差距要小许多，中国在0和8两个数字上的实际出现次数甚至可以在5%水平上显著异于Benford法则的预测。中国是否将一系列尾数为8的GDP增长率给进位到10了？仍然不能确定，但至少这种解释与数据所体现的现象不矛盾。</p>
-<p>四，<strong>特大事故的死亡人数被修改了吗</strong>？</p>
-<p>终于回到本文正题。先看一个研究数据是否调整的典型例子：p=0.05现象。在统计分析中，当一项检验的p值小于0.05时，这个结果一般被认为是在统计上显著的。由于不显著的结果难以发表，因此「调整」p值直到小于0.05，成了一些科研人员的最后手段。这一项研究（<a href="https://link.zhihu.com/?target=http%3A//www.ncbi.nlm.nih.gov/pubmed/22853650">http://www.ncbi.nlm.nih.gov/pubmed/22853650</a>）检查了三份心理学期刊，发现报告的p值略微小于0.05的文章比例畸高于正常情况，显示了「调整」p值可能已经成为了一种客观存在的现象。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/4b518eb5ed491637ea8082a37976fae1_b.jpg" alt></p>
-<p>在 <a href="https://link.zhihu.com/?target=http%3A//media.chinasafety.gov.cn%3A8090/iSystem/shigumain.jsp">事故查询</a> 里我们能够查询到中国从2000年至今的两万四千余起事故。在所有能查询到的事故中（包括安全生产事故、交通事故与火灾），从2000年7月至2014年底，死亡人数在10人以上的事故有1187起，按照死亡人数排序可得下图：</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/55000fc60eeaf12f5adeebccbc0a765a_b.jpg" alt></p>
-<p>将死亡在20到40人放大看，可得下图：</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/5a62bd93c8b078b9d5814dcfb0f27ead_b.jpg" alt></p>
-<p>如果35人真的是一个分界点且在这个分界点附近的死亡瞒报现象真的存在，那么我们应当能看到报告死亡人数在33、34人的事故次数畸高（死亡35人及以上但被人为调整至35人以下，且不能调整幅度太大），而报告死亡35人的事故次数迅速下降。但是在图中我们并不能看到这一现象。35人死亡的事故次数甚至还高于33和34人的次数。因此，**35人这个事故死亡人数分界点，是不存在的。**不过，虽然在35这个值上不存在分界点，在其他值上就不一定了。按照p值研究的方法，我们可以画一张类似的图：</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/487356952b62ad1639e3e3f4d51cc887_b.jpg" alt></p>
-<p>上图中的横轴为死亡人数，纵轴为事故次数，99%置信区间的拟合线公式为“预测次数=252746<img src="https://images.weserv.nl/?url=https%3A//www.zhihu.com/equation%3Ftex%3D%255Ctimes%2B" alt="\times ">死亡人数^(-3.037)”，是一个典型的幂律分布。可以看到，<strong>唯一一个实际事故次数大幅超过了预测事故次数99%置信区间上限死亡人数发生在28人</strong>。大幅度越过99%而非95%这个置信区间，可以说是非常少见的现象，这意味着在该模型成立的情况下此情形出现的概率远小于1%。仔细检查数据的话，死亡28人的事故有22次（模型预测10.2次），29人事故13次（模型预测9.1次），30人和31人迅速下降到7次和4次。</p>
-<p>接下来，我们将所有事故里的交通事故专门拿出来做一张类似的图。交通事故和生产安全事故尤其是煤矿的安全事故不同，后者的死亡发生在作业井下，因此统计人数往往不如前者那么容易被观察到。相比于安全事故，交通事故的死亡数字修改会更加困难。</p>
-<p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/c2dffcf900b55d0f93b3d79fc835de18_b.jpg" alt></p>
-<p>上图显示，如果只把车祸拿出来，那么28、29人死亡事故的发生次数就显著下降了，几乎所有点落在了99%置信区间内。换句话说，<strong>28人死亡事故的高频率，是由生产事故频率上升导致的。对于死亡人数更不容易被修改的交通事故，28人死亡的事故频率相对于其他死亡人数的事故频率并没有上升。</strong></p>
-<p>是什么导致了这种现象呢？</p>
-<p>以下为无关引用，仅供参考。</p>
-<blockquote>
-<p>国务院《生产安全事故报告和调查处理条例》(2007年6月1日施行)第三条规定：“根据生产安全事故造成的人员伤亡或者直接经济损失，事故一般分为以下等级：特别重大事故、重大事故、较大事故和一般事故。<br>
-**特别重大事故，是指造成30人（包括30人）以上死亡。<br>
-**</p>
-</blockquote>
-<p>注：该答案的主要组成部分已经出现在了<a href=http://www.zhihu.com/question/27343074/answer/36351378>上海外滩跨年夜发生踩踏事故，致35死者。这里的35有没有特别的意义？ - chenqin 的回答</a>，但该问题在我回答完6个小时之后就被关闭了。</p>
-<p>我往原本的内容里再加一些别的东西，写成了这篇专栏。这样，大家也可以多讨论一些死亡人数被修改以外的问题，以防该专栏遭到和那个问题相同的命运。</p>
-<h5> <a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//pin-cong-jing-xuan.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<div class="col-lg-8 mx-auto block shadow">
-<h3>See Also</h3>
-<div class=container>
-<div class=row>
-<div class="mx-auto px-0">
-<div class="bg-white shadow block">
-<article class=mb-5>
-<h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/195d77bf7f4fe44b1a1e78ef5467c54c/?utm_source=see_also&utm_medium=%25E6%2595%25B0%25E5%25AD%2597%25E8%25A2%25AB%25E4%25BF%25AE%25E6%2594%25B9%25E4%25BA%2586%25E5%2590%2597">苍蝇不打不会自己死掉</a>
-</h2>
-<p class=text-dark>两年前，我在知乎写下了中国在1959年至1961年，真的经历了大饥荒并且因此饿死几千万人吗？这个答案，目的是让知乎上对大饥荒非正常死亡人数的争议「到此为止」。很高兴，这两年间知乎在这个问题上没有再掀起风浪。
-去年9月，我看到了江苏师范大学数 …</p>
-</article>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<script>var images=document.getElementsByTagName("img"),i;for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script>
-<footer class="py-4 bg-light border-top">
-<div class=container>
-<div class="row justify-content-between align-items-center">
-<div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-<a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a>
-</div>
-<div class="col-lg-4 text-center mb-4 mb-lg-0">
-<ul class="list-inline mb-0">
-</ul>
-</div>
-<div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
-<ul class="list-inline social-icon mb-0">
-<li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li>
-<li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li>
-</ul>
-</div>
-<div class="col-12 text-center mt-4">
-<span></span>
-</div>
-</div>
-</div>
-</footer>
-<script src=../../plugins/jQuery/jquery.min.js></script>
+</code></pre><p>答案是序列1。在一个完全随机的抛硬币过程中，100次抛掷得到至少一个连续6次相同结果的序列的概率大于80%，得到至少一个连续5次相同结果的序列的概率大于90%。而在序列2里，最长的一串连续序列的长度仅有4。一列伪造的硬币随机数为了让自己看起来更随机，可能会频繁变化正反，但正是这一点反而出卖了它的伪随机本质。</p><p>三，真实的数字序列会满足<strong>Benford法则</strong>。在真实产生的十进制数字中，不同数码的出现次数会满足Benford法则，见下表：</p><p><img src="https://images.weserv.nl/?url=https%3A//pic1.zhimg.com/a2f2185f5d0bb85bf501d5c8428f2b75_b.jpg" alt></p><p>上表（来自<a href="https://link.zhihu.com/?target=http%3A//www.prres.net/Papers/Geyer_Cheating_Behavior_And_The_Benford%25E2%2580%2599s_Law.pdf">http://www.prres.net/Papers/Geyer_Cheating_Behavior_And_The_Benford%E2%80%99s_Law.pdf</a>）的第一列表示随机数字的第一位数中各数码可能出现的概率，即首位数为1的概率为30.1%，首位数为2的概率为17.6%……首位数字为9的概率仅有4.6%。同样我们也能计算第二位数字的出现概率。当一系列数字大幅度偏离Benford法则时，他就很有可能经过人为调整。</p><p>ANZ银行的研究人员就用该法则对中国的GDP增长数据进行了研究（<a href="https://link.zhihu.com/?target=http%3A//www.cfoinnovation.com/story/6054/benfords-law-questions-integrity-chinese-economic-data">&lsquo;Benford&rsquo;s Law&rsquo; Questions Integrity of Chinese Economic Data</a>），他们发现，中国从1952年开始的年度GDP增长率中，首位数为1的次数为24次，高于Benford法则预测的18次；从1991年开始的季度GDP增长率中，第二位数为0的比例高达21次，而预测值仅有10次。该研究人员认为，这样的偏差说明了中国的GDP数据可能存在相当的「进位」现象，即将较大的数码进位到10，才导致了第一位数的数码1出现次数偏高且第二位数的数码0的出现次数偏高。</p><p>在这份报告里，首位数的Benford法则讨论其实是值得商榷的，假设一列随机数以正态分布取自均值为10的区间内，那么其首位数为1的概率将会高达50%，但这并不能说明这列随机数字是人为调整过的。但第二位数字就不会出现首位数字碰到的问题，其分布则较为均匀，可以进行比较好的比较。</p><p>我们可以将中国和美国的季度GDP增长率的<strong>第二位数字</strong>的出现概率放在一起进行比较，得到下图：</p><p><img src="https://images.weserv.nl/?url=https%3A//picb.zhimg.com/e844e6c2c2050707da4a0ef63941332a_b.jpg" alt></p><p>可以看到，中国在第二位数等于0的概率确实要远大于预测值12%，较大数码的出现概率则要小于Benford法则预测值。美国的第二位数字与Benford法也有差距，体现在数码0到3的出现概率提高上。但总体上来说，美国的统计数字距离Benford法则预测的差距要比中国统计数字的差距要小许多，中国在0和8两个数字上的实际出现次数甚至可以在5%水平上显著异于Benford法则的预测。中国是否将一系列尾数为8的GDP增长率给进位到10了？仍然不能确定，但至少这种解释与数据所体现的现象不矛盾。</p><p>四，<strong>特大事故的死亡人数被修改了吗</strong>？</p><p>终于回到本文正题。先看一个研究数据是否调整的典型例子：p=0.05现象。在统计分析中，当一项检验的p值小于0.05时，这个结果一般被认为是在统计上显著的。由于不显著的结果难以发表，因此「调整」p值直到小于0.05，成了一些科研人员的最后手段。这一项研究（<a href="https://link.zhihu.com/?target=http%3A//www.ncbi.nlm.nih.gov/pubmed/22853650">http://www.ncbi.nlm.nih.gov/pubmed/22853650</a>）检查了三份心理学期刊，发现报告的p值略微小于0.05的文章比例畸高于正常情况，显示了「调整」p值可能已经成为了一种客观存在的现象。</p><p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/4b518eb5ed491637ea8082a37976fae1_b.jpg" alt></p><p>在 <a href="https://link.zhihu.com/?target=http%3A//media.chinasafety.gov.cn%3A8090/iSystem/shigumain.jsp">事故查询</a> 里我们能够查询到中国从2000年至今的两万四千余起事故。在所有能查询到的事故中（包括安全生产事故、交通事故与火灾），从2000年7月至2014年底，死亡人数在10人以上的事故有1187起，按照死亡人数排序可得下图：</p><p><img src="https://images.weserv.nl/?url=https%3A//pic4.zhimg.com/55000fc60eeaf12f5adeebccbc0a765a_b.jpg" alt></p><p>将死亡在20到40人放大看，可得下图：</p><p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/5a62bd93c8b078b9d5814dcfb0f27ead_b.jpg" alt></p><p>如果35人真的是一个分界点且在这个分界点附近的死亡瞒报现象真的存在，那么我们应当能看到报告死亡人数在33、34人的事故次数畸高（死亡35人及以上但被人为调整至35人以下，且不能调整幅度太大），而报告死亡35人的事故次数迅速下降。但是在图中我们并不能看到这一现象。35人死亡的事故次数甚至还高于33和34人的次数。因此，**35人这个事故死亡人数分界点，是不存在的。**不过，虽然在35这个值上不存在分界点，在其他值上就不一定了。按照p值研究的方法，我们可以画一张类似的图：</p><p><img src="https://images.weserv.nl/?url=https%3A//pic3.zhimg.com/487356952b62ad1639e3e3f4d51cc887_b.jpg" alt></p><p>上图中的横轴为死亡人数，纵轴为事故次数，99%置信区间的拟合线公式为“预测次数=252746<img src="https://images.weserv.nl/?url=https%3A//www.zhihu.com/equation%3Ftex%3D%255Ctimes%2B" alt="\times ">死亡人数^(-3.037)”，是一个典型的幂律分布。可以看到，<strong>唯一一个实际事故次数大幅超过了预测事故次数99%置信区间上限死亡人数发生在28人</strong>。大幅度越过99%而非95%这个置信区间，可以说是非常少见的现象，这意味着在该模型成立的情况下此情形出现的概率远小于1%。仔细检查数据的话，死亡28人的事故有22次（模型预测10.2次），29人事故13次（模型预测9.1次），30人和31人迅速下降到7次和4次。</p><p>接下来，我们将所有事故里的交通事故专门拿出来做一张类似的图。交通事故和生产安全事故尤其是煤矿的安全事故不同，后者的死亡发生在作业井下，因此统计人数往往不如前者那么容易被观察到。相比于安全事故，交通事故的死亡数字修改会更加困难。</p><p><img src="https://images.weserv.nl/?url=https%3A//pic2.zhimg.com/c2dffcf900b55d0f93b3d79fc835de18_b.jpg" alt></p><p>上图显示，如果只把车祸拿出来，那么28、29人死亡事故的发生次数就显著下降了，几乎所有点落在了99%置信区间内。换句话说，<strong>28人死亡事故的高频率，是由生产事故频率上升导致的。对于死亡人数更不容易被修改的交通事故，28人死亡的事故频率相对于其他死亡人数的事故频率并没有上升。</strong></p><p>是什么导致了这种现象呢？</p><p>以下为无关引用，仅供参考。</p><blockquote><p>国务院《生产安全事故报告和调查处理条例》(2007年6月1日施行)第三条规定：“根据生产安全事故造成的人员伤亡或者直接经济损失，事故一般分为以下等级：特别重大事故、重大事故、较大事故和一般事故。<br>**特别重大事故，是指造成30人（包括30人）以上死亡。<br>**</p></blockquote><p>注：该答案的主要组成部分已经出现在了<a href=http://www.zhihu.com/question/27343074/answer/36351378>上海外滩跨年夜发生踩踏事故，致35死者。这里的35有没有特别的意义？ - chenqin 的回答</a>，但该问题在我回答完6个小时之后就被关闭了。</p><p>我往原本的内容里再加一些别的东西，写成了这篇专栏。这样，大家也可以多讨论一些死亡人数被修改以外的问题，以防该专栏遭到和那个问题相同的命运。</p><h5><a href="https://www.digitalocean.com/?refcode=4351d40e44b2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste">最简单好用的 VPS,没有之一，注册立得 100 美金</a></h5></div><div class="col-lg-8 mx-auto block shadow"><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var t=document,e=t.createElement('script');e.async=!0,e.src='//pin-cong-jing-xuan.disqus.com/embed.js',e.setAttribute('data-timestamp',+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div class="col-lg-8 mx-auto block shadow"><h3>See Also</h3><div class=container><div class=row><div class="mx-auto px-0"><div class="bg-white shadow block"><article class=mb-5><h2 class=h5><a class=text-dark href="https://project-gutenberg.github.io/Pincong/post/195d77bf7f4fe44b1a1e78ef5467c54c/?utm_source=see_also&utm_medium=%25E6%2595%25B0%25E5%25AD%2597%25E8%25A2%25AB%25E4%25BF%25AE%25E6%2594%25B9%25E4%25BA%2586%25E5%2590%2597">苍蝇不打不会自己死掉</a></h2><p class=text-dark>两年前，我在知乎写下了中国在1959年至1961年，真的经历了大饥荒并且因此饿死几千万人吗？这个答案，目的是让知乎上对大饥荒非正常死亡人数的争议「到此为止」。很高兴，这两年间知乎在这个问题上没有再掀起风浪。
+去年9月，我看到了江苏师范大学数 …</p></article></div></div></div></div></div></div></div></div></section><script>var i,images=document.getElementsByTagName("img");for(i=0;i<images.length;i++)images[i].className+="img-fluid w-100 mb-4"</script><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../plugins/jQuery/jquery.min.js></script>
 <script src=../../plugins/bootstrap/bootstrap.min.js></script>
 <script src=../../plugins/search/fuse.min.js></script>
 <script src=../../plugins/search/mark.js></script>
 <script src=../../plugins/search/search.js></script>
 <script src=https://project-gutenberg.github.io/Pincong/js/script.min.js></script>
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body>
-</html>
+<script>(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-151212685-6','auto'),ga('send','pageview')</script></body></html>

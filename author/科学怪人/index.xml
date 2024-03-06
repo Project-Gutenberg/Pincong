@@ -6,7 +6,7 @@ pip install snownlp
 每个分句情绪打分0-1，0表示极端负面，1表示极端正面情绪。
 python代码
 from snownlp import SnowNLP
-textraw = u' 你连你妈这种弱智都 …</description></item><item><title>简单的中文情绪分析</title><link>https://project-gutenberg.github.io/Pincong/post/d6f8dd296df04978cdd1549bd968033c/</link><pubDate>Sat, 27 Jul 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/d6f8dd296df04978cdd1549bd968033c/</guid><description>snownlp是一个针对简体中文的包 https://github.com/isnowfy/snownlp
+textraw = u&amp;rsquo; 你连你妈 …</description></item><item><title>简单的中文情绪分析</title><link>https://project-gutenberg.github.io/Pincong/post/d6f8dd296df04978cdd1549bd968033c/</link><pubDate>Sat, 27 Jul 2019 00:00:00 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/d6f8dd296df04978cdd1549bd968033c/</guid><description>snownlp是一个针对简体中文的包 https://github.com/isnowfy/snownlp
 安装
 pip install snownlp
 可以考虑用它作中文情绪分析，实时检测论坛中的辱骂内容，自动折叠，甚至封禁。
@@ -14,4 +14,4 @@ pip install snownlp
 每个分句情绪打分0-1，0表示极端负面，1表示极端正面情绪。
 python代码
 from snownlp import SnowNLP
-textraw = u' 你连你妈这种弱智都 …</description></item></channel></rss>
+textraw = u&amp;rsquo; 你连你妈 …</description></item></channel></rss>
