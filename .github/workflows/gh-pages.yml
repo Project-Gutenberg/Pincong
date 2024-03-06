@@ -29,11 +29,11 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: '0.91.2'
+        hugo-version: '0.119.0'
         extended: true
 
     - name: Build Hogo
-      run: hugo --minify --ignoreCache --templateMetrics --templateMetricsHints --config github.toml,base.toml -d ../public -s site -v
+      run: hugo --gc --minify --templateMetrics --templateMetricsHints --config github.toml,base.toml -d ../public -s site -v
 
     - name: Split Sitemap
       run: ./main sitemap ./public/
