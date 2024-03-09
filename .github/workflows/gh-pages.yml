@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-hugo:
-    runs-on: [ubicloud] #self-hosted
+    runs-on: [ubicloud-standard-16] #self-hosted
     steps:
     - name: Init
       run: |
