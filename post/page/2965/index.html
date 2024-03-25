@@ -1,176 +1,137 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>Posts</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 結局會怎樣我們不知道，但就肩並肩，說出你真實所見、所思、所想，對得起自己，一起見證歷史吧。"><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" Posts "><meta name=og:description content=" 結局會怎樣我們不知道，但就肩並肩，說出你真實所見、所思、所想，對得起自己，一起見證歷史吧。"><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/22.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><title>Posts</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content=" 結局會怎樣我們不知道，但就肩並肩，說出你真實所見、所思、所想，對得起自己，一起見證歷史吧。"><meta name=generator content="Hugo 0.100.2"><link rel=stylesheet href=../../../plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=../../../plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://project-gutenberg.github.io/Pincong/scss/style.min.css media=screen><link rel="shortcut icon" href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><link rel=icon href=https://project-gutenberg.github.io/Pincong/images/favicon.png type=image/x-icon><meta name=twitter:card content="summary_large_image"><meta name=og:title content=" Posts "><meta name=og:description content=" 結局會怎樣我們不知道，但就肩並肩，說出你真實所見、所思、所想，對得起自己，一起見證歷史吧。"><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/23.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
-<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=section><div class=container><div class=row><div class="col-lg-8 mx-auto px-0"><h2 class=mb-4>Posts are showing from <span class=text-primary>Posts</span> categories</h2><div class="bg-white shadow block"><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/6a269b1c198b6b13b453f486996b6f63/>游戏 2048 的基本游戏策略是什么？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
-<span>at 04 August 2020</span>, category :</div><p>知乎用户 chenqin​ 发表 基本的思想就是递归生成
-，要严格按照一定步骤，就像解九连环那样，决不能碰运气。
-一开始的步骤是这样，如果左下角第一个数字是
-，那么就在他的右边放
-，依次类推，直到剩下 4 或者 2，此时只要往末尾的数字填一个 4 或者 2，顶端数字就会变成
-。然后在顶端数字旁边，再用同样的方法构造
-，
-…… 直到逐格降幂后出现 4 或者 2。如果最后一行用完了，就转弯绕上来。
-下图是一个游戏刚开始的例子，我只要在右下角合并一个 2，顶端数字就可以变成 32，然后我继续再顶端数字旁构造 16、8……
-. 严格按照这种方法，最后胜利前的图是这样的：
-此时只要弄一个 8 出来和第三行第一列的数字合并即可达成 2048。
-这种方法要求你绝对慎用向上键。向右键也需要谨慎使用，只有在数列所在行满行的时候才能使用。否则在左下角可能会出现 4 或者 2，这会将你的数列错行。有一个问题是，这种方法做出来的 2048，由于最后一个步骤是将等比数列求和，所以屏幕上几乎不剩任何数字，分数较低。但没关系，这个小游戏刚刚取消了只能玩到 2048 的限制，只要按照这种方法玩，不仅 2048 几乎可次次达成，然后再 keep going，4096 都不是梦（需要运气）。
-（败在了追寻 8192 的路上，顶部空间不够了）
-知乎用户 耗不起的盖兹比 发表 重大更新！已突破 16384！求对手!</p><a href=https://project-gutenberg.github.io/Pincong/post/6a269b1c198b6b13b453f486996b6f63/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/a152f993c0770c830161738624765c37/>武汉的人均 GDP 与上海不相上下，为什么工资待遇远远不如上海？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
-<span>at 04 August 2020</span>, category :</div><p>知乎用户 钱军 发表 本来不想回答的，看到上面的很多回答太不靠谱了, 所以说一下。
-中国的区域 GDP 的统计是采用生产法统计的。采用生产法统计 GDP 的特点是会放大生产基地的 GDP，而缩减消费中心的 GDP.
-生产法： GDP=（第一产业的总产出 - 第一产业的总消耗）+（第二产业的总产出 - 第二产业的总消耗）+（第三产业的总产出 - 第三产业的总消耗）
-收入法：GDP = 各产业部门劳动者报酬 +∑各产业部门固定资产折旧 +∑各产业部门生产税净额 +∑各产业部门营业利润
-采用生产法统计 GDP, 比如说一家公司的生产中心在苏州，但是其销售和研发在上海。采用生产法统计这家公司所创造的 GDP 都算在苏州，而实际上这家公司的高薪职位都在上海。如果采用收入法统计 GDP 则把销售和研发的薪酬部分算到上海，比较公平。
-生产法统 GDP 计导致了，天津人均 GDP 比北京高，苏州无锡人均 GDP 比上海高的畸形情况。而不是天津，苏州无锡的经济发展水平真正比北京上海高了
-知乎用户 chenqin​ 发表 人均 GDP 差不多和” 工资 “差很多，两者不矛盾，因为题主的观察对象不同。事实上，如果题主看的确实是统计意义上的平均工资，两市的差别就远没有你想象得大。
-从上海统计年鉴 2012 和武汉统计年鉴 2012 里可以查到，2011 年武汉在岗职工平均工资为 45643 元，上海为 53402 元，两者只相差 16%。</p><a href=https://project-gutenberg.github.io/Pincong/post/a152f993c0770c830161738624765c37/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/b85af501126da53f44a68da7b7b8bce7/>抖音到底为什么被美国驱逐？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/%e8%80%81%e4%b9%9d%e8%ae%ba%e8%b4%a2%e7%bb%8f>老九论财经</a></span>,
-<span>at 04 August 2020</span>, category :</div><p>文｜谢九
-**美国终于对抖音痛下杀手。首先是美国政府要求字节跳动必须出售抖音的美国业务，随后，美国总统特朗普更是考虑以行政命令在美国全面封禁抖音。
-**
-7月31日，特朗普表示，“我们将会禁止他们在美国运营。我当然有这个权力，我可以通过发布行政命令禁止。”8月1日，抖音的母公司字节跳动同意剥离美国业务，开始和微软谈判出售事宜。
-在一度反对微软收购之后，特朗普的态度又出现了转变，**按照特朗普在8月3日的最新表态，他不反对微软或其他美国公司收购TikTok，如果TikTok不能在9月15日前完成出售，将在美国遭到封禁。特朗普同时表示，如果TikTok成功出售，美国政府还应该得到一部分报酬，“因为我们让这个交易能够进行”。
-**
-最近几年，抖音横空出世，成为中国在国际市场上最具知名度的一款应用。尤其是今年疫情爆发之后，全球大封锁导致几十亿人宅家，更是刺激了年轻人对短视频的需求，今年上半年，TikTok的下载量超过6亿次，排名全球第一，美国最受欢迎的几款老牌社交软件都望尘莫及。
-**但是，抖音在海外的成功也充满争议，最大的争议就是涉嫌收集用户数据。**2019年，TikTok就因为违反美国儿童隐私法，被处以570万美元的罚款。而美国政界更担心的是抖音的数据可能会危害美国的国家安全，尤其是考虑到抖音的中国背景，这就使得问题更容易被放大。
-去年11月，当时就有美国的智库表示抖音会收集用户数据，如果将搜集的信息传回中国，有可能对美国等西方国家构成安全威胁，尤其是美国部队的很多年轻人也爱玩TikTok，他们拍摄的短视频可能会暴露一些机密信息。美国的部分参议员去年也表示，TikTok在美国的下载量已超过1.1亿次，对美国带来了国家安全风险，并要求美国情报部门对此进行国家安全风险评估，并及时通报国会。
-由此，抖音的数据安全问题开始摆上了台面。对于美国的顾虑，抖音方面当时回应表示，TikTok的美国用户数据全部储存在美国境内，在新加坡有一个备份服务器。不过，美国方面还是启动了安全调查，去年11月，美国的外国投资者委员会（Committee on Foreign Investment in the United States）开始介入，进行国家安全威胁调查。这一次抖音被强制出售美国业务，也正是由该机构所主导。 **那么，美国强制抖音出售TikTok的美国业务，到底有没有法律依据呢？**主要依据就是《外国投资风险评估现代化法案》，该法案授予美国的外国投资者委员会（CFIUS）很大的权限，如果涉及到美国国家安全的外国投资交易，需要通过该委员会的审查和批准。
-**抖音之所以被强制出售美国业务，主要是祸起2017年的一笔收购。**当时，抖音以10亿美元收购了一家名为Musical.ly的短视频公司，2018年，Musical.ly与TikTok合并，以TikTok之名开发美国市场，在美国大受欢迎。但是，这笔收购交易的漏洞在于，当时没有寻求美国的外国投资委员会（CFIUS）批准，这就使得后者有权在交易完成后重新审查，并迫使收购方撤资。
-**抖音收购Musical.ly之所以没有向美国的外国投资者委员会报备，可能还是因为对美国的相关法律不熟悉所致。**因为Musical.ly总部设在上海，注册地在开曼群岛，可能表面上看起来和美国没有太直接关系，所以抖音收购时就没有寻求美国的外国投资者委员批准。但是，按照美国的《外国投资风险评估现代化法案》，其审查对象并不仅仅局限于美国公司，只要是在美国境内从事业务，涉及到外国人控制的收购，美国的外国投资者委员就有权审查。抖音的收购对象Musical.ly，虽然理论上并不是美国公司，但是主要市场在美国，当时在美国拥有几千万活跃用户，这就使得该笔收购交易成为美国政府监管的对象。
-其实这并不是美国的外国投资者委员会第一次对中国公司出手，在此次抖音事件之前已有先例。2016年，国内的游戏上市公司昆仑万维收购了美国的同性交友应用Grindr，后来，该应用被曝出有泄漏用户隐私的漏洞，2019年，美国的外国投资委员会就要求昆仑万维出售该公司，理由是当初收购的时候没有获得批准。今年3月份，昆仑万维将Grindr出售给一家美国公司。这一次美国的外国投资委员会对抖音出手，基本上还是同样的模式，只不过TikTok的体量和影响力大了很多，引发了更多的关注。
-字节跳动总部（图｜视觉中国）
-**不只是美国，印度也早就对抖音出手。**近期中印边境冲突之后，印度在6月份禁止了59款中国手机应用程序，其中就包括在当地大受欢迎的TikTok。**印度是抖音最大的海外市场，TikTok在印度的下载量超过6亿次，在美国的下载为1.7亿次。抖音在印度被下架，失去了最大的海外市场。**除了已经出手的美国和印度，还有很多其他国家也都有封禁TikTok的计划。
-和抖音的命运相比，更值得关注的是当前国际背景下，中国经济的大变局。美国封杀抖音，背后有多少是因为数据安全，有多少是因为地缘政治，其实很难分清，不过，一个可以看得清的现实就是，中国公司的国际化环境正在变得越来越恶化。
-**2018年中美贸易战爆发之后，中国企业的出口成本大增，国际竞争力下降，而疫情爆发之后，中国企业的国际环境更是加速恶化，抖音被打压，意味着中国企业的国际化空间越来越小。**不只是抖音，华为的国际化挑战也越来越严峻，过去很多年，一直坚定反对华为的是美国，相比之下，欧洲对华为还比较中立，但是最近，英国也做出了弃用华为的决定，自2021年起禁止购买华为的5G设备， 2027年以前从英国的5G网络中彻底排除华为。 7月30日召开的中共中央政治局会议，提出了一个非常重要的概念，“加快形成以国内大循环为主体、国内国际双循环相互促进的新发展格局”。众所周知，中国经济过去40多年成功的秘诀，就是持续不断的改革开放。以国内大循环为主体，至少意味着以后的中国经济要减轻外部依赖，提高自力更生的程度了。
-疫情之后，全球格局大变，今天的世界和半年前已经截然不同。任何人的命运都逃脱不开时代大浪潮的裹挟，抖音如此，我们每个微小的个体亦是。
-作者档案
-谢九
-《三联生活周刊》资深主笔
-在嘈杂的时代独立思考
-26分钟前
-三联生活周刊
-个人微信公众号：老九论财经（gh_2556c4453440）
-点击下图，收听“老九论财经更多精彩音频
-** 大家都在看**
-⊙文章版权归《三联生活周刊》所有，欢迎转发到朋友圈**，转载请联系后台****。**
-**新刊出炉！**点击下图，一键下单
-「我家住在长江边」
-**▼ 点击阅读原文，今日生活市集，**发现更多好物。
-老九论财经
-长按二维码向我转账
-受苹果公司新规定影响，微信 iOS 版的赞赏功能被关闭，可通过二维码转账支持公众号。
-预览时标签不可点</p><a href=https://project-gutenberg.github.io/Pincong/post/b85af501126da53f44a68da7b7b8bce7/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/0bc44d0a1aa3d731c666fad2b50e11e6/>打死和活捉本拉登会有什么不同？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
-<span>at 04 August 2020</span>, category :</div><p>知乎用户 叶扬 独眼​ 发表 活捉就会有下一季，打死就全剧终。
-知乎用户 郭磊​ 发表 活捉，进行公开审判，更符合美国民众的预期和价值观。
-但这件事情持续发酵的话，就从军事行动转化为尖锐的政治事件了，会产生明显的消极影响，活着的本拉登依然是伊斯兰极端势力的图腾，他可以在法庭上慷慨激昂的痛斥西方世界，关押和审判本拉登，可能会激起整个伊斯兰国家舆论的反弹，包括巴基斯坦在内的美国盟友们的安全局势也会随之恶化…… 活着的本拉登，对美国利益永远是一个严重的威胁（这句话来自美国前国防部长拉姆斯菲尔德的某次表态）
-如果媒体报道属实，美国政府果断处理掉拉登的尸体，证明了他们更愿意让整件事情随着拉被击毙而完结。（关于这个问题的深入讨论，参见评论）
-知乎用户 李奇 发表 打死是军事事件, 活捉是政治事件.
-万恶的美帝有了经验, 上次活捉萨达姆大费周折, 折腾的要死, 然后国际社会还扯来扯去, 说美国人这不行那不行.
-而拉登兄的影响力要比萨达姆大太多, 如果活捉, 然后上法庭, 然后各种折腾, 我觉得基地的战斗力远大于萨达姆的队伍, 这样的话美帝就不能消停了, 然后还会有各种后遗症, 比如传说中的欧洲核弹, 然后伊斯兰世界的反美势力还可以借此挑起仇恨, 就跟对越自卫反击战我们挑起特种兵的仇恨一样, 如果他们还有下一号人物的话, 美帝在中东麻烦更多. 地球人都知道, 伊斯兰世界是个宗教世界, 比国家更大的就是宗教. 当然, 如果是我, 我肯定会这么干.
-综上所述, 直接弄死比活捉更好. 当然以上只是一些原因, 也许还有更深的东西, 当然也有可能是更浅的原因, 比如某士兵擦枪走火之类&mldr;^ ^
-知乎用户 吴名士 发表 公审乱说话怎么办。必须死。</p><a href=https://project-gutenberg.github.io/Pincong/post/0bc44d0a1aa3d731c666fad2b50e11e6/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/d54ac377b13a5a53f2afc4cef2f065b0/>逐步全面开放单独二胎能够解决人口结构存在的问题吗？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
-<span>at 04 August 2020</span>, category :</div><p>知乎用户 chenqin​ 发表 谢谢邀请。从放开二胎，到生育数量上升，有两个环节：
-1，当前能在政策中受惠的人口比例
-讨论任何政策之前，我们都必须先仔细研究政策窗口里到底有多少人。
-使用 2005 年人口普查以及 2010 年的 CFPS 数据，上图标出了在 2010 年时，在所有妻子年龄在 22 至 35 岁的夫妇中，“单独”和 “双独” 的比例。在这里，单独指的是夫妻双方仅有一人是独生子女，双独指夫妻双方均为独生子女。之所以选用 22-35 岁，一方面是因为数据的可得性只允许我们选用这么大的区间；另一方面是因为一名女性在 22-35 岁之间的生育数量，占她一生的总生育数量的 80%，这个区间已经足够具有代表性。从上图看，夫妻符合 “双独” 政策的比例非常低，仅有 5%-7% 左右。而 “单独” 的比例就相对比较高了，从 12%-15% 不等，是 “双独” 比例的两倍左右，且近年来逐渐提高。
-另外，从独生子女比例来看，“单独二胎” 政策所能够影响到的人口在未来也有增加的趋势。
-上图显示了在 2010 年不同年龄人口的独生子女占比。从 20 岁到 10 岁，独生子女比例随着年龄降低而显著提高，从 20.8% 上升到 47.2%，约 2.3 倍。在一半人口都是独生子女的情况下，单独二胎比例至少会达到一半，如果独生 / 非独生结婚选择性不强（独生子女只选择独生子女作为配偶，非独生子女只选择非独生子女作为配偶的倾向比较弱），“单独”+“双独” 将会达到总数的 75%。</p><a href=https://project-gutenberg.github.io/Pincong/post/d54ac377b13a5a53f2afc4cef2f065b0/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/16459a553f94a0c278d489893cb94331/>如何走出经济学研究的怪圈？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
-<span>at 04 August 2020</span>, category :</div><p>知乎用户 chenqin​ 发表 这样的研究好似盲人摸象，它很常见，但并不是一种好的研究方法。
-1，数据分析能帮助你接近事实，但并不是事实本身。
-每一次回归，你看到的结果只是数据空间上的一个投影——在数十万条数据中投影出一条向量，你省略掉的信息比你得到的信息多得多。
-“又大又薄，这一定是大象耳朵，我摸的是大象！”
-“你摸的是蒲扇。”
-2，每一个回归方程，背后都是截然不同的假设。
-在回归之前，先讨论它背后的假设，不仅是计量上的假设，比如什么样的分布，异质性怎么处理，内生性强不强，数据结构是不是合适回归方程；更包括你要验证的理论的运行机制所需要的假设，每一步都要仔细推敲。
-“假设这是大象，大象头朝前，那么我从这摸应该能摸到象牙…… 哦不我没有摸到象牙所以这不是大象”
-“大象头朝后，你在摸它的屁股。”
-3，每个真相都是局部的真相。
-看似相互矛盾的结论，其适用范围必定不相同。这个适用范围包括数据和不同的假设。一个严谨的经济学研究，不会试图声明自己是一个包容宇宙万物的理论，这些理论的适用范围只存在于抽取样本的群体中，都属于局部的真相。发达国家的实证结果，在发展中国家可能会有不同；在城市显著的结论，在农村可能不显著；十年以前被验证的理论，在现在可能就会被推翻……
-要么找到造成不同的原因，要么就老老实实地声明自己的结论的适用性限于哪里。如果真的在某个局部上，在同一种假设下出现了两个矛盾的结论，那其中肯定有一个是错的，甚至可能两个结论都是错的。
-甲：“我在摸大象的牙，它很光滑”
-乙：“我在摸大象的屁股，它很粗糙”
-“你们都没错”
-丙：“大象很光滑”
-丁：“大象很粗糙”
-“……”
-举两个例子。
-一）
-一名研究人员想要研究收入分配有多么不均等。
-老板说，你就去研究一下 “20/20 ratio” 指标吧，这个指标度量了最高 20% 收入和最低 20% 收入的比值。
-于是研究员将整个社会所有人的收入收集起来，排序，再看前 20% 高收入的人口收入，以及最后 20% 低收入的人口收入，并计算两者的比值作为不平等的指标。
-这种算法的假设是：所有人的收入不相等，都属于某种意义上的收入不均等，包括不可能有收入的小孩。此时一个完全平等的，但没有收入的青少年总数超过 20% 的社会也会得出极高的不平等指数。
-研究员：“那那我该怎么办……”
-老板：“把小孩和老人全都去掉啊！”
-该研究人员在受到训斥后，修改了自己的方案，他将不可能有收入的退休老人和小孩去掉，还是按个人排序，重新计算前 20% 和最后 20% 的比例。
-这种算法的假设是：所有劳动年龄人口的收入不平等都属于收入不均等。但在这个假设下，不平等指数仍然相当高，因为在他的计算中，前 20% 高收入人口和最后 20% 收入的人口有不少甚至属于一个家庭。前者属于高收入行业，每天干活打工，而后者是他们的配偶，因为前者收入较高且无暇顾家而选择在家做家务，收入为零。于是该指标变成了度量家庭内部的收入不平等，和整个社会的收入不平等仍然没多大关系。</p><a href=https://project-gutenberg.github.io/Pincong/post/16459a553f94a0c278d489893cb94331/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/eccef2c86d42318d57e9c8c51298faa6/>PISA（国际学生评估项目）上海再次排第一，说明了什么？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
-<span>at 04 August 2020</span>, category :</div><p>知乎用户 chenqin​ 发表 一，PISA 在中国
-先花点功夫看看 PISA 项目在中国的具体情况。
-中国在 2006 年就已经开始了 PISA 试测，在 2009 年时正式加入，共有 12 个省、直辖市和自治区参加了 PISA 测试，除了上海之外，还包括天津市、河北省、吉林省、江苏省、浙江省、湖北省、海南省、四川省、云南省、宁夏回族自治区、北京市
-这里北京市只包括房山区。2012 的 PISA 项目也同样包括这 12 个地区。
-针对一些答案说 “将 PISA 测试推广到全国会有更好的表现” 这一观点说两点，
-1，从 09 年结果看，上海的 PISA 分数肯定属于全国最前列。
-@陆雨奇
-答案已经给出了 2009 年时公布的部分分数，我就不再引用了，可以看到中国总体平均分是 520，浙江是 563，而上海是 577。上海比全国平均高出 57 分。
-另一方面，Financial Times 的文章引用了 PISA 研究人员的说法：
-Mr Schleicher said: “We have actually done Pisa in 12 of the provinces in China.</p><a href=https://project-gutenberg.github.io/Pincong/post/eccef2c86d42318d57e9c8c51298faa6/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/ea6ce9603fc5da91217f312a570dbea1/>我国人口预计 15 年内是会逐渐分散在大中小城市，还是继续向大城市集中？我们应留在大城市发展吗？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
-<span>at 04 August 2020</span>, category :</div><p>知乎用户 周看看​ 发表 会继续向大城市集中，因为城市间的分工将进一步分化
-大城市将会享有更多发展机会，不过相对的，中小城市也会变得更宜居，各取所需
-这涉及到 “地方政府竞争” 模型的崩解，与国家宏观调控的再兴
-_“两会”结束，“十三五”出台，众说纷纭。除了说出来的话，比如医保、社保、环保、温饱这些热点话题，我们还要去看那些藏在种种举动之下而没有说出来的话。作为一个城市研究者，我从 “两会” 前后的只言片语和种种迹象里观察到的，是一次央地关系方面的悄无声息却影响深远的转向——“地方政府竞争”模型的崩解，中央集权以及宏观调控力度的加强。_在这个转向下，各个城市或许都要重新思索自身的定位和发展路径。
-1.“地方政府竞争” 模型是什么？
-2. 竞争的可持续问题一：国际环境的变化
-3. 竞争的可持续问题二：负面效应的显现
-4.“十三五” 宏观调控的新目的和手段
-5. 城市展望：座次已定之后
-1
-“地方政府竞争” 模型是什么？
-中国过去几十年的连续高速增长是一个经济奇迹，一再超出了传统理论的预期，经济学家们不得不提出种种新理论试图去解释中国的经济发展，其中，张五常在《中国的经济制度》（2009）一书中提出的 “地方政府竞争” 模型，是我觉得最有说服力的解释之一。
-在很多人比如曾经的我眼中，“政府”是一个整体：要么 “政府” 又做了多少大好事，要么有问题怪“政府”。事实上并非如此，我们的政府是一个庞大的代理人集群，内部又有复杂的关系：纵向有国 - 省 - 市 - 县 - 乡的划分，横向有各个部门的条条划分，也有各个地区的块块划分。
-中国政府的纵向层级 来源：戴维 · 艾尔文，中英中小企业扶持政策体系项目
-“地方政府竞争” 模型，就是从政府内部关系衍生出的经济增长模式，它依托几个基本原理和假设：
-原理一：上下级政府间的承包关系
-如果你有一大块土地，你自己种不过来，怎么办？很自然的选择就是雇一批人来，各自承包一小块替你种。当然，为了让雇工们更有积极性，不妨制定一些考评标准：能者多劳，去管理更大片的地；不能者下，交不上租的就换人。
-1994 年的 “分税制改革”，让中央政府从地方税收中拿去了大头，但是相应的，给了各地方一定的自主权去自谋生计。2004 年，省级以下地方政府的财权只有余下不到 17% 的水平，却负担 80% 的民生和绝大部分公共事务的支出。由于“支出责任” 的过度分散化，逼得地方政府不得不把自己变成 “企业” 去赚钱（吴晓波）。</p><a href=https://project-gutenberg.github.io/Pincong/post/ea6ce9603fc5da91217f312a570dbea1/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/10274793ca84344a17e9dcff620b0c6e/>为什么富人越来越富，穷人越来越穷？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
-<span>at 04 August 2020</span>, category :</div><p>知乎用户 一苇杭之 发表 前面讲富人思维的，是比较坏的，如果是个体现象，说个人思维还有可能，大面积群体如此，还讲思维，那就是忽悠人了，如果非说思维，也是物质基础塑造决定了思维，不是思维决定了物质财富。
-我之前写过农业税的答案，我继续往下写，农业税之后，农民富裕了么？no！
-我曾见好多人都说，你看现在农业有补贴，种地国家还反哺，真是好事，可以发财致富了，真是 naive 了。
-农业税取消后的第二年，我跟我老爹就算了一笔账，发现并没有增收多少，因为第二年与农业相关的农技产品就暴涨一倍，包括柴油、化肥、农药、良种等，还有各类农业机械也涨价了。这么一来，农业上的收益，又通过工业的渠道回去了。前一时间收小麦，我就说现在农民已经退出了农业价值循环了，地虽然是你承包的，但全程是机械种收你几乎不用参与，同样，收获的粮食除掉各类成本之后，也所剩无几，一个收割机过来，几百亩地平推了收割，其实跟割他自己农场的一样。农民这个角色，名存实亡。
-看明白了吧，当土地耕种不再是负担，而能盈利的时候，就会脱离农民的掌控，被踢出价值循环。
-这就是另外一种形式的 “多收了三五斗”，多收的三五斗也 “雨女无瓜”。
-同时，全机械的收割方式，让大量劳动力不用在农忙时候返乡收割，减少了工业劳动的空置时间，又增创了很多工业价值。
-农业的收益，通过工业的形式，重新返还上去，这种机制下，只需要通过工业产品的价格弹性调节，就可以把农民的收益控制住。
-这不是经济问题，这是政治手法。
-我工作那会工资普遍低，普工也就一千多，算上加班两千，大学生工资也低，后来轮番涨了好多次，公司招的小年轻打底也是五千，六七千很正常，特别的专业上万也有。收入增加很多是吧，但同时，其他房租、生活消费等也增长很快。一间小房子现在居然也租金近两千，这房子搁到我当初租的时候，撑不到四五百。薪资增加很多，落到手里并不多，还是穷。先予后取，如同朝三暮四，猴子也高兴，主人也高兴，皆大欢喜，其实猴子是空欢喜，主人是真欢喜。
-当然，并不是说现在没有原来好，进步还是进步的，其实大部分进步（生活提高）来自于科技进步，而不是社会进步，社会进步只占很小一部分。
-社会形式其实就是食物链机制，无论怎么变，最下面的总是贴线走，就是温饱挣扎，其他价值都被各种形式吃掉。只有极个别人能在社会变化的窗口期摸到鱼致富，从而改命运，大部分人都是代代塔基。
-在这种机制下，底层创造的价值被一定比例分成，而且是很悬殊的比例，可能是二八开，可能是三七开，对，是他自己的劳动成果的七成或者八成被拿走了。这就出现了一个两难的局面：
-1、他努力，生活会微小进步，“老板” 会极大赚钱，差距越来越大，虽然生活进步，但感觉却是一个越来越穷，另外一个越来越富；
-2、他不努力，生活就会掉落在温饱线之下，难以为继，越来越穷；
-至于勤劳致富，更多是驴子面前的萝卜，一个美丽童话而已。
-btw，中间层负责给下层传播这个萝卜的故事。
-好，现在给你选，无论 1 或者 2，你都不是赢家，而老板（广义的老板）都不是输家，任你选哦。
-建立并控制这种机制，才是稳赢的手段。
-知乎用户 如烟似梦 发表 当富豪沦为环卫工，才知道自己没资格批评穷人 原作者：Sumiu
-原出处：微信公众号：来了少年（ID：Flgh12）
-当富豪沦为环卫工，才知道自己没资格批评穷人
-《了不起的盖茨比》有一段经典对白：
-在我年纪还轻、阅历尚浅的那些年里，父亲曾经给过我一句忠告，直到今天，这句话仍在我心间萦绕。
-“每当你想批评别人的时候，” 他对我说，“要记住，这世上并不是所有人，都有你拥有的那些优越条件。”
-最近看了香港一个十年前的节目《穷富翁大作战》特别有感触。我们以为的香港生活是一个幸福的天堂，但是这部纪录片却呈现了另外一种场景。
-就像有人说的：“香港，表面上是一张华丽的包装纸，揭开它，你会看见两个极端。”
-《穷富翁大作战》的可贵在于，它提供了一种可能，让两个世界的人得以相见，并改变了一些人对贫穷的看法。
-关于贫困，我们一直以来的刻板印象，总把成不成功与一个人的思维和努力程度挂钩。
-你那么穷，还不是因为想法不对。
-你那么穷，还不是因为不够努力。
-但是如果一个人真的具备所谓富人思维和努力，就一定能够成功吗？
-看完这个节目的人，都不言而喻。
-导演邀请四位来自上层家庭的精英，他们中有商业大佬、富家二代、选美模特、金牌律师，他们要完成的挑战是抛弃原来的光鲜生活，去体验清洁工、单身母亲、流浪汉、小摊贩这些穷人的生活。</p><a href=https://project-gutenberg.github.io/Pincong/post/10274793ca84344a17e9dcff620b0c6e/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/ae1b74b535d8196fdc915cbfdf9b0fa5/>中国有六亿人每个月收入一千元，那么在中国月入多少钱算是高收入了呢？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
-<span>at 04 August 2020</span>, category :</div><p>知乎用户 匿名用户 发表 在知乎年入百万都是废物
-知乎用户 madheze 发表 首先，想分析这个问题，我先假设一个简单的例子：
-假设有这么一户家庭，丈夫月收入 1200，妻子月收入 1200，孩子在上学，月收入为 0。那么这个家庭到底有 3 个人 还是 1 个人 还是 0 个人 属于这 6 亿人中呢？
-第一种情况，三个人都属于这 6 亿人中的一员。那么造成这一现象的原因，就可以用 “地理” 上的差异来解释，比如：沿海地区经济发达，西部地区经济落后，农村人口收入相较城市过低，等等等等。
-第二种情况，三个人中只有孩子被统计到了这 6 亿人中。这种情况是相对比较 “乐观” 的，因为这 6 亿人实际上包含了 4 到 4.5 亿左右的所谓“无收入群体”，即学龄前儿童、学生和农村老龄人口（城市老龄人口因为有退休金，在这本文中被认为是有收入群体）
-注：这部分数据来源于百度搜索，2019 年我国总人口约 14 亿，城市人口与农村人口数目大致六比四，60 岁以上人口大约占百分之 18，0 到 16 岁大约占百分之 18，因此估算 0 到 22 岁大约占百分之 24。结合上文，24＋18＊0.</p><a href=https://project-gutenberg.github.io/Pincong/post/ae1b74b535d8196fdc915cbfdf9b0fa5/ class="btn btn-sm btn-outline-primary">read more</a></article><div class=mt-5><nav aria-label="Page navigation"><ul class="pagination justify-content-center align-items-center"><li class=page-item><a href=../../../Pincong/post/page/2964/ class=page-link>&#171;</a></li><li class=page-item><a href=../../../Pincong/post/page/2963/ class=page-link>2963</a></li><li class=page-item><a href=../../../Pincong/post/page/2964/ class=page-link>2964</a></li><li class="page-item page-item active"><a href=../../../Pincong/post/page/2965/ class=page-link>2965</a></li><li class=page-item><a href=../../../Pincong/post/page/2966/ class=page-link>2966</a></li><li class=page-item><a href=../../../Pincong/post/page/2967/ class=page-link>2967</a></li><li class=page-item><a href=../../../Pincong/post/page/2966/ class=page-link>&#187;</a></li></ul></nav></div></div></div></div></section><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../../plugins/jQuery/jquery.min.js></script>
+<i class="ti-menu h3"></i></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/>Home</a></li><li class=nav-item><a class=nav-link href=https://project-gutenberg.github.io/Pincong/post/index.xml>RSS</a></li><li class=nav-item><a class=nav-link href=https://bit.ly/2HrxEi0>Telegram</a></li><li class=nav-item><a class=nav-link href=https://twitter.com/speechfree3>Twitter</a></li></ul></div></nav></div></header><div class="py-5 d-none d-lg-block"></div><section class=section><div class=container><div class=row><div class="col-lg-8 mx-auto px-0"><h2 class=mb-4>Posts are showing from <span class=text-primary>Posts</span> categories</h2><div class="bg-white shadow block"><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/9bab23afa3d8f3ddc99192a57cb4fe31/>经济学家是如何预测未来的经济走势以及未来某一具体经济指标的具体数值？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
+<span>at 04 August 2020</span>, category :</div><p>知乎用户 记忆豆豆 发表 题主好，这个问题实在是太大了。不同经济指标的特性、数据可得性不一样，预测的方法也千差万别，最好问具体的某个经济指标怎么计算比较好。预测的精度要求、预测的即时性要求都会对预测方法产生影响，要知道未来某一具体经济指标的精确数值真的是不容易的。
+大体来说：指标构成和计算方法越明确，预测方法就越多。相关数据越多，通过数据校准实现的预测精度就越高。预测的时间节点越靠近发生的时间节点，预测方法上越依托真实数据、计量模型而不是黑箱模型、主观判断。
+-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+CPI 是大家最关心也是最不满的指标 ，比如
+@aohoas
+的吐槽，我拿它的预测来举个例子。
+下图是 CPI 月环比数据，通过观察，我们发现 CPI 环比存在一个约 12 个月的波动周期，环比增幅低点在 7、8 月份 (周期谷底)，高点出现在 1、2 月份 (周期峰顶)，波动上升期和波动下降期时间间隔均为 6 个月，在没有高频数据参考之前，对于 CPI 预测，我们会初步把 CPI 环比涨幅定为历史同月环比在过去 5 年的均值。
+是不是感觉有点不靠谱？当然！但须知道，在什么都不知道情况下，这可以说是一种 “最不坏” 的办法，一旦有更多的信息（例如高频的镜像观察数据、政策趋势上的判断），必然要有所调整。
+进行远期 CPI 环比测算方法有很多（这里远期一般界定为年初对全年的预测），往往依靠黑箱模型如 GM（1,1），BP 神经网络，混频模型，但内在机理不清楚，实际预测中难以解释 CPI 变动的原因，所以经济学家一般不会采用，经济学家往往是对带有经济规律性质的分项（主要是猪肉、蔬菜、衣服）的趋势进行预测，汇总得到。半年期或者对下一季度的 CPI 预测，主要基于宏观变量之间联系的模型，如野村证券使用产出缺口指标，名义有效汇率，广义货币供应量，前一个季度 CPI 的和大宗商品价格指标（CRB 现货指数）对 CPI 进行预测，方法的缺陷在于无法体现如食品采购、燃油补贴等最新政策效果。
+我们通常得到的 CPI 预测，是证券研究所发布的当月精确预测，依据 CPI 构成篮子中食品、非食品大类中各细分项的权重，参照高频数据，分别估算出 CPI 食品、非食品当月环比涨幅。最后依据下述公式得出 CPI 同比涨幅的预估值。</p><a href=https://project-gutenberg.github.io/Pincong/post/9bab23afa3d8f3ddc99192a57cb4fe31/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/5fd0ff79cab20749d344396eb33e335c/>如何看待 1966</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
+<span>at 04 August 2020</span>, category :</div><p>知乎用户 chenqin​ 发表 不知从什么时候开始，越来越多人开始对这样一件事抱有怀疑：文化大革命时期，我国经济到底有没有到崩溃边缘？有没有遭受严重损失？
+由于长期只有一种官方宣传声音，连这种丈二和尚摸不着头脑的怀疑竟然也慢慢滋长了起来。现在，被这样的观点所影响的人已经为数不少，感觉还是需要做一点简单的科普，来做个纠正。
+（上一次出现这种对官方宣传的大规模反动，大概已经是《蒋委员长铁血卫队大战雨花台》之类的帖子大行其道，微博上出现一大批国民党粉丝的时候了。其实，这两者很接近。）
+为了「不要让谣言重复一千遍变成事实」，我感觉有必要写这个回答。
+下表来自李成瑞的论文《 十年内乱期间我国经济情况分析—— 兼论这一期间统计数字的可靠性 》，该论文写于 1984 年，他将建国以来经济数据较为完整的年份划分为三个时期进行比较。
+可以看到，从 1967 年到 1976 年，是各项产出指标全面落后的时期——十四个指标全部落后于 1977-1982 年，还有十个指标的增速比 1953 到 1966 年要低。
+但这张表并不能打消人们的所有疑虑，反而成为了怀疑的起点。从这张表开始，一些人构建了他们对主流宣传怀疑的理论框架：
+1，文革期间进行了大量基础设施建设，为改革开放后的经济加速提供了基础，因此改革开放后的经济增长，不来自改革，而来自文革。
+2，文革之后，工资大幅度提高，享受消费增加，虽然短时间内提高了经济增长，但挤出了必要的基础设施建设支出，造成了 80 年代末期的经济波动。
+真的是这样么？
+一，结构失调
+首先从「积累率」这个名词开始讲起。积累率，可以看成是你为了未来的消费而放弃的当期消费。这部分被放弃掉的消费，通过一系列投资建设，变成了下一期的生产力。
+资料来源：《中国统计年鉴 1986》
+从上图可以看到，中国的积累率仅有两个明显的波动，第一次是在大跃进初期快速上升，而在大跃进后期所有项目一律停工时降到谷底；第二次是在文革初期全国内乱时下降，而在 70 年代初三线建设进入高潮时上升。而其他的时间段，积累率都较为稳定，在 30% 到 35% 左右。
+很显然，“文革期间进行了高积累”这个论断，从积累率这个数据上看并不能得到支持。那么 “文革高积累” 这个印象是从哪里来的呢？
+这里就要看另一个指标——历年主要产品新增生产能力。
+资料来源：中国固定资产投资统计资料（1950-1985）
+上表列出了不同时期的一些主要工业品的新增生产能力，为了便于查看，这里按照不同的五年计划来划分，其中三五（1966-1970）、四五（1971-1975）和一部分五五计划（1976-1980）的新增产品生产能力是在文革中建成的。
+可以看到：
+1，在钢铁与机械行业、支农行业，文革期间的产能增加非常明显
+3，在能源行业和交通行业，文革期间的产能增加与文革后相比各有高低；</p><a href=https://project-gutenberg.github.io/Pincong/post/5fd0ff79cab20749d344396eb33e335c/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/b2d55a7697dedf81ea5166e75471bb9b/>2016 年末北京常住人口中 15</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
+<span>at 04 August 2020</span>, category :</div><p>知乎用户 chenqin​ 发表 去年的早些时候，我回答了这个问题如何看待上海外来常住人口 2015 年首现负增长？，用了一个和人口高度相关的指标——居民用水量。无论是通勤还是居民用电，都可能会受到不少外部因素的干扰（比如空调用电量）。从经验上看，对上海来说，居民用水量和常住人口的走势几乎是一致的，如下图：
+前几天，经济观察报的一位记者张雅楠（
+@猫宁
+） 找到我，她本想用这套方法看看北京疏解人口的效果如何，可她发现，上海的这套方法在北京似乎不管用，北京的用水增长和人口增长不太对的上。
+我仔细看了一下数据，发现确实不管用……
+这是北京市近几年的人口增长情况，来自前两个月刚刚公布的北京市 2016 年度统计公报北京市 2016 年国民经济和社会发展统计公报
+从上图可以看到，北京市疏解人口初见成效，最起码增长率是一年比一年低了，2016 年只增加了千分之一的人口，仅有 2012 年增加人口的二十五分之一。
+可是当我们把北京的常住人口和居民用水量放在一起，像上海那样做一张图，问题就来了。
+这里能看到两个奇怪的现象：
+1，人口上升速度要远远慢于居民用水上升速度，从 2011 年到 2016 年，人口上升了 7.6%，用水量却上升了 26%。而在上海，同样时间段两个数字的对比分别是 5.2% 和 4.9%，可以说是同比例上升。
+2，人口是减速上升，而用水量却是加速上升，下一张图能看得更清楚：
+从 2011 到 2016 年，常住人口年增长率从 2.89% 下降到千分之一，可居民用水增长率却从每年 3.1% 上升到 2016 年的 14.9%。
+到底是出了什么问题？我猜有几种选项：
+1，当然是居民用水统计错了。
+2，其实是北京居民用水习惯改变了，洗澡 / 加湿 / 零零总总，每个人的年均居民用水量五年来增长了 17%（虽然与此同时上海人民的用水习惯并未改变）。这个问题我问过一些在京朋友，您的生活用水量增加了吗？但是还没得到特别有说服力的证据。</p><a href=https://project-gutenberg.github.io/Pincong/post/b2d55a7697dedf81ea5166e75471bb9b/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/7a9036f0238ff1cbe0d34a34f4c56496/>有哪些看似荒谬，其实很科学的理论？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
+<span>at 04 August 2020</span>, category :</div><p>知乎用户 鱼舆君 发表 古文字释读过程中，一项重要的方法就是——猜。
+因为很多字真的不知道是什么意思，或者看不懂，或者看得懂但是放进文中完全是狗屁不通，此时只能靠猜。
+至于什么时候猜对，什么时候猜错，也没有正确答案，一般而言，能读通就是猜对了。毕竟释读古代文字的主要目的就是了解古人说了什么，能读通，说明了解了古人说了什么，文字释读的目的就达到了，自然算猜对。
+当然了，是结合现有文献和现有知识，有目的性地猜。
+比如，《侯马盟书》里就有一段非常让人摸不着头脑的话，字很好认，写成现代的字就是 “麻夷非是”。
+真的，不靠猜，鬼才知道这 4 个字放在一起想要表达什么意思。
+后来，有学者从其他文献中找到了释读这段话的线索。
+《左传》里有：“有渝此盟，明神殛之。” 看了上面 4 个字，再看这 8 个字，就跟我看了满眼天书的韩语再看汉语一样，太好理解了，就是如果背叛这个盟约，就有神明带你上天。
+另外，《公羊传》中也有一句类似，晋公子鱄说：“苟有履卫地，食卫粟者，昧雉彼视。”
+“昧雉彼视”也不好理解，但这位公子说，如果有人敢踏上卫国土地，吃卫国的粮食，那么…… 显然，听起来像 “妹纸鄙视” 的这句话，一定是句狠话。
+学者很快从 “明神殛之” 这句话找到灵感，认为 “昧雉彼视” 的意思应该是灭了他的氏族。
+“彼 = 他们的” 这很好理解；视和氏读音相同，而且视常常写作左边一个氏右边一个见（这个字打不出来，差评），是通假字；昧和灭读音相近，通假；雉嘛，应该也是和灭差不多的意思。
+这样一猜，就解释得通了，如果有人敢踏上卫国土地，吃卫国的粮食，就灭了他全家。
+这个解释简直毫无 PS 痕迹。
+再来猜 “麻夷非是” 就好猜得多了。
+毕竟侯马盟书嘛，首先你要知道侯马是个地名，侯马盟书就是在侯马这个地方出土的盟书，既然是盟书，自然就有相关要做什么的约定，也有违背约定的制约措施。那时候人们都迷信，因此制约措施多是 “明神殛之”、“妹纸鄙视” 之类的话。“麻夷非是”也是。
+麻 = 灭，读音相近，通假，这个很好猜；
+夷就是夷灭的意思，“夷三族” 什么的也很常见（不容易呀，见到字形和意思都常见的字）；
+非 = 匪 = 彼，经评论区提醒，诗经里常见这种用法；</p><a href=https://project-gutenberg.github.io/Pincong/post/7a9036f0238ff1cbe0d34a34f4c56496/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/db274c25f0614011749c7b9e362da789/>如何评价男生因为让妹子 “用农夫矿泉水加喷壶”（成本不足 10 元）替代雅漾大喷 &lsquo;，而遭许多妹子反驳的事？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
+<span>at 04 August 2020</span>, category :</div><p>知乎用户 陈曦​ 发表 打击理工男，还得用理工男自己的方式：
+农夫山泉矿泉水采用天然水源，并不是去离子水。
+数年以前，清华大学化学系分析化学和超分子化学实验室突然发现，哇哈哈纯净水达到了色谱纯，完全可以当超纯水用。
+从此我们接到卖超纯水及其制水机的传单就直接垫在旋蒸底下了。
+但是哇哈哈纯净水为了保证有过量的除菌能力，似乎会多充一点臭氧，影响口感，多少还有点氧化性。
+我多方寻访，听说隔壁和做药化的实验室都在用怡宝。
+所以我毕业以后日常饮水就直接买怡宝桶装水了。
+色谱纯超纯水骑脸怎么输！我也没有女朋友谢谢。
+知乎用户 魏俊年​ 发表 让我回答这个问题，其实我是拒绝的，毕竟我又没有拿雅漾的钱，要是替他们说好话会不会太亏？如果有人良心发现，请一定要给我补款。。。
+主要是说这个大喷只值 10 块钱，自己买个喷头灌娃哈哈就行，这个说法稍微有点过分了。虽然这玩意不值 180，但也不是 10 块钱能搞定的。。。然后，以我对化妆品的税率和商场进驻费的了解，卖 180 的东西，材料成本必须在 20 以内才能有得赚。相信我，大部分你用的卖 20 的东西，材料成本可能还不到 2 块钱。。。所以只算材料费意义真的不大。
+首先是品牌溢价。这个真不是智商税，是指对方承诺用的是法国的温泉水，那用的就真的是法国温泉水。这个诚信度是很值钱的。
+举个我实验室的例子，一包塑料瓶，承诺密封无菌，不知道贵到哪里去了。就这么贵，我们还只敢多花几倍钱买某进口品牌。为什么？我们的其它耗材和人力成本更贵，万一买回来个承诺无菌，结果是昧良心的不合格品，我们实验失败，就亏疯了。
+所以说品牌本身诚信度是很值钱的。瓶子里面的水成本就按 3 块钱算吧，不能更多。
+其次是瓶子。高压氮气填充的主要目的是尽量减少使用过程中，把空气中的细菌吸到瓶子去。普通瓶子灌水喷是不能做到这点的。喷嘴的设计也是为了使喷出来的水雾到脸上感觉更舒服。水滴的大小带来的触感，皮肤是能轻易察觉的。
+当然这个瓶子就算这样我估计也不会超过 20 块钱，量产估计更便宜就算 10 块吧。算上设计包装之类，一瓶雅漾大喷材料成本 15 块钱左右，卖 180 属于差不多，绝大多数化妆品都是这个比例。
+// 看到评论区说原产地一瓶 5 欧，算算汇率，那我估计材料成本必须在 8 块钱以内才行。考虑到你抽一包 40 的烟，其中烟叶成本也不会超过 5 块钱。。。不多说了。知道我老家嘉鱼县的有机大白菜吗？畅销海内外十几个国家地区，一颗武汉菜场卖 4 块钱，菜地收购价印象中一颗不到 3 毛？只算材料成本真的没多大意思。</p><a href=https://project-gutenberg.github.io/Pincong/post/db274c25f0614011749c7b9e362da789/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/ee2ce6e2b82c2b4550128853e0f12ee6/>高中阶段如何自学些经济学知识？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
+<span>at 04 August 2020</span>, category :</div><p>知乎用户 chenqin​ 发表 看到问题，不禁想到了十五年前的我。
+我所在的高中，每个学生在高一时需要完成一项研究型课题。当时比较喜欢看各种杂书，不知道哪一天在一本书上读到了分形的种种特性，每一个部分都和整体一样云云。于是脑海中波涛汹涌，觉得这就是我毕生要研究的课题了！
+就纠集了同班另外两个「觉得研究数学物理真的好酷」的男生向老师自告奋勇，做了一项非常有挑战的课题——分形的性质研究。老师很高兴呀，说嗯这是一个有趣儿的课题你们加油去研究吧~
+当然，分形只是炮灰。因为在我们第一天壮志满酬地赶往上海图书馆打算查阅一些关于分形的资料时，我就被另一本书吸引了，然后就一直看，每次去图书馆都看，一直到把书看完。
+这本书的书名是《微观经济学》，作者保罗萨缪尔森，第 16 版。
+厚厚的书，砖头大，翻译腔，高大上的课后习题。看这样的书，让当时的我有一种掌控感，对世界的掌控感。好像我不再是那个只能解数学物理题的少年，而是可以对世界大局，国家政策进行分析的专业人士了，甚至可以在新闻联播时说上几句，评价一下到底好不好，应不应该，怎么样的政策才对。
+然后就在一个晚饭，我对新闻中的世界形式和石油的供求关系侃侃而谈时，我爸对我说：
+「儿啊，我们要拍车牌了，帮我们算算下个月车牌出多少钱比较好。」
+嗯，我大概就是一脸懵逼的吧。
+我说，这个，这个需要学博弈论啊，我只看了微观经济学，还没看博弈论。然后我爸说，没关系，你算算看嘛，然后我们一块儿讨论下，看你算得有没有道理。
+说句题外话，当我研究生学完了博弈论了以后去和朋友玩儿一个有关艺术品拍卖的桌游，我严格按照竞标人数，我了解到的朋友们的风险厌恶程度等等指标来计算最优出价，然后大家就看到我出价前非常严肃认真地计算着什么，最后还输得一塌糊涂。
+说回车牌拍卖的事儿。当天晚上，经过 “网上搜索专家预测价格求平均”、“用时间对价格做最小二乘法并且外推”、“用时间和时间的平方对价格做最小二乘法并且外推” 并且被我爸多次打回之后，我终于用到了一点点经济学，我重新翻了《微观经济学》的书，设计了一个简陋的模型，用不知道哪里找来的上海车辆销售数的年度数据，还有上海市年度人口，非常勉为其难地预测了下个月的车牌拍卖价格。
+我已经想不起来到底是如何用年度数据来预测月度指标的了，可能用到了一点移动平均吧，但唯一记得的是，当时能用到的数据可真少呀。
+我爸看到这个有需求和供给的预测感到很高兴，他说，这个看起来有点逻辑。然后他们真的用这个价格去拍了车牌，以高出底价近 800 元的价格拍到了车牌——虽然最终证明那几个专家的平均价格是最准确的。
+我对经济学产生真正的兴趣，大概就是从拍牌成功时开始的。
+所以我想对题主说的是，作为一个高中生，学习经济学，可能有这几点小小的诀窍：
+1，不要自虐地学，你这个时候去把数学都给学了，去学 MWG 之类艰深的课程，在很大概率上，会觉得很无趣，可能会提早放弃。而最坏情况下，你会以一种少年老成看破世事的态度放弃，然后多年后会对后来的高中生说，「经济学啊，我高中就学过，那都是数学。」
+2，不要因为矫情的理由去学。粗俗点说，不要因为装 X 的需求去学。这种需求无法长久地支撑你继续学下去，也会让你把精力过多地分配在背诵术语上，基础会不扎实。这么学到最后，你将无法做出有价值的分析。
+3，尽量不要尝试去系统地学。高中学习经济学，没有老师带，没有习题课，没有助教，关键是没有同辈压力，系统学习是很难的。每一个章节，你如果没有对现实的理解，没有学习的需求，你会机械般地过掉知识点，然后自己骗自己学会了，同时给自己很多沮丧和无趣的感觉。这是浪费时间。
+4，唯一能驱动你长久学习的，是兴趣，而兴趣的背后，是解决问题，满足好奇心的成就感。所以，一定要让你的学习充满对真实世界的好奇心。碰到一个问题就问 “为什么”，想要知道什么就问 “怎么办”。好奇心会让你有的放矢地学习，同时让你能够比较扎实地学习，因为你真的需要他来解决问题。而这些问题，可能是下个月拍牌价格，可能是一条让你感到无比狐疑的新闻材料，甚至是一个知乎问题。不要犹豫，马上动手去做，碰到不会的，就问，就搜索资料，直接把东西学到手。解决问题的快乐，比装 X，比自虐，或者骗自己掌握了某种知识，那可要高上几个数量级了。
+5，找人讨论，找那些喜欢挑你的刺儿，但是足够聪明的人讨论。高中学习经济学，你知道了一点专有名词，也没有收到打击，一个孤独的学习者的形象完美呈现，此时飘飘然是难免的。但要记住的是，一个高中生再怎么学，理解的范畴也不会超过另一个同班的高中生，除非他是天才。因此，对朋友们讲清楚你解决问题的逻辑，请他们来攻击你，会让你立刻知道自己哪里掌握的不够扎实，哪里的问题还没搞清楚，这对你会有很大的帮助。这么做的前提是你得有能力让朋友们明白自己在说什么，如果他们听不懂，那么你必然没有学好。
+通过这些，我在学完《微观经济学》之后也陆陆续续补充了很多知识点，虽然零散，但在大学系统学习时，就有了融会贯通的感觉，一下子觉得手中的工具箱又变多了，又可以解决好多问题。
+以上几点，其实就是 Stay hungry，Stay foolish——保持好奇，保持谦逊。现在的学习条件，比我高一时要好太多，什么数据都有，什么材料都有，想要找人讨论很容易，获得指导也不难。祝题主在经济学的学习道路上，找到快乐。
+知乎用户 冯晗​ 发表 很赞成
+@chenqin
+大神的观点，在高中阶段对经济学的学习，应当以培养兴趣、扎实基础为主。不过，题目被编辑过了，学经济学知识并不只是为了成为经济学家，所以我想从其他角度去回答下这个问题。
+大多数人在高中时都面临高考压力，因而除非能早早搞定保送，否则花太多时间在经济学上并不明智。虽然我也觉得至少部分经济学的知识应当成为高中生必修的内容，但这毕竟还不是现实，所以把经济学当成休闲用的课外书，放松时看看，调剂下被主课摧残的大脑，是可行的。但把本该准备高考的时间花在硬啃 MWG 上就没意思了。等高考结束，你还有大把的时间来做这个。</p><a href=https://project-gutenberg.github.io/Pincong/post/ee2ce6e2b82c2b4550128853e0f12ee6/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/aec3554d8be1e782b7c7fc766b801d0a/>如何看待国务院《国家人口发展规划（2016－2030 年）》中 2030 年总人口 14.5 亿左右的目标？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
+<span>at 04 August 2020</span>, category :</div><p>知乎用户 chenqin​ 发表 和绝大部分经济变量不同，人口是一个特别好预测的数字，只要几个变量，你就可以轻松预测未来十多年内可能发生的事情，而且还八九不离十。比如联合国的人口预测机构每年都会出一个对未来的预测，我们来看 2000 年时他们的预测：
+http://www.un.org/esa/population/publications/wpp2000/chapter5.pdf
+这张表格说的是，人口突破 70 亿的那天将会在 2012 年到来，并在 2026 年达到 80 亿。而在该预测十多年后的数据显示，人口突破 70 亿的那天，恰好就是 2012 年——美国人口调查局的数据显示全球人口在 2012 年 3 月 12 日突破 70 亿；而联合国人口基金会则显示全球人口在 2011 年 10 月 31 日达到 70 亿。
+人口的预测之所以简单，是因为人们的各种生育决策在整个社会没有剧烈变动时是很难改变的。即便是 80 年代中国的一胎政策，对人们的生育影响也并不是很大（在中国当时的条件和大背景下，如果不实施计划生育，那么有什么更好的方法解决当时中国的人口问题？ - chenqin 的回答 - 知乎）。因此，研究者可以在假设各种变量变化不大的情况下，方便地推算未来人口，算出的结果也不会有多大错误。
+所以，当看到《国家人口发展规划（2016－2030 年）》中 2030 年总人口 14.5 亿左右的目标时，我是吓了一大跳的。毕竟，2030 年只剩 13 年就到了，而联合国对中国人口的预测——就是那个提前 12 年预测了世界人口的组织——基本上峰值就在 14 亿或者稍微超过一点点。具体数据可以从 un.</p><a href=https://project-gutenberg.github.io/Pincong/post/aec3554d8be1e782b7c7fc766b801d0a/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/d23cabc3bb699da10c1543e5467816a1/>如何看待 2016 年出生人口数量不及预期？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
+<span>at 04 August 2020</span>, category :</div><p>知乎用户 铅笔纵队 发表 二孩确实是在增加，但一孩数量下降太快~ 因为年轻人数量越来越少，结婚压力大，生育意愿非常低… 过完 2017 年，随着有限的二孩生育欲望的释放，50、60 年代中国婴儿潮一代逐渐进入死亡年龄段，中国的人口结构将严重恶化，而且不可避免…
+我们明年再谈这个问题，就能发现，中国人口快要迎来负增长了…
+知乎用户 强哥 发表 2016 年人口出生总量没有显著增加的主要原因是一孩出生数的下降，主要是 20 到 29 岁生育年龄旺盛期妇女数的下降，今后这个人数将以每年 50 万人左右的规模下降，一孩出生人数将由每年 880 万人降至每年 600 万左右规模，现在高等教育毛入学率已到 40%，5 年前还是 20%，受教育水平越高初婚生育率和总和生育率越低，到 2020 年后新生儿出生数不足 1200 万（五年内二孩生育堆积肯定会释放完毕，二孩出生数不如一孩多是肯定的），人口迫近负增长，目前东三省人口已经在负增长了。
+国家统计局 2016 年出生人数已经公布为 1786 万人，2016 年生育旺盛期妇女数（20——29 岁）比 2015 年减少近 400 万人，一孩出生人数降至 840 万人左右，三孩以上出生人数 110 万人左右，那么 2016 年二孩出生人数应在 840 万人左右，二孩出生占比由 2015 年的 40% 上升至 2016 年的 47%。</p><a href=https://project-gutenberg.github.io/Pincong/post/d23cabc3bb699da10c1543e5467816a1/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/3a50101bbc1a98bb742302d3a0fb03db/>大跃进时期的三年困难时期是厄尔尼诺现象还是小冰河？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
+<span>at 04 August 2020</span>, category :</div><p>知乎用户 chenqin​ 发表 大跃进期间的自然灾害相对来说确实很严重，但并不是造成非正常死亡的主要原因。从下图可以看到，从 1950 年到 1980 年，农作物成灾（成灾意味农作物损失在 30% 以上）面积有两次接近 3000 万公顷，一次发生在大跃进期间，另一次在 1980 年。在 1960 和 1961 年，农作物成灾的面积达到 2000 万公顷以上。
+但是两次自然灾害比较，1980 年的粮食产量只比 1979 年低 3.5%，仍然是建国以来的第二高水平，但 1960 和 1961 的粮食产量，别说和大跃进前相比了，比 1952 年都要低。就看从 1954 年到 1969 年这 16 年里成灾面积最低的 1958 年，短短半年间也出现了这样自相矛盾的两个文件：
+1958 年 6 月 29 日，《中共中央批转河南省委关于夏收夏种工作的简报》
+今年小麦及夏季作物已获得空前丰收。全国比去年增产百分之六十左右。河南省今年夏收增产最突出，比去年增产一百一十四亿斤，增长百分之一百一十七，占全国夏收增产总数四分之一以上。
+1959 年 1 月 10 日，《中共中央转发河南省委关于浮肿病治疗情况报告的批示》</p><a href=https://project-gutenberg.github.io/Pincong/post/3a50101bbc1a98bb742302d3a0fb03db/ class="btn btn-sm btn-outline-primary">read more</a></article><article class=mb-5><h2 class=h4><a class=text-dark href=https://project-gutenberg.github.io/Pincong/post/1d03786c505c5466641fd82f039f6b86/>为何中国的 GDP 平减指数和消费者物价指数相差较大？且 GDP 平减指数很多时候大于消费者物价指数？</a></h2><div class=mb-3><span>by <a href=../../../Pincong/author/></a></span>,
+<span>at 04 August 2020</span>, category :</div><p>知乎用户 chenqin​ 发表 谢谢邀请，第一个问题，为什么中国的 GDP 平减指数和消费者物价指数相差这么大？
+GDP 平减指数和消费价格指数有关系，但并不是一个概念。CPI 衡量的是消费者所购买的消费品的价格变动情况，但 GDP 平减指数衡量的是 GDP 构成里所有产品的价格变动情况，两者是不一致的。
+想象一个只生产香蕉的国家，这个国家的居民只需要消费本国生产的香蕉就能吃饱，剩下的香蕉全部出口。
+今年，这个国家生产了 100 根香蕉，国内消费 20 根，每根 1 元；80 根出口，每根 1 元，他的现价 GDP 是 20*1+80*1=100 元。
+明年，这个国家生产了 120 根香蕉，国内消费 20 根，每根 1.5 元；100 根出口，每根 1 元，他的现价 GDP 是 20*1.5+100*1=130 元。
+这个国家的名义 GDP 增长率 = 130/100-1=30%
+但我们再来看这个国家的不变价 GDP，不变价 GDP，意思是说这个国家的产品价格不变，他的 GDP 会有多少，衡量的是实际产出的上升。这个国家只生产香蕉，那么他的香蕉产出从 100 根到 120 根，上升了 20%。</p><a href=https://project-gutenberg.github.io/Pincong/post/1d03786c505c5466641fd82f039f6b86/ class="btn btn-sm btn-outline-primary">read more</a></article><div class=mt-5><nav aria-label="Page navigation"><ul class="pagination justify-content-center align-items-center"><li class=page-item><a href=../../../Pincong/post/page/2964/ class=page-link>&#171;</a></li><li class=page-item><a href=../../../Pincong/post/page/2963/ class=page-link>2963</a></li><li class=page-item><a href=../../../Pincong/post/page/2964/ class=page-link>2964</a></li><li class="page-item page-item active"><a href=../../../Pincong/post/page/2965/ class=page-link>2965</a></li><li class=page-item><a href=../../../Pincong/post/page/2966/ class=page-link>2966</a></li><li class=page-item><a href=../../../Pincong/post/page/2967/ class=page-link>2967</a></li><li class=page-item><a href=../../../Pincong/post/page/2966/ class=page-link>&#187;</a></li></ul></nav></div></div></div></div></section><footer class="py-4 bg-light border-top"><div class=container><div class="row justify-content-between align-items-center"><div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0"><a href=https://project-gutenberg.github.io/Pincong/><img src=https://project-gutenberg.github.io/Pincong//images/logo.png class=img-fluid alt=品葱*精选></a></div><div class="col-lg-4 text-center mb-4 mb-lg-0"><ul class="list-inline mb-0"></ul></div><div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0"><ul class="list-inline social-icon mb-0"><li class=list-inline-item><a href=https://pincong.rocks/><i class=ti-home></i></a></li><li class=list-inline-item><a href=https://github.com/Project-Gutenberg/Pincong><i class=ti-github></i></a></li></ul></div><div class="col-12 text-center mt-4"><span></span></div></div></div></footer><script src=../../../plugins/jQuery/jquery.min.js></script>
 <script src=../../../plugins/bootstrap/bootstrap.min.js></script>
 <script src=../../../plugins/search/fuse.min.js></script>
 <script src=../../../plugins/search/mark.js></script>
