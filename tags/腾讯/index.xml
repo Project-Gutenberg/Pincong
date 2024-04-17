@@ -1,4 +1,6 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>腾讯 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E8%85%BE%E8%AE%AF/</link><description>Recent content in 腾讯 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Tue, 30 Jan 2024 12:05:31 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E8%85%BE%E8%AE%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>动物都是好动物</title><link>https://project-gutenberg.github.io/Pincong/post/cd1aa6ab09ec947aa59e9fb660aafc2f/</link><pubDate>Tue, 30 Jan 2024 12:05:31 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/cd1aa6ab09ec947aa59e9fb660aafc2f/</guid><description>原创 杨乃悟 星球商业评论
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>腾讯 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E8%85%BE%E8%AE%AF/</link><description>Recent content in 腾讯 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Wed, 10 Apr 2024 08:22:46 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E8%85%BE%E8%AE%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>腾讯云：颜面尽失的草台班子</title><link>https://project-gutenberg.github.io/Pincong/post/c6b1a6ec8135aefca7894f9a9ae9c732/</link><pubDate>Wed, 10 Apr 2024 08:22:46 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/c6b1a6ec8135aefca7894f9a9ae9c732/</guid><description>昨天下午，2024年04月08日，腾讯云出现了一场全球性的大故障，用腾讯云官方的说法，崩了 74 分钟（15:31 - 16:45），波及全球 17 个区域与数十款服务。
+事实影响是什么 但这与我观察到的事实不符 —— 从故障范围上来说，这次的故障几乎是去年阿里云双十一史诗级大故障的翻版 —— 小道消息是整个管控面 GG，云 API 挂了，所以现象与去年阿里云如出一辙：依赖云 API 的云产品控制台不能用了。
+被管控的纯资源， …</description></item><item><title>动物都是好动物</title><link>https://project-gutenberg.github.io/Pincong/post/cd1aa6ab09ec947aa59e9fb660aafc2f/</link><pubDate>Tue, 30 Jan 2024 12:05:31 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/cd1aa6ab09ec947aa59e9fb660aafc2f/</guid><description>原创 杨乃悟 星球商业评论
 星球商业评论
 微信号 xqnews
 功能介绍 星球之上无新事
@@ -398,10 +400,4 @@
 我们行内人很清楚，一个社交软件自己就能存余额，那要监管和银行干啥用。用户对财付通印象还不够深。
 可是多数人就是这么认为的，钱在微信。
 以前一张电话卡和一个银行卡做做生意。
-不会因为你电话骚扰营 …</description></item><item><title>如何看待腾讯启动最大规模校招，规模 5000 人以上，技术岗位占比 65% ？反映了互联网求职什么情况？</title><link>https://project-gutenberg.github.io/Pincong/post/a8085ef8778296f1e0b93fe391895d5e/</link><pubDate>Sat, 22 Aug 2020 06:51:45 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/a8085ef8778296f1e0b93fe391895d5e/</guid><description>知乎用户 梨视频​ 发表 我在最近几个月各个回答里都已经把这个方向说得很清楚了：
-经济形势不好，企业倾向于降低内部成本。研发中心作为最大的成本中心，是所有老板心里的痛。
-研发中心裁员、降薪、加班是必然的，无论你怎么说，CTO 必须要表达出这样一个与全公司同舟共济的态度，否则滚蛋的就是他。
-这一个月密集聊了大概 20 个 CTO。
-所有的 CTO 全部指向同一个问题：投入产出比的度量和提升。
-究其原因，全部都是，老板要求。
-这就是企业在逆 …</description></item></channel></rss>
+不会因为你电话骚扰营 …</description></item></channel></rss>
