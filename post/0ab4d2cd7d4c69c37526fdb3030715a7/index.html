@@ -12,7 +12,7 @@
 攻击者首先向漏洞服务器发起攻击请求，通过 Log4j2 记录攻击请求中包含的基于 JNDI 和 LDAP 的恶意负载向漏洞服务器发起攻击请求（利用 JNDI 来执行 LDAP 协议注入的可执行代码）。
 记录的恶意负载被触发后，服务器通过 JNDI 发出请求。由于攻击请求中的地址是攻击者控制的地址，因此其可以在请求响应中植入恶意可执行脚本，从而成功利用此漏洞在目标服务器上进行远程代码执行，进而攻击服务器。
 托 Apache Log4j 2 的福，这次漏洞影响的范围非常之广（Apache Log4j 2 一款非常流行的开源 Java 日志记录组件）
-详细漏洞披露，可查看： "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/161.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+详细漏洞披露，可查看： "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/114.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
