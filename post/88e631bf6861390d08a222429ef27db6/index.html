@@ -34,7 +34,7 @@ iptables只是简单转发，没有负载均衡功能，并且配置相对不友
 一个比较好的解决方法是在国内的VPS上挂载负载均衡器，后端挂着多台国外VPS，一个IP被封杀则自动切换到下一个。
 并且多线程下载时也有加速效果。
 中转工具 常用的、也是网上最常搜到的中转方案，是使用iptables和HaProxy 两个工具都有致命缺点：
-iptables只是简单转发，没有负载均衡功能，并且配置相对不友好。 HaProxy是专门的负载均衡器，可惜只支持TCP。虽说大多数时候够用，但很多时候我们确实需要UDP，譬如查询DNS或者玩游戏。 所以这篇文章主要介绍用Nginx来进行流量转发和负载均衡，它支持UDP这一点弥补了HaProxy的不足。 并且Nginx支持插件扩展，可以实现更丰富的负载均衡功能。 "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/69.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+iptables只是简单转发，没有负载均衡功能，并且配置相对不友好。 HaProxy是专门的负载均衡器，可惜只支持TCP。虽说大多数时候够用，但很多时候我们确实需要UDP，譬如查询DNS或者玩游戏。 所以这篇文章主要介绍用Nginx来进行流量转发和负载均衡，它支持UDP这一点弥补了HaProxy的不足。 并且Nginx支持插件扩展，可以实现更丰富的负载均衡功能。 "><meta name=og:image content="https://project-gutenberg.github.io/Pincong//images/card/24.jpg"><script data-ad-client=ca-pub-6074407261372769 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-06HJ1E5XNH"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-06HJ1E5XNH')</script></head><body><header class="fixed-top navigation"><div class=container><nav class="navbar navbar-expand-lg navbar-light bg-transparent"><a class=navbar-brand href=https://project-gutenberg.github.io/Pincong/><img class=img-fluid src=https://project-gutenberg.github.io/Pincong//images/logo.png alt=品葱*精选></a>
 <button class="navbar-toggler border-0" type=button data-toggle=collapse data-target=#navigation>
