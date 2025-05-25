@@ -1,3 +1,17 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>自研 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E8%87%AA%E7%A0%94/</link><description>Recent content in 自研 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Fri, 06 Aug 2021 05:49:02 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E8%87%AA%E7%A0%94/index.xml" rel="self" type="application/rss+xml"/><item><title>为什么中国做游戏引擎的公司没有像美国的 unity unreal 一样能跑的出来？</title><link>https://project-gutenberg.github.io/Pincong/post/17ac5031e89441c5d89f39930ddc75bf/</link><pubDate>Fri, 06 Aug 2021 05:49:02 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/17ac5031e89441c5d89f39930ddc75bf/</guid><description>知乎用户 王哲​ 发表 作为 Cocos 创始人 &amp;amp; CEO，我觉得会有三方面原因吧，首先是时间，二是商业环境，三是人才。这三者又相互关联。
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>自研 on 品葱*精选</title><link>https://project-gutenberg.github.io/Pincong/tags/%E8%87%AA%E7%A0%94/</link><description>Recent content in 自研 on 品葱*精选</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Copyright © 品葱*精选</copyright><lastBuildDate>Sun, 25 May 2025 12:51:26 +0000</lastBuildDate><atom:link href="https://project-gutenberg.github.io/Pincong/tags/%E8%87%AA%E7%A0%94/index.xml" rel="self" type="application/rss+xml"/><item><title>如何看待 ARM 官网紧急下架小米玄戒 O1 相关文章？</title><link>https://project-gutenberg.github.io/Pincong/post/9743ee433e087d207218ffa4e4d517d4/</link><pubDate>Sun, 25 May 2025 12:51:26 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/9743ee433e087d207218ffa4e4d517d4/</guid><description>知乎用户 零下十度以下 发表 这篇文章要是不下架，小米还能跟人争一下英语翻译解释权这个事。
+现在下架了，解释权都没法争，直接变成了甲方强令乙方闭嘴了。
+不得不说，OTA 虽然好用但是也得分场合啊，这逆风局可不好打。
+知乎用户 精神科郑主任 发表 ARM 在 24 年开发的新业务 CSS，本来想乘这波打一下广告，结果 OTA 了。
+谁说外国人不加班的？凌晨 4、5 点就起来删帖。
+如何看待紧急下架？那自然是：看来哪儿都有牛马。
+知乎用户 …</description></item><item><title>如何看待 ARM 新闻” 小米玄戒 O1 基于 Arm 的标准化 IP 进行定制化开发的​​' 以及极客湾的科普？</title><link>https://project-gutenberg.github.io/Pincong/post/3483e8d29865e2d1091c5bd7a219c107/</link><pubDate>Sun, 25 May 2025 12:50:50 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/3483e8d29865e2d1091c5bd7a219c107/</guid><description>知乎用户 书山 WENHAI​ 发表 正方：custom chip 的意思是客户自定义的芯片所以是自研芯片；
+反方：xring 是用了 arm 套餐定制的芯片所以是定制芯片；
+实际：xring 是用了 arm 套餐定制的客户自定义芯片；
+问 1：是不是买了 IP 和服务？
+答案：是。
+问 2：买 arm 的 IP，用 arm 的服务算不算自研？
+答案：算。
+问 3：以前是用 arm 方案，现在也是 arm 方案，有什么区别？
+答 …</description></item><item><title>为什么中国做游戏引擎的公司没有像美国的 unity unreal 一样能跑的出来？</title><link>https://project-gutenberg.github.io/Pincong/post/17ac5031e89441c5d89f39930ddc75bf/</link><pubDate>Fri, 06 Aug 2021 05:49:02 +0000</pubDate><guid>https://project-gutenberg.github.io/Pincong/post/17ac5031e89441c5d89f39930ddc75bf/</guid><description>知乎用户 王哲​ 发表 作为 Cocos 创始人 &amp;amp; CEO，我觉得会有三方面原因吧，首先是时间，二是商业环境，三是人才。这三者又相互关联。
 1. 时间 国内在端游时代也有不少引擎大神，都是我的前辈，但基本都是给各家游戏公司自己用的自研引擎；如果说中国真正有全球开发者生态的通用游戏引擎，不谦虚地说应该是从 2010 年的 Cocos 开始。
 然而，虚幻引擎的 UE1 是 1996 年发布的，那年我还在读初二，中国的腾讯、网易、百 …</description></item></channel></rss>
