@@ -80,5 +80,5 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Deploy to GitHub Pages
-        id: deploy-pages
+        id: site-public
         uses: actions/deploy-pages@v4
