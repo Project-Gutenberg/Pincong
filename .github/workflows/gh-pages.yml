@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build-hugo:
-    runs-on: [ubicloud-standard-30] #self-hosted
+    runs-on: [ubicloud-standard-16] #self-hosted
     steps:
     - name: Init
       run: |
