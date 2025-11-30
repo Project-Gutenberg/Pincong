@@ -15,8 +15,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-hugo:
+  build:
     runs-on: [ubicloud-standard-16] #self-hosted
+    outputs:
+      artifact-name: ${{ steps.upload-artifact.outputs.artifact-name }}
     steps:
     - name: Init
       run: |
@@ -48,27 +50,37 @@ jobs:
         hugo-version: '0.100.2'
         extended: true
 
-    - name: Cache Hugo resources
-      uses: ubicloud/cache@v4
-      with:
-        path: |
-          site/resources
-        key: ${{ runner.os }}-hugo-${{ hashFiles('github.toml', 'base.toml', 'site/**') }}
-        restore-keys: |
-          ${{ runner.os }}-hugo-
-
     - name: Build Hogo
       run: hugo --minify --config github.toml,base.toml -d ../public -s site
 
     - name: Split Sitemap
       run: ./main sitemap ./public/
 
-    - name: Deploy
-      continue-on-error: true
-      id: deploy
-      uses: peaceiris/actions-gh-pages@v4
+     # 重要：把构建好的静态文件上传成 artifact，给后面的 deploy job 用
+    - name: Upload site artifact
+      id: upload-artifact
+      uses: actions/upload-artifact@v4
       with:
-        personal_token: ${{ secrets.PERSONAL_TOKEN }}
-        publish_branch: gh-pages
-        publish_dir: public
-        force_orphan: true   # 关键：每次部署都从一个全新的 orphan 分支开始
+        name: site-public
+        path: public
+        retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest    # 这里改用 GitHub 自托管的 runner（网络直连 GitHub）
+
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-public
+          path: public
+
+      - name: Deploy to gh-pages
+        id: deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: public
+          force_orphan: true
