@@ -61,7 +61,7 @@ jobs:
      # 重要：把构建好的静态文件上传成 artifact，给后面的 deploy job 用
     - name: Upload site artifact
       id: upload-artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v5
       with:
         name: site-public
         path: public
