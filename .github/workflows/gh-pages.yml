@@ -7,10 +7,16 @@ on:
  push:
    branches:
    - main
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-hugo:
-    runs-on: [ubicloud-standard-16] #self-hosted
+    runs-on: [ubicloud-standard-30] #self-hosted
     steps:
     - name: Init
       run: |
@@ -19,18 +25,28 @@ jobs:
           echo "::add-mask::${{ secrets.PATH_HFFIE }}"
           echo "::add-mask::${{ secrets.PATH_FEDGE }}"
           echo "::add-mask::${{ secrets.MACHINE }}"
-    - uses: actions/checkout@main
+
+    - uses: actions/checkout@v4
       with:
         repository: Project-Gutenberg/Pincong-data
 
     - name: Process tags
-      run: chmod 777 main && ./main tag
+      run: chmod +x ./main && ./main tag
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: '0.100.2'
         extended: true
+
+    - name: Cache Hugo resources
+      uses: actions/cache@v4
+      with:
+        path: |
+          site/resources
+        key: ${{ runner.os }}-hugo-${{ hashFiles('github.toml', 'base.toml', 'site/**') }}
+        restore-keys: |
+          ${{ runner.os }}-hugo-
 
     - name: Build Hogo
       run: hugo --minify --config github.toml,base.toml -d ../public -s site
@@ -41,7 +57,7 @@ jobs:
     - name: Deploy
       continue-on-error: true
       id: deploy
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
         publish_branch: gh-pages
