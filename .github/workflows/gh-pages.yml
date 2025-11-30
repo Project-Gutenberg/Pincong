@@ -30,6 +30,14 @@ jobs:
       with:
         repository: Project-Gutenberg/Pincong-data
 
+    # 新增：打印当前仓库对象库大小（包含 size-pack）
+    - name: Log git object store size
+      run: |
+        echo "==== git count-objects -Hv ===="
+        git count-objects -Hv
+        echo "==== size-pack only ===="
+        git count-objects -Hv | sed -n 's/^size-pack: //p'
+
     - name: Process tags
       run: chmod +x ./main && ./main tag
 
