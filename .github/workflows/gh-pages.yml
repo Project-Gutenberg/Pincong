@@ -62,3 +62,4 @@ jobs:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
         publish_branch: gh-pages
         publish_dir: public
+        force_orphan: true   # 关键：每次部署都从一个全新的 orphan 分支开始
