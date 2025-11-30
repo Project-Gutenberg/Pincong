@@ -67,20 +67,16 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest    # 这里改用 GitHub 自托管的 runner（网络直连 GitHub）
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy-pages.outputs.page_url }}
 
     steps:
-      - name: Download site artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: site-public
-          path: public
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
 
-      - name: Deploy to gh-pages
-        id: deploy
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: public
-          force_orphan: true
+      - name: Deploy to GitHub Pages
+        id: deploy-pages
+        uses: actions/deploy-pages@v4
