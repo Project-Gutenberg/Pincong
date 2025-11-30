@@ -80,5 +80,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Deploy to GitHub Pages
-        id: site-public
+        id: deploy-pages
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: site-public
