@@ -58,6 +58,18 @@ jobs:
     - name: Split Sitemap
       run: ./main sitemap ./public/
 
+    - name: Inspect public size
+      shell: bash
+      run: |
+        echo "Total public size:"
+        du -sh public
+        echo
+        echo "Top-level dirs:"
+        du -sh public/* | sort -h
+        echo
+        echo "Top 50 biggest files:"
+        find public -type f -printf '%s %p\n' | sort -nr | head -50
+
      # 重要：把构建好的静态文件上传成 artifact，给后面的 deploy job 用
     - name: Upload site artifact
       id: upload-artifact
